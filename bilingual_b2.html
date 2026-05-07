@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benefits of Being Bilingual — B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --indigo: #4F46E5;
+    --deep: #312E81;
+    --coral: #F97316;
+    --gold: #FBBF24;
+    --green: #10B981;
+    --cream: #FAF8F3;
+    --sand: #EAE2D0;
+    --ink: #1E1B4B;
+    --cloud: #ffffff;
+    --soft: #E0E7FF;
+    --blush: #FFE4D8;
+    --mint: #D1FAE5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(79,70,229,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(16,185,129,0.08) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "🌍";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 130px;
+    opacity: 0.13;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--gold);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 6vw, 56px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--coral); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--gold); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--indigo);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* WARM-UP */
+  .warmup-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--gold);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .warmup-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .warmup-q {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .reading p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+    color: #2a3441;
+  }
+  .reading b, .reading strong {
+    background: linear-gradient(transparent 55%, rgba(251,191,36,0.6) 55%);
+    padding: 0 2px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .reading .pull-quote {
+    background: var(--soft);
+    padding: 14px 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--indigo);
+    margin: 16px 0;
+    font-style: italic;
+  }
+
+  /* BENEFITS GRID */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .benefit-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .benefit-card.c1 { border-top: 8px solid var(--indigo); }
+  .benefit-card.c2 { border-top: 8px solid var(--coral); }
+  .benefit-card.c3 { border-top: 8px solid var(--green); }
+  .benefit-card.c4 { border-top: 8px solid var(--gold); }
+  .benefit-emoji { font-size: 36px; margin-bottom: 6px; }
+  .benefit-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 19px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .benefit-desc { font-size: 13.5px; line-height: 1.55; }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* IDIOMS */
+  .idiom-card {
+    background: linear-gradient(135deg, var(--cloud) 0%, var(--soft) 100%);
+    border: 2px solid var(--ink);
+    border-left: 5px solid var(--indigo);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .idiom-term {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--indigo);
+    margin-bottom: 4px;
+  }
+  .idiom-def { font-size: 14px; margin-bottom: 8px; }
+  .idiom-ex {
+    font-style: italic;
+    font-size: 13.5px;
+    background: rgba(255,255,255,0.7);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--coral);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14.5px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--indigo); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 200px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 280px; }
+  .fill-input:focus { outline: none; border-color: var(--indigo); background: var(--cream); }
+  .fill-input.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--indigo); }
+  .mc-opt.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--coral);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--gold);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--indigo);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--indigo); }
+
+  .phrase-box {
+    background: var(--blush);
+    border: 2px dashed var(--coral);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .phrase-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .phrase-box .phrase-list { display: grid; gap: 6px; }
+  .phrase-box .phrase {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    border-left: 3px solid var(--indigo);
+  }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--indigo);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid { grid-template-columns: 1fr; }
+    .reading { padding: 22px; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🌍 LANGUAGE &amp; MIND · B2 ENGLISH</div>
+      <h1>The Benefits of <span class="accent">Being Bilingual</span></h1>
+      <div class="sub">Why speaking two (or more) languages is one of the most powerful, lifelong gifts you can give yourself — for your brain, your career, and your humanity.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">Language · Brain · Identity</span>
+        <span class="tag">Idioms &amp; Collocations</span>
+        <span class="tag">Speaking · Grammar</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Warm-up</button>
+    <button class="tab" data-tab="t2">② Reading</button>
+    <button class="tab" data-tab="t3">③ Benefits 🧠</button>
+    <button class="tab" data-tab="t4">④ Vocabulary</button>
+    <button class="tab" data-tab="t5">⑤ Idioms</button>
+    <button class="tab" data-tab="t6">⑥ Matching</button>
+    <button class="tab" data-tab="t7">⑦ Fill the gaps</button>
+    <button class="tab" data-tab="t8">⑧ Multiple choice</button>
+    <button class="tab" data-tab="t9">⑨ Speaking 🎤</button>
+    <button class="tab" data-tab="t10">⑩ Grammar 📝</button>
+  </nav>
+
+  <!-- ============== WARM-UP ============== -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">🤔</span>Warm-up</h2>
+    <p class="instr">Quick chat to get you talking about your own language story. <strong>30 seconds — 1 minute</strong> per question.</p>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 01</div>
+      <div class="warmup-q">How many languages do you speak — and at what level? When did you start each one?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 02</div>
+      <div class="warmup-q">Why are you actually learning English? Be honest! For school, for work, for travel, for fun?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 03</div>
+      <div class="warmup-q">Do you think you become a slightly different person when you switch from one language to another?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 04</div>
+      <div class="warmup-q">What's the funniest mistake you've ever made in English — or in another language?</div>
+    </div>
+  </section>
+
+  <!-- ============== READING ============== -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">A short, surprising look at why being bilingual is so much more than just "knowing two languages." Target language is in <b>gold bold</b>.</p>
+
+    <article class="reading">
+      <h3>"The Hidden Superpowers of Being Bilingual"</h3>
+      <div class="byline">★ Mind &amp; Language · 4-minute read</div>
+
+      <p>For most of the 20th century, bilingualism had a strange reputation. Some teachers actually believed that growing up with two languages would <b>hold a child back</b>, confuse them, slow down their development. Today, we know the truth is almost exactly the opposite. Speaking more than one language is now widely recognised as one of the most powerful gifts you can give your brain. And here's the thing — <b>it's never too late to start</b>.</p>
+
+      <p>Let's begin with the brain. Researchers have found that bilingual people show measurable differences in brain structure compared with monolinguals. Their brains seem to be more <b>flexible</b>, more <b>efficient</b>, and better at <b>multitasking</b>. The reason is surprisingly simple: when you speak two languages, both languages are <b>active in your head all the time</b>. Your brain is constantly choosing one and <b>suppressing the other</b>. That's a serious mental workout, repeated thousands of times a day. As one neuroscientist put it: <b>"Bilingualism is to the brain what daily exercise is to the body."</b></p>
+
+      <p class="pull-quote">"To have another language is to possess a second soul." — Charlemagne</p>
+
+      <p>The cognitive benefits are <b>astonishing</b>. Bilingual children tend to be better at <b>problem-solving</b>, <b>focusing under distraction</b>, and switching between tasks. Adults who speak two languages often <b>perform better</b> in jobs that require flexibility and quick thinking. And here's perhaps the most striking finding of all: studies suggest that bilingual adults <b>develop dementia roughly four to five years later</b>, on average, than monolinguals. Speaking two languages is not a cure — but it appears to <b>delay the onset of cognitive decline</b> in a meaningful way.</p>
+
+      <p>The benefits go far beyond the brain, of course. Speaking another language opens doors that monolinguals barely see. <b>Career-wise</b>, multilingual employees are highly sought after — they often <b>earn more</b>, get <b>promoted faster</b>, and have access to international roles. <b>Travel-wise</b>, your experiences become deeper and more authentic. There's a huge difference between visiting Italy as a tourist and being able to <b>strike up a conversation</b> with the woman selling tomatoes at the market. The second one stays with you forever.</p>
+
+      <p>But maybe the deepest benefit is the most personal one. Speaking another language genuinely changes how you see the world. There are emotions you can express in one language that simply <b>don't translate</b>. There are jokes, songs, and ideas that only make sense in their original tongue. A growing body of research even suggests that bilinguals can become <b>slightly different people</b> when they switch languages — more reserved in one, more talkative in another. <b>Your personality has versions</b>. That's a fascinating thought.</p>
+
+      <p>What about the common myth that you have to start as a child? It's largely false. Yes, children pick up languages with seemingly <b>effortless ease</b>, especially their pronunciation. But adults are actually faster at learning grammar, vocabulary and abstract concepts. <b>The window never closes</b>. People learn languages in their twenties, fifties, even seventies, and benefit hugely. The real key isn't age — it's <b>consistent practice</b> and not being afraid to <b>make a fool of yourself</b>.</p>
+
+      <p>Of course, becoming bilingual is no walk in the park. It requires patience, daily effort, and the courage to feel like an idiot — sometimes daily. There will be moments when you <b>can't find the right word</b>, when locals switch to English the second they hear your accent, when you understand a film with subtitles but feel completely lost without them. <b>It's a long road</b>. But every traveller who's ever ordered coffee in the local language knows the small rush of pride that comes with it. Multiply that by a thousand, and you start to understand what bilinguals quietly enjoy every day.</p>
+
+      <p>So, if you're studying English right now, or thinking about learning another language — congratulations. You're not just <b>memorising vocabulary</b>. You're literally rewiring your brain, expanding your future, and quietly <b>becoming a more interesting person</b>. As the saying goes: "<b>One language sets you in a corridor for life. Two languages open every door along the way.</b>"</p>
+    </article>
+  </section>
+
+  <!-- ============== BENEFITS ============== -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">🧠</span>The 8 superpowers of being bilingual</h2>
+    <p class="instr">Look at each card and rank them — which benefits matter most to you personally? We'll come back to your top 3 in the speaking section.</p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card c1">
+        <div class="benefit-emoji">🧠</div>
+        <div class="benefit-title">Sharper brain</div>
+        <div class="benefit-desc">More flexible, better at switching between tasks, stronger at filtering distractions and ignoring irrelevant info.</div>
+      </div>
+
+      <div class="benefit-card c2">
+        <div class="benefit-emoji">⏰</div>
+        <div class="benefit-title">Delays cognitive decline</div>
+        <div class="benefit-desc">Bilinguals develop dementia roughly 4–5 years later on average. Speaking another language is brain exercise for life.</div>
+      </div>
+
+      <div class="benefit-card c3">
+        <div class="benefit-emoji">💼</div>
+        <div class="benefit-title">Career boost</div>
+        <div class="benefit-desc">Higher salaries, faster promotions, access to international roles. Multilingual employees stand out everywhere.</div>
+      </div>
+
+      <div class="benefit-card c4">
+        <div class="benefit-emoji">✈️</div>
+        <div class="benefit-title">Deeper travel</div>
+        <div class="benefit-desc">Going beyond surface-level tourism — chatting with locals, understanding jokes, getting the real story behind a place.</div>
+      </div>
+
+      <div class="benefit-card c1">
+        <div class="benefit-emoji">💬</div>
+        <div class="benefit-title">Cultural understanding</div>
+        <div class="benefit-desc">Languages carry whole worlds. Speaking another one gives you access to films, music, books and ways of thinking.</div>
+      </div>
+
+      <div class="benefit-card c2">
+        <div class="benefit-emoji">👥</div>
+        <div class="benefit-title">More friendships</div>
+        <div class="benefit-desc">You can connect with hundreds of millions more people. New friendships, romances, communities — across borders.</div>
+      </div>
+
+      <div class="benefit-card c3">
+        <div class="benefit-emoji">🎭</div>
+        <div class="benefit-title">A second personality</div>
+        <div class="benefit-desc">Many bilinguals report feeling slightly different in each language — more direct, more polite, funnier, calmer.</div>
+      </div>
+
+      <div class="benefit-card c4">
+        <div class="benefit-emoji">🌍</div>
+        <div class="benefit-title">More empathy</div>
+        <div class="benefit-desc">Studies show bilinguals are often better at understanding others' perspectives — because every language is a way of seeing.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== VOCAB ============== -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">💬</span>Vocabulary &amp; collocations</h2>
+    <p class="instr">B2 vocabulary about languages, learning and the brain. Notice the collocations — they're the difference between sounding fluent and sounding like a textbook.</p>
+
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">bilingual / multilingual / monolingual</div><div class="vocab-def">speaking 2 / many / only 1 language</div><div class="vocab-ex">"Switzerland is a famously multilingual country."</div></div>
+      <div class="vocab-card"><div class="vocab-term">your mother tongue / native language</div><div class="vocab-def">the language you grew up with</div><div class="vocab-ex">"My mother tongue is Bosnian, but I dream in English."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a second language / a foreign language</div><div class="vocab-def">a language you learn after your first one</div><div class="vocab-ex">"I started learning English as a foreign language at 8."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be fluent in / fluency</div><div class="vocab-def">to speak a language smoothly and easily</div><div class="vocab-ex">"She's completely fluent in Spanish."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be conversational</div><div class="vocab-def">able to have everyday conversations</div><div class="vocab-ex">"My French is conversational, not fluent."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to pick up a language</div><div class="vocab-def">to learn it casually, without formal study</div><div class="vocab-ex">"Kids pick up languages incredibly fast."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to acquire a language</div><div class="vocab-def">to gradually learn it (formal term)</div><div class="vocab-ex">"Children acquire grammar without realising it."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be exposed to a language</div><div class="vocab-def">to be regularly around it</div><div class="vocab-ex">"I was exposed to English from a young age."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to immerse yourself in / immersion</div><div class="vocab-def">to surround yourself with the language</div><div class="vocab-ex">"Living abroad is the ultimate language immersion."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to switch between languages</div><div class="vocab-def">to change from one to the other</div><div class="vocab-ex">"Bilinguals constantly switch between languages."</div></div>
+      <div class="vocab-card"><div class="vocab-term">code-switching</div><div class="vocab-def">mixing languages in the same conversation</div><div class="vocab-ex">"Code-switching is normal in bilingual families."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a heritage language</div><div class="vocab-def">a family language passed down at home</div><div class="vocab-ex">"Polish is her heritage language, even though she grew up in London."</div></div>
+      <div class="vocab-card"><div class="vocab-term">cognitive benefits</div><div class="vocab-def">advantages for the brain / thinking</div><div class="vocab-ex">"The cognitive benefits of bilingualism are well-documented."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to multitask</div><div class="vocab-def">to do several things at once</div><div class="vocab-ex">"Bilinguals tend to multitask more easily."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to delay the onset of</div><div class="vocab-def">to make something start later</div><div class="vocab-ex">"Bilingualism may delay the onset of dementia."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to broaden your horizons</div><div class="vocab-def">to gain new perspectives and experiences</div><div class="vocab-ex">"Studying abroad really broadens your horizons."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to open doors</div><div class="vocab-def">to create new opportunities</div><div class="vocab-ex">"Knowing English opens doors everywhere."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be highly sought after</div><div class="vocab-def">to be wanted by many people / employers</div><div class="vocab-ex">"Multilingual workers are highly sought after."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to strike up a conversation</div><div class="vocab-def">to start chatting with someone you don't know</div><div class="vocab-ex">"I struck up a conversation with my taxi driver in Lisbon."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to memorise / memorisation</div><div class="vocab-def">to commit to memory / the act of doing so</div><div class="vocab-ex">"Memorising vocabulary is only the first step."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an accent / a thick accent</div><div class="vocab-def">how you pronounce a language / a strong noticeable accent</div><div class="vocab-ex">"He has a slight French accent in English."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to grasp a concept / a language</div><div class="vocab-def">to understand it</div><div class="vocab-ex">"It took me ages to grasp the subjunctive."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be on the tip of my tongue</div><div class="vocab-def">when you almost remember a word but can't quite</div><div class="vocab-ex">"It's on the tip of my tongue!"</div></div>
+      <div class="vocab-card"><div class="vocab-term">to lose your train of thought</div><div class="vocab-def">to forget what you were saying</div><div class="vocab-ex">"In English, I sometimes lose my train of thought mid-sentence."</div></div>
+      <div class="vocab-card"><div class="vocab-term">consistent practice / daily exposure</div><div class="vocab-def">regular, repeated study / contact with the language</div><div class="vocab-ex">"Consistent practice beats talent every time."</div></div>
+    </div>
+  </section>
+
+  <!-- ============== IDIOMS ============== -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions about language</h2>
+    <p class="instr">A goldmine of language-themed idioms — perfect for B2 learners. Pick 5 and try to use them today!</p>
+
+    <div class="idiom-card"><div class="idiom-term">to have a way with words</div><div class="idiom-def">to be skilled at expressing yourself</div><div class="idiom-ex">"She really has a way with words — born storyteller."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be at a loss for words</div><div class="idiom-def">to not know what to say</div><div class="idiom-ex">"I was completely at a loss for words."</div></div>
+    <div class="idiom-card"><div class="idiom-term">it's all Greek to me</div><div class="idiom-def">I don't understand it at all</div><div class="idiom-ex">"I tried to read his contract, but it was all Greek to me."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to butcher a language</div><div class="idiom-def">to speak it badly, with many mistakes</div><div class="idiom-ex">"Sorry, I'm absolutely butchering your language."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to speak the same language</div><div class="idiom-def">to share the same understanding (often metaphorical)</div><div class="idiom-ex">"My boss and I just don't speak the same language."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to read between the lines</div><div class="idiom-def">to understand what's not directly said</div><div class="idiom-ex">"You have to read between the lines in Japanese culture."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a slip of the tongue</div><div class="idiom-def">an accidental verbal mistake</div><div class="idiom-ex">"It was just a slip of the tongue, not a real mistake."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to mince your words</div><div class="idiom-def">to soften what you really want to say (often used in negative)</div><div class="idiom-ex">"She doesn't mince her words — refreshing!"</div></div>
+    <div class="idiom-card"><div class="idiom-term">to lose your tongue</div><div class="idiom-def">to be unable to speak (often from shyness)</div><div class="idiom-ex">"He completely lost his tongue at the interview."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to find the right words</div><div class="idiom-def">to express something clearly</div><div class="idiom-ex">"I struggled to find the right words in English."</div></div>
+    <div class="idiom-card"><div class="idiom-term">it's no walk in the park</div><div class="idiom-def">it's not easy</div><div class="idiom-ex">"Learning Mandarin is no walk in the park."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to make a fool of yourself</div><div class="idiom-def">to embarrass yourself in public</div><div class="idiom-ex">"You have to be willing to make a fool of yourself when learning a language."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to break the ice</div><div class="idiom-def">to start a conversation in an awkward situation</div><div class="idiom-ex">"A small joke can really break the ice."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to put it into words</div><div class="idiom-def">to express a feeling or idea</div><div class="idiom-ex">"It's hard to put into words how I felt."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to broaden your horizons</div><div class="idiom-def">to expand your worldview</div><div class="idiom-ex">"Languages really broaden your horizons."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to open doors</div><div class="idiom-def">to create new opportunities</div><div class="idiom-ex">"English has opened so many doors for me."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to have something on the tip of your tongue</div><div class="idiom-def">to almost remember a word</div><div class="idiom-ex">"What's the word? It's on the tip of my tongue!"</div></div>
+    <div class="idiom-card"><div class="idiom-term">to get the hang of (something)</div><div class="idiom-def">to slowly start to understand or do something well</div><div class="idiom-ex">"After 3 months I finally got the hang of the past simple."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be lost for words</div><div class="idiom-def">to be so surprised you can't speak</div><div class="idiom-ex">"I was lost for words when she switched to perfect Russian."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a tongue-twister</div><div class="idiom-def">a phrase that's hard to say quickly</div><div class="idiom-ex">"Try this tongue-twister: 'red lorry, yellow lorry'!"</div></div>
+  </section>
+
+  <!-- ============== MATCHING ============== -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🔗</span>Match the expression with its meaning</h2>
+    <p class="instr">Click an expression on the left, then its meaning on the right.</p>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <h3>Expression</h3>
+        <div class="match-item" data-word="1">to pick up a language</div>
+        <div class="match-item" data-word="2">to be fluent</div>
+        <div class="match-item" data-word="3">code-switching</div>
+        <div class="match-item" data-word="4">to broaden your horizons</div>
+        <div class="match-item" data-word="5">it's all Greek to me</div>
+        <div class="match-item" data-word="6">to be on the tip of my tongue</div>
+        <div class="match-item" data-word="7">to immerse yourself</div>
+        <div class="match-item" data-word="8">to get the hang of</div>
+        <div class="match-item" data-word="9">a slip of the tongue</div>
+        <div class="match-item" data-word="10">to make a fool of yourself</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="2">to speak a language smoothly and easily</div>
+        <div class="match-item" data-def="3">mixing languages in the same conversation</div>
+        <div class="match-item" data-def="1">to learn a language casually, without formal study</div>
+        <div class="match-item" data-def="5">I don't understand it at all</div>
+        <div class="match-item" data-def="6">to almost remember a word but not quite</div>
+        <div class="match-item" data-def="7">to surround yourself with the language</div>
+        <div class="match-item" data-def="4">to gain new perspectives and experiences</div>
+        <div class="match-item" data-def="9">an accidental verbal mistake</div>
+        <div class="match-item" data-def="8">to slowly start to do something well</div>
+        <div class="match-item" data-def="10">to embarrass yourself in public</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <span class="score" id="score6">0 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============== FILL ============== -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the gaps</h2>
+    <p class="instr">Complete each sentence with an expression from the bank. Use the correct form.</p>
+
+    <div class="word-bank">
+      <strong>🌍 WORD BANK 🌍</strong>
+      mother tongue · fluent · pick up · immerse · accent · open doors · tip of my tongue · cognitive · sought after · butchering
+    </div>
+
+    <div class="fill-item"><p><span class="num">01</span>My <input class="fill-input wide" data-answer="mother tongue"> is Bosnian, but I think mostly in English now.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>After ten years abroad, she's completely <input class="fill-input" data-answer="fluent"> in English.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>Children <input class="fill-input wide" data-answer="pick up"> languages much faster than adults.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>If you want to make real progress, you have to <input class="fill-input"  data-answer="immerse"> yourself in the language.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>He has a charming French <input class="fill-input" data-answer="accent"> when he speaks English.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>Speaking another language can really <input class="fill-input wide" data-answer="open doors"> in your career.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>Sorry — what's the word? It's on the <input class="fill-input wide" data-answer="tip of my tongue">!</p></div>
+    <div class="fill-item"><p><span class="num">08</span>The <input class="fill-input" data-answer="cognitive"> benefits of bilingualism are well-documented.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>Multilingual employees are extremely highly <input class="fill-input wide" data-answer="sought after"> in the global job market.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>Sorry, I'm completely <input class="fill-input" data-answer="butchering"> your beautiful language!</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check my answers</button>
+    <span class="score" id="score7">— / 10</span>
+  </section>
+
+  <!-- ============== MC ============== -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">🎯</span>Multiple choice</h2>
+    <p class="instr">Pick the option that sounds most natural at B2 level.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q1</span>"My mother tongue is Polish." This means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) my mum speaks Polish.</button>
+        <button class="mc-opt">b) Polish is the language I grew up with.</button>
+        <button class="mc-opt">c) I am Polish.</button>
+        <button class="mc-opt">d) I taught my mum Polish.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q2</span>"She picked up Italian while living in Rome." This means she…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) carried Italian books home.</button>
+        <button class="mc-opt">b) studied Italian at university intensively.</button>
+        <button class="mc-opt">c) learned it casually, just from being there.</button>
+        <button class="mc-opt">d) gave up on Italian.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q3</span>"I want to immerse myself in the language." This means I want to…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) surround myself completely with it.</button>
+        <button class="mc-opt">b) study it for one hour a week.</button>
+        <button class="mc-opt">c) translate it into my own language.</button>
+        <button class="mc-opt">d) ignore it as much as possible.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q4</span>"Code-switching" is when you…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) write computer code.</button>
+        <button class="mc-opt">b) change your password.</button>
+        <button class="mc-opt">c) speak only in one language.</button>
+        <button class="mc-opt">d) mix two languages in the same conversation.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q5</span>"It's on the tip of my tongue!" This means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) something is physically on my tongue.</button>
+        <button class="mc-opt">b) I almost remember the word but can't quite get it.</button>
+        <button class="mc-opt">c) I just said the word.</button>
+        <button class="mc-opt">d) I have eaten something spicy.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q6</span>"My French is conversational." This means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) I am a native French speaker.</button>
+        <button class="mc-opt">b) I'm completely fluent.</button>
+        <button class="mc-opt">c) I can have everyday conversations, but I'm not fluent.</button>
+        <button class="mc-opt">d) I only read French.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q7</span>"Languages really broaden your horizons." This means they…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) expand your worldview and experiences.</button>
+        <button class="mc-opt">b) help you see the actual horizon better.</button>
+        <button class="mc-opt">c) make you taller.</button>
+        <button class="mc-opt">d) make you more shy.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q8</span>"It was just a slip of the tongue." The speaker…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) lied on purpose.</button>
+        <button class="mc-opt">b) hurt their tongue physically.</button>
+        <button class="mc-opt">c) ate something hot.</button>
+        <button class="mc-opt">d) made an accidental verbal mistake.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q9</span>"Bilingualism may delay the onset of dementia." It may…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) cure dementia.</button>
+        <button class="mc-opt">b) make dementia start later in life.</button>
+        <button class="mc-opt">c) make dementia worse.</button>
+        <button class="mc-opt">d) cause dementia.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>"Multilingual employees are highly sought after." This means employers…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) avoid them.</button>
+        <button class="mc-opt">b) ignore them.</button>
+        <button class="mc-opt">c) want them very much.</button>
+        <button class="mc-opt">d) pay them less.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q11</span>"Learning Mandarin is no walk in the park." This means it's…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) not easy.</button>
+        <button class="mc-opt">b) very enjoyable outdoors.</button>
+        <button class="mc-opt">c) only practised in parks.</button>
+        <button class="mc-opt">d) very simple.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q12</span>"You have to be willing to make a fool of yourself." This means you have to be ready to…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) be the smartest in the room.</button>
+        <button class="mc-opt">b) sometimes feel embarrassed in public.</button>
+        <button class="mc-opt">c) do magic tricks.</button>
+        <button class="mc-opt">d) play jokes on others.</button>
+      </div>
+    </div>
+
+    <span class="score" id="score8">0 / 12</span>
+  </section>
+
+  <!-- ============== SPEAKING ============== -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking practice</h2>
+    <p class="instr">Speak <strong>1½–2 minutes</strong> per question. Use at least <strong>3 target expressions</strong> per answer. This is a personal topic — share your own real experience!</p>
+
+    <div class="phrase-box">
+      <h4>💬 Useful phrases for sharing your language story</h4>
+      <div class="phrase-list">
+        <div class="phrase"><strong>Talking about your level:</strong> "I'd say I'm conversational in…" / "My X is rusty / decent / advanced." / "I can get by in…"</div>
+        <div class="phrase"><strong>How you learned:</strong> "I picked it up from…" / "I was exposed to it as a child." / "I started studying it because…"</div>
+        <div class="phrase"><strong>Difficulties:</strong> "What I find hardest is…" / "I really struggle with…" / "It's no walk in the park."</div>
+        <div class="phrase"><strong>The benefits:</strong> "It's opened doors for me…" / "It's broadened my horizons." / "I genuinely think differently in X."</div>
+      </div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 01 · YOUR LANGUAGE STORY</div>
+      <div class="speak-prompt">Tell us about all the languages you speak or are learning. When did you start each one? What level are you at? What's your relationship with each language?</div>
+      <div class="speak-help"><strong>Try to use:</strong> mother tongue · pick up · be exposed to · fluent / conversational · accent · to get the hang of</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 02 · WHY ENGLISH?</div>
+      <div class="speak-prompt">Why are <em>you</em> learning English right now, in 2026? What do you genuinely hope it will give you?</div>
+      <div class="speak-help"><strong>Try to use:</strong> open doors · to broaden your horizons · highly sought after · cognitive benefits · consistent practice · no walk in the park</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 03 · YOUR TOP 3 BENEFITS</div>
+      <div class="speak-prompt">Look at the 8 benefit cards. Pick your top 3 — the ones that matter most to <em>you personally</em>. Defend your ranking.</div>
+      <div class="speak-help"><strong>Try to use:</strong> cognitive benefits · delay the onset · open doors · broaden your horizons · strike up a conversation · personality</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 04 · TWO PERSONALITIES?</div>
+      <div class="speak-prompt">Many bilinguals say they feel like a slightly different person in each language. Do you? Are you funnier? Quieter? More polite? Tell us!</div>
+      <div class="speak-help"><strong>Try to use:</strong> to switch between languages · to lose your train of thought · to find the right words · slightly different · my mother tongue</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 05 · YOUR HARDEST MOMENT</div>
+      <div class="speak-prompt">Tell us about a moment when you felt completely lost in another language. What happened? What did you do?</div>
+      <div class="speak-help"><strong>Try to use:</strong> at a loss for words · all Greek to me · to butcher the language · to make a fool of yourself · slip of the tongue · lost my train of thought</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 06 · KIDS vs ADULTS</div>
+      <div class="speak-prompt">Some people say children are much better language learners than adults. Is that really true, in your experience?</div>
+      <div class="speak-help"><strong>Try to use:</strong> pick up · acquire · accent · effortless ease · consistent practice · the window never closes</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 07 · ADVICE TO A BEGINNER</div>
+      <div class="speak-prompt">What advice would you give to someone who wants to learn a language but keeps quitting after two weeks?</div>
+      <div class="speak-help"><strong>Try to use:</strong> consistent practice · to immerse yourself · to make a fool of yourself · daily exposure · open doors · no walk in the park</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 08 · QUICK-FIRE · 30 SECONDS EACH</div>
+      <div class="speak-prompt">No planning — just talk!</div>
+      <div class="speak-help">
+        ▸ The funniest mistake you've ever made in English.<br>
+        ▸ One word from your mother tongue that's impossible to translate.<br>
+        ▸ The hardest thing about English — be honest.<br>
+        ▸ One language you'd love to learn next, and why.<br>
+        ▸ Complete: "If I could wake up tomorrow speaking any language fluently, I'd choose…"
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== GRAMMAR ============== -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar: Comparatives, Superlatives &amp; Quantifiers</h2>
+    <p class="instr">Two B2 grammar areas you absolutely need when comparing languages, levels, abilities and effects: <strong>comparatives &amp; superlatives</strong> and <strong>quantifiers</strong> (much, far, slightly, considerably…).</p>
+
+    <div class="grammar-box">
+      <h4>🌍 Part 1 — Comparatives &amp; superlatives</h4>
+      <ul>
+        <li>Short adjectives: <code>+ -er / -est</code> → <em>fast → faster → the fastest</em></li>
+        <li>Long adjectives: <code>more / most</code> → <em>difficult → more difficult → the most difficult</em></li>
+        <li>Irregular: <em>good → better → the best</em>; <em>bad → worse → the worst</em></li>
+        <li>Equality: <code>as ... as</code> → <em>French is as logical as Italian.</em></li>
+        <li>Negative equality: <code>not as ... as</code> → <em>Spanish isn't as hard as Mandarin.</em></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>🌍 Part 2 — Strengthening &amp; softening comparatives</h4>
+      <ul>
+        <li><strong>Much stronger:</strong> <code>far, much, a lot, considerably, significantly, way</code></li>
+        <li>e.g. <code>Bilinguals are <strong>far</strong> better at multitasking.</code></li>
+        <li><strong>A bit stronger:</strong> <code>slightly, a little, a bit, somewhat</code></li>
+        <li>e.g. <code>My French is <strong>slightly</strong> better than my Spanish.</code></li>
+        <li><strong>Hardly any difference:</strong> <code>not much, barely any, hardly any</code></li>
+        <li>e.g. <code>There's <strong>hardly any</strong> difference between our levels.</code></li>
+      </ul>
+      <div class="formula">far / much / considerably + comparative → big difference</div>
+      <div class="formula">slightly / a bit / a little + comparative → small difference</div>
+    </div>
+
+    <p class="instr"><strong>Part A — comparatives &amp; superlatives.</strong> Put the adjective in brackets in the correct form.</p>
+
+    <div class="fill-item"><p><span class="num">01</span>For most students, Mandarin is <input class="fill-input wide" data-answer="more difficult"> (difficult) than Spanish.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>Bilingual children tend to be <input class="fill-input wide" data-answer="better"> (good) at problem-solving than monolinguals.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>Honestly, English isn't as <input class="fill-input wide" data-answer="hard"> (hard) as people think.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>Of all the languages I've tried, Russian was <input class="fill-input wide" data-answer="the hardest"> (hard) by far.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>French pronunciation is <input class="fill-input wide" data-answer="more challenging"> (challenging) than its grammar, in my opinion.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>That was probably <input class="fill-input wide" data-answer="the worst"> (bad) language mistake I've ever made.</p></div>
+
+    <p class="instr"><strong>Part B — strengthening / softening.</strong> Choose the most natural quantifier from the options for each sentence.</p>
+
+    <div class="fill-item"><p><span class="num">07</span>Bilinguals are <input class="fill-input wide" data-answer="far"> better at multitasking. <em style="color:var(--deep); font-size:13px;">(big difference — choose: far / slightly / hardly)</em></p></div>
+    <div class="fill-item"><p><span class="num">08</span>My French is <input class="fill-input wide" data-answer="slightly"> better than my Italian — they're really similar. <em style="color:var(--deep); font-size:13px;">(small difference)</em></p></div>
+    <div class="fill-item"><p><span class="num">09</span>There's <input class="fill-input wide" data-answer="hardly any"> difference between our two levels. <em style="color:var(--deep); font-size:13px;">(almost no difference, 2 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">10</span>This new method is <input class="fill-input wide" data-answer="much"> more effective than the old one. <em style="color:var(--deep); font-size:13px;">(big difference, 1 word)</em></p></div>
+    <div class="fill-item"><p><span class="num">11</span>His accent has improved <input class="fill-input wide" data-answer="considerably"> over the past year. <em style="color:var(--deep); font-size:13px;">(big difference, 1 word — different from above)</em></p></div>
+
+    <p class="instr"><strong>Part C — full sentence transformation.</strong> Rewrite each sentence using the word in capitals — keep the meaning the same.</p>
+
+    <div class="fill-item"><p><span class="num">12</span>"Spanish is easier than Mandarin." <strong>NOT</strong><br>→ Mandarin is <input class="fill-input wide" data-answer="not as easy"> as Spanish. <em style="color:var(--deep); font-size:13px;">(3 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">13</span>"My English and your English are at the same level." <strong>AS</strong><br>→ My English is <input class="fill-input wide" data-answer="as good"> as yours. <em style="color:var(--deep); font-size:13px;">(2 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">14</span>"Mandarin is the most difficult language I've ever tried." <strong>NEVER</strong><br>→ I've never tried <input class="fill-input wide" data-answer="a more difficult"> language than Mandarin. <em style="color:var(--deep); font-size:13px;">(3 words)</em></p></div>
+
+    <button class="check-btn" onclick="checkGrammar()">✓ Check grammar</button>
+    <span class="score" id="score10">— / 14</span>
+  </section>
+
+  <footer>
+    🌍 ★ ★ &nbsp; BENEFITS OF BEING BILINGUAL · B2 ENGLISH WORKSHEET &nbsp; ★ ★ 🌍
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 6)
+  let selectedWord = null;
+  let matched6 = 0;
+  document.querySelectorAll('#t6 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t6 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched6++;
+          document.getElementById('score6').textContent = matched6 + ' / 10';
+          selectedWord = null;
+          if (matched6 === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 7)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t7 .fill-input');
+    const alternates = {
+      'mother tongue': ['mother tongue'],
+      'fluent': ['fluent'],
+      'pick up': ['pick up'],
+      'immerse': ['immerse'],
+      'accent': ['accent'],
+      'open doors': ['open doors'],
+      'tip of my tongue': ['tip of my tongue'],
+      'cognitive': ['cognitive'],
+      'sought after': ['sought after','sought-after'],
+      'butchering': ['butchering'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score7').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score7').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 8)
+  let mcScore = 0;
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score8').textContent = mcScore + ' / 12';
+        if (mcScore === 12) document.getElementById('score8').textContent = '★ 12 / 12 ★';
+      });
+    });
+  });
+
+  // GRAMMAR (tab 10)
+  function checkGrammar() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t10 .fill-input');
+    const alternates = {
+      'more difficult': ['more difficult'],
+      'better': ['better'],
+      'hard': ['hard'],
+      'the hardest': ['the hardest'],
+      'more challenging': ['more challenging'],
+      'the worst': ['the worst'],
+      'far': ['far','much','considerably','significantly','way','a lot'],
+      'slightly': ['slightly','a bit','a little','somewhat'],
+      'hardly any': ['hardly any','barely any','not much'],
+      'much': ['much','far','considerably','significantly','way','a lot'],
+      'considerably': ['considerably','significantly','dramatically','enormously'],
+      'not as easy': ['not as easy'],
+      'as good': ['as good'],
+      'a more difficult': ['a more difficult'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score10').textContent = correct + ' / 14';
+    if (correct === 14) document.getElementById('score10').textContent = '★ 14 / 14 ★';
+  }
+</script>
+</body>
+</html>
