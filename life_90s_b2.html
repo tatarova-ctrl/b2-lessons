@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life in the '90s — B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hot-pink: #EC4899;
+    --deep: #831843;
+    --neon-blue: #06B6D4;
+    --yellow: #FCD34D;
+    --purple: #8B5CF6;
+    --cream: #FFF8F0;
+    --sand: #FDE68A;
+    --ink: #1F1B2E;
+    --cloud: #ffffff;
+    --soft: #FCE7F3;
+    --mint: #D1FAE5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(236,72,153,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(6,182,212,0.1) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "📼";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 110px;
+    opacity: 0.13;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--yellow);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 6.5vw, 60px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--hot-pink); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--yellow); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--hot-pink);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* WARM-UP */
+  .warmup-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--yellow);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .warmup-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--hot-pink);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .warmup-q {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--hot-pink);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .reading p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+    color: #2a3441;
+  }
+  .reading b, .reading strong {
+    background: linear-gradient(transparent 55%, rgba(252,211,77,0.7) 55%);
+    padding: 0 2px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .reading .pull-quote {
+    background: var(--soft);
+    padding: 14px 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--hot-pink);
+    margin: 16px 0;
+    font-style: italic;
+  }
+
+  /* THEN/NOW COMPARISON */
+  .then-now-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .then-now-card {
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .then-now-card.then {
+    background: linear-gradient(135deg, #FCE7F3, #FFF8F0);
+    border-left: 6px solid var(--hot-pink);
+  }
+  .then-now-card.now {
+    background: linear-gradient(135deg, #CFFAFE, #FFF8F0);
+    border-left: 6px solid var(--neon-blue);
+  }
+  .then-now-card .label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .then-now-card.then .label { color: var(--hot-pink); }
+  .then-now-card.now .label { color: var(--neon-blue); }
+  .then-now-card h5 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .then-now-card p {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .then-now-topic {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--purple);
+    margin: 6px 0 -4px;
+  }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--hot-pink);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* IDIOMS */
+  .idiom-card {
+    background: linear-gradient(135deg, var(--cloud) 0%, var(--soft) 100%);
+    border: 2px solid var(--ink);
+    border-left: 5px solid var(--purple);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .idiom-term {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--purple);
+    margin-bottom: 4px;
+  }
+  .idiom-def { font-size: 14px; margin-bottom: 8px; }
+  .idiom-ex {
+    font-style: italic;
+    font-size: 13.5px;
+    background: rgba(255,255,255,0.7);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--hot-pink);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14.5px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--hot-pink); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: #EF4444; color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--hot-pink);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 200px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 280px; }
+  .fill-input:focus { outline: none; border-color: var(--hot-pink); background: var(--cream); }
+  .fill-input.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: #EF4444; }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--hot-pink);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--yellow);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--hot-pink);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--hot-pink); }
+  .mc-opt.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: #EF4444; }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--hot-pink);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--yellow);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--purple);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--hot-pink);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--purple); }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--hot-pink);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid, .then-now-grid { grid-template-columns: 1fr; }
+    .reading { padding: 22px; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">📼 NOSTALGIA · B2 ENGLISH</div>
+      <h1>Life in <span class="accent">the '90s</span></h1>
+      <div class="sub">Walkmans, dial-up internet, video rental, mixtapes, no smartphones, and the strange feeling of waiting for things. The vocabulary, idioms and grammar to compare "back then" with today.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">Nostalgia · Lifestyle · Tech</span>
+        <span class="tag">Idioms · Used to / Would</span>
+        <span class="tag">Speaking · Grammar</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Warm-up 🤔</button>
+    <button class="tab" data-tab="t2">② Reading</button>
+    <button class="tab" data-tab="t3">③ Then vs Now 📼</button>
+    <button class="tab" data-tab="t4">④ Vocabulary</button>
+    <button class="tab" data-tab="t5">⑤ Idioms</button>
+    <button class="tab" data-tab="t6">⑥ Matching</button>
+    <button class="tab" data-tab="t7">⑦ Fill the gaps</button>
+    <button class="tab" data-tab="t8">⑧ Multiple choice</button>
+    <button class="tab" data-tab="t9">⑨ Speaking 🎤</button>
+    <button class="tab" data-tab="t10">⑩ Grammar 📝</button>
+  </nav>
+
+  <!-- ============== WARM-UP ============== -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">🤔</span>Warm-up</h2>
+    <p class="instr">Quick, personal questions to get you talking. <strong>30 seconds — 1 minute</strong> per question.</p>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 01</div>
+      <div class="warmup-q">When you hear "the '90s", what's the first thing that comes to mind — a song, a film, a clothing item, a smell?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 02</div>
+      <div class="warmup-q">If you could go back in time and spend one day in the '90s — would you? What would you do?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 03</div>
+      <div class="warmup-q">In your opinion, was life better in the '90s than today — or are people just being nostalgic?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 04</div>
+      <div class="warmup-q">What's one thing from the '90s that you wish would come back?</div>
+    </div>
+  </section>
+
+  <!-- ============== READING ============== -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">A writer remembers what daily life was actually like in the '90s — and asks whether the "good old days" were really that good. Target language is in <b>yellow bold</b>.</p>
+
+    <article class="reading">
+      <h3>"The Good Old Days — Were They Really That Good?"</h3>
+      <div class="byline">★ Nostalgia column · 4-minute read</div>
+
+      <p>Recently I asked my 14-year-old nephew if he'd ever heard of a Walkman. He thought I meant a brand of running shoes. When I tried to explain it — a small portable device that played one cassette at a time, no skip button, no shuffle, no playlists, you had to <b>rewind with a pencil</b> when the tape got stuck — he looked at me as if I were describing life on Mars. <b>"And you actually liked this?"</b> he asked. The honest answer is: yes. We didn't know any better, and somehow, that was part of the magic.</p>
+
+      <p>The '90s feel like another planet now. There were no smartphones, no social media, no streaming services, no Wi-Fi, and definitely no Google. If you wanted to know something — anything — you either asked someone, looked it up in an actual <b>encyclopedia</b>, or simply <b>didn't find out</b>. People used to <b>argue for hours</b> about who sang a particular song or which actor was in a film, because <b>there was no way to settle the argument</b>. Imagine that.</p>
+
+      <p class="pull-quote">"In the '90s, boredom was a real feeling. Today, it's almost impossible — and I'm not sure that's a good thing." — sociologist, BBC interview</p>
+
+      <p>Music was a completely different ritual. We <b>recorded songs off the radio</b>, finger hovering over the play and record buttons, hoping the DJ wouldn't talk over the intro. We made <b>mixtapes</b> for our friends — and especially for the people we had a crush on. Crafting the perfect mixtape took hours and was, in its own way, a love letter. Today's "Add to Spotify Playlist" feels emotionally <b>poor by comparison</b>.</p>
+
+      <p>The internet, in the '90s, was a strange and slow new world. People <b>connected through dial-up</b> — that legendary screeching sound your modem made — and you had to wait, sometimes literally minutes, for a single image to load. <b>If someone in your house picked up the phone, the internet died.</b> Email was magical. Chat rooms were the wild west. The very idea that one day we'd all carry the entire internet in our pockets sounded like science fiction.</p>
+
+      <p>Even watching films and television was a different experience. You couldn't just stream what you wanted — you had to physically go to a <b>video rental shop</b>, walk among the shelves, and hope your chosen title hadn't already been taken. Friday nights at Blockbuster were a <b>weekly ritual</b>. And if you missed your favourite TV show on Tuesday at 8 p.m., that was it — you missed it. There were no second chances.</p>
+
+      <p>Of course, we shouldn't <b>romanticise</b> the '90s. Plenty of things were worse. Mobile phones, when they finally appeared, were <b>the size of bricks</b> and cost a fortune to use. Maps were paper, getting lost was easy, and you couldn't simply order food on an app at midnight. The world was less convenient, less informed, and in many ways, smaller. People <b>didn't know what they didn't know</b>.</p>
+
+      <p>And yet, ask anyone who lived through the '90s, and they'll tell you something was different. Slower. Quieter. More <b>present</b>. People made plans and stuck to them, because once you left the house, there was no way to text "running 10 minutes late". You read books on long train journeys. You looked out of windows. You actually remembered phone numbers. There were entire afternoons where nobody could reach you, and that was completely normal.</p>
+
+      <p>What we miss, I think, isn't really the technology — or the lack of it. It's the <b>pace of life</b>. It's the feeling that you weren't always slightly distracted, slightly scrolling, slightly somewhere else. <b>Boredom</b> wasn't yet seen as a problem to solve. Waiting was just part of life. And inside all that waiting, weirdly enough, your imagination got plenty of space to <b>breathe</b>.</p>
+
+      <p>So were the '90s really the good old days? Honestly, no — and yes. They were no golden age, but they had a quieter rhythm we've quietly lost. Maybe what we should take from the '90s isn't the fashion or the music or the chunky electronics. Maybe it's the simple, almost forgotten skill of <b>doing one thing at a time</b>. As one writer beautifully put it: <b>"We didn't have everything in the '90s. We just had enough."</b></p>
+    </article>
+  </section>
+
+  <!-- ============== THEN vs NOW ============== -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">📼</span>Then vs Now — what's really changed?</h2>
+    <p class="instr">For each topic, look at how things were then and how they are now. Which was better? Discuss with your teacher!</p>
+
+    <div class="then-now-grid">
+      <div class="then-now-topic">🎵 Music</div>
+      <div class="then-now-card then">
+        <div class="label">⏪ THEN — '90s</div>
+        <h5>Mixtapes &amp; Walkmans</h5>
+        <p>You recorded songs off the radio, made mixtapes for friends and crushes, and carried a Walkman with one cassette. CDs were luxury. You didn't skip songs.</p>
+      </div>
+      <div class="then-now-card now">
+        <div class="label">▶ NOW</div>
+        <h5>Streaming &amp; algorithms</h5>
+        <p>Spotify, Apple Music, Tidal — instant access to 100 million songs. Algorithms make playlists for you. Music is everywhere and yet feels strangely disposable.</p>
+      </div>
+
+      <div class="then-now-topic">📺 Watching films &amp; TV</div>
+      <div class="then-now-card then">
+        <div class="label">⏪ THEN — '90s</div>
+        <h5>Video rental &amp; TV schedules</h5>
+        <p>Blockbuster on Friday night. Choosing among VHS tapes. If you missed your show at 8 p.m., it was gone. Adverts in the middle. Nobody complained.</p>
+      </div>
+      <div class="then-now-card now">
+        <div class="label">▶ NOW</div>
+        <h5>Streaming on demand</h5>
+        <p>Netflix, Disney+, HBO. Watch anything, anytime, on any device. Choice paralysis is real — sometimes you spend 40 minutes browsing before watching anything.</p>
+      </div>
+
+      <div class="then-now-topic">📞 Communication</div>
+      <div class="then-now-card then">
+        <div class="label">⏪ THEN — '90s</div>
+        <h5>Landlines &amp; letters</h5>
+        <p>Family phone in the hallway. You memorised numbers. You wrote letters that took days to arrive. If someone wasn't home, they were unreachable.</p>
+      </div>
+      <div class="then-now-card now">
+        <div class="label">▶ NOW</div>
+        <h5>Smartphones &amp; instant messaging</h5>
+        <p>WhatsApp, video calls, voice notes. You can reach anyone, anywhere, instantly. Reply expectations: 5 minutes. "Why didn't you answer?"</p>
+      </div>
+
+      <div class="then-now-topic">🌐 Internet</div>
+      <div class="then-now-card then">
+        <div class="label">⏪ THEN — '90s</div>
+        <h5>Dial-up &amp; encyclopedias</h5>
+        <p>Slow, screechy internet that died when someone picked up the phone. AltaVista. Yahoo! You had to wait minutes for a photo to load.</p>
+      </div>
+      <div class="then-now-card now">
+        <div class="label">▶ NOW</div>
+        <h5>Wi-Fi &amp; AI everywhere</h5>
+        <p>5G, Google, AI chatbots that answer in seconds. Fact-checking is instant. The world's knowledge fits in your pocket.</p>
+      </div>
+
+      <div class="then-now-topic">📷 Photos</div>
+      <div class="then-now-card then">
+        <div class="label">⏪ THEN — '90s</div>
+        <h5>Disposable cameras &amp; photo shops</h5>
+        <p>24 photos per roll. Wait 3 days for development. No filters. You couldn't see the photo until it was printed. Half were terrible — and that was OK.</p>
+      </div>
+      <div class="then-now-card now">
+        <div class="label">▶ NOW</div>
+        <h5>Smartphones &amp; instant filters</h5>
+        <p>Unlimited photos, instant edits, AI enhancement. Everyone is a photographer. We take 50 photos to pick one — and forget the moment itself.</p>
+      </div>
+
+      <div class="then-now-topic">🎮 Hobbies &amp; play</div>
+      <div class="then-now-card then">
+        <div class="label">⏪ THEN — '90s</div>
+        <h5>Outside, with friends</h5>
+        <p>Kids played outside until the streetlights came on. Tamagotchis, yo-yos, board games, arcade machines, hide-and-seek. A "smart toy" was a Furby.</p>
+      </div>
+      <div class="then-now-card now">
+        <div class="label">▶ NOW</div>
+        <h5>Screens, screens, screens</h5>
+        <p>Online games, YouTube, TikTok. Even toys are now apps. Many kids barely play outside anymore. Nostalgic parents quietly worry.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== VOCAB ============== -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">💬</span>Vocabulary &amp; collocations</h2>
+    <p class="instr">B2 vocabulary for talking about the past, technology, change and nostalgia. Notice the collocations — they're the difference between fluent and textbook English.</p>
+
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">nostalgia / to be nostalgic about</div><div class="vocab-def">a sentimental longing for the past / feeling that way</div><div class="vocab-ex">"I get really nostalgic about '90s music."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the good old days</div><div class="vocab-def">a romanticised idea of how the past used to be</div><div class="vocab-ex">"My dad always talks about the good old days."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to romanticise (the past)</div><div class="vocab-def">to remember it as better than it really was</div><div class="vocab-ex">"We tend to romanticise the '80s."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a generation gap</div><div class="vocab-def">the differences between younger and older generations</div><div class="vocab-ex">"There's a real generation gap when it comes to technology."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a milestone / a turning point</div><div class="vocab-def">an important moment of change</div><div class="vocab-ex">"The internet was a real turning point."</div></div>
+      <div class="vocab-card"><div class="vocab-term">old-fashioned / outdated</div><div class="vocab-def">no longer modern / no longer useful</div><div class="vocab-ex">"Cassette tapes are pretty old-fashioned now."</div></div>
+      <div class="vocab-card"><div class="vocab-term">retro / vintage</div><div class="vocab-def">stylish in an old-fashioned way / from a past period</div><div class="vocab-ex">"Vintage clothes are very trendy right now."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to bring back (a memory / fashion)</div><div class="vocab-def">to make people remember / become popular again</div><div class="vocab-ex">"That smell brings back so many memories."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a fond memory</div><div class="vocab-def">a happy, warm memory of the past</div><div class="vocab-ex">"I have very fond memories of those summers."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to look back (on something)</div><div class="vocab-def">to think about something from the past</div><div class="vocab-ex">"Looking back, the '90s were simpler."</div></div>
+      <div class="vocab-card"><div class="vocab-term">dial-up internet</div><div class="vocab-def">old slow internet that connected through the phone line</div><div class="vocab-ex">"Dial-up internet was painfully slow."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a landline</div><div class="vocab-def">a non-mobile phone, fixed in your home</div><div class="vocab-ex">"My grandparents still have a landline."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a cassette / a Walkman / a mixtape</div><div class="vocab-def">tape with music / portable cassette player / homemade compilation</div><div class="vocab-ex">"I made her a mixtape — that was the '90s version of romance."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a video rental shop / store</div><div class="vocab-def">a place where you used to rent VHS tapes</div><div class="vocab-ex">"Friday nights at the video rental shop were sacred."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a disposable camera</div><div class="vocab-def">a cheap one-use film camera</div><div class="vocab-ex">"We took disposable cameras on every trip."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to develop photos</div><div class="vocab-def">to process film into printed pictures</div><div class="vocab-ex">"You had to wait three days to develop your photos."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be glued to your phone / screen</div><div class="vocab-def">to be unable to look away from it</div><div class="vocab-ex">"Today, kids are glued to their screens."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a screen / screen time</div><div class="vocab-def">a digital display / time spent on screens</div><div class="vocab-ex">"We need to reduce our screen time."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to keep in touch (with someone)</div><div class="vocab-def">to maintain communication</div><div class="vocab-ex">"It's so easy to keep in touch nowadays."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a generation / Gen X / Millennials / Gen Z</div><div class="vocab-def">groups of people born around the same time</div><div class="vocab-ex">"Millennials grew up with both worlds."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to grow up (in a different time)</div><div class="vocab-def">to develop from child to adult</div><div class="vocab-ex">"I grew up without smartphones — and I'm fine!"</div></div>
+      <div class="vocab-card"><div class="vocab-term">the pace of life</div><div class="vocab-def">how fast or slow daily life feels</div><div class="vocab-ex">"The pace of life was definitely slower."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be present / mindful</div><div class="vocab-def">to be focused on the moment, not distracted</div><div class="vocab-ex">"It's hard to be fully present these days."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be hooked on (something)</div><div class="vocab-def">to be addicted to it</div><div class="vocab-ex">"Most of us are completely hooked on our phones."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a fad / a craze</div><div class="vocab-def">a fashion that quickly becomes popular and fades</div><div class="vocab-ex">"Tamagotchis were the biggest craze of 1997."</div></div>
+    </div>
+  </section>
+
+  <!-- ============== IDIOMS ============== -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">💡</span>Idioms about time, memory &amp; the past</h2>
+    <p class="instr">Useful B2 idioms for talking about how things change, how we remember, and how time feels. Pick 5 you really like!</p>
+
+    <div class="idiom-card"><div class="idiom-term">the good old days</div><div class="idiom-def">a time in the past that is fondly remembered</div><div class="idiom-ex">"Ah, the good old days when life was simpler."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a blast from the past</div><div class="idiom-def">something that suddenly reminds you of the past</div><div class="idiom-ex">"This song is a real blast from the past!"</div></div>
+    <div class="idiom-card"><div class="idiom-term">to take a trip down memory lane</div><div class="idiom-def">to think back about happy memories</div><div class="idiom-ex">"That photo album took us on a trip down memory lane."</div></div>
+    <div class="idiom-card"><div class="idiom-term">time flies</div><div class="idiom-def">time passes very quickly</div><div class="idiom-ex">"I can't believe it's been 30 years — time flies!"</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be ahead of its time</div><div class="idiom-def">to be very advanced for its era</div><div class="idiom-ex">"That movie was way ahead of its time."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to stand the test of time</div><div class="idiom-def">to remain valuable / popular over many years</div><div class="idiom-ex">"That song has really stood the test of time."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be a thing of the past</div><div class="idiom-def">to no longer exist / be done</div><div class="idiom-ex">"Public phone boxes are a thing of the past."</div></div>
+    <div class="idiom-card"><div class="idiom-term">like it was yesterday</div><div class="idiom-def">remembered very clearly, despite being long ago</div><div class="idiom-ex">"I remember that summer like it was yesterday."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to bring back memories</div><div class="idiom-def">to make you remember the past</div><div class="idiom-ex">"This place really brings back memories."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to come full circle</div><div class="idiom-def">to return to a starting point or state</div><div class="idiom-ex">"Vinyl is back — fashion has come full circle."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to live in the past</div><div class="idiom-def">to refuse to accept change / always think about old times</div><div class="idiom-ex">"He still lives in the '90s — literally."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be set in your ways</div><div class="idiom-def">unwilling to change your habits</div><div class="idiom-ex">"My grandfather is very set in his ways."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be old-school</div><div class="idiom-def">to do things the traditional way (often as a compliment)</div><div class="idiom-ex">"I prefer old-school customer service — face to face."</div></div>
+    <div class="idiom-card"><div class="idiom-term">an era / the end of an era</div><div class="idiom-def">a period in history / when something significant ends</div><div class="idiom-ex">"Closing Blockbuster was the end of an era."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to roll with the times</div><div class="idiom-def">to adapt to changes</div><div class="idiom-ex">"You have to roll with the times."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to date back to</div><div class="idiom-def">to have its origin in (a past time)</div><div class="idiom-ex">"This habit dates back to the '80s."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a passing fad</div><div class="idiom-def">a temporary fashion that won't last</div><div class="idiom-ex">"I thought social media was a passing fad. I was wrong."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to look back with rose-tinted glasses</div><div class="idiom-def">to remember the past more positively than it really was</div><div class="idiom-ex">"We always look back with rose-tinted glasses."</div></div>
+    <div class="idiom-card"><div class="idiom-term">in the blink of an eye</div><div class="idiom-def">extremely quickly</div><div class="idiom-ex">"Thirty years went by in the blink of an eye."</div></div>
+    <div class="idiom-card"><div class="idiom-term">it's not what it used to be</div><div class="idiom-def">it has changed (often for the worse)</div><div class="idiom-ex">"Honestly, music isn't what it used to be."</div></div>
+  </section>
+
+  <!-- ============== MATCHING ============== -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🔗</span>Match the expression with its meaning</h2>
+    <p class="instr">Click an expression on the left, then its meaning on the right.</p>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <h3>Expression</h3>
+        <div class="match-item" data-word="1">a blast from the past</div>
+        <div class="match-item" data-word="2">to romanticise the past</div>
+        <div class="match-item" data-word="3">to be a thing of the past</div>
+        <div class="match-item" data-word="4">a generation gap</div>
+        <div class="match-item" data-word="5">to bring back memories</div>
+        <div class="match-item" data-word="6">to stand the test of time</div>
+        <div class="match-item" data-word="7">to come full circle</div>
+        <div class="match-item" data-word="8">old-school</div>
+        <div class="match-item" data-word="9">to be glued to your screen</div>
+        <div class="match-item" data-word="10">a passing fad</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="1">something that suddenly reminds you of the past</div>
+        <div class="match-item" data-def="3">to no longer exist or be done</div>
+        <div class="match-item" data-def="2">to remember the past as better than it really was</div>
+        <div class="match-item" data-def="6">to remain valuable over many years</div>
+        <div class="match-item" data-def="5">to make you remember happy times</div>
+        <div class="match-item" data-def="4">the differences between younger and older generations</div>
+        <div class="match-item" data-def="8">to do things in a traditional way</div>
+        <div class="match-item" data-def="7">to return to a starting point</div>
+        <div class="match-item" data-def="10">a temporary fashion that won't last</div>
+        <div class="match-item" data-def="9">to be unable to look away from your screen</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <span class="score" id="score6">0 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============== FILL ============== -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the gaps</h2>
+    <p class="instr">Complete each sentence with an expression from the bank. Use the correct form.</p>
+
+    <div class="word-bank">
+      <strong>📼 WORD BANK 📼</strong>
+      nostalgic · old-fashioned · landline · grew up · brings back · pace of life · romanticise · keep in touch · the good old days · time flies
+    </div>
+
+    <div class="fill-item"><p><span class="num">01</span>This song always makes me feel really <input class="fill-input" data-answer="nostalgic">.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>My dad still has a <input class="fill-input" data-answer="landline"> at home — he refuses to give it up.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>I <input class="fill-input wide" data-answer="grew up"> in a small village where everyone knew everyone.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>Walking past my old school <input class="fill-input wide" data-answer="brings back"> a lot of memories.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>Honestly, the <input class="fill-input wide" data-answer="pace of life"> was much slower 30 years ago.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>People often <input class="fill-input" data-answer="romanticise"> the past — but it wasn't always so wonderful.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>Thanks to WhatsApp, it's easier than ever to <input class="fill-input wide" data-answer="keep in touch"> with friends abroad.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>My grandmother loves to talk about <input class="fill-input wide" data-answer="the good old days">.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>Cassette players are pretty <input class="fill-input" data-answer="old-fashioned"> these days.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>I can't believe it's been ten years — <input class="fill-input wide" data-answer="time flies">!</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check my answers</button>
+    <span class="score" id="score7">— / 10</span>
+  </section>
+
+  <!-- ============== MC ============== -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">🎯</span>Multiple choice</h2>
+    <p class="instr">Pick the option that sounds most natural at B2 level.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q1</span>"That song is a real blast from the past!" This means it…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) makes a loud noise.</button>
+        <button class="mc-opt">b) suddenly reminds you of the past.</button>
+        <button class="mc-opt">c) is brand new.</button>
+        <button class="mc-opt">d) is from the future.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q2</span>"Public phone boxes are a thing of the past." This means they…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) are brand new.</button>
+        <button class="mc-opt">b) only existed in the future.</button>
+        <button class="mc-opt">c) no longer exist or are very rare.</button>
+        <button class="mc-opt">d) are very expensive now.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q3</span>"Vinyl is back — fashion has come full circle." This means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) it's returned to a previous state.</button>
+        <button class="mc-opt">b) it's been completely banned.</button>
+        <button class="mc-opt">c) it has gone in a totally new direction.</button>
+        <button class="mc-opt">d) it has disappeared forever.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q4</span>If somebody is "set in their ways", they…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) love trying everything new.</button>
+        <button class="mc-opt">b) live in different countries.</button>
+        <button class="mc-opt">c) are always lost.</button>
+        <button class="mc-opt">d) are unwilling to change their habits.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q5</span>"That movie was ahead of its time." This means it was…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) very late at the cinema.</button>
+        <button class="mc-opt">b) very advanced for the era it was made in.</button>
+        <button class="mc-opt">c) about clocks.</button>
+        <button class="mc-opt">d) very short.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q6</span>"This song has stood the test of time." This means it…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) is being tested in a lab.</button>
+        <button class="mc-opt">b) is brand new.</button>
+        <button class="mc-opt">c) has remained popular for many years.</button>
+        <button class="mc-opt">d) was deleted from the radio.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q7</span>"He still lives in the '90s." This means he…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) refuses to accept modern things and stays stuck in the past.</button>
+        <button class="mc-opt">b) is a time traveller.</button>
+        <button class="mc-opt">c) was born in 1992.</button>
+        <button class="mc-opt">d) speaks like a young person.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q8</span>"We tend to look back with rose-tinted glasses." This means we…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) wear special glasses.</button>
+        <button class="mc-opt">b) can't see clearly.</button>
+        <button class="mc-opt">c) hate the past.</button>
+        <button class="mc-opt">d) remember the past more positively than it really was.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q9</span>"I prefer old-school customer service." Old-school means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) academic and difficult.</button>
+        <button class="mc-opt">b) traditional, the old-fashioned way.</button>
+        <button class="mc-opt">c) only for school children.</button>
+        <button class="mc-opt">d) chaotic and messy.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>"Closing Blockbuster was the end of an era." This means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the end of the world.</button>
+        <button class="mc-opt">b) the start of something new.</button>
+        <button class="mc-opt">c) the end of an important historical period.</button>
+        <button class="mc-opt">d) the close of a single shop only.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q11</span>"Tamagotchis were a passing fad." This means they were…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) popular for a short time, then disappeared.</button>
+        <button class="mc-opt">b) very expensive antiques.</button>
+        <button class="mc-opt">c) banned by governments.</button>
+        <button class="mc-opt">d) the best invention ever.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q12</span>"In the blink of an eye" means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) very slowly.</button>
+        <button class="mc-opt">b) only with one eye.</button>
+        <button class="mc-opt">c) when you're sleeping.</button>
+        <button class="mc-opt">d) extremely quickly.</button>
+      </div>
+    </div>
+
+    <span class="score" id="score8">0 / 12</span>
+  </section>
+
+  <!-- ============== SPEAKING ============== -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking practice</h2>
+    <p class="instr">Speak <strong>1½–2 minutes</strong> per question. Use at least <strong>3 target expressions</strong> per answer. Be honest and personal — that's where the best stories come out.</p>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 01 · YOUR '90s (or '80s, or whatever decade!)</div>
+      <div class="speak-prompt">If you grew up in the '90s — what do you remember most? If you didn't — what's the decade you most associate with your childhood, and what was it like?</div>
+      <div class="speak-help"><strong>Try to use:</strong> nostalgic · I grew up · the good old days · brings back memories · old-fashioned · time flies</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 02 · TECHNOLOGY THEN vs NOW</div>
+      <div class="speak-prompt">Pick one piece of '90s technology (Walkman, dial-up internet, video rental, disposable cameras…). Compare it with what we have today. Which is better — and why?</div>
+      <div class="speak-help"><strong>Try to use:</strong> a thing of the past · old-fashioned · the pace of life · ahead of its time · used to · would</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 03 · WERE PEOPLE HAPPIER?</div>
+      <div class="speak-prompt">Some people argue that life was happier in the '90s — slower, simpler, more connected. Do you agree, or are we just romanticising the past?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to romanticise · rose-tinted glasses · the pace of life · to be present · the good old days · in some ways</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 04 · LOST RITUALS</div>
+      <div class="speak-prompt">In the '90s people made mixtapes, rented videos, wrote letters. Are there any "rituals" we've lost that you think mattered? What did they give us?</div>
+      <div class="speak-help"><strong>Try to use:</strong> a thing of the past · the end of an era · a fond memory · to keep in touch · old-school · weekly ritual</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 05 · KIDS THEN vs NOW</div>
+      <div class="speak-prompt">Compare childhood in the '90s with childhood today. Are kids today losing something — or are they getting more?</div>
+      <div class="speak-help"><strong>Try to use:</strong> generation gap · glued to screens · screen time · the good old days · grew up · used to · would</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 06 · THE THING YOU'D BRING BACK</div>
+      <div class="speak-prompt">If you had a magic remote control, which one '90s thing (cultural, technological, social) would you bring back? Why?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to bring back · I'd love it if · to come full circle · old-school · vintage · used to</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 07 · TIME-TRAVELLING TEENAGER</div>
+      <div class="speak-prompt">Imagine a 15-year-old from today travels back to 1995. What would they find easiest, hardest, and weirdest about life back then?</div>
+      <div class="speak-help"><strong>Try to use:</strong> dial-up · landline · disposable camera · video rental · to keep in touch · time flies</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 08 · QUICK-FIRE · 30 SECONDS EACH</div>
+      <div class="speak-prompt">No planning — just talk!</div>
+      <div class="speak-help">
+        ▸ One '90s film, song or show that you genuinely love.<br>
+        ▸ One '90s fashion you wouldn't be seen dead in today.<br>
+        ▸ Best invention of the '90s — defend it!<br>
+        ▸ "Used to" + something you used to do as a kid.<br>
+        ▸ Complete: "If I had to pick a decade to live in forever, I'd pick…"
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== GRAMMAR ============== -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar: Used to / Would / Past Habits</h2>
+    <p class="instr">A grammar topic perfectly matched to this lesson — <strong>"used to"</strong> and <strong>"would"</strong> are the language we use to talk about past habits and how things were different.</p>
+
+    <div class="grammar-box">
+      <h4>📼 Part 1 — Used to + infinitive</h4>
+      <ul>
+        <li>Use <strong>used to</strong> for past habits and past states that are no longer true.</li>
+        <li><strong>Past habit:</strong> <code>I used to play outside every day.</code></li>
+        <li><strong>Past state:</strong> <code>There used to be a video shop here.</code></li>
+        <li><strong>Negative:</strong> <code>didn't use to</code> (notice: NO "d"!) <code>I didn't use to like coffee.</code></li>
+        <li><strong>Question:</strong> <code>Did you use to…?</code> <code>Did you use to play with Tamagotchis?</code></li>
+      </ul>
+      <div class="formula">used to + base verb → I used to make mixtapes. There used to be a phone box here.</div>
+      <div class="formula">Negative: didn't use to + base verb (NOT "didn't used to")</div>
+    </div>
+
+    <div class="grammar-box">
+      <h4>📼 Part 2 — Would for past habits</h4>
+      <ul>
+        <li>Use <strong>would</strong> for repeated past actions / habits — but NOT for past states.</li>
+        <li><code>Every Friday, we would rent a video and order pizza.</code> ✓ (action)</li>
+        <li><code>I would have a Walkman.</code> ✗ (state — use "used to")</li>
+        <li>Use <strong>used to</strong> for both habits AND states. Use <strong>would</strong> only for habits.</li>
+      </ul>
+      <div class="formula">would + base verb → for repeated past ACTIONS only</div>
+      <div class="formula">used to + base verb → for past actions AND past states</div>
+    </div>
+
+    <div class="grammar-box">
+      <h4>📼 Part 3 — Be used to vs Get used to</h4>
+      <ul>
+        <li><strong>To be used to + -ing</strong> = to be familiar with something. <code>I'm used to working from home now.</code></li>
+        <li><strong>To get used to + -ing</strong> = to become familiar with something. <code>I'm slowly getting used to the new phone.</code></li>
+        <li>⚠️ Don't confuse with <strong>used to + infinitive</strong> (past habit)! Different meanings!</li>
+      </ul>
+      <div class="formula">used to do = past habit | be / get used to doing = familiar with</div>
+    </div>
+
+    <p class="instr"><strong>Part A — used to / didn't use to.</strong> Complete each sentence.</p>
+
+    <div class="fill-item"><p><span class="num">01</span>In the '90s, we <input class="fill-input wide" data-answer="used to record"> (record) songs off the radio onto cassettes.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>There <input class="fill-input wide" data-answer="used to be"> (be) a video rental shop on every corner.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>People <input class="fill-input wide" data-answer="didn't use to"> (not / use to) have smartphones, of course. <em style="color:var(--deep); font-size:13px;">(3 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">04</span>I <input class="fill-input wide" data-answer="used to play"> (play) outside until the streetlights came on.</p></div>
+    <div class="fill-item"><p><span class="num">05</span><input class="fill-input wide" data-answer="Did you use to"> (you / use to) make mixtapes for your friends? <em style="color:var(--deep); font-size:13px;">(4 words)</em></p></div>
+
+    <p class="instr"><strong>Part B — would for past habits.</strong> Complete with <em>would</em> + base verb.</p>
+
+    <div class="fill-item"><p><span class="num">06</span>Every Friday night, my family <input class="fill-input wide" data-answer="would rent"> (rent) a video and order pizza.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>On long car journeys, my brother and I <input class="fill-input wide" data-answer="would argue"> (argue) about who had to sit in the middle.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>My grandmother <input class="fill-input wide" data-answer="would tell"> (tell) us stories every Sunday afternoon.</p></div>
+
+    <p class="instr"><strong>Part C — used to OR would?</strong> Choose the correct form. (Reminder: <em>would</em> can't be used with states like <em>be, have, like, know</em>.)</p>
+
+    <div class="fill-item"><p><span class="num">09</span>I <input class="fill-input wide" data-answer="used to have"> (have) a really cool Walkman. <em style="color:var(--deep); font-size:13px;">(state — pick the only correct form, 3 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">10</span>Every summer, we <input class="fill-input wide" data-answer="would go"> (go) to the beach for two weeks. <em style="color:var(--deep); font-size:13px;">(repeated action — either form works, 2 words with "would")</em></p></div>
+    <div class="fill-item"><p><span class="num">11</span>My dad <input class="fill-input wide" data-answer="used to be"> (be) really into vinyl records. <em style="color:var(--deep); font-size:13px;">(state — 3 words)</em></p></div>
+
+    <p class="instr"><strong>Part D — be / get used to + -ing.</strong> Complete each sentence.</p>
+
+    <div class="fill-item"><p><span class="num">12</span>I'm slowly <input class="fill-input wide" data-answer="getting used to working"> (get / work) from home — it's been six months. <em style="color:var(--deep); font-size:13px;">(4 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">13</span>My grandmother isn't <input class="fill-input wide" data-answer="used to using"> (use / use) a smartphone yet. <em style="color:var(--deep); font-size:13px;">(3 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">14</span>It took me a while to <input class="fill-input wide" data-answer="get used to driving"> (get / drive) on the left side of the road in England. <em style="color:var(--deep); font-size:13px;">(4 words)</em></p></div>
+
+    <button class="check-btn" onclick="checkGrammar()">✓ Check grammar</button>
+    <span class="score" id="score10">— / 14</span>
+  </section>
+
+  <footer>
+    📼 ★ ★ &nbsp; LIFE IN THE '90s · B2 ENGLISH WORKSHEET &nbsp; ★ ★ 📼
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 6)
+  let selectedWord = null;
+  let matched6 = 0;
+  document.querySelectorAll('#t6 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t6 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched6++;
+          document.getElementById('score6').textContent = matched6 + ' / 10';
+          selectedWord = null;
+          if (matched6 === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 7)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t7 .fill-input');
+    const alternates = {
+      'grew up': ['grew up'],
+      'brings back': ['brings back'],
+      'pace of life': ['pace of life','the pace of life'],
+      'keep in touch': ['keep in touch'],
+      'the good old days': ['the good old days','good old days'],
+      'time flies': ['time flies'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score7').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score7').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 8)
+  let mcScore = 0;
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score8').textContent = mcScore + ' / 12';
+        if (mcScore === 12) document.getElementById('score8').textContent = '★ 12 / 12 ★';
+      });
+    });
+  });
+
+  // GRAMMAR (tab 10)
+  function checkGrammar() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t10 .fill-input');
+    const alternates = {
+      'used to record': ['used to record'],
+      'used to be': ['used to be'],
+      "didn't use to": ["didn't use to",'did not use to'],
+      'used to play': ['used to play'],
+      'Did you use to': ['did you use to'],
+      'would rent': ['would rent',"'d rent"],
+      'would argue': ['would argue',"'d argue"],
+      'would tell': ['would tell',"'d tell"],
+      'used to have': ['used to have'],
+      'would go': ['would go',"'d go"],
+      'used to be': ['used to be'],
+      'getting used to working': ['getting used to working'],
+      'used to using': ['used to using'],
+      'get used to driving': ['get used to driving'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score10').textContent = correct + ' / 14';
+    if (correct === 14) document.getElementById('score10').textContent = '★ 14 / 14 ★';
+  }
+</script>
+</body>
+</html>
