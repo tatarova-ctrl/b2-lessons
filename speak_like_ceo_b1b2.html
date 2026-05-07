@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speak Like a CEO — B1/B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1E2A47;
+    --deep: #0F1A33;
+    --coral: #E76F51;
+    --gold: #D4AF37;
+    --teal: #2A9D8F;
+    --cream: #FAF7F0;
+    --sand: #ECE3CD;
+    --ink: #14182A;
+    --cloud: #ffffff;
+    --soft: #E5EAF2;
+    --blush: #FFE4D8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,0.1) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "★";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 130px;
+    color: var(--soft);
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--gold);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 6.5vw, 60px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--coral); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--navy);
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--gold); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--navy);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--navy);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .reading p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+    color: #2a3441;
+  }
+  .reading b, .reading strong {
+    background: linear-gradient(transparent 55%, rgba(212,175,55,0.55) 55%);
+    padding: 0 2px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .reading .pull-quote {
+    background: var(--soft);
+    padding: 14px 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--gold);
+    margin: 16px 0;
+    font-style: italic;
+  }
+
+  /* BEFORE/AFTER COMPARISON */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .compare-card {
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .compare-card.weak {
+    background: #FFE4DC;
+    border-left: 6px solid var(--coral);
+  }
+  .compare-card.strong {
+    background: #E1F0EE;
+    border-left: 6px solid var(--teal);
+  }
+  .compare-card h5 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .compare-card.weak h5 { color: var(--coral); }
+  .compare-card.strong h5 { color: var(--teal); }
+  .compare-card p {
+    font-style: italic;
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .compare-card .label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .compare-card.weak .label { color: var(--coral); }
+  .compare-card.strong .label { color: var(--teal); }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--navy);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* IDIOMS */
+  .idiom-card {
+    background: linear-gradient(135deg, var(--cloud) 0%, var(--soft) 100%);
+    border: 2px solid var(--ink);
+    border-left: 5px solid var(--gold);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .idiom-term {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .idiom-def { font-size: 14px; margin-bottom: 8px; }
+  .idiom-ex {
+    font-style: italic;
+    font-size: 13.5px;
+    background: rgba(255,255,255,0.7);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--coral);
+  }
+
+  /* PHRASEBOOK */
+  .phrasebook {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .pb-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .pb-card h5 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--navy);
+    margin-bottom: 8px;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 4px;
+  }
+  .pb-card ul { padding-left: 0; list-style: none; }
+  .pb-card li {
+    font-size: 13.5px;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    position: relative;
+  }
+  .pb-card li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--coral);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--navy);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14.5px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--navy); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 200px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 280px; }
+  .fill-input:focus { outline: none; border-color: var(--navy); background: var(--cream); }
+  .fill-input.correct { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--navy); }
+  .mc-opt.correct { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--coral);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--gold);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--gold);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--navy);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--coral); }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--navy);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid, .compare-grid { grid-template-columns: 1fr; }
+    .reading { padding: 22px; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">★ EXECUTIVE COMMUNICATION · B1/B2</div>
+      <h1>Speak Like <span class="accent">a CEO</span></h1>
+      <div class="sub">The language, mindset and confidence that make any professional sound senior — even before you have the title. Lead the room, not just attend it.</div>
+      <div class="tags">
+        <span class="tag">CEFR B1/B2</span>
+        <span class="tag">Leadership · Confidence</span>
+        <span class="tag">Idioms &amp; Phrases</span>
+        <span class="tag">Speaking · Grammar</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Reading</button>
+    <button class="tab" data-tab="t2">② Before/After 🎯</button>
+    <button class="tab" data-tab="t3">③ Vocabulary</button>
+    <button class="tab" data-tab="t4">④ Idioms</button>
+    <button class="tab" data-tab="t5">⑤ Phrasebook 📚</button>
+    <button class="tab" data-tab="t6">⑥ Matching</button>
+    <button class="tab" data-tab="t7">⑦ Fill the gaps</button>
+    <button class="tab" data-tab="t8">⑧ Multiple choice</button>
+    <button class="tab" data-tab="t9">⑨ Speaking 🎤</button>
+    <button class="tab" data-tab="t10">⑩ Grammar 📝</button>
+  </nav>
+
+  <!-- ============== READING ============== -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">An executive coach explains what really separates CEOs from everyone else — not titles or salaries, but the way they speak. Target language is in <b>gold bold</b>.</p>
+
+    <article class="reading">
+      <h3>"It's Not What CEOs Say — It's How They Say It"</h3>
+      <div class="byline">★ Maria Bennett · Executive coach · Leadership column</div>
+
+      <p>I've spent fifteen years coaching senior leaders, and there's one thing I tell every single client: people don't follow your title — they follow your <b>tone</b>. The most successful CEOs I've ever worked with weren't always the smartest in the room, the loudest, or the most experienced. But they all had one thing in common — they <b>spoke with purpose</b>. Every word counted. And here's the good news: this is a <b>skill you can learn</b>, no matter where you are in your career.</p>
+
+      <p>The first thing CEOs do differently is that they <b>get to the point</b>. They don't ramble. They don't open with three minutes of small talk before mentioning what the meeting is about. They lead with the headline. <b>"Here's what we need to decide. Here's why it matters. Here's what I recommend."</b> That's it. <b>No fluff. No filler.</b></p>
+
+      <p>The second thing is that they <b>own the room</b> — without dominating it. They speak less than you might think, but when they do speak, they say something <b>worth listening to</b>. They <b>ask sharp questions</b>. They <b>steer the conversation</b> when it drifts. And critically, they <b>make people feel heard</b>, even when they ultimately disagree. As one of my mentors once told me:</p>
+
+      <p class="pull-quote">"Leadership isn't about having the loudest voice in the room. It's about being the person whose voice the room <b>actually wants to hear</b>."</p>
+
+      <p>The third habit — and this one's harder than it sounds — is that great CEOs <b>take ownership</b>. When something goes wrong, they don't blame the team, the market, or the previous CEO. They simply say, "<b>We made a mistake. Here's what we're going to do about it.</b>" That kind of honesty is rare, and it's incredibly powerful. It builds trust faster than any other behaviour I know.</p>
+
+      <p>Now, here's where it gets practical. Most professionals — even very talented ones — accidentally <b>undermine themselves</b> by using <b>weak language</b>. Phrases like <b>"I just wanted to ask…"</b>, <b>"I'm not sure if this makes sense, but…"</b>, or <b>"sorry to bother you"</b> are so common they sound automatic. But they quietly tell people: <b>"don't take me seriously."</b> Strong leaders are direct without being aggressive. They say, <b>"I have a question,"</b> not "Sorry, can I just quickly ask…" They say, <b>"My recommendation is…"</b>, not "Maybe we could possibly think about…"</p>
+
+      <p>Another thing CEOs do brilliantly is <b>frame things positively</b> — without lying. There's a huge difference between "We failed to hit our targets" and "We <b>fell short of our ambitious goals, and here's what we're learning</b>." Same facts, completely different energy. Word choice <b>shapes how people feel</b>. And how people feel <b>determines how they act</b>.</p>
+
+      <p>One of my favourite CEO habits is <b>borrowing language from data</b>. They say things like, "The numbers tell us…", "What we're seeing in the market is…", or "If you look at the trend over the past six months…" This kind of phrasing instantly makes them sound thoughtful and grounded — even if their actual gut feeling is doing most of the work.</p>
+
+      <p>Finally — and this is huge — great CEOs <b>are comfortable with silence</b>. They don't fill every pause. They don't apologise for thinking. They <b>let questions land</b>. When someone asks them something tough, they pause for a moment, then answer with calm confidence. Silence, used well, is one of the most powerful tools you have.</p>
+
+      <p>The truth is, you don't need a corner office or a fancy title to <b>start speaking like a CEO</b>. Pick two or three habits from this list. Try them in your next meeting. Notice how people respond. <b>Confidence isn't a personality trait — it's a practice.</b> And like any practice, it gets stronger every time you use it.</p>
+    </article>
+  </section>
+
+  <!-- ============== BEFORE / AFTER ============== -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">🎯</span>Before vs After — small fixes, huge impact</h2>
+    <p class="instr">Here's how a junior employee says it (left) versus how a confident leader says exactly the same thing (right). Read each pair out loud. Notice how it <em>feels</em> different.</p>
+
+    <div class="compare-grid">
+      <div class="compare-card weak"><div class="label">⚠ Sounds junior</div><h5>"Sorry to bother you, I just wanted to quickly ask…"</h5></div>
+      <div class="compare-card strong"><div class="label">✓ Sounds senior</div><h5>"I have a quick question."</h5></div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card weak"><div class="label">⚠ Sounds junior</div><h5>"I'm not sure if this is a good idea, but maybe we could possibly think about…"</h5></div>
+      <div class="compare-card strong"><div class="label">✓ Sounds senior</div><h5>"My recommendation is to…"</h5></div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card weak"><div class="label">⚠ Sounds junior</div><h5>"Hopefully this works… I think… I don't know…"</h5></div>
+      <div class="compare-card strong"><div class="label">✓ Sounds senior</div><h5>"This is the right call. Here's why."</h5></div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card weak"><div class="label">⚠ Sounds junior</div><h5>"Sorry, can I just say one more thing?"</h5></div>
+      <div class="compare-card strong"><div class="label">✓ Sounds senior</div><h5>"One more thing, and then I'll hand it back to you."</h5></div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card weak"><div class="label">⚠ Sounds junior</div><h5>"I'm sorry, I don't really know."</h5></div>
+      <div class="compare-card strong"><div class="label">✓ Sounds senior</div><h5>"That's a great question — let me come back to you with a proper answer."</h5></div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card weak"><div class="label">⚠ Sounds junior</div><h5>"It wasn't really my fault, the team didn't…"</h5></div>
+      <div class="compare-card strong"><div class="label">✓ Sounds senior</div><h5>"I take ownership of that. Here's how we're fixing it."</h5></div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card weak"><div class="label">⚠ Sounds junior</div><h5>"We failed to hit our targets this quarter."</h5></div>
+      <div class="compare-card strong"><div class="label">✓ Sounds senior</div><h5>"We fell short of our targets — and here's what we're learning."</h5></div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card weak"><div class="label">⚠ Sounds junior</div><h5>"Yeah, sure, whatever you want is fine with me."</h5></div>
+      <div class="compare-card strong"><div class="label">✓ Sounds senior</div><h5>"I see two options. I'd recommend the first. Happy to discuss."</h5></div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card weak"><div class="label">⚠ Sounds junior</div><h5>"Errrm, I think… maybe… I don't really know…"</h5></div>
+      <div class="compare-card strong"><div class="label">✓ Sounds senior</div><h5>"Let me think about that for a second." (then pause)</h5></div>
+    </div>
+  </section>
+
+  <!-- ============== VOCAB ============== -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">💬</span>Leadership vocabulary &amp; collocations</h2>
+    <p class="instr">The exact words leaders use when they speak about themselves and their work. Try to actively use 8 of these in today's lesson!</p>
+
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">to take ownership (of something)</div><div class="vocab-def">to accept full responsibility</div><div class="vocab-ex">"I take ownership of this mistake."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to lead by example</div><div class="vocab-def">to behave the way you want others to behave</div><div class="vocab-ex">"Real leaders lead by example."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to delegate (a task)</div><div class="vocab-def">to give responsibility to someone else</div><div class="vocab-ex">"A good manager knows how to delegate."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to empower (a team)</div><div class="vocab-def">to give people the authority and confidence to act</div><div class="vocab-ex">"Empowering your team is the highest form of leadership."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to get to the point</div><div class="vocab-def">to speak directly without unnecessary words</div><div class="vocab-ex">"In meetings, just get to the point."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to make a recommendation</div><div class="vocab-def">to suggest a clear course of action</div><div class="vocab-ex">"My recommendation is to delay the launch."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to make a decision / a call</div><div class="vocab-def">to decide; to make a tough choice</div><div class="vocab-ex">"It's a tough call, but we have to make it."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to set a vision / set the tone</div><div class="vocab-def">to establish where you're going / to establish atmosphere</div><div class="vocab-ex">"The CEO sets the tone for the whole company."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to inspire confidence</div><div class="vocab-def">to make people believe in you</div><div class="vocab-ex">"Her calm voice inspires confidence."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to communicate clearly</div><div class="vocab-def">to express ideas without confusion</div><div class="vocab-ex">"Great leaders communicate clearly under pressure."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to give clear direction</div><div class="vocab-def">to tell people exactly what to do and why</div><div class="vocab-ex">"My team needs me to give clear direction."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a strategic priority</div><div class="vocab-def">something the company will focus on most</div><div class="vocab-ex">"Customer retention is our top strategic priority."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to build trust</div><div class="vocab-def">to create reliability between people</div><div class="vocab-ex">"You build trust through actions, not words."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to handle pressure</div><div class="vocab-def">to stay calm in stressful moments</div><div class="vocab-ex">"Leadership is mostly about handling pressure."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to make tough calls</div><div class="vocab-def">to make difficult decisions</div><div class="vocab-ex">"Senior managers have to make tough calls every day."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to follow through (on something)</div><div class="vocab-def">to actually do what you said you'd do</div><div class="vocab-ex">"It's not enough to promise — you have to follow through."</div></div>
+      <div class="vocab-card"><div class="vocab-term">accountability</div><div class="vocab-def">accepting responsibility for results</div><div class="vocab-ex">"Accountability is the foundation of leadership."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to mentor / coach (someone)</div><div class="vocab-def">to guide and support their development</div><div class="vocab-ex">"I mentor two junior managers on my team."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a track record</div><div class="vocab-def">a history of past achievements</div><div class="vocab-ex">"She has a strong track record in tech."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to deliver results</div><div class="vocab-def">to actually achieve what was promised</div><div class="vocab-ex">"At the end of the day, leaders are paid to deliver results."</div></div>
+      <div class="vocab-card"><div class="vocab-term">decisive</div><div class="vocab-def">able to make decisions quickly and clearly</div><div class="vocab-ex">"Be decisive — even when you're uncertain."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be straightforward</div><div class="vocab-def">to be honest and direct</div><div class="vocab-ex">"I'll be straightforward with you."</div></div>
+      <div class="vocab-card"><div class="vocab-term">stakeholders</div><div class="vocab-def">people affected by or involved in a decision</div><div class="vocab-ex">"We need to align all the stakeholders."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a clear vision / mission</div><div class="vocab-def">a clear long-term goal</div><div class="vocab-ex">"Without a clear vision, the team gets lost."</div></div>
+    </div>
+  </section>
+
+  <!-- ============== IDIOMS ============== -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; phrases that make you sound senior</h2>
+    <p class="instr">Sprinkle these into your speech and your English instantly sounds more confident and professional. Pick 5 to actually use today!</p>
+
+    <div class="idiom-card"><div class="idiom-term">to call the shots</div><div class="idiom-def">to be the one in charge of decisions</div><div class="idiom-ex">"In this department, she calls the shots."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to step up to the plate</div><div class="idiom-def">to take responsibility when it's needed</div><div class="idiom-ex">"When the crisis hit, he really stepped up to the plate."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to put your money where your mouth is</div><div class="idiom-def">to back up your words with real action</div><div class="idiom-ex">"It's time to put our money where our mouth is."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to walk the talk</div><div class="idiom-def">to actually do what you say you'll do</div><div class="idiom-ex">"Real leaders walk the talk — every day."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to get the ball rolling</div><div class="idiom-def">to start something moving</div><div class="idiom-ex">"Let's get the ball rolling on this project today."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to think outside the box</div><div class="idiom-def">to think creatively, beyond standard solutions</div><div class="idiom-ex">"This problem demands we think outside the box."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to play hardball</div><div class="idiom-def">to negotiate firmly, without compromise</div><div class="idiom-ex">"Sometimes you have to play hardball."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to cut to the chase</div><div class="idiom-def">to get to the main point quickly</div><div class="idiom-ex">"Let me cut to the chase — we need more budget."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to take the lead</div><div class="idiom-def">to start leading or controlling something</div><div class="idiom-ex">"I'd like to take the lead on this initiative."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be on the ball</div><div class="idiom-def">to be alert and quick to react</div><div class="idiom-ex">"You really have to be on the ball in this role."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be a quick learner</div><div class="idiom-def">to pick up new skills fast</div><div class="idiom-ex">"I'm a quick learner — I always have been."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to keep your cool</div><div class="idiom-def">to stay calm under pressure</div><div class="idiom-ex">"In a crisis, you have to keep your cool."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to raise the bar</div><div class="idiom-def">to set a higher standard</div><div class="idiom-ex">"This team has really raised the bar."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to hit the ground running</div><div class="idiom-def">to start a new role with full energy from day one</div><div class="idiom-ex">"I'd hit the ground running in this role."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to wear many hats</div><div class="idiom-def">to do many different roles in one job</div><div class="idiom-ex">"In a startup, you wear many hats."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be on the same page</div><div class="idiom-def">to share the same understanding</div><div class="idiom-ex">"Let's make sure we're on the same page."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to bring (something) to the table</div><div class="idiom-def">to offer something valuable</div><div class="idiom-ex">"What I bring to the table is strategic vision."</div></div>
+    <div class="idiom-card"><div class="idiom-term">at the end of the day</div><div class="idiom-def">ultimately; when all is considered</div><div class="idiom-ex">"At the end of the day, results matter most."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to make no mistake</div><div class="idiom-def">be absolutely sure (used to emphasise)</div><div class="idiom-ex">"Make no mistake — this is our top priority."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to think big</div><div class="idiom-def">to have ambitious ideas / goals</div><div class="idiom-ex">"In this role, you have to think big."</div></div>
+  </section>
+
+  <!-- ============== PHRASEBOOK ============== -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">📚</span>The CEO Phrasebook</h2>
+    <p class="instr">Pick 1–2 phrases from each card and try them in real meetings this week. They will instantly upgrade how you sound.</p>
+
+    <div class="phrasebook">
+      <div class="pb-card">
+        <h5>Opening with confidence</h5>
+        <ul>
+          <li>"Let me get straight to the point."</li>
+          <li>"Here's where we are."</li>
+          <li>"Here's what I recommend."</li>
+          <li>"Three things I want to cover today."</li>
+          <li>"Before we start, the headline is…"</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Stating an opinion clearly</h5>
+        <ul>
+          <li>"In my view…"</li>
+          <li>"My recommendation is to…"</li>
+          <li>"The way I see it…"</li>
+          <li>"From where I sit…"</li>
+          <li>"I'm convinced that…"</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Pushing back diplomatically</h5>
+        <ul>
+          <li>"I see it differently."</li>
+          <li>"I'd push back gently on that."</li>
+          <li>"I'd challenge that assumption."</li>
+          <li>"Let me play devil's advocate."</li>
+          <li>"I'm not sure I agree, here's why…"</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Owning a mistake</h5>
+        <ul>
+          <li>"I take ownership of this."</li>
+          <li>"That was my call, and I got it wrong."</li>
+          <li>"Here's what we're going to do about it."</li>
+          <li>"We fell short — here's what we're learning."</li>
+          <li>"The buck stops with me."</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Handling tough questions</h5>
+        <ul>
+          <li>"That's a great question."</li>
+          <li>"Let me think about that for a second."</li>
+          <li>"I don't have that to hand — I'll come back to you."</li>
+          <li>"That's something we're actively looking into."</li>
+          <li>"Honestly, I'd need more data before I answer that."</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Setting direction</h5>
+        <ul>
+          <li>"Here's where we're heading."</li>
+          <li>"Our top priority is…"</li>
+          <li>"By the end of the quarter, we will have…"</li>
+          <li>"What success looks like is…"</li>
+          <li>"Make no mistake — this is non-negotiable."</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Inspiring &amp; motivating</h5>
+        <ul>
+          <li>"This team is capable of anything."</li>
+          <li>"I have full confidence in you."</li>
+          <li>"Let's raise the bar."</li>
+          <li>"I want us to think bigger."</li>
+          <li>"What you've done here is genuinely impressive."</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Closing strong</h5>
+        <ul>
+          <li>"To summarise…"</li>
+          <li>"The bottom line is…"</li>
+          <li>"At the end of the day…"</li>
+          <li>"Let's get to it."</li>
+          <li>"Here's what I'm asking from each of you."</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Words to delete from your vocabulary</h5>
+        <ul>
+          <li>❌ "Sorry to bother you…"</li>
+          <li>❌ "I just wanted to…"</li>
+          <li>❌ "Maybe… possibly… kind of… sort of…"</li>
+          <li>❌ "I'm not sure if this makes sense, but…"</li>
+          <li>❌ "Hopefully…"</li>
+          <li>✅ Replace them with: <em>directness</em>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== MATCHING ============== -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🔗</span>Match the expression with its meaning</h2>
+    <p class="instr">Click a phrase on the left, then its meaning on the right.</p>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <h3>Expression</h3>
+        <div class="match-item" data-word="1">to take ownership</div>
+        <div class="match-item" data-word="2">to call the shots</div>
+        <div class="match-item" data-word="3">to walk the talk</div>
+        <div class="match-item" data-word="4">to step up to the plate</div>
+        <div class="match-item" data-word="5">to lead by example</div>
+        <div class="match-item" data-word="6">to keep your cool</div>
+        <div class="match-item" data-word="7">to cut to the chase</div>
+        <div class="match-item" data-word="8">to bring to the table</div>
+        <div class="match-item" data-word="9">to make a tough call</div>
+        <div class="match-item" data-word="10">to follow through</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="3">to actually do what you say you'll do</div>
+        <div class="match-item" data-def="2">to be the one in charge of decisions</div>
+        <div class="match-item" data-def="1">to accept full responsibility</div>
+        <div class="match-item" data-def="6">to stay calm under pressure</div>
+        <div class="match-item" data-def="5">to behave the way you want others to behave</div>
+        <div class="match-item" data-def="4">to take responsibility when it's needed</div>
+        <div class="match-item" data-def="9">to make a difficult decision</div>
+        <div class="match-item" data-def="7">to get straight to the main point</div>
+        <div class="match-item" data-def="10">to actually do what you promised</div>
+        <div class="match-item" data-def="8">to offer something valuable to a discussion</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <span class="score" id="score6">0 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============== FILL ============== -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the gaps</h2>
+    <p class="instr">Complete each sentence with an expression from the bank. Use the correct form.</p>
+
+    <div class="word-bank">
+      <strong>★ WORD BANK ★</strong>
+      take ownership · cut to the chase · empower · delegate · call the shots · walk the talk · raise the bar · keep my cool · the bottom line · hit the ground running
+    </div>
+
+    <div class="fill-item"><p><span class="num">01</span>I'd like to <input class="fill-input wide" data-answer="take ownership"> of this project — I think I'm the right person to lead it.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>Let me <input class="fill-input wide" data-answer="cut to the chase">: we need to make a decision today.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>A great manager knows how to <input class="fill-input" data-answer="delegate"> tasks to the right people.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>The best leaders <input class="fill-input" data-answer="empower"> their teams instead of micromanaging them.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>In our department, the marketing director <input class="fill-input wide" data-answer="calls the shots">.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>If we want our team to trust us, we have to <input class="fill-input wide" data-answer="walk the talk">.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>This new product is going to <input class="fill-input wide" data-answer="raise the bar"> for the entire industry.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>Even when the client got angry, I managed to <input class="fill-input wide" data-answer="keep my cool">.</p></div>
+    <div class="fill-item"><p><span class="num">09</span><input class="fill-input wide" data-answer="The bottom line"> is, we have to deliver results next quarter.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>I'd <input class="fill-input wide" data-answer="hit the ground running"> if you offered me this role tomorrow.</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check my answers</button>
+    <span class="score" id="score7">— / 10</span>
+  </section>
+
+  <!-- ============== MC ============== -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">🎯</span>Multiple choice — which sounds more senior?</h2>
+    <p class="instr">For each pair, choose the option that sounds more like a confident leader.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q1</span>Starting a meeting:</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Sorry guys, I just wanted to quickly chat about something if that's OK?"</button>
+        <button class="mc-opt">b) "Three things I want to cover today. Let's get to it."</button>
+        <button class="mc-opt">c) "Hi everyone… so… maybe we could possibly start now…?"</button>
+        <button class="mc-opt">d) "Hopefully this won't take too long, sorry."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q2</span>Sharing your opinion:</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "I'm not really sure but maybe we should…"</button>
+        <button class="mc-opt">b) "I don't know, what do you guys think?"</button>
+        <button class="mc-opt">c) "It's just my idea, sorry…"</button>
+        <button class="mc-opt">d) "My recommendation is to delay the launch — here's why."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q3</span>Owning a mistake:</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "That was my call, and I got it wrong. Here's how we're fixing it."</button>
+        <button class="mc-opt">b) "It wasn't really my fault, the team should have…"</button>
+        <button class="mc-opt">c) "Yeah, sorry, mistakes happen, you know."</button>
+        <button class="mc-opt">d) "I don't know how this happened, honestly."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q4</span>Disagreeing with a colleague:</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "No, you're wrong."</button>
+        <button class="mc-opt">b) "Hmm, well, maybe… but I'm not sure…"</button>
+        <button class="mc-opt">c) "I see it differently — let me share why."</button>
+        <button class="mc-opt">d) "Sorry, but I really can't agree at all."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q5</span>Handling a question you don't know the answer to:</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Errr, I don't know, sorry."</button>
+        <button class="mc-opt">b) "I don't have that data to hand — I'll come back to you with a proper answer by Friday."</button>
+        <button class="mc-opt">c) (Make something up that sounds confident.)</button>
+        <button class="mc-opt">d) "Maybe someone else knows? Anyone?"</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q6</span>Asking for what you want:</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Sorry, I was wondering, if it's not too much trouble, could I maybe ask…?"</button>
+        <button class="mc-opt">b) "I just need a second of your time…"</button>
+        <button class="mc-opt">c) "Hopefully this isn't a stupid question, but…"</button>
+        <button class="mc-opt">d) "I have a question." (then ask it)</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q7</span>Closing a meeting:</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "To summarise — three actions, three owners, three deadlines."</button>
+        <button class="mc-opt">b) "OK so yeah… that's everything I think… maybe…"</button>
+        <button class="mc-opt">c) "Sorry for taking so long, hope it was useful."</button>
+        <button class="mc-opt">d) "Right, anyway, let's stop now."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q8</span>Describing yourself in an interview:</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "I'm just a normal person, nothing special."</button>
+        <button class="mc-opt">b) "I bring strong stakeholder management and a track record of delivering results."</button>
+        <button class="mc-opt">c) "Hopefully I'll be good at the job."</button>
+        <button class="mc-opt">d) "I don't really know what to say, sorry."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q9</span>Pushing back on an unrealistic deadline:</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "OK, sure, I'll just try my best."</button>
+        <button class="mc-opt">b) "That's impossible, no way."</button>
+        <button class="mc-opt">c) "I'd push back gently on that timeline. Here's what's realistic."</button>
+        <button class="mc-opt">d) "Errr… maybe…?"</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q10</span>Making a tough decision:</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "I don't know, what should I do?"</button>
+        <button class="mc-opt">b) "Hopefully this works out."</button>
+        <button class="mc-opt">c) "Maybe we'll see what happens."</button>
+        <button class="mc-opt">d) "It's a tough call, but here's my decision — and here's why."</button>
+      </div>
+    </div>
+
+    <span class="score" id="score8">0 / 10</span>
+  </section>
+
+  <!-- ============== SPEAKING ============== -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking practice — sound senior in real situations</h2>
+    <p class="instr">Speak <strong>1½–2 minutes</strong> per question. Use at least <strong>3 target expressions</strong> per answer. <em>Channel your inner CEO!</em></p>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 01 · INTRODUCE YOURSELF LIKE A CEO</div>
+      <div class="speak-prompt">Imagine you're walking into a room of senior people. Introduce yourself in 60 seconds — your role, what you bring, what you stand for. No "sorry", no "just".</div>
+      <div class="speak-help"><strong>Try to use:</strong> a track record · to deliver results · to bring to the table · to lead by example · I'm convinced that</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 02 · DEFEND YOUR OPINION</div>
+      <div class="speak-prompt">Pick something you genuinely believe about your work or life. State it as a CEO would — directly, with reasons. No hedging!</div>
+      <div class="speak-help"><strong>Try to use:</strong> in my view · my recommendation · make no mistake · the bottom line · I'm convinced that</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 03 · OWN A MISTAKE</div>
+      <div class="speak-prompt">Tell us about a real mistake you made at work. How would a CEO talk about it — without blame, without excuses?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to take ownership · I take ownership of this · to fall short · here's what we're learning · accountability</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 04 · GIVE A 60-SECOND UPDATE</div>
+      <div class="speak-prompt">Give a short, sharp update on a real project at your work. Lead with the headline. Three points maximum. End with a clear next step.</div>
+      <div class="speak-help"><strong>Try to use:</strong> here's where we are · the headline is · my recommendation · let's get to it · stakeholders</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 05 · PUSH BACK DIPLOMATICALLY</div>
+      <div class="speak-prompt">Your boss has just given you an unrealistic deadline. Push back like a leader — no anger, no apologising. Be calm, clear, and constructive.</div>
+      <div class="speak-help"><strong>Try to use:</strong> to push back · I see it differently · let me play devil's advocate · here's what's realistic · keep my cool</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 06 · INSPIRE A TEAM</div>
+      <div class="speak-prompt">Imagine you're leading a tired team after a tough quarter. Give a short inspiring talk to motivate them again.</div>
+      <div class="speak-help"><strong>Try to use:</strong> to raise the bar · to think big · I have full confidence · this team is capable · at the end of the day</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 07 · HANDLE A HARD QUESTION</div>
+      <div class="speak-prompt">The teacher will throw you 3 tough questions one after another. Buy time, stay calm, answer with confidence.</div>
+      <div class="speak-help"><strong>Sample tough questions:</strong> "Why should we promote you?" / "What was your biggest failure?" / "Tell us about a time you disagreed with your boss."</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 08 · QUICK-FIRE · 30 SECONDS EACH</div>
+      <div class="speak-prompt">No planning. Just talk!</div>
+      <div class="speak-help">
+        ▸ Sum up your career so far in three sentences.<br>
+        ▸ The one thing you'd change about how meetings happen at your company.<br>
+        ▸ Complete: "If I were CEO for a day, the first decision I'd make is…"<br>
+        ▸ One CEO whose communication style you admire — and why.<br>
+        ▸ The single most important quality of a great leader.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== GRAMMAR ============== -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar: Sounding Confident — Grammar Choices</h2>
+    <p class="instr">Confident speech isn't just about words — it's about grammar. Two patterns that instantly upgrade how you sound: <strong>active voice</strong> instead of weak passive, and <strong>strong modal verbs</strong> instead of weak hedging.</p>
+
+    <div style="background: var(--soft); border: 2px dashed var(--navy); border-radius: 12px; padding: 18px 22px; margin-bottom: 22px;">
+      <h4 style="font-family: 'DM Serif Display'; font-size: 20px; color: var(--navy); margin-bottom: 10px;">★ Part 1 — Active vs passive voice</h4>
+      <ul style="padding-left: 20px; font-size: 14px;">
+        <li><strong>Active</strong> = strong, confident: <code>I made the decision.</code> / <code>The team delivered the results.</code></li>
+        <li><strong>Passive</strong> = often weaker, hides who did it: <code>The decision was made.</code> / <code>Mistakes were made.</code></li>
+        <li>Use the active voice when you want to <strong>own</strong> your actions and decisions. CEOs <em>almost always</em> use active.</li>
+      </ul>
+      <div style="background: var(--cloud); padding: 8px 12px; border-radius: 6px; font-family: 'Courier Prime'; font-size: 13px; margin: 6px 0; border-left: 3px solid var(--gold);">Active: I + verb + object &nbsp;→&nbsp; sounds confident, accountable</div>
+    </div>
+
+    <div style="background: var(--soft); border: 2px dashed var(--navy); border-radius: 12px; padding: 18px 22px; margin-bottom: 22px;">
+      <h4 style="font-family: 'DM Serif Display'; font-size: 20px; color: var(--navy); margin-bottom: 10px;">★ Part 2 — Strong vs weak modals</h4>
+      <ul style="padding-left: 20px; font-size: 14px;">
+        <li><strong>Confident:</strong> <code>will</code>, <code>need to</code>, <code>have to</code>, <code>am going to</code>, <code>it's clear that</code></li>
+        <li><strong>Weak / hedging (avoid in confident speech):</strong> <code>might</code>, <code>could maybe</code>, <code>kind of</code>, <code>sort of</code>, <code>I'm not sure if…</code>, <code>hopefully</code></li>
+        <li>Of course, <em>some</em> hedging is polite. But cut excess hedging — that's where leaders sound weak.</li>
+      </ul>
+      <div style="background: var(--cloud); padding: 8px 12px; border-radius: 6px; font-family: 'Courier Prime'; font-size: 13px; margin: 6px 0; border-left: 3px solid var(--gold);">Weak: "I think maybe we could possibly try…"  →  Strong: "We will…" / "My recommendation is…"</div>
+    </div>
+
+    <p class="instr"><strong>Part A — make it active.</strong> Rewrite each weak passive sentence in the active voice. Type just the new verb phrase.</p>
+
+    <div class="fill-item"><p><span class="num">01</span>"The decision was made by me." → I <input class="fill-input wide" data-answer="made"> the decision.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>"Mistakes were made." → We <input class="fill-input wide" data-answer="made"> mistakes.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>"Targets were missed last quarter." → We <input class="fill-input wide" data-answer="missed"> our targets last quarter.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>"The strategy is being reviewed." → We <input class="fill-input wide" data-answer="are reviewing"> the strategy.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>"The new plan was created by the leadership team." → The leadership team <input class="fill-input wide" data-answer="created"> the new plan.</p></div>
+
+    <p class="instr"><strong>Part B — make it stronger.</strong> Rewrite the weak version using a confident modal/expression.</p>
+
+    <div class="fill-item"><p><span class="num">06</span>"I think maybe we could possibly try this approach." → My recommendation <input class="fill-input wide" data-answer="is to try"> this approach. <em style="color:var(--navy); font-size:13px;">("is to" + verb)</em></p></div>
+    <div class="fill-item"><p><span class="num">07</span>"Hopefully we'll deliver on time." → We <input class="fill-input wide" data-answer="will deliver"> on time. <em style="color:var(--navy); font-size:13px;">("will" + verb)</em></p></div>
+    <div class="fill-item"><p><span class="num">08</span>"It might be a good idea to invest more." → We <input class="fill-input wide" data-answer="need to invest"> more. <em style="color:var(--navy); font-size:13px;">("need to" + verb)</em></p></div>
+    <div class="fill-item"><p><span class="num">09</span>"I'm not sure if this is right, but maybe…" → I'm <input class="fill-input wide" data-answer="convinced that"> this is the right call. <em style="color:var(--navy); font-size:13px;">(2 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">10</span>"Sorry, I was just wondering if perhaps…" → I <input class="fill-input wide" data-answer="have a question">. <em style="color:var(--navy); font-size:13px;">(3 words)</em></p></div>
+
+    <p class="instr"><strong>Part C — full sentence transformation.</strong> Choose the most confident, CEO-style version.</p>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q11</span>Original: "I just wanted to maybe suggest, if it's OK, that we could possibly delay the launch."</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Could we maybe think about delaying the launch?"</button>
+        <button class="mc-opt">b) "Hopefully we can delay the launch."</button>
+        <button class="mc-opt">c) "My recommendation is to delay the launch — here's why."</button>
+        <button class="mc-opt">d) "Sorry, but I'd love to delay the launch."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q12</span>Original: "Errr, I don't really know if this is right but kind of, maybe, we could try…"</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "I'm not sure but…"</button>
+        <button class="mc-opt">b) "Let me think about that for a second." (pause) "Here's what I'd suggest…"</button>
+        <button class="mc-opt">c) "Hopefully it works out somehow."</button>
+        <button class="mc-opt">d) "I don't have a clue, sorry."</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkGrammar()">✓ Check grammar</button>
+    <span class="score" id="score10">— / 12</span>
+  </section>
+
+  <footer>
+    ★ ★ ★ &nbsp; SPEAK LIKE A CEO · B1/B2 ENGLISH WORKSHEET &nbsp; ★ ★ ★
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 6)
+  let selectedWord = null;
+  let matched6 = 0;
+  document.querySelectorAll('#t6 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t6 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched6++;
+          document.getElementById('score6').textContent = matched6 + ' / 10';
+          selectedWord = null;
+          if (matched6 === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 7)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t7 .fill-input');
+    const alternates = {
+      'take ownership': ['take ownership'],
+      'cut to the chase': ['cut to the chase'],
+      'calls the shots': ['calls the shots'],
+      'walk the talk': ['walk the talk'],
+      'raise the bar': ['raise the bar'],
+      'keep my cool': ['keep my cool'],
+      'the bottom line': ['the bottom line','bottom line'],
+      'hit the ground running': ['hit the ground running'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score7').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score7').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 8)
+  let mcScore = 0;
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score8').textContent = mcScore + ' / 10';
+        if (mcScore === 10) document.getElementById('score8').textContent = '★ 10 / 10 ★';
+      });
+    });
+  });
+
+  // GRAMMAR (tab 10)
+  let grammarMcScore = 0;
+  function checkGrammar() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t10 .fill-input');
+    const alternates = {
+      'made': ['made'],
+      'missed': ['missed'],
+      'are reviewing': ['are reviewing',"'re reviewing"],
+      'created': ['created','built','developed'],
+      'is to try': ['is to try'],
+      'will deliver': ['will deliver',"'ll deliver"],
+      'need to invest': ['need to invest','have to invest','must invest'],
+      'convinced that': ['convinced that'],
+      'have a question': ['have a question'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    // Add MC scores for Q11 and Q12
+    correct += grammarMcScore;
+    document.getElementById('score10').textContent = correct + ' / 12';
+    if (correct === 12) document.getElementById('score10').textContent = '★ 12 / 12 ★';
+  }
+  // MC for grammar Part C (Q11, Q12)
+  document.querySelectorAll('#t10 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          grammarMcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
