@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weird Museums — B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --plum: #6B2D5C;
+    --deep: #421C39;
+    --coral: #E76F51;
+    --mustard: #D4A017;
+    --teal: #2A9D8F;
+    --cream: #FAF4E6;
+    --sand: #EFE5C8;
+    --ink: #1F1A24;
+    --cloud: #ffffff;
+    --soft: #F0E0EA;
+    --blush: #FFE4D8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(107,45,92,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,160,23,0.1) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "🏛";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 130px;
+    opacity: 0.13;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--mustard);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 6.5vw, 60px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--coral); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--mustard); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--plum);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* WARM-UP */
+  .warmup-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--mustard);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .warmup-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .warmup-q {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .reading p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+    color: #2a3441;
+  }
+  .reading b, .reading strong {
+    background: linear-gradient(transparent 55%, rgba(212,160,23,0.55) 55%);
+    padding: 0 2px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .reading .pull-quote {
+    background: var(--soft);
+    padding: 14px 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--plum);
+    margin: 16px 0;
+    font-style: italic;
+  }
+
+  /* MUSEUM CARDS */
+  .museum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .museum-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform 0.15s;
+  }
+  .museum-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+  .museum-card.c1 { border-top: 8px solid var(--coral); }
+  .museum-card.c2 { border-top: 8px solid var(--plum); }
+  .museum-card.c3 { border-top: 8px solid var(--mustard); }
+  .museum-card.c4 { border-top: 8px solid var(--teal); }
+  .museum-emoji { font-size: 32px; margin-bottom: 4px; }
+  .museum-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .museum-location {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--mustard);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .museum-desc { font-size: 13.5px; line-height: 1.6; }
+  .museum-vibe {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 2px dashed var(--sand);
+    font-size: 12.5px;
+    color: var(--plum);
+    font-style: italic;
+  }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* IDIOMS */
+  .idiom-card {
+    background: linear-gradient(135deg, var(--cloud) 0%, var(--soft) 100%);
+    border: 2px solid var(--ink);
+    border-left: 5px solid var(--plum);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .idiom-term {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--plum);
+    margin-bottom: 4px;
+  }
+  .idiom-def { font-size: 14px; margin-bottom: 8px; }
+  .idiom-ex {
+    font-style: italic;
+    font-size: 13.5px;
+    background: rgba(255,255,255,0.7);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--coral);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14.5px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--plum); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 200px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 280px; }
+  .fill-input:focus { outline: none; border-color: var(--plum); background: var(--cream); }
+  .fill-input.correct { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--mustard);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--plum); }
+  .mc-opt.correct { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--coral);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--mustard);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--plum);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--plum); }
+
+  /* INVENT BOX */
+  .invent-box {
+    background: var(--blush);
+    border: 2px dashed var(--coral);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .invent-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .invent-box ul { padding-left: 20px; font-size: 14px; }
+  .invent-box li { margin-bottom: 4px; }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--plum);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid { grid-template-columns: 1fr; }
+    .reading { padding: 22px; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🏛 CULTURE &amp; CURIOSITY · B2 ENGLISH</div>
+      <h1>Weird <span class="accent">Museums</span></h1>
+      <div class="sub">Around the world there are museums dedicated to instant noodles, broken relationships, hair, toilets, even bad art. The vocabulary, descriptions and stories of the most wonderfully strange collections on earth.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">Travel · Culture · Quirky</span>
+        <span class="tag">Descriptive Language</span>
+        <span class="tag">Speaking · Grammar</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Warm-up</button>
+    <button class="tab" data-tab="t2">② Reading</button>
+    <button class="tab" data-tab="t3">③ Museum Cards 🏛</button>
+    <button class="tab" data-tab="t4">④ Vocabulary</button>
+    <button class="tab" data-tab="t5">⑤ Idioms</button>
+    <button class="tab" data-tab="t6">⑥ Matching</button>
+    <button class="tab" data-tab="t7">⑦ Fill the gaps</button>
+    <button class="tab" data-tab="t8">⑧ Multiple choice</button>
+    <button class="tab" data-tab="t9">⑨ Speaking 🎤</button>
+    <button class="tab" data-tab="t10">⑩ Grammar 📝</button>
+  </nav>
+
+  <!-- ============== WARM-UP ============== -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">🤔</span>Warm-up</h2>
+    <p class="instr">Quick discussion to get you talking. <strong>30 seconds — 1 minute</strong> per question. There are no wrong answers.</p>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 01</div>
+      <div class="warmup-q">When was the last time you visited a museum? Was it good, boring, or somewhere in between?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 02</div>
+      <div class="warmup-q">What kind of museum would absolutely guarantee you a great time? And what kind would you pay <em>not</em> to visit?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 03</div>
+      <div class="warmup-q">Have you ever been to a really weird, unusual or strange museum? Tell us about it.</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 04</div>
+      <div class="warmup-q">If somebody opened a museum dedicated to <strong>your life</strong>, what three objects would they put on display?</div>
+    </div>
+  </section>
+
+  <!-- ============== READING ============== -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">A travel writer takes us on a tour of the strangest, most surprising museums in the world. Target language is in <b>mustard bold</b>.</p>
+
+    <article class="reading">
+      <h3>"There's a Museum for That? A Tour of the World's Weirdest Collections"</h3>
+      <div class="byline">★ Travel column · 4-minute read</div>
+
+      <p>The first time I heard there was a museum dedicated entirely to <b>broken relationships</b>, I assumed it was a joke. The second time, I assumed it was art-school nonsense. The third time, I bought a plane ticket. The Museum of Broken Relationships in Zagreb, Croatia, turned out to be one of the most <b>moving experiences</b> of my entire travel life — and the start of <b>a strange obsession</b>. Once you start looking, the world is full of museums that are not, well, the Louvre.</p>
+
+      <p>Forget Renaissance paintings and ancient pottery for a moment. There is a museum, somewhere, dedicated to almost anything you can imagine — and several things you really can't. Toilets. Eyeballs. Failed inventions. Instant noodles. Bad art. <b>Behold the world of the weird museum</b>, where someone, somewhere, has built an entire institution around their unusual passion. And honestly? They're often the most memorable places you'll ever <b>set foot in</b>.</p>
+
+      <p class="pull-quote">"A museum doesn't need a Picasso to be unforgettable. Sometimes it just needs an old toaster and a really good story." — museum curator, Stockholm</p>
+
+      <p>Take the Cup Noodles Museum in Yokohama, Japan. It tells the surprisingly emotional story of how Momofuku Ando invented instant noodles in 1958 — apparently after surviving extreme post-war food shortages. Visitors can <b>design their own custom cup</b>, choose ingredients, and watch the noodles being sealed before their eyes. <b>It sounds ridiculous on paper</b>, but the place is packed with families, foodies and <b>curious tourists</b>, and you leave with a genuine appreciation for one of the most useful inventions of the 20th century.</p>
+
+      <p>Then there's the Museum of Bad Art in Massachusetts, USA — a museum that proudly displays <b>artworks too bad to ignore</b>. The collection started by accident when one of the founders rescued a painting from a rubbish bin in the 1990s. Today, the museum holds over 700 pieces, all curated with the same affectionate, <b>tongue-in-cheek</b> seriousness as the world's great galleries. Each painting comes with a polite, formal description, often making the piece even funnier. <b>It's a love letter to creative failure</b> — and a reminder that not every artist needs to be Van Gogh to deserve a wall.</p>
+
+      <p>Iceland's Phallological Museum in Reykjavík takes the prize for <b>conversation-starting awkwardness</b>. With a collection of more than 200 mammal specimens, this is — to put it diplomatically — exactly what you think it is. It became internationally famous after a documentary, and now sees thousands of <b>bemused visitors</b> a year. There's even a gift shop, which is something to think about.</p>
+
+      <p>Tokyo, naturally, has a Parasitological Museum — yes, an entire museum about parasites. The 8.8-metre tapeworm on display is, depending on your sensibility, either <b>fascinating or stomach-churning</b>. A surprising number of dating couples visit. <b>Don't ask me why.</b></p>
+
+      <p>Some weird museums are weird precisely because their topic is <em>so ordinary</em>. The Spam Museum in Minnesota celebrates the famous tinned meat. Sweden has a Hair Museum. Paris has a Sewer Museum. Berlin has a Currywurst Museum (the city's beloved street-food sausage). And Korea has a Toilet Museum, dedicated to <b>raising awareness of sanitation issues worldwide</b> — a serious mission disguised as a deeply silly building shaped like a giant toilet.</p>
+
+      <p>What unites all these places? In a word, <b>passion</b>. Someone, somewhere, looked at a topic everyone else dismissed and said: this matters. This deserves a building, a curator, a gift shop. And in their hands, the most ordinary topic suddenly becomes <b>genuinely interesting</b>.</p>
+
+      <p>Of course, weird museums aren't for everyone. You won't find <b>blockbuster crowds</b> at most of them. They tend to be small, slightly eccentric, and run on shoestring budgets. The lighting is often poor, the descriptions occasionally amateur, and the gift shops sometimes baffling. But what they offer is something <b>the big museums often can't</b>: a real, warm, very human point of view. A glimpse into one person's strange and wonderful obsession.</p>
+
+      <p>If I had to give one piece of travel advice, it would be this: next time you're in a new city, <b>skip the obvious</b>. Skip the famous gallery you'll forget five minutes after leaving. Find the weirdest, smallest, oddest museum you can — and go. You'll <b>walk away</b> with a story you'll be telling for years. As one museum-goer beautifully put it: "<b>The Louvre teaches you about humanity. The Museum of Broken Relationships teaches you about being human.</b>"</p>
+    </article>
+  </section>
+
+  <!-- ============== MUSEUM CARDS ============== -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">🏛</span>The world's weirdest museums — meet the collection</h2>
+    <p class="instr">A short tour of real museums you can genuinely visit. Pick your top 3 — we'll come back to them in the speaking section!</p>
+
+    <div class="museum-grid">
+      <div class="museum-card c1">
+        <div class="museum-emoji">💔</div>
+        <div class="museum-location">ZAGREB, CROATIA</div>
+        <div class="museum-title">Museum of Broken Relationships</div>
+        <div class="museum-desc">Donated objects from real ex-couples — a wedding dress, an axe, a single shoe — each with a heartbreaking or hilarious story.</div>
+        <div class="museum-vibe">vibe: surprisingly moving · expect to cry a little</div>
+      </div>
+
+      <div class="museum-card c2">
+        <div class="museum-emoji">🍜</div>
+        <div class="museum-location">YOKOHAMA, JAPAN</div>
+        <div class="museum-title">Cup Noodles Museum</div>
+        <div class="museum-desc">The story of instant noodles — and a workshop where you can design your own custom Cup Noodle.</div>
+        <div class="museum-vibe">vibe: family-friendly · hands-on · oddly inspiring</div>
+      </div>
+
+      <div class="museum-card c3">
+        <div class="museum-emoji">🖼️</div>
+        <div class="museum-location">MASSACHUSETTS, USA</div>
+        <div class="museum-title">Museum of Bad Art</div>
+        <div class="museum-desc">A celebration of "art too bad to be ignored" — over 700 wonderfully terrible paintings.</div>
+        <div class="museum-vibe">vibe: tongue-in-cheek · genuinely funny</div>
+      </div>
+
+      <div class="museum-card c4">
+        <div class="museum-emoji">🚽</div>
+        <div class="museum-location">SUWON, SOUTH KOREA</div>
+        <div class="museum-title">Toilet Museum (Mr. Toilet House)</div>
+        <div class="museum-desc">A toilet-shaped museum on a serious mission: raising awareness of sanitation issues worldwide.</div>
+        <div class="museum-vibe">vibe: silly building · serious cause</div>
+      </div>
+
+      <div class="museum-card c1">
+        <div class="museum-emoji">💇</div>
+        <div class="museum-location">AVANOS, TURKEY</div>
+        <div class="museum-title">Hair Museum</div>
+        <div class="museum-desc">Inside an underground cave, the hair samples of over 16,000 women from around the world. Yes, you can leave yours.</div>
+        <div class="museum-vibe">vibe: deeply weird · slightly creepy</div>
+      </div>
+
+      <div class="museum-card c2">
+        <div class="museum-emoji">🐛</div>
+        <div class="museum-location">TOKYO, JAPAN</div>
+        <div class="museum-title">Meguro Parasitological Museum</div>
+        <div class="museum-desc">Two floors entirely dedicated to parasites — including an 8.8-metre tapeworm.</div>
+        <div class="museum-vibe">vibe: educational · stomach-churning · free entry</div>
+      </div>
+
+      <div class="museum-card c3">
+        <div class="museum-emoji">🥫</div>
+        <div class="museum-location">MINNESOTA, USA</div>
+        <div class="museum-title">Spam Museum</div>
+        <div class="museum-desc">The history of America's most famous tinned meat — interactive, free, and surprisingly fun.</div>
+        <div class="museum-vibe">vibe: kitsch · nostalgic · entirely free</div>
+      </div>
+
+      <div class="museum-card c4">
+        <div class="museum-emoji">🌭</div>
+        <div class="museum-location">BERLIN, GERMANY</div>
+        <div class="museum-title">Currywurst Museum</div>
+        <div class="museum-desc">A whole museum dedicated to Berlin's beloved sausage with curry sauce. Yes, including tastings.</div>
+        <div class="museum-vibe">vibe: playful · delicious · iconic</div>
+      </div>
+
+      <div class="museum-card c1">
+        <div class="museum-emoji">🚇</div>
+        <div class="museum-location">PARIS, FRANCE</div>
+        <div class="museum-title">Paris Sewer Museum</div>
+        <div class="museum-desc">An actual walking tour through the working sewers underneath Paris. Yes, it smells. Yes, it's fascinating.</div>
+        <div class="museum-vibe">vibe: claustrophobic · unforgettable</div>
+      </div>
+
+      <div class="museum-card c2">
+        <div class="museum-emoji">🥘</div>
+        <div class="museum-location">LOS ANGELES, USA</div>
+        <div class="museum-title">Museum of Failure</div>
+        <div class="museum-desc">A celebration of failed products — Crystal Pepsi, the Apple Newton, the Sony Betamax. Brilliant for entrepreneurs.</div>
+        <div class="museum-vibe">vibe: unexpectedly wise · weirdly inspiring</div>
+      </div>
+
+      <div class="museum-card c3">
+        <div class="museum-emoji">👁️</div>
+        <div class="museum-location">REYKJAVÍK, ICELAND</div>
+        <div class="museum-title">Punk Museum</div>
+        <div class="museum-desc">Located in former public toilets in central Reykjavík, telling the story of Iceland's surprising punk scene.</div>
+        <div class="museum-vibe">vibe: gritty · loud · unforgettably small</div>
+      </div>
+
+      <div class="museum-card c4">
+        <div class="museum-emoji">🐢</div>
+        <div class="museum-location">VIENNA, AUSTRIA</div>
+        <div class="museum-title">Museum of Snow Globes</div>
+        <div class="museum-desc">A factory-museum dedicated to the snow globe — invented in Vienna, would you believe — with thousands on display.</div>
+        <div class="museum-vibe">vibe: nostalgic · enchanting · easy to underestimate</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== VOCAB ============== -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">💬</span>Vocabulary &amp; collocations</h2>
+    <p class="instr">B2 vocabulary for talking about museums, exhibitions, travel and culture. Notice the collocations (which words go together) — that's where fluency lives.</p>
+
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">a museum / a gallery</div><div class="vocab-def">a place to see historical or artistic items / specifically for art</div><div class="vocab-ex">"The Louvre is the world's most-visited museum."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an exhibition / on display</div><div class="vocab-def">a public showing of objects / shown to visitors</div><div class="vocab-ex">"The Picasso exhibition is on until June."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an exhibit (US) / a display (UK)</div><div class="vocab-def">a single item or section in a museum</div><div class="vocab-ex">"The dinosaur exhibit was the highlight."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a collection</div><div class="vocab-def">a group of objects gathered together</div><div class="vocab-ex">"The museum has a vast collection of coins."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an artefact</div><div class="vocab-def">an object made by humans, often historical</div><div class="vocab-ex">"Ancient artefacts are protected by law."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a specimen</div><div class="vocab-def">a single example of an object/animal kept for study</div><div class="vocab-ex">"The museum displays rare botanical specimens."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a curator</div><div class="vocab-def">the person in charge of a museum's collection</div><div class="vocab-ex">"The curator gave us a private tour."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to curate (a collection / show)</div><div class="vocab-def">to choose and organise items for display</div><div class="vocab-ex">"She curates exhibitions about modern photography."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be dedicated to</div><div class="vocab-def">to be entirely about a particular subject</div><div class="vocab-ex">"The museum is dedicated to space exploration."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be home to (something)</div><div class="vocab-def">to contain something special</div><div class="vocab-ex">"Florence is home to some of the world's greatest art."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a guided tour</div><div class="vocab-def">a tour led by a guide</div><div class="vocab-ex">"I always take the guided tour — you learn so much more."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an audio guide</div><div class="vocab-def">a recorded commentary you listen to as you visit</div><div class="vocab-ex">"The audio guide is included in the ticket."</div></div>
+      <div class="vocab-card"><div class="vocab-term">interactive / hands-on</div><div class="vocab-def">involving the visitor actively</div><div class="vocab-ex">"Kids love hands-on museums."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a permanent / temporary exhibition</div><div class="vocab-def">always there / only for a limited time</div><div class="vocab-ex">"The temporary exhibition closes on Sunday."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a gift shop</div><div class="vocab-def">a shop inside a museum selling souvenirs</div><div class="vocab-ex">"The gift shop alone is worth the visit."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a souvenir / a memento</div><div class="vocab-def">something you keep to remember a place / experience</div><div class="vocab-ex">"I bought a tiny snow globe as a souvenir."</div></div>
+      <div class="vocab-card"><div class="vocab-term">quirky</div><div class="vocab-def">unusual in an interesting, charming way</div><div class="vocab-ex">"It's a quirky little museum, well worth visiting."</div></div>
+      <div class="vocab-card"><div class="vocab-term">eccentric</div><div class="vocab-def">strange in a memorable, often charming way</div><div class="vocab-ex">"The collection reflects the founder's eccentric taste."</div></div>
+      <div class="vocab-card"><div class="vocab-term">off the beaten track / path</div><div class="vocab-def">somewhere not popular or commonly visited</div><div class="vocab-ex">"This museum is well off the beaten track."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a hidden gem</div><div class="vocab-def">a wonderful place few people know about</div><div class="vocab-ex">"That tiny gallery is a real hidden gem."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a tourist trap</div><div class="vocab-def">a place that exists mainly to take tourists' money</div><div class="vocab-ex">"Avoid the famous one — it's just a tourist trap."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be worth a visit / a detour</div><div class="vocab-def">to deserve going / going slightly out of your way for</div><div class="vocab-ex">"Honestly, it's worth a small detour."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a must-see</div><div class="vocab-def">something you absolutely should not miss</div><div class="vocab-ex">"The Spam Museum is a must-see in Minnesota."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to raise awareness (of)</div><div class="vocab-def">to make people more aware of an issue</div><div class="vocab-ex">"The museum raises awareness of sanitation problems."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be packed with</div><div class="vocab-def">to be full of (people or things)</div><div class="vocab-ex">"The exhibition was packed with families."</div></div>
+      <div class="vocab-card"><div class="vocab-term">moving / unforgettable</div><div class="vocab-def">emotionally powerful / impossible to forget</div><div class="vocab-ex">"It was a genuinely moving exhibition."</div></div>
+    </div>
+  </section>
+
+  <!-- ============== IDIOMS ============== -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+    <p class="instr">B2 idioms perfect for describing places, experiences and unusual things. Pick a few you really like and try to use them today!</p>
+
+    <div class="idiom-card"><div class="idiom-term">to be off the beaten track</div><div class="idiom-def">to be in a place not commonly visited</div><div class="idiom-ex">"This little museum is way off the beaten track."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a hidden gem</div><div class="idiom-def">a wonderful place few people know about</div><div class="idiom-ex">"It was a real hidden gem — I loved it."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be one of a kind</div><div class="idiom-def">to be the only example of its type; unique</div><div class="idiom-ex">"This place is genuinely one of a kind."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be worth its weight in gold</div><div class="idiom-def">to be extremely valuable or useful</div><div class="idiom-ex">"A good audio guide is worth its weight in gold."</div></div>
+    <div class="idiom-card"><div class="idiom-term">tongue-in-cheek</div><div class="idiom-def">said or done jokingly, not entirely seriously</div><div class="idiom-ex">"The descriptions are wonderfully tongue-in-cheek."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to take the cake / take the biscuit</div><div class="idiom-def">to be the most extreme example of something</div><div class="idiom-ex">"The hair museum really takes the cake."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to leave (someone) speechless</div><div class="idiom-def">to be so amazing or strange you can't react</div><div class="idiom-ex">"That tapeworm left me absolutely speechless."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to blow your mind</div><div class="idiom-def">to amaze or shock you completely</div><div class="idiom-ex">"This place will blow your mind."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be (right) up your street / alley</div><div class="idiom-def">to match your interests perfectly</div><div class="idiom-ex">"A failure museum? That's right up my street."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be your cup of tea</div><div class="idiom-def">to be the kind of thing you enjoy (often used in negative)</div><div class="idiom-ex">"It's not really my cup of tea, but I'd try it."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to scratch your head</div><div class="idiom-def">to feel confused</div><div class="idiom-ex">"Half the exhibits had me scratching my head."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a tourist trap</div><div class="idiom-def">a place that exists mainly to take tourists' money</div><div class="idiom-ex">"Skip the famous one — it's a complete tourist trap."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be packed to the rafters</div><div class="idiom-def">to be extremely crowded</div><div class="idiom-ex">"On Saturdays it's packed to the rafters."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a labour of love</div><div class="idiom-def">a project done out of passion, not for money</div><div class="idiom-ex">"This museum is clearly a labour of love."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to think outside the box</div><div class="idiom-def">to think creatively</div><div class="idiom-ex">"You really have to think outside the box to open a museum like this."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to break the mould</div><div class="idiom-def">to do something completely differently from before</div><div class="idiom-ex">"This museum breaks the mould of what a museum should be."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a hit and miss</div><div class="idiom-def">good in some parts, bad in others</div><div class="idiom-ex">"Honestly, the exhibits were hit and miss."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be worth every penny</div><div class="idiom-def">to be totally worth the money spent</div><div class="idiom-ex">"The 12€ ticket was worth every penny."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to walk away with (something)</div><div class="idiom-def">to leave with something (often a story, a feeling)</div><div class="idiom-ex">"You walk away with a story you'll tell for years."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be a feast for the eyes</div><div class="idiom-def">to be visually beautiful or impressive</div><div class="idiom-ex">"The colours were a real feast for the eyes."</div></div>
+  </section>
+
+  <!-- ============== MATCHING ============== -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🔗</span>Match the expression with its meaning</h2>
+    <p class="instr">Click an expression on the left, then its meaning on the right.</p>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <h3>Expression</h3>
+        <div class="match-item" data-word="1">a hidden gem</div>
+        <div class="match-item" data-word="2">a curator</div>
+        <div class="match-item" data-word="3">tongue-in-cheek</div>
+        <div class="match-item" data-word="4">off the beaten track</div>
+        <div class="match-item" data-word="5">to be dedicated to</div>
+        <div class="match-item" data-word="6">a tourist trap</div>
+        <div class="match-item" data-word="7">a labour of love</div>
+        <div class="match-item" data-word="8">quirky</div>
+        <div class="match-item" data-word="9">to be a must-see</div>
+        <div class="match-item" data-word="10">to blow your mind</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="1">a wonderful place few people know about</div>
+        <div class="match-item" data-def="3">said or done jokingly, not entirely seriously</div>
+        <div class="match-item" data-def="2">the person in charge of a museum's collection</div>
+        <div class="match-item" data-def="5">to be entirely about a particular subject</div>
+        <div class="match-item" data-def="4">in a place not commonly visited by tourists</div>
+        <div class="match-item" data-def="6">a place that exists mainly to take tourists' money</div>
+        <div class="match-item" data-def="9">to be something you absolutely shouldn't miss</div>
+        <div class="match-item" data-def="7">a project done out of passion, not for money</div>
+        <div class="match-item" data-def="8">unusual in an interesting, charming way</div>
+        <div class="match-item" data-def="10">to amaze or shock you completely</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <span class="score" id="score6">0 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============== FILL ============== -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the gaps</h2>
+    <p class="instr">Complete each sentence with an expression from the bank. Use the correct form.</p>
+
+    <div class="word-bank">
+      <strong>🏛 WORD BANK 🏛</strong>
+      dedicated · curator · on display · hidden gem · off the beaten track · packed · raises awareness · quirky · worth a visit · labour of love
+    </div>
+
+    <div class="fill-item"><p><span class="num">01</span>The whole museum is <input class="fill-input" data-answer="dedicated"> to the history of instant noodles.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>The <input class="fill-input" data-answer="curator"> personally selected every single item in the collection.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>An 8.8-metre tapeworm is <input class="fill-input wide" data-answer="on display"> on the second floor.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>It's a real <input class="fill-input wide" data-answer="hidden gem"> — only locals seem to know about it.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>The museum is well <input class="fill-input wide" data-answer="off the beaten track">, but absolutely worth the trip.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>The galleries were <input class="fill-input" data-answer="packed"> with families on a rainy Sunday afternoon.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>The Toilet Museum <input class="fill-input wide" data-answer="raises awareness"> of sanitation issues worldwide.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>It's a <input class="fill-input" data-answer="quirky"> little museum — full of charm and surprises.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>Honestly, the entrance fee is only 8€ — it's definitely <input class="fill-input wide" data-answer="worth a visit">.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>You can tell the whole place is a <input class="fill-input wide" data-answer="labour of love"> — every detail has been carefully thought through.</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check my answers</button>
+    <span class="score" id="score7">— / 10</span>
+  </section>
+
+  <!-- ============== MC ============== -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">🎯</span>Multiple choice</h2>
+    <p class="instr">Pick the option that sounds most natural at B2 level.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q1</span>"It was a real hidden gem." This means the place was…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) very expensive.</button>
+        <button class="mc-opt">b) wonderful and not widely known.</button>
+        <button class="mc-opt">c) literally hidden underground.</button>
+        <button class="mc-opt">d) closed to the public.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q2</span>"The Spam Museum is a must-see in Minnesota." This means it is…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the only museum in the area.</button>
+        <button class="mc-opt">b) closed temporarily.</button>
+        <button class="mc-opt">c) something you absolutely shouldn't miss.</button>
+        <button class="mc-opt">d) only for residents.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q3</span>A "curator" is the person who…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) chooses and organises a museum's collection.</button>
+        <button class="mc-opt">b) cleans the museum at night.</button>
+        <button class="mc-opt">c) sells tickets at the entrance.</button>
+        <button class="mc-opt">d) drives the tourists in buses.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q4</span>"The descriptions are wonderfully tongue-in-cheek." This means the descriptions are…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) deeply serious and academic.</button>
+        <button class="mc-opt">b) very short.</button>
+        <button class="mc-opt">c) rude.</button>
+        <button class="mc-opt">d) gently humorous and not entirely serious.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q5</span>"Avoid the famous one — it's a complete tourist trap." A tourist trap is a place that…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) traps tourists physically.</button>
+        <button class="mc-opt">b) exists mainly to take tourists' money.</button>
+        <button class="mc-opt">c) is for locals only.</button>
+        <button class="mc-opt">d) gives free tickets.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q6</span>"This museum is clearly a labour of love." This suggests it was…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) created in a hurry.</button>
+        <button class="mc-opt">b) built by hired professionals only.</button>
+        <button class="mc-opt">c) created with personal passion, not for money.</button>
+        <button class="mc-opt">d) about romantic relationships.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q7</span>"The exhibition is on display until June." This means it…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) is being shown to the public until June.</button>
+        <button class="mc-opt">b) was cancelled in June.</button>
+        <button class="mc-opt">c) opens in June.</button>
+        <button class="mc-opt">d) is only displayed in screens.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q8</span>"It's not really my cup of tea." This means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) I forgot my tea.</button>
+        <button class="mc-opt">b) I love tea museums.</button>
+        <button class="mc-opt">c) I prefer coffee.</button>
+        <button class="mc-opt">d) it's not really my kind of thing.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q9</span>"The museum is dedicated to space exploration." This means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) it works for free.</button>
+        <button class="mc-opt">b) its entire focus is on space exploration.</button>
+        <button class="mc-opt">c) it gives money to space programs.</button>
+        <button class="mc-opt">d) it's in space.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>"This museum breaks the mould." This means it…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) is broken and old.</button>
+        <button class="mc-opt">b) has problems with humidity.</button>
+        <button class="mc-opt">c) does things very differently from a typical museum.</button>
+        <button class="mc-opt">d) closes very early.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q11</span>"This place will absolutely blow your mind." This means it will…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) amaze you completely.</button>
+        <button class="mc-opt">b) hurt your head.</button>
+        <button class="mc-opt">c) be too windy.</button>
+        <button class="mc-opt">d) bore you to death.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q12</span>"That hair museum really takes the cake." This is a way of saying it's the…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the most boring of all.</button>
+        <button class="mc-opt">b) most extreme / unbelievable example.</button>
+        <button class="mc-opt">c) most expensive entrance fee.</button>
+        <button class="mc-opt">d) most photographed museum.</button>
+      </div>
+    </div>
+
+    <span class="score" id="score8">0 / 12</span>
+  </section>
+
+  <!-- ============== SPEAKING ============== -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking practice</h2>
+    <p class="instr">Speak <strong>1½–2 minutes</strong> per question. Use at least <strong>3 target expressions</strong> per answer. This is a fun topic — let your imagination run!</p>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 01 · YOUR FAVOURITE FROM THE LIST</div>
+      <div class="speak-prompt">Look at the Museum Cards. Which 3 would you genuinely visit if you got the chance? Why?</div>
+      <div class="speak-help"><strong>Try to use:</strong> dedicated to · quirky · hidden gem · worth a visit · my cup of tea · right up my street</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 02 · YOUR WORST MUSEUM EXPERIENCE</div>
+      <div class="speak-prompt">Tell us about a museum visit that went badly — boring, crowded, overpriced, confusing. What went wrong?</div>
+      <div class="speak-help"><strong>Try to use:</strong> tourist trap · packed · scratching my head · hit and miss · not my cup of tea · a complete waste of</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 03 · YOUR BEST MUSEUM EXPERIENCE</div>
+      <div class="speak-prompt">Now the opposite — describe the best museum or exhibition you've ever been to. Make us feel like we're there.</div>
+      <div class="speak-help"><strong>Try to use:</strong> moving · unforgettable · a labour of love · feast for the eyes · hidden gem · walked away with</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 04 · WEIRD = WORTH IT?</div>
+      <div class="speak-prompt">Are weird museums actually worth visiting, or are they just gimmicks? Should the Louvre always win? Defend your view.</div>
+      <div class="speak-help"><strong>Try to use:</strong> tongue-in-cheek · break the mould · raise awareness · think outside the box · genuinely interesting</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 05 · MUSEUMS IN YOUR COUNTRY</div>
+      <div class="speak-prompt">What's the best — or weirdest — museum in your country? Sell it to a foreign tourist.</div>
+      <div class="speak-help"><strong>Try to use:</strong> off the beaten track · a hidden gem · a must-see · home to · worth a detour · packed with</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 06 · INVENT YOUR OWN WEIRD MUSEUM</div>
+      <div class="speak-prompt">You've just received €5 million to open the world's strangest museum. What's it dedicated to? Where is it? What's inside?</div>
+      <div class="speak-help"><strong>Try to use:</strong> dedicated to · curator · on display · interactive · raise awareness · break the mould</div>
+
+      <div class="invent-box" style="margin-top:14px;">
+        <h4>📝 Use this structure:</h4>
+        <ul>
+          <li><strong>Name:</strong> The Museum of...</li>
+          <li><strong>Location:</strong> (which city / country / and why?)</li>
+          <li><strong>Main exhibits:</strong> 3 things visitors will see</li>
+          <li><strong>The mission:</strong> what awareness does it raise?</li>
+          <li><strong>Gift shop:</strong> what's the best souvenir to buy?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 07 · A MUSEUM ABOUT YOUR LIFE</div>
+      <div class="speak-prompt">If a museum were dedicated to <strong>YOU</strong>, what would the visitor see? Walk us through three rooms.</div>
+      <div class="speak-help"><strong>Try to use:</strong> on display · dedicated to · my proudest · my most embarrassing · a souvenir · a curator</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 08 · QUICK-FIRE · 30 SECONDS EACH</div>
+      <div class="speak-prompt">No planning — just talk!</div>
+      <div class="speak-help">
+        ▸ A museum you'd absolutely never want to visit.<br>
+        ▸ Your perfect museum: free or paid? big or tiny? guided or alone?<br>
+        ▸ Audio guides — useful or annoying?<br>
+        ▸ The best museum gift shop you've ever been to.<br>
+        ▸ Complete: "If I opened a museum, the very first exhibit would be…"
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== GRAMMAR ============== -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar: Relative Clauses &amp; Descriptive Adjectives</h2>
+    <p class="instr">Two grammar areas that are gold for describing places: <strong>relative clauses</strong> (the museum <em>which</em>… / the curator <em>who</em>…) and <strong>descriptive adjectives</strong> with the right collocations.</p>
+
+    <div class="grammar-box">
+      <h4>🏛 Part 1 — Relative clauses</h4>
+      <ul>
+        <li><strong>who</strong> = for people. <code>The curator who designed the exhibition is here.</code></li>
+        <li><strong>which / that</strong> = for things. <code>A museum which is dedicated to instant noodles.</code></li>
+        <li><strong>where</strong> = for places. <code>It's a city where they have a sewer museum.</code></li>
+        <li><strong>whose</strong> = possession. <code>The museum, whose collection is enormous, opens at 9.</code></li>
+        <li><strong>when</strong> = for times. <code>1958 was the year when instant noodles were invented.</code></li>
+        <li><strong>Defining clauses</strong> — no commas, give essential info. <code>The museum that I told you about was incredible.</code></li>
+        <li><strong>Non-defining clauses</strong> — with commas, give extra info. <code>The Louvre, which is in Paris, is the world's most-visited museum.</code></li>
+      </ul>
+      <div class="formula">Defining (no commas): The man who built the museum is Japanese.</div>
+      <div class="formula">Non-defining (with commas): Mr Ando, who built the museum, is now famous.</div>
+    </div>
+
+    <div class="grammar-box">
+      <h4>🏛 Part 2 — Adjectives + collocations for describing places</h4>
+      <ul>
+        <li><strong>Order of adjectives:</strong> opinion → size → age → shape → colour → origin → material → purpose. <code>A wonderful, small, old wooden Italian museum.</code></li>
+        <li><strong>Strong adjectives</strong> (no "very"): <code>amazing, fantastic, incredible, fascinating, unforgettable, breathtaking, hilarious</code></li>
+        <li><strong>Adverbs that go with strong adjectives:</strong> <code>absolutely / utterly / completely + amazing/incredible/unforgettable</code></li>
+        <li><strong>Common collocations:</strong> <code>a quirky little museum</code>, <code>a packed gallery</code>, <code>a moving exhibition</code>, <code>a vast collection</code>, <code>a stunning display</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A — relative clauses.</strong> Complete each sentence with <em>who</em>, <em>which</em>, <em>where</em>, <em>whose</em>, or <em>when</em>.</p>
+
+    <div class="fill-item"><p><span class="num">01</span>The Museum of Broken Relationships, <input class="fill-input" data-answer="which"> is in Zagreb, displays donated objects from real ex-couples.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>Momofuku Ando, <input class="fill-input" data-answer="who"> invented instant noodles, has his own museum in Yokohama.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>Reykjavík is the city <input class="fill-input" data-answer="where"> the famous Phallological Museum is located.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>The Spam Museum, <input class="fill-input" data-answer="whose"> entry is completely free, attracts thousands every year.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>1990 was the year <input class="fill-input" data-answer="when"> the Museum of Bad Art was first opened.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>The exhibition <input class="fill-input" data-answer="that"> I saw last weekend was packed with families. <em style="color:var(--deep); font-size:13px;">(write "that" or "which")</em></p></div>
+    <div class="fill-item"><p><span class="num">07</span>The curator <input class="fill-input" data-answer="who"> showed us round was incredibly knowledgeable. <em style="color:var(--deep); font-size:13px;">(write "who" or "that")</em></p></div>
+
+    <p class="instr"><strong>Part B — order of adjectives.</strong> Put the adjectives in the correct order.</p>
+
+    <div class="fill-item"><p><span class="num">08</span>(little / quirky / lovely) → A <input class="fill-input wide" data-answer="lovely quirky little"> museum just outside Vienna.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>(Korean / fascinating / new) → A <input class="fill-input wide" data-answer="fascinating new korean"> museum has just opened in Seoul. <em style="color:var(--deep); font-size:13px;">(adjectives only, lowercase)</em></p></div>
+    <div class="fill-item"><p><span class="num">10</span>(huge / stunning / glass) → The museum has a <input class="fill-input wide" data-answer="stunning huge glass"> entrance hall.</p></div>
+
+    <p class="instr"><strong>Part C — strong adjectives &amp; adverbs.</strong> Choose the most natural option.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q11</span>Which sounds most natural?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) The exhibition was very fantastic.</button>
+        <button class="mc-opt">b) The exhibition was absolutely fantastic.</button>
+        <button class="mc-opt">c) The exhibition was very fantastic absolutely.</button>
+        <button class="mc-opt">d) The exhibition was so very fantastic.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q12</span>Which sounds most natural at B2 level?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) It was a very, very interesting place.</button>
+        <button class="mc-opt">b) It was a place very interesting.</button>
+        <button class="mc-opt">c) It was a fascinating little place.</button>
+        <button class="mc-opt">d) It was so much interesting place.</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkGrammar()">✓ Check grammar</button>
+    <span class="score" id="score10">— / 12</span>
+  </section>
+
+  <footer>
+    🏛 ★ ★ &nbsp; WEIRD MUSEUMS · B2 ENGLISH WORKSHEET &nbsp; ★ ★ 🏛
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 6)
+  let selectedWord = null;
+  let matched6 = 0;
+  document.querySelectorAll('#t6 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t6 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched6++;
+          document.getElementById('score6').textContent = matched6 + ' / 10';
+          selectedWord = null;
+          if (matched6 === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 7)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t7 .fill-input');
+    const alternates = {
+      'on display': ['on display'],
+      'hidden gem': ['hidden gem','a hidden gem'],
+      'off the beaten track': ['off the beaten track','off the beaten path'],
+      'raises awareness': ['raises awareness'],
+      'worth a visit': ['worth a visit','worth visiting'],
+      'labour of love': ['labour of love','labor of love','a labour of love','a labor of love'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score7').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score7').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 8)
+  let mcScore = 0;
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score8').textContent = mcScore + ' / 12';
+        if (mcScore === 12) document.getElementById('score8').textContent = '★ 12 / 12 ★';
+      });
+    });
+  });
+
+  // GRAMMAR (tab 10)
+  let grammarMcScore = 0;
+  function checkGrammar() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t10 .fill-input');
+    const alternates = {
+      'which': ['which','that'],
+      'who': ['who','that'],
+      'where': ['where'],
+      'whose': ['whose'],
+      'when': ['when'],
+      'that': ['that','which'],
+      'lovely quirky little': ['lovely quirky little'],
+      'fascinating new korean': ['fascinating new korean'],
+      'stunning huge glass': ['stunning huge glass'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    correct += grammarMcScore;
+    document.getElementById('score10').textContent = correct + ' / 12';
+    if (correct === 12) document.getElementById('score10').textContent = '★ 12 / 12 ★';
+  }
+  // MC for grammar Part C (Q11, Q12)
+  document.querySelectorAll('#t10 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          grammarMcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
