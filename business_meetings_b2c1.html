@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Presentations & Meetings — B2/C1 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate: #2C3E50;
+    --deep: #1A2A3A;
+    --coral: #E76F51;
+    --amber: #F4B93C;
+    --teal: #2A9D8F;
+    --cream: #F8F5EE;
+    --sand: #ECE4D0;
+    --ink: #131822;
+    --cloud: #ffffff;
+    --soft: #E1E9EF;
+    --blush: #FFE4D8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(44,62,80,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(244,185,60,0.1) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "▰";
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 130px;
+    color: var(--soft);
+    z-index: 0;
+    letter-spacing: -10px;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--amber);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--coral); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--cream); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--slate);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .reading p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+    color: #2a3441;
+  }
+  .reading b, .reading strong {
+    background: linear-gradient(transparent 55%, rgba(244,185,60,0.55) 55%);
+    padding: 0 2px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .reading .dialogue {
+    background: var(--soft);
+    padding: 14px 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--slate);
+    margin: 16px 0;
+    font-style: italic;
+  }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* IDIOMS */
+  .idiom-card {
+    background: linear-gradient(135deg, var(--cloud) 0%, var(--soft) 100%);
+    border: 2px solid var(--ink);
+    border-left: 5px solid var(--teal);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .idiom-term {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--teal);
+    margin-bottom: 4px;
+  }
+  .idiom-def { font-size: 14px; margin-bottom: 8px; }
+  .idiom-ex {
+    font-style: italic;
+    font-size: 13.5px;
+    background: rgba(255,255,255,0.7);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--coral);
+  }
+
+  /* PHRASEBOOK (signposting language) */
+  .phrasebook {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .pb-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .pb-card h5 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--slate);
+    margin-bottom: 8px;
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 4px;
+  }
+  .pb-card ul { padding-left: 0; list-style: none; }
+  .pb-card li {
+    font-size: 13.5px;
+    margin-bottom: 4px;
+    padding-left: 14px;
+    position: relative;
+  }
+  .pb-card li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--coral);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14.5px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--slate); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: #a8d5a2; border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 200px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 280px; }
+  .fill-input:focus { outline: none; border-color: var(--slate); background: var(--cream); }
+  .fill-input.correct { background: #d1f0cc; border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--amber);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--slate); }
+  .mc-opt.correct { background: #d1f0cc; border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--coral);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--amber);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--teal);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--teal); }
+
+  /* ROLEPLAY */
+  .roleplay {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .roleplay-header {
+    display: inline-block;
+    background: var(--slate);
+    color: var(--cloud);
+    padding: 4px 12px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .roleplay h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .roleplay .scenario {
+    background: var(--blush);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    font-size: 14.5px;
+  }
+  .roles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .role {
+    border: 2px dashed var(--ink);
+    padding: 14px;
+    border-radius: 10px;
+    background: var(--cream);
+  }
+  .role h5 {
+    font-weight: 700;
+    color: var(--slate);
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  .role ul { padding-left: 18px; font-size: 13.5px; }
+  .role li { margin-bottom: 3px; }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--slate);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid, .roles { grid-template-columns: 1fr; }
+    .reading { padding: 22px; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">▰ MEETING ROOM · B2/C1 ENGLISH</div>
+      <h1>Business Presentations <span class="accent">& Meetings</span></h1>
+      <div class="sub">The language of modern business communication — Zoom calls, hybrid meetings, pitch decks, Q&amp;A, and the art of running a meeting people actually want to attend.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2/C1</span>
+        <span class="tag">Modern Business · Hybrid Work</span>
+        <span class="tag">Signposting Language</span>
+        <span class="tag">Speaking · Role-plays</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Reading</button>
+    <button class="tab" data-tab="t2">② Vocabulary</button>
+    <button class="tab" data-tab="t3">③ Idioms</button>
+    <button class="tab" data-tab="t4">④ Phrasebook</button>
+    <button class="tab" data-tab="t5">⑤ Matching</button>
+    <button class="tab" data-tab="t6">⑥ Fill the gaps</button>
+    <button class="tab" data-tab="t7">⑦ Multiple choice</button>
+    <button class="tab" data-tab="t8">⑧ Speaking 🎤</button>
+    <button class="tab" data-tab="t9">⑨ Role-plays 🎭</button>
+    <button class="tab" data-tab="t10">⑩ Grammar</button>
+  </nav>
+
+  <!-- ============== READING ============== -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">A consultant explains how meetings and presentations have completely changed in the post-pandemic world. Target language is in <b>yellow bold</b>.</p>
+
+    <article class="reading">
+      <h3>"The Meeting Has Changed — Have You?"</h3>
+      <div class="byline">★ Marcus Larsson · Workplace consultant &amp; corporate trainer</div>
+
+      <p>If someone had told me, ten years ago, that a typical Tuesday morning would consist of jumping between four video calls, half of which include a colleague <b>frozen mid-sentence</b> and another colleague forgetting they're <b>on mute</b>, I would have laughed. Yet here we are. Business meetings, as a genre, have changed beyond recognition — and so has the language we use to talk about them.</p>
+
+      <p>Today's working professional doesn't just <b>attend a meeting</b> — they <b>jump on a call</b>, <b>hop on Zoom</b>, <b>join a Teams</b>, or, in a particularly cursed phrase that's quietly entered the dictionary, <b>"hop on a quick sync."</b> The verb has become almost sportier. We don't sit down. We <b>jump in</b>. We <b>circle back</b>. We <b>park</b> ideas. Some days, frankly, it feels like an Olympic sport.</p>
+
+      <p class="dialogue">"Sorry — can everyone hear me? You're a bit choppy on my end." — Probably said in 84 million meetings yesterday alone.</p>
+
+      <p>The pandemic accelerated everything. <b>Hybrid meetings</b> — where some people are in the room and others are dialling in remotely — used to be unusual; now they're the norm. And anyone who's <b>chaired a hybrid meeting</b> knows the unique challenge: <b>keeping everyone engaged</b> when half the participants are technically present but mentally elsewhere, multitasking, or — let's be honest — <b>"on camera, off brain."</b></p>
+
+      <p>So what makes a good business meeting <em>actually</em> work? After fifteen years of consulting, I'd boil it down to three things: <b>a clear agenda</b>, <b>strong facilitation</b>, and <b>genuine outcomes</b>. The rest is noise.</p>
+
+      <p>The first — a clear agenda — sounds obvious, but it's the most ignored rule in the corporate world. Far too many meetings <b>kick off</b> with no clear purpose. People show up, glance at the calendar invite, and silently wonder why on earth they're there. A good meeting starts with one simple question: "What does success look like by the end of this hour?" If you can't answer that, the meeting probably shouldn't exist. As the saying goes, <b>"this could've been an email."</b></p>
+
+      <p>The second — facilitation — is an art. A great <b>facilitator</b> reads the room, <b>brings quiet voices in</b>, gently <b>steers the conversation back on track</b> when it drifts, and knows when to <b>park a topic for later</b>. They don't dominate. They orchestrate. Most managers, in my experience, <b>could use some training</b> here. Running a meeting is not the same as attending one.</p>
+
+      <p>The third — outcomes — is where most meetings collapse. People <b>throw ideas around</b> for an hour and then leave the room without anyone clearly owning <b>action items</b> or <b>next steps</b>. Without a clear list of <b>"who is doing what by when"</b>, even the most lively discussion is, quite frankly, a waste of everyone's time. <b>Wrap up</b> every meeting with a quick recap. It takes thirty seconds and saves hours of confusion later.</p>
+
+      <p>Presentations, of course, are a slightly different animal. The big shift here has been towards what I call <b>"data storytelling."</b> Senior leaders today don't want to be <b>buried in slides</b>. They want a clear narrative. They want to know: what's the problem, what's your proposed solution, what's the evidence, and what are you asking me to decide? That's it. If your <b>pitch deck</b> has 47 slides, you've already lost the room.</p>
+
+      <p>Modern audiences also have what I'd politely call <b>"Goldfish Attention."</b> If you don't <b>grab their attention</b> in the first 30 seconds, you've lost them. <b>Front-load your key message</b>. Tell them where you're going. Then <b>walk them through</b> the supporting points. End with <b>a clear call to action</b>. Simple, but rarely done well.</p>
+
+      <p>And then there's the dreaded Q&amp;A. This is where presentations really live or die. The best presenters I've coached are <b>masters of bridging</b> — they take a tough question and <b>steer it back</b> to one of their core messages. They're never defensive. They <b>welcome the challenge</b>, give a thoughtful response, and move on. If you don't know the answer to a question, <b>just say so</b>. There's no bigger trust-killer than <b>making things up</b> on the spot.</p>
+
+      <p>The truth is, business communication isn't getting easier. We've added Slack, video, async tools, AI note-takers and more. But the fundamentals haven't changed. <b>Be clear. Be brief. Be human.</b> If you can do those three things — in person, online or hybrid — you'll <b>stand out from the crowd</b>. Because, frankly, most of your competition can't.</p>
+
+      <p>Oh, and one more thing. Please. <b>For the love of God</b> — check that you're <b>off mute</b> before you start talking.</p>
+    </article>
+  </section>
+
+  <!-- ============== VOCAB ============== -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">💬</span>Vocabulary &amp; collocations</h2>
+    <p class="instr">The precise language of modern business meetings and presentations. Includes hybrid/Zoom-era terms that are everywhere now.</p>
+
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">an agenda</div><div class="vocab-def">the list of topics to be discussed in a meeting</div><div class="vocab-ex">"Let's stick to the agenda — we've got a lot to cover."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to chair (a meeting)</div><div class="vocab-def">to lead and manage a meeting</div><div class="vocab-ex">"Sarah is chairing today's session."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a facilitator</div><div class="vocab-def">someone who helps a meeting run smoothly</div><div class="vocab-ex">"A good facilitator is worth their weight in gold."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to kick off (a meeting / a topic)</div><div class="vocab-def">to start it</div><div class="vocab-ex">"Let me kick off with a quick recap."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to wrap up</div><div class="vocab-def">to finish, conclude</div><div class="vocab-ex">"Let's wrap up with action items."</div></div>
+      <div class="vocab-card"><div class="vocab-term">action items / next steps</div><div class="vocab-def">specific tasks decided in the meeting</div><div class="vocab-ex">"I'll send the action items round after the call."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to take minutes</div><div class="vocab-def">to write down what is said and decided</div><div class="vocab-ex">"Tom will take minutes today."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a pitch deck</div><div class="vocab-def">presentation slides used to sell an idea or product</div><div class="vocab-ex">"Their pitch deck was tight and convincing."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a hybrid meeting</div><div class="vocab-def">meeting with some people in-person, others remote</div><div class="vocab-ex">"Hybrid meetings are now the default."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to dial in</div><div class="vocab-def">to join remotely (by phone or video)</div><div class="vocab-ex">"I'll be dialling in from Berlin."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be on mute / off mute</div><div class="vocab-def">to have/not have your microphone off</div><div class="vocab-ex">"You're on mute, John!"</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be choppy / to freeze</div><div class="vocab-def">poor video/audio connection / to stop moving</div><div class="vocab-ex">"You went choppy for a second there."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to share your screen</div><div class="vocab-def">to show your screen to other participants</div><div class="vocab-ex">"Let me share my screen."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a quick sync / a catch-up</div><div class="vocab-def">a short meeting to align or update</div><div class="vocab-ex">"Can we have a quick sync this afternoon?"</div></div>
+      <div class="vocab-card"><div class="vocab-term">to circle back</div><div class="vocab-def">to return to a topic later</div><div class="vocab-ex">"Let's circle back on this next week."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to park (a topic / idea)</div><div class="vocab-def">to set aside for later discussion</div><div class="vocab-ex">"Let's park that and move on."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to bring (someone) in</div><div class="vocab-def">to invite someone to speak / contribute</div><div class="vocab-ex">"I'd like to bring Anna in here."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to read the room</div><div class="vocab-def">to sense the mood of the audience</div><div class="vocab-ex">"You've got to read the room before pushing harder."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to grab someone's attention</div><div class="vocab-def">to capture interest immediately</div><div class="vocab-ex">"You've got 30 seconds to grab their attention."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to walk (someone) through</div><div class="vocab-def">to explain step by step</div><div class="vocab-ex">"Let me walk you through the slide."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a call to action (CTA)</div><div class="vocab-def">a clear ask at the end of a presentation</div><div class="vocab-ex">"Don't forget a strong call to action."</div></div>
+      <div class="vocab-card"><div class="vocab-term">key takeaways</div><div class="vocab-def">main points the audience should remember</div><div class="vocab-ex">"What are the three key takeaways here?"</div></div>
+      <div class="vocab-card"><div class="vocab-term">to field a question</div><div class="vocab-def">to handle / answer a question, often a difficult one</div><div class="vocab-ex">"She fielded every question with confidence."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a Q&amp;A (session)</div><div class="vocab-def">questions and answers part of a presentation</div><div class="vocab-ex">"We'll save five minutes for Q&amp;A."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a follow-up email</div><div class="vocab-def">an email sent after a meeting to confirm decisions</div><div class="vocab-ex">"Expect a follow-up email by Friday."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a recap / to recap</div><div class="vocab-def">a quick summary / to summarise</div><div class="vocab-ex">"Quick recap before we end."</div></div>
+      <div class="vocab-card"><div class="vocab-term">stakeholders</div><div class="vocab-def">all people affected by or interested in the project</div><div class="vocab-ex">"Let's loop in all stakeholders."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an icebreaker</div><div class="vocab-def">an activity to warm up a group at the start</div><div class="vocab-ex">"Let's start with a quick icebreaker."</div></div>
+    </div>
+  </section>
+
+  <!-- ============== IDIOMS ============== -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions for meetings</h2>
+    <p class="instr">B2/C1 idioms that come up in meetings and presentations every single day.</p>
+
+    <div class="idiom-card"><div class="idiom-term">this could've been an email</div><div class="idiom-def">(half-joke, half-complaint) the meeting was unnecessary</div><div class="idiom-ex">"Honestly, that could've been an email."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to throw ideas around</div><div class="idiom-def">to brainstorm informally</div><div class="idiom-ex">"Let's just throw some ideas around for ten minutes."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be on the same page</div><div class="idiom-def">to share the same understanding</div><div class="idiom-ex">"Are we all on the same page about the deadline?"</div></div>
+    <div class="idiom-card"><div class="idiom-term">to lose your train of thought</div><div class="idiom-def">to forget what you were about to say</div><div class="idiom-ex">"Sorry, I lost my train of thought there."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to drop the ball</div><div class="idiom-def">to fail to do something you were meant to do</div><div class="idiom-ex">"We dropped the ball on the client follow-up."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to go off on a tangent</div><div class="idiom-def">to suddenly start talking about something irrelevant</div><div class="idiom-ex">"Sorry, I'm going off on a tangent — back to the point."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to bring it back / to get back on track</div><div class="idiom-def">to return to the main topic</div><div class="idiom-ex">"Let me bring us back to the agenda."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to win the room</div><div class="idiom-def">to convince and engage the whole audience</div><div class="idiom-ex">"She really won the room with that opening."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to lose the room</div><div class="idiom-def">to lose the audience's attention or support</div><div class="idiom-ex">"He lost the room around slide 12."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to think on your feet</div><div class="idiom-def">to respond quickly and cleverly</div><div class="idiom-ex">"You really have to think on your feet during Q&amp;A."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a no-brainer</div><div class="idiom-def">an obvious, easy decision</div><div class="idiom-ex">"Approving this budget is a no-brainer."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to put it on the back burner</div><div class="idiom-def">to delay something for later</div><div class="idiom-ex">"Let's put that proposal on the back burner."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to get the ball rolling</div><div class="idiom-def">to start a process or discussion</div><div class="idiom-ex">"To get the ball rolling, here's our key data."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to nail a presentation</div><div class="idiom-def">to deliver it perfectly</div><div class="idiom-ex">"You absolutely nailed that presentation!"</div></div>
+    <div class="idiom-card"><div class="idiom-term">to bomb / fall flat</div><div class="idiom-def">to fail completely / not be well received</div><div class="idiom-ex">"That joke really fell flat."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to stand out from the crowd</div><div class="idiom-def">to be noticeably better or different</div><div class="idiom-ex">"Be clear, be brief, be human — and you'll stand out from the crowd."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to sugar-coat (something)</div><div class="idiom-def">to make bad news sound less harsh</div><div class="idiom-ex">"I won't sugar-coat it — the numbers aren't great."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to cut to the chase</div><div class="idiom-def">to get to the main point quickly</div><div class="idiom-ex">"Let me cut to the chase — we need more budget."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to take it offline</div><div class="idiom-def">to discuss something later, privately, outside the meeting</div><div class="idiom-ex">"Good question — let's take it offline."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a deep dive</div><div class="idiom-def">a detailed exploration of a topic</div><div class="idiom-ex">"Next week we'll do a deep dive on the numbers."</div></div>
+    <div class="idiom-card"><div class="idiom-term">low-hanging fruit</div><div class="idiom-def">easy, obvious wins</div><div class="idiom-ex">"Let's start with the low-hanging fruit."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to move the needle</div><div class="idiom-def">to make a real, measurable difference</div><div class="idiom-ex">"This change will really move the needle."</div></div>
+  </section>
+
+  <!-- ============== PHRASEBOOK ============== -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">📚</span>Signposting phrasebook</h2>
+    <p class="instr">These are the exact phrases native English speakers use to <em>structure</em> a meeting or presentation. Memorise a few from each category — they instantly make you sound more professional.</p>
+
+    <div class="phrasebook">
+      <div class="pb-card">
+        <h5>Opening a meeting</h5>
+        <ul>
+          <li>Right, let's get started.</li>
+          <li>Thanks everyone for joining.</li>
+          <li>Can everyone hear me OK?</li>
+          <li>Let's kick off with the agenda.</li>
+          <li>Today I'd like to walk you through…</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Setting the agenda</h5>
+        <ul>
+          <li>We've got three things to cover today.</li>
+          <li>The plan for today is as follows…</li>
+          <li>By the end of this call, I'd like us to have decided on…</li>
+          <li>Let's aim to wrap up by half past.</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Inviting input</h5>
+        <ul>
+          <li>What are your thoughts on this?</li>
+          <li>I'd love to hear from Anna on this one.</li>
+          <li>Does anyone want to jump in?</li>
+          <li>Let's bring James in here.</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Interrupting politely</h5>
+        <ul>
+          <li>Sorry to jump in here, but…</li>
+          <li>Can I add something quickly?</li>
+          <li>If I could just jump in for a moment…</li>
+          <li>I'd like to build on what Tom just said.</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Disagreeing diplomatically</h5>
+        <ul>
+          <li>I see your point, but…</li>
+          <li>I'm not sure I fully agree.</li>
+          <li>That's an interesting angle, however…</li>
+          <li>Let me play devil's advocate for a second.</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Steering the conversation</h5>
+        <ul>
+          <li>Let's bring it back to the main point.</li>
+          <li>I think we're going off on a tangent.</li>
+          <li>Let's park that for now.</li>
+          <li>Can we take that one offline?</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Presenting data / slides</h5>
+        <ul>
+          <li>If you look at this slide, you'll see…</li>
+          <li>The data clearly shows that…</li>
+          <li>Let me draw your attention to this number.</li>
+          <li>What this tells us is…</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Handling tough questions</h5>
+        <ul>
+          <li>That's a great question, thanks for raising it.</li>
+          <li>Honestly? I don't have that data to hand, but I'll get back to you.</li>
+          <li>Let me come back to that in a moment.</li>
+          <li>That's something we're actively looking into.</li>
+        </ul>
+      </div>
+
+      <div class="pb-card">
+        <h5>Closing &amp; recap</h5>
+        <ul>
+          <li>So, to wrap up…</li>
+          <li>Let me quickly recap our action items.</li>
+          <li>I'll send a follow-up email by EOD.</li>
+          <li>Thanks everyone — really productive call.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== MATCHING ============== -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🔗</span>Match the expression with its meaning</h2>
+    <p class="instr">Click a phrase on the left, then its meaning on the right.</p>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <h3>Expression</h3>
+        <div class="match-item" data-word="1">to chair a meeting</div>
+        <div class="match-item" data-word="2">action items</div>
+        <div class="match-item" data-word="3">to circle back</div>
+        <div class="match-item" data-word="4">to dial in</div>
+        <div class="match-item" data-word="5">a no-brainer</div>
+        <div class="match-item" data-word="6">to take it offline</div>
+        <div class="match-item" data-word="7">low-hanging fruit</div>
+        <div class="match-item" data-word="8">to lose the room</div>
+        <div class="match-item" data-word="9">to read the room</div>
+        <div class="match-item" data-word="10">a recap</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="3">to return to a topic at a later time</div>
+        <div class="match-item" data-def="1">to lead and manage a meeting</div>
+        <div class="match-item" data-def="9">to sense the mood / energy of the audience</div>
+        <div class="match-item" data-def="5">an obvious, easy decision</div>
+        <div class="match-item" data-def="6">to discuss something later, privately, outside the meeting</div>
+        <div class="match-item" data-def="2">specific tasks decided during the meeting</div>
+        <div class="match-item" data-def="7">easy, obvious wins to start with</div>
+        <div class="match-item" data-def="4">to join a meeting remotely (phone or video)</div>
+        <div class="match-item" data-def="10">a quick summary at the end</div>
+        <div class="match-item" data-def="8">to lose the audience's attention or support</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <span class="score" id="score5">0 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============== FILL ============== -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the gaps</h2>
+    <p class="instr">Complete each sentence with an expression from the bank. Use the correct form.</p>
+
+    <div class="word-bank">
+      <strong>▰ WORD BANK ▰</strong>
+      kick off · agenda · on mute · share my screen · circle back · wrap up · pitch deck · cut to the chase · key takeaways · went off on a tangent
+    </div>
+
+    <div class="fill-item"><p><span class="num">01</span>Right everyone, let's <input class="fill-input" data-answer="kick off"> — we've got a packed hour ahead.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>Sarah, you're <input class="fill-input wide" data-answer="on mute"> — we can't hear you!</p></div>
+    <div class="fill-item"><p><span class="num">03</span>Let me <input class="fill-input wide" data-answer="share my screen"> so you can see the chart.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>Today's <input class="fill-input" data-answer="agenda"> has three main items: budget, hiring, and Q4 strategy.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>That's a great point — let's <input class="fill-input wide" data-answer="circle back"> on it next week.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>Their <input class="fill-input wide" data-answer="pitch deck"> was clean, sharp and only 12 slides — perfect.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>Sorry, I <input class="fill-input wide" data-answer="went off on a tangent"> there. Back to the main point.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>Let me <input class="fill-input wide" data-answer="cut to the chase">: we need to hire two more engineers this quarter.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>Let's <input class="fill-input wide" data-answer="wrap up"> with a quick summary of action items.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>Before we end, what are the three <input class="fill-input wide" data-answer="key takeaways"> from today's session?</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check my answers</button>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- ============== MC ============== -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">🎯</span>Choose the best answer</h2>
+    <p class="instr">Pick the option that sounds most natural at B2/C1 level.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q1</span>"Sorry, can we take that one offline?" In a meeting context, this means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) we should turn off the internet.</button>
+        <button class="mc-opt">b) let's discuss it later, privately, outside the meeting.</button>
+        <button class="mc-opt">c) we should switch to a phone call.</button>
+        <button class="mc-opt">d) the meeting is over.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q2</span>Which is the most natural way to politely interrupt someone in a meeting?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "STOP! Listen to me!"</button>
+        <button class="mc-opt">b) "I'm now speaking, please."</button>
+        <button class="mc-opt">c) "Sorry to jump in here, but I just wanted to add…"</button>
+        <button class="mc-opt">d) "You finish, after that I talk."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q3</span>"That joke really fell flat." This means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the joke didn't get the reaction the speaker wanted.</button>
+        <button class="mc-opt">b) the joke was very funny.</button>
+        <button class="mc-opt">c) the joke was about food.</button>
+        <button class="mc-opt">d) someone laughed loudly.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q4</span>"You really nailed that presentation!" The speaker is saying you…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) used too many slides.</button>
+        <button class="mc-opt">b) made the audience uncomfortable.</button>
+        <button class="mc-opt">c) finished too quickly.</button>
+        <button class="mc-opt">d) delivered it brilliantly.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q5</span>Your colleague says, "Honestly, this could've been an email." They are suggesting that…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the meeting was very productive.</button>
+        <button class="mc-opt">b) the meeting was unnecessary and time-wasting.</button>
+        <button class="mc-opt">c) emails are bad communication.</button>
+        <button class="mc-opt">d) they prefer meetings.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q6</span>"Let's start with the low-hanging fruit." This means we should start with…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the most difficult tasks.</button>
+        <button class="mc-opt">b) snacks during the meeting.</button>
+        <button class="mc-opt">c) the easy, obvious wins.</button>
+        <button class="mc-opt">d) the budget review.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q7</span>What does a great facilitator do?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) brings quiet voices in and steers the conversation when it drifts.</button>
+        <button class="mc-opt">b) does all the talking themselves.</button>
+        <button class="mc-opt">c) ignores the agenda completely.</button>
+        <button class="mc-opt">d) calls everyone after the meeting.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q8</span>If a presenter has to "think on their feet," they need to…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) stand up the whole time.</button>
+        <button class="mc-opt">b) walk around the room.</button>
+        <button class="mc-opt">c) rehearse their answers.</button>
+        <button class="mc-opt">d) respond to unexpected questions quickly and cleverly.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q9</span>"I won't sugar-coat it — the numbers aren't great." The speaker is…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) talking about a sweet recipe.</button>
+        <button class="mc-opt">b) being honest and direct, not softening the bad news.</button>
+        <button class="mc-opt">c) very nervous.</button>
+        <button class="mc-opt">d) being polite and gentle.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>Which is the <strong>most natural</strong> way to handle a question you can't answer?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "How would I know that?"</button>
+        <button class="mc-opt">b) "Ask someone else, please."</button>
+        <button class="mc-opt">c) "Honestly, I don't have that data to hand, but I'll get back to you."</button>
+        <button class="mc-opt">d) Make up an answer that sounds confident.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q11</span>"She really won the room." This means she…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) bought the office.</button>
+        <button class="mc-opt">b) convinced and engaged the whole audience.</button>
+        <button class="mc-opt">c) closed the meeting early.</button>
+        <button class="mc-opt">d) cleaned the meeting room.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q12</span>"Let's park that idea." This means we should…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) set it aside for later, not discuss it now.</button>
+        <button class="mc-opt">b) reject the idea completely.</button>
+        <button class="mc-opt">c) implement it immediately.</button>
+        <button class="mc-opt">d) write it on a sticker.</button>
+      </div>
+    </div>
+
+    <span class="score" id="score7">0 / 12</span>
+  </section>
+
+  <!-- ============== SPEAKING ============== -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking practice</h2>
+    <p class="instr">Speak for <strong>1½–2 minutes</strong> per question, using at least <strong>4 target expressions</strong> from this lesson. Practice with a partner.</p>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 01 · YOUR EXPERIENCE</div>
+      <div class="speak-prompt">How have meetings changed for you personally over the last few years? In-person, hybrid, fully remote — what works best for you?</div>
+      <div class="speak-help"><strong>Try to use:</strong> hybrid meeting · to dial in · to be on mute · to share your screen · a quick sync · choppy · this could've been an email</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 02 · A GREAT MEETING</div>
+      <div class="speak-prompt">Describe the best meeting or presentation you've ever attended. What made it work so well?</div>
+      <div class="speak-help"><strong>Try to use:</strong> a clear agenda · facilitator · to read the room · to nail it · to win the room · key takeaways · to wrap up</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 03 · A TERRIBLE MEETING</div>
+      <div class="speak-prompt">Now describe the worst meeting you've ever sat through. What went wrong?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to go off on a tangent · to lose the room · to fall flat · to drop the ball · this could've been an email · buried in slides</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 04 · YOUR PRESENTATION STYLE</div>
+      <div class="speak-prompt">When you have to present, what's your strategy? How do you grab people's attention and keep them with you?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to grab attention · to walk through · key takeaways · a call to action · to front-load · pitch deck · to read the room</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 05 · HANDLING Q&amp;A</div>
+      <div class="speak-prompt">What do you do when you get a really tough question during Q&amp;A — especially one you don't know the answer to?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to field a question · to think on your feet · to take it offline · to circle back · just say so · honestly · to bridge</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 06 · MEETING CULTURE</div>
+      <div class="speak-prompt">Some companies have "no meeting Wednesdays" or strict 30-minute meeting limits. Do you think rules like this help? Why or why not?</div>
+      <div class="speak-help"><strong>Try to use:</strong> a no-brainer · to move the needle · low-hanging fruit · this could've been an email · stakeholders · to wrap up · agenda</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 07 · HYBRID CHALLENGES</div>
+      <div class="speak-prompt">What's the biggest challenge of hybrid meetings — when some people are in the room and others are remote? How can we fix it?</div>
+      <div class="speak-help"><strong>Try to use:</strong> hybrid meeting · to dial in · to bring someone in · to read the room · choppy · on camera, off brain · facilitator</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 08 · QUICK-FIRE · 30 SECONDS EACH</div>
+      <div class="speak-prompt">No planning — just talk!</div>
+      <div class="speak-help">
+        ▸ The single worst meeting habit you've ever seen.<br>
+        ▸ Your favourite meeting opening line.<br>
+        ▸ One Zoom moment that made you cringe.<br>
+        ▸ The ideal length of a business meeting.<br>
+        ▸ Complete: "If I were the CEO for a day, the first meeting rule I'd introduce is…"
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ROLEPLAYS ============== -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">🎭</span>Role-plays</h2>
+    <p class="instr">Practise in pairs. Use signposting language and target expressions. Stay in role for 4–5 minutes, then swap!</p>
+
+    <div class="roleplay">
+      <div class="roleplay-header">◆ ROLE-PLAY 01 · THE WEEKLY SYNC</div>
+      <h4>Running a weekly team meeting</h4>
+      <div class="scenario">🎬 You're chairing a weekly team meeting on Zoom. There are 5 agenda items but only 30 minutes. One colleague keeps going off on tangents. Another keeps quiet. Run a productive, on-time meeting.</div>
+      <div class="roles">
+        <div class="role">
+          <h5>🅰 Meeting chair</h5>
+          <ul>
+            <li>Open with a clear agenda</li>
+            <li>Bring quiet voices in</li>
+            <li>Politely steer back when someone drifts</li>
+            <li>Park topics that aren't urgent</li>
+            <li>Wrap up with action items</li>
+          </ul>
+        </div>
+        <div class="role">
+          <h5>🅱 Team members</h5>
+          <ul>
+            <li>One of you tends to dominate / go on tangents</li>
+            <li>One of you is quiet but has good ideas</li>
+            <li>One of you is multitasking and not really listening</li>
+            <li>Engage realistically — don't be perfect!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="roleplay">
+      <div class="roleplay-header">◆ ROLE-PLAY 02 · THE PITCH</div>
+      <h4>Presenting a new idea to senior leadership</h4>
+      <div class="scenario">🎬 You're pitching a new product idea to a panel of executives. You have 5 minutes to present, then 5 minutes of Q&amp;A. The execs are tired, sceptical, and have very little time.</div>
+      <div class="roles">
+        <div class="role">
+          <h5>🅰 The presenter</h5>
+          <ul>
+            <li>Grab their attention in 30 seconds</li>
+            <li>Walk through the problem and solution</li>
+            <li>Give clear data and next steps</li>
+            <li>End with a strong call to action</li>
+            <li>Field tough questions calmly</li>
+          </ul>
+        </div>
+        <div class="role">
+          <h5>🅱 The executives</h5>
+          <ul>
+            <li>You're tired and a bit sceptical</li>
+            <li>Push back on costs, timeline, risk</li>
+            <li>Ask one tough "what if it fails?" question</li>
+            <li>Be polite but demanding</li>
+            <li>One of you is genuinely interested</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="roleplay">
+      <div class="roleplay-header">◆ ROLE-PLAY 03 · THE DIFFICULT MEETING</div>
+      <h4>Delivering bad news to your team</h4>
+      <div class="scenario">🎬 You have to tell your team that the project they've been working on for six months has been cancelled. Run a calm, honest, respectful meeting. Don't sugar-coat it, but don't crush morale either.</div>
+      <div class="roles">
+        <div class="role">
+          <h5>🅰 The manager</h5>
+          <ul>
+            <li>Open with honesty, not corporate speak</li>
+            <li>Explain the reasons clearly</li>
+            <li>Acknowledge their hard work</li>
+            <li>Make space for questions and emotions</li>
+            <li>Lay out what comes next</li>
+          </ul>
+        </div>
+        <div class="role">
+          <h5>🅱 The team</h5>
+          <ul>
+            <li>You're shocked, hurt, or angry</li>
+            <li>Ask difficult questions: "Why us?" "What happens to me now?"</li>
+            <li>Don't accept vague answers</li>
+            <li>One of you is more emotional, one is more practical</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="roleplay">
+      <div class="roleplay-header">◆ ROLE-PLAY 04 · HANDLING A TOUGH Q&amp;A</div>
+      <h4>The investor demo gone sideways</h4>
+      <div class="scenario">🎬 You've just finished pitching to a potential investor. The Q&amp;A starts well, but then they ask three difficult questions in a row — about your competitor, your team's experience, and your unrealistic forecasts.</div>
+      <div class="roles">
+        <div class="role">
+          <h5>🅰 The founder</h5>
+          <ul>
+            <li>Stay calm and welcoming</li>
+            <li>Acknowledge each concern fairly</li>
+            <li>Bridge back to your strengths</li>
+            <li>Don't make things up</li>
+            <li>Offer to follow up where needed</li>
+          </ul>
+        </div>
+        <div class="role">
+          <h5>🅱 The investor</h5>
+          <ul>
+            <li>You're sharp and challenging, not unfriendly</li>
+            <li>Q1: "Your competitor just raised $50M. Why should I back you?"</li>
+            <li>Q2: "Your team has no industry experience."</li>
+            <li>Q3: "These numbers seem wildly optimistic."</li>
+            <li>Watch how they handle it — that's what matters</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="roleplay">
+      <div class="roleplay-header">◆ ROLE-PLAY 05 · QUICK-FIRE · 2 MIN EACH</div>
+      <h4>Mini scenarios</h4>
+      <div class="scenario">🎬 Pick any three. Run each one for about 2 minutes.</div>
+      <div class="roles" style="grid-template-columns: 1fr;">
+        <div class="role">
+          <h5>⚡ Scenarios</h5>
+          <ul>
+            <li>Your CEO joins your team meeting unexpectedly. Welcome them and give a 60-second update.</li>
+            <li>You disagree strongly with your manager's idea — diplomatically push back.</li>
+            <li>A client interrupts your presentation 3 minutes in to "cut to the chase." Adapt.</li>
+            <li>You're the only remote person in a hybrid meeting. People in the room are forgetting you exist. Speak up.</li>
+            <li>The wifi just cut out for the first 90 seconds of your big presentation. Recover gracefully.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== GRAMMAR: REPORTED SPEECH + LINKING WORDS ============== -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar: Reported Speech &amp; Linking Words</h2>
+    <p class="instr">Two grammar areas you genuinely need every day in business communication: <strong>reporting what was said in meetings</strong> and <strong>connecting your ideas clearly</strong> when presenting.</p>
+
+    <div class="grammar-box">
+      <h4>▰ Part 1 — Reported speech: the basics</h4>
+      <ul>
+        <li>Present simple → Past simple: <em>"We're behind schedule"</em> → He <strong>said they were behind schedule.</strong></li>
+        <li>Present continuous → Past continuous: <em>"We're testing the new tool"</em> → She <strong>said they were testing the new tool.</strong></li>
+        <li>Past simple → Past perfect: <em>"We launched it on Monday"</em> → He <strong>said they had launched it on Monday.</strong></li>
+        <li>will → would: <em>"I'll send the deck"</em> → She <strong>said she would send the deck.</strong></li>
+        <li>Questions: remove <em>do/does/did</em>, statement word order. <em>"What did you decide?"</em> → He <strong>asked what we had decided.</strong></li>
+        <li>Commands: <em>told / asked</em> + object + <em>to</em> + infinitive. <em>"Send the recap by Friday"</em> → She <strong>told me to send the recap by Friday.</strong></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>▰ Part 2 — Linking words for presentations</h4>
+      <ul>
+        <li><strong>Adding:</strong> moreover, furthermore, in addition, on top of that</li>
+        <li><strong>Contrasting:</strong> however, on the other hand, although, despite, whereas</li>
+        <li><strong>Cause / result:</strong> therefore, as a result, consequently, due to, because of</li>
+        <li><strong>Examples:</strong> for instance, such as, namely, in particular</li>
+        <li><strong>Conclusion:</strong> in summary, to sum up, all in all, to wrap up</li>
+      </ul>
+      <div class="formula">Use these to structure ideas. They make presentations sound polished and professional.</div>
+    </div>
+
+    <p class="instr"><strong>Part A — Reported speech.</strong> Rewrite each line as reported speech.</p>
+
+    <div class="fill-item"><p><span class="num">01</span>"We're running behind schedule," she said.<br>→ She said they <input class="fill-input wide" data-answer="were running"> behind schedule.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>"I'll share my screen now," Tom said.<br>→ Tom said he <input class="fill-input wide" data-answer="would share"> his screen.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>The CEO told us, "Send the proposal by Friday."<br>→ The CEO told us <input class="fill-input wide" data-answer="to send"> the proposal by Friday.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>"We launched the new feature last week," he said.<br>→ He said they <input class="fill-input wide" data-answer="had launched"> the new feature the week before.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>"What did you decide in yesterday's meeting?" she asked.<br>→ She asked what we <input class="fill-input wide" data-answer="had decided"> in the previous meeting.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>"Are you on mute?" Tom asked.<br>→ Tom asked if I <input class="fill-input wide" data-answer="was"> on mute.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>"Don't go off on a tangent," the chair said.<br>→ The chair told us <input class="fill-input wide" data-answer="not to go"> off on a tangent. <em style="color:var(--deep); font-size:13px;">(3 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">08</span>"The numbers are looking great this quarter," Anna said.<br>→ Anna said the numbers <input class="fill-input wide" data-answer="were looking"> great that quarter.</p></div>
+
+    <p class="instr"><strong>Part B — Linking words.</strong> Choose the best linker to complete each sentence.</p>
+
+    <div class="fill-item"><p><span class="num">09</span>Sales are up 12% this quarter. <input class="fill-input wide" data-answer="however"> (However / Therefore / In addition), customer satisfaction has dropped slightly.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>Our team is small. <input class="fill-input wide" data-answer="however"> (However / Furthermore / For instance), we punch well above our weight.</p></div>
+    <div class="fill-item"><p><span class="num">11</span>The product is faster, cheaper and more reliable. <input class="fill-input wide" data-answer="moreover"> (Moreover / On the other hand / Although), it's now compliant with EU regulations.</p></div>
+    <div class="fill-item"><p><span class="num">12</span>Many tech leaders use it — <input class="fill-input wide" data-answer="for instance"> (for instance / however / therefore), Spotify and Klarna both adopted it last year.</p></div>
+    <div class="fill-item"><p><span class="num">13</span>The pilot was a clear success. <input class="fill-input wide" data-answer="as a result"> (As a result / Although / Despite), we'll be rolling it out across Europe next quarter. <em style="color:var(--deep); font-size:13px;">(3 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">14</span><input class="fill-input wide" data-answer="to sum up"> (To sum up / Furthermore / However), our three priorities for next quarter are growth, retention and team wellbeing. <em style="color:var(--deep); font-size:13px;">(3 words)</em></p></div>
+
+    <button class="check-btn" onclick="checkGrammar()">✓ Check grammar</button>
+    <span class="score" id="score10">— / 14</span>
+  </section>
+
+  <footer>
+    ▰ ▰ ▰ &nbsp; BUSINESS PRESENTATIONS &amp; MEETINGS · B2/C1 ENGLISH WORKSHEET &nbsp; ▰ ▰ ▰
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 5)
+  let selectedWord = null;
+  let matched5 = 0;
+  document.querySelectorAll('#t5 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t5 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched5++;
+          document.getElementById('score5').textContent = matched5 + ' / 10';
+          selectedWord = null;
+          if (matched5 === 10) document.getElementById('score5').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 6)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t6 .fill-input');
+    const alternates = {
+      'kick off': ['kick off','kick-off'],
+      'on mute': ['on mute'],
+      'share my screen': ['share my screen'],
+      'circle back': ['circle back'],
+      'pitch deck': ['pitch deck'],
+      'went off on a tangent': ['went off on a tangent'],
+      'cut to the chase': ['cut to the chase'],
+      'wrap up': ['wrap up'],
+      'key takeaways': ['key takeaways'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score6').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 7)
+  let mcScore = 0;
+  document.querySelectorAll('#t7 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score7').textContent = mcScore + ' / 12';
+        if (mcScore === 12) document.getElementById('score7').textContent = '★ 12 / 12 ★';
+      });
+    });
+  });
+
+  // GRAMMAR (tab 10)
+  function checkGrammar() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t10 .fill-input');
+    const alternates = {
+      'were running': ['were running'],
+      'would share': ['would share',"'d share"],
+      'to send': ['to send'],
+      'had launched': ['had launched',"'d launched"],
+      'had decided': ['had decided',"'d decided"],
+      'was': ['was','were'],
+      'not to go': ['not to go'],
+      'were looking': ['were looking'],
+      'however': ['however'],
+      'moreover': ['moreover','furthermore','in addition'],
+      'for instance': ['for instance','for example'],
+      'as a result': ['as a result','consequently','therefore'],
+      'to sum up': ['to sum up','in summary','all in all','to wrap up'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score10').textContent = correct + ' / 14';
+    if (correct === 14) document.getElementById('score10').textContent = '★ 14 / 14 ★';
+  }
+</script>
+</body>
+</html>
