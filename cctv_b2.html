@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Nation Under CCTV — B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --steel: #475569;
+    --deep: #1E293B;
+    --red: #DC2626;
+    --amber: #F59E0B;
+    --cyan: #06B6D4;
+    --cream: #F8FAFC;
+    --sand: #E2E8F0;
+    --ink: #0F172A;
+    --cloud: #ffffff;
+    --soft: #E0E7FF;
+    --blush: #FEE2E2;
+    --mint: #D1FAE5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(71,85,105,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(220,38,38,0.08) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "👁";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 130px;
+    opacity: 0.13;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--amber);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 6.5vw, 60px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--red); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--amber); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--steel);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* WARM-UP */
+  .warmup-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--amber);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .warmup-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--red);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .warmup-q {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  /* STATS GRID */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+    text-align: center;
+  }
+  .stat-card .number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-card .label {
+    font-size: 12.5px;
+    color: var(--deep);
+    line-height: 1.4;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--red);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .reading p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+    color: #2a3441;
+  }
+  .reading b, .reading strong {
+    background: linear-gradient(transparent 55%, rgba(245,158,11,0.6) 55%);
+    padding: 0 2px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .reading .pull-quote {
+    background: var(--soft);
+    padding: 14px 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--steel);
+    margin: 16px 0;
+    font-style: italic;
+  }
+
+  /* DEBATE CARDS */
+  .debate-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .debate-card {
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .debate-card.pro {
+    background: linear-gradient(135deg, var(--mint), var(--cream));
+    border-left: 6px solid #059669;
+  }
+  .debate-card.con {
+    background: linear-gradient(135deg, var(--blush), var(--cream));
+    border-left: 6px solid var(--red);
+  }
+  .debate-card .label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .debate-card.pro .label { color: #059669; }
+  .debate-card.con .label { color: var(--red); }
+  .debate-card h5 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .debate-card p {
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  .debate-topic {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 19px;
+    color: var(--steel);
+    margin: 4px 0 -4px;
+    padding: 6px;
+  }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* IDIOMS */
+  .idiom-card {
+    background: linear-gradient(135deg, var(--cloud) 0%, var(--soft) 100%);
+    border: 2px solid var(--ink);
+    border-left: 5px solid var(--steel);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .idiom-term {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--steel);
+    margin-bottom: 4px;
+  }
+  .idiom-def { font-size: 14px; margin-bottom: 8px; }
+  .idiom-ex {
+    font-style: italic;
+    font-size: 13.5px;
+    background: rgba(255,255,255,0.7);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--red);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14.5px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--steel); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--red); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--red);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 200px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 280px; }
+  .fill-input:focus { outline: none; border-color: var(--steel); background: var(--cream); }
+  .fill-input.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--red); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--red);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--amber);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--red);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--steel); }
+  .mc-opt.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--red); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--red);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--amber);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--steel);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--red);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--steel); }
+
+  .phrase-box {
+    background: var(--blush);
+    border: 2px dashed var(--red);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .phrase-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .phrase-box .phrase-list { display: grid; gap: 6px; }
+  .phrase-box .phrase {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    border-left: 3px solid var(--steel);
+  }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--red);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid, .debate-grid { grid-template-columns: 1fr; }
+    .reading { padding: 22px; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">👁 PRIVACY &amp; SOCIETY · B2 ENGLISH</div>
+      <h1>One Nation <span class="accent">Under CCTV</span></h1>
+      <div class="sub">Cameras on every corner. Algorithms tracking your phone. Facial recognition in shops. Where does safety end and surveillance begin? The vocabulary, idioms and arguments behind one of today's biggest debates.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">Privacy · Tech · Society</span>
+        <span class="tag">Debate &amp; Idioms</span>
+        <span class="tag">Speaking · Grammar</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Warm-up</button>
+    <button class="tab" data-tab="t2">② Reading</button>
+    <button class="tab" data-tab="t3">③ Debate Cards 👁</button>
+    <button class="tab" data-tab="t4">④ Vocabulary</button>
+    <button class="tab" data-tab="t5">⑤ Idioms</button>
+    <button class="tab" data-tab="t6">⑥ Matching</button>
+    <button class="tab" data-tab="t7">⑦ Fill the gaps</button>
+    <button class="tab" data-tab="t8">⑧ Multiple choice</button>
+    <button class="tab" data-tab="t9">⑨ Speaking 🎤</button>
+    <button class="tab" data-tab="t10">⑩ Grammar 📝</button>
+  </nav>
+
+  <!-- ============== WARM-UP ============== -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">🤔</span>Warm-up</h2>
+    <p class="instr">Quick personal questions to get you talking. <strong>30 seconds — 1 minute</strong> per question.</p>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 01</div>
+      <div class="warmup-q">How many CCTV cameras do you think you walk past on a normal day? Are you aware of them, or have you stopped noticing?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 02</div>
+      <div class="warmup-q">Do you generally feel safer or more uncomfortable when you see a camera in a public place?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 03</div>
+      <div class="warmup-q">Have you ever felt that an app, a phone, or a website was "listening" to you? What happened?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 04</div>
+      <div class="warmup-q">If a new camera could prevent 90% of crimes in your city — but could also see you everywhere you went — would you accept it?</div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card"><div class="number">~1 billion</div><div class="label">CCTV cameras<br>installed worldwide</div></div>
+      <div class="stat-card"><div class="number">600+</div><div class="label">cameras per 1,000 people<br>in major Chinese cities</div></div>
+      <div class="stat-card"><div class="number">~6 million</div><div class="label">CCTV cameras<br>in the UK</div></div>
+      <div class="stat-card"><div class="number">300+</div><div class="label">times the average<br>Londoner is filmed daily</div></div>
+    </div>
+  </section>
+
+  <!-- ============== READING ============== -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">A balanced piece looking at how surveillance has changed in the last 25 years — and the deal we have all quietly accepted. Target language is in <b>amber bold</b>.</p>
+
+    <article class="reading">
+      <h3>"Smile — You're on Camera. Always."</h3>
+      <div class="byline">★ Society &amp; Tech · 4-minute read</div>
+
+      <p>The next time you walk to your local supermarket, try to count the cameras. Not just the obvious ones — the visible CCTV with red lights — but all of them. The doorbell cam two houses down. The car with a dashcam parked on the corner. The smartphone in the pocket of a teenager who could film you in two seconds. The bus with cameras inside and out. The shop entrance, the till, the car park. By the time you've bought your milk, you've probably been <b>caught on camera</b> twenty or thirty times. And that's just the start.</p>
+
+      <p>We live in what experts call a <b>surveillance society</b>. Britain has roughly six million CCTV cameras for a population of 67 million. London alone has more cameras than New York, Paris and Berlin combined. China has cities where there's a camera for every two people. Walk down any major street in Europe, and you can assume — <b>more or less correctly</b> — that you're <b>under constant observation</b>. The question isn't whether you're being watched. It's by whom, and for what.</p>
+
+      <p class="pull-quote">"If you have nothing to hide, you have nothing to fear" — a phrase that sounds reasonable until you realise it's been used to justify almost every surveillance state in history.</p>
+
+      <p>Defenders of CCTV make a strong case. Cameras <b>help solve crimes</b>: police credit them in thousands of investigations every year, from petty theft to terror attacks. They <b>act as a deterrent</b>: most people, knowing they're being watched, simply behave better. They <b>protect vulnerable people</b> in train stations, hospitals and schools. After tragic incidents, families of victims often campaign <em>for</em> more cameras, not fewer. The argument is simple: <b>safety is worth a small loss of privacy</b>.</p>
+
+      <p>But the picture is more complicated than that. Studies on the actual <b>effectiveness of CCTV</b> are surprisingly mixed. Some show clear reductions in crime. Others show that crime simply <b>moves elsewhere</b> — pushed into streets without cameras. Many crimes, especially violent ones, are committed in moments of emotion when nobody is thinking about being filmed. <b>The deterrent effect</b> is real, but smaller than you might think.</p>
+
+      <p>And then there's the <b>creeping problem</b>. CCTV used to mean a grainy black-and-white video that no one watched until something went wrong. Today, cameras can be linked to artificial intelligence that tracks faces, gaits, even emotions, in real time. <b>Facial recognition</b> systems can identify a person in a crowd within seconds. Algorithms can flag "suspicious behaviour" — a vague term that has, in some countries, included things as mild as standing still for too long, or wearing a hood on a hot day. The technology has <b>gone way beyond</b> what most citizens originally agreed to.</p>
+
+      <p>The privacy concerns are not paranoid. In several documented cases, CCTV footage has been <b>misused</b>: leaked online, used to track ex-partners, sold to advertising companies, or stored without proper legal authority. Researchers have shown that some facial recognition systems <b>misidentify</b> people of colour and women at significantly higher rates than white men — meaning innocent people <b>get flagged</b> for crimes they didn't commit. In China, the system has been used to monitor entire ethnic minorities. The line between <b>protecting citizens</b> and <b>controlling them</b> is thinner than it looks.</p>
+
+      <p>Maybe the strangest part of all this is how <b>quietly</b> it happened. There was no big national vote on whether we wanted to live in a society of constant observation. We didn't choose smartphones tracking our every step. We just clicked "Accept" on a hundred terms-and-conditions pages, signed up for free apps, and went on with our lives. The price of convenience turned out to be <b>data</b> — and a lot more of it than anyone expected.</p>
+
+      <p>So is "one nation under CCTV" a price worth paying? It depends on whom you ask, and what you value most. Some people <b>shrug</b> and say they have nothing to hide. Others worry about a world where every <b>step you take</b> is recorded, analysed and stored forever. Both sides have a point. What's certain is this: the technology isn't going away. The number of cameras is rising every year. And the questions we should be asking — <em>who watches the watchers, who owns the data, who decides what's "suspicious"?</em> — aren't going away either.</p>
+
+      <p>As one researcher put it: "<b>The surveillance society isn't coming. It's already here. The only thing left to decide is how we live inside it.</b>"</p>
+    </article>
+  </section>
+
+  <!-- ============== DEBATE CARDS ============== -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">👁</span>The big debate — both sides</h2>
+    <p class="instr">For each topic, look at the argument FOR CCTV (green) and AGAINST it (red). Which side is more convincing? Which arguments do you personally agree with?</p>
+
+    <div class="debate-grid">
+      <div class="debate-topic">🚨 Crime &amp; safety</div>
+      <div class="debate-card pro">
+        <div class="label">✓ FOR — pro-camera</div>
+        <h5>Cameras help solve crimes</h5>
+        <p>Police use CCTV in thousands of cases every year. Cameras provide hard evidence that can lead to convictions. Without them, many crimes would go unsolved.</p>
+      </div>
+      <div class="debate-card con">
+        <div class="label">✗ AGAINST — privacy first</div>
+        <h5>Most cameras don't prevent crime</h5>
+        <p>Research shows that CCTV often just moves crime to streets without cameras. Most violent crimes happen in moments of emotion, with no thought of being filmed.</p>
+      </div>
+
+      <div class="debate-topic">🏠 Personal privacy</div>
+      <div class="debate-card pro">
+        <div class="label">✓ FOR</div>
+        <h5>"Nothing to hide, nothing to fear"</h5>
+        <p>If you're not doing anything wrong, why should being filmed bother you? Cameras protect law-abiding citizens, not punish them.</p>
+      </div>
+      <div class="debate-card con">
+        <div class="label">✗ AGAINST</div>
+        <h5>Privacy isn't about hiding wrongdoing</h5>
+        <p>You close the curtains at night. You shut the toilet door. Privacy is a basic human right, not a luxury for criminals. The "nothing to hide" argument has been used by every authoritarian government in history.</p>
+      </div>
+
+      <div class="debate-topic">🤖 Facial recognition &amp; AI</div>
+      <div class="debate-card pro">
+        <div class="label">✓ FOR</div>
+        <h5>AI catches dangerous people fast</h5>
+        <p>Modern systems can identify wanted criminals or missing people in seconds. They've been used to find kidnapped children, locate fugitives and stop terror attacks before they happen.</p>
+      </div>
+      <div class="debate-card con">
+        <div class="label">✗ AGAINST</div>
+        <h5>AI gets it wrong — often</h5>
+        <p>Facial recognition systems frequently misidentify women and people of colour. Innocent people have been arrested. The data used to "train" these algorithms is often biased, and there's almost no public oversight.</p>
+      </div>
+
+      <div class="debate-topic">📱 Phone &amp; app tracking</div>
+      <div class="debate-card pro">
+        <div class="label">✓ FOR</div>
+        <h5>It's free in exchange for data</h5>
+        <p>You get free maps, free email, free social media. Companies need your data to keep these services going. It's a fair trade — and you can always opt out.</p>
+      </div>
+      <div class="debate-card con">
+        <div class="label">✗ AGAINST</div>
+        <h5>"Free" isn't free at all</h5>
+        <p>You can't really opt out of modern life. Data brokers buy and sell your habits, your location, even your health information. You become the product, often without realising it.</p>
+      </div>
+
+      <div class="debate-topic">⚖ Government power</div>
+      <div class="debate-card pro">
+        <div class="label">✓ FOR</div>
+        <h5>Strong governments need strong tools</h5>
+        <p>To fight terrorism, organised crime and cyberattacks, modern police need modern tools. Strict legal frameworks ensure surveillance is only used when truly necessary.</p>
+      </div>
+      <div class="debate-card con">
+        <div class="label">✗ AGAINST</div>
+        <h5>Once given, power isn't given back</h5>
+        <p>History is full of examples of "temporary" surveillance powers becoming permanent. The same tools used to track terrorists can be used against journalists, activists or political opponents. Trust your government today — but who's in charge in ten years?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== VOCAB ============== -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">💬</span>Vocabulary &amp; collocations</h2>
+    <p class="instr">B2 vocabulary for talking about surveillance, privacy, security and digital life. Notice the collocations — they make you sound much more natural.</p>
+
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">CCTV / a security camera</div><div class="vocab-def">Closed-Circuit Television; cameras for security</div><div class="vocab-ex">"There's CCTV at every entrance to the station."</div></div>
+      <div class="vocab-card"><div class="vocab-term">surveillance / a surveillance society</div><div class="vocab-def">close watching of people / a society where this is normal</div><div class="vocab-ex">"We live in a surveillance society now."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to monitor / to keep an eye on</div><div class="vocab-def">to watch carefully</div><div class="vocab-ex">"Police monitor the area 24 hours a day."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be caught on camera</div><div class="vocab-def">to be filmed (often doing something)</div><div class="vocab-ex">"He was caught on camera taking the wallet."</div></div>
+      <div class="vocab-card"><div class="vocab-term">CCTV footage</div><div class="vocab-def">video recorded by a security camera</div><div class="vocab-ex">"Police are reviewing the CCTV footage."</div></div>
+      <div class="vocab-card"><div class="vocab-term">facial recognition</div><div class="vocab-def">technology that identifies people from their faces</div><div class="vocab-ex">"Facial recognition is now used at many airports."</div></div>
+      <div class="vocab-card"><div class="vocab-term">privacy / privacy concerns</div><div class="vocab-def">the right to keep things personal / worries about it</div><div class="vocab-ex">"Privacy concerns are growing every year."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to invade someone's privacy</div><div class="vocab-def">to enter their personal space without permission</div><div class="vocab-ex">"That feels like a serious invasion of privacy."</div></div>
+      <div class="vocab-card"><div class="vocab-term">data / personal data</div><div class="vocab-def">information / information about you specifically</div><div class="vocab-ex">"They collect huge amounts of personal data."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to collect / share / sell data</div><div class="vocab-def">to gather, pass on, or sell information</div><div class="vocab-ex">"Apps quietly share your data with third parties."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a deterrent / to act as a deterrent</div><div class="vocab-def">something that prevents crime</div><div class="vocab-ex">"Bright lighting acts as a strong deterrent."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to commit a crime / to deter crime</div><div class="vocab-def">to do something illegal / to prevent it</div><div class="vocab-ex">"The cameras help deter petty crime."</div></div>
+      <div class="vocab-card"><div class="vocab-term">security vs liberty</div><div class="vocab-def">the classic trade-off in privacy debates</div><div class="vocab-ex">"It's always a question of security vs liberty."</div></div>
+      <div class="vocab-card"><div class="vocab-term">civil liberties / human rights</div><div class="vocab-def">basic freedoms protected by law</div><div class="vocab-ex">"Mass surveillance threatens civil liberties."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to track / tracking</div><div class="vocab-def">to follow someone's movements</div><div class="vocab-ex">"Your phone is tracking your location right now."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an algorithm / algorithmic bias</div><div class="vocab-def">a set of rules a computer follows / unfair patterns in its results</div><div class="vocab-ex">"Algorithmic bias is a serious issue."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to misidentify someone</div><div class="vocab-def">to wrongly recognise them as someone else</div><div class="vocab-ex">"The system misidentified an innocent man."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a data breach / a leak</div><div class="vocab-def">when private data is stolen or accidentally released</div><div class="vocab-ex">"The company suffered a major data breach."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to opt in / opt out</div><div class="vocab-def">to choose to be part of / not part of something</div><div class="vocab-ex">"You can opt out of data sharing in the settings."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to give consent</div><div class="vocab-def">to formally agree to something</div><div class="vocab-ex">"You have to give consent before they collect data."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to raise concerns / red flags</div><div class="vocab-def">to draw attention to potential problems</div><div class="vocab-ex">"This new law raises serious concerns."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a watchdog</div><div class="vocab-def">an organisation that monitors abuse of power</div><div class="vocab-ex">"A privacy watchdog has criticised the policy."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a whistleblower</div><div class="vocab-def">someone who exposes wrongdoing inside an organisation</div><div class="vocab-ex">"A whistleblower revealed the surveillance program."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to abuse / to misuse (a system)</div><div class="vocab-def">to use it in a wrong or unfair way</div><div class="vocab-ex">"In some cases, the system has been seriously misused."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a trade-off</div><div class="vocab-def">a balance between two competing things</div><div class="vocab-ex">"There's always a trade-off between safety and freedom."</div></div>
+    </div>
+  </section>
+
+  <!-- ============== IDIOMS ============== -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+    <p class="instr">B2 idioms perfect for debates about privacy, control and observation. Pick 5 you like and try to use them today!</p>
+
+    <div class="idiom-card"><div class="idiom-term">Big Brother is watching</div><div class="idiom-def">a powerful authority is observing everyone (from Orwell's 1984)</div><div class="idiom-ex">"Sometimes it really feels like Big Brother is watching."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to keep tabs on someone</div><div class="idiom-def">to monitor someone closely</div><div class="idiom-ex">"The government keeps tabs on suspicious activity."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to keep an eye on (something)</div><div class="idiom-def">to watch / pay attention to it</div><div class="idiom-ex">"Could you keep an eye on my bag?"</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be on someone's radar</div><div class="idiom-def">to be noticed / followed by someone in authority</div><div class="idiom-ex">"He's been on the police radar for months."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to fly under the radar</div><div class="idiom-def">to act without being noticed</div><div class="idiom-ex">"Most petty crime flies under the radar."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a slippery slope</div><div class="idiom-def">a small decision that leads to a much worse situation</div><div class="idiom-ex">"Mass surveillance is a slippery slope."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a double-edged sword</div><div class="idiom-def">something with both good and bad sides</div><div class="idiom-ex">"Technology is a real double-edged sword."</div></div>
+    <div class="idiom-card"><div class="idiom-term">the price you pay</div><div class="idiom-def">the cost (often hidden) of getting something</div><div class="idiom-ex">"Loss of privacy is the price you pay for free apps."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to cross the line</div><div class="idiom-def">to go beyond what is acceptable</div><div class="idiom-ex">"Reading employees' emails is crossing the line."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to draw the line</div><div class="idiom-def">to set a limit on what is acceptable</div><div class="idiom-ex">"We have to draw the line somewhere."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to walk a fine line</div><div class="idiom-def">to navigate carefully between two things</div><div class="idiom-ex">"Governments walk a fine line between safety and control."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to turn a blind eye</div><div class="idiom-def">to deliberately ignore wrongdoing</div><div class="idiom-ex">"Authorities have turned a blind eye for too long."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to have nothing to hide</div><div class="idiom-def">to have done nothing wrong</div><div class="idiom-ex">"He says he has nothing to hide — but he still wants privacy."</div></div>
+    <div class="idiom-card"><div class="idiom-term">in plain sight</div><div class="idiom-def">visible / obvious to everyone</div><div class="idiom-ex">"It's all happening in plain sight."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to lift the lid on (something)</div><div class="idiom-def">to reveal hidden information</div><div class="idiom-ex">"The whistleblower lifted the lid on the program."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a wake-up call</div><div class="idiom-def">a sudden warning that something must change</div><div class="idiom-ex">"That data breach was a real wake-up call."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to fall through the cracks</div><div class="idiom-def">to not be noticed / be missed by a system</div><div class="idiom-ex">"Some criminals still fall through the cracks."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to take something for granted</div><div class="idiom-def">to assume something will always be there</div><div class="idiom-ex">"We take privacy for granted until we lose it."</div></div>
+    <div class="idiom-card"><div class="idiom-term">there's no smoke without fire</div><div class="idiom-def">if there's evidence of a problem, there's probably a real one</div><div class="idiom-ex">"They've been investigated three times — there's no smoke without fire."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to play with fire</div><div class="idiom-def">to take a dangerous risk</div><div class="idiom-ex">"Companies that misuse user data are playing with fire."</div></div>
+  </section>
+
+  <!-- ============== MATCHING ============== -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🔗</span>Match the expression with its meaning</h2>
+    <p class="instr">Click an expression on the left, then its meaning on the right.</p>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <h3>Expression</h3>
+        <div class="match-item" data-word="1">to be caught on camera</div>
+        <div class="match-item" data-word="2">a deterrent</div>
+        <div class="match-item" data-word="3">to invade someone's privacy</div>
+        <div class="match-item" data-word="4">a slippery slope</div>
+        <div class="match-item" data-word="5">a double-edged sword</div>
+        <div class="match-item" data-word="6">to cross the line</div>
+        <div class="match-item" data-word="7">a watchdog</div>
+        <div class="match-item" data-word="8">a whistleblower</div>
+        <div class="match-item" data-word="9">facial recognition</div>
+        <div class="match-item" data-word="10">a trade-off</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="1">to be filmed (often doing something)</div>
+        <div class="match-item" data-def="3">to enter someone's personal space without permission</div>
+        <div class="match-item" data-def="2">something that prevents crime</div>
+        <div class="match-item" data-def="5">something with both good and bad sides</div>
+        <div class="match-item" data-def="4">a small decision that leads to a much worse situation</div>
+        <div class="match-item" data-def="9">technology that identifies people from their faces</div>
+        <div class="match-item" data-def="7">an organisation that monitors abuse of power</div>
+        <div class="match-item" data-def="8">someone who exposes wrongdoing inside an organisation</div>
+        <div class="match-item" data-def="6">to go beyond what is acceptable</div>
+        <div class="match-item" data-def="10">a balance between two competing things</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <span class="score" id="score6">0 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============== FILL ============== -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the gaps</h2>
+    <p class="instr">Complete each sentence with an expression from the bank. Use the correct form.</p>
+
+    <div class="word-bank">
+      <strong>👁 WORD BANK 👁</strong>
+      surveillance · footage · privacy · deterrent · data · opt out · trade-off · slippery slope · keep an eye on · facial recognition
+    </div>
+
+    <div class="fill-item"><p><span class="num">01</span>Modern cities have entered an era of mass <input class="fill-input" data-answer="surveillance">.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>The police have just released the CCTV <input class="fill-input" data-answer="footage"> from the night of the incident.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>Many people feel that this kind of monitoring is a serious invasion of <input class="fill-input" data-answer="privacy">.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>Cameras can act as a strong <input class="fill-input" data-answer="deterrent"> for petty crime.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>You should always check what <input class="fill-input" data-answer="data"> apps are collecting from you.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>You can usually <input class="fill-input wide" data-answer="opt out"> of data sharing in the privacy settings.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>It's always a difficult <input class="fill-input" data-answer="trade-off"> between safety and freedom.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>Critics argue that mass surveillance is a real <input class="fill-input wide" data-answer="slippery slope">.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>Could you <input class="fill-input wide" data-answer="keep an eye on"> my bag for a moment? <em style="color:var(--deep); font-size:13px;">(4 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">10</span>Many airports now use <input class="fill-input wide" data-answer="facial recognition"> at passport control.</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check my answers</button>
+    <span class="score" id="score7">— / 10</span>
+  </section>
+
+  <!-- ============== MC ============== -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">🎯</span>Multiple choice</h2>
+    <p class="instr">Pick the option that sounds most natural at B2 level.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q1</span>"He was caught on camera taking the wallet." This means he was…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) holding a camera in his hand.</button>
+        <button class="mc-opt">b) filmed while doing it.</button>
+        <button class="mc-opt">c) wearing a camera.</button>
+        <button class="mc-opt">d) photographing the wallet.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q2</span>A "deterrent" is something that…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) helps you get a job.</button>
+        <button class="mc-opt">b) cleans the streets.</button>
+        <button class="mc-opt">c) stops people from doing wrong.</button>
+        <button class="mc-opt">d) is an old British coin.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q3</span>"Mass surveillance is a slippery slope." This means it could…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) lead to gradually worse situations.</button>
+        <button class="mc-opt">b) cause snow accidents.</button>
+        <button class="mc-opt">c) stop crime instantly.</button>
+        <button class="mc-opt">d) be installed only in winter.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q4</span>"To invade someone's privacy" means to…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) attack their country.</button>
+        <button class="mc-opt">b) help them feel safer.</button>
+        <button class="mc-opt">c) become their friend.</button>
+        <button class="mc-opt">d) enter their personal space without permission.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q5</span>A "watchdog" in this context is…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) a real dog.</button>
+        <button class="mc-opt">b) an organisation that monitors abuse of power.</button>
+        <button class="mc-opt">c) a TV programme.</button>
+        <button class="mc-opt">d) a bedside clock.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q6</span>"It's a double-edged sword." This means it has…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) only positive effects.</button>
+        <button class="mc-opt">b) only negative effects.</button>
+        <button class="mc-opt">c) both good and bad sides.</button>
+        <button class="mc-opt">d) two real blades.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q7</span>"You can opt out of data sharing." Opt out means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) choose not to be part of it.</button>
+        <button class="mc-opt">b) join immediately.</button>
+        <button class="mc-opt">c) accept all conditions.</button>
+        <button class="mc-opt">d) buy more data.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q8</span>A "whistleblower" is someone who…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) plays a musical instrument.</button>
+        <button class="mc-opt">b) referees football matches.</button>
+        <button class="mc-opt">c) cleans whistles for a living.</button>
+        <button class="mc-opt">d) exposes wrongdoing inside an organisation.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q9</span>"That decision crosses the line." This means it…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) is exactly right.</button>
+        <button class="mc-opt">b) goes beyond what's acceptable.</button>
+        <button class="mc-opt">c) wins the race.</button>
+        <button class="mc-opt">d) is on the border.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>"Algorithmic bias" is when…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) a computer is broken.</button>
+        <button class="mc-opt">b) algorithms work perfectly.</button>
+        <button class="mc-opt">c) computer systems produce unfair results, often for certain groups.</button>
+        <button class="mc-opt">d) algorithms are illegal.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q11</span>"Loss of privacy is the price you pay for free apps." This expression means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the hidden cost of getting something.</button>
+        <button class="mc-opt">b) the actual money you pay.</button>
+        <button class="mc-opt">c) the discount you get.</button>
+        <button class="mc-opt">d) a tax on apps.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q12</span>"He flies under the radar." This means he…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) works for an airline.</button>
+        <button class="mc-opt">b) is in the army.</button>
+        <button class="mc-opt">c) is being closely watched.</button>
+        <button class="mc-opt">d) acts without being noticed.</button>
+      </div>
+    </div>
+
+    <span class="score" id="score8">0 / 12</span>
+  </section>
+
+  <!-- ============== SPEAKING ============== -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking practice</h2>
+    <p class="instr">Speak <strong>1½–2 minutes</strong> per question. Use at least <strong>3 target expressions</strong> per answer. Try to show you can see <em>both sides</em> of every issue.</p>
+
+    <div class="phrase-box">
+      <h4>👁 Phrases for balanced debate</h4>
+      <div class="phrase-list">
+        <div class="phrase"><strong>Stating an opinion:</strong> "In my view…" / "I'd argue that…" / "It seems to me that…"</div>
+        <div class="phrase"><strong>Showing balance:</strong> "On the one hand… on the other…" / "It's a double-edged sword." / "It cuts both ways."</div>
+        <div class="phrase"><strong>Expressing concern:</strong> "What worries me is…" / "This raises serious concerns about…" / "It's a slippery slope."</div>
+        <div class="phrase"><strong>Pushing back:</strong> "I see your point, but…" / "I'd challenge that assumption." / "Let me play devil's advocate."</div>
+        <div class="phrase"><strong>Concluding:</strong> "All things considered…" / "When you weigh it up…" / "At the end of the day…"</div>
+      </div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 01 · YOUR DAILY EXPOSURE</div>
+      <div class="speak-prompt">How aware are you of the cameras around you in your daily life? Where do you most notice them? Where would you <em>not</em> want them?</div>
+      <div class="speak-help"><strong>Try to use:</strong> CCTV · to be caught on camera · surveillance · to keep an eye on · privacy · to feel safe</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 02 · "NOTHING TO HIDE"</div>
+      <div class="speak-prompt">Some people say "if you have nothing to hide, you have nothing to fear." Do you agree? Why or why not?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to invade privacy · civil liberties · to draw the line · a slippery slope · to take for granted · a basic right</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 03 · CCTV — DOES IT WORK?</div>
+      <div class="speak-prompt">Are CCTV cameras actually effective at preventing crime, or are they just there to make us <em>feel</em> safer?</div>
+      <div class="speak-help"><strong>Try to use:</strong> a deterrent · footage · to commit a crime · effectiveness · a double-edged sword · in my experience</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 04 · FACIAL RECOGNITION</div>
+      <div class="speak-prompt">Some countries use facial recognition at airports, in shops, on the streets. Brilliant — or terrifying? Where would you draw the line?</div>
+      <div class="speak-help"><strong>Try to use:</strong> facial recognition · algorithmic bias · to misidentify · to cross the line · to draw the line · privacy concerns</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 05 · YOUR DATA &amp; YOUR APPS</div>
+      <div class="speak-prompt">How much do you know about what apps know about you? Have you ever read a terms-and-conditions page? Should we just accept that "free" means "your data"?</div>
+      <div class="speak-help"><strong>Try to use:</strong> personal data · to opt in/out · to give consent · the price you pay · to take for granted · trade-off</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 06 · GOVERNMENT POWER</div>
+      <div class="speak-prompt">Should governments be allowed to monitor citizens to fight terrorism and serious crime? Or does this open the door to abuse?</div>
+      <div class="speak-help"><strong>Try to use:</strong> surveillance society · civil liberties · to misuse · to abuse · a slippery slope · a watchdog</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 07 · IF YOU WERE IN CHARGE…</div>
+      <div class="speak-prompt">If you were the leader of your country tomorrow, what surveillance laws would you pass? What would you ban?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to draw the line · a trade-off · to give consent · to opt out · to keep tabs on · to walk a fine line</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 08 · QUICK-FIRE · 30 SECONDS EACH</div>
+      <div class="speak-prompt">Sharp takes — be honest. No planning!</div>
+      <div class="speak-help">
+        ▸ One place where cameras are absolutely fine, in your view.<br>
+        ▸ One place where cameras absolutely shouldn't be.<br>
+        ▸ Your phone is listening to you — true, false, or somewhere in between?<br>
+        ▸ Smart speakers (Alexa, etc.) at home — yes or no?<br>
+        ▸ Complete: "If I had nothing to hide, I would still want privacy because…"
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== GRAMMAR ============== -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar: Passive Voice &amp; Reported Speech</h2>
+    <p class="instr">Two B2 grammar areas you genuinely need for this topic: <strong>passive voice</strong> (which is everywhere in news and tech English) and <strong>reported speech</strong> (essential for talking about what experts, officials and articles say).</p>
+
+    <div class="grammar-box">
+      <h4>👁 Part 1 — Passive voice</h4>
+      <ul>
+        <li>Use the passive when the <em>action</em> matters more than <em>who did it</em>: <code>You are being filmed.</code></li>
+        <li>Form: <strong>subject + BE + past participle</strong> (+ by + agent, optional)</li>
+        <li><strong>Present:</strong> <code>Cameras are installed on every corner.</code></li>
+        <li><strong>Past:</strong> <code>The footage was reviewed yesterday.</code></li>
+        <li><strong>Present continuous:</strong> <code>You're being watched right now.</code></li>
+        <li><strong>Present perfect:</strong> <code>His data has been sold to advertisers.</code></li>
+        <li><strong>Modal:</strong> <code>This data must be protected.</code></li>
+      </ul>
+      <div class="formula">Active: The police installed cameras.   Passive: Cameras were installed (by the police).</div>
+    </div>
+
+    <div class="grammar-box">
+      <h4>👁 Part 2 — Reported speech</h4>
+      <ul>
+        <li>Move tenses one step "back in time": <strong>present → past, past → past perfect, will → would</strong></li>
+        <li><code>"We collect data."</code> → They said (that) they <strong>collected</strong> data.</li>
+        <li><code>"We are installing cameras."</code> → They said they <strong>were installing</strong> cameras.</li>
+        <li><code>"We have collected data."</code> → They said they <strong>had collected</strong> data.</li>
+        <li><code>"We will use it."</code> → They said they <strong>would</strong> use it.</li>
+        <li>Pronouns and time/place words also change: <code>I → he/she</code>, <code>now → then</code>, <code>here → there</code>, <code>tomorrow → the next day</code></li>
+      </ul>
+      <div class="formula">Direct: She said, "I am tracking your data."   Reported: She said (that) she was tracking my data.</div>
+    </div>
+
+    <p class="instr"><strong>Part A — passive voice.</strong> Put each verb in the correct passive form.</p>
+
+    <div class="fill-item"><p><span class="num">01</span>Right now, you <input class="fill-input wide" data-answer="are being filmed"> (film) by at least three different cameras.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>The CCTV footage <input class="fill-input wide" data-answer="was reviewed"> (review) by the police yesterday.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>So far, more than 200 million data points <input class="fill-input wide" data-answer="have been collected"> (collect) by the system.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>This kind of personal information <input class="fill-input wide" data-answer="must be protected"> (must / protect) by law.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>Several wrongful arrests <input class="fill-input wide" data-answer="have been overturned"> (overturn) thanks to AI bias research.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>Tomorrow, the new privacy law <input class="fill-input wide" data-answer="will be debated"> (debate) in parliament.</p></div>
+
+    <p class="instr"><strong>Part B — active to passive.</strong> Type just the new verb phrase.</p>
+
+    <div class="fill-item"><p><span class="num">07</span>"Police monitor the area 24 hours a day." → The area <input class="fill-input wide" data-answer="is monitored"> by police 24 hours a day.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>"They have leaked sensitive data." → Sensitive data <input class="fill-input wide" data-answer="has been leaked">.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>"The company will collect more data next year." → More data <input class="fill-input wide" data-answer="will be collected"> by the company next year.</p></div>
+
+    <p class="instr"><strong>Part C — reported speech.</strong> Rewrite each direct quote.</p>
+
+    <div class="fill-item"><p><span class="num">10</span>The CEO said, "We respect your privacy."<br>→ The CEO said (that) they <input class="fill-input wide" data-answer="respected"> our privacy.</p></div>
+    <div class="fill-item"><p><span class="num">11</span>The minister said, "We are introducing new laws."<br>→ The minister said (that) they <input class="fill-input wide" data-answer="were introducing"> new laws.</p></div>
+    <div class="fill-item"><p><span class="num">12</span>The whistleblower said, "I have seen everything."<br>→ The whistleblower said (that) he <input class="fill-input wide" data-answer="had seen"> everything.</p></div>
+    <div class="fill-item"><p><span class="num">13</span>The expert said, "AI will change surveillance forever."<br>→ The expert said (that) AI <input class="fill-input wide" data-answer="would change"> surveillance forever.</p></div>
+    <div class="fill-item"><p><span class="num">14</span>She said, "I'm not happy with this policy."<br>→ She said (that) she <input class="fill-input wide" data-answer="wasn't happy"> with that policy. <em style="color:var(--deep); font-size:13px;">(2 words; can also write "was not happy")</em></p></div>
+
+    <button class="check-btn" onclick="checkGrammar()">✓ Check grammar</button>
+    <span class="score" id="score10">— / 14</span>
+  </section>
+
+  <footer>
+    👁 ★ ★ &nbsp; ONE NATION UNDER CCTV · B2 ENGLISH WORKSHEET &nbsp; ★ ★ 👁
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 6)
+  let selectedWord = null;
+  let matched6 = 0;
+  document.querySelectorAll('#t6 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t6 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched6++;
+          document.getElementById('score6').textContent = matched6 + ' / 10';
+          selectedWord = null;
+          if (matched6 === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 7)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t7 .fill-input');
+    const alternates = {
+      'opt out': ['opt out'],
+      'trade-off': ['trade-off','tradeoff','trade off'],
+      'slippery slope': ['slippery slope','a slippery slope'],
+      'keep an eye on': ['keep an eye on'],
+      'facial recognition': ['facial recognition'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score7').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score7').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 8)
+  let mcScore = 0;
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score8').textContent = mcScore + ' / 12';
+        if (mcScore === 12) document.getElementById('score8').textContent = '★ 12 / 12 ★';
+      });
+    });
+  });
+
+  // GRAMMAR (tab 10)
+  function checkGrammar() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t10 .fill-input');
+    const alternates = {
+      'are being filmed': ['are being filmed',"'re being filmed"],
+      'was reviewed': ['was reviewed'],
+      'have been collected': ['have been collected',"'ve been collected"],
+      'must be protected': ['must be protected'],
+      'have been overturned': ['have been overturned',"'ve been overturned"],
+      'will be debated': ['will be debated',"'ll be debated"],
+      'is monitored': ['is monitored',"'s monitored"],
+      'has been leaked': ['has been leaked',"'s been leaked"],
+      'will be collected': ['will be collected',"'ll be collected"],
+      'respected': ['respected'],
+      'were introducing': ['were introducing'],
+      'had seen': ['had seen',"'d seen"],
+      'would change': ['would change',"'d change"],
+      "wasn't happy": ["wasn't happy","was not happy"],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score10').textContent = correct + ' / 14';
+    if (correct === 14) document.getElementById('score10').textContent = '★ 14 / 14 ★';
+  }
+</script>
+</body>
+</html>
