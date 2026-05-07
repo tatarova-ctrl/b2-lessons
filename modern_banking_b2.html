@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Banking — B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --emerald: #059669;
+    --deep: #064E3B;
+    --gold: #F59E0B;
+    --red: #DC2626;
+    --navy: #1E3A8A;
+    --cream: #F0FDF4;
+    --sand: #DCFCE7;
+    --ink: #0F1B14;
+    --cloud: #ffffff;
+    --soft: #D1FAE5;
+    --blush: #FEE2E2;
+    --mint: #BBF7D0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(5,150,105,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(245,158,11,0.1) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "💳";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 110px;
+    opacity: 0.15;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--gold);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 6.5vw, 60px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--emerald); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--gold); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--emerald);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* WARM-UP */
+  .warmup-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--gold);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .warmup-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--emerald);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .warmup-q {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  /* STATS */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .stat-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+    text-align: center;
+  }
+  .stat-card .number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--emerald);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-card .label {
+    font-size: 12.5px;
+    color: var(--deep);
+    line-height: 1.4;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--emerald);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .reading p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+    color: #2a3441;
+  }
+  .reading b, .reading strong {
+    background: linear-gradient(transparent 55%, rgba(245,158,11,0.6) 55%);
+    padding: 0 2px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .reading .pull-quote {
+    background: var(--soft);
+    padding: 14px 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--emerald);
+    margin: 16px 0;
+    font-style: italic;
+  }
+
+  /* SCAM CARDS */
+  .scam-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .scam-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: 4px 4px 0 var(--ink);
+    border-left: 6px solid var(--red);
+  }
+  .scam-emoji { font-size: 32px; margin-bottom: 4px; }
+  .scam-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 19px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+    color: var(--red);
+  }
+  .scam-tag {
+    display: inline-block;
+    background: var(--blush);
+    color: var(--red);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    border: 1px solid var(--red);
+  }
+  .scam-desc { font-size: 13.5px; line-height: 1.55; margin-bottom: 8px; }
+  .scam-warning {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: #FEF2F2;
+    border-left: 3px solid var(--red);
+    border-radius: 6px;
+    font-size: 12.5px;
+    color: var(--ink);
+  }
+  .scam-warning strong { color: var(--red); }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--emerald);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* IDIOMS */
+  .idiom-card {
+    background: linear-gradient(135deg, var(--cloud) 0%, var(--soft) 100%);
+    border: 2px solid var(--ink);
+    border-left: 5px solid var(--gold);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .idiom-term {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .idiom-def { font-size: 14px; margin-bottom: 8px; }
+  .idiom-ex {
+    font-style: italic;
+    font-size: 13.5px;
+    background: rgba(255,255,255,0.7);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--emerald);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14.5px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--emerald); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--red); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--emerald);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 200px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 280px; }
+  .fill-input:focus { outline: none; border-color: var(--emerald); background: var(--cream); }
+  .fill-input.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--red); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--gold);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--emerald);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--emerald); }
+  .mc-opt.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--red); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--emerald);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--gold);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--emerald);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--emerald);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--emerald); }
+
+  .role-play {
+    background: var(--blush);
+    border: 2px dashed var(--red);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 14px;
+  }
+  .role-play h5 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+  .role-play .role { background: var(--cloud); padding: 10px 14px; border-radius: 6px; margin-bottom: 6px; font-size: 13.5px; border-left: 3px solid var(--red); }
+  .role-play .role strong { color: var(--red); display: block; margin-bottom: 2px; font-size: 11px; letter-spacing: 1px; font-family: 'Courier Prime', monospace; }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--emerald);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid { grid-template-columns: 1fr; }
+    .reading { padding: 22px; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">💳 MONEY &amp; SECURITY · B2 ENGLISH</div>
+      <h1>Modern <span class="accent">Banking</span></h1>
+      <div class="sub">Cashless societies, contactless cards, mobile wallets — and the alarming rise of online scams. The vocabulary, idioms and phrases to talk about money, banking and protecting yourself in 2026.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">Money · Banking · Scams</span>
+        <span class="tag">Phrasal Verbs</span>
+        <span class="tag">Speaking · Grammar</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Warm-up</button>
+    <button class="tab" data-tab="t2">② Reading</button>
+    <button class="tab" data-tab="t3">③ Scam Cards ⚠️</button>
+    <button class="tab" data-tab="t4">④ Vocabulary</button>
+    <button class="tab" data-tab="t5">⑤ Idioms</button>
+    <button class="tab" data-tab="t6">⑥ Matching</button>
+    <button class="tab" data-tab="t7">⑦ Fill the gaps</button>
+    <button class="tab" data-tab="t8">⑧ Multiple choice</button>
+    <button class="tab" data-tab="t9">⑨ Speaking 🎤</button>
+    <button class="tab" data-tab="t10">⑩ Grammar 📝</button>
+  </nav>
+
+  <!-- ============== WARM-UP ============== -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">🤔</span>Warm-up</h2>
+    <p class="instr">Quick personal questions to get you talking. <strong>30 seconds — 1 minute</strong> per question.</p>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 01</div>
+      <div class="warmup-q">When did you last pay for something with cash? Was it a normal day, or an unusual situation?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 02</div>
+      <div class="warmup-q">How many banking apps and payment methods do you currently have on your phone?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 03</div>
+      <div class="warmup-q">Have you — or someone close to you — ever been scammed online? What happened?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">◆ WARM-UP 04</div>
+      <div class="warmup-q">If your country went 100% cashless tomorrow, who would be most affected — and would <em>you</em> survive?</div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card"><div class="number">~1%</div><div class="label">of payments<br>made in cash in Sweden</div></div>
+      <div class="stat-card"><div class="number">€10 billion+</div><div class="label">lost to scams in<br>Europe each year</div></div>
+      <div class="stat-card"><div class="number">90%</div><div class="label">of UK adults use<br>contactless payment</div></div>
+      <div class="stat-card"><div class="number">3x</div><div class="label">rise in online scams<br>since 2020</div></div>
+    </div>
+  </section>
+
+  <!-- ============== READING ============== -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">An honest look at how money has changed in the last 15 years — and what it means for your wallet (which, by the way, you barely use anymore). Target language is in <b>amber bold</b>.</p>
+
+    <article class="reading">
+      <h3>"Where Did All the Cash Go?"</h3>
+      <div class="byline">★ Money &amp; Tech · 4-minute read</div>
+
+      <p>Think about the last time you held a banknote in your hand. For some people reading this, it might have been months ago. For my grandmother, it was this morning, when she <b>withdrew cash</b> from the ATM, like she has every Friday since 1973. For my nephew, who's 16, it was probably never. Welcome to the strange new world of modern banking, where cash is becoming as old-fashioned as the cassette tape — and where new dangers are <b>creeping in</b> through the back door.</p>
+
+      <p>Sweden is leading the cashless revolution. Less than 1% of payments there are now made in cash, and many shops, cafés and even churches simply <b>refuse to accept it</b>. Across Europe, the picture is similar: contactless payments, mobile wallets like Apple Pay and Google Pay, and instant bank-to-bank <b>transfers</b> have transformed how we pay for everything from a morning coffee to a new sofa. <b>You no longer carry money</b> — you carry data. The wallet in your pocket is mostly there for nostalgic reasons.</p>
+
+      <p class="pull-quote">"Cash is freedom. The day cash disappears, so does the last way to spend money without somebody watching." — privacy researcher</p>
+
+      <p>The benefits of <b>going cashless</b> are obvious. Payments are faster — a contactless tap takes less than a second. They're more convenient — no more digging for change at the supermarket. They're safer in some ways — if you lose a card, you can <b>freeze it</b> in seconds; if you lose a wallet full of cash, that money is gone for good. And for businesses, <b>handling cash</b> is expensive: counting it, transporting it, protecting it from theft. Many shops genuinely prefer card-only.</p>
+
+      <p>But there's a quieter side to this revolution. Older people, particularly those over 70, often <b>struggle with</b> banking apps and contactless payments. <b>Vulnerable customers</b> who don't have smartphones — or who simply don't trust them — are slowly being pushed out of the financial system. ATMs are disappearing in many small towns. Some people, especially in rural areas, can spend twenty minutes driving just to <b>access their own money</b>. The phrase "<b>cash is freedom</b>" sounds dramatic until you realise that, for many people, it's literally true.</p>
+
+      <p>And then, of course, there are the scams. The shift to digital banking has been <b>a goldmine for criminals</b>, and the scale of the problem is staggering. In 2024, Europeans lost over €10 billion to online fraud, and the figure rises every year. <b>Phishing emails</b> trick people into clicking fake bank links. Scammers <b>impersonate</b> bank employees and call elderly customers, persuading them to "move their money to a safe account" — which mysteriously turns out to be the scammer's. Romance scammers spend months building <b>fake online relationships</b> before asking for "emergency" loans. And then there's the rise of <b>deepfake</b> voice scams — where AI is used to clone a son's or daughter's voice and beg the parent for help.</p>
+
+      <p>Younger people often assume they're safe — but the data tells a different story. While the elderly lose more <b>per scam</b>, young adults aged 20–30 actually fall victim more often, mostly through fake online shops, fake job offers and dodgy investment schemes. Nobody is immune. <b>Anyone can be caught off guard</b> — especially when the message looks like it really did come from your bank.</p>
+
+      <p>So how do you protect yourself? The rules are surprisingly simple. <b>Never click a link in an unexpected email</b> — open your bank app or website directly. <b>Never give a bank employee your full password or PIN</b>; no real bank will ever ask. If something feels too good to be true — a job that pays €5,000 a month for two hours' work, an investment that promises 20% returns — it almost certainly is. <b>Take five minutes</b>. Call a friend. Call your bank's official number from their card. Scammers thrive on urgency; <b>slowing down</b> is your single best defence.</p>
+
+      <p>Modern banking is, in many ways, a miracle. You can send €1,000 to someone in Brazil before your coffee gets cold. You can split a restaurant bill seven ways with one tap. You can run a whole business from a phone. But every miracle <b>has a cost</b>. The cost here is that you have to be a bit more careful, a bit more sceptical, and a bit more aware of the new ways money can be quietly taken from you.</p>
+
+      <p>As one fraud expert recently put it: "<b>Twenty years ago, a thief had to break into your house. Now they just need your phone to ring at the right moment.</b>" The future of money is <b>fast, frictionless and digital</b>. Just make sure you stay one step ahead of the people who'd love to take some of yours.</p>
+    </article>
+  </section>
+
+  <!-- ============== SCAM CARDS ============== -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">⚠️</span>The 8 most common scams in 2026 — know them, dodge them</h2>
+    <p class="instr">Read each scam card carefully. Have you, or anyone you know, ever experienced one of these? We'll come back to your stories in the speaking section.</p>
+
+    <div class="scam-grid">
+      <div class="scam-card">
+        <div class="scam-emoji">📧</div>
+        <span class="scam-tag">PHISHING</span>
+        <div class="scam-name">The Fake Bank Email</div>
+        <div class="scam-desc">An email "from your bank" claims your account is frozen / suspicious. It asks you to click a link and confirm your details. The link goes to a fake site that steals your password.</div>
+        <div class="scam-warning"><strong>🛡️ Defence:</strong> Real banks NEVER ask for your full password by email. Always log in via the official app.</div>
+      </div>
+
+      <div class="scam-card">
+        <div class="scam-emoji">📞</div>
+        <span class="scam-tag">VISHING — VOICE PHISHING</span>
+        <div class="scam-name">The "Move Your Money" Call</div>
+        <div class="scam-desc">A caller pretends to be from the fraud department of your bank. "Your money is in danger! Move it to this safe account immediately!" The "safe account" is theirs.</div>
+        <div class="scam-warning"><strong>🛡️ Defence:</strong> Hang up. Call your bank's official number from the back of your card.</div>
+      </div>
+
+      <div class="scam-card">
+        <div class="scam-emoji">💌</div>
+        <span class="scam-tag">ROMANCE SCAM</span>
+        <div class="scam-name">The Dating App "Crisis"</div>
+        <div class="scam-desc">After weeks or months of online conversation with a "perfect" stranger, they suddenly need money — for a medical emergency, plane ticket, or stuck shipment. They never video call.</div>
+        <div class="scam-warning"><strong>🛡️ Defence:</strong> If they avoid video calls and ask for money, it's a scam. Always.</div>
+      </div>
+
+      <div class="scam-card">
+        <div class="scam-emoji">🛍️</div>
+        <span class="scam-tag">FAKE ONLINE SHOP</span>
+        <div class="scam-name">The Too-Cheap Sneakers</div>
+        <div class="scam-desc">A flashy Instagram or TikTok ad sells designer items at 70% off. The website looks real. You pay — and either receive nothing or a cheap fake.</div>
+        <div class="scam-warning"><strong>🛡️ Defence:</strong> Search the brand + "scam" before paying. Check reviews on Trustpilot.</div>
+      </div>
+
+      <div class="scam-card">
+        <div class="scam-emoji">📱</div>
+        <span class="scam-tag">SMS / SMISHING</span>
+        <div class="scam-name">"Your Parcel Couldn't Be Delivered"</div>
+        <div class="scam-desc">A text from "DHL" or "Post Office" says you owe €1.99 to release your parcel. The link asks for your card details. There is no parcel.</div>
+        <div class="scam-warning"><strong>🛡️ Defence:</strong> If you're not expecting a parcel, ignore the message. Never click the link.</div>
+      </div>
+
+      <div class="scam-card">
+        <div class="scam-emoji">💼</div>
+        <span class="scam-tag">FAKE JOB OFFER</span>
+        <div class="scam-name">"€500 a Day From Home!"</div>
+        <div class="scam-desc">An "easy" remote job that requires you to pay for "training", "equipment", or to receive money on behalf of strangers. You become a money mule for criminals.</div>
+        <div class="scam-warning"><strong>🛡️ Defence:</strong> Real jobs never ask you to pay anything upfront, ever.</div>
+      </div>
+
+      <div class="scam-card">
+        <div class="scam-emoji">💰</div>
+        <span class="scam-tag">INVESTMENT SCAM</span>
+        <div class="scam-name">The "Guaranteed 20% Return"</div>
+        <div class="scam-desc">Slick adverts, fake celebrity endorsements, glossy crypto platforms promising huge returns. Your money disappears, often with the website.</div>
+        <div class="scam-warning"><strong>🛡️ Defence:</strong> Real investments are never "guaranteed". If it sounds too good to be true, it is.</div>
+      </div>
+
+      <div class="scam-card">
+        <div class="scam-emoji">🎙️</div>
+        <span class="scam-tag">DEEPFAKE / AI SCAM</span>
+        <div class="scam-name">"Mum, It's Me — I'm in Trouble"</div>
+        <div class="scam-desc">AI clones a relative's voice from social media. The "child" calls in tears, claiming to need urgent money for an accident or arrest. Many parents transfer thousands before realising.</div>
+        <div class="scam-warning"><strong>🛡️ Defence:</strong> Always verify by calling them back on their normal number. Set a "family password" for emergencies.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== VOCAB ============== -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">💬</span>Vocabulary &amp; collocations</h2>
+    <p class="instr">B2 vocabulary about banking, money, payments and security. Notice the collocations and phrasal verbs — they're how real fluent speakers talk about money.</p>
+
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">cash / cashless / a cashless society</div><div class="vocab-def">paper money / no cash / a society without it</div><div class="vocab-ex">"Sweden is almost a fully cashless society."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a banknote / a coin</div><div class="vocab-def">paper money / metal money</div><div class="vocab-ex">"I always keep one €20 banknote for emergencies."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to withdraw / withdrawal</div><div class="vocab-def">to take money out (of a bank)</div><div class="vocab-ex">"I'll withdraw €100 from the ATM."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to deposit / a deposit</div><div class="vocab-def">to put money in (a bank)</div><div class="vocab-ex">"You can deposit cheques through the app now."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to transfer / a transfer</div><div class="vocab-def">to send money from one account to another</div><div class="vocab-ex">"Bank transfers used to take days; now they're instant."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a current / savings account</div><div class="vocab-def">an account you use daily / for saving</div><div class="vocab-ex">"Keep your savings account separate from your current account."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a credit / debit card</div><div class="vocab-def">card that borrows money / card that uses your money</div><div class="vocab-ex">"Use your debit card for daily things."</div></div>
+      <div class="vocab-card"><div class="vocab-term">contactless payment / to tap</div><div class="vocab-def">paying without entering a PIN / the action of doing so</div><div class="vocab-ex">"Just tap your card on the reader."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a mobile / digital wallet</div><div class="vocab-def">app on your phone for paying (Apple Pay, Google Pay)</div><div class="vocab-ex">"My phone is my wallet now."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a PIN / a password</div><div class="vocab-def">your secret 4-digit number / your secret code/word</div><div class="vocab-ex">"Never share your PIN with anyone."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a bank statement / balance</div><div class="vocab-def">a record of all your transactions / how much you have</div><div class="vocab-ex">"I check my balance every Monday."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a transaction</div><div class="vocab-def">a single payment in or out of an account</div><div class="vocab-ex">"There's a strange transaction on my statement."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a fee / a charge</div><div class="vocab-def">money the bank takes for a service</div><div class="vocab-ex">"Foreign ATM fees can be ridiculous."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be in debt / in the red</div><div class="vocab-def">to owe money / to have a negative balance</div><div class="vocab-ex">"He's been in the red for months."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to take out a loan / a mortgage</div><div class="vocab-def">to borrow money / borrow to buy a house</div><div class="vocab-ex">"They took out a mortgage at 4%."</div></div>
+      <div class="vocab-card"><div class="vocab-term">interest / interest rate</div><div class="vocab-def">extra money paid for borrowing or earned on savings / its percentage</div><div class="vocab-ex">"The interest rate has gone up again."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a scam / to scam (someone)</div><div class="vocab-def">a dishonest plan to get money / to trick someone for money</div><div class="vocab-ex">"He was scammed out of €3,000."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a scammer / a fraudster</div><div class="vocab-def">a person who runs scams</div><div class="vocab-ex">"Scammers are getting more sophisticated."</div></div>
+      <div class="vocab-card"><div class="vocab-term">phishing / a phishing email</div><div class="vocab-def">scam emails pretending to be from real companies</div><div class="vocab-ex">"That's a classic phishing email — don't click."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to impersonate (someone)</div><div class="vocab-def">to pretend to be them</div><div class="vocab-ex">"The scammer impersonated a bank employee."</div></div>
+      <div class="vocab-card"><div class="vocab-term">identity theft / to steal someone's identity</div><div class="vocab-def">when criminals use your personal details</div><div class="vocab-ex">"Identity theft cases are rising fast."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to fall for / fall victim to (a scam)</div><div class="vocab-def">to be tricked by it</div><div class="vocab-ex">"Even smart people fall for these scams."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to freeze a card / block a payment</div><div class="vocab-def">to stop a card working / stop a transaction</div><div class="vocab-ex">"I froze my card the moment I lost it."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a refund / to refund</div><div class="vocab-def">money returned to you</div><div class="vocab-ex">"The bank refunded the fraudulent transaction."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to verify / verification</div><div class="vocab-def">to check that something is real</div><div class="vocab-ex">"Always verify by calling the official number."</div></div>
+    </div>
+  </section>
+
+  <!-- ============== IDIOMS ============== -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions about money</h2>
+    <p class="instr">A goldmine of money idioms — these come up constantly in real-world English. Pick 5 you really like!</p>
+
+    <div class="idiom-card"><div class="idiom-term">to be ripped off</div><div class="idiom-def">to be cheated, especially by paying too much</div><div class="idiom-ex">"€8 for a coffee?! I was completely ripped off."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a rip-off</div><div class="idiom-def">a product or service that costs much more than it's worth</div><div class="idiom-ex">"That airport hotel is a total rip-off."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to pay through the nose</div><div class="idiom-def">to pay way too much for something</div><div class="idiom-ex">"I paid through the nose for those concert tickets."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to cost an arm and a leg</div><div class="idiom-def">to be very expensive</div><div class="idiom-ex">"This new phone costs an arm and a leg."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to break the bank</div><div class="idiom-def">to cost more than you can afford</div><div class="idiom-ex">"It's a nice meal that won't break the bank."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be on a tight budget</div><div class="idiom-def">to have very little money to spend</div><div class="idiom-ex">"As students, we were always on a tight budget."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to make ends meet</div><div class="idiom-def">to earn just enough money to live</div><div class="idiom-ex">"Many families struggle to make ends meet."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be strapped for cash</div><div class="idiom-def">to have very little money temporarily</div><div class="idiom-ex">"Sorry — I'm a bit strapped for cash this month."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to live from paycheck to paycheck</div><div class="idiom-def">to have no savings, only enough until the next salary</div><div class="idiom-ex">"He's been living paycheck to paycheck for years."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to put money aside / save up</div><div class="idiom-def">to keep money for the future</div><div class="idiom-ex">"I put €200 aside every month for holidays."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a nest egg</div><div class="idiom-def">money saved for the future, often for retirement</div><div class="idiom-ex">"They've built up a nice little nest egg."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to splash out (on something)</div><div class="idiom-def">to spend a lot of money on something special</div><div class="idiom-ex">"We splashed out on a fancy hotel for our anniversary."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be rolling in it</div><div class="idiom-def">to be very rich</div><div class="idiom-ex">"His grandfather was absolutely rolling in it."</div></div>
+    <div class="idiom-card"><div class="idiom-term">money doesn't grow on trees</div><div class="idiom-def">money is not easy to get / be careful with money</div><div class="idiom-ex">"Stop wasting it — money doesn't grow on trees!"</div></div>
+    <div class="idiom-card"><div class="idiom-term">to throw money down the drain</div><div class="idiom-def">to waste money</div><div class="idiom-ex">"Buying that car was throwing money down the drain."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to save for a rainy day</div><div class="idiom-def">to put money aside for unexpected problems</div><div class="idiom-ex">"It's smart to save a little for a rainy day."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to bring home the bacon</div><div class="idiom-def">to earn money for the family</div><div class="idiom-ex">"Both parents bring home the bacon now."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be too good to be true</div><div class="idiom-def">to seem so good it must be a trick</div><div class="idiom-ex">"That investment offer was too good to be true."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to take someone for a ride</div><div class="idiom-def">to deceive or cheat someone</div><div class="idiom-ex">"That builder really took us for a ride."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to keep your wits about you</div><div class="idiom-def">to stay alert and careful</div><div class="idiom-ex">"You have to keep your wits about you online these days."</div></div>
+  </section>
+
+  <!-- ============== MATCHING ============== -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🔗</span>Match the expression with its meaning</h2>
+    <p class="instr">Click an expression on the left, then its meaning on the right.</p>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <h3>Expression</h3>
+        <div class="match-item" data-word="1">to withdraw money</div>
+        <div class="match-item" data-word="2">a phishing email</div>
+        <div class="match-item" data-word="3">to be ripped off</div>
+        <div class="match-item" data-word="4">to fall for a scam</div>
+        <div class="match-item" data-word="5">to make ends meet</div>
+        <div class="match-item" data-word="6">contactless payment</div>
+        <div class="match-item" data-word="7">to freeze a card</div>
+        <div class="match-item" data-word="8">a nest egg</div>
+        <div class="match-item" data-word="9">to splash out</div>
+        <div class="match-item" data-word="10">too good to be true</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="1">to take cash out of a bank account</div>
+        <div class="match-item" data-def="3">to be cheated, especially by paying too much</div>
+        <div class="match-item" data-def="2">a fake email pretending to be from a real company</div>
+        <div class="match-item" data-def="6">paying by tapping your card with no PIN</div>
+        <div class="match-item" data-def="4">to be tricked by a dishonest plan</div>
+        <div class="match-item" data-def="5">to earn just enough money to live</div>
+        <div class="match-item" data-def="8">money saved for the future</div>
+        <div class="match-item" data-def="7">to stop a bank card from working</div>
+        <div class="match-item" data-def="10">seeming so good that it must be a trick</div>
+        <div class="match-item" data-def="9">to spend a lot of money on something special</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <span class="score" id="score6">0 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============== FILL ============== -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the gaps</h2>
+    <p class="instr">Complete each sentence with an expression from the bank. Use the correct form.</p>
+
+    <div class="word-bank">
+      <strong>💳 WORD BANK 💳</strong>
+      withdraw · transfer · contactless · scam · freeze · phishing · refund · interest rate · cashless · fell for
+    </div>
+
+    <div class="fill-item"><p><span class="num">01</span>I'll just <input class="fill-input" data-answer="withdraw"> €50 from the cashpoint quickly.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>Could you <input class="fill-input" data-answer="transfer"> €100 to my account, please?</p></div>
+    <div class="fill-item"><p><span class="num">03</span>I usually pay with <input class="fill-input" data-answer="contactless"> — it's so much faster.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>Be careful — that email looks like a classic <input class="fill-input" data-answer="scam">.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>I lost my card last night, so I had to <input class="fill-input" data-answer="freeze"> it via the app.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>"Verify your details" emails are usually <input class="fill-input" data-answer="phishing"> attempts.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>The bank gave me a full <input class="fill-input" data-answer="refund"> for the fraudulent transaction.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>The <input class="fill-input wide" data-answer="interest rate"> on my mortgage just went up again.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>Sweden is almost a fully <input class="fill-input" data-answer="cashless"> society now.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>My uncle <input class="fill-input wide" data-answer="fell for"> a fake investment scam and lost €5,000.</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check my answers</button>
+    <span class="score" id="score7">— / 10</span>
+  </section>
+
+  <!-- ============== MC ============== -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">🎯</span>Multiple choice</h2>
+    <p class="instr">Pick the option that sounds most natural at B2 level.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q1</span>"€8 for a small coffee?! I've been ripped off." This means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the coffee was free.</button>
+        <button class="mc-opt">b) you were charged way too much.</button>
+        <button class="mc-opt">c) the coffee tore your shirt.</button>
+        <button class="mc-opt">d) you got a discount.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q2</span>"That investment offer is too good to be true." This means it's probably…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the best investment ever.</button>
+        <button class="mc-opt">b) very honest and reliable.</button>
+        <button class="mc-opt">c) a scam.</button>
+        <button class="mc-opt">d) only for rich people.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q3</span>"I'm a bit strapped for cash this month." This means I…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) don't have much money right now.</button>
+        <button class="mc-opt">b) have lots of cash on me.</button>
+        <button class="mc-opt">c) lost my wallet.</button>
+        <button class="mc-opt">d) won the lottery.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q4</span>"He fell for a phishing email." Phishing means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) catching real fish.</button>
+        <button class="mc-opt">b) a sport.</button>
+        <button class="mc-opt">c) a type of spam.</button>
+        <button class="mc-opt">d) fake emails pretending to be from real companies, designed to steal information.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q5</span>"I saved up a nice nest egg for retirement." A nest egg is…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) a real bird's egg.</button>
+        <button class="mc-opt">b) money saved for the future.</button>
+        <button class="mc-opt">c) a kind of breakfast.</button>
+        <button class="mc-opt">d) a credit card.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q6</span>If I "freeze my card", I…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) put it in the fridge.</button>
+        <button class="mc-opt">b) clean it carefully.</button>
+        <button class="mc-opt">c) temporarily stop it from working.</button>
+        <button class="mc-opt">d) cancel my account forever.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q7</span>"Many families are struggling to make ends meet." This means they're struggling to…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) earn enough to cover their basic needs.</button>
+        <button class="mc-opt">b) finish their work on time.</button>
+        <button class="mc-opt">c) get to the end of the road.</button>
+        <button class="mc-opt">d) finish meals together.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q8</span>"That holiday cost an arm and a leg." This means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) you got injured.</button>
+        <button class="mc-opt">b) it was free.</button>
+        <button class="mc-opt">c) you danced a lot.</button>
+        <button class="mc-opt">d) it was extremely expensive.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q9</span>"He impersonated a bank employee." He…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) was a real bank employee.</button>
+        <button class="mc-opt">b) pretended to be one.</button>
+        <button class="mc-opt">c) was hired by the bank.</button>
+        <button class="mc-opt">d) sold the bank to him.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>"That builder took us for a ride." This means he…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) drove us somewhere.</button>
+        <button class="mc-opt">b) was very honest.</button>
+        <button class="mc-opt">c) deceived or cheated us.</button>
+        <button class="mc-opt">d) gave us a discount.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q11</span>"You have to keep your wits about you online." This means you have to be…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) alert and careful.</button>
+        <button class="mc-opt">b) very funny.</button>
+        <button class="mc-opt">c) silent.</button>
+        <button class="mc-opt">d) extremely fast.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q12</span>"I'd never put all my savings in crypto." Why? Because…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) crypto is illegal.</button>
+        <button class="mc-opt">b) banks don't like it.</button>
+        <button class="mc-opt">c) it's very boring.</button>
+        <button class="mc-opt">d) it can be very risky and volatile.</button>
+      </div>
+    </div>
+
+    <span class="score" id="score8">0 / 12</span>
+  </section>
+
+  <!-- ============== SPEAKING ============== -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking practice</h2>
+    <p class="instr">Speak <strong>1½–2 minutes</strong> per question. Use at least <strong>3 target expressions</strong> per answer. The last task is a role-play — try it twice, swapping roles!</p>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 01 · YOUR DAILY MONEY HABITS</div>
+      <div class="speak-prompt">Walk us through your typical week with money — where do you spend, how do you pay, do you ever use cash anymore?</div>
+      <div class="speak-help"><strong>Try to use:</strong> contactless · mobile wallet · withdraw · cashless · transfer · transaction</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 02 · CASH vs CASHLESS</div>
+      <div class="speak-prompt">Should countries be moving toward 100% cashless? What are the benefits — and who would be hurt by it?</div>
+      <div class="speak-help"><strong>Try to use:</strong> a cashless society · vulnerable customers · go cashless · access your money · privacy · convenience</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 03 · A SCAM STORY</div>
+      <div class="speak-prompt">Tell us about a scam — one that you've experienced, almost fell for, or read about. What happened? What should they have done?</div>
+      <div class="speak-help"><strong>Try to use:</strong> phishing · to impersonate · to fall for · to be ripped off · too good to be true · to verify</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 04 · WHO'S MOST AT RISK?</div>
+      <div class="speak-prompt">Who do you think is most at risk from modern banking scams — older people, younger people, busy professionals? Why?</div>
+      <div class="speak-help"><strong>Try to use:</strong> vulnerable · to fall victim · identity theft · to keep your wits about you · per scam · sophisticated</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 05 · YOUR MONEY PERSONALITY</div>
+      <div class="speak-prompt">Are you a saver, a spender, or somewhere in between? Do you save for a rainy day, or do you splash out and worry later?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to save up · a nest egg · to splash out · on a tight budget · paycheck to paycheck · save for a rainy day</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 06 · WHAT ABOUT CRYPTO?</div>
+      <div class="speak-prompt">Bitcoin, Ethereum, "stablecoins" — would you ever put your money in crypto? Is it the future, a scam, or somewhere in between?</div>
+      <div class="speak-help"><strong>Try to use:</strong> investment · interest rate · too good to be true · risky · to throw money down the drain · volatile</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 07 · ROLE-PLAY · "YOUR ACCOUNT IS IN DANGER"</div>
+      <div class="speak-prompt">Practise a real-life scenario! Try this with your teacher — first as the customer, then as the scammer. Use the language to confidently <strong>recognise and refuse</strong> a scam call.</div>
+
+      <div class="role-play">
+        <h5>📞 The Scenario</h5>
+        <div class="role"><strong>STUDENT A — THE "SCAMMER"</strong>You call pretending to be from "Fraud Prevention" at the customer's bank. There's an "urgent suspicious transaction" — they need to move their money to a "safe account" right now. Use urgency, confidence, technical-sounding words. Try to get their PIN!</div>
+        <div class="role"><strong>STUDENT B — THE CUSTOMER</strong>You're suspicious. Use phrases to verify, slow things down, refuse politely but firmly. Useful: <em>"Can I call you back?"</em> · <em>"I'd rather verify by calling my bank's official number."</em> · <em>"I never give out my PIN, sorry."</em> · <em>"This sounds like a scam — goodbye."</em></div>
+      </div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TASK 08 · QUICK-FIRE · 30 SECONDS EACH</div>
+      <div class="speak-prompt">No planning — just talk!</div>
+      <div class="speak-help">
+        ▸ The most expensive thing you've ever bought.<br>
+        ▸ A purchase you regret.<br>
+        ▸ One financial habit you'd love to start.<br>
+        ▸ Cash or card — pick a side and defend it.<br>
+        ▸ Complete: "If I won the lottery tomorrow, the very first thing I'd do is…"
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== GRAMMAR ============== -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar: Phrasal Verbs &amp; Conditionals</h2>
+    <p class="instr">Two B2 grammar areas you genuinely need for this topic: <strong>money phrasal verbs</strong> (which appear in every banking conversation) and <strong>conditionals</strong> (essential for "if I were scammed…" situations and giving advice).</p>
+
+    <div class="grammar-box">
+      <h4>💳 Part 1 — Money phrasal verbs</h4>
+      <ul>
+        <li><strong>to take out</strong> = to borrow / withdraw. <code>I took out a loan.</code> / <code>I took out €50.</code></li>
+        <li><strong>to pay back</strong> = to return borrowed money. <code>I'll pay you back on Friday.</code></li>
+        <li><strong>to pay off</strong> = to finish paying a debt. <code>It took 5 years to pay off the loan.</code></li>
+        <li><strong>to put aside / put away</strong> = to save for later. <code>She puts €100 aside every month.</code></li>
+        <li><strong>to save up (for)</strong> = to gradually save money. <code>We're saving up for a house.</code></li>
+        <li><strong>to splash out (on)</strong> = to spend extravagantly. <code>He splashed out on a new watch.</code></li>
+        <li><strong>to run out (of money)</strong> = to have no more left. <code>I always run out of cash by the 25th.</code></li>
+        <li><strong>to fork out</strong> = to pay reluctantly. <code>I had to fork out €200 for a taxi.</code></li>
+        <li><strong>to fall for (a scam)</strong> = to be tricked by it. <code>Don't fall for that email.</code></li>
+        <li><strong>to rip (someone) off</strong> = to cheat them. <code>That shop totally ripped me off.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>💳 Part 2 — Conditionals (1st, 2nd, 3rd)</h4>
+      <ul>
+        <li><strong>1st conditional</strong> — real future. <code>If you click the link, your account will be hacked.</code></li>
+        <li><strong>2nd conditional</strong> — hypothetical present. <code>If I won the lottery, I would pay off my mortgage.</code></li>
+        <li><strong>3rd conditional</strong> — past regret. <code>If I had checked the URL, I wouldn't have fallen for it.</code></li>
+        <li>Mixing: past condition → present result. <code>If I had saved more, I'd be richer now.</code></li>
+      </ul>
+      <div class="formula">1st: If + present, will + verb (real future)</div>
+      <div class="formula">2nd: If + past, would + verb (unreal present)</div>
+      <div class="formula">3rd: If + past perfect, would have + past participle (past regret)</div>
+    </div>
+
+    <p class="instr"><strong>Part A — phrasal verbs.</strong> Choose the correct phrasal verb from the list and use the right form: <em>take out, pay back, pay off, put aside, save up, splash out, run out, fall for, rip off</em>.</p>
+
+    <div class="fill-item"><p><span class="num">01</span>I always <input class="fill-input wide" data-answer="run out"> of cash by the end of the month. <em style="color:var(--deep); font-size:13px;">(2 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">02</span>For their wedding, they really <input class="fill-input wide" data-answer="splashed out"> on the venue. <em style="color:var(--deep); font-size:13px;">(2 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">03</span>It took us seven years to <input class="fill-input wide" data-answer="pay off"> the mortgage. <em style="color:var(--deep); font-size:13px;">(2 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">04</span>I try to <input class="fill-input wide" data-answer="put aside"> €150 every month for emergencies. <em style="color:var(--deep); font-size:13px;">(2 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">05</span>Be careful — that website is designed to <input class="fill-input wide" data-answer="rip"> you off. <em style="color:var(--deep); font-size:13px;">(1 word — verb only)</em></p></div>
+    <div class="fill-item"><p><span class="num">06</span>I'm <input class="fill-input wide" data-answer="saving up"> for a holiday in Japan next year. <em style="color:var(--deep); font-size:13px;">(2 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">07</span>Don't <input class="fill-input wide" data-answer="fall for"> these "you've won a prize" emails. <em style="color:var(--deep); font-size:13px;">(2 words)</em></p></div>
+
+    <p class="instr"><strong>Part B — conditionals.</strong> Use the correct form of the verb in brackets.</p>
+
+    <div class="fill-item"><p><span class="num">08</span>If you <input class="fill-input wide" data-answer="click"> (click) on that suspicious link, your account will be in danger.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>If I won the lottery, I <input class="fill-input wide" data-answer="would pay off"> (pay off) my mortgage immediately.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>If I had checked the website properly, I <input class="fill-input wide" data-answer="wouldn't have fallen"> (not / fall) for that scam.</p></div>
+    <div class="fill-item"><p><span class="num">11</span>If she <input class="fill-input wide" data-answer="had saved"> (save) more in her twenties, she'd have a nicer flat now.</p></div>
+    <div class="fill-item"><p><span class="num">12</span>If you <input class="fill-input wide" data-answer="see"> (see) a strange transaction, freeze your card immediately.</p></div>
+    <div class="fill-item"><p><span class="num">13</span>If they hadn't impersonated a bank employee, my grandmother <input class="fill-input wide" data-answer="wouldn't have transferred"> (not / transfer) the money.</p></div>
+
+    <p class="instr"><strong>Part C — full sentence.</strong> Pick the most natural option.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q14</span>What's the most natural way to give advice about online safety?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "If you would have clicked the link, you will lose money."</button>
+        <button class="mc-opt">b) "If you click the link, you'll lose your money."</button>
+        <button class="mc-opt">c) "If you click the link, you have lost the money."</button>
+        <button class="mc-opt">d) "If you would click the link, you would have lost money."</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkGrammar()">✓ Check grammar</button>
+    <span class="score" id="score10">— / 14</span>
+  </section>
+
+  <footer>
+    💳 ★ ★ &nbsp; MODERN BANKING · B2 ENGLISH WORKSHEET &nbsp; ★ ★ 💳
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 6)
+  let selectedWord = null;
+  let matched6 = 0;
+  document.querySelectorAll('#t6 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t6 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched6++;
+          document.getElementById('score6').textContent = matched6 + ' / 10';
+          selectedWord = null;
+          if (matched6 === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 7)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t7 .fill-input');
+    const alternates = {
+      'fell for': ['fell for'],
+      'interest rate': ['interest rate'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score7').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score7').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 8)
+  let mcScore = 0;
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score8').textContent = mcScore + ' / 12';
+        if (mcScore === 12) document.getElementById('score8').textContent = '★ 12 / 12 ★';
+      });
+    });
+  });
+
+  // GRAMMAR (tab 10)
+  let grammarMcScore = 0;
+  function checkGrammar() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t10 .fill-input');
+    const alternates = {
+      'run out': ['run out'],
+      'splashed out': ['splashed out'],
+      'pay off': ['pay off'],
+      'put aside': ['put aside','put away'],
+      'rip': ['rip'],
+      'saving up': ['saving up'],
+      'fall for': ['fall for'],
+      'click': ['click'],
+      'would pay off': ['would pay off',"'d pay off"],
+      "wouldn't have fallen": ["wouldn't have fallen","would not have fallen"],
+      'had saved': ['had saved',"'d saved"],
+      'see': ['see'],
+      "wouldn't have transferred": ["wouldn't have transferred","would not have transferred"],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    correct += grammarMcScore;
+    document.getElementById('score10').textContent = correct + ' / 14';
+    if (correct === 14) document.getElementById('score10').textContent = '★ 14 / 14 ★';
+  }
+  // MC for grammar Part C (Q14)
+  document.querySelectorAll('#t10 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          grammarMcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
