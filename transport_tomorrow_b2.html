@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transport Tomorrow — B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --electric: #0EA5E9;
+    --deep: #075985;
+    --coral: #E76F51;
+    --neon: #10B981;
+    --warm: #F59E0B;
+    --cream: #F5F8FA;
+    --sand: #DCE6EE;
+    --ink: #0F172A;
+    --cloud: #ffffff;
+    --soft: #DBEAFE;
+    --blush: #FFE4D8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(14,165,233,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(16,185,129,0.1) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "🚄";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 110px;
+    opacity: 0.15;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--warm);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--coral); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--cream); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--electric);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .reading p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+    color: #2a3441;
+  }
+  .reading b, .reading strong {
+    background: linear-gradient(transparent 55%, rgba(245,158,11,0.55) 55%);
+    padding: 0 2px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .reading .pull-quote {
+    background: var(--soft);
+    padding: 14px 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--electric);
+    margin: 16px 0;
+    font-style: italic;
+  }
+
+  /* TRANSPORT MODE CARDS */
+  .modes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .mode-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform 0.15s;
+  }
+  .mode-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+  .mode-card.c1 { border-top: 8px solid var(--electric); }
+  .mode-card.c2 { border-top: 8px solid var(--neon); }
+  .mode-card.c3 { border-top: 8px solid var(--warm); }
+  .mode-card.c4 { border-top: 8px solid var(--coral); }
+  .mode-emoji { font-size: 32px; margin-bottom: 4px; }
+  .mode-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .mode-status {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--warm);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .mode-desc { font-size: 13.5px; line-height: 1.6; margin-bottom: 8px; }
+  .mode-pros-cons {
+    font-size: 12.5px;
+    padding-top: 8px;
+    border-top: 2px dashed var(--sand);
+  }
+  .mode-pros-cons .pros { color: var(--neon); margin-bottom: 3px; }
+  .mode-pros-cons .cons { color: var(--coral); }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* IDIOMS */
+  .idiom-card {
+    background: linear-gradient(135deg, var(--cloud) 0%, var(--soft) 100%);
+    border: 2px solid var(--ink);
+    border-left: 5px solid var(--neon);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .idiom-term {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--neon);
+    margin-bottom: 4px;
+  }
+  .idiom-def { font-size: 14px; margin-bottom: 8px; }
+  .idiom-ex {
+    font-style: italic;
+    font-size: 13.5px;
+    background: rgba(255,255,255,0.7);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--coral);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14.5px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--electric); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 200px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 280px; }
+  .fill-input:focus { outline: none; border-color: var(--electric); background: var(--cream); }
+  .fill-input.correct { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--warm);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--electric); }
+  .mc-opt.correct { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--coral);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--warm);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--neon);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--neon); }
+
+  .phrase-box {
+    background: var(--blush);
+    border: 2px dashed var(--coral);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .phrase-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .phrase-box .phrase-list { display: grid; gap: 6px; }
+  .phrase-box .phrase {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    border-left: 3px solid var(--electric);
+  }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--electric);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid { grid-template-columns: 1fr; }
+    .reading { padding: 22px; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🚄 FUTURE TRANSPORT · B2 ENGLISH</div>
+      <h1>Transport <span class="accent">Tomorrow</span></h1>
+      <div class="sub">EVs, self-driving cars, hyperloop, delivery drones, flying taxis — the technologies reshaping how we move, and the language to talk about them like a futurist.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">Future Tech · Mobility</span>
+        <span class="tag">Idioms &amp; Collocations</span>
+        <span class="tag">Speaking · Grammar</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Reading</button>
+    <button class="tab" data-tab="t2">② Modes 🚀</button>
+    <button class="tab" data-tab="t3">③ Vocabulary</button>
+    <button class="tab" data-tab="t4">④ Idioms</button>
+    <button class="tab" data-tab="t5">⑤ Matching</button>
+    <button class="tab" data-tab="t6">⑥ Fill the gaps</button>
+    <button class="tab" data-tab="t7">⑦ Multiple choice</button>
+    <button class="tab" data-tab="t8">⑧ Speaking 🎤</button>
+    <button class="tab" data-tab="t9">⑨ Grammar 📝</button>
+  </nav>
+
+  <!-- ============== READING ============== -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">A futurist takes us through the technologies that will completely transform how we get around in the coming decades. Target language is in <b>amber bold</b>.</p>
+
+    <article class="reading">
+      <h3>"Get Ready — Your Daily Commute Won't Recognise Itself"</h3>
+      <div class="byline">★ Mobility &amp; Future · 5-minute read</div>
+
+      <p>Imagine waking up in 2040. You ask your phone to <b>order a ride</b>, and within three minutes, an electric, <b>self-driving car</b> with no steering wheel pulls up outside your home. While it takes you to work, you read the news, answer some emails, or watch an episode of something. Above your head, <b>delivery drones</b> are silently dropping off groceries to your neighbours. In the distance, you can see a <b>hyperloop</b> station where, last weekend, you took a 30-minute trip to a city 600 km away. Science fiction? Maybe. But every single one of these technologies is already in <b>some stage of development</b>, and the way we move is about to change beyond recognition.</p>
+
+      <p>Let's start with the obvious. <b>Electric vehicles</b> have already <b>gone mainstream</b>. Just five years ago, EVs were a niche product for tech enthusiasts. Today, more than one in five new cars sold in Europe is fully electric, and that number is <b>climbing rapidly</b>. <b>Range anxiety</b> — the fear that your battery will run out before you reach a charger — is gradually disappearing as <b>charging infrastructure expands</b> and battery technology improves. Most experts agree it's not a question of <em>if</em> EVs will replace petrol cars, but <em>how quickly</em>.</p>
+
+      <p>The next big leap is <b>autonomous driving</b>. We're not quite there yet — <b>fully self-driving cars</b> still struggle with bad weather, complex city traffic and unpredictable human behaviour. But progress has been faster than most people realise. In several US cities, <b>robotaxi</b> services already <b>operate without a human driver</b>. The biggest barrier today isn't really the technology — it's <b>regulation</b>, <b>public trust</b>, and the very tricky question of <b>who is responsible when something goes wrong</b>. Honestly, the legal questions are almost harder than the engineering ones.</p>
+
+      <p class="pull-quote">"The first generation of cars replaced horses. The next generation of cars will replace drivers." — transport analyst, MIT</p>
+
+      <p>Then there's the hyperloop — a tube-based transport system designed to <b>shoot passengers</b> at speeds of over 1,000 km/h between cities. The concept, popularised by Elon Musk back in 2013, has had a bumpy ride. Several companies <b>went bust</b> after struggling to <b>secure funding</b>, and many engineers have argued that the costs are simply <b>prohibitive</b>. But the technology hasn't gone away. China, India and the UAE are all <b>investing heavily</b> in hyperloop research, and a working passenger line within a decade is no longer pure fantasy.</p>
+
+      <p>Drones are perhaps the most quietly revolutionary part of the story. <b>Delivery drones</b> are already in use in parts of the US and Australia, dropping off everything from coffee to medical supplies. <b>Air taxis</b> — small electric aircraft that can carry passengers — are scheduled to launch commercially in cities like Paris, Dubai and São Paulo in the next two or three years. Of course, the moment hundreds of these things are flying over a city, you have a whole new set of problems: noise, safety, and increasingly, <b>airspace traffic management</b>.</p>
+
+      <p>And then there's the green angle. Transport currently accounts for around <b>a quarter of global CO₂ emissions</b>. Every credible plan to <b>tackle climate change</b> involves <b>decarbonising mobility</b> — getting people out of petrol cars, off polluting aircraft, and onto cleaner alternatives. <b>Public transport</b> is being <b>upgraded and electrified</b> across Europe. Cities like Paris, Bogotá and Singapore are <b>reclaiming streets</b> from cars and giving them back to cyclists, walkers and trams. <b>Car-free city centres</b> are becoming the norm rather than the exception.</p>
+
+      <p>So is everything sunshine and rainbows? Not quite. New technologies always come with new problems. EVs require huge amounts of <b>lithium and cobalt</b>, often mined under questionable conditions. Self-driving systems raise <b>privacy concerns</b> because they constantly collect data. Drones could <b>worsen inequality</b> if only wealthy areas get fast deliveries. And honestly, all this innovation could mean very little if <b>we don't tackle</b> the real source of urban transport problems: <b>poor planning</b>, <b>car dependency</b> and underinvestment in public transit.</p>
+
+      <p>Still, optimism feels reasonable. Within a generation, the way we move around our cities — and across continents — is likely to look totally different from today. As one futurist put it: <b>"For the first time in 100 years, transport innovation isn't just about going faster. It's about going smarter, cleaner, and together."</b> Whether we get it right is up to us.</p>
+    </article>
+  </section>
+
+  <!-- ============== MODES ============== -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">🚀</span>Future transport modes — quick guide</h2>
+    <p class="instr">A snapshot of the main technologies reshaping mobility. Notice the green pros and red cons — these are perfect for the speaking section!</p>
+
+    <div class="modes-grid">
+      <div class="mode-card c1">
+        <div class="mode-emoji">⚡</div>
+        <div class="mode-status">MAINSTREAM</div>
+        <div class="mode-title">Electric vehicles (EVs)</div>
+        <div class="mode-desc">Cars powered by rechargeable batteries instead of petrol or diesel.</div>
+        <div class="mode-pros-cons">
+          <div class="pros">✓ zero emissions, cheaper to run, quiet</div>
+          <div class="cons">✗ battery materials, charging gaps, upfront cost</div>
+        </div>
+      </div>
+
+      <div class="mode-card c2">
+        <div class="mode-emoji">🤖</div>
+        <div class="mode-status">EARLY ROLLOUT</div>
+        <div class="mode-title">Autonomous cars</div>
+        <div class="mode-desc">Self-driving vehicles using AI, sensors and cameras to navigate without human input.</div>
+        <div class="mode-pros-cons">
+          <div class="pros">✓ fewer accidents, accessibility, productivity</div>
+          <div class="cons">✗ legal grey areas, public trust, edge cases</div>
+        </div>
+      </div>
+
+      <div class="mode-card c3">
+        <div class="mode-emoji">🚄</div>
+        <div class="mode-status">EXPERIMENTAL</div>
+        <div class="mode-title">Hyperloop</div>
+        <div class="mode-desc">Vacuum-tube transport system carrying passengers at 1,000+ km/h between cities.</div>
+        <div class="mode-pros-cons">
+          <div class="pros">✓ ultra-fast, low emissions, energy-efficient</div>
+          <div class="cons">✗ huge costs, unproven at scale, regulation</div>
+        </div>
+      </div>
+
+      <div class="mode-card c4">
+        <div class="mode-emoji">📦</div>
+        <div class="mode-status">GROWING FAST</div>
+        <div class="mode-title">Delivery drones</div>
+        <div class="mode-desc">Small flying robots that drop off goods directly to customers, bypassing roads.</div>
+        <div class="mode-pros-cons">
+          <div class="pros">✓ super fast, reaches remote areas, low cost</div>
+          <div class="cons">✗ noise, airspace chaos, privacy issues</div>
+        </div>
+      </div>
+
+      <div class="mode-card c1">
+        <div class="mode-emoji">🚁</div>
+        <div class="mode-status">VERY NEW</div>
+        <div class="mode-title">Air taxis (eVTOL)</div>
+        <div class="mode-desc">Small electric aircraft that take off and land vertically, carrying 2–6 passengers across cities.</div>
+        <div class="mode-pros-cons">
+          <div class="pros">✓ avoids ground traffic, fast, electric</div>
+          <div class="cons">✗ expensive, weather-sensitive, noisy</div>
+        </div>
+      </div>
+
+      <div class="mode-card c2">
+        <div class="mode-emoji">🚌</div>
+        <div class="mode-status">SCALING UP</div>
+        <div class="mode-title">Electric &amp; smart public transport</div>
+        <div class="mode-desc">Electric buses, trams, and metros connected to smart systems that adjust in real time to demand.</div>
+        <div class="mode-pros-cons">
+          <div class="pros">✓ low emissions, mass capacity, equitable</div>
+          <div class="cons">✗ slow rollout, ageing infrastructure</div>
+        </div>
+      </div>
+
+      <div class="mode-card c3">
+        <div class="mode-emoji">🚲</div>
+        <div class="mode-status">EVERYWHERE</div>
+        <div class="mode-title">Micro-mobility</div>
+        <div class="mode-desc">E-bikes, e-scooters, shared bikes — small electric vehicles for short urban journeys.</div>
+        <div class="mode-pros-cons">
+          <div class="pros">✓ fast for short trips, zero emissions, fun</div>
+          <div class="cons">✗ safety issues, clutter on pavements</div>
+        </div>
+      </div>
+
+      <div class="mode-card c4">
+        <div class="mode-emoji">⚗️</div>
+        <div class="mode-status">EMERGING</div>
+        <div class="mode-title">Hydrogen vehicles</div>
+        <div class="mode-desc">Cars and trucks powered by hydrogen fuel cells — water vapour is the only emission.</div>
+        <div class="mode-pros-cons">
+          <div class="pros">✓ fast refuelling, long range, zero emissions</div>
+          <div class="cons">✗ expensive fuel, very few stations</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== VOCAB ============== -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">💬</span>Vocabulary &amp; collocations</h2>
+    <p class="instr">B2 vocabulary for talking about modern and future transport. Pay attention to which words go together — that's where real fluency lives.</p>
+
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">a daily commute</div><div class="vocab-def">your regular journey to and from work</div><div class="vocab-ex">"My daily commute is over an hour each way."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to commute / a commuter</div><div class="vocab-def">to travel regularly to work / a person who does this</div><div class="vocab-ex">"Most commuters use public transport."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an electric vehicle (EV)</div><div class="vocab-def">a car powered by a battery, not petrol</div><div class="vocab-ex">"Sales of EVs are climbing rapidly."</div></div>
+      <div class="vocab-card"><div class="vocab-term">range anxiety</div><div class="vocab-def">the fear of running out of battery</div><div class="vocab-ex">"Range anxiety is the biggest barrier to EV adoption."</div></div>
+      <div class="vocab-card"><div class="vocab-term">charging infrastructure</div><div class="vocab-def">the network of charging points for EVs</div><div class="vocab-ex">"We need more charging infrastructure on motorways."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a self-driving / autonomous car</div><div class="vocab-def">a car that drives itself without human input</div><div class="vocab-ex">"Self-driving cars are already on test in some cities."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a robotaxi</div><div class="vocab-def">a taxi with no human driver</div><div class="vocab-ex">"Waymo robotaxis operate 24/7 in Phoenix."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a hyperloop</div><div class="vocab-def">a high-speed transport system using vacuum tubes</div><div class="vocab-ex">"Hyperloop technology is still experimental."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a delivery drone</div><div class="vocab-def">a small flying robot used to deliver goods</div><div class="vocab-ex">"Delivery drones can reach remote areas in minutes."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an air taxi / eVTOL</div><div class="vocab-def">a small electric flying vehicle for short urban trips</div><div class="vocab-ex">"Air taxis will launch in Paris next year."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to launch commercially</div><div class="vocab-def">to make available to paying customers</div><div class="vocab-ex">"They plan to launch commercially in 2027."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to ease / reduce traffic congestion</div><div class="vocab-def">to make traffic flow better</div><div class="vocab-ex">"Better public transport could ease congestion massively."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a traffic jam / gridlock</div><div class="vocab-def">cars not moving / total stop in traffic</div><div class="vocab-ex">"We were stuck in gridlock for two hours."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to cut emissions</div><div class="vocab-def">to reduce CO₂ and other polluting gases</div><div class="vocab-ex">"EVs help cut emissions in cities."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to decarbonise mobility</div><div class="vocab-def">to make transport carbon-free</div><div class="vocab-ex">"Decarbonising mobility is a top EU priority."</div></div>
+      <div class="vocab-card"><div class="vocab-term">car-free city centres</div><div class="vocab-def">central areas where cars are banned</div><div class="vocab-ex">"Car-free city centres are now common in Europe."</div></div>
+      <div class="vocab-card"><div class="vocab-term">car dependency</div><div class="vocab-def">heavy reliance on private cars</div><div class="vocab-ex">"American cities suffer from extreme car dependency."</div></div>
+      <div class="vocab-card"><div class="vocab-term">public transport / mass transit</div><div class="vocab-def">buses, trains, trams used by everyone</div><div class="vocab-ex">"Investing in public transport reduces emissions."</div></div>
+      <div class="vocab-card"><div class="vocab-term">micro-mobility</div><div class="vocab-def">small electric vehicles like e-scooters and e-bikes</div><div class="vocab-ex">"Micro-mobility is reshaping short urban trips."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a charging point / charging station</div><div class="vocab-def">where you charge an EV</div><div class="vocab-ex">"There's a charging point at every supermarket now."</div></div>
+      <div class="vocab-card"><div class="vocab-term">cutting-edge technology</div><div class="vocab-def">the most advanced technology available</div><div class="vocab-ex">"This bus uses cutting-edge battery technology."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a smart city</div><div class="vocab-def">a city using technology to improve services</div><div class="vocab-ex">"Smart cities use real-time data to manage traffic."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to roll out (a service)</div><div class="vocab-def">to introduce gradually to the public</div><div class="vocab-ex">"They're rolling out the new service in five cities."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a fleet (of vehicles)</div><div class="vocab-def">a group of vehicles owned by one operator</div><div class="vocab-ex">"Uber operates a huge fleet of EVs in London."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to revolutionise</div><div class="vocab-def">to completely change something</div><div class="vocab-ex">"AI will revolutionise urban mobility."</div></div>
+    </div>
+  </section>
+
+  <!-- ============== IDIOMS ============== -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions for talking about the future</h2>
+    <p class="instr">B2-level idioms that fit perfectly when discussing technology, change, and what's coming next.</p>
+
+    <div class="idiom-card"><div class="idiom-term">to change beyond recognition</div><div class="idiom-def">to change so much you can hardly recognise it</div><div class="idiom-ex">"Cities will change beyond recognition in 20 years."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be ahead of its time</div><div class="idiom-def">to be very advanced for its era</div><div class="idiom-ex">"The first electric cars were ahead of their time."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to go mainstream</div><div class="idiom-def">to become widely accepted by the general public</div><div class="idiom-ex">"EVs have finally gone mainstream."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a game changer</div><div class="idiom-def">something that dramatically transforms a situation</div><div class="idiom-ex">"Battery technology is the real game changer."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to hit the road</div><div class="idiom-def">to start a journey</div><div class="idiom-ex">"We hit the road early to avoid traffic."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be in the fast lane</div><div class="idiom-def">to make rapid progress</div><div class="idiom-ex">"China is firmly in the fast lane on EV adoption."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to take off (an industry / idea)</div><div class="idiom-def">to suddenly become very successful</div><div class="idiom-ex">"E-bike sales have really taken off."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to have a bumpy ride</div><div class="idiom-def">to experience difficulties / setbacks</div><div class="idiom-ex">"The hyperloop project has had a bumpy ride."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to go bust</div><div class="idiom-def">(of a business) to fail and close down</div><div class="idiom-ex">"Several startups went bust last year."</div></div>
+    <div class="idiom-card"><div class="idiom-term">science fiction</div><div class="idiom-def">unrealistic / from a sci-fi novel (used as an adjective phrase)</div><div class="idiom-ex">"Air taxis sounded like science fiction five years ago."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be on the horizon</div><div class="idiom-def">expected to happen soon</div><div class="idiom-ex">"Self-driving trucks are firmly on the horizon."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to put (something) on the map</div><div class="idiom-def">to make it widely known</div><div class="idiom-ex">"Tesla put EVs on the map."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be just around the corner</div><div class="idiom-def">to be coming very soon</div><div class="idiom-ex">"Mass-market autonomous cars are just around the corner."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to leapfrog (someone)</div><div class="idiom-def">to skip ahead and overtake them</div><div class="idiom-ex">"Some African cities have leapfrogged straight to electric buses."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a leap forward</div><div class="idiom-def">a major advancement or improvement</div><div class="idiom-ex">"This is a real leap forward in battery technology."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be sunshine and rainbows</div><div class="idiom-def">(usually negative) to be all positive, with no problems</div><div class="idiom-ex">"It's not all sunshine and rainbows — there are real challenges."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to think outside the box</div><div class="idiom-def">to think creatively, beyond standard solutions</div><div class="idiom-ex">"Solving urban transport requires thinking outside the box."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be a pipe dream</div><div class="idiom-def">an unrealistic, fantasy-level idea</div><div class="idiom-ex">"Flying cars used to be a pipe dream."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to have the green light</div><div class="idiom-def">to receive official permission to proceed</div><div class="idiom-ex">"The new tram line has the green light."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be in the driving seat</div><div class="idiom-def">to be in control / leading</div><div class="idiom-ex">"Asia is firmly in the driving seat on EV manufacturing."</div></div>
+  </section>
+
+  <!-- ============== MATCHING ============== -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🔗</span>Match the expression with its meaning</h2>
+    <p class="instr">Click a phrase on the left, then its meaning on the right.</p>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <h3>Expression</h3>
+        <div class="match-item" data-word="1">range anxiety</div>
+        <div class="match-item" data-word="2">a daily commute</div>
+        <div class="match-item" data-word="3">to go mainstream</div>
+        <div class="match-item" data-word="4">a delivery drone</div>
+        <div class="match-item" data-word="5">car dependency</div>
+        <div class="match-item" data-word="6">to decarbonise</div>
+        <div class="match-item" data-word="7">to be on the horizon</div>
+        <div class="match-item" data-word="8">to go bust</div>
+        <div class="match-item" data-word="9">a game changer</div>
+        <div class="match-item" data-word="10">a robotaxi</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="1">the fear that your EV battery will run out</div>
+        <div class="match-item" data-def="3">to become widely accepted by the general public</div>
+        <div class="match-item" data-def="2">your regular journey to and from work</div>
+        <div class="match-item" data-def="6">to make transport carbon-free</div>
+        <div class="match-item" data-def="7">expected to happen relatively soon</div>
+        <div class="match-item" data-def="4">a small flying robot that delivers goods</div>
+        <div class="match-item" data-def="9">something that dramatically transforms a situation</div>
+        <div class="match-item" data-def="8">(of a business) to fail and close down</div>
+        <div class="match-item" data-def="5">heavy reliance on private cars</div>
+        <div class="match-item" data-def="10">a taxi with no human driver</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <span class="score" id="score5">0 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============== FILL ============== -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the gaps</h2>
+    <p class="instr">Complete each sentence with an expression from the bank. Use the correct form.</p>
+
+    <div class="word-bank">
+      <strong>🚄 WORD BANK 🚄</strong>
+      commute · charging infrastructure · self-driving · cut emissions · roll out · gridlock · launch commercially · pipe dream · just around the corner · car-free
+    </div>
+
+    <div class="fill-item"><p><span class="num">01</span>My morning <input class="fill-input" data-answer="commute"> takes about 45 minutes by metro.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>The biggest barrier to EV adoption isn't the cars themselves — it's the lack of <input class="fill-input wide" data-answer="charging infrastructure">.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>Several US cities now allow <input class="fill-input wide" data-answer="self-driving"> cars to operate without a safety driver.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>Switching to electric buses helps cities <input class="fill-input wide" data-answer="cut emissions"> dramatically.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>The rush hour is so bad that the city centre is in complete <input class="fill-input" data-answer="gridlock"> by 8 a.m.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>The transport authority plans to <input class="fill-input wide" data-answer="roll out"> the new tram network in three phases.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>Air taxis are scheduled to <input class="fill-input wide" data-answer="launch commercially"> in Dubai within two years.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>Twenty years ago, electric cars were considered a <input class="fill-input wide" data-answer="pipe dream"> by many in the industry.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>According to most experts, fully autonomous trucks are <input class="fill-input wide" data-answer="just around the corner">.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>More and more European cities are introducing <input class="fill-input wide" data-answer="car-free"> zones in their historic centres.</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check my answers</button>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- ============== MC ============== -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">🎯</span>Multiple choice</h2>
+    <p class="instr">Pick the option that sounds most natural at B2 level.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q1</span>"Range anxiety" is…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the fear of driving long distances.</button>
+        <button class="mc-opt">b) the fear that an EV battery will run out before reaching a charger.</button>
+        <button class="mc-opt">c) anxiety caused by traffic jams.</button>
+        <button class="mc-opt">d) the price of fuel.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q2</span>"EVs have gone mainstream." This means EVs…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) are now banned.</button>
+        <button class="mc-opt">b) are only for rich people.</button>
+        <button class="mc-opt">c) are now widely accepted by the general public.</button>
+        <button class="mc-opt">d) have stopped working.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q3</span>"Several startups went bust last year." This means they…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) failed and closed down.</button>
+        <button class="mc-opt">b) launched new products.</button>
+        <button class="mc-opt">c) raised lots of money.</button>
+        <button class="mc-opt">d) merged with each other.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q4</span>Which is the most natural way to describe small electric vehicles like e-scooters and e-bikes?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) mass transit</button>
+        <button class="mc-opt">b) car dependency</button>
+        <button class="mc-opt">c) commercial fleet</button>
+        <button class="mc-opt">d) micro-mobility</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q5</span>"Self-driving trucks are firmly on the horizon." This means they are…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) literally driving towards the sun.</button>
+        <button class="mc-opt">b) expected to arrive relatively soon.</button>
+        <button class="mc-opt">c) being banned everywhere.</button>
+        <button class="mc-opt">d) completely impossible.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q6</span>"Hyperloop technology has had a bumpy ride." This means it has…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) been very smooth.</button>
+        <button class="mc-opt">b) caused car accidents.</button>
+        <button class="mc-opt">c) experienced lots of difficulties.</button>
+        <button class="mc-opt">d) become very popular.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q7</span>"American cities suffer from extreme car dependency." This means people…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) rely heavily on private cars to get around.</button>
+        <button class="mc-opt">b) refuse to use cars.</button>
+        <button class="mc-opt">c) cannot afford cars.</button>
+        <button class="mc-opt">d) hate American cars.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q8</span>"Battery technology is the real game changer here." This means it…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) is for video games.</button>
+        <button class="mc-opt">b) doesn't matter much.</button>
+        <button class="mc-opt">c) is too expensive.</button>
+        <button class="mc-opt">d) dramatically changes the situation.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q9</span>"Some African cities have leapfrogged straight to electric buses." This means they…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) banned electric vehicles.</button>
+        <button class="mc-opt">b) skipped older technology and adopted the most advanced.</button>
+        <button class="mc-opt">c) had a difficult transition.</button>
+        <button class="mc-opt">d) refused public transport.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>"E-bike sales have really taken off." This means they…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) are now in the air.</button>
+        <button class="mc-opt">b) have stopped completely.</button>
+        <button class="mc-opt">c) have become very successful very quickly.</button>
+        <button class="mc-opt">d) are too expensive.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q11</span>"Decarbonising mobility" means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) making transport produce no carbon emissions.</button>
+        <button class="mc-opt">b) using diamond fuel.</button>
+        <button class="mc-opt">c) banning all cars.</button>
+        <button class="mc-opt">d) building more parking lots.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q12</span>"It's not all sunshine and rainbows." The speaker is suggesting that…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the weather is bad.</button>
+        <button class="mc-opt">b) there are real problems and challenges, not just positives.</button>
+        <button class="mc-opt">c) everything is going perfectly.</button>
+        <button class="mc-opt">d) it's a holiday.</button>
+      </div>
+    </div>
+
+    <span class="score" id="score7">0 / 12</span>
+  </section>
+
+  <!-- ============== SPEAKING ============== -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking practice</h2>
+    <p class="instr">Speak <strong>1½–2 minutes</strong> per question. Use at least <strong>3 target expressions</strong> per answer. Try to sound balanced — give pros AND cons!</p>
+
+    <div class="phrase-box">
+      <h4>🚀 Phrases to debate technology &amp; the future</h4>
+      <div class="phrase-list">
+        <div class="phrase"><strong>Predicting:</strong> "I reckon that within 10 years…" / "It's only a matter of time before…" / "Don't be surprised if…"</div>
+        <div class="phrase"><strong>Showing balance:</strong> "On the one hand… on the other…" / "It cuts both ways." / "There are real trade-offs."</div>
+        <div class="phrase"><strong>Being sceptical:</strong> "I'm not 100% convinced…" / "It sounds great in theory, but…" / "I'll believe it when I see it."</div>
+        <div class="phrase"><strong>Being optimistic:</strong> "I'm genuinely excited about…" / "This could be a real breakthrough." / "The potential is huge."</div>
+        <div class="phrase"><strong>Closing:</strong> "All things considered…" / "At the end of the day…" / "The bottom line is…"</div>
+      </div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 01 · YOUR DAILY COMMUTE</div>
+      <div class="speak-prompt">How do you usually get around? Describe your typical week of transport — and what you'd change if you could.</div>
+      <div class="speak-help"><strong>Try to use:</strong> daily commute · public transport · car dependency · gridlock · micro-mobility · to ease congestion</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 02 · ELECTRIC VEHICLES</div>
+      <div class="speak-prompt">Would you buy an electric car today? What's stopping you — or what convinced you?</div>
+      <div class="speak-help"><strong>Try to use:</strong> electric vehicle · range anxiety · charging infrastructure · to cut emissions · to go mainstream · a game changer</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 03 · SELF-DRIVING CARS</div>
+      <div class="speak-prompt">Would you trust a self-driving car with your life? What worries you most about autonomous vehicles?</div>
+      <div class="speak-help"><strong>Try to use:</strong> autonomous · robotaxi · cutting-edge · just around the corner · I'm not 100% convinced · public trust</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 04 · HYPERLOOP &amp; AIR TAXIS</div>
+      <div class="speak-prompt">Hyperloop and flying taxis — game changers, or pipe dreams? Defend your position!</div>
+      <div class="speak-help"><strong>Try to use:</strong> hyperloop · air taxi · pipe dream · ahead of its time · to have a bumpy ride · science fiction · a leap forward</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 05 · DELIVERY DRONES</div>
+      <div class="speak-prompt">Imagine drones drop off everything you order in 15 minutes. Brilliant or nightmare? What about the noise, the privacy issues?</div>
+      <div class="speak-help"><strong>Try to use:</strong> delivery drone · airspace · to roll out · privacy concerns · to take off · sunshine and rainbows</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 06 · CAR-FREE CITIES</div>
+      <div class="speak-prompt">Cities like Paris and Bogotá are reclaiming streets from cars. Should your city follow? What's the trade-off?</div>
+      <div class="speak-help"><strong>Try to use:</strong> car-free · car dependency · public transport · to ease congestion · to decarbonise · to think outside the box</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 07 · THE BIG PICTURE</div>
+      <div class="speak-prompt">Imagine your daily commute in 2040. Walk us through your morning. Be specific — and creative!</div>
+      <div class="speak-help"><strong>Try to use:</strong> to revolutionise · self-driving · air taxi · smart city · charging point · change beyond recognition · cutting-edge</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 08 · QUICK-FIRE · 30 SECONDS EACH</div>
+      <div class="speak-prompt">Quick takes — no planning!</div>
+      <div class="speak-help">
+        ▸ The transport mode you'd happily ban tomorrow.<br>
+        ▸ The technology you're most excited about.<br>
+        ▸ Hyperloop in 2040 — real or still a fantasy?<br>
+        ▸ One thing your city desperately needs to fix.<br>
+        ▸ Complete: "If I had a self-driving car, the first thing I'd do is…"
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== GRAMMAR ============== -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar: Future Forms &amp; Modals of Possibility</h2>
+    <p class="instr">Two grammar areas you absolutely need to discuss future technology: <strong>future forms</strong> (will / going to / present continuous / future perfect) and <strong>modals of possibility</strong> (might, could, may, will, won't) for predictions.</p>
+
+    <div class="grammar-box">
+      <h4>🚄 Part 1 — Future forms</h4>
+      <ul>
+        <li><strong>will</strong> → opinion / general prediction. <code>I think EVs will replace petrol cars.</code></li>
+        <li><strong>be going to</strong> → prediction based on present evidence; intentions. <code>Look at this trend — drones are going to be everywhere.</code></li>
+        <li><strong>present continuous</strong> → fixed plans. <code>The city is launching a new tram next month.</code></li>
+        <li><strong>future perfect (will have + past participle)</strong> → completed by a future point. <code>By 2035, we will have phased out petrol cars.</code></li>
+        <li><strong>future continuous (will be + -ing)</strong> → in progress at a future moment. <code>This time next year, I'll be commuting in an EV.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>🚄 Part 2 — Modals of possibility for predictions</h4>
+      <ul>
+        <li><strong>will / won't</strong> = certain. <code>EVs will dominate the market.</code></li>
+        <li><strong>might / may / could</strong> = possible (50/50). <code>Hyperloop might become real, but it's not guaranteed.</code></li>
+        <li><strong>will probably / probably won't</strong> = likely. <code>Air taxis will probably launch first in Dubai.</code></li>
+        <li><strong>is bound to / is sure to</strong> = certain. <code>Drone deliveries are bound to grow.</code></li>
+        <li><strong>is unlikely to</strong> = probably not. <code>Flying cars are unlikely to be common by 2030.</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A — choose the right future form</strong> for the verb in brackets. Multiple may work; one fits best.</p>
+
+    <div class="fill-item"><p><span class="num">01</span>Look at those dark clouds — they <input class="fill-input wide" data-answer="are going to ground"> (ground) all the air taxis today.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>I really think autonomous trucks <input class="fill-input wide" data-answer="will become"> (become) the norm on motorways.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>By 2035, the EU <input class="fill-input wide" data-answer="will have banned"> (ban) the sale of new petrol and diesel cars.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>Sorry, I can't make Saturday — I <input class="fill-input wide" data-answer="am picking up"> (pick up) my new EV from the dealer.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>This time next year, half the buses in our city <input class="fill-input wide" data-answer="will be running"> (run) on electricity.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>By the end of this decade, charging infrastructure <input class="fill-input wide" data-answer="will have improved"> (improve) significantly.</p></div>
+
+    <p class="instr"><strong>Part B — modals of possibility.</strong> Use the modal in brackets with the right form of the verb.</p>
+
+    <div class="fill-item"><p><span class="num">07</span>Hyperloop systems <input class="fill-input wide" data-answer="might be"> (might / be) operational in some Asian countries within ten years.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>Drones <input class="fill-input wide" data-answer="are bound to"> (bound to) become a normal part of urban life.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>Flying cars <input class="fill-input wide" data-answer="are unlikely to"> (unlikely to) replace ordinary cars any time soon.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>Tesla <input class="fill-input wide" data-answer="will probably"> (probably) launch a new robotaxi service next year.</p></div>
+    <div class="fill-item"><p><span class="num">11</span>Self-driving cars <input class="fill-input wide" data-answer="could revolutionise"> (could / revolutionise) urban mobility — but only if regulators allow it.</p></div>
+
+    <p class="instr"><strong>Part C — sentence transformation.</strong> Rewrite each sentence using the word in capitals, keeping the meaning the same.</p>
+
+    <div class="fill-item"><p><span class="num">12</span>"Air taxis will definitely launch in Dubai." <strong>BOUND</strong><br>→ Air taxis <input class="fill-input wide" data-answer="are bound to"> launch in Dubai.</p></div>
+    <div class="fill-item"><p><span class="num">13</span>"Maybe hyperloop will work, maybe it won't." <strong>MIGHT</strong><br>→ Hyperloop <input class="fill-input wide" data-answer="might"> work — it's hard to say. <em style="color:var(--deep); font-size:13px;">(1 word)</em></p></div>
+    <div class="fill-item"><p><span class="num">14</span>"By 2035, the EU plans to have phased out petrol cars." <strong>WILL HAVE</strong><br>→ By 2035, the EU <input class="fill-input wide" data-answer="will have phased"> out petrol cars.</p></div>
+
+    <button class="check-btn" onclick="checkGrammar()">✓ Check grammar</button>
+    <span class="score" id="score9">— / 14</span>
+  </section>
+
+  <footer>
+    🚄 ⚡ 🚁 &nbsp; TRANSPORT TOMORROW · B2 ENGLISH WORKSHEET &nbsp; 🚁 ⚡ 🚄
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 5)
+  let selectedWord = null;
+  let matched5 = 0;
+  document.querySelectorAll('#t5 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t5 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched5++;
+          document.getElementById('score5').textContent = matched5 + ' / 10';
+          selectedWord = null;
+          if (matched5 === 10) document.getElementById('score5').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 6)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t6 .fill-input');
+    const alternates = {
+      'charging infrastructure': ['charging infrastructure'],
+      'self-driving': ['self-driving','self driving'],
+      'cut emissions': ['cut emissions'],
+      'roll out': ['roll out','rollout'],
+      'launch commercially': ['launch commercially'],
+      'pipe dream': ['pipe dream'],
+      'just around the corner': ['just around the corner'],
+      'car-free': ['car-free','car free','carfree'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score6').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 7)
+  let mcScore = 0;
+  document.querySelectorAll('#t7 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score7').textContent = mcScore + ' / 12';
+        if (mcScore === 12) document.getElementById('score7').textContent = '★ 12 / 12 ★';
+      });
+    });
+  });
+
+  // GRAMMAR (tab 9)
+  function checkGrammar() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t9 .fill-input');
+    const alternates = {
+      'are going to ground': ['are going to ground',"'re going to ground"],
+      'will become': ['will become',"'ll become"],
+      'will have banned': ['will have banned',"'ll have banned"],
+      'am picking up': ['am picking up',"'m picking up"],
+      'will be running': ['will be running',"'ll be running"],
+      'will have improved': ['will have improved',"'ll have improved"],
+      'might be': ['might be','may be','could be'],
+      'are bound to': ['are bound to',"'re bound to","are sure to"],
+      'are unlikely to': ['are unlikely to',"'re unlikely to"],
+      'will probably': ['will probably',"'ll probably"],
+      'could revolutionise': ['could revolutionise','could revolutionize'],
+      'might': ['might','may','could'],
+      'will have phased': ['will have phased',"'ll have phased"],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score9').textContent = correct + ' / 14';
+    if (correct === 14) document.getElementById('score9').textContent = '★ 14 / 14 ★';
+  }
+</script>
+</body>
+</html>
