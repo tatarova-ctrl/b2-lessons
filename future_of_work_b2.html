@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Future of Work & New Professions — B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #FF6B9D;
+    --purple: #7C3AED;
+    --teal: #14B8A6;
+    --yellow: #F59E0B;
+    --coral: #EF4444;
+    --cream: #FFF8EE;
+    --sand: #FFE9C7;
+    --ink: #1F1235;
+    --cloud: #ffffff;
+    --soft: #F3E8FF;
+    --sky: #C9F0FF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(124,58,237,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(20,184,166,0.1) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 3px solid var(--ink);
+    border-radius: 22px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 7px 7px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "🚀";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 130px;
+    opacity: 0.15;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--yellow);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--pink); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--purple);
+    margin-top: 10px;
+    max-width: 640px;
+    font-weight: 500;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 2px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+  .level-note {
+    background: var(--sky);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-top: 14px;
+    font-size: 14px;
+  }
+  .level-note strong { color: var(--purple); }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--yellow); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--purple);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--pink);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 3px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .reading p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+    color: #2a3441;
+  }
+  .reading b, .reading strong {
+    background: linear-gradient(transparent 55%, rgba(245,158,11,0.55) 55%);
+    padding: 0 2px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .reading .dialogue {
+    background: var(--soft);
+    padding: 14px 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--purple);
+    margin: 16px 0;
+    font-style: italic;
+  }
+
+  /* JOB CARDS */
+  .jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .job-card {
+    background: var(--cloud);
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+    padding: 16px 18px;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform 0.15s;
+  }
+  .job-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+  .job-card.c1 { border-top: 12px solid var(--pink); }
+  .job-card.c2 { border-top: 12px solid var(--purple); }
+  .job-card.c3 { border-top: 12px solid var(--teal); }
+  .job-card.c4 { border-top: 12px solid var(--yellow); }
+  .job-card.c5 { border-top: 12px solid var(--coral); }
+  .job-emoji { font-size: 36px; margin-bottom: 6px; }
+  .job-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+  .job-tag {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--yellow);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .job-desc { font-size: 14px; line-height: 1.6; }
+  .job-skills {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px dashed var(--sand);
+    font-size: 13px;
+  }
+  .job-skills strong { color: var(--purple); }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--pink);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--purple);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* IDIOMS */
+  .idiom-card {
+    background: linear-gradient(135deg, var(--cloud) 0%, var(--soft) 100%);
+    border: 2px solid var(--ink);
+    border-left: 5px solid var(--purple);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .idiom-term {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--purple);
+    margin-bottom: 4px;
+  }
+  .idiom-def { font-size: 14px; margin-bottom: 8px; }
+  .idiom-ex {
+    font-style: italic;
+    font-size: 13.5px;
+    background: rgba(255,255,255,0.7);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--pink);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--purple);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14.5px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--purple); color: var(--cloud); border-color: var(--ink); }
+  .match-item.matched { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--pink);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 200px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 280px; }
+  .fill-input:focus { outline: none; border-color: var(--purple); background: var(--cream); }
+  .fill-input.correct { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--pink);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--yellow);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 600; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--pink);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--purple); }
+  .mc-opt.correct { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--pink);
+    color: var(--cloud);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--yellow);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--purple);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--pink);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--purple);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--pink); }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--sky);
+    border: 2px dashed var(--purple);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--purple);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--pink);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 3px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--purple);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid { grid-template-columns: 1fr; }
+    .reading { padding: 22px; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🚀 FUTURE OF WORK · B2 ENGLISH</div>
+      <h1>The Future of Work <span class="accent">& New Professions</span></h1>
+      <div class="sub">Cool jobs of the future, how AI is reshaping careers, and the language to talk about it all — fun, modern and packed with B2 vocabulary, idioms and collocations.</div>
+      <div class="level-note">
+        🎯 <strong>Mixed class friendly:</strong> Topic is fun and accessible (perfect for the younger learner), but the language stays solidly B2 — full vocabulary, idioms, collocations, and a proper grammar section.
+      </div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">Future · Careers · AI</span>
+        <span class="tag">Idioms &amp; Collocations</span>
+        <span class="tag">Speaking · Grammar</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Reading</button>
+    <button class="tab" data-tab="t2">② Job Cards 🎴</button>
+    <button class="tab" data-tab="t3">③ Vocabulary</button>
+    <button class="tab" data-tab="t4">④ Idioms</button>
+    <button class="tab" data-tab="t5">⑤ Matching</button>
+    <button class="tab" data-tab="t6">⑥ Fill the gaps</button>
+    <button class="tab" data-tab="t7">⑦ Multiple choice</button>
+    <button class="tab" data-tab="t8">⑧ Speaking 🎤</button>
+    <button class="tab" data-tab="t9">⑨ Grammar 📝</button>
+  </nav>
+
+  <!-- ============== READING ============== -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">Sam, 17, comes back from school excited about a Career Day where he discovered jobs nobody had even heard of a decade ago. Target language is in <b>yellow bold</b>.</p>
+
+    <article class="reading">
+      <h3>"Dad, There Are Jobs You've Never Even Heard Of!"</h3>
+      <div class="byline">★ Sam, 17 · After his school's Career Day</div>
+
+      <p>Last Friday, my school held a Career Day. Honestly, I was expecting the usual <b>predictable line-up</b> — lawyers, doctors, an accountant who would talk for forty minutes about tax. But it actually <b>blew me away</b>. Half the people who came in had jobs that <b>didn't even exist when my parents were my age</b>. When I told my dad about them later, he just stared at me and said, "Sam, are you sure these are real?" Welcome to 2026.</p>
+
+      <p>Take Mia, for example. She's 26 and she's a <b>prompt engineer</b>. <b>In a nutshell</b>, her job is to talk to AI all day — to write the perfect instructions so that systems like ChatGPT or Claude give back exactly what humans need. "I'm basically a translator between people and machines," she told us. She <b>earns a six-figure salary</b>, <b>works fully remotely</b>, and the funniest part? She didn't study computer science. She studied poetry. As she put it: <b>"You'd be surprised how useful that turns out to be."</b></p>
+
+      <p>Then there was Tom, who's 31 and a <b>commercial drone pilot</b>. He doesn't fly planes — he flies small flying robots. One week he's filming weddings, the next he's <b>delivering essential medication</b> to remote villages, and the next he's checking the structural condition of skyscrapers. "<b>No two days are the same</b>," he said. He had a drone with him in the gym hall and let some of us fly it. I crashed it. Tom didn't seem to mind.</p>
+
+      <p class="dialogue">"If you'd told me ten years ago I'd make a living flying robots, I would have laughed in your face." — Tom, drone pilot</p>
+
+      <p>Anya was probably my favourite speaker. She's a <b>video game designer</b> at a small indie studio. She told us she <b>got into the industry</b> by making tiny games when she was twelve. <b>Twelve!</b> "If you're <b>passionate about</b> something," she said, "<b>start now</b>. Don't wait for permission. The internet is full of free tutorials and welcoming communities — <b>the barriers to entry have never been lower</b>." I'm definitely going to <b>look into</b> that this weekend.</p>
+
+      <p>Some of the speakers had jobs that didn't even <i>sound</i> like jobs at first. Lara, for instance, is a <b>full-time content creator</b>. She makes short cooking videos for TikTok and has 800,000 followers. People often assume it's easy money, but she set us straight. "<b>It looks effortless on screen</b>," she laughed, "but behind the scenes, I'm filming, editing, writing scripts and replying to thousands of comments — every single day. <b>It's a grind</b>. The most important <b>asset</b> in this job is being yourself. The minute you start copying others, your audience can <b>smell it a mile away</b>."</p>
+
+      <p>There was also Mr Andersson, a <b>sustainability consultant</b>, whose job is to help big companies <b>shrink their environmental footprint</b>. He told us, in no uncertain terms, that within ten years every single company will employ someone in his role. "It's not <b>a passing trend</b>," he said. "It's <b>the direction of travel</b>."</p>
+
+      <p>And the most surprising one of all — Sofia, an <b>AI ethics specialist</b>. Her job is to make sure AI systems are fair, safe and don't accidentally make discriminatory decisions about real people. "AI is incredible," she said, "but it's <b>built by humans</b>, which means it can also be <b>biased</b>. My job is to <b>keep it in check</b>." She admitted that her exact role <b>didn't exist a decade ago</b>.</p>
+
+      <p>At the end of the session, our teacher asked us a brilliant question: "What job do <b>YOU</b> want to do?" The strange thing is — many of the jobs my classmates and I will eventually do <b>probably haven't been invented yet</b>. According to one of the speakers, around <b>65% of today's primary-school children</b> will end up in jobs that don't currently exist. That's a wild statistic to <b>get your head around</b>.</p>
+
+      <p>What struck me most, though, wasn't the technology. It was the <b>mindset shift</b>. Most of these speakers had changed careers two or three times. None of them had <b>climbed a single career ladder</b>. They'd <b>zigzagged</b>, taken risks, picked up skills along the way, and weren't afraid to <b>pivot</b> when something stopped working. <b>"A career isn't a straight line anymore,"</b> Mia told us. "It's more like a series of jumps."</p>
+
+      <p>When my dad finally <b>got his head around</b> all this, he just smiled and shrugged. "Sam, when I was your age, my dream was <b>to land a stable office job</b> and stay there until retirement." We both laughed. Times really do change. And honestly? I can't wait to find out what's next.</p>
+    </article>
+  </section>
+
+  <!-- ============== JOB CARDS ============== -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">🎴</span>New professions — the cards</h2>
+    <p class="instr">Some of these jobs already exist. Some are growing rapidly. Some don't quite exist yet — but probably will. Read each card carefully; we'll come back to them in the speaking section.</p>
+
+    <div class="jobs-grid">
+      <div class="job-card c1">
+        <div class="job-emoji">🤖</div>
+        <div class="job-tag">EXISTS NOW</div>
+        <div class="job-title">Prompt engineer</div>
+        <div class="job-desc">Crafts precise instructions ("prompts") for AI systems so they generate the most useful, accurate output.</div>
+        <div class="job-skills"><strong>Key skills:</strong> creativity, language precision, logical thinking, curiosity</div>
+      </div>
+
+      <div class="job-card c2">
+        <div class="job-emoji">🚁</div>
+        <div class="job-tag">GROWING FAST</div>
+        <div class="job-title">Commercial drone pilot</div>
+        <div class="job-desc">Operates drones for filming, deliveries, infrastructure inspections and emergency response missions.</div>
+        <div class="job-skills"><strong>Key skills:</strong> coordination, calm under pressure, technical know-how</div>
+      </div>
+
+      <div class="job-card c3">
+        <div class="job-emoji">🎮</div>
+        <div class="job-tag">EXISTS NOW</div>
+        <div class="job-title">Video game designer</div>
+        <div class="job-desc">Builds the worlds, characters and storylines inside video games. Collaborates closely with artists and developers.</div>
+        <div class="job-skills"><strong>Key skills:</strong> storytelling, creativity, collaboration, patience</div>
+      </div>
+
+      <div class="job-card c4">
+        <div class="job-emoji">📱</div>
+        <div class="job-tag">EXISTS NOW</div>
+        <div class="job-title">Content creator</div>
+        <div class="job-desc">Produces videos, posts and podcasts for platforms like TikTok, YouTube and Instagram. Builds and engages an audience.</div>
+        <div class="job-skills"><strong>Key skills:</strong> creativity, video editing, resilience, authenticity</div>
+      </div>
+
+      <div class="job-card c5">
+        <div class="job-emoji">🌱</div>
+        <div class="job-tag">JOB OF THE FUTURE</div>
+        <div class="job-title">Sustainability consultant</div>
+        <div class="job-desc">Advises businesses on how to reduce their environmental impact, cut emissions and meet climate targets.</div>
+        <div class="job-skills"><strong>Key skills:</strong> communication, science literacy, problem-solving, conviction</div>
+      </div>
+
+      <div class="job-card c1">
+        <div class="job-emoji">⚖️</div>
+        <div class="job-tag">VERY NEW</div>
+        <div class="job-title">AI ethics specialist</div>
+        <div class="job-desc">Ensures that AI systems behave fairly, transparently and don't discriminate against any group of people.</div>
+        <div class="job-skills"><strong>Key skills:</strong> ethics, technology, critical thinking, fairness</div>
+      </div>
+
+      <div class="job-card c2">
+        <div class="job-emoji">🚀</div>
+        <div class="job-tag">JOB OF THE FUTURE</div>
+        <div class="job-title">Space tourism guide</div>
+        <div class="job-desc">As space travel becomes commercial, paying tourists will need someone to brief them, train them and guide them on board.</div>
+        <div class="job-skills"><strong>Key skills:</strong> science, languages, calmness, communication</div>
+      </div>
+
+      <div class="job-card c3">
+        <div class="job-emoji">🧠</div>
+        <div class="job-tag">GROWING FAST</div>
+        <div class="job-title">Mental health coach for teens</div>
+        <div class="job-desc">Supports young people coping with social media pressure, exam stress, and growing up in a fast-changing world.</div>
+        <div class="job-skills"><strong>Key skills:</strong> empathy, active listening, communication, kindness</div>
+      </div>
+
+      <div class="job-card c4">
+        <div class="job-emoji">🎬</div>
+        <div class="job-tag">VERY NEW</div>
+        <div class="job-title">Virtual world architect</div>
+        <div class="job-desc">Designs immersive 3D environments for the metaverse, virtual concerts, online events and VR games.</div>
+        <div class="job-skills"><strong>Key skills:</strong> 3D design, imagination, technical skills</div>
+      </div>
+
+      <div class="job-card c5">
+        <div class="job-emoji">🚗</div>
+        <div class="job-tag">JOB OF THE FUTURE</div>
+        <div class="job-title">Self-driving car trainer</div>
+        <div class="job-desc">Rides in autonomous vehicles, monitors how they behave on the road, and provides feedback to engineers.</div>
+        <div class="job-skills"><strong>Key skills:</strong> attention to detail, patience, technical understanding</div>
+      </div>
+
+      <div class="job-card c1">
+        <div class="job-emoji">🍔</div>
+        <div class="job-tag">GROWING FAST</div>
+        <div class="job-title">Cultivated-food chef</div>
+        <div class="job-desc">Creates dishes using lab-grown meat, fish and dairy — better for the planet and for animals.</div>
+        <div class="job-skills"><strong>Key skills:</strong> culinary creativity, science, an open mind</div>
+      </div>
+
+      <div class="job-card c2">
+        <div class="job-emoji">🌍</div>
+        <div class="job-tag">JOB OF THE FUTURE</div>
+        <div class="job-title">Climate engineer</div>
+        <div class="job-desc">Designs technologies to combat climate change — including machines that capture CO₂ directly from the atmosphere.</div>
+        <div class="job-skills"><strong>Key skills:</strong> science, engineering, problem-solving, vision</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== VOCAB ============== -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">💬</span>B2 vocabulary &amp; collocations</h2>
+    <p class="instr">The language you'll need to talk fluently about jobs, careers and the future. Pay attention to which words go together — that's where B2 students level up.</p>
+
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">a profession / a vocation</div><div class="vocab-def">a job that requires training; a job you feel called to do</div><div class="vocab-ex">"Teaching is a vocation, not just a profession."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to pursue a career (in)</div><div class="vocab-def">to actively choose and follow a profession</div><div class="vocab-ex">"She wants to pursue a career in tech."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to land a job</div><div class="vocab-def">to successfully get a job</div><div class="vocab-ex">"He landed his first job at a tech startup."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to climb the career ladder</div><div class="vocab-def">to gradually move up to higher positions</div><div class="vocab-ex">"He's climbed the career ladder fast."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to pivot (in your career)</div><div class="vocab-def">to change direction completely</div><div class="vocab-ex">"After 10 years in finance, she pivoted to design."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a career path</div><div class="vocab-def">the route someone takes through their professional life</div><div class="vocab-ex">"My career path has been anything but linear."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to earn a six-figure salary</div><div class="vocab-def">to earn 100,000 or more per year</div><div class="vocab-ex">"Top engineers can earn a six-figure salary."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to work remotely / fully remote</div><div class="vocab-def">to do your job from anywhere, not the office</div><div class="vocab-ex">"More and more people work fully remotely now."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a hybrid role</div><div class="vocab-def">a job split between office and home</div><div class="vocab-ex">"It's a hybrid role — three days in, two from home."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to upskill / reskill</div><div class="vocab-def">to learn new skills / completely new ones</div><div class="vocab-ex">"He had to reskill to stay employable."</div></div>
+      <div class="vocab-card"><div class="vocab-term">in-demand skills</div><div class="vocab-def">skills employers really want right now</div><div class="vocab-ex">"AI literacy is one of the most in-demand skills."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a transferable skill</div><div class="vocab-def">a skill useful in many different jobs</div><div class="vocab-ex">"Communication is the ultimate transferable skill."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a side hustle</div><div class="vocab-def">a part-time job/business alongside your main one</div><div class="vocab-ex">"Her side hustle pays better than her day job."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the gig economy</div><div class="vocab-def">work made up of short-term, freelance jobs</div><div class="vocab-ex">"The gig economy has changed everything."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to freelance / a freelancer</div><div class="vocab-def">to work for yourself, on multiple short projects</div><div class="vocab-ex">"She freelances for several international clients."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a startup</div><div class="vocab-def">a young, fast-growing company</div><div class="vocab-ex">"He works at a startup in Berlin."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be passionate about (sth)</div><div class="vocab-def">to deeply care about a topic or activity</div><div class="vocab-ex">"You can tell she's passionate about her work."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to make a living (doing sth)</div><div class="vocab-def">to earn enough money from an activity to live on</div><div class="vocab-ex">"He makes a living posting cooking videos."</div></div>
+      <div class="vocab-card"><div class="vocab-term">work-life balance</div><div class="vocab-def">a healthy split between work and personal life</div><div class="vocab-ex">"Gen Z really care about work-life balance."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to burn out / burnout</div><div class="vocab-def">to become exhausted from too much stress</div><div class="vocab-ex">"She quit because she was on the verge of burnout."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to automate (a task)</div><div class="vocab-def">to make a machine do it</div><div class="vocab-ex">"Many boring tasks will be fully automated."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to disrupt an industry</div><div class="vocab-def">to change it dramatically with new technology</div><div class="vocab-ex">"AI is disrupting almost every industry."</div></div>
+      <div class="vocab-card"><div class="vocab-term">job security</div><div class="vocab-def">the certainty that your job won't disappear</div><div class="vocab-ex">"Job security is harder to come by these days."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the direction of travel</div><div class="vocab-def">the way things are clearly heading</div><div class="vocab-ex">"Sustainability isn't a trend — it's the direction of travel."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a mindset shift</div><div class="vocab-def">a fundamental change in how people think</div><div class="vocab-ex">"Younger workers are causing a real mindset shift."</div></div>
+    </div>
+  </section>
+
+  <!-- ============== IDIOMS ============== -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions about work</h2>
+    <p class="instr">B2-level idioms that pop up everywhere when people talk about jobs, careers and ambition. Learn them — they instantly make your English sound more natural.</p>
+
+    <div class="idiom-card"><div class="idiom-term">to blow someone away</div><div class="idiom-def">to amaze them completely</div><div class="idiom-ex">"That speech blew me away."</div></div>
+    <div class="idiom-card"><div class="idiom-term">in a nutshell</div><div class="idiom-def">in just a few words; summarised briefly</div><div class="idiom-ex">"In a nutshell, AI changes everything."</div></div>
+    <div class="idiom-card"><div class="idiom-term">no two days are the same</div><div class="idiom-def">every day brings something different</div><div class="idiom-ex">"In this job, no two days are the same."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to get your head around (sth)</div><div class="idiom-def">to finally understand something difficult</div><div class="idiom-ex">"It took me a while to get my head around it."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be a grind</div><div class="idiom-def">to require hard, repetitive effort</div><div class="idiom-ex">"It looks glamorous, but honestly, it's a grind."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to smell something a mile away</div><div class="idiom-def">to easily detect when something is fake</div><div class="idiom-ex">"Audiences smell fakeness a mile away."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to set someone straight</div><div class="idiom-def">to correct someone's wrong ideas</div><div class="idiom-ex">"She set us straight about the reality of the job."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a passing trend</div><div class="idiom-def">a fashion that won't last</div><div class="idiom-ex">"This isn't a passing trend — it's structural."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to keep something in check</div><div class="idiom-def">to control it; to stop it going too far</div><div class="idiom-ex">"My job is to keep AI bias in check."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be in your blood</div><div class="idiom-def">to be a deep part of who you are</div><div class="idiom-ex">"Music is in his blood."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to follow in someone's footsteps</div><div class="idiom-def">to do the same job as a relative</div><div class="idiom-ex">"She followed in her mother's footsteps."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to jump ship</div><div class="idiom-def">to leave a company for a better one</div><div class="idiom-ex">"He jumped ship to a startup last year."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to call the shots</div><div class="idiom-def">to be the one making the decisions</div><div class="idiom-ex">"As a freelancer, I call the shots."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to wear many hats</div><div class="idiom-def">to do several different roles in a job</div><div class="idiom-ex">"In a startup, you wear many hats."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to learn the ropes</div><div class="idiom-def">to learn the basics of a new job</div><div class="idiom-ex">"It took me six months to learn the ropes."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to think outside the box</div><div class="idiom-def">to think creatively, beyond standard solutions</div><div class="idiom-ex">"Future jobs will reward people who think outside the box."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a foot in the door</div><div class="idiom-def">a small first step into an industry</div><div class="idiom-ex">"That internship gave me a foot in the door."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to go the extra mile</div><div class="idiom-def">to make significantly more effort than expected</div><div class="idiom-ex">"He always goes the extra mile for his team."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a dead-end job</div><div class="idiom-def">a job with no chance of progress</div><div class="idiom-ex">"I quit — it was a complete dead-end job."</div></div>
+    <div class="idiom-card"><div class="idiom-term">it pays the bills</div><div class="idiom-def">it earns enough to live on (often unenthusiastically)</div><div class="idiom-ex">"It's not glamorous, but it pays the bills."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to make ends meet</div><div class="idiom-def">to earn just enough money to survive</div><div class="idiom-ex">"He works two jobs to make ends meet."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a stepping stone</div><div class="idiom-def">something that helps you move toward a bigger goal</div><div class="idiom-ex">"This role is a stepping stone to bigger things."</div></div>
+  </section>
+
+  <!-- ============== MATCHING ============== -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🔗</span>Match the expression with its meaning</h2>
+    <p class="instr">Click a phrase on the left, then its meaning on the right.</p>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <h3>Expression</h3>
+        <div class="match-item" data-word="1">to land a job</div>
+        <div class="match-item" data-word="2">to pivot</div>
+        <div class="match-item" data-word="3">to wear many hats</div>
+        <div class="match-item" data-word="4">a side hustle</div>
+        <div class="match-item" data-word="5">to disrupt an industry</div>
+        <div class="match-item" data-word="6">to be a grind</div>
+        <div class="match-item" data-word="7">a stepping stone</div>
+        <div class="match-item" data-word="8">to upskill</div>
+        <div class="match-item" data-word="9">a foot in the door</div>
+        <div class="match-item" data-word="10">work-life balance</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="1">to successfully get a job</div>
+        <div class="match-item" data-def="3">to do many different roles in one job</div>
+        <div class="match-item" data-def="2">to change career direction completely</div>
+        <div class="match-item" data-def="6">to require constant, hard, repetitive effort</div>
+        <div class="match-item" data-def="4">a part-time business alongside your main job</div>
+        <div class="match-item" data-def="9">a small first opportunity in an industry</div>
+        <div class="match-item" data-def="7">something that helps you reach a bigger goal</div>
+        <div class="match-item" data-def="5">to dramatically change an industry through new tech</div>
+        <div class="match-item" data-def="10">a healthy split between work and personal time</div>
+        <div class="match-item" data-def="8">to learn new skills to stay employable</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <span class="score" id="score5">0 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============== FILL ============== -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the gaps</h2>
+    <p class="instr">Complete each sentence with the best expression from the bank. Use the correct form.</p>
+
+    <div class="word-bank">
+      <strong>🚀 WORD BANK 🚀</strong>
+      pursue · in-demand · grind · gig economy · burnout · automated · pivoted · transferable · the direction of travel · land
+    </div>
+
+    <div class="fill-item"><p><span class="num">01</span>She wants to <input class="fill-input" data-answer="pursue"> a career in renewable energy.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>It took him months to <input class="fill-input" data-answer="land"> his first proper job after graduation.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>AI literacy is becoming one of the most <input class="fill-input wide" data-answer="in-demand"> skills in the job market.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>Many repetitive office tasks will be fully <input class="fill-input" data-answer="automated"> within the next decade.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>After ten years in finance, she <input class="fill-input" data-answer="pivoted"> into design and never looked back.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>Communication is the ultimate <input class="fill-input wide" data-answer="transferable"> skill — it works in every industry.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>Don't let yourself reach <input class="fill-input" data-answer="burnout"> — work-life balance matters.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>Becoming a successful content creator looks easy, but honestly, it's a real <input class="fill-input" data-answer="grind">.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>Sustainability isn't a passing trend — it's clearly <input class="fill-input wide" data-answer="the direction of travel">.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>The rise of the <input class="fill-input wide" data-answer="gig economy"> has changed how millions of people earn a living.</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check my answers</button>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- ============== MC ============== -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">🎯</span>Multiple choice</h2>
+    <p class="instr">Choose the option that sounds most natural at B2 level.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q1</span>"That presentation absolutely blew me away." This means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) it bored me to tears.</button>
+        <button class="mc-opt">b) I was completely amazed by it.</button>
+        <button class="mc-opt">c) it was very loud.</button>
+        <button class="mc-opt">d) I couldn't hear it well.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q2</span>Which is the most natural expression for "to summarise something briefly"?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) in a wallnut</button>
+        <button class="mc-opt">b) in short box</button>
+        <button class="mc-opt">c) in a nutshell</button>
+        <button class="mc-opt">d) by short way</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q3</span>"He's just landed his first job." This means he has just…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) successfully been hired.</button>
+        <button class="mc-opt">b) been fired.</button>
+        <button class="mc-opt">c) returned from holiday.</button>
+        <button class="mc-opt">d) refused a job offer.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q4</span>A "side hustle" is…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) a dishonest activity.</button>
+        <button class="mc-opt">b) a kind of dance.</button>
+        <button class="mc-opt">c) a corporate strategy.</button>
+        <button class="mc-opt">d) a small business or activity you do alongside your main job.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q5</span>"AI is disrupting almost every industry." This means AI is…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) being polite to industries.</button>
+        <button class="mc-opt">b) dramatically changing how industries work.</button>
+        <button class="mc-opt">c) ignoring industries.</button>
+        <button class="mc-opt">d) joining industries.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q6</span>"In a startup, you have to wear many hats." This means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the dress code is strict.</button>
+        <button class="mc-opt">b) you only do one thing.</button>
+        <button class="mc-opt">c) you have to do several different roles.</button>
+        <button class="mc-opt">d) you change clothes often.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q7</span>"It's not glamorous, but it pays the bills." The speaker is saying the job…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) is unexciting but earns enough money to live on.</button>
+        <button class="mc-opt">b) is amazing and well-paid.</button>
+        <button class="mc-opt">c) doesn't pay anything.</button>
+        <button class="mc-opt">d) involves working in finance.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q8</span>"That role is a stepping stone for me." The speaker means it's…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) a final destination.</button>
+        <button class="mc-opt">b) extremely heavy.</button>
+        <button class="mc-opt">c) too small to matter.</button>
+        <button class="mc-opt">d) a step on the way to a bigger goal.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q9</span>Which option is the most natural way to describe a 9-to-5 office job that goes nowhere?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) a foot in the door</button>
+        <button class="mc-opt">b) a dead-end job</button>
+        <button class="mc-opt">c) a stepping stone</button>
+        <button class="mc-opt">d) a side hustle</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>"My career path has been anything but linear." This means it has been…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) extremely boring and predictable.</button>
+        <button class="mc-opt">b) a single straight line.</button>
+        <button class="mc-opt">c) full of unexpected changes and turns.</button>
+        <button class="mc-opt">d) very short.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q11</span>"He jumped ship last year." This means he…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) left his company for a different one.</button>
+        <button class="mc-opt">b) went on a sailing holiday.</button>
+        <button class="mc-opt">c) had a dramatic accident.</button>
+        <button class="mc-opt">d) joined the navy.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q12</span>What's the most natural way to describe someone who learns new skills to stay employable?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) She's freelancing.</button>
+        <button class="mc-opt">b) She's upskilling.</button>
+        <button class="mc-opt">c) She's pivoting.</button>
+        <button class="mc-opt">d) She's burning out.</button>
+      </div>
+    </div>
+
+    <span class="score" id="score7">0 / 12</span>
+  </section>
+
+  <!-- ============== SPEAKING ============== -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking practice</h2>
+    <p class="instr">Speak for <strong>1½–2 minutes</strong> per question. Use at least <strong>3 target expressions</strong> from this lesson per answer. Practise with a partner — and remember to push the younger learner to use full sentences and the older students to stretch into idioms!</p>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 01 · YOUR FAVOURITE NEW JOB</div>
+      <div class="speak-prompt">Look back at the Job Cards. Which three jobs do you find the most exciting, and why? Could you imagine yourself doing any of them?</div>
+      <div class="speak-help"><strong>Try to use:</strong> in a nutshell · no two days are the same · to be passionate about · to make a living · to land a job</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 02 · YOUR DREAM JOB</div>
+      <div class="speak-prompt">Describe your dream job in detail. What would your typical day look like? What skills would you need?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to pursue a career · in-demand skills · transferable skills · to wear many hats · work-life balance</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 03 · OFFICE vs REMOTE</div>
+      <div class="speak-prompt">Would you prefer to work in a traditional office, fully remotely, or in a hybrid role? Defend your choice — and convince the rest of the class!</div>
+      <div class="speak-help"><strong>Try to use:</strong> to work remotely · a hybrid role · work-life balance · job security · in a nutshell</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 04 · AI &amp; YOUR FUTURE</div>
+      <div class="speak-prompt">Will AI take some jobs in the future? Which jobs will probably disappear, and which ones will always need humans? Be specific.</div>
+      <div class="speak-help"><strong>Try to use:</strong> to automate · to disrupt an industry · to keep something in check · the direction of travel · to upskill</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 05 · CONTENT CREATOR LIFE</div>
+      <div class="speak-prompt">Could you make a living as a content creator on TikTok or YouTube? What would be the hardest part?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to make a living · it's a grind · authenticity · to smell a mile away · burnout · to call the shots</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 06 · CAREER PATHS</div>
+      <div class="speak-prompt">Some people climb a single career ladder for 30 years. Others zigzag and pivot many times. Which approach makes more sense to you, and why?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to climb the career ladder · to pivot · a career path · to jump ship · a stepping stone · a mindset shift</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 07 · INVENT A NEW PROFESSION</div>
+      <div class="speak-prompt">Invent a brand-new job that doesn't yet exist. Give it a name. Explain what the person does, what skills they need, and why your invented job will exist in 10 years.</div>
+      <div class="speak-help"><strong>Try to use:</strong> in a nutshell · in-demand skills · to think outside the box · the direction of travel · a mindset shift</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 08 · QUICK-FIRE · 30 SECONDS EACH</div>
+      <div class="speak-prompt">Quick answers — no thinking, just talking!</div>
+      <div class="speak-help">
+        ▸ A job you would absolutely never do — and why.<br>
+        ▸ A celebrity whose job you'd love to swap with for a day.<br>
+        ▸ The single most important skill for the next 10 years.<br>
+        ▸ Robot teachers in school — yes or no? Defend your view.<br>
+        ▸ Complete: "By the time I'm 30, I'll definitely have…"
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== GRAMMAR ============== -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar: Future Forms &amp; Future Perfect</h2>
+    <p class="instr">A B2 essential — using the right future form to talk about predictions, plans and what will be true by a certain time. Perfect topic, since "future of work" is full of forecasts!</p>
+
+    <div class="grammar-box">
+      <h4>🚀 The B2 future toolkit</h4>
+      <ul>
+        <li><strong>will + infinitive</strong> → predictions based on opinion / general beliefs. <code>I think AI will change everything.</code></li>
+        <li><strong>be going to + infinitive</strong> → predictions based on present evidence; intentions. <code>Look at this trend — drone pilots are going to be everywhere.</code></li>
+        <li><strong>present continuous</strong> → fixed plans/arrangements (often with a time). <code>I'm meeting a careers advisor on Friday.</code></li>
+        <li><strong>future perfect (will have + past participle)</strong> → something <em>completed</em> by a future time. <code>By 2035, AI will have replaced many routine jobs.</code></li>
+        <li><strong>future continuous (will be + -ing)</strong> → something in progress at a future moment. <code>This time next year, I'll be working from a beach in Bali.</code></li>
+      </ul>
+      <div class="formula">Evidence now → going to | Opinion / prediction → will | Plan → present continuous</div>
+      <div class="formula">By + time + future perfect → "By 2030, robots will have taken over."</div>
+    </div>
+
+    <p class="instr"><strong>Part A — choose the correct future form</strong> of the verb in brackets. Multiple forms may be possible, but one fits best.</p>
+
+    <div class="fill-item"><p><span class="num">01</span>I think the prompt-engineer profession <input class="fill-input wide" data-answer="will become"> (become) one of the highest-paid careers of the decade.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>Look at how fast AI is improving — many office tasks <input class="fill-input wide" data-answer="are going to be"> (be) automated very soon.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>I <input class="fill-input wide" data-answer="am meeting"> (meet) the careers counsellor at 3 p.m. tomorrow — it's all booked.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>By the time I'm 25, I <input class="fill-input wide" data-answer="will have finished"> (finish) my master's degree.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>This time next year, Sam <input class="fill-input wide" data-answer="will be working"> (work) at a tech startup in Berlin.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>According to the experts, robots <input class="fill-input wide" data-answer="will not"> (not) replace teachers anytime soon. <em style="color:var(--purple); font-size:13px;">(write "will not" or "won't")</em></p></div>
+    <div class="fill-item"><p><span class="num">07</span>By 2040, scientists <input class="fill-input wide" data-answer="will have developed"> (develop) cars that drive themselves in every country.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>Sorry I can't come Friday — I <input class="fill-input wide" data-answer="am flying"> (fly) to a hackathon in Lisbon.</p></div>
+
+    <p class="instr"><strong>Part B — future perfect transformations.</strong> Rewrite using "by + time" + future perfect. Type just the verb phrase.</p>
+
+    <div class="fill-item"><p><span class="num">09</span>"I'll save 5,000€ — I'll finish saving by next summer."<br>→ By next summer, I <input class="fill-input wide" data-answer="will have saved"> 5,000€.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>"I'm going to launch my side hustle. It'll be ready by December."<br>→ By December, I <input class="fill-input wide" data-answer="will have launched"> my side hustle.</p></div>
+    <div class="fill-item"><p><span class="num">11</span>"AI is going to take over many routine tasks. It'll be done by 2035."<br>→ By 2035, AI <input class="fill-input wide" data-answer="will have taken"> over many routine tasks.</p></div>
+
+    <p class="instr"><strong>Part C — predictions about you.</strong> Complete each sentence with a verb phrase that's true (or imagined) for you.</p>
+
+    <div class="fill-item"><p><span class="num">12</span>This time next year, I <input class="fill-input wide" data-answer="will be"> (any future continuous: e.g., "will be studying / will be working") <em style="color:var(--purple); font-size:13px;">(write "will be" + any -ing verb)</em></p></div>
+    <div class="fill-item"><p><span class="num">13</span>By the time I'm 30, I <input class="fill-input wide" data-answer="will have"> (any future perfect: e.g., "will have travelled / will have learned") <em style="color:var(--purple); font-size:13px;">(write "will have" + any past participle)</em></p></div>
+
+    <button class="check-btn" onclick="checkGrammar()">✓ Check grammar</button>
+    <span class="score" id="score9">— / 13</span>
+  </section>
+
+  <footer>
+    🚀 🌍 🤖 &nbsp; THE FUTURE OF WORK &amp; NEW PROFESSIONS · B2 ENGLISH WORKSHEET &nbsp; 🤖 🌍 🚀
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 5)
+  let selectedWord = null;
+  let matched5 = 0;
+  document.querySelectorAll('#t5 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t5 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched5++;
+          document.getElementById('score5').textContent = matched5 + ' / 10';
+          selectedWord = null;
+          if (matched5 === 10) document.getElementById('score5').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 6)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t6 .fill-input');
+    const alternates = {
+      'in-demand': ['in-demand','in demand'],
+      'the direction of travel': ['the direction of travel'],
+      'gig economy': ['gig economy','the gig economy'],
+      'transferable': ['transferable'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score6').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 7)
+  let mcScore = 0;
+  document.querySelectorAll('#t7 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score7').textContent = mcScore + ' / 12';
+        if (mcScore === 12) document.getElementById('score7').textContent = '★ 12 / 12 ★';
+      });
+    });
+  });
+
+  // GRAMMAR (tab 9)
+  function checkGrammar() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t9 .fill-input');
+    const alternates = {
+      'will become': ['will become',"'ll become"],
+      'are going to be': ['are going to be',"'re going to be"],
+      'am meeting': ['am meeting',"'m meeting"],
+      'will have finished': ['will have finished',"'ll have finished","will've finished"],
+      'will be working': ['will be working',"'ll be working"],
+      'will not': ['will not',"won't"],
+      'will have developed': ['will have developed',"'ll have developed"],
+      'am flying': ['am flying',"'m flying"],
+      'will have saved': ['will have saved',"'ll have saved"],
+      'will have launched': ['will have launched',"'ll have launched"],
+      'will have taken': ['will have taken',"'ll have taken"],
+      'will be': ['will be',"'ll be"],
+      'will have': ['will have',"'ll have"],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      // For Part C (12 and 13): accept any "will be ___" or "will have ___"
+      const isPartC = answer === 'will be' || answer === 'will have';
+      if (isPartC) {
+        if (val.startsWith("will be ") || val.startsWith("'ll be ") ||
+            val.startsWith("will have ") || val.startsWith("'ll have ")) {
+          input.classList.add('correct');
+          correct++;
+        } else if (val !== '') {
+          input.classList.add('wrong');
+        }
+      } else if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score9').textContent = correct + ' / 13';
+    if (correct === 13) document.getElementById('score9').textContent = '★ 13 / 13 ★';
+  }
+</script>
+</body>
+</html>
