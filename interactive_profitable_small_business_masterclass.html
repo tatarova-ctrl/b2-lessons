@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How To Build A Profitable Small Business</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FFF8F1;
+--paper:#ffffff;
+--ink:#1f1f1f;
+--orange:#EA580C;
+--gold:#F59E0B;
+--green:#15803D;
+--blue:#1D4ED8;
+--soft:#FFEDD5;
+--shadow:#1f1f1f;
+}
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--ink);
+line-height:1.7;
+}
+.wrapper{
+max-width:1250px;
+margin:auto;
+padding:28px;
+}
+.hero{
+background:linear-gradient(135deg,#fff,#fff7ed);
+border:3px solid var(--ink);
+border-radius:28px;
+padding:48px;
+position:relative;
+overflow:hidden;
+box-shadow:8px 8px 0 var(--shadow);
+margin-bottom:30px;
+}
+.hero::after{
+content:"💼";
+position:absolute;
+right:30px;
+top:10px;
+font-size:140px;
+opacity:0.1;
+}
+.badge{
+display:inline-block;
+padding:8px 14px;
+background:var(--ink);
+color:var(--gold);
+border-radius:8px;
+font-family:'JetBrains Mono',monospace;
+font-size:12px;
+letter-spacing:2px;
+margin-bottom:16px;
+}
+h1{
+font-family:'DM Serif Display',serif;
+font-size:clamp(48px,7vw,82px);
+line-height:1;
+margin:0;
+max-width:850px;
+}
+.accent{color:var(--orange);font-style:italic}
+.sub{
+font-size:19px;
+max-width:760px;
+margin-top:18px;
+color:#7c2d12;
+}
+.meta{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:24px;
+}
+.meta span{
+padding:8px 12px;
+background:var(--soft);
+border:2px solid var(--ink);
+border-radius:30px;
+font-size:12px;
+font-weight:700;
+}
+.tabs{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:28px;
+}
+.tab{
+border:none;
+background:white;
+padding:14px 18px;
+border-radius:12px;
+border:2px solid var(--ink);
+font-weight:800;
+cursor:pointer;
+box-shadow:4px 4px 0 var(--shadow);
+transition:0.2s;
+}
+.tab.active{
+background:var(--ink);
+color:var(--gold);
+transform:translateY(2px);
+}
+.panel{
+display:none;
+animation:fade .25s ease;
+}
+.panel.active{display:block}
+@keyframes fade{
+from{opacity:0;transform:translateY(8px)}
+to{opacity:1;transform:translateY(0)}
+}
+.section{
+background:var(--paper);
+border:3px solid var(--ink);
+border-radius:24px;
+padding:34px;
+box-shadow:7px 7px 0 var(--shadow);
+margin-bottom:28px;
+}
+.section h2{
+font-family:'DM Serif Display',serif;
+font-size:42px;
+margin-top:0;
+line-height:1;
+}
+.instr{
+background:var(--soft);
+border-left:6px solid var(--orange);
+padding:14px 18px;
+border-radius:0 12px 12px 0;
+margin-bottom:22px;
+}
+.card{
+background:white;
+border:2px solid var(--ink);
+border-radius:18px;
+padding:20px;
+margin-bottom:16px;
+box-shadow:4px 4px 0 var(--shadow);
+}
+.question{
+font-family:'DM Serif Display',serif;
+font-size:26px;
+}
+.num{
+font-family:'JetBrains Mono',monospace;
+font-size:12px;
+letter-spacing:2px;
+color:var(--orange);
+font-weight:700;
+margin-bottom:8px;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:16px;
+}
+.vocab{
+background:white;
+border:2px solid var(--ink);
+border-radius:16px;
+padding:18px;
+box-shadow:4px 4px 0 var(--shadow);
+}
+.term{
+font-size:20px;
+font-weight:800;
+color:var(--orange);
+margin-bottom:8px;
+}
+.example{
+margin-top:10px;
+padding-top:10px;
+border-top:1px dashed #ccc;
+font-style:italic;
+color:#7c2d12;
+}
+.reading{
+font-size:17px;
+}
+.reading p{
+margin-bottom:20px;
+}
+.reading strong{
+background:linear-gradient(transparent 55%, rgba(245,158,11,0.45) 55%);
+}
+.stat-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:18px;
+}
+.stat{
+padding:24px;
+border-radius:20px;
+background:white;
+border:2px solid var(--ink);
+text-align:center;
+box-shadow:4px 4px 0 var(--shadow);
+}
+.big{
+font-size:46px;
+font-weight:800;
+color:var(--orange);
+line-height:1;
+}
+.task{
+background:white;
+border:2px solid var(--ink);
+border-left:8px solid var(--green);
+padding:22px;
+border-radius:18px;
+margin-bottom:18px;
+box-shadow:4px 4px 0 var(--shadow);
+}
+.task h3{
+margin-top:0;
+font-size:26px;
+font-family:'DM Serif Display',serif;
+}
+.help{
+background:#DCFCE7;
+padding:12px;
+border-radius:10px;
+margin-top:12px;
+font-size:14px;
+}
+.quiz{
+background:white;
+border:2px solid var(--ink);
+padding:20px;
+border-radius:18px;
+margin-bottom:18px;
+}
+button.check{
+background:var(--orange);
+color:white;
+border:none;
+padding:12px 18px;
+font-weight:800;
+border-radius:10px;
+cursor:pointer;
+margin-top:16px;
+}
+.result{
+font-weight:800;
+margin-top:14px;
+font-size:20px;
+}
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:18px;
+}
+th,td{
+border:2px solid var(--ink);
+padding:14px;
+text-align:left;
+}
+th{
+background:var(--soft);
+}
+footer{
+text-align:center;
+padding:40px;
+font-family:'JetBrains Mono',monospace;
+letter-spacing:2px;
+font-size:12px;
+color:#7c2d12;
+}
+@media(max-width:700px){
+.hero,.section{padding:24px}
+h1{font-size:48px}
+.section h2{font-size:32px}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<section class="hero">
+<div class="badge">BUSINESS ENGLISH · ENTREPRENEURSHIP · B2/C1</div>
+<h1>How To Build A <span class="accent">Profitable</span> Small Business</h1>
+<div class="sub">
+A complete interactive Business English lesson exploring entrepreneurship, branding, marketing, profit, customer psychology, startup strategy, business vocabulary and real-world communication.
+</div>
+
+<div class="meta">
+<span>✔ Real Business English</span>
+<span>✔ Interactive Exercises</span>
+<span>✔ Startup Vocabulary</span>
+<span>✔ Modern Native Phrasing</span>
+<span>✔ Speaking Intensive</span>
+</div>
+</section>
+
+<div class="tabs">
+<button class="tab active" data-tab="p1">① Warm-Up</button>
+<button class="tab" data-tab="p2">② Startup Facts</button>
+<button class="tab" data-tab="p3">③ Reading</button>
+<button class="tab" data-tab="p4">④ Vocabulary</button>
+<button class="tab" data-tab="p5">⑤ Idioms</button>
+<button class="tab" data-tab="p6">⑥ Matching</button>
+<button class="tab" data-tab="p7">⑦ Quiz</button>
+<button class="tab" data-tab="p8">⑧ Grammar</button>
+<button class="tab" data-tab="p9">⑨ Roleplays</button>
+<button class="tab" data-tab="p10">⑩ Investor Pitch</button>
+<button class="tab" data-tab="p11">⑪ Debate</button>
+<button class="tab" data-tab="p12">⑫ Homework</button>
+</div>
+
+<div class="panel active" id="p1">
+<div class="section">
+<h2>🤔 Warm-Up Discussion</h2>
+<div class="instr">Speak naturally. Give examples, opinions and personal experiences where possible.</div>
+
+<div class="card"><div class="num">QUESTION 01</div><div class="question">Would you prefer to own a business or work for a company? Why?</div></div>
+<div class="card"><div class="num">QUESTION 02</div><div class="question">What makes people trust small businesses?</div></div>
+<div class="card"><div class="num">QUESTION 03</div><div class="question">Why do some excellent products still fail in the market?</div></div>
+<div class="card"><div class="num">QUESTION 04</div><div class="question">What business trends are growing quickly right now?</div></div>
+<div class="card"><div class="num">QUESTION 05</div><div class="question">Is social media now more important than product quality?</div></div>
+<div class="card"><div class="num">QUESTION 06</div><div class="question">What are the biggest mistakes first-time entrepreneurs make?</div></div>
+<div class="card"><div class="num">QUESTION 07</div><div class="question">Would you ever take a financial risk to start your own company?</div></div>
+<div class="card"><div class="num">QUESTION 08</div><div class="question">Which industries will probably become very profitable in the next 5 years?</div></div>
+
+</div>
+</div>
+
+<div class="panel" id="p2">
+<div class="section">
+<h2>📊 Startup Facts & Statistics</h2>
+<div class="instr">Discuss the statistics below. Which ones surprise you the most?</div>
+
+<div class="stat-grid">
+<div class="stat"><div class="big">90%</div><p>of startups fail within the first few years.</p></div>
+<div class="stat"><div class="big">82%</div><p>of failed businesses struggle with cash flow problems.</p></div>
+<div class="stat"><div class="big">70%</div><p>of customers trust recommendations from friends more than advertisements.</p></div>
+<div class="stat"><div class="big">5×</div><p>cheaper to keep a customer than find a new one.</p></div>
+</div>
+
+<table>
+<tr><th>Business Factor</th><th>Why It Matters</th></tr>
+<tr><td>Branding</td><td>Creates emotional connection and recognition</td></tr>
+<tr><td>Customer Service</td><td>Builds loyalty and positive reviews</td></tr>
+<tr><td>Cash Flow</td><td>Keeps the business operating daily</td></tr>
+<tr><td>Marketing</td><td>Brings visibility and sales</td></tr>
+<tr><td>Innovation</td><td>Helps businesses stay competitive</td></tr>
+</table>
+
+</div>
+</div>
+
+<div class="panel" id="p3">
+<div class="section">
+<h2>📖 Reading Article</h2>
+
+<div class="reading">
+<h3 style="font-family:'DM Serif Display',serif;font-size:36px;margin-top:0;">How One Small Coffee Brand Became a National Success</h3>
+
+<p>When Daniel opened his first coffee stand, he had less than €2,000 in savings and almost no business experience. He was working a full-time office job during the day and selling coffee from a tiny mobile cart early in the mornings. Most people around him believed the business would fail quickly because the city already had dozens of established coffee shops.</p>
+
+<p>However, Daniel noticed something important: many large coffee chains felt impersonal and corporate. Customers wanted something more authentic. Instead of competing on price alone, he focused on building a memorable <strong>brand identity</strong> and excellent customer relationships.</p>
+
+<p>His strategy was surprisingly simple. He learned customers’ names, remembered their regular orders and created a strong <strong>social media presence</strong> using short behind-the-scenes videos. Slowly, people started recommending his business through <strong>word of mouth</strong>. This created free marketing and built trust much faster than traditional advertising.</p>
+
+<p>Daniel also controlled his <strong>overhead costs</strong> carefully. Rather than renting an expensive café immediately, he operated from the mobile cart for almost two years. This allowed him to maintain healthy <strong>cash flow</strong> while testing the market safely.</p>
+
+<p>Another smart decision was targeting a clear <strong>niche market</strong>. Instead of trying to sell everything, he focused only on premium organic coffee and environmentally friendly packaging. Customers appreciated the consistency and clear company values.</p>
+
+<p>As profits increased, Daniel reinvested money into branding, packaging and customer experience. Today, his company operates in several cities and employs more than 40 people. Despite the growth, he believes the key to profitability is still the same: solve real customer problems, communicate clearly and build long-term trust.</p>
+</div>
+
+</div>
+</div>
+
+<div class="panel" id="p4">
+<div class="section">
+<h2>💬 Advanced Business Vocabulary</h2>
+<div class="instr">Study the vocabulary carefully. Try to use the expressions naturally during speaking activities.</div>
+
+<div class="grid">
+
+<div class="vocab"><div class="term">profit margin</div><div>The percentage of money earned after costs.</div><div class="example">“Luxury brands usually have high profit margins.”</div></div>
+
+<div class="vocab"><div class="term">startup capital</div><div>Money used to launch a business.</div><div class="example">“Many entrepreneurs struggle to raise startup capital.”</div></div>
+
+<div class="vocab"><div class="term">scalable</div><div>A business that can grow easily.</div><div class="example">“Software companies are highly scalable.”</div></div>
+
+<div class="vocab"><div class="term">customer retention</div><div>Keeping customers loyal over time.</div><div class="example">“Customer retention is cheaper than acquisition.”</div></div>
+
+<div class="vocab"><div class="term">brand awareness</div><div>How well people know a company.</div><div class="example">“Social media increased brand awareness rapidly.”</div></div>
+
+<div class="vocab"><div class="term">competitive advantage</div><div>A feature that makes a business stronger than rivals.</div><div class="example">“Fast delivery became their competitive advantage.”</div></div>
+
+<div class="vocab"><div class="term">market research</div><div>Studying customer needs and trends.</div><div class="example">“Good market research reduces business risk.”</div></div>
+
+<div class="vocab"><div class="term">revenue stream</div><div>A source of company income.</div><div class="example">“Subscriptions created a stable revenue stream.”</div></div>
+
+<div class="vocab"><div class="term">target demographic</div><div>The exact group of customers a business wants.</div><div class="example">“Teenagers are their target demographic.”</div></div>
+
+<div class="vocab"><div class="term">burnout</div><div>Extreme stress and exhaustion from work.</div><div class="example">“Many founders experience burnout.”</div></div>
+
+<div class="vocab"><div class="term">networking</div><div>Building professional relationships.</div><div class="example">“Networking opened new business opportunities.”</div></div>
+
+<div class="vocab"><div class="term">pricing strategy</div><div>The method used to set prices.</div><div class="example">“Their pricing strategy targeted premium buyers.”</div></div>
+
+</div>
+
+</div>
+</div>
+
+<div class="panel" id="p5">
+<div class="section">
+<h2>🧠 Business Idioms & Expressions</h2>
+
+<div class="grid">
+
+<div class="vocab"><div class="term">Think outside the box</div><div>Be creative and original.</div></div>
+
+<div class="vocab"><div class="term">Learn the ropes</div><div>Understand how something works.</div></div>
+
+<div class="vocab"><div class="term">Corner the market</div><div>Dominate a market completely.</div></div>
+
+<div class="vocab"><div class="term">A cash cow</div><div>A product that generates reliable profit.</div></div>
+
+<div class="vocab"><div class="term">Break even</div><div>Neither lose nor gain money.</div></div>
+
+<div class="vocab"><div class="term">Raise the bar</div><div>Increase standards or quality.</div></div>
+
+<div class="vocab"><div class="term">Cut corners</div><div>Save money by reducing quality.</div></div>
+
+<div class="vocab"><div class="term">Get the ball rolling</div><div>Start a project or process.</div></div>
+
+</div>
+
+<div class="task" style="margin-top:24px;">
+<h3>Mini Practice</h3>
+<p>Create one original sentence using each idiom.</p>
+</div>
+
+</div>
+</div>
+
+<div class="panel" id="p6">
+<div class="section">
+<h2>🔗 Matching Exercise</h2>
+<div class="instr">Match the business word with the correct meaning.</div>
+
+<table>
+<tr><th>Word</th><th>Meaning</th></tr>
+<tr><td>1. Cash flow</td><td>a. Keeping customers loyal</td></tr>
+<tr><td>2. Branding</td><td>b. Movement of money in and out</td></tr>
+<tr><td>3. Customer retention</td><td>c. Company image and identity</td></tr>
+<tr><td>4. Market research</td><td>d. Studying customer behavior</td></tr>
+<tr><td>5. Revenue stream</td><td>e. A source of income</td></tr>
+</table>
+
+<div class="help">
+Answers: 1-b · 2-c · 3-a · 4-d · 5-e
+</div>
+
+</div>
+</div>
+
+<div class="panel" id="p7">
+<div class="section">
+<h2>📝 Interactive Quiz</h2>
+
+<div class="quiz">
+<h3>1. What is the main purpose of branding?</h3>
+<label><input type="radio" name="q1" value="0"> To lower salaries</label><br>
+<label><input type="radio" name="q1" value="1"> To create a memorable identity</label><br>
+<label><input type="radio" name="q1" value="0"> To increase taxes</label><br>
+</div>
+
+<div class="quiz">
+<h3>2. Which factor destroys many businesses?</h3>
+<label><input type="radio" name="q2" value="1"> Poor cash flow</label><br>
+<label><input type="radio" name="q2" value="0"> Friendly customers</label><br>
+<label><input type="radio" name="q2" value="0"> Too much networking</label><br>
+</div>
+
+<div class="quiz">
+<h3>3. What does “break even” mean?</h3>
+<label><input type="radio" name="q3" value="1"> No loss and no profit</label><br>
+<label><input type="radio" name="q3" value="0"> Becoming famous online</label><br>
+<label><input type="radio" name="q3" value="0"> Hiring new employees</label><br>
+</div>
+
+<button class="check" onclick="checkQuiz()">Check Score</button>
+<div class="result" id="result"></div>
+
+</div>
+</div>
+
+<div class="panel" id="p8">
+<div class="section">
+<h2>📚 Grammar Focus — Conditionals for Business</h2>
+
+<div class="card">
+<div class="question">If I had more startup capital, I would open a coffee shop.</div>
+<p><strong>Second Conditional:</strong> imaginary or hypothetical situations.</p>
+</div>
+
+<div class="card">
+<div class="question">If businesses ignore customers, they lose trust.</div>
+<p><strong>Zero Conditional:</strong> general truths and facts.</p>
+</div>
+
+<div class="card">
+<div class="question">If the company had invested in marketing earlier, sales would have grown faster.</div>
+<p><strong>Third Conditional:</strong> past hypothetical situations.</p>
+</div>
+
+<div class="task">
+<h3>Practice</h3>
+<p>Complete the sentences:</p>
+<p>1. If I started a business tomorrow, I __________</p>
+<p>2. If companies ignore social media, they __________</p>
+<p>3. If the brand had lowered prices earlier, it __________</p>
+</div>
+
+</div>
+</div>
+
+<div class="panel" id="p9">
+<div class="section">
+<h2>🎭 Business Roleplays</h2>
+
+<div class="task">
+<h3>Roleplay 1 — Angry Customer</h3>
+<p>A customer complains that your product quality is poor. Solve the problem professionally.</p>
+<div class="help">Use: refund · customer satisfaction · reputation · loyalty</div>
+</div>
+
+<div class="task">
+<h3>Roleplay 2 — Business Partners</h3>
+<p>You and your partner disagree about marketing strategy. One prefers TikTok advertising; the other prefers traditional advertising.</p>
+<div class="help">Use: target audience · branding · engagement · visibility</div>
+</div>
+
+<div class="task">
+<h3>Roleplay 3 — New Startup</h3>
+<p>You are pitching a new business idea to a potential investor.</p>
+<div class="help">Use: scalable · profitable · market demand · competitive advantage</div>
+</div>
+
+</div>
+</div>
+
+<div class="panel" id="p10">
+<div class="section">
+<h2>🚀 Investor Pitch Challenge</h2>
+
+<div class="instr">Prepare a 2-minute investor pitch.</div>
+
+<div class="card">
+<div class="question">Imagine you are asking investors for €50,000.</div>
+</div>
+
+<table>
+<tr><th>Include</th><th>Details</th></tr>
+<tr><td>Business Name</td><td>Create a modern memorable name</td></tr>
+<tr><td>Problem</td><td>What customer problem are you solving?</td></tr>
+<tr><td>Solution</td><td>What product/service are you offering?</td></tr>
+<tr><td>Target Market</td><td>Who are your customers?</td></tr>
+<tr><td>Marketing Strategy</td><td>How will people discover your business?</td></tr>
+<tr><td>Profitability</td><td>How will you make money?</td></tr>
+<tr><td>Growth Plan</td><td>How will the company expand?</td></tr>
+</table>
+
+</div>
+</div>
+
+<div class="panel" id="p11">
+<div class="section">
+<h2>🔥 Debate Section</h2>
+
+<div class="card"><div class="question">“A strong personal brand is now more important than qualifications.”</div></div>
+<div class="card"><div class="question">“Most businesses fail because founders give up too quickly.”</div></div>
+<div class="card"><div class="question">“AI will replace many small businesses in the future.”</div></div>
+<div class="card"><div class="question">“Social media influencers are modern entrepreneurs.”</div></div>
+<div class="card"><div class="question">“People should work for themselves instead of companies.”</div></div>
+
+</div>
+</div>
+
+<div class="panel" id="p12">
+<div class="section">
+<h2>🏠 Homework & Final Project</h2>
+
+<div class="task">
+<h3>Writing Task</h3>
+<p>Write 250–300 words about your dream business.</p>
+</div>
+
+<div class="task">
+<h3>Research Task</h3>
+<p>Research one successful small business from your country. Explain:</p>
+<ul>
+<li>How it started</li>
+<li>What made it successful</li>
+<li>Its marketing strategy</li>
+<li>Its competitive advantage</li>
+<li>Lessons entrepreneurs can learn</li>
+</ul>
+</div>
+
+<div class="task">
+<h3>Bonus Challenge</h3>
+<p>Create a logo concept, slogan and Instagram strategy for your business idea.</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+INTERACTIVE BUSINESS ENGLISH LESSON · ENTREPRENEURSHIP · MODERN BUSINESS COMMUNICATION
+</footer>
+
+</div>
+
+<script>
+const tabs=document.querySelectorAll('.tab');
+const panels=document.querySelectorAll('.panel');
+
+tabs.forEach(tab=>{
+tab.addEventListener('click',()=>{
+tabs.forEach(t=>t.classList.remove('active'));
+panels.forEach(p=>p.classList.remove('active'));
+tab.classList.add('active');
+document.getElementById(tab.dataset.tab).classList.add('active');
+});
+});
+
+function checkQuiz(){
+let score=0;
+document.querySelectorAll('input[type="radio"]:checked').forEach(el=>{
+score+=parseInt(el.value);
+});
+document.getElementById('result').innerHTML="Your Score: "+score+"/3";
+}
+</script>
+
+</body>
+</html>
