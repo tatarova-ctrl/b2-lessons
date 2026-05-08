@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI in Healthcare — B2/C1 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --tech: #00897B;
+    --deep: #00594F;
+    --coral: #E76F51;
+    --electric: #6C5CE7;
+    --warm: #F4A261;
+    --cream: #F8F6F0;
+    --sand: #EDE4D0;
+    --ink: #0F1A23;
+    --cloud: #ffffff;
+    --soft: #DDF2EF;
+    --blush: #FFE4D8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(0,137,123,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(108,92,231,0.08) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "⚕";
+    position: absolute;
+    top: -10px;
+    right: 18px;
+    font-size: 180px;
+    color: var(--soft);
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--warm);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--coral); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--cream); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--tech);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .reading p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+    color: #2a3441;
+  }
+  .reading b, .reading strong {
+    background: linear-gradient(transparent 55%, rgba(244,162,97,0.5) 55%);
+    padding: 0 2px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .reading .dialogue {
+    background: var(--soft);
+    padding: 14px 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--tech);
+    margin: 16px 0;
+    font-style: italic;
+  }
+
+  /* PROS / CONS BOX INSIDE READING */
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 18px 0;
+  }
+  .pc-card {
+    padding: 14px 18px;
+    border-radius: 10px;
+    border: 2px solid var(--ink);
+  }
+  .pc-card h5 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+  .pc-card.pro { background: #e6f5f2; }
+  .pc-card.pro h5 { color: var(--deep); }
+  .pc-card.con { background: #ffe4d8; }
+  .pc-card.con h5 { color: var(--coral); }
+  .pc-card ul { padding-left: 18px; font-size: 14px; }
+  .pc-card li { margin-bottom: 3px; }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* IDIOMS */
+  .idiom-card {
+    background: linear-gradient(135deg, var(--cloud) 0%, var(--soft) 100%);
+    border: 2px solid var(--ink);
+    border-left: 5px solid var(--electric);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .idiom-term {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--electric);
+    margin-bottom: 4px;
+  }
+  .idiom-def { font-size: 14px; margin-bottom: 8px; }
+  .idiom-ex {
+    font-style: italic;
+    font-size: 13.5px;
+    background: rgba(255,255,255,0.7);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--coral);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14.5px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--tech); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: #a8d5a2; border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 200px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 280px; }
+  .fill-input:focus { outline: none; border-color: var(--tech); background: var(--cream); }
+  .fill-input.correct { background: #d1f0cc; border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--warm);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--tech); }
+  .mc-opt.correct { background: #d1f0cc; border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--coral);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--warm);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--electric);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--electric); }
+
+  .phrase-box {
+    background: var(--blush);
+    border: 2px dashed var(--coral);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .phrase-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .phrase-box .phrase-list { display: grid; gap: 6px; }
+  .phrase-box .phrase {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    border-left: 3px solid var(--tech);
+  }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--tech);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid, .pros-cons { grid-template-columns: 1fr; }
+    .reading { padding: 22px; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">⚕ CEO INTERVIEW · B2/C1 ENGLISH</div>
+      <h1>AI in <span class="accent">Healthcare</span></h1>
+      <div class="sub">Advantages and disadvantages — from the perspective of a CEO running a thriving AI healthcare company in Europe. Advanced vocabulary, idioms and the language of tech leadership.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2/C1</span>
+        <span class="tag">AI · Healthcare · Tech</span>
+        <span class="tag">CEO Vocabulary</span>
+        <span class="tag">Speaking · Grammar</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Reading</button>
+    <button class="tab" data-tab="t2">② Vocabulary</button>
+    <button class="tab" data-tab="t3">③ Idioms</button>
+    <button class="tab" data-tab="t4">④ Matching</button>
+    <button class="tab" data-tab="t5">⑤ Fill the gaps</button>
+    <button class="tab" data-tab="t6">⑥ Multiple choice</button>
+    <button class="tab" data-tab="t7">⑦ Speaking 🎤</button>
+    <button class="tab" data-tab="t8">⑧ Grammar</button>
+  </nav>
+
+  <!-- ============== READING ============== -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">An interview with Dr. Elena Marchetti, a CEO whose AI healthcare company is thriving across Europe. Target vocabulary, collocations and idioms are in <b>orange bold</b>.</p>
+
+    <article class="reading">
+      <h3>"AI Won't Replace Doctors — But It Will Free Them Up"</h3>
+      <div class="byline">★ Dr. Elena Marchetti, 44 · Founder &amp; CEO, NovaMed AI · Milan</div>
+
+      <p>When I founded NovaMed AI seven years ago, a lot of people in the industry thought I was <b>chasing a pipe dream</b>. Back then, the idea of using machine learning to <b>interpret medical scans</b>, predict disease or support clinical decisions was still seen as science fiction. Today, our technology is used in over 200 hospitals across Europe, and we've just <b>secured another round of funding</b>. So yes — it turns out the pipe dream was actually a <b>gap in the market</b> waiting to be filled.</p>
+
+      <p>People often ask me: "What exactly does your company do?" In simple terms, we build AI tools that help doctors <b>make better decisions faster</b>. Our flagship product analyses radiology images — CT scans, MRIs, X-rays — and <b>flags potential abnormalities</b> that a human eye might miss, especially at the end of a 12-hour shift. We don't replace the radiologist. We give them a second pair of eyes. And in medicine, <b>a second opinion can be the difference</b> between catching a tumour early and catching it too late.</p>
+
+      <p class="dialogue">"Elena, aren't you worried AI will take doctors' jobs?" a journalist asked me recently. "Honestly," I said, "I'm much more worried about a shortage of doctors than about an excess of algorithms."</p>
+
+      <p>And that's the real story people miss. Europe is facing a <b>chronic shortage</b> of healthcare professionals. Waiting lists are getting longer, clinicians are <b>burning out</b>, and <b>budgets are stretched to breaking point</b>. In this context, AI isn't a luxury — it's a necessity. A well-designed algorithm can <b>process vast amounts of data</b> in seconds and help <b>streamline workflows</b>, reduce administrative burdens, and give doctors back the most precious thing they have: time with their patients. That, to me, is the real promise of AI.</p>
+
+      <p>Of course, it's not all sunshine and roses. The <b>challenges are significant</b>, and I'd be naïve to pretend otherwise. Let me be candid about some of them.</p>
+
+      <div class="pros-cons">
+        <div class="pc-card pro">
+          <h5>✔ The advantages we see daily</h5>
+          <ul>
+            <li><b>early detection</b> of serious conditions</li>
+            <li>faster, more accurate <b>diagnoses</b></li>
+            <li><b>reducing the workload</b> on overstretched staff</li>
+            <li><b>personalised treatment</b> based on patient data</li>
+            <li>lower costs over time for public healthcare</li>
+          </ul>
+        </div>
+        <div class="pc-card con">
+          <h5>✘ The concerns we can't ignore</h5>
+          <ul>
+            <li><b>data privacy</b> and GDPR compliance</li>
+            <li><b>algorithmic bias</b> in training data</li>
+            <li>the <b>"black box" problem</b> — lack of transparency</li>
+            <li>over-reliance on technology by clinicians</li>
+            <li>unequal access between well-funded and underfunded regions</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>The issue of bias is one I take extremely seriously. If you <b>train an algorithm on flawed data</b>, the algorithm inherits those flaws — and scales them. A famous example is AI models that were trained mostly on data from white male patients. They simply didn't perform as well on women or on patients of colour. That's not a small problem — that's a <b>life-or-death issue</b>. At NovaMed, we've invested heavily in <b>diverse, high-quality datasets</b>, because, as we like to say internally: <b>"garbage in, garbage out."</b></p>
+
+      <p>Then there's the question of trust. A recent survey showed that only 42% of Europeans would <b>feel comfortable</b> with an AI involved in their diagnosis. And honestly? I understand the hesitation. Medicine is personal. It's about human touch, empathy, compassion. No algorithm will ever replace that. Our job, as a company, is to be <b>absolutely transparent</b> about what our tools do, what they don't do, and where the limits lie. <b>Transparency is the foundation of trust</b>, and in this industry, <b>trust is everything</b>.</p>
+
+      <p>Regulation is another big topic. The EU's <b>AI Act</b> has been a real <b>game changer</b>. Some people in the tech world complain that Europe <b>over-regulates</b> and that this is why innovation tends to <b>flourish in the US</b> or <b>leapfrog ahead in China</b>. I disagree. Yes, it <b>slows us down</b> — but it also forces us to build <b>responsible, explainable, ethical AI</b> from the ground up. And I'd rather <b>play the long game</b> than rush a product to market that puts patients at risk.</p>
+
+      <p>If I had to give one piece of advice to any young founder entering this space, it would be this: stay humble. Healthcare is not like other industries. When software fails in e-commerce, someone doesn't get their parcel. When software fails in healthcare, someone can lose their life. <b>The stakes couldn't be higher</b>, and that's exactly why this work matters so much.</p>
+
+      <p>People ask me if I'm optimistic. The honest answer is yes — but it's a <b>cautious optimism</b>. The next ten years will define whether AI in healthcare becomes a genuine tool for equity, or whether it just <b>widens the gap</b> between those who can afford good medicine and those who can't. That's the fight. That's what <b>keeps me up at night</b>. And that's why, even on the hardest days, I still <b>get out of bed excited</b> to come to work.</p>
+    </article>
+  </section>
+
+  <!-- ============== VOCAB ============== -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">💬</span>Vocabulary &amp; collocations for tech &amp; healthcare leaders</h2>
+    <p class="instr">The precise language a CEO in this space uses in interviews, pitches, conferences and boardrooms. Example sentences show them in natural use.</p>
+
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">a gap in the market</div><div class="vocab-def">a business opportunity nobody is serving yet</div><div class="vocab-ex">"We spotted a real gap in the market early on."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to secure funding / a round of funding</div><div class="vocab-def">to get investment money from investors</div><div class="vocab-ex">"We've just secured our Series B round."</div></div>
+      <div class="vocab-card"><div class="vocab-term">flagship product</div><div class="vocab-def">the company's best or most important product</div><div class="vocab-ex">"Our flagship product is used in 200 hospitals."</div></div>
+      <div class="vocab-card"><div class="vocab-term">machine learning / an algorithm</div><div class="vocab-def">a type of AI that learns from data / the set of instructions behind it</div><div class="vocab-ex">"The algorithm improves every time it's used."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to interpret / analyse data</div><div class="vocab-def">to examine and make sense of information</div><div class="vocab-ex">"AI can interpret scans in seconds."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to flag (a problem / abnormality)</div><div class="vocab-def">to mark or highlight it for attention</div><div class="vocab-ex">"The system flags anything suspicious on the scan."</div></div>
+      <div class="vocab-card"><div class="vocab-term">early detection</div><div class="vocab-def">finding a disease in its early stages</div><div class="vocab-ex">"Early detection dramatically improves survival rates."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a diagnosis / to diagnose</div><div class="vocab-def">identifying an illness / to identify it</div><div class="vocab-ex">"AI supports clinicians in making accurate diagnoses."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a clinician / a clinical decision</div><div class="vocab-def">a doctor working with patients / a medical decision</div><div class="vocab-ex">"We help clinicians make better clinical decisions."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to streamline (workflows / processes)</div><div class="vocab-def">to make more efficient / smoother</div><div class="vocab-ex">"Our software streamlines hospital workflows."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to reduce the workload</div><div class="vocab-def">to decrease the amount of work someone has</div><div class="vocab-ex">"AI significantly reduces the workload on radiologists."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to burn out / burnout</div><div class="vocab-def">to become exhausted from too much work</div><div class="vocab-ex">"Clinicians are burning out at alarming rates."</div></div>
+      <div class="vocab-card"><div class="vocab-term">personalised treatment</div><div class="vocab-def">medical care tailored to the individual patient</div><div class="vocab-ex">"Personalised treatment is the future of medicine."</div></div>
+      <div class="vocab-card"><div class="vocab-term">data privacy / GDPR compliance</div><div class="vocab-def">keeping patient data safe and following EU rules</div><div class="vocab-ex">"Data privacy isn't optional — it's absolutely critical."</div></div>
+      <div class="vocab-card"><div class="vocab-term">algorithmic bias</div><div class="vocab-def">unfair results caused by biased training data</div><div class="vocab-ex">"Algorithmic bias can have serious consequences."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the "black box" problem</div><div class="vocab-def">when an AI's decisions can't be easily explained</div><div class="vocab-ex">"The black box problem makes regulators nervous."</div></div>
+      <div class="vocab-card"><div class="vocab-term">training data / a dataset</div><div class="vocab-def">the information used to teach an AI</div><div class="vocab-ex">"The quality of training data determines the quality of the model."</div></div>
+      <div class="vocab-card"><div class="vocab-term">transparency / to be transparent</div><div class="vocab-def">being open and clear about how things work</div><div class="vocab-ex">"Transparency is the foundation of trust."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to over-rely on / over-reliance</div><div class="vocab-def">to depend too much on something</div><div class="vocab-ex">"We have to be careful about over-reliance on AI."</div></div>
+      <div class="vocab-card"><div class="vocab-term">ethical / responsible AI</div><div class="vocab-def">AI designed with human values in mind</div><div class="vocab-ex">"Responsible AI is built in, not added later."</div></div>
+      <div class="vocab-card"><div class="vocab-term">regulation / to regulate</div><div class="vocab-def">official rules controlling an industry</div><div class="vocab-ex">"The EU AI Act sets the global standard for regulation."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to scale (a product / a company)</div><div class="vocab-def">to grow rapidly across markets</div><div class="vocab-ex">"We're now ready to scale across five new countries."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to deploy (technology)</div><div class="vocab-def">to put into real-world use</div><div class="vocab-ex">"We've deployed the system in 30 hospitals so far."</div></div>
+      <div class="vocab-card"><div class="vocab-term">stakeholder</div><div class="vocab-def">any group affected by or interested in a business</div><div class="vocab-ex">"Every stakeholder deserves a clear explanation."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to widen / close the gap</div><div class="vocab-def">to make the difference bigger / smaller</div><div class="vocab-ex">"AI could either close the gap or widen it dramatically."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a life-or-death issue</div><div class="vocab-def">extremely serious, where lives depend on it</div><div class="vocab-ex">"In our field, accuracy is a life-or-death issue."</div></div>
+    </div>
+  </section>
+
+  <!-- ============== IDIOMS ============== -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions every tech CEO uses</h2>
+    <p class="instr">Business and leadership idioms that sound natural in investor meetings, interviews, keynote speeches and boardroom discussions.</p>
+
+    <div class="idiom-card"><div class="idiom-term">to chase a pipe dream</div><div class="idiom-def">to pursue something that seems impossible or unrealistic</div><div class="idiom-ex">"People called it a pipe dream — until it worked."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a game changer</div><div class="idiom-def">something that dramatically changes the situation or industry</div><div class="idiom-ex">"The EU AI Act has been a real game changer."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to play the long game</div><div class="idiom-def">to focus on long-term rather than short-term wins</div><div class="idiom-ex">"In medicine, you have to play the long game."</div></div>
+    <div class="idiom-card"><div class="idiom-term">the stakes couldn't be higher</div><div class="idiom-def">the situation is extremely important / risky</div><div class="idiom-ex">"In healthcare, the stakes couldn't be higher."</div></div>
+    <div class="idiom-card"><div class="idiom-term">it's not all sunshine and roses</div><div class="idiom-def">it's not all positive; there are real challenges</div><div class="idiom-ex">"It's not all sunshine and roses, I have to be honest."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be stretched to breaking point</div><div class="idiom-def">to be under so much pressure that something is about to fail</div><div class="idiom-ex">"Our healthcare systems are stretched to breaking point."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to keep someone up at night</div><div class="idiom-def">to worry you constantly</div><div class="idiom-ex">"Data privacy keeps me up at night, honestly."</div></div>
+    <div class="idiom-card"><div class="idiom-term">garbage in, garbage out</div><div class="idiom-def">bad input data means bad output (classic tech phrase)</div><div class="idiom-ex">"With AI, it's simple: garbage in, garbage out."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to leapfrog ahead</div><div class="idiom-def">to overtake competitors by skipping stages</div><div class="idiom-ex">"China has leapfrogged ahead in several AI fields."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to free (someone) up</div><div class="idiom-def">to give them more time or capacity</div><div class="idiom-ex">"Our tools free doctors up to focus on patients."</div></div>
+    <div class="idiom-card"><div class="idiom-term">from the ground up</div><div class="idiom-def">from the very beginning / fundamentals</div><div class="idiom-ex">"We built responsibility into the system from the ground up."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to put (something) on the map</div><div class="idiom-def">to make it widely known or recognised</div><div class="idiom-ex">"That deal really put us on the map in Germany."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to move the needle</div><div class="idiom-def">to make a real, measurable difference</div><div class="idiom-ex">"This is the kind of innovation that moves the needle."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to get off the ground</div><div class="idiom-def">to start successfully; to launch</div><div class="idiom-ex">"It took us two years to really get off the ground."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a second pair of eyes</div><div class="idiom-def">another person (or system) checking for mistakes</div><div class="idiom-ex">"AI acts as a second pair of eyes for clinicians."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to raise the bar</div><div class="idiom-def">to set a higher standard than before</div><div class="idiom-ex">"Our goal is to raise the bar for clinical AI."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to tick all the boxes</div><div class="idiom-def">to meet all the requirements</div><div class="idiom-ex">"The new system ticks all the compliance boxes."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a double-edged sword</div><div class="idiom-def">something with both positive and negative effects</div><div class="idiom-ex">"AI in medicine is very much a double-edged sword."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be at the cutting edge / forefront</div><div class="idiom-def">to be in the most advanced position</div><div class="idiom-ex">"Our team is at the cutting edge of medical AI."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to hit the ground running</div><div class="idiom-def">to start quickly and effectively</div><div class="idiom-ex">"The new CTO hit the ground running."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to weigh up the pros and cons</div><div class="idiom-def">to carefully consider the advantages and disadvantages</div><div class="idiom-ex">"We always weigh up the pros and cons before launching."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a silver bullet</div><div class="idiom-def">a single simple solution to a complex problem (usually in negative)</div><div class="idiom-ex">"AI is not a silver bullet for our health systems."</div></div>
+  </section>
+
+  <!-- ============== MATCHING ============== -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">🔗</span>Match the expression with its meaning</h2>
+    <p class="instr">Click a phrase on the left, then its meaning on the right.</p>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <h3>Expression</h3>
+        <div class="match-item" data-word="1">to flag an abnormality</div>
+        <div class="match-item" data-word="2">a gap in the market</div>
+        <div class="match-item" data-word="3">a double-edged sword</div>
+        <div class="match-item" data-word="4">algorithmic bias</div>
+        <div class="match-item" data-word="5">to scale</div>
+        <div class="match-item" data-word="6">to play the long game</div>
+        <div class="match-item" data-word="7">the "black box" problem</div>
+        <div class="match-item" data-word="8">early detection</div>
+        <div class="match-item" data-word="9">to burn out</div>
+        <div class="match-item" data-word="10">a silver bullet</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="3">something with both positive and negative effects</div>
+        <div class="match-item" data-def="8">finding a disease in its early stages</div>
+        <div class="match-item" data-def="4">unfair results caused by biased training data</div>
+        <div class="match-item" data-def="5">to grow rapidly across markets</div>
+        <div class="match-item" data-def="7">when an AI's decisions can't be easily explained</div>
+        <div class="match-item" data-def="1">to mark something suspicious for human attention</div>
+        <div class="match-item" data-def="9">to become exhausted from too much work</div>
+        <div class="match-item" data-def="2">a business opportunity not yet served by anyone</div>
+        <div class="match-item" data-def="6">to focus on long-term rather than short-term wins</div>
+        <div class="match-item" data-def="10">a single simple solution to a complex problem</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <span class="score" id="score4">0 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============== FILL ============== -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the gaps</h2>
+    <p class="instr">Complete each sentence with an expression from the bank. Use the correct form.</p>
+
+    <div class="word-bank">
+      <strong>⚕ WORD BANK ⚕</strong>
+      secured funding · flagship · streamline · burnout · data privacy · game changer · double-edged sword · up at night · long game · pros and cons
+    </div>
+
+    <div class="fill-item"><p><span class="num">01</span>Our <input class="fill-input" data-answer="flagship"> product is used across 200 hospitals in Europe.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>We <input class="fill-input wide" data-answer="secured funding"> from a major European investor last quarter.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>The new software really helps <input class="fill-input" data-answer="streamline"> hospital workflows.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>Doctor <input class="fill-input" data-answer="burnout"> is one of the biggest problems in European healthcare.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>Honestly, <input class="fill-input wide" data-answer="data privacy"> is what keeps me <input class="fill-input wide" data-answer="up at night">.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>The EU AI Act has been an absolute <input class="fill-input wide" data-answer="game changer"> for responsible AI.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>I always tell my team: AI in medicine is a <input class="fill-input wide" data-answer="double-edged sword">.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>In this industry, you have to be willing to <input class="fill-input wide" data-answer="play the long game">.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>We always weigh up the <input class="fill-input wide" data-answer="pros and cons"> before launching a new product.</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check my answers</button>
+    <span class="score" id="score5">— / 10</span>
+  </section>
+
+  <!-- ============== MC ============== -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🎯</span>Choose the best answer</h2>
+    <p class="instr">Pick the option that sounds most natural and precise at B2/C1 level.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q1</span>"Garbage in, garbage out." In the context of AI, this means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) AI is bad for the environment.</button>
+        <button class="mc-opt">b) bad quality training data leads to bad quality predictions.</button>
+        <button class="mc-opt">c) we should recycle old computers.</button>
+        <button class="mc-opt">d) algorithms need to be deleted regularly.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q2</span>A CEO says, "The stakes couldn't be higher in our industry." She means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the company is losing money.</button>
+        <button class="mc-opt">b) her salary is high.</button>
+        <button class="mc-opt">c) the situation is extremely important and risky.</button>
+        <button class="mc-opt">d) the office is on a mountain.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q3</span>"AI is not a silver bullet for our health systems." This means AI is…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) not a single easy solution to a complex problem.</button>
+        <button class="mc-opt">b) dangerous for health workers.</button>
+        <button class="mc-opt">c) made of silver.</button>
+        <button class="mc-opt">d) only for doctors.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q4</span>"We built responsibility into the system from the ground up." The speaker means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) the system is buried underground.</button>
+        <button class="mc-opt">b) they fixed old problems.</button>
+        <button class="mc-opt">c) they hired more staff.</button>
+        <button class="mc-opt">d) they designed it responsibly from the very beginning.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q5</span>Which is the <strong>most natural</strong> way for a CEO to describe growth?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) We want to make ourselves bigger as a product.</button>
+        <button class="mc-opt">b) We're ready to scale across five new markets.</button>
+        <button class="mc-opt">c) Our number of customers should get high fast.</button>
+        <button class="mc-opt">d) We enlarge the company next year.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q6</span>"The black box problem" in AI refers to…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) expensive hardware used to run AI.</button>
+        <button class="mc-opt">b) unethical companies hiding data.</button>
+        <button class="mc-opt">c) AI making decisions that cannot be easily explained.</button>
+        <button class="mc-opt">d) a new type of server.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q7</span>"Our healthcare systems are stretched to breaking point." This means they are…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) under so much pressure they are about to fail.</button>
+        <button class="mc-opt">b) physically being stretched.</button>
+        <button class="mc-opt">c) working perfectly.</button>
+        <button class="mc-opt">d) being closed.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q8</span>A good CEO says: "We saw a real gap in the market." What did they identify?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) empty shelves in a shop.</button>
+        <button class="mc-opt">b) a hole in the road.</button>
+        <button class="mc-opt">c) a mistake in the law.</button>
+        <button class="mc-opt">d) a business opportunity that nobody else was serving.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q9</span>"AI will free clinicians up." The CEO means that AI will…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) replace clinicians entirely.</button>
+        <button class="mc-opt">b) give them more time to focus on patients.</button>
+        <button class="mc-opt">c) send them on holiday.</button>
+        <button class="mc-opt">d) promote them.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>Which phrase best completes this CEO quote: "In the long run, <strong>_____</strong> is the foundation of trust."</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) marketing</button>
+        <button class="mc-opt">b) advertising</button>
+        <button class="mc-opt">c) transparency</button>
+        <button class="mc-opt">d) scaling</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q11</span>"That deal really put us on the map in Germany." The company now…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) has a physical map in the Berlin office.</button>
+        <button class="mc-opt">b) is well-known and recognised in Germany.</button>
+        <button class="mc-opt">c) only does business in Germany.</button>
+        <button class="mc-opt">d) wants to leave Germany.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q12</span>"It's not all sunshine and roses." The CEO is saying…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) there are real challenges, not just good news.</button>
+        <button class="mc-opt">b) the weather is bad.</button>
+        <button class="mc-opt">c) they have a garden.</button>
+        <button class="mc-opt">d) everything is perfect.</button>
+      </div>
+    </div>
+
+    <span class="score" id="score6">0 / 12</span>
+  </section>
+
+  <!-- ============== SPEAKING ============== -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking practice — think like a CEO</h2>
+    <p class="instr">Imagine you are a CEO in AI healthcare. Speak for <strong>1½–2 minutes</strong> per question, using at least <strong>4 target expressions</strong> from this lesson in each answer. Try to sound confident, balanced and realistic — as a real founder would.</p>
+
+    <div class="phrase-box">
+      <h4>💼 CEO phrases that make you sound sharp</h4>
+      <div class="phrase-list">
+        <div class="phrase"><strong>Taking a position:</strong> "Look, the way I see it…" / "I'll be candid with you…" / "Here's the reality…"</div>
+        <div class="phrase"><strong>Balancing views:</strong> "On the one hand… but on the other…" / "It's a double-edged sword." / "There are real trade-offs."</div>
+        <div class="phrase"><strong>Weighing data:</strong> "The evidence clearly suggests…" / "The data tells a different story." / "If you look at the numbers…"</div>
+        <div class="phrase"><strong>Sounding decisive:</strong> "Make no mistake…" / "At the end of the day…" / "The bottom line is…"</div>
+        <div class="phrase"><strong>Showing humility:</strong> "I don't pretend to have all the answers." / "We're learning every day." / "That's something we take very seriously."</div>
+      </div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 01 · YOUR COMPANY'S MISSION</div>
+      <div class="speak-prompt">Introduce yourself as the CEO. What does your company do, and why does it matter?</div>
+      <div class="speak-help"><strong>Use at least 4 of these:</strong> flagship product · to interpret medical scans · early detection · to streamline workflows · to free up · a gap in the market · to scale</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 02 · THE ADVANTAGES</div>
+      <div class="speak-prompt">A journalist asks you to explain the top three benefits of AI in healthcare. Make your case.</div>
+      <div class="speak-help"><strong>Use at least 4 of these:</strong> early detection · personalised treatment · reduce the workload · a second pair of eyes · to move the needle · to raise the bar · life-or-death issue</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 03 · THE DISADVANTAGES</div>
+      <div class="speak-prompt">Now answer the critics. What are the real concerns, and how does your company address them?</div>
+      <div class="speak-help"><strong>Use at least 4 of these:</strong> data privacy · algorithmic bias · the black box problem · over-reliance · garbage in, garbage out · a double-edged sword · to keep you up at night</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 04 · "WILL AI REPLACE DOCTORS?"</div>
+      <div class="speak-prompt">The classic question. How do you respond to people who fear that AI will take doctors' jobs?</div>
+      <div class="speak-help"><strong>Use at least 4 of these:</strong> to free up · a chronic shortage · to burn out · clinicians · a second pair of eyes · transparency · at the end of the day</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 05 · REGULATION IN EUROPE</div>
+      <div class="speak-prompt">Some competitors complain that the EU AI Act slows innovation. What's your view?</div>
+      <div class="speak-help"><strong>Use at least 4 of these:</strong> the AI Act · to over-regulate · to leapfrog ahead · to play the long game · responsible AI · from the ground up · a game changer</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 06 · BUILDING TRUST</div>
+      <div class="speak-prompt">Only 42% of patients trust AI in medicine. How do you build that trust?</div>
+      <div class="speak-help"><strong>Use at least 4 of these:</strong> transparency · to be candid · stakeholders · the stakes couldn't be higher · a life-or-death issue · trust is everything · ethical AI</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 07 · THE FUTURE</div>
+      <div class="speak-prompt">Where will AI in healthcare be in 10 years? What's your boldest prediction — and your biggest fear?</div>
+      <div class="speak-help"><strong>Use at least 4 of these:</strong> to widen / close the gap · to weigh up the pros and cons · cautious optimism · to keep you up at night · a silver bullet · to move the needle · cutting edge</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 08 · ADVICE TO YOUNG FOUNDERS</div>
+      <div class="speak-prompt">A 25-year-old founder pitches you their AI healthcare idea. What's the one piece of advice you would give them?</div>
+      <div class="speak-help"><strong>Use at least 4 of these:</strong> to chase a pipe dream · to get off the ground · to hit the ground running · to play the long game · stay humble · from the ground up · the stakes couldn't be higher</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 09 · RAPID-FIRE · 45 SECONDS EACH</div>
+      <div class="speak-prompt">Quick, confident answers — like in a press conference. No planning!</div>
+      <div class="speak-help">
+        ▸ Your biggest fear about AI in healthcare — in one clear sentence.<br>
+        ▸ Your proudest moment as CEO so far.<br>
+        ▸ One thing you would never let AI do in medicine.<br>
+        ▸ Europe vs the US vs China — where is AI healthcare going fastest, and why?<br>
+        ▸ Complete: "If I had to pitch our company in 10 seconds, I'd say…"
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== GRAMMAR: PASSIVE VOICE + MODALS OF SPECULATION ============== -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar: Passive Voice &amp; Modals of Speculation</h2>
+    <p class="instr">Two grammar areas that really level up B2/C1 writing and speaking — both are everywhere in articles and interviews about AI and healthcare.</p>
+
+    <div class="grammar-box">
+      <h4>⚕ Part 1 — Passive voice</h4>
+      <ul>
+        <li>We use the passive when the <em>action</em> matters more than <em>who does it</em>. This is extremely common in scientific, medical and tech writing.</li>
+        <li>Form: <code>subject + BE + past participle (+ by + agent)</code></li>
+        <li><strong>Present:</strong> <code>Patient data is stored securely.</code></li>
+        <li><strong>Past:</strong> <code>The system was developed by our team in 2018.</code></li>
+        <li><strong>Present perfect:</strong> <code>Several bugs have been fixed recently.</code></li>
+        <li><strong>Future:</strong> <code>The product will be launched in March.</code></li>
+        <li><strong>Modal:</strong> <code>The algorithm must be trained on diverse data.</code></li>
+      </ul>
+      <div class="formula">Active: Doctors use AI to diagnose.   Passive: AI is used (by doctors) to diagnose.</div>
+    </div>
+
+    <div class="grammar-box">
+      <h4>⚕ Part 2 — Modals of speculation (present)</h4>
+      <ul>
+        <li><strong>must</strong> = I'm sure / very likely true. <code>The system must be working — there are no errors.</code></li>
+        <li><strong>might / may / could</strong> = possible / uncertain. <code>That result could be a false positive.</code></li>
+        <li><strong>can't / couldn't</strong> = I'm sure it's NOT true. <code>That can't be right — let me check.</code></li>
+      </ul>
+      <div class="formula">must / might / may / could / can't + infinitive (be, do, have, etc.)</div>
+    </div>
+
+    <p class="instr"><strong>Part A — Passive voice.</strong> Rewrite the verb in brackets in the correct passive form.</p>
+
+    <div class="fill-item"><p><span class="num">01</span>All patient data <input class="fill-input wide" data-answer="is stored"> (store) on secure European servers.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>The system <input class="fill-input wide" data-answer="was developed"> (develop) by a small team in Milan.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>Over 200 hospitals <input class="fill-input wide" data-answer="have been trained"> (train) in using our software so far.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>A new version of the algorithm <input class="fill-input wide" data-answer="will be released"> (release) next quarter.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>Every clinical decision <input class="fill-input wide" data-answer="must be reviewed"> (must / review) by a qualified clinician.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>The model <input class="fill-input wide" data-answer="is being tested"> (test) in three countries at the moment.</p></div>
+
+    <p class="instr"><strong>Part B — Active → Passive transformation.</strong> Rewrite the underlined part in passive voice. Type just the new verb phrase.</p>
+
+    <div class="fill-item"><p><span class="num">07</span>"Radiologists <u>use</u> our software every day." → Our software <input class="fill-input wide" data-answer="is used"> every day by radiologists.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>"Hackers <u>stole</u> sensitive data last year." → Sensitive data <input class="fill-input wide" data-answer="was stolen"> last year.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>"The team <u>will launch</u> the product in March." → The product <input class="fill-input wide" data-answer="will be launched"> in March.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>"Regulators <u>have approved</u> the new device." → The new device <input class="fill-input wide" data-answer="has been approved"> by regulators.</p></div>
+
+    <p class="instr"><strong>Part C — Modals of speculation.</strong> Complete each sentence with <em>must</em>, <em>might / may / could</em>, or <em>can't</em> + infinitive.</p>
+
+    <div class="fill-item"><p><span class="num">11</span>The algorithm flagged the scan — there <input class="fill-input wide" data-answer="might be"> (be) something to investigate. <em style="color:var(--deep); font-size:13px;">(possibility)</em></p></div>
+    <div class="fill-item"><p><span class="num">12</span>She's been at the office since 6 a.m. — she <input class="fill-input wide" data-answer="must be"> (be) exhausted. <em style="color:var(--deep); font-size:13px;">(I'm sure)</em></p></div>
+    <div class="fill-item"><p><span class="num">13</span>That result <input class="fill-input wide" data-answer="can't be"> (be) right — the machine was calibrated this morning. <em style="color:var(--deep); font-size:13px;">(I'm sure it's NOT true)</em></p></div>
+    <div class="fill-item"><p><span class="num">14</span>The hospital <input class="fill-input wide" data-answer="might adopt"> (adopt) our system next year, but nothing is confirmed. <em style="color:var(--deep); font-size:13px;">(possibility)</em></p></div>
+    <div class="fill-item"><p><span class="num">15</span>He has twenty years of clinical experience — he <input class="fill-input wide" data-answer="must know"> (know) what he's doing. <em style="color:var(--deep); font-size:13px;">(I'm sure)</em></p></div>
+
+    <button class="check-btn" onclick="checkGrammar()">✓ Check grammar</button>
+    <span class="score" id="score8">— / 15</span>
+  </section>
+
+  <footer>
+    ⚕ ⚕ ⚕ &nbsp; AI IN HEALTHCARE · B2/C1 ENGLISH WORKSHEET &nbsp; ⚕ ⚕ ⚕
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 4)
+  let selectedWord = null;
+  let matched4 = 0;
+  document.querySelectorAll('#t4 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t4 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched4++;
+          document.getElementById('score4').textContent = matched4 + ' / 10';
+          selectedWord = null;
+          if (matched4 === 10) document.getElementById('score4').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 5)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t5 .fill-input');
+    const alternates = {
+      'secured funding': ['secured funding','secured a round of funding'],
+      'data privacy': ['data privacy'],
+      'up at night': ['up at night'],
+      'game changer': ['game changer','game-changer'],
+      'double-edged sword': ['double-edged sword','double edged sword'],
+      'play the long game': ['play the long game'],
+      'pros and cons': ['pros and cons'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score5').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score5').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 6)
+  let mcScore = 0;
+  document.querySelectorAll('#t6 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score6').textContent = mcScore + ' / 12';
+        if (mcScore === 12) document.getElementById('score6').textContent = '★ 12 / 12 ★';
+      });
+    });
+  });
+
+  // GRAMMAR (tab 8)
+  function checkGrammar() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t8 .fill-input');
+    const alternates = {
+      'is stored': ['is stored',"'s stored"],
+      'was developed': ['was developed'],
+      'have been trained': ['have been trained',"'ve been trained"],
+      'will be released': ['will be released',"'ll be released"],
+      'must be reviewed': ['must be reviewed'],
+      'is being tested': ['is being tested',"'s being tested"],
+      'is used': ['is used',"'s used"],
+      'was stolen': ['was stolen'],
+      'will be launched': ['will be launched',"'ll be launched"],
+      'has been approved': ['has been approved',"'s been approved"],
+      'might be': ['might be','may be','could be'],
+      'must be': ['must be'],
+      "can't be": ["can't be",'cannot be','could not be',"couldn't be"],
+      'might adopt': ['might adopt','may adopt','could adopt'],
+      'must know': ['must know'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score8').textContent = correct + ' / 15';
+    if (correct === 15) document.getElementById('score8').textContent = '★ 15 / 15 ★';
+  }
+</script>
+</body>
+</html>
