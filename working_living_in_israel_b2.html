@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Working & Living in Israel — B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark-navy: #1a1a2e;
+    --gold: #d4860e;
+    --beige: #f5f1e8;
+    --cream: #faf8f3;
+    --gold-light: #f5e6d3;
+    --dark-text: #2b2b2b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--beige);
+    color: var(--dark-text);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(212,134,14,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(26,26,46,0.05) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cream);
+    border: 2px solid var(--dark-navy);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--dark-navy);
+    overflow: hidden;
+  }
+  header::before {
+    content: "🇮🇱";
+    position: absolute; top: 30px; right: 30px;
+    font-size: 110px; opacity: 0.12; z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px; letter-spacing: 3px;
+    background: var(--dark-navy); color: var(--gold);
+    padding: 5px 12px; border-radius: 4px; margin-bottom: 14px;
+  }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(38px, 6.5vw, 60px); line-height: 1.05; color: var(--dark-navy); letter-spacing: -1px; }
+  h1 .accent { color: var(--gold); font-style: italic; }
+  .sub { font-size: 17px; color: #4a4a4a; margin-top: 10px; max-width: 640px; }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-family: 'Courier Prime', monospace; font-size: 11px; padding: 4px 10px; background: var(--gold-light); border: 1.5px solid var(--dark-navy); border-radius: 20px; letter-spacing: 1px; color: var(--dark-navy); }
+
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .tab { padding: 12px 16px; background: var(--cream); border: 2px solid var(--dark-navy); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; color: var(--dark-navy); border-radius: 10px; box-shadow: 3px 3px 0 var(--dark-navy); transition: all 0.15s; }
+  .tab:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--dark-navy); }
+  .tab.active { background: var(--dark-navy); color: var(--gold); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(6px);} to { opacity:1; transform:translateY(0);} }
+
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 30px; margin-bottom: 8px; color: var(--dark-navy); }
+  .section-title .emoji { margin-right: 10px; }
+  .instr { color: #4a4a4a; margin-bottom: 22px; font-size: 15px; padding: 10px 14px; background: var(--gold-light); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; }
+
+  .warmup-card { background: var(--cream); border: 2px solid var(--dark-navy); border-left: 6px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: 4px 4px 0 var(--dark-navy); }
+  .warmup-num { font-family: 'Courier Prime', monospace; color: var(--gold); font-weight: 700; font-size: 12px; letter-spacing: 2px; margin-bottom: 4px; }
+  .warmup-q { font-family: 'DM Serif Display', serif; font-size: 18px; line-height: 1.4; color: var(--dark-navy); }
+
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 14px; margin-top: 24px; }
+  .stat-card { background: var(--cream); border: 2px solid var(--dark-navy); border-radius: 12px; padding: 16px; box-shadow: 4px 4px 0 var(--dark-navy); text-align: center; }
+  .stat-card .number { font-family: 'DM Serif Display', serif; font-size: 32px; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+  .stat-card .label { font-size: 12.5px; color: #4a4a4a; line-height: 1.4; }
+
+  .reading { background: var(--cream); border: 2px solid var(--dark-navy); border-radius: 16px; padding: 32px 36px; box-shadow: 6px 6px 0 var(--dark-navy); margin-bottom: 24px; }
+  .reading h3 { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 6px; line-height: 1.2; color: var(--dark-navy); }
+  .reading .byline { font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--gold); margin-bottom: 16px; }
+  .reading p { margin-bottom: 14px; line-height: 1.7; }
+  .reading strong { color: var(--gold); font-weight: 700; }
+
+  .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 18px; }
+  .vocab-card { background: var(--cream); border: 2px solid var(--dark-navy); border-radius: 12px; padding: 18px; box-shadow: 4px 4px 0 var(--dark-navy); }
+  .vocab-card .word { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--gold); margin-bottom: 6px; }
+  .vocab-card .def { font-size: 13px; color: #4a4a4a; line-height: 1.5; margin-bottom: 10px; }
+  .vocab-card code { display: block; background: var(--gold-light); padding: 8px; border-radius: 6px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--dark-navy); border-left: 3px solid var(--gold); }
+
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+  .match-col { display: flex; flex-direction: column; gap: 10px; }
+  .match-item { background: var(--cream); border: 2px solid var(--dark-navy); padding: 12px 16px; border-radius: 10px; cursor: pointer; transition: all 0.2s; box-shadow: 3px 3px 0 var(--dark-navy); font-family: 'Inter', sans-serif; color: var(--dark-navy); }
+  .match-item:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--dark-navy); }
+  .match-item.selected { background: var(--gold-light); border-color: var(--gold); font-weight: 600; }
+  .match-item.matched { background: #e8f5e9; color: #2e7d32; border-color: var(--gold); cursor: default; }
+  .match-item.wrong { animation: shake 0.3s; }
+  @keyframes shake { 0%,100%{transform:translate(0)} 25%{transform:translate(-4px)} 75%{transform:translate(4px)} }
+
+  .fill-item { margin-bottom: 16px; }
+  .fill-item p { font-size: 15px; line-height: 1.6; color: var(--dark-navy); }
+  .fill-input { border: none; border-bottom: 2px solid var(--dark-navy); padding: 4px 6px; font-family: 'Courier Prime', monospace; background: transparent; min-width: 130px; color: var(--dark-navy); }
+  .fill-input.correct { border-bottom-color: var(--gold); background: var(--gold-light); color: var(--gold); }
+  .fill-input.wrong { border-bottom-color: #c62828; background: #ffcdd2; color: var(--dark-navy); }
+  .num { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--gold); margin-right: 8px; }
+
+  .mc-item { margin-bottom: 20px; }
+  .mc-q { font-weight: 600; margin-bottom: 12px; font-size: 15px; color: var(--dark-navy); }
+  .mc-options { display: flex; flex-direction: column; gap: 10px; }
+  .mc-opt { background: var(--cream); border: 2px solid var(--dark-navy); padding: 12px 14px; border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 14px; cursor: pointer; text-align: left; transition: all 0.2s; box-shadow: 3px 3px 0 var(--dark-navy); color: var(--dark-navy); }
+  .mc-opt:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--dark-navy); }
+  .mc-opt:disabled { cursor: default; }
+  .mc-opt.correct { background: var(--gold-light); border-color: var(--gold); color: var(--gold); font-weight: 600; box-shadow: 3px 3px 0 var(--gold); }
+  .mc-opt.wrong { background: #ffcdd2; border-color: #c62828; }
+
+  .grammar-box { background: var(--gold-light); border: 2px solid var(--gold); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+  .grammar-box h4 { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--dark-navy); margin-bottom: 12px; }
+  .grammar-box ul { margin-left: 20px; }
+  .grammar-box li { margin-bottom: 10px; line-height: 1.6; color: var(--dark-navy); }
+  .grammar-box code { background: var(--cream); padding: 2px 6px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--dark-navy); }
+
+  .check-btn { background: var(--dark-navy); color: var(--cream); border: 2px solid var(--dark-navy); padding: 12px 24px; font-weight: 600; font-size: 14px; border-radius: 10px; cursor: pointer; box-shadow: 4px 4px 0 var(--dark-navy); transition: all 0.2s; margin-right: 16px; }
+  .check-btn:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--dark-navy); }
+  .score { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--gold); font-size: 14px; }
+
+  footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 2px solid var(--dark-navy); font-family: 'Courier Prime', monospace; font-size: 12px; color: #4a4a4a; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="header-content">
+      <span class="badge-label">LEVEL B2 · ADVANCED</span>
+      <h1>Working & Living <span class="accent">in Israel</span></h1>
+      <p class="sub">One British software engineer. One move to Tel Aviv. What she discovered about the "Startup Nation" — the ambition, the warmth, the noise, and the complexity of life in one of the world's most extraordinary countries.</p>
+      <div class="tags">
+        <span class="tag">#EXPAT-LIFE</span>
+        <span class="tag">#STARTUP-CULTURE</span>
+        <span class="tag">#MODAL-VERBS</span>
+        <span class="tag">#DISCOURSE-MARKERS</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="t1">1. Warm-up</button>
+    <button class="tab" data-tab="t2">2. Reading</button>
+    <button class="tab" data-tab="t3">3. Vocabulary</button>
+    <button class="tab" data-tab="t4">4. Collocations</button>
+    <button class="tab" data-tab="t5">5. Stats</button>
+    <button class="tab" data-tab="t6">6. Matching</button>
+    <button class="tab" data-tab="t7">7. Fill</button>
+    <button class="tab" data-tab="t8">8. Multiple Choice</button>
+    <button class="tab" data-tab="t9">9. Modal Verbs</button>
+    <button class="tab" data-tab="t10">10. Discourse Markers</button>
+  </div>
+
+  <!-- TAB 1 -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">🌍</span>Warm-up</h2>
+    <p class="instr">Discuss these questions before reading about life and work in Israel.</p>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 01</div>
+      <div class="warmup-q">What do you already know about Israel — its culture, economy, or lifestyle?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 02</div>
+      <div class="warmup-q">Would you ever consider living and working abroad? What would attract or stop you?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 03</div>
+      <div class="warmup-q">What challenges do you think expats face when moving to a country with a very different culture?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 04</div>
+      <div class="warmup-q">What does "Startup Nation" mean to you? Do you think a small country can lead the world in technology?</div>
+    </div>
+  </section>
+
+  <!-- TAB 2 -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading</h2>
+    <p class="instr">Read Sophie's account of relocating from London to Tel Aviv for a tech job — and what surprised her most.</p>
+
+    <div class="reading">
+      <h3>"Nobody Asks for Permission Here"</h3>
+      <p class="byline">★ Sophie Hart, 31 · Software Engineer · London → Tel Aviv · 3 years</p>
+
+      <p>I landed in Tel Aviv with two suitcases, a job offer from a cybersecurity startup, and absolutely no idea what I was getting into. Within a week, a 24-year-old colleague had <strong>challenged my code in a company-wide meeting</strong>. In London, that would have been career suicide. Here, everyone nodded approvingly. Welcome to Israel's <strong>flat hierarchy</strong> culture — where <strong>chutzpah</strong>, the Hebrew word for bold audacity, is not just tolerated; it's expected.</p>
+
+      <p>Israel calls itself the <strong>Startup Nation</strong>, and the numbers back it up. With just 9.7 million people, the country has more startups per capita than any nation on Earth — roughly <strong>one startup for every 1,400 people</strong>. Over 300 multinational companies — Apple, Google, Intel, Amazon — <strong>have set up R&D centres</strong> here. My office was three blocks from Google Israel. The energy is <strong>electric</strong>. Meetings are loud, ideas fly fast, and nobody waits for permission before trying something new.</p>
+
+      <p>The lifestyle took <strong>more getting used to</strong>. Tel Aviv is expensive — <strong>20–30% pricier than most Western European cities</strong> — and the bureaucracy can <strong>drive you up the wall</strong>. On the other hand, the Mediterranean beach is twenty minutes from my office, the food is extraordinary, and the social life <strong>never stops</strong>. Israelis are extraordinarily warm once you earn their trust — though their directness can feel <strong>rude at first</strong> if you're British.</p>
+
+      <p>Living here means accepting complexity. Security sirens are part of daily life. Yet most people <strong>get on with it</strong> with remarkable resilience. As my colleague Noa told me: <strong>"This is home. You don't leave home just because it's complicated."</strong> Three years in, I'm not leaving either.</p>
+    </div>
+
+    <p class="instr"><strong>Comprehension questions:</strong></p>
+    <div class="fill-item"><p><span class="num">01</span>What happened at Sophie's first week at work that would have been unacceptable in London?</p></div>
+    <div class="fill-item"><p><span class="num">02</span>What does Sophie find most challenging about living in Tel Aviv?</p></div>
+    <div class="fill-item"><p><span class="num">03</span>How does Sophie summarise Israeli culture and what her colleague Noa said about living there?</p></div>
+  </section>
+
+  <!-- TAB 3 -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">📚</span>Vocabulary</h2>
+    <p class="instr">Study these key terms related to work culture, expat life, and Israel's economy.</p>
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="word">chutzpah</div>
+        <div class="def">Hebrew/Yiddish: bold audacity or nerve; the confidence to do something others wouldn't dare.</div>
+        <code>It took real chutzpah to question the CEO's strategy in public.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">flat hierarchy</div>
+        <div class="def">An organisational structure with few management levels, where junior staff can challenge seniors.</div>
+        <code>Israeli startups are known for their flat hierarchy and open debate.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">expat</div>
+        <div class="def">Short for expatriate; a person living and working outside their home country.</div>
+        <code>Tel Aviv has a growing expat community attracted by tech jobs.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">aliyah</div>
+        <div class="def">Hebrew for "going up"; the immigration of Jewish people to Israel.</div>
+        <code>Thousands make aliyah each year to settle in Israel permanently.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">unicorn</div>
+        <div class="def">A privately held startup company valued at over one billion dollars.</div>
+        <code>Israel has produced nearly 100 unicorns, including Waze and Mobileye.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">R&D centre</div>
+        <div class="def">Research and Development facility where companies create new technologies or products.</div>
+        <code>Apple and Google both have major R&D centres in Tel Aviv.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">resilience</div>
+        <div class="def">The ability to recover quickly and continue despite difficulty or adversity.</div>
+        <code>Israelis demonstrate remarkable resilience in the face of security challenges.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">bureaucracy</div>
+        <div class="def">Complex official systems with many rules, forms, and slow processes.</div>
+        <code>Expats often struggle with Israel's bureaucracy when opening bank accounts.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">per capita</div>
+        <div class="def">Per person; calculated by dividing a total figure by the population.</div>
+        <code>Israel has more startups per capita than any other country.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">cybersecurity</div>
+        <div class="def">The practice of protecting systems, networks, and data from digital attacks.</div>
+        <code>Israel is a world leader in cybersecurity — one in three unicorns globally is Israeli.</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4 -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">🎯</span>Common Collocations</h2>
+    <p class="instr">Learn word combinations used when discussing expat life, work culture, and technology.</p>
+
+    <div class="grammar-box">
+      <h4>💼 Work culture collocations</h4>
+      <ul>
+        <li><strong>flat hierarchy</strong> = few management levels; junior staff challenge seniors freely. <code>Israel's flat hierarchy culture encourages open debate at all levels.</code></li>
+        <li><strong>work-life balance</strong> = equilibrium between job and personal time. <code>Tech workers in Tel Aviv often sacrifice work-life balance for career growth.</code></li>
+        <li><strong>fast-paced environment</strong> = a setting where things move quickly. <code>Startups offer a fast-paced environment that suits ambitious professionals.</code></li>
+        <li><strong>cross-cultural teamwork</strong> = collaboration between people of different backgrounds. <code>Israeli offices require strong cross-cultural teamwork skills.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>🌍 Expat life collocations</h4>
+      <ul>
+        <li><strong>cost of living</strong> = the amount needed to cover basic expenses. <code>The cost of living in Tel Aviv is among the highest in the world.</code></li>
+        <li><strong>culture shock</strong> = the disorientation felt when experiencing an unfamiliar culture. <code>Sophie experienced culture shock in her first Israeli workplace meeting.</code></li>
+        <li><strong>settle in</strong> = to become comfortable in a new place. <code>It took her six months to settle in and feel at home.</code></li>
+        <li><strong>language barrier</strong> = difficulty communicating due to different languages. <code>English is widely spoken in Israeli tech, so the language barrier is low.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>🚀 Tech and innovation collocations</h4>
+      <ul>
+        <li><strong>raise funding</strong> = to gather investment capital for a startup. <code>Israeli startups raised $12.2 billion in funding in 2024.</code></li>
+        <li><strong>set up an R&D centre</strong> = to establish a research facility. <code>Over 300 multinationals have set up R&D centres in Israel.</code></li>
+        <li><strong>venture capital</strong> = investment in high-risk startups. <code>Tel Aviv attracts twice as much venture capital as the US per capita.</code></li>
+        <li><strong>disruptive technology</strong> = innovation that transforms existing industries. <code>Israeli companies are known for producing disruptive technology.</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TAB 5 -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">📊</span>Israel: By The Numbers</h2>
+    <p class="instr">Key facts and figures about Israel's economy, tech sector, and expat landscape.</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="number">1,400</div>
+        <div class="label">People per startup — the highest startup density on Earth</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">300+</div>
+        <div class="label">Multinational R&D centres in Israel (Apple, Google, Intel, Amazon)</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">$12.2bn</div>
+        <div class="label">Raised by Israeli startups in 2024 — up 31% from previous year</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">~100</div>
+        <div class="label">Israeli unicorn companies (valued at $1bn+)</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">20–30%</div>
+        <div class="label">Higher cost of living vs. Western Europe</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">9.7m</div>
+        <div class="label">Population — yet Israel produces more startups than China per capita</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 6 -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🔗</span>Matching Exercise</h2>
+    <p class="instr">Match each term on the left with its correct description. Click a term, then click its match.</p>
+    <div class="match-grid">
+      <div class="match-col">
+        <span class="match-item" data-word="tel-aviv">Tel Aviv</span>
+        <span class="match-item" data-word="chutzpah">Chutzpah</span>
+        <span class="match-item" data-word="aliyah">Aliyah</span>
+        <span class="match-item" data-word="unicorn">Unicorn company</span>
+        <span class="match-item" data-word="waze">Waze</span>
+        <span class="match-item" data-word="idf">IDF</span>
+        <span class="match-item" data-word="startup-nation">Startup Nation</span>
+        <span class="match-item" data-word="mobileye">Mobileye</span>
+        <span class="match-item" data-word="flat">Flat hierarchy</span>
+        <span class="match-item" data-word="shekel">Shekel</span>
+      </div>
+      <div class="match-col">
+        <span class="match-item" data-def="startup-nation">Israel's nickname for its extraordinary density of tech companies</span>
+        <span class="match-item" data-def="chutzpah">Hebrew for bold nerve or audacity; celebrated in Israeli culture</span>
+        <span class="match-item" data-def="flat">Structure where junior staff can openly challenge senior management</span>
+        <span class="match-item" data-def="tel-aviv">Israel's tech capital and home to most of its startup ecosystem</span>
+        <span class="match-item" data-def="unicorn">A private startup valued at over one billion dollars</span>
+        <span class="match-item" data-def="waze">Israeli navigation app sold to Google for $1.3 billion</span>
+        <span class="match-item" data-def="aliyah">The immigration of Jewish people to Israel; Hebrew for "going up"</span>
+        <span class="match-item" data-def="idf">Israel's national military, known for training many tech entrepreneurs</span>
+        <span class="match-item" data-def="mobileye">Israeli self-driving tech company sold to Intel for $15.3 billion</span>
+        <span class="match-item" data-def="shekel">Israel's official currency used for daily transactions</span>
+      </div>
+    </div>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- TAB 7 -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the Blanks</h2>
+    <p class="instr">Complete the sentences using vocabulary from Tab 3.</p>
+    <div class="fill-item">
+      <p><span class="num">01</span>It took real <input class="fill-input" data-answer="chutzpah">, to challenge the CEO's strategy in a company meeting.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>Israeli offices are known for their <input class="fill-input" data-answer="flat hierarchy">, where any employee can question a manager's decision.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>Sophie moved to Israel as an <input class="fill-input" data-answer="expat">, working for a Tel Aviv cybersecurity startup.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>Jews who immigrate to Israel are said to make <input class="fill-input" data-answer="aliyah">, a Hebrew word meaning "going up."</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>Waze and Mobileye are examples of Israeli <input class="fill-input" data-answer="unicorn">, companies with billion-dollar valuations.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">06</span>Apple and Google both have major <input class="fill-input" data-answer="R&D centre">, s in Tel Aviv.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">07</span>Israelis show remarkable <input class="fill-input" data-answer="resilience">, by continuing daily life despite security challenges.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">08</span>Opening a bank account in Israel can be difficult due to heavy <input class="fill-input" data-answer="bureaucracy">.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">09</span>Israel has more startups <input class="fill-input" data-answer="per capita">, than China, India, Canada, Japan, or the UK.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">10</span>Israel is a world leader in <input class="fill-input" data-answer="cybersecurity">, — one in three global unicorns in the sector is Israeli.</p>
+    </div>
+    <button class="check-btn" onclick="checkFill()">✓ Check Fill</button>
+    <span class="score" id="score7">— / 10</span>
+  </section>
+
+  <!-- TAB 8 -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">❓</span>Multiple Choice</h2>
+    <p class="instr">Answer comprehension and vocabulary questions about the reading and statistics.</p>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q01</span>What did Sophie's 24-year-old colleague do in her first week?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Welcomed her to the team warmly</button>
+        <button class="mc-opt">b) Ignored her completely</button>
+        <button class="mc-opt">c) Challenged her code in a company-wide meeting</button>
+        <button class="mc-opt">d) Refused to work with her</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q02</span>What does "chutzpah" mean in Israeli culture?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Bold audacity — expected and admired</button>
+        <button class="mc-opt">b) Quiet humility and respect for elders</button>
+        <button class="mc-opt">c) A type of traditional Israeli food</button>
+        <button class="mc-opt">d) A formal business greeting</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q03</span>How many people does Israel have per startup?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) 10,000</button>
+        <button class="mc-opt">b) 5,000</button>
+        <button class="mc-opt">c) 3,000</button>
+        <button class="mc-opt">d) 1,400</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q04</span>What challenge does Sophie mention about daily life in Tel Aviv?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Nobody speaks English</button>
+        <button class="mc-opt">b) It is 20–30% more expensive than most Western European cities</button>
+        <button class="mc-opt">c) The food is terrible</button>
+        <button class="mc-opt">d) Public transport does not exist</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q05</span>What does Sophie say about Israelis once you earn their trust?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) They become very formal and businesslike</button>
+        <button class="mc-opt">b) They ignore you and focus on work</button>
+        <button class="mc-opt">c) They are extraordinarily warm</button>
+        <button class="mc-opt">d) They are cold and difficult</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q06</span>How much did Israeli startups raise in funding in 2024?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) $12.2 billion — a 31% increase</button>
+        <button class="mc-opt">b) $5 billion — a small increase</button>
+        <button class="mc-opt">c) $30 billion — a record high</button>
+        <button class="mc-opt">d) $1.3 billion — less than the previous year</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q07</span>What does the idiom "drive you up the wall" mean?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To motivate you strongly</button>
+        <button class="mc-opt">b) To confuse you completely</button>
+        <button class="mc-opt">c) To make you work harder</button>
+        <button class="mc-opt">d) To make you very frustrated or irritated</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q08</span>Which Israeli company was sold to Intel for $15.3 billion?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Waze</button>
+        <button class="mc-opt">b) Mobileye</button>
+        <button class="mc-opt">c) Check Point</button>
+        <button class="mc-opt">d) Monday.com</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q09</span>What does "flat hierarchy" mean in a workplace?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Everyone earns the same salary</button>
+        <button class="mc-opt">b) Managers make all decisions alone</button>
+        <button class="mc-opt">c) Few management levels; junior staff can challenge seniors</button>
+        <button class="mc-opt">d) The office has no managers at all</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q10</span>Why does Sophie decide to stay in Israel after three years?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) She has embraced the complexity and feels at home</button>
+        <button class="mc-opt">b) She cannot afford to move back to London</button>
+        <button class="mc-opt">c) Her visa does not allow her to leave</button>
+        <button class="mc-opt">d) She married an Israeli colleague</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q11</span>What aspect of Israeli directness surprised Sophie initially?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Israelis never say hello</button>
+        <button class="mc-opt">b) Their directness can feel rude to British people at first</button>
+        <button class="mc-opt">c) Nobody uses email to communicate</button>
+        <button class="mc-opt">d) Managers shout in meetings</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q12</span>What does "get on with it" mean in Sophie's context?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To leave a difficult situation immediately</button>
+        <button class="mc-opt">b) To argue with colleagues about problems</button>
+        <button class="mc-opt">c) To complain loudly about difficulties</button>
+        <button class="mc-opt">d) To continue living normally despite difficulties</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkMC()">✓ Check MC</button>
+    <span class="score" id="score8">— / 12</span>
+  </section>
+
+  <!-- TAB 9: MODAL VERBS -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">⚙️</span>Modal Verbs</h2>
+    <p class="instr">Complete sentences using modal verbs to express ability, obligation, advice, and possibility about expat life in Israel.</p>
+
+    <div class="grammar-box">
+      <h4>⚙️ Modal Verbs — Key Uses</h4>
+      <ul>
+        <li><strong>can / could</strong> — ability or possibility. <code>You can work in Israel if you have a valid work permit.</code></li>
+        <li><strong>must / have to</strong> — strong obligation. <code>Expats must register with local authorities within 90 days.</code></li>
+        <li><strong>should / ought to</strong> — advice or recommendation. <code>You should learn some basic Hebrew before moving.</code></li>
+        <li><strong>might / may</strong> — weak possibility or uncertainty. <code>The culture shock might surprise you in the first weeks.</code></li>
+        <li><strong>needn't / don't have to</strong> — no obligation. <code>You needn't speak Hebrew — English is widely used in tech.</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Complete using the most appropriate modal verb.</p>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>Expats <input class="fill-input" data-answer="must">, apply for a visa before moving to Israel to work legally.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>You <input class="fill-input" data-answer="should">, download a security alert app on your phone when living there.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>The bureaucracy <input class="fill-input" data-answer="might">, frustrate you at first, but most expats adapt quickly.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>You <input class="fill-input" data-answer="needn't">, speak Hebrew in a tech company — English is the working language.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>Junior employees <input class="fill-input" data-answer="can">, challenge managers openly — it's part of the culture.</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Choose the sentence with the correct modal verb usage.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q06</span>Which sentence gives correct advice about moving to Israel?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "You must to research the culture before moving."</button>
+        <button class="mc-opt">b) "You should research the culture before moving."</button>
+        <button class="mc-opt">c) "You should to research the culture before moving."</button>
+        <button class="mc-opt">d) "You ought research the culture before moving."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q07</span>Which correctly expresses uncertainty about the future?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "The cost of living must be very high there."</button>
+        <button class="mc-opt">b) "The job can be difficult to find."</button>
+        <button class="mc-opt">c) "The adjustment period might take several months."</button>
+        <button class="mc-opt">d) "The culture should shock you immediately."</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkModals()">✓ Check Modals</button>
+    <span class="score" id="score9">— / 7</span>
+  </section>
+
+  <!-- TAB 10: DISCOURSE MARKERS -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">🔗</span>Discourse Markers</h2>
+    <p class="instr">Complete sentences using discourse markers to link ideas, contrast information, and structure arguments about life in Israel.</p>
+
+    <div class="grammar-box">
+      <h4>🔗 Discourse Markers — Key Types</h4>
+      <ul>
+        <li><strong>Contrast:</strong> however, on the other hand, nevertheless, despite, even though. <code>Tel Aviv is expensive; however, salaries are competitive.</code></li>
+        <li><strong>Addition:</strong> furthermore, moreover, in addition, what is more. <code>Israel has a booming tech sector; furthermore, it leads in cybersecurity.</code></li>
+        <li><strong>Result:</strong> therefore, as a result, consequently, thus. <code>English is widely spoken; therefore, the language barrier is low.</code></li>
+        <li><strong>Exemplification:</strong> for instance, for example, such as, in particular. <code>Many multinationals, such as Apple and Google, have offices there.</code></li>
+        <li><strong>Concession:</strong> admittedly, granted, of course. <code>Admittedly, the bureaucracy is frustrating, but most expats adapt.</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Complete each sentence with an appropriate discourse marker.</p>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>Tel Aviv is very expensive; <input class="fill-input" data-answer="however">, tech salaries are among the highest in the region.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>Israel has a thriving startup scene; <input class="fill-input" data-answer="furthermore">, it leads the world in cybersecurity innovation.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>Many companies have R&D centres in Israel, <input class="fill-input" data-answer="for example">, Apple, Google, and Intel all operate there.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>English is widely spoken in Israeli tech; <input class="fill-input" data-answer="as a result">, most expats manage without Hebrew.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span><input class="fill-input" data-answer="admittedly">, living with security uncertainty is stressful, but most residents adapt remarkably.</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Choose the correct discourse marker.</p>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q06</span>Which discourse marker best completes: "Israel is a small country. ___, it produces more startups than most nations."</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Therefore</button>
+        <button class="mc-opt">b) Admittedly</button>
+        <button class="mc-opt">c) For instance</button>
+        <button class="mc-opt">d) Nevertheless</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q07</span>Which correctly shows contrast: "The culture can feel direct and even blunt, ___ most expats say Israelis are incredibly warm."</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) furthermore</button>
+        <button class="mc-opt">b) on the other hand</button>
+        <button class="mc-opt">c) as a result</button>
+        <button class="mc-opt">d) in addition</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q08</span>What does "moreover" signal in a sentence?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) An additional point that strengthens the argument</button>
+        <button class="mc-opt">b) A contrast with the previous idea</button>
+        <button class="mc-opt">c) A result caused by the previous statement</button>
+        <button class="mc-opt">d) An example of what was mentioned</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkDiscourse()">✓ Check Discourse</button>
+    <span class="score" id="score10">— / 8</span>
+  </section>
+
+  <footer>
+    🇮🇱 ★ ★ &nbsp; WORKING & LIVING IN ISRAEL · B2 ENGLISH WORKSHEET &nbsp; ★ ★ 🇮🇱
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING
+  let selectedWord = null, matched6 = 0;
+  document.querySelectorAll('#t6 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t6 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched6++;
+          document.getElementById('score6').textContent = matched6 + ' / 10';
+          selectedWord = null;
+          if (matched6 === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL
+  function checkFill() {
+    let correct = 0;
+    document.querySelectorAll('#t7 .fill-input').forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === ans) { input.classList.add('correct'); correct++; }
+      else if (val) input.classList.add('wrong');
+    });
+    const el = document.getElementById('score7');
+    el.textContent = correct === 10 ? '★ 10 / 10 ★' : correct + ' / 10';
+  }
+
+  // MC
+  let mcScore = 0;
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); mcScore++; }
+        else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+        const el = document.getElementById('score8');
+        el.textContent = mcScore === 12 ? '★ 12 / 12 ★' : mcScore + ' / 12';
+      });
+    });
+  });
+
+  // MODALS
+  let modScore = 0;
+  function checkModals() {
+    let correct = 0;
+    document.querySelectorAll('#t9 .fill-input').forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === ans) { input.classList.add('correct'); correct++; }
+      else if (val) input.classList.add('wrong');
+    });
+    correct += modScore;
+    const el = document.getElementById('score9');
+    el.textContent = correct === 7 ? '★ 7 / 7 ★' : correct + ' / 7';
+  }
+  document.querySelectorAll('#t9 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); modScore++; }
+        else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+
+  // DISCOURSE
+  let disScore = 0;
+  function checkDiscourse() {
+    let correct = 0;
+    document.querySelectorAll('#t10 .fill-input').forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === ans) { input.classList.add('correct'); correct++; }
+      else if (val) input.classList.add('wrong');
+    });
+    correct += disScore;
+    const el = document.getElementById('score10');
+    el.textContent = correct === 8 ? '★ 8 / 8 ★' : correct + ' / 8';
+  }
+  document.querySelectorAll('#t10 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); disScore++; }
+        else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+</script>
+</body>
+</html>
