@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education, Studies & Exams — B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark-navy: #1a1a2e;
+    --gold: #d4860e;
+    --beige: #f5f1e8;
+    --cream: #faf8f3;
+    --light-gold: #e8d5b7;
+    --dark-text: #2b2b2b;
+    --gold-light: #f5e6d3;
+    --accent: #d4860e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--beige);
+    color: var(--dark-text);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(212,134,14,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(26,26,46,0.05) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cream);
+    border: 2px solid var(--dark-navy);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--dark-navy);
+    overflow: hidden;
+  }
+  header::before {
+    content: "📚";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 110px;
+    opacity: 0.12;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--dark-navy);
+    color: var(--gold);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 6.5vw, 60px);
+    line-height: 1.05;
+    color: var(--dark-navy);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--gold); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: #4a4a4a;
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--gold-light);
+    border: 1.5px solid var(--dark-navy);
+    border-radius: 20px;
+    letter-spacing: 1px;
+    color: var(--dark-navy);
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cream);
+    border: 2px solid var(--dark-navy);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--dark-navy);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--dark-navy);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--dark-navy); }
+  .tab.active { background: var(--dark-navy); color: var(--gold); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--dark-navy);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: #4a4a4a;
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--gold-light);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* WARM-UP */
+  .warmup-card {
+    background: var(--cream);
+    border: 2px solid var(--dark-navy);
+    border-left: 6px solid var(--gold);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    box-shadow: 4px 4px 0 var(--dark-navy);
+  }
+  .warmup-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .warmup-q {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--dark-navy);
+  }
+
+  /* STATS */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .stat-card {
+    background: var(--cream);
+    border: 2px solid var(--dark-navy);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 4px 4px 0 var(--dark-navy);
+    text-align: center;
+  }
+  .stat-card .number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-card .label {
+    font-size: 12.5px;
+    color: #4a4a4a;
+    line-height: 1.4;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cream);
+    border: 2px solid var(--dark-navy);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--dark-navy);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+    color: var(--dark-navy);
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .reading p { margin-bottom: 14px; line-height: 1.7; }
+  .reading strong { color: var(--gold); font-weight: 700; }
+
+  /* VOCABULARY */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .vocab-card {
+    background: var(--cream);
+    border: 2px solid var(--dark-navy);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 4px 4px 0 var(--dark-navy);
+  }
+  .vocab-card .word {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .vocab-card .def {
+    font-size: 13px;
+    color: #4a4a4a;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .vocab-card code {
+    display: block;
+    background: var(--gold-light);
+    padding: 8px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--dark-navy);
+    border-left: 3px solid var(--gold);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 20px;
+  }
+  .match-col { display: flex; flex-direction: column; gap: 10px; }
+  .match-item {
+    background: var(--cream);
+    border: 2px solid var(--dark-navy);
+    padding: 12px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 3px 3px 0 var(--dark-navy);
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-navy);
+  }
+  .match-item:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--dark-navy); }
+  .match-item.selected { background: var(--gold-light); border-color: var(--gold); font-weight: 600; }
+  .match-item.matched { background: #e8f5e9; color: #2e7d32; border-color: var(--gold); cursor: default; }
+  .match-item.wrong { animation: shake 0.3s; }
+  @keyframes shake { 0%, 100% { transform: translate(0); } 25% { transform: translate(-4px); } 75% { transform: translate(4px); } }
+
+  /* FILL & MC */
+  .fill-item { margin-bottom: 16px; }
+  .fill-item p { font-size: 15px; line-height: 1.6; color: var(--dark-navy); }
+  .fill-input {
+    border: none;
+    border-bottom: 2px solid var(--dark-navy);
+    padding: 4px 6px;
+    font-family: 'Courier Prime', monospace;
+    background: transparent;
+    min-width: 120px;
+    color: var(--dark-navy);
+  }
+  .fill-input.wide { min-width: 180px; }
+  .fill-input.correct { border-bottom-color: var(--gold); background: var(--gold-light); color: var(--gold); }
+  .fill-input.wrong { border-bottom-color: #c62828; background: #ffcdd2; color: var(--dark-navy); }
+  .num {
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    color: var(--gold);
+    margin-right: 8px;
+  }
+
+  .mc-item { margin-bottom: 20px; }
+  .mc-q {
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: var(--dark-navy);
+  }
+  .mc-options { display: flex; flex-direction: column; gap: 10px; }
+  .mc-opt {
+    background: var(--cream);
+    border: 2px solid var(--dark-navy);
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    box-shadow: 3px 3px 0 var(--dark-navy);
+    color: var(--dark-navy);
+  }
+  .mc-opt:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--dark-navy); }
+  .mc-opt:disabled { cursor: default; }
+  .mc-opt.correct { background: var(--gold-light); border-color: var(--gold); color: var(--gold); font-weight: 600; box-shadow: 3px 3px 0 var(--gold); }
+  .mc-opt.wrong { background: #ffcdd2; border-color: #c62828; }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--gold-light);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--dark-navy);
+    margin-bottom: 12px;
+  }
+  .grammar-box ul { margin-left: 20px; }
+  .grammar-box li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: var(--dark-navy);
+  }
+  .grammar-box code {
+    background: var(--cream);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--dark-navy);
+  }
+  .formula {
+    background: var(--cream);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border-left: 4px solid var(--gold);
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin-top: 8px;
+    color: var(--dark-navy);
+  }
+
+  /* BUTTONS */
+  .check-btn {
+    background: var(--dark-navy);
+    color: var(--cream);
+    border: 2px solid var(--dark-navy);
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 var(--dark-navy);
+    transition: all 0.2s;
+    margin-right: 16px;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--dark-navy); }
+  .score {
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 14px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 2px solid var(--dark-navy);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: #4a4a4a;
+    letter-spacing: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <span class="badge-label">LEVEL B2 · ADVANCED</span>
+      <h1>Education, Studies & <span class="accent">Exams</span></h1>
+      <p class="sub">Explore academic pressure, stress management, effective study techniques, and how to excel in exams while maintaining your mental health and wellbeing.</p>
+      <div class="tags">
+        <span class="tag">#ACADEMIC-STRESS</span>
+        <span class="tag">#STUDY-STRATEGIES</span>
+        <span class="tag">#PASSIVE-STRUCTURES</span>
+        <span class="tag">#VERB-PATTERNS</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="t1">1. Warm-up</button>
+    <button class="tab" data-tab="t2">2. Reading</button>
+    <button class="tab" data-tab="t3">3. Vocabulary</button>
+    <button class="tab" data-tab="t4">4. Collocations</button>
+    <button class="tab" data-tab="t5">5. Stats</button>
+    <button class="tab" data-tab="t6">6. Matching</button>
+    <button class="tab" data-tab="t7">7. Fill</button>
+    <button class="tab" data-tab="t8">8. Multiple Choice</button>
+    <button class="tab" data-tab="t9">9. Passive Voice</button>
+    <button class="tab" data-tab="t10">10. Verb Patterns</button>
+  </div>
+
+  <!-- TAB 1: WARM-UP -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">🎓</span>Warm-up</h2>
+    <p class="instr">Discuss these questions about your experiences with education, studying, and exams.</p>
+    
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 01</div>
+      <div class="warmup-q">What was your most challenging exam experience? How did you prepare for it?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 02</div>
+      <div class="warmup-q">Do you experience exam anxiety? What techniques help you manage stress?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 03</div>
+      <div class="warmup-q">What study methods work best for you? How do you stay motivated?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 04</div>
+      <div class="warmup-q">How has your relationship with education changed over the years?</div>
+    </div>
+  </section>
+
+  <!-- TAB 2: READING -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading</h2>
+    <p class="instr">Read the essay about academic stress and strategies for success in education.</p>
+    
+    <div class="reading">
+      <h3>The Hidden Pressure: Understanding Academic Stress & Building Resilience</h3>
+      <p class="byline">By Professor Elena Martinez | Education Today Journal | 2025</p>
+      
+      <p>Academic pressure has <strong>reached unprecedented levels</strong> among students worldwide. What was once considered a normal part of education has evolved into a <strong>mental health crisis</strong> that demands urgent attention. Students today face <strong>mounting expectations</strong> from schools, families, and society, creating an environment where <strong>failing an exam</strong> feels catastrophic rather than instructive. The irony is that this pressure, intended to drive success, often <strong>backfires spectacularly</strong>, leaving students <strong>burnt out</strong> before they even graduate.</p>
+
+      <p>The statistics paint a sobering picture. Recent research reveals that 75% of high school students and 50% of middle school students experience <strong>academic stress all the time</strong>. College students face similar challenges, with 32% experiencing moderate-to-severe anxiety and 22% reporting severe depression. Procrastination—often a symptom of overwhelming anxiety—negatively impacts nearly half of college students' academic performance. Students are increasingly <strong>struggling to keep up</strong> with coursework, while simultaneously balancing financial pressures, social obligations, and concerns about their future. For many, the combination <strong>takes a heavy toll</strong> on both mental and physical health, affecting sleep quality, social interactions, and overall wellbeing.</p>
+
+      <p>The paradox lies in our education system's approach to success. Exam scores have become <strong>the defining measure</strong> of intelligence and worth, when in reality, tests measure only a narrow slice of human capability. Students who <strong>perform poorly on exams</strong> often internalize feelings of inadequacy, failing to recognize that test anxiety and pressure—not lack of ability—may be the culprit. Schools must <strong>shift their focus</strong> from high-stakes testing toward holistic development. Additionally, institutions should <strong>invest in mental health resources</strong>, making counseling and stress management programs accessible to all students who need them.</p>
+
+      <p>Fortunately, evidence shows that effective coping strategies can significantly reduce academic stress. Students who <strong>establish study routines</strong>, <strong>break tasks into manageable chunks</strong>, and practice <strong>mindfulness techniques</strong> report substantially better outcomes. Building a supportive network—whether through study groups, mentors, or family—<strong>proves invaluable</strong>. Furthermore, learning to <strong>embrace failure as feedback</strong> rather than personal defeat fundamentally changes how students approach challenges. Those who <strong>seek help early</strong> when struggling academically fare far better than those who suffer in silence, yet many students remain reluctant to <strong>reach out</strong> due to shame or perceived stigma.</p>
+
+      <p>The future of education depends on creating environments where students can <strong>thrive under reasonable pressure</strong> without sacrificing their mental health. This requires courage from educational institutions to challenge traditional testing paradigms, compassion from educators who recognize the human behind the grades, and support from families who understand that their child's wellbeing matters more than any test score. Only when we <strong>reframe success</strong> to include emotional resilience, curiosity, and growth will we truly serve the next generation of learners.</p>
+    </div>
+
+    <p class="instr"><strong>Comprehension questions:</strong> Answer in complete sentences.</p>
+    
+    <div class="fill-item">
+      <p><span class="num">01</span>What percentage of high school students experience academic stress all the time according to the reading?</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>How does the author describe the paradox in education systems?</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>What coping strategies are mentioned as effective for reducing academic stress?</p>
+    </div>
+  </section>
+
+  <!-- TAB 3: VOCABULARY -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">📚</span>Vocabulary</h2>
+    <p class="instr">Study these key words related to academic life, exams, and education.</p>
+    
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="word">procrastination</div>
+        <div class="def">The act of delaying or postponing tasks or responsibilities unnecessarily.</div>
+        <code>Procrastination on studying until the last minute leads to poor exam results.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">resilience</div>
+        <div class="def">The ability to recover quickly from difficulties or adapt to challenges.</div>
+        <code>Building resilience helps students cope with academic setbacks.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">holistic</div>
+        <div class="def">Considering the whole thing, including all aspects rather than just parts.</div>
+        <code>Schools should take a holistic approach to education, not just test scores.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">paradigm</div>
+        <div class="def">A typical example or pattern; a model or framework for understanding.</div>
+        <code>We need to change the educational paradigm away from high-stakes testing.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">mandate</div>
+        <div class="def">An official order or requirement to do something.</div>
+        <code>Schools are mandated to provide mental health support to students.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">curriculum</div>
+        <div class="def">The subjects and material taught at a school or university.</div>
+        <code>The curriculum includes both academic and social-emotional learning.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">retention</div>
+        <div class="def">The ability to remember and keep information in memory.</div>
+        <code>Active study methods improve information retention significantly.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">trajectory</div>
+        <div class="def">The path or direction something follows over time.</div>
+        <code>Her academic trajectory changed dramatically after she started managing her stress.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">perpetuate</div>
+        <div class="def">To cause something to continue or persist indefinitely.</div>
+        <code>Harsh grading perpetuates anxiety rather than encouraging learning.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">accreditation</div>
+        <div class="def">Official recognition that an institution meets established standards.</div>
+        <code>Universities seek accreditation to maintain educational quality and credibility.</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4: COLLOCATIONS -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">🎯</span>Common Collocations</h2>
+    <p class="instr">Learn common word combinations used in academic and educational contexts.</p>
+    
+    <div class="grammar-box">
+      <h4>📚 Collocations with studying and exams</h4>
+      <ul>
+        <li><strong>take/sit an exam</strong> = to participate in a test. <code>She's taking her final exams next month.</code></li>
+        <li><strong>pass/fail an exam</strong> = to succeed or not succeed. <code>He passed all his exams despite the pressure.</code></li>
+        <li><strong>revise for/study for</strong> = to prepare for an exam. <code>I need to revise for three exams this week.</code></li>
+        <li><strong>submit coursework</strong> = to hand in assignments. <code>Students must submit coursework by Friday.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>💪 Collocations with pressure and stress</h4>
+      <ul>
+        <li><strong>under pressure</strong> = experiencing stress or urgency. <code>Students studying under pressure often make mistakes.</code></li>
+        <li><strong>deal with stress</strong> = to manage anxiety. <code>Learning to deal with stress is crucial for academic success.</code></li>
+        <li><strong>cope with exams</strong> = to manage exam situations. <code>Exercise helps students cope with exam anxiety.</code></li>
+        <li><strong>mounting pressure</strong> = increasing stress over time. <code>Mounting pressure from multiple deadlines affects student health.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>✨ Collocations with success and achievement</h4>
+      <ul>
+        <li><strong>academic achievement</strong> = educational success. <code>Academic achievement requires consistent effort and motivation.</code></li>
+        <li><strong>reach your potential</strong> = to achieve what you're capable of. <code>All students should have support to reach their potential.</code></li>
+        <li><strong>excel in/at</strong> = to do very well at. <code>She excels at languages and mathematics.</code></li>
+        <li><strong>gain qualifications</strong> = to earn certificates or degrees. <code>Students gain qualifications to improve their career prospects.</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TAB 5: STATS -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">📊</span>Academic Stress Statistics</h2>
+    <p class="instr">These statistics reveal the extent of academic pressure students face globally.</p>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="number">75%</div>
+        <div class="label">Of high school students experience constant academic stress</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">32%</div>
+        <div class="label">Of college students report moderate-to-severe anxiety</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">22%</div>
+        <div class="label">Reporting severe depression among college students</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">47.5%</div>
+        <div class="label">Of college students affected negatively by procrastination</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">59%</div>
+        <div class="label">Of students have considered dropping out due to finances</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">37%</div>
+        <div class="label">Of students received therapy or counseling in past year</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 6: MATCHING -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🔗</span>Matching Exercise</h2>
+    <p class="instr">Match academic terms on the left with their definitions on the right. Click a term, then click its definition. <strong>Note: Answers are shuffled randomly!</strong></p>
+    
+    <div class="match-grid">
+      <div class="match-col">
+        <span class="match-item" data-word="cognitive-load">Cognitive load</span>
+        <span class="match-item" data-word="metacognition">Metacognition</span>
+        <span class="match-item" data-word="assessment">Assessment</span>
+        <span class="match-item" data-word="engagement">Engagement</span>
+        <span class="match-item" data-word="scaffolding">Scaffolding</span>
+        <span class="match-item" data-word="formative">Formative feedback</span>
+        <span class="match-item" data-word="mastery">Mastery learning</span>
+        <span class="match-item" data-word="intrinsic">Intrinsic motivation</span>
+        <span class="match-item" data-word="benchmark">Benchmark</span>
+        <span class="match-item" data-word="competency">Competency</span>
+      </div>
+      <div class="match-col">
+        <span class="match-item" data-def="formative">Ongoing feedback given during learning to improve performance</span>
+        <span class="match-item" data-def="cognitive-load">The amount of mental effort required to process information</span>
+        <span class="match-item" data-def="metacognition">Thinking about your own thinking and learning processes</span>
+        <span class="match-item" data-def="assessment">Evaluation of a student's knowledge, skills, or understanding</span>
+        <span class="match-item" data-def="engagement">Active participation and interest in learning activities</span>
+        <span class="match-item" data-def="scaffolding">Temporary support structures that help students learn new concepts</span>
+        <span class="match-item" data-def="mastery">Achieving deep understanding of a subject through practice</span>
+        <span class="match-item" data-def="intrinsic">Desire to learn driven by internal interest, not external rewards</span>
+        <span class="match-item" data-def="benchmark">A standard or point of reference for measuring performance</span>
+        <span class="match-item" data-def="competency">The ability to perform tasks effectively at a required level</span>
+      </div>
+    </div>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- TAB 7: FILL -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the Blanks</h2>
+    <p class="instr">Complete the sentences using vocabulary from Tab 3.</p>
+    
+    <div class="fill-item">
+      <p><span class="num">01</span>Student <input class="fill-input wide" data-answer="procrastination">, on assignments often leads to poor academic performance.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>Building <input class="fill-input wide" data-answer="resilience">, helps students bounce back from exam failures.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>Education should <strong>take a</strong> <input class="fill-input wide" data-answer="holistic">, approach, developing the whole person.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>We need <strong>to change</strong> the educational <input class="fill-input wide" data-answer="paradigm">, away from test-focused learning.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>Schools are <input class="fill-input wide" data-answer="mandated">, to provide mental health support to students.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">06</span>The <input class="fill-input wide" data-answer="curriculum">, should include both academic and emotional learning.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">07</span>Active study methods improve information <input class="fill-input wide" data-answer="retention">, significantly.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">08</span>Her academic <input class="fill-input wide" data-answer="trajectory">, changed when she began prioritizing mental health.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">09</span>Harsh grading practices <input class="fill-input wide" data-answer="perpetuate">, anxiety in students rather than encouraging learning.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">10</span>Universities seek <input class="fill-input wide" data-answer="accreditation"">, to maintain quality standards and credibility.</p>
+    </div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check Fill</button>
+    <span class="score" id="score7">— / 10</span>
+  </section>
+
+  <!-- TAB 8: MULTIPLE CHOICE -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">❓</span>Multiple Choice</h2>
+    <p class="instr">Answer comprehension questions about the reading passage.</p>
+    
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q01</span>What does the author identify as "the hidden pressure" in education?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Academic stress reaching unprecedented levels</button>
+        <button class="mc-opt">b) Competition between schools</button>
+        <button class="mc-opt">c) Expensive tuition costs</button>
+        <button class="mc-opt">d) Teacher workload</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q02</span>According to the reading, what percentage of college students report severe depression?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) 32%</button>
+        <button class="mc-opt">b) 50%</button>
+        <button class="mc-opt">c) 75%</button>
+        <button class="mc-opt">d) 22%</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q03</span>What paradox does the author describe in the education system?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Students study but don't learn</button>
+        <button class="mc-opt">b) Pressure meant to drive success often backfires and causes burnout</button>
+        <button class="mc-opt">c) Smart students don't get good grades</button>
+        <button class="mc-opt">d) Exams are too easy for good students</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q04</span>What does the author claim tests actually measure?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) A student's full intelligence</button>
+        <button class="mc-opt">b) How well students can memorize</button>
+        <button class="mc-opt">c) Only a narrow slice of human capability</button>
+        <button class="mc-opt">d) A student's future success</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q05</span>What factor does the text suggest may cause poor exam performance?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Test anxiety and pressure rather than lack of ability</button>
+        <button class="mc-opt">b) Students being lazy</button>
+        <button class="mc-opt">c) Tests being too difficult for everyone</button>
+        <button class="mc-opt">d) Poor teaching quality</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q06</span>Which strategy is NOT mentioned as effective for reducing stress?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Establishing study routines</button>
+        <button class="mc-opt">b) Breaking tasks into manageable chunks</button>
+        <button class="mc-opt">c) Building supportive networks</button>
+        <button class="mc-opt">d) Studying longer hours before exams</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q07</span>What psychological shift does the author recommend students make?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Avoid taking difficult courses</button>
+        <button class="mc-opt">b) Embrace failure as feedback rather than personal defeat</button>
+        <button class="mc-opt">c) Ignore exam results completely</button>
+        <button class="mc-opt">d) Stop caring about academic performance</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q08</span>Why do many students hesitate to seek help with academic struggles?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Shame or perceived stigma</button>
+        <button class="mc-opt">b) Tutoring is too expensive</button>
+        <button class="mc-opt">c) Schools don't offer help</button>
+        <button class="mc-opt">d) They prefer to struggle alone</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q09</span>What does "backfires spectacularly" mean in the passage?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Causes actual fire</button>
+        <button class="mc-opt">b) Produces excellent results</button>
+        <button class="mc-opt">c) Produces the opposite of intended effect in a dramatic way</button>
+        <button class="mc-opt">d) Happens by accident</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q10</span>What does the author claim should be valued more in education?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Only test scores</button>
+        <button class="mc-opt">b) Emotional resilience, curiosity, and growth alongside academics</button>
+        <button class="mc-opt">c) Competition between students</button>
+        <button class="mc-opt">d) Memorization skills</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q11</span>What is the "irony" mentioned in the first paragraph?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Students enjoy studying</button>
+        <button class="mc-opt">b) Exams are always fair</button>
+        <button class="mc-opt">c) Pressure reduces anxiety</button>
+        <button class="mc-opt">d) Pressure meant to drive success often causes burnout instead</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q12</span>What does the author mean by "reframe success"?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Change how we define and measure what success means</button>
+        <button class="mc-opt">b) Make success impossible</button>
+        <button class="mc-opt">c) Only focus on grades</button>
+        <button class="mc-opt">d) Stop trying to succeed</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkMC()">✓ Check MC</button>
+    <span class="score" id="score8">— / 12</span>
+  </section>
+
+  <!-- TAB 9: PASSIVE VOICE -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">🔄</span>Passive Voice</h2>
+    <p class="instr">Complete sentences using passive voice structures common in academic contexts.</p>
+    
+    <div class="grammar-box">
+      <h4>🔄 Passive Voice in Academic Context</h4>
+      <ul>
+        <li><strong>Present Simple Passive:</strong> is/are + past participle. <code>Students are evaluated on multiple criteria.</code></li>
+        <li><strong>Past Simple Passive:</strong> was/were + past participle. <code>The exam was taken by 500 students.</code></li>
+        <li><strong>Present Perfect Passive:</strong> has/have + been + past participle. <code>New policies have been introduced to support students.</code></li>
+        <li><strong>Future Passive:</strong> will + be + past participle. <code>Your assignments will be graded by Friday.</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Complete sentences using passive voice.</p>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>Students <input class="fill-input wide" data-answer="are evaluated">, on their knowledge and understanding.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>Assignments <input class="fill-input wide" data-answer="must be submitted">, by the deadline to avoid penalties.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>Exam results <input class="fill-input wide" data-answer="will be announced">, next week.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>Mental health support <input class="fill-input wide" data-answer="has been provided">, to all students.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>The curriculum <input class="fill-input wide" data-answer="was designed">, to develop critical thinking skills.</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Choose the sentence with correct passive voice.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">06</span>Which sentence uses passive voice correctly?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Students are taking the exam by teachers."</button>
+        <button class="mc-opt">b) "The exam is being taken by students."</button>
+        <button class="mc-opt">c) "Students are being taken the exam."</button>
+        <button class="mc-opt">d) "The exam taken by students."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">07</span>Convert to passive: "The school provides mental health services."</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Mental health services provide the school."</button>
+        <button class="mc-opt">b) "The school is provided mental health services."</button>
+        <button class="mc-opt">c) "Mental health services are provided by the school."</button>
+        <button class="mc-opt">d) "Mental health services are being provided."</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkPassive()">✓ Check Passive</button>
+    <span class="score" id="score9">— / 7</span>
+  </section>
+
+  <!-- TAB 10: VERB PATTERNS -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">∞</span>Verb Patterns & Structures</h2>
+    <p class="instr">Complete sentences using various verb patterns: infinitive, gerund, and causative structures in academic contexts.</p>
+    
+    <div class="grammar-box">
+      <h4>∞ Common Verb Patterns in Education</h4>
+      <ul>
+        <li><strong>Verb + infinitive:</strong> help, encourage, allow. <code>Teachers encourage students to think critically.</code></li>
+        <li><strong>Verb + gerund:</strong> avoid, recommend, suggest. <code>Experts recommend studying in short, focused sessions.</code></li>
+        <li><strong>Causative (make/let/have):</strong> <code>Teachers have students submit essays by Friday.</code></li>
+        <li><strong>Verb + object + infinitive:</strong> want, expect, need. <code>Schools expect students to meet deadlines.</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Complete sentences using the correct verb patterns.</p>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>Teachers encourage students <input class="fill-input wide" data-answer="to ask">, questions in class.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>Experts recommend <input class="fill-input wide" data-answer="studying">, regularly instead of cramming.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>Schools expect <strong>students</strong> <input class="fill-input wide" data-answer="to complete">, their assignments on time.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>Students should avoid <input class="fill-input wide" data-answer="procrastinating">, on important projects.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>Teachers allow <strong>students</strong> <input class="fill-input wide" data-answer="to retake">, exams if they fail.</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Choose the correct verb pattern structure.</p>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">06</span>Which sentence uses the correct verb + infinitive structure?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Teachers encourage studying hard."</button>
+        <button class="mc-opt">b) "Teachers encourage students studying."</button>
+        <button class="mc-opt">c) "Teachers encourage students to work hard."</button>
+        <button class="mc-opt">d) "Teachers encourage to students work."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">07</span>Which sentence correctly uses verb + gerund?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Experts recommend taking breaks during study sessions."</button>
+        <button class="mc-opt">b) "Experts recommend to take breaks."</button>
+        <button class="mc-opt">c) "Experts recommend take breaks."</button>
+        <button class="mc-opt">d) "Experts recommend them to take breaks."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">08</span>What does "Schools have students submit projects" demonstrate?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Simple present tense</button>
+        <button class="mc-opt">b) Conditional structure</button>
+        <button class="mc-opt">c) Infinitive after a main verb</button>
+        <button class="mc-opt">d) Causative structure (have + object + bare infinitive)</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkVerbPattern()">✓ Check Verbs</button>
+    <span class="score" id="score10">— / 8</span>
+  </section>
+
+  <footer>
+    📚 ★ ★ &nbsp; EDUCATION, STUDIES & EXAMS · B2 ENGLISH WORKSHEET &nbsp; ★ ★ 📚
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 6)
+  let selectedWord = null;
+  let matched6 = 0;
+  document.querySelectorAll('#t6 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t6 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched6++;
+          document.getElementById('score6').textContent = matched6 + ' / 10';
+          selectedWord = null;
+          if (matched6 === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 7)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t7 .fill-input');
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === answer) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score7').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score7').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 8)
+  let mcScore = 0;
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score8').textContent = mcScore + ' / 12';
+        if (mcScore === 12) document.getElementById('score8').textContent = '★ 12 / 12 ★';
+      });
+    });
+  });
+
+  // PASSIVE (tab 9)
+  let passiveScore = 0;
+  function checkPassive() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t9 .fill-input');
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === answer) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    correct += passiveScore;
+    document.getElementById('score9').textContent = correct + ' / 7';
+    if (correct === 7) document.getElementById('score9').textContent = '★ 7 / 7 ★';
+  }
+  document.querySelectorAll('#t9 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          passiveScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+      });
+    });
+  });
+
+  // VERB PATTERN (tab 10)
+  let vpScore = 0;
+  function checkVerbPattern() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t10 .fill-input');
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === answer) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    correct += vpScore;
+    document.getElementById('score10').textContent = correct + ' / 8';
+    if (correct === 8) document.getElementById('score10').textContent = '★ 8 / 8 ★';
+  }
+  document.querySelectorAll('#t10 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          vpScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
