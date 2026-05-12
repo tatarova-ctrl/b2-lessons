@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4-Day Work Week — B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #166534;
+    --deep: #15803d;
+    --leaf: #4ade80;
+    --earth: #92400e;
+    --sky: #0369a1;
+    --cream: #f0fdf4;
+    --sand: #dcfce7;
+    --ink: #0F1B14;
+    --cloud: #ffffff;
+    --soft: #d1fae5;
+    --blush: #fee2e2;
+    --mint: #bbf7d0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(22,101,52,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(146,64,14,0.1) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "⏰";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 110px;
+    opacity: 0.15;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--leaf);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 6.5vw, 60px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--forest); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--leaf); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--forest);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* WARM-UP */
+  .warmup-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--earth);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .warmup-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--forest);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .warmup-q {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  /* STATS */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .stat-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+    text-align: center;
+  }
+  .stat-card .number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--forest);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-card .label {
+    font-size: 12.5px;
+    color: var(--deep);
+    line-height: 1.4;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--forest);
+    margin-bottom: 16px;
+  }
+  .reading p { margin-bottom: 14px; line-height: 1.7; }
+  .reading strong { color: var(--deep); }
+
+  /* VOCABULARY */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .vocab-card .word {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--forest);
+    margin-bottom: 6px;
+  }
+  .vocab-card .def {
+    font-size: 13px;
+    color: var(--deep);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .vocab-card code {
+    display: block;
+    background: var(--sand);
+    padding: 8px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--ink);
+    border-left: 3px solid var(--forest);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 20px;
+  }
+  .match-col { display: flex; flex-direction: column; gap: 10px; }
+  .match-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    padding: 12px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 3px 3px 0 var(--ink);
+    font-family: 'Inter', sans-serif;
+  }
+  .match-item:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+  .match-item.selected { background: var(--sand); border-color: var(--forest); font-weight: 600; }
+  .match-item.matched { background: var(--mint); color: var(--deep); border-color: var(--forest); cursor: default; }
+  .match-item.wrong { animation: shake 0.3s; }
+  @keyframes shake { 0%, 100% { transform: translate(0); } 25% { transform: translate(-4px); } 75% { transform: translate(4px); } }
+
+  /* FILL & MC */
+  .fill-item { margin-bottom: 16px; }
+  .fill-item p { font-size: 15px; line-height: 1.6; }
+  .fill-input {
+    border: none;
+    border-bottom: 2px solid var(--ink);
+    padding: 4px 6px;
+    font-family: 'Courier Prime', monospace;
+    background: transparent;
+    min-width: 120px;
+  }
+  .fill-input.wide { min-width: 180px; }
+  .fill-input.correct { border-bottom-color: var(--forest); background: var(--sand); color: var(--forest); }
+  .fill-input.wrong { border-bottom-color: var(--blush); background: var(--blush); color: var(--ink); }
+  .num {
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    color: var(--forest);
+    margin-right: 8px;
+  }
+
+  .mc-item { margin-bottom: 20px; }
+  .mc-q {
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 15px;
+  }
+  .mc-options { display: flex; flex-direction: column; gap: 10px; }
+  .mc-opt {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-opt:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .mc-opt:disabled { cursor: default; }
+  .mc-opt.correct { background: var(--sand); border-color: var(--forest); color: var(--forest); font-weight: 600; box-shadow: 3px 3px 0 var(--forest); }
+  .mc-opt.wrong { background: var(--blush); border-color: #dc2626; }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px solid var(--forest);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .grammar-box ul { margin-left: 20px; }
+  .grammar-box li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+  }
+  .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border-left: 4px solid var(--forest);
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin-top: 8px;
+    color: var(--ink);
+  }
+
+  /* BUTTONS */
+  .check-btn {
+    background: var(--forest);
+    color: var(--cloud);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: all 0.2s;
+    margin-right: 16px;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
+  .score {
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    color: var(--forest);
+    font-size: 14px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    letter-spacing: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <span class="badge-label">LEVEL B2 · ADVANCED</span>
+      <h1>4-Day Work <span class="accent">Week</span></h1>
+      <p class="sub">Explore the global movement toward shorter working hours: examining the evidence, benefits, challenges, and whether this revolutionary change is becoming a reality.</p>
+      <div class="tags">
+        <span class="tag">#FUTURE-OF-WORK</span>
+        <span class="tag">#CONDITIONALS</span>
+        <span class="tag">#PHRASAL-VERBS</span>
+        <span class="tag">#BUSINESS-VOCABULARY</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="t1">1. Warm-up</button>
+    <button class="tab" data-tab="t2">2. Reading</button>
+    <button class="tab" data-tab="t3">3. Vocabulary</button>
+    <button class="tab" data-tab="t4">4. Collocations</button>
+    <button class="tab" data-tab="t5">5. Stats</button>
+    <button class="tab" data-tab="t6">6. Matching</button>
+    <button class="tab" data-tab="t7">7. Fill</button>
+    <button class="tab" data-tab="t8">8. Multiple Choice</button>
+    <button class="tab" data-tab="t9">9. Conditionals</button>
+    <button class="tab" data-tab="t10">10. Phrasal Verbs</button>
+  </div>
+
+  <!-- TAB 1: WARM-UP -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">⏰</span>Warm-up</h2>
+    <p class="instr">Discuss these questions about work, time, and your ideal working schedule.</p>
+    
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 01</div>
+      <div class="warmup-q">How many hours per week do you currently work? How satisfied are you with your work-life balance?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 02</div>
+      <div class="warmup-q">Would you prefer working four longer days or five standard days? What would be your ideal work schedule?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 03</div>
+      <div class="warmup-q">What challenges do you think companies might face if they adopted a four-day work week?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 04</div>
+      <div class="warmup-q">Do you believe the four-day work week will become the norm, or is it just a passing trend?</div>
+    </div>
+  </section>
+
+  <!-- TAB 2: READING -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading</h2>
+    <p class="instr">Read the text about the four-day work week movement and answer the comprehension questions.</p>
+    
+    <div class="reading">
+      <h3>The Four-Day Work Week: From Pipe Dream to Global Reality</h3>
+      <p class="byline">By James Mitchell | Business & Society Quarterly | 2025</p>
+      
+      <p>For decades, <strong>the five-day work week</strong> has been considered the gold standard in employment. However, this assumption is rapidly <strong>coming under scrutiny</strong> as a transformative global movement challenges our most fundamental beliefs about work. The <strong>four-day work week</strong>—a concept that once seemed impossible—is now <strong>gaining momentum</strong> at an unprecedented pace. What was dismissed as a <strong>pipe dream</strong> just a few years ago is proving to be achievable, with compelling evidence emerging from trials around the world.</p>
+
+      <p>Between 2022 and 2025, more than 8,700 employees across multiple countries participated in coordinated trials of the four-day work week model, primarily using the <strong>100-80-100 principle</strong>: 100% pay for 80% of the time while maintaining 100% productivity. The results have been nothing short of remarkable. Companies participating in these trials reported that employees experienced <strong>significantly reduced stress and burnout</strong>, while simultaneously reporting better physical and mental health outcomes. Workers gained an extra day to <strong>recharge their batteries</strong>, pursue hobbies, spend time with family, or tackle household responsibilities. Perhaps most importantly for employers, <strong>business profits remained stable or even increased</strong>, while employee turnover virtually disappeared.</p>
+
+      <p>Major corporations have <strong>jumped on the bandwagon</strong>, recognizing the transformative power of this model. Microsoft Japan documented a 40% productivity gain when they closed offices on Fridays and reduced meeting times. Buffer, a fully remote company, found that after switching to a four-day week, productivity increased by 22%, job applications surged 88%, and absenteeism plummeted 66%. These companies are not isolated cases—around 92% of participating organizations chose to <strong>stick with the new arrangement</strong> after their trials, citing exceptional results and employee satisfaction.</p>
+
+      <p>Despite these successes, skepticism remains. Critics argue that the four-day work week could be a <strong>double-edged sword</strong> for certain industries. Service sectors, customer-facing businesses, and healthcare cannot simply <strong>scale back operations</strong> without affecting customer availability. Additionally, compressing five days of work into four could create psychological stress for some workers, as they struggle to <strong>keep up with the pace</strong>. Some worry that the model will only benefit privileged white-collar workers, potentially widening inequality for blue-collar laborers who cannot adapt their work in the same way.</p>
+
+      <p>Looking forward, governments are beginning to take notice. Iceland, Germany, and the United Kingdom have all conducted or are conducting national trials, suggesting that policy change is possible. Trade unions in Mexico and Ireland are actively campaigning for legislation that would <strong>bring about</strong> this change at a national level. If this momentum continues, the four-day work week could genuinely <strong>become the new normal</strong>, marking a revolutionary shift in how we view work, productivity, and human wellbeing. The question is no longer whether the four-day week works—the evidence is overwhelming. The question is now whether employers and governments have the courage to <strong>embrace this transformation</strong> and fundamentally <strong>reshape the future of work</strong>.</p>
+    </div>
+
+    <p class="instr"><strong>Comprehension questions:</strong> Answer in complete sentences.</p>
+    
+    <div class="fill-item">
+      <p><span class="num">01</span>What is the "100-80-100 principle" and how does it work?</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>According to the reading, what percentage of companies continued with the four-day model after their trials?</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>What are the main criticisms or challenges of implementing a four-day work week?</p>
+    </div>
+  </section>
+
+  <!-- TAB 3: VOCABULARY -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">📚</span>Vocabulary</h2>
+    <p class="instr">Study these key words related to work, productivity, and business transformation.</p>
+    
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="word">burnout</div>
+        <div class="def">Physical or mental exhaustion caused by prolonged stress or overwork.</div>
+        <code>Many workers experience burnout from the five-day work week.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">productivity</div>
+        <div class="def">The effectiveness of effort measured by the rate of output per unit of input.</div>
+        <code>The four-day week has maintained productivity levels.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">turnover</div>
+        <div class="def">The rate at which employees leave a company and are replaced by new workers.</div>
+        <code>Employee turnover decreased significantly after implementing the four-day week.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">pilot program</div>
+        <div class="def">A small-scale trial to test whether a new idea will work before implementing it fully.</div>
+        <code>The company started with a pilot program before rolling out the change company-wide.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">feasibility</div>
+        <div class="def">The possibility of something being accomplished or working in practice.</div>
+        <code>Studies confirm the feasibility of the four-day work week.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">flexible work</div>
+        <div class="def">Employment arrangements allowing workers control over their schedule and location.</div>
+        <code>Flexible work arrangements improve employee satisfaction.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">well-being</div>
+        <div class="def">The state of being comfortable, healthy, and happy; overall quality of life.</div>
+        <code>Employee well-being improved significantly with the extra free day.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">skepticism</div>
+        <div class="def">Doubt or disbelief about whether something is true or will succeed.</div>
+        <code>Initial skepticism about the four-day week has faded as evidence supports it.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">implementation</div>
+        <div class="def">The process of putting a plan or decision into action.</div>
+        <code>The implementation of the four-day week required significant organizational changes.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">legislation</div>
+        <div class="def">Laws or a system of laws created by government; the process of making laws.</div>
+        <code>Several countries are considering legislation to make the four-day week standard.</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4: COLLOCATIONS -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">🎯</span>Common Collocations</h2>
+    <p class="instr">Learn common word combinations used when discussing work and productivity.</p>
+    
+    <div class="grammar-box">
+      <h4>💼 Collocations with work and employment</h4>
+      <ul>
+        <li><strong>work-life balance</strong> = equilibrium between professional and personal time. <code>The four-day week improves work-life balance dramatically.</code></li>
+        <li><strong>employee satisfaction</strong> = contentment and happiness of workers. <code>Companies report high employee satisfaction after implementing the change.</code></li>
+        <li><strong>stress levels</strong> = amount of pressure or tension experienced. <code>Stress levels decreased among workers with an extra day off.</code></li>
+        <li><strong>workplace culture</strong> = the shared values and behaviors within an organization. <code>A four-day week transforms workplace culture positively.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>📊 Collocations with business results</h4>
+      <ul>
+        <li><strong>boost productivity</strong> = to increase efficiency and output. <code>The change boosted productivity by surprising amounts.</code></li>
+        <li><strong>cut costs</strong> = to reduce expenses or spending. <code>Companies can cut costs through reduced energy usage with the four-day model.</code></li>
+        <li><strong>drive growth</strong> = to promote expansion and improvement. <code>Better employee health drives business growth long-term.</code></li>
+        <li><strong>maintain profitability</strong> = to keep profits stable despite changes. <code>Companies maintained profitability despite working fewer hours.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>🔄 Collocations with change and progress</h4>
+      <ul>
+        <li><strong>gain momentum</strong> = to increase in speed, strength, or popularity. <code>The four-day week movement is gaining momentum globally.</code></li>
+        <li><strong>come under scrutiny</strong> = to be examined critically or investigated closely. <code>Traditional work models are coming under scrutiny.</code></li>
+        <li><strong>jump on the bandwagon</strong> = to join others in doing something popular. <code>Many companies jumped on the bandwagon after seeing successful trials.</code></li>
+        <li><strong>embrace change</strong> = to accept and adopt something willingly. <code>Progressive employers embrace change readily.</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TAB 5: STATS -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">📊</span>Four-Day Week Trial Results</h2>
+    <p class="instr">Statistics from global trials showing the impact of the four-day work week model.</p>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="number">8,700+</div>
+        <div class="label">Employees worldwide in 2022-2025 trials</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">92%</div>
+        <div class="label">Of companies retained four-day week after trials</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">40%</div>
+        <div class="label">Productivity increase (Microsoft Japan pilot)</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">80%+</div>
+        <div class="label">Of UK workers who prefer four-day week</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">66%</div>
+        <div class="label">Drop in absenteeism (Buffer pilot)</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">2.7 million</div>
+        <div class="label">UK workers currently on four-day weeks</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 6: MATCHING -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🔗</span>Matching Exercise</h2>
+    <p class="instr">Match work-related terms on the left with their correct definitions on the right. Click a term, then click its definition. <strong>Note: Answers are shuffled randomly!</strong></p>
+    
+    <div class="match-grid">
+      <div class="match-col">
+        <span class="match-item" data-word="remote-work">Remote work</span>
+        <span class="match-item" data-word="flexible-hours">Flexible hours</span>
+        <span class="match-item" data-word="burnout">Burnout</span>
+        <span class="match-item" data-word="workload">Workload</span>
+        <span class="match-item" data-word="commute">Commute</span>
+        <span class="match-item" data-word="deadline">Deadline</span>
+        <span class="match-item" data-word="engagement">Employee engagement</span>
+        <span class="match-item" data-word="efficiency">Efficiency</span>
+        <span class="match-item" data-word="retention">Employee retention</span>
+        <span class="match-item" data-word="autonomy">Autonomy</span>
+      </div>
+      <div class="match-col">
+        <span class="match-item" data-def="flexible-hours">Arrangement allowing workers to choose their working hours within limits</span>
+        <span class="match-item" data-def="burnout">Exhaustion from prolonged stress or overwork</span>
+        <span class="match-item" data-def="commute">Journey to and from work or school</span>
+        <span class="match-item" data-def="workload">Amount of work assigned to or expected from a person</span>
+        <span class="match-item" data-def="remote-work">Working from home or location other than a traditional office</span>
+        <span class="match-item" data-def="deadline">Final date or time by which something must be completed</span>
+        <span class="match-item" data-def="engagement">Level of emotional investment and commitment employees have to their work</span>
+        <span class="match-item" data-def="efficiency">Ability to accomplish tasks with minimal wasted time or resources</span>
+        <span class="match-item" data-def="autonomy">Freedom to make decisions and take independent action at work</span>
+        <span class="match-item" data-def="retention">Rate at which employees stay with a company rather than leaving</span>
+      </div>
+    </div>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- TAB 7: FILL -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the Blanks</h2>
+    <p class="instr">Complete the sentences using vocabulary from Tab 3.</p>
+    
+    <div class="fill-item">
+      <p><span class="num">01</span>Worker <input class="fill-input wide" data-answer="burnout"> has decreased significantly with the implementation of the four-day week.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>The <input class="fill-input wide" data-answer="100-80-100 principle">, allows companies to maintain 100% output with only 80% of work time.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>Companies report improvements in <input class="fill-input wide" data-answer="productivity">, even though employees work fewer hours.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>The four-day week <strong>pilot program</strong> in the UK involved over 2,900 workers across <input class="fill-input wide" data-answer="61 companies">.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>Employee <input class="fill-input wide" data-answer="well-being">, including mental and physical health, significantly improves with the extra day off.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">06</span>Research confirms the <input class="fill-input wide" data-answer="feasibility">, of implementing a four-day work week across various industries.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">07</span>Employee <input class="fill-input wide" data-answer="turnover">, virtually disappeared in companies that adopted the four-day model.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">08</span>Initial <input class="fill-input wide" data-answer="skepticism">, about the model has faded as evidence mounts supporting its benefits.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">09</span>The <input class="fill-input wide" data-answer="implementation">, of the four-day week required careful planning and organizational restructuring.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">10</span>Proposed <input class="fill-input wide" data-answer="legislation">, in several countries could make the four-day week the new employment standard.</p>
+    </div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check Fill</button>
+    <span class="score" id="score7">— / 10</span>
+  </section>
+
+  <!-- TAB 8: MULTIPLE CHOICE -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">❓</span>Multiple Choice</h2>
+    <p class="instr">Answer comprehension questions about the reading passage.</p>
+    
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q01</span>What does the "100-80-100 principle" mean?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) 100 hours per 80 weeks worked</button>
+        <button class="mc-opt">b) 100 employees for 80% productivity increase</button>
+        <button class="mc-opt">c) 100% pay for 80% of time while maintaining 100% productivity</button>
+        <button class="mc-opt">d) Work 100 days with 80% pay reduction</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q02</span>According to the text, what percentage of companies continued the four-day week after their trials?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) 75%</button>
+        <button class="mc-opt">b) 92%</button>
+        <button class="mc-opt">c) 85%</button>
+        <button class="mc-opt">d) 100%</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q03</span>What was Microsoft Japan's productivity gain when they implemented a four-day week?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) 40% increase</button>
+        <button class="mc-opt">b) 22% increase</button>
+        <button class="mc-opt">c) 66% increase</button>
+        <button class="mc-opt">d) 88% increase</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q04</span>Which challenge to the four-day week is mentioned in the reading?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) It increases employee turnover</button>
+        <button class="mc-opt">b) It reduces profit margins significantly</button>
+        <button class="mc-opt">c) It eliminates all employee benefits</button>
+        <button class="mc-opt">d) Service sectors cannot easily adapt the model</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q05</span>What does the phrase "pipe dream" in the opening paragraph suggest about the four-day week?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) It is already universally accepted</button>
+        <button class="mc-opt">b) It was once considered impossible or unrealistic</button>
+        <button class="mc-opt">c) It involves plumbing industry reforms</button>
+        <button class="mc-opt">d) It is only possible for large corporations</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q06</span>Buffer's four-day week trial showed which result?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) 40% productivity increase, job applications stayed the same</button>
+        <button class="mc-opt">b) No changes in any metrics whatsoever</button>
+        <button class="mc-opt">c) 22% productivity increase, 88% more job applications, 66% less absenteeism</button>
+        <button class="mc-opt">d) Decreased productivity but happier employees</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q07</span>What does the text say about income in the four-day work week model?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Workers receive 100% pay for 80% of work time</button>
+        <button class="mc-opt">b) Workers receive reduced pay proportional to reduced hours</button>
+        <button class="mc-opt">c) Workers must negotiate pay separately</button>
+        <button class="mc-opt">d) Income varies by industry and company size</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q08</span>Which countries are mentioned as conducting or planning national four-day week trials?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) France, Spain, and Germany only</button>
+        <button class="mc-opt">b) Canada, Australia, and New Zealand only</button>
+        <button class="mc-opt">c) United States, Japan, and South Korea</button>
+        <button class="mc-opt">d) Iceland, Germany, and the United Kingdom</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q09</span>What concern about the four-day week relates to equality?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) It benefits all workers equally</button>
+        <button class="mc-opt">b) It may only benefit white-collar workers while disadvantaging blue-collar workers</button>
+        <button class="mc-opt">c) It eliminates all workplace inequality</button>
+        <button class="mc-opt">d) It gives equal benefits to all industries</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>According to the reading, what is the main question now regarding the four-day week?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Whether it actually works at all</button>
+        <button class="mc-opt">b) Whether employees want it</button>
+        <button class="mc-opt">c) Whether employers and governments have the courage to embrace and implement it</button>
+        <button class="mc-opt">d) Whether it will ever be legal</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q11</span>What does "coming under scrutiny" mean in the opening paragraph?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Being examined critically or investigated closely</button>
+        <button class="mc-opt">b) Gaining widespread approval and support</button>
+        <button class="mc-opt">c) Being rejected by all workers</button>
+        <button class="mc-opt">d) Becoming more attractive to workers</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q12</span>How many employees participated in coordinated four-day work week trials between 2022-2025?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) 2,900 employees</button>
+        <button class="mc-opt">b) 5,000 employees</button>
+        <button class="mc-opt">c) 6,700 employees</button>
+        <button class="mc-opt">d) 8,700+ employees</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkMC()">✓ Check MC</button>
+    <span class="score" id="score8">— / 12</span>
+  </section>
+
+  <!-- TAB 9: CONDITIONALS -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">➡️</span>Conditional Sentences</h2>
+    <p class="instr">Complete sentences using first, second, and third conditional forms about work and the four-day week.</p>
+    
+    <div class="grammar-box">
+      <h4>➡️ Conditional Sentence Types</h4>
+      <ul>
+        <li><strong>1st Conditional (real):</strong> If + present → will/won't + verb. <code>If companies adopt this model, productivity will remain stable.</code></li>
+        <li><strong>2nd Conditional (hypothetical):</strong> If + past → would/wouldn't + verb. <code>If I had an extra day off, I would pursue my hobbies.</code></li>
+        <li><strong>3rd Conditional (past regret):</strong> If + had + past participle → would have + past participle. <code>If they had implemented this earlier, workers would have suffered less burnout.</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Complete the conditional sentences appropriately.</p>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>If the government passes legislation, most companies <input class="fill-input wide" data-answer="will adopt">, the four-day week model.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>If I <input class="fill-input wide" data-answer="had">, a four-day work week, I would spend more time with my family.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>If workers <input class="fill-input wide" data-answer="had implemented">, this earlier, many would have avoided serious burnout.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>If companies continue to see positive results, they <input class="fill-input wide" data-answer="won't go back">, to five-day weeks.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>If service industries <input class="fill-input wide" data-answer="could adapt">, their schedules, they could offer four-day weeks too.</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Choose the correctly formed conditional sentence.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">06</span>Which sentence is grammatically correct?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "If I work four days, I was happier."</button>
+        <button class="mc-opt">b) "If I worked four days, I would be happier."</button>
+        <button class="mc-opt">c) "If I will work four days, I would be happier."</button>
+        <button class="mc-opt">d) "If I had worked four days, I am happier."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">07</span>Which is a correct 3rd conditional sentence about the past?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "If companies would have tried this, they succeeded."</button>
+        <button class="mc-opt">b) "If companies tried this, they would have succeeded."</button>
+        <button class="mc-opt">c) "If companies had tried this, they would have succeeded."</button>
+        <button class="mc-opt">d) "If companies will try this, they would succeed."</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkConditional()">✓ Check Conditionals</button>
+    <span class="score" id="score9">— / 7</span>
+  </section>
+
+  <!-- TAB 10: PHRASAL VERBS -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">🔄</span>Phrasal Verbs</h2>
+    <p class="instr">Complete sentences using phrasal verbs related to work, change, and implementation.</p>
+    
+    <div class="grammar-box">
+      <h4>🔄 Common Phrasal Verbs in Business</h4>
+      <ul>
+        <li><strong>gain momentum</strong> = to increase in speed or popularity. <code>The four-day week movement is gaining momentum worldwide.</code></li>
+        <li><strong>come under scrutiny</strong> = to be examined or investigated. <code>Traditional work models are coming under scrutiny.</code></li>
+        <li><strong>jump on the bandwagon</strong> = to join others doing something popular. <code>Many companies jumped on the bandwagon after seeing results.</code></li>
+        <li><strong>stick with</strong> = to remain committed to something. <code>Companies stuck with the four-day model due to results.</code></li>
+        <li><strong>bring about</strong> = to cause something to happen. <code>Legislation could bring about major workplace changes.</code></li>
+        <li><strong>scale back</strong> = to reduce the size or level of something. <code>Some industries cannot scale back operations easily.</code></li>
+        <li><strong>keep up with</strong> = to maintain pace; to stay current. <code>Workers struggle to keep up with compressed work schedules.</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Complete sentences using the correct phrasal verb form.</p>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>The four-day week movement is <input class="fill-input wide" data-answer="gaining momentum">, across different countries.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>Traditional work schedules are <input class="fill-input wide" data-answer="coming under scrutiny">, from workers and researchers.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>Many companies <input class="fill-input wide" data-answer="jumped on the bandwagon">, after hearing about successful trials.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>92% of participating companies <input class="fill-input wide" data-answer="stuck with">, the four-day week model permanently.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>New government legislation could <input class="fill-input wide" data-answer="bring about">, major changes in employment standards.</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Choose the sentence with correct phrasal verb usage.</p>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">06</span>Which sentence uses a phrasal verb correctly?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Companies scale back with operations easily."</button>
+        <button class="mc-opt">b) "Workers jumped the bandwagon on."</button>
+        <button class="mc-opt">c) "The movement is gaining momentum steadily."</button>
+        <button class="mc-opt">d) "They brought about implementation of changes."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">07</span>What does "come under scrutiny" mean?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To be completely accepted without question</button>
+        <button class="mc-opt">b) To be examined critically or investigated</button>
+        <button class="mc-opt">c) To become increasingly popular</button>
+        <button class="mc-opt">d) To be supported by everyone</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">08</span>Which best describes "jump on the bandwagon"?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To physically jump while working</button>
+        <button class="mc-opt">b) To actively resist new trends</button>
+        <button class="mc-opt">c) To organize musical entertainment</button>
+        <button class="mc-opt">d) To join others in doing something popular</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkPhrasal()">✓ Check Phrasal Verbs</button>
+    <span class="score" id="score10">— / 8</span>
+  </section>
+
+  <footer>
+    ⏰ ★ ★ &nbsp; 4-DAY WORK WEEK · B2 ENGLISH WORKSHEET &nbsp; ★ ★ ⏰
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 6)
+  let selectedWord = null;
+  let matched6 = 0;
+  document.querySelectorAll('#t6 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t6 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched6++;
+          document.getElementById('score6').textContent = matched6 + ' / 10';
+          selectedWord = null;
+          if (matched6 === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 7)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t7 .fill-input');
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === answer) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score7').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score7').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 8)
+  let mcScore = 0;
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score8').textContent = mcScore + ' / 12';
+        if (mcScore === 12) document.getElementById('score8').textContent = '★ 12 / 12 ★';
+      });
+    });
+  });
+
+  // CONDITIONAL (tab 9)
+  let conditionalScore = 0;
+  function checkConditional() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t9 .fill-input');
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === answer) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    correct += conditionalScore;
+    document.getElementById('score9').textContent = correct + ' / 7';
+    if (correct === 7) document.getElementById('score9').textContent = '★ 7 / 7 ★';
+  }
+  document.querySelectorAll('#t9 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          conditionalScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+      });
+    });
+  });
+
+  // PHRASAL (tab 10)
+  let phrasalScore = 0;
+  function checkPhrasal() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t10 .fill-input');
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === answer) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    correct += phrasalScore;
+    document.getElementById('score10').textContent = correct + ' / 8';
+    if (correct === 8) document.getElementById('score10').textContent = '★ 8 / 8 ★';
+  }
+  document.querySelectorAll('#t10 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          phrasalScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
