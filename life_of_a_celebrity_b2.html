@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life of a Celebrity — B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --celebrity: #c026d3;
+    --dark: #7e22ce;
+    --accent: #06b6d4;
+    --red: #DC2626;
+    --cream: #faf5ff;
+    --sand: #f3e8ff;
+    --ink: #0F1B14;
+    --cloud: #ffffff;
+    --soft: #e9d5ff;
+    --blush: #FEE2E2;
+    --mint: #d8b4fe;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(192,38,211,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(6,182,212,0.1) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "⭐";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 110px;
+    opacity: 0.15;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--accent);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 6.5vw, 60px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--celebrity); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--dark);
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--accent); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--dark);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--celebrity);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* WARM-UP */
+  .warmup-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--accent);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .warmup-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--celebrity);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .warmup-q {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  /* STATS */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .stat-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+    text-align: center;
+  }
+  .stat-card .number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--celebrity);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-card .label {
+    font-size: 12.5px;
+    color: var(--dark);
+    line-height: 1.4;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--celebrity);
+    margin-bottom: 16px;
+  }
+  .reading p { margin-bottom: 14px; line-height: 1.7; }
+  .reading strong { color: var(--dark); }
+
+  /* VOCABULARY */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .vocab-card .word {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--celebrity);
+    margin-bottom: 6px;
+  }
+  .vocab-card .def {
+    font-size: 13px;
+    color: var(--dark);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .vocab-card code {
+    display: block;
+    background: var(--sand);
+    padding: 8px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--ink);
+    border-left: 3px solid var(--celebrity);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 20px;
+  }
+  .match-col { display: flex; flex-direction: column; gap: 10px; }
+  .match-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    padding: 12px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 3px 3px 0 var(--ink);
+    font-family: 'Inter', sans-serif;
+  }
+  .match-item:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+  .match-item.selected { background: var(--sand); border-color: var(--celebrity); font-weight: 600; }
+  .match-item.matched { background: var(--mint); color: var(--dark); border-color: var(--celebrity); cursor: default; }
+  .match-item.wrong { animation: shake 0.3s; }
+  @keyframes shake { 0%, 100% { transform: translate(0); } 25% { transform: translate(-4px); } 75% { transform: translate(4px); } }
+
+  /* FILL & MC */
+  .fill-item { margin-bottom: 16px; }
+  .fill-item p { font-size: 15px; line-height: 1.6; }
+  .fill-input {
+    border: none;
+    border-bottom: 2px solid var(--ink);
+    padding: 4px 6px;
+    font-family: 'Courier Prime', monospace;
+    background: transparent;
+    min-width: 120px;
+  }
+  .fill-input.wide { min-width: 180px; }
+  .fill-input.correct { border-bottom-color: var(--celebrity); background: var(--sand); color: var(--celebrity); }
+  .fill-input.wrong { border-bottom-color: var(--blush); background: var(--blush); color: var(--ink); }
+  .num {
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    color: var(--celebrity);
+    margin-right: 8px;
+  }
+
+  .mc-item { margin-bottom: 20px; }
+  .mc-q {
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 15px;
+  }
+  .mc-options { display: flex; flex-direction: column; gap: 10px; }
+  .mc-opt {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-opt:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .mc-opt:disabled { cursor: default; }
+  .mc-opt.correct { background: var(--sand); border-color: var(--celebrity); color: var(--celebrity); font-weight: 600; box-shadow: 3px 3px 0 var(--celebrity); }
+  .mc-opt.wrong { background: var(--blush); border-color: #dc2626; }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px solid var(--celebrity);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .grammar-box ul { margin-left: 20px; }
+  .grammar-box li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+  }
+  .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border-left: 4px solid var(--celebrity);
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin-top: 8px;
+    color: var(--ink);
+  }
+
+  /* BUTTONS */
+  .check-btn {
+    background: var(--celebrity);
+    color: var(--cloud);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: all 0.2s;
+    margin-right: 16px;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
+  .score {
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    color: var(--celebrity);
+    font-size: 14px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--dark);
+    letter-spacing: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <span class="badge-label">LEVEL B2 · ADVANCED</span>
+      <h1>Life of a <span class="accent">Celebrity</span></h1>
+      <p class="sub">Explore the glamorous yet complex world of fame, media attention, and the challenges of living in the public eye.</p>
+      <div class="tags">
+        <span class="tag">#REPORTED-SPEECH</span>
+        <span class="tag">#PHRASAL-VERBS</span>
+        <span class="tag">#MODALS-SPECULATION</span>
+        <span class="tag">#MEDIA-VOCABULARY</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="t1">1. Warm-up</button>
+    <button class="tab" data-tab="t2">2. Reading</button>
+    <button class="tab" data-tab="t3">3. Vocabulary</button>
+    <button class="tab" data-tab="t4">4. Collocations</button>
+    <button class="tab" data-tab="t5">5. Stats</button>
+    <button class="tab" data-tab="t6">6. Matching</button>
+    <button class="tab" data-tab="t7">7. Fill</button>
+    <button class="tab" data-tab="t8">8. Multiple Choice</button>
+    <button class="tab" data-tab="t9">9. Reported Speech</button>
+    <button class="tab" data-tab="t10">10. Modal Verbs</button>
+  </div>
+
+  <!-- TAB 1: WARM-UP -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">⭐</span>Warm-up</h2>
+    <p class="instr">Discuss these questions about celebrity life and fame. Share your thoughts and opinions.</p>
+    
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 01</div>
+      <div class="warmup-q">What do you think are the biggest advantages and disadvantages of being a celebrity?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 02</div>
+      <div class="warmup-q">Would you want to be famous? Why or why not? What type of celebrity would you like to be?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 03</div>
+      <div class="warmup-q">How do you think celebrities deal with loss of privacy? What boundaries should they have?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 04</div>
+      <div class="warmup-q">Do you follow any celebrities on social media? What kind of content do they share?</div>
+    </div>
+  </section>
+
+  <!-- TAB 2: READING -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading</h2>
+    <p class="instr">Read the following text about the realities of celebrity life and answer the comprehension questions.</p>
+    
+    <div class="reading">
+      <h3>The Hidden Cost of Fame: Understanding Celebrity Life</h3>
+      <p class="byline">By Marcus Thompson | Celebrity & Society Magazine | 2025</p>
+      
+      <p>From the outside, <strong>celebrity life</strong> appears to be a never-ending glamorous adventure filled with red carpets, luxury vacations, and envious admirers. However, behind the polished Instagram feed and paparazzi photographs lies a far more complicated reality. Many celebrities find themselves <strong>caught in the spotlight</strong>, unable to escape the relentless scrutiny of media and fans that follows their every move. What most people don't realize is that <strong>fame comes at a price</strong>—a price that extends far beyond financial gain.</p>
+
+      <p>The <strong>invasion of privacy</strong> is perhaps the most pervasive challenge celebrities face. Simply wanting to <strong>go about their daily life</strong>—grabbing coffee, taking their children to school, or enjoying a quiet dinner—becomes virtually impossible without being photographed or recognized. Celebrities often describe feeling <strong>trapped in a gilded cage</strong>, where they must constantly weigh the consequences of their public appearances. Many <strong>resort to extreme measures</strong> to maintain anonymity, wearing disguises, hiring security teams, and avoiding public spaces entirely. This constant paranoia about surveillance can <strong>take its toll</strong> on mental health, leading to anxiety, depression, and social isolation.</p>
+
+      <p>The pressure to maintain a <strong>flawless public image</strong> is equally demanding. Every comment, fashion choice, and relationship is scrutinized and judged by millions. Social media has amplified this phenomenon exponentially, allowing fans and critics alike to <strong>call someone out</strong> instantly for perceived mistakes or controversial statements. Celebrities must navigate this minefield carefully, knowing that one misstep could <strong>spark an online firestorm</strong> and damage their <strong>reputation overnight</strong>. This constant pressure to <strong>live up to expectations</strong> leaves many feeling exhausted and inauthentic, unable to simply be themselves.</p>
+
+      <p>Another significant burden is the <strong>parasocial relationship</strong> that forms between celebrities and their fans. Fans often feel they know celebrities intimately through their public personas, leading to unrealistic expectations and sometimes dangerous obsession. Celebrities receive hate mail, threatening messages, and stalking behavior from individuals who feel personally betrayed if their favorite star doesn't meet their idealized expectations. Some have described this phenomenon as <strong>living in a fishbowl</strong>, where every action is visible and subject to judgment.</p>
+
+      <p>Despite these challenges, some celebrities successfully <strong>strike a balance</strong> between their public and private lives. They set firm boundaries, limit their social media presence, and deliberately choose when and how to engage with their audiences. Others have decided to <strong>step away from the limelight</strong> entirely, prioritizing their mental health and family relationships over continued fame. Their decisions remind us that while celebrity status offers undeniable benefits—financial security, influence, and opportunities—the cost of living under constant scrutiny may not be worth it for everyone. Understanding the hidden realities of celebrity life helps us approach fame with greater empathy and realistic expectations.</p>
+    </div>
+
+    <p class="instr"><strong>Comprehension questions:</strong> Answer in complete sentences.</p>
+    
+    <div class="fill-item">
+      <p><span class="num">01</span>What is described as "perhaps the most pervasive challenge" that celebrities face?</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>How has social media changed the pressure celebrities experience regarding their public image?</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>What does the term "parasocial relationship" mean in this context, and what problems can it cause?</p>
+    </div>
+  </section>
+
+  <!-- TAB 3: VOCABULARY -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">📚</span>Vocabulary</h2>
+    <p class="instr">Study the key vocabulary related to celebrity and media. Each term appears in the reading passage above.</p>
+    
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="word">paparazzi</div>
+        <div class="def">Photographers who aggressively pursue celebrities to take photographs.</div>
+        <code>The paparazzi followed the actor outside the restaurant.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">scrutiny</div>
+        <div class="def">Close, critical examination or inspection of someone or something.</div>
+        <code>Her financial records came under intense scrutiny during the investigation.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">parasocial relationship</div>
+        <div class="def">A one-sided relationship where one person extends emotional energy to another who is unaware.</div>
+        <code>Fans often develop parasocial relationships with their favorite celebrities.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">persona</div>
+        <div class="def">The public image or character someone presents to the world.</div>
+        <code>His stage persona is very different from his real personality.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">gilded cage</div>
+        <div class="def">A luxurious but restricting situation; wealth without freedom.</div>
+        <code>Despite earning millions, she felt trapped in a gilded cage.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">flawless</div>
+        <div class="def">Without any defects, mistakes, or imperfections.</div>
+        <code>The performer gave a flawless performance that impressed all critics.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">misstep</div>
+        <div class="def">A mistake or wrong decision; a failure to act correctly.</div>
+        <code>One misstep in public could damage her carefully built reputation.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">limelight</div>
+        <div class="def">The center of public attention or prominence.</div>
+        <code>After decades in the limelight, he finally decided to retire.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">empathy</div>
+        <div class="def">The ability to understand and share the feelings of another person.</div>
+        <code>We should approach celebrity gossip with more empathy.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">inauthentic</div>
+        <div class="def">Not genuine, true, or sincere; fake or artificial.</div>
+        <code>His apology felt inauthentic and rang hollow with fans.</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4: COLLOCATIONS -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">🎯</span>Common Collocations</h2>
+    <p class="instr">Learn common word combinations used when discussing celebrity and fame.</p>
+    
+    <div class="grammar-box">
+      <h4>⭐ Collocations with "fame" & "celebrity"</h4>
+      <ul>
+        <li><strong>rise to fame</strong> = to become famous quickly. <code>She rose to fame after winning the singing competition.</code></li>
+        <li><strong>celebrity status</strong> = the condition of being a celebrity. <code>His celebrity status opened many doors professionally.</code></li>
+        <li><strong>maintain fame</strong> = to stay famous over time. <code>It's difficult to maintain fame without constant media presence.</code></li>
+        <li><strong>seek attention</strong> = to try to get people to notice you. <code>Some celebrities actively seek attention through social media.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>📸 Collocations with media and privacy</h4>
+      <ul>
+        <li><strong>invasion of privacy</strong> = unwanted interference with someone's private life. <code>The paparazzi's invasion of privacy was unacceptable.</code></li>
+        <li><strong>media attention</strong> = coverage and focus by news organizations. <code>The scandal generated intense media attention.</code></li>
+        <li><strong>hit the headlines</strong> = to become a major news story. <code>The celebrity's divorce hit the headlines yesterday.</code></li>
+        <li><strong>call someone out</strong> = to publicly criticize someone's behavior. <code>Fans called out the actor for his controversial comments.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>💔 Collocations with consequences and pressure</h4>
+      <ul>
+        <li><strong>take its toll</strong> = to have a negative cumulative effect. <code>The constant pressure took its toll on his mental health.</code></li>
+        <li><strong>spark an outrage</strong> = to trigger angry reactions from the public. <code>Her statement sparked an outrage on social media.</code></li>
+        <li><strong>damage one's reputation</strong> = to harm someone's public image. <code>The scandal damaged his reputation irreparably.</code></li>
+        <li><strong>step back</strong> = to withdraw from something. <code>She decided to step back from the entertainment industry.</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TAB 5: STATS -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">📊</span>Celebrity Industry Facts</h2>
+    <p class="instr">These statistics highlight the scale and impact of celebrity culture in our society.</p>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="number">4.9 billion</div>
+        <div class="label">Social media users globally following celebrities</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">73%</div>
+        <div class="label">Of teenagers feel pressure to look like social media celebrities</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">$10.6 billion</div>
+        <div class="label">Annual revenue of celebrity endorsements worldwide</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">1 in 4</div>
+        <div class="label">Celebrities who experience mental health issues from fame</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">87%</div>
+        <div class="label">Of people who feel they know a celebrity personally</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">52 days</div>
+        <div class="label">Average time for a celebrity scandal to "blow over"</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 6: MATCHING -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🔗</span>Matching Exercise</h2>
+    <p class="instr">Match celebrity-related terms on the left with their correct definitions on the right. Click a term, then click its definition. <strong>Note: Answers are shuffled randomly!</strong></p>
+    
+    <div class="match-grid">
+      <div class="match-col">
+        <span class="match-item" data-word="paparazzi">Paparazzi</span>
+        <span class="match-item" data-word="publicity-stunt">Publicity stunt</span>
+        <span class="match-item" data-word="fan-base">Fan base</span>
+        <span class="match-item" data-word="tabloid">Tabloid</span>
+        <span class="match-item" data-word="endorsement">Endorsement</span>
+        <span class="match-item" data-word="viral">Viral</span>
+        <span class="match-item" data-word="influencer">Influencer</span>
+        <span class="match-item" data-word="rumor">Rumor</span>
+        <span class="match-item" data-word="scandal">Scandal</span>
+        <span class="match-item" data-word="agent">Agent</span>
+      </div>
+      <div class="match-col">
+        <span class="match-item" data-def="tabloid">A newspaper or magazine that focuses on sensational stories and celebrity gossip</span>
+        <span class="match-item" data-def="influencer">A person who has the power to influence others through their social media presence</span>
+        <span class="match-item" data-def="paparazzi">Photographers who pursue celebrities to capture candid photographs</span>
+        <span class="match-item" data-def="publicity-stunt">A planned event designed to attract media attention and public interest</span>
+        <span class="match-item" data-def="agent">A professional who represents and manages a celebrity's career and contracts</span>
+        <span class="match-item" data-def="viral">Spreading rapidly across the internet and becoming widely shared</span>
+        <span class="match-item" data-def="scandal">An action or event causing outrage, damage to reputation, and public disgrace</span>
+        <span class="match-item" data-def="endorsement">A public declaration of support or approval for a product or person</span>
+        <span class="match-item" data-def="rumor">Unverified information or gossip spread among people</span>
+        <span class="match-item" data-def="fan-base">The group of people who are devoted followers and supporters of a celebrity</span>
+      </div>
+    </div>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- TAB 7: FILL -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the Blanks</h2>
+    <p class="instr">Complete the sentences using appropriate vocabulary from Tab 3.</p>
+    
+    <div class="fill-item">
+      <p><span class="num">01</span>The <input class="fill-input wide" data-answer="paparazzi"> followed the actress everywhere, making it impossible for her to have privacy.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>Many celebrities feel <strong>caught in a</strong> <input class="fill-input wide" data-answer="gilded cage">, unable to escape their luxurious but restrictive lives.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>The constant <strong>pressure to maintain a</strong> <input class="fill-input wide" data-answer="flawless"> image can be mentally exhausting.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>His <strong>public</strong> <input class="fill-input wide" data-answer="persona"> was confident and charming, but in private he was shy and reserved.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>Social media scrutiny can cause one <strong>misstep to</strong> <input class="fill-input wide" data-answer="spark an outrage">, damaging a celebrity's reputation instantly.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">06</span>The <strong>invasion of</strong> <input class="fill-input wide" data-answer="privacy"> is perhaps the biggest challenge celebrities face daily.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">07</span>Many celebrities eventually decide to <strong>step away from the</strong> <input class="fill-input wide" data-answer="limelight">, choosing private life over fame.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">08</span>The <strong>constant media</strong> <input class="fill-input wide" data-answer="scrutiny"> can <strong>take its toll</strong> on mental health and relationships.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">09</span>A <strong>parasocial</strong> <input class="fill-input wide" data-answer="relationship"> forms when fans feel they know a celebrity intimately without mutual interaction.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">10</span>Many celebrities feel trapped in an <input class="fill-input wide" data-answer="inauthentic">, performing identity rather than being their true selves.</p>
+    </div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check Fill</button>
+    <span class="score" id="score7">— / 10</span>
+  </section>
+
+  <!-- TAB 8: MULTIPLE CHOICE -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">❓</span>Multiple Choice</h2>
+    <p class="instr">Answer comprehension questions about the reading passage.</p>
+    
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q01</span>According to the text, what is described as appearing glamorous from the outside but complicated underneath?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Celebrity life</button>
+        <button class="mc-opt">b) Social media platforms</button>
+        <button class="mc-opt">c) Red carpet events</button>
+        <button class="mc-opt">d) Luxury vacations</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q02</span>What does the author say is the "most pervasive challenge" for celebrities?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Financial pressure</button>
+        <button class="mc-opt">b) Managing their team</button>
+        <button class="mc-opt">c) Learning their scripts</button>
+        <button class="mc-opt">d) Invasion of privacy</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q03</span>How has social media "amplified" the pressure to maintain a public image?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) It allows celebrities to earn more money</button>
+        <button class="mc-opt">b) Fans and critics can instantly call someone out for mistakes</button>
+        <button class="mc-opt">c) It prevents paparazzi from following celebrities</button>
+        <button class="mc-opt">d) It helps celebrities avoid scandals</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q04</span>What is a "parasocial relationship" as described in the passage?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) A romantic relationship between two celebrities</button>
+        <button class="mc-opt">b) A professional relationship with a business agent</button>
+        <button class="mc-opt">c) A one-sided relationship where fans feel they know a celebrity intimately</button>
+        <button class="mc-opt">d) A friendship between colleagues in the entertainment industry</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q05</span>Which metaphor is used to describe the experience of living under constant surveillance?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Living in a fishbowl</button>
+        <button class="mc-opt">b) Living on a pedestal</button>
+        <button class="mc-opt">c) Living in the spotlight</button>
+        <button class="mc-opt">d) Living in a castle</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q06</span>According to the passage, what have some celebrities done to balance public and private life?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Increased their social media presence</button>
+        <button class="mc-opt">b) Hired more security personnel</button>
+        <button class="mc-opt">c) Started additional businesses</button>
+        <button class="mc-opt">d) Set firm boundaries and limited social media</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q07</span>What does "take its toll" mean in the context of the passage?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To charge a fee or tax</button>
+        <button class="mc-opt">b) To have a harmful cumulative effect</button>
+        <button class="mc-opt">c) To require someone to work harder</button>
+        <button class="mc-opt">d) To become more popular over time</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q08</span>Why do some celebrities "step back from the limelight"?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To earn more money in different careers</button>
+        <button class="mc-opt">b) Because they are forced by their agents</button>
+        <button class="mc-opt">c) To prioritize mental health and family relationships</button>
+        <button class="mc-opt">d) Because the entertainment industry is declining</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q09</span>What is a "gilded cage" as mentioned in the passage?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) A luxurious but restricting situation</button>
+        <button class="mc-opt">b) A celebrity's luxury mansion</button>
+        <button class="mc-opt">c) A type of bird enclosure</button>
+        <button class="mc-opt">d) A prison for wealthy criminals</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q10</span>What does the author suggest about approaching celebrity gossip?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) It should be avoided completely</button>
+        <button class="mc-opt">b) It provides necessary entertainment value</button>
+        <button class="mc-opt">c) It helps celebrities maintain their careers</button>
+        <button class="mc-opt">d) We should approach it with empathy and realistic expectations</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q11</span>What does "inauthentic" mean based on the passage?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Not following proper authentication procedures</button>
+        <button class="mc-opt">b) Not genuine, true, or sincere; fake or artificial</button>
+        <button class="mc-opt">c) Without proper official documentation</button>
+        <button class="mc-opt">d) Difficult to understand or interpret</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q12</span>Which of these is NOT mentioned as a consequence of being in the public eye?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Loss of privacy</button>
+        <button class="mc-opt">b) Mental health challenges</button>
+        <button class="mc-opt">c) Guaranteed financial success</button>
+        <button class="mc-opt">d) Pressure to maintain a perfect image</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkMC()">✓ Check MC</button>
+    <span class="score" id="score8">— / 12</span>
+  </section>
+
+  <!-- TAB 9: REPORTED SPEECH -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">💬</span>Reported Speech</h2>
+    <p class="instr">Convert direct speech into reported speech, or vice versa. Pay attention to tense shifts and pronoun changes.</p>
+    
+    <div class="grammar-box">
+      <h4>💬 Reported Speech Rules</h4>
+      <ul>
+        <li><strong>Present → Past:</strong> Tenses shift back one level. <code>She said, "I am exhausted." → She said she was exhausted.</code></li>
+        <li><strong>Questions:</strong> Use if/whether + word order changes. <code>"Are you famous?" → He asked if I was famous.</code></li>
+        <li><strong>Pronouns shift:</strong> Based on speaker perspective. <code>"I can't handle this." → She said she couldn't handle it.</code></li>
+        <li><strong>Exceptions:</strong> Universal truths, already past events don't always shift. <code>"The Earth is round." → She said the Earth is round.</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Convert direct speech to reported speech.</p>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>The actor said, "I don't want to give up my privacy." → The actor said <input class="fill-input wide" data-answer="he didn't want to give up his privacy">.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>She explained, "The paparazzi are following me everywhere." → She explained that <input class="fill-input wide" data-answer="the paparazzi were following her everywhere">.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>"Will you stop posting on social media?" he asked. → He asked if <input class="fill-input wide" data-answer="I would stop posting on social media">.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>The celebrity declared, "I'm stepping back from the industry." → The celebrity declared that <input class="fill-input wide" data-answer="she was stepping back from the industry">.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>"Fame has ruined my mental health," she confessed. → She confessed that <input class="fill-input wide" data-answer="fame had ruined her mental health">.</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Identify correct reported speech conversion.</p>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">06</span>Which correctly converts: "I can't handle the pressure"?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) He said he couldn't handle the pressure.</button>
+        <button class="mc-opt">b) He said I can't handle the pressure.</button>
+        <button class="mc-opt">c) He said he can't handle the pressure.</button>
+        <button class="mc-opt">d) He said he couldn't handles the pressure.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">07</span>Which correctly converts: "Are you planning to retire?"?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) She asked am I planning to retire.</button>
+        <button class="mc-opt">b) She asked if I was planning to retire.</button>
+        <button class="mc-opt">c) She asked was I planning to retire.</button>
+        <button class="mc-opt">d) She asked if I am planning to retire.</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkReported()">✓ Check Reported</button>
+    <span class="score" id="score9">— / 7</span>
+  </section>
+
+  <!-- TAB 10: MODAL VERBS -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">🔮</span>Modal Verbs for Speculation</h2>
+    <p class="instr">Use modal verbs to express speculation, possibility, and certainty about celebrities and their situations.</p>
+    
+    <div class="grammar-box">
+      <h4>🔮 Modals for Speculation & Deduction</h4>
+      <ul>
+        <li><strong>might/may + infinitive</strong> = Possibility (present). <code>She might be feeling overwhelmed by fame.</code></li>
+        <li><strong>could + infinitive</strong> = Possibility or ability. <code>This could explain his sudden retirement.</code></li>
+        <li><strong>must + infinitive</strong> = Strong probability. <code>He must be exhausted after all those appearances.</code></li>
+        <li><strong>can't + infinitive</strong> = Strong disbelief/impossibility. <code>That can't be true about the scandal.</code></li>
+        <li><strong>would + infinitive</strong> = Hypothetical situations. <code>I would handle fame differently.</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Complete sentences using appropriate modal verbs.</p>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>The celebrity deleted her social media accounts. She <input class="fill-input wide" data-answer="might be"> taking a break from public scrutiny.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>He hasn't been seen in months. He <input class="fill-input wide" data-answer="could be">, hiding away from the paparazzi.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>She lost millions of followers after the scandal. It <input class="fill-input wide" data-answer="must have been">, devastating for her career.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>A famous actor is buying a remote cabin. He <input class="fill-input wide" data-answer="might want to">, escape the pressures of fame.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>If you were famous, you <input class="fill-input wide" data-answer="would probably struggle">, with the loss of privacy.</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Choose the sentence with the correct modal use.</p>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">06</span>Which sentence correctly uses a modal for speculation?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "She must finish her career by next year."</button>
+        <button class="mc-opt">b) "He can work as an actor." (present ability)</button>
+        <button class="mc-opt">c) "This scandal might damage his reputation permanently."</button>
+        <button class="mc-opt">d) "They will go to the party tonight."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">07</span>Which sentence uses a modal to express a hypothetical situation?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "He might be at home right now."</button>
+        <button class="mc-opt">b) "She must have felt stressed."</button>
+        <button class="mc-opt">c) "You could see the film if you want."</button>
+        <button class="mc-opt">d) "I would never want to be that famous."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">08</span>What does "must + verb" indicate in a speculative sentence?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Permission or obligation</button>
+        <button class="mc-opt">b) Strong probability or logical deduction</button>
+        <button class="mc-opt">c) Weak possibility</button>
+        <button class="mc-opt">d) Certain future plans</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkModal()">✓ Check Modal</button>
+    <span class="score" id="score10">— / 8</span>
+  </section>
+
+  <footer>
+    ⭐ ★ ★ &nbsp; LIFE OF A CELEBRITY · B2 ENGLISH WORKSHEET &nbsp; ★ ★ ⭐
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 6)
+  let selectedWord = null;
+  let matched6 = 0;
+  document.querySelectorAll('#t6 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t6 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched6++;
+          document.getElementById('score6').textContent = matched6 + ' / 10';
+          selectedWord = null;
+          if (matched6 === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 7)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t7 .fill-input');
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === answer) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score7').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score7').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 8)
+  let mcScore = 0;
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score8').textContent = mcScore + ' / 12';
+        if (mcScore === 12) document.getElementById('score8').textContent = '★ 12 / 12 ★';
+      });
+    });
+  });
+
+  // REPORTED (tab 9)
+  let reportedScore = 0;
+  function checkReported() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t9 .fill-input');
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === answer) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    correct += reportedScore;
+    document.getElementById('score9').textContent = correct + ' / 7';
+    if (correct === 7) document.getElementById('score9').textContent = '★ 7 / 7 ★';
+  }
+  document.querySelectorAll('#t9 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          reportedScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+      });
+    });
+  });
+
+  // MODAL (tab 10)
+  let modalScore = 0;
+  function checkModal() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t10 .fill-input');
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === answer) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    correct += modalScore;
+    document.getElementById('score10').textContent = correct + ' / 8';
+    if (correct === 8) document.getElementById('score10').textContent = '★ 8 / 8 ★';
+  }
+  document.querySelectorAll('#t10 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          modalScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
