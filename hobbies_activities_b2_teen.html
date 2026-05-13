@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Hobbies Are Cool at Your Age? — B2 English</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a1a2e;
+    --gold: #d4860e;
+    --beige: #f5f1e8;
+    --cream: #faf8f3;
+    --gold-light: #f5e6d3;
+    --dark-text: #2b2b2b;
+    --mint: #e8f5e9;
+    --mint-border: #4caf50;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--beige);
+    color: var(--dark-text);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(212,134,14,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(26,26,46,0.05) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cream); border: 2px solid var(--navy);
+    border-radius: 18px; padding: 32px 36px; margin-bottom: 28px;
+    position: relative; box-shadow: 6px 6px 0 var(--navy); overflow: hidden;
+  }
+  header::before {
+    content: "🎧"; position: absolute; top: 24px; right: 30px;
+    font-size: 100px; opacity: 0.12; z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block; font-family: 'Courier Prime', monospace;
+    font-size: 11px; letter-spacing: 3px;
+    background: var(--navy); color: var(--gold);
+    padding: 5px 12px; border-radius: 4px; margin-bottom: 14px;
+  }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(34px, 5.5vw, 56px); line-height: 1.05; color: var(--navy); letter-spacing: -1px; }
+  h1 .accent { color: var(--gold); font-style: italic; }
+  .sub { font-size: 17px; color: #4a4a4a; margin-top: 10px; max-width: 640px; }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-family: 'Courier Prime', monospace; font-size: 11px; padding: 4px 10px; background: var(--gold-light); border: 1.5px solid var(--navy); border-radius: 20px; letter-spacing: 1px; color: var(--navy); }
+
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .tab { padding: 12px 16px; background: var(--cream); border: 2px solid var(--navy); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; color: var(--navy); border-radius: 10px; box-shadow: 3px 3px 0 var(--navy); transition: all 0.15s; }
+  .tab:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--navy); }
+  .tab.active { background: var(--navy); color: var(--gold); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)} }
+
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 30px; margin-bottom: 8px; color: var(--navy); }
+  .section-title .emoji { margin-right: 10px; }
+  .instr { color: #4a4a4a; margin-bottom: 22px; font-size: 15px; padding: 10px 14px; background: var(--gold-light); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; }
+
+  .word-bank { background: var(--mint); border: 2px solid var(--mint-border); border-radius: 12px; padding: 14px 18px; margin-bottom: 22px; }
+  .word-bank-label { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 2px; color: var(--mint-border); font-weight: 700; margin-bottom: 8px; display: block; }
+  .word-bank-words { display: flex; flex-wrap: wrap; gap: 8px; }
+  .wb-word { background: var(--cream); border: 1.5px solid var(--mint-border); border-radius: 6px; padding: 4px 10px; font-family: 'Courier Prime', monospace; font-size: 13px; color: var(--navy); }
+
+  .warmup-card { background: var(--cream); border: 2px solid var(--navy); border-left: 6px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: 4px 4px 0 var(--navy); }
+  .warmup-num { font-family: 'Courier Prime', monospace; color: var(--gold); font-weight: 700; font-size: 12px; letter-spacing: 2px; margin-bottom: 4px; }
+  .warmup-q { font-family: 'DM Serif Display', serif; font-size: 18px; line-height: 1.4; color: var(--navy); }
+
+  .speaking-card { background: var(--cream); border: 2px solid var(--navy); border-radius: 14px; padding: 22px 26px; margin-bottom: 18px; box-shadow: 4px 4px 0 var(--navy); }
+  .speaking-task-label { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 2px; color: var(--gold); font-weight: 700; margin-bottom: 6px; display: block; }
+  .speaking-q { font-family: 'DM Serif Display', serif; font-size: 19px; line-height: 1.4; color: var(--navy); margin-bottom: 14px; }
+  .try-use { background: var(--gold-light); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 10px 14px; }
+  .try-use strong { color: var(--gold); font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 1px; display: block; margin-bottom: 6px; }
+  .try-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: var(--cream); border: 1.5px solid var(--navy); border-radius: 20px; padding: 3px 10px; font-size: 13px; font-style: italic; color: var(--navy); }
+
+  .reading { background: var(--cream); border: 2px solid var(--navy); border-radius: 16px; padding: 32px 36px; box-shadow: 6px 6px 0 var(--navy); margin-bottom: 24px; }
+  .reading h3 { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 6px; line-height: 1.2; color: var(--navy); }
+  .reading .byline { font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--gold); margin-bottom: 16px; }
+  .reading p { margin-bottom: 14px; line-height: 1.7; }
+  .reading strong { color: var(--gold); font-weight: 700; }
+
+  .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; margin-top: 18px; }
+  .vocab-card { background: var(--cream); border: 2px solid var(--navy); border-radius: 12px; padding: 18px; box-shadow: 4px 4px 0 var(--navy); }
+  .vocab-card .word { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--gold); margin-bottom: 6px; }
+  .vocab-card .def { font-size: 13px; color: #4a4a4a; line-height: 1.5; margin-bottom: 10px; }
+  .vocab-card code { display: block; background: var(--gold-light); padding: 8px; border-radius: 6px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--navy); border-left: 3px solid var(--gold); }
+
+  .grammar-box { background: var(--gold-light); border: 2px solid var(--gold); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+  .grammar-box h4 { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--navy); margin-bottom: 12px; }
+  .grammar-box ul { margin-left: 20px; }
+  .grammar-box li { margin-bottom: 10px; line-height: 1.6; color: var(--navy); }
+  .grammar-box code { background: var(--cream); padding: 2px 6px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--navy); }
+
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+  .match-col { display: flex; flex-direction: column; gap: 10px; }
+  .match-item { background: var(--cream); border: 2px solid var(--navy); padding: 12px 16px; border-radius: 10px; cursor: pointer; transition: all 0.2s; box-shadow: 3px 3px 0 var(--navy); font-family: 'Inter', sans-serif; color: var(--navy); font-size: 14px; }
+  .match-item:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--navy); }
+  .match-item.selected { background: var(--gold-light); border-color: var(--gold); font-weight: 600; }
+  .match-item.matched { background: #e8f5e9; color: #2e7d32; border-color: #4caf50; cursor: default; }
+  .match-item.wrong { animation: shake 0.3s; }
+  @keyframes shake { 0%,100%{transform:translate(0)} 25%{transform:translate(-4px)} 75%{transform:translate(4px)} }
+
+  .fill-item { margin-bottom: 18px; }
+  .fill-item p { font-size: 15px; line-height: 1.7; color: var(--navy); }
+  .fill-input { border: none; border-bottom: 2px solid var(--navy); padding: 4px 6px; font-family: 'Courier Prime', monospace; background: transparent; min-width: 140px; color: var(--navy); font-size: 14px; }
+  .fill-input.correct { border-bottom-color: #4caf50; background: #e8f5e9; color: #2e7d32; }
+  .fill-input.wrong { border-bottom-color: #c62828; background: #ffcdd2; color: var(--navy); }
+  .num { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--gold); margin-right: 8px; font-size: 14px; }
+
+  .mc-item { margin-bottom: 20px; }
+  .mc-q { font-weight: 600; margin-bottom: 12px; font-size: 15px; color: var(--navy); line-height: 1.5; }
+  .mc-options { display: flex; flex-direction: column; gap: 10px; }
+  .mc-opt { background: var(--cream); border: 2px solid var(--navy); padding: 12px 14px; border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 14px; cursor: pointer; text-align: left; transition: all 0.2s; box-shadow: 3px 3px 0 var(--navy); color: var(--navy); }
+  .mc-opt:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--navy); }
+  .mc-opt:disabled { cursor: default; }
+  .mc-opt.correct { background: var(--gold-light); border-color: var(--gold); color: var(--gold); font-weight: 600; box-shadow: 3px 3px 0 var(--gold); }
+  .mc-opt.wrong { background: #ffcdd2; border-color: #c62828; }
+
+  .check-btn { background: var(--navy); color: var(--cream); border: 2px solid var(--navy); padding: 12px 24px; font-weight: 600; font-size: 14px; border-radius: 10px; cursor: pointer; box-shadow: 4px 4px 0 var(--navy); transition: all 0.2s; margin-right: 16px; margin-top: 8px; }
+  .check-btn:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--navy); }
+  .score { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--gold); font-size: 14px; }
+
+  footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 2px solid var(--navy); font-family: 'Courier Prime', monospace; font-size: 12px; color: #4a4a4a; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="header-content">
+      <span class="badge-label">LEVEL B2 · ADVANCED TEEN</span>
+      <h1>What Hobbies & Activities<br>Are <span class="accent">Cool at Your Age?</span></h1>
+      <p class="sub">Between gaming and sport, content creation and music, the way teenagers spend their free time has never been more varied — or more misunderstood by adults.</p>
+      <div class="tags">
+        <span class="tag">#HOBBIES</span>
+        <span class="tag">#TEEN-IDENTITY</span>
+        <span class="tag">#PERFECT-TENSES</span>
+        <span class="tag">#CONCESSION</span>
+        <span class="tag">#PHRASAL-VERBS</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="t1">1. Warm-up</button>
+    <button class="tab" data-tab="t2">2. Reading</button>
+    <button class="tab" data-tab="t3">3. Vocabulary</button>
+    <button class="tab" data-tab="t4">4. Collocations</button>
+    <button class="tab" data-tab="t5">5. Speaking</button>
+    <button class="tab" data-tab="t6">6. Matching</button>
+    <button class="tab" data-tab="t7">7. Fill</button>
+    <button class="tab" data-tab="t8">8. Multiple Choice</button>
+    <button class="tab" data-tab="t9">9. Perfect Tenses</button>
+    <button class="tab" data-tab="t10">10. Concession & Contrast</button>
+  </div>
+
+  <!-- TAB 1 -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">🤔</span>Warm-up</h2>
+    <p class="instr">Discuss these questions with a partner before reading.</p>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 01</div>
+      <div class="warmup-q">What activities define your generation — things that teenagers do today that didn't exist ten years ago?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 02</div>
+      <div class="warmup-q">Do adults understand how teenagers spend their free time? Where do they get it wrong?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 03</div>
+      <div class="warmup-q">Can a hobby become a career? Have you ever seriously thought about turning something you love into a job?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 04</div>
+      <div class="warmup-q">Is there a difference between a "productive" hobby and a "waste of time"? Who decides which is which?</div>
+    </div>
+  </section>
+
+  <!-- TAB 2 -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading</h2>
+    <p class="instr">Read about Mia — a 17-year-old who has turned her hobbies into something much bigger than she expected.</p>
+
+    <div class="reading">
+      <h3>The Side Hustle Generation</h3>
+      <p class="byline">★ Mia Kowalski, 17 · Warsaw · Content Creator, Gamer, Athlete · 2025</p>
+
+      <p>When Mia was fourteen, she started editing short gaming videos and uploading them for fun. Three years later, she has <strong>amassed</strong> 47,000 followers across YouTube and TikTok, signed a small brand deal with a gaming headset company, and is seriously considering a career in digital media. None of this was planned. "I just loved editing," she says. "I never thought it would <strong>take off</strong> the way it did." Her parents, initially sceptical, have <strong>come around</strong>. Her school, less so.</p>
+
+      <p>"The funny thing," Mia explains, "is that the skills I've developed through content creation are the ones that actually matter. I've taught myself video editing, graphic design, scriptwriting, and basic marketing — all without a single lesson." She also co-runs an amateur esports team that competes in regional tournaments, training three times a week. The team has <strong>been going</strong> for eighteen months and recently <strong>qualified for</strong> a national competition. "People assume gaming is just mindless entertainment. But organising a team, managing schedules, and preparing strategies — it's not that different from running a business."</p>
+
+      <p>Beyond the screen, Mia swims competitively and has been playing the violin since she was seven. She <strong>gave up</strong> competitive swimming at sixteen — it was consuming too much time — but still <strong>goes for</strong> long morning swims three times a week for mental clarity. "When I'm in the water," she says, "my brain completely <strong>switches off</strong>. I've solved more problems swimming than sitting at a desk." The violin she never abandoned. <strong>Despite having</strong> a packed schedule, she practises for thirty minutes every night — not because anyone makes her, but because she finds it genuinely meditative.</p>
+
+      <p>The broader picture Mia represents is significant. A 2024 study found that teenagers who <strong>pursue creative hobbies</strong> alongside academic work show higher levels of resilience, stronger problem-solving ability, and better emotional regulation than those who don't. The challenge isn't convincing teenagers to have hobbies — they already have them. The challenge is convincing the adults around them that <strong>not all learning looks like school</strong>.</p>
+    </div>
+
+    <p class="instr"><strong>Answer these comprehension questions in full sentences:</strong></p>
+    <div class="fill-item"><p><span class="num">01</span>What skills has Mia developed through content creation, and how did she learn them?</p></div>
+    <div class="fill-item"><p><span class="num">02</span>Why did Mia give up competitive swimming, and how does she still use it?</p></div>
+    <div class="fill-item"><p><span class="num">03</span>What does the final paragraph suggest about teenagers and learning?</p></div>
+  </section>
+
+  <!-- TAB 3 -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">📚</span>Vocabulary</h2>
+    <p class="instr">Study these key words from the reading about hobbies, creativity, and teen life.</p>
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="word">amass</div>
+        <div class="def">To gradually collect or build up a large amount of something over time.</div>
+        <code>She amassed 47,000 followers in just three years of posting content.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">side hustle</div>
+        <div class="def">A way of making extra money alongside a main job or school — often creative.</div>
+        <code>Her YouTube channel started as a side hustle and became a real career prospect.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">esports</div>
+        <div class="def">Competitive video gaming played in organised tournaments, often for prizes.</div>
+        <code>Esports tournaments now attract millions of viewers globally.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">sceptical</div>
+        <div class="def">Doubtful about something; not easily convinced that something is true or worthwhile.</div>
+        <code>Her parents were initially sceptical about her channel but eventually supported her.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">meditative</div>
+        <div class="def">Providing a calm, reflective state of mind — helping you think clearly.</div>
+        <code>She finds playing the violin meditative after a stressful day at school.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">resilience</div>
+        <div class="def">The ability to recover from setbacks and keep going when things are difficult.</div>
+        <code>Creative hobbies have been shown to build resilience in teenagers.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">brand deal</div>
+        <div class="def">A paid partnership between a content creator and a company to promote products.</div>
+        <code>Her first brand deal paid for new gaming equipment and editing software.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">emotional regulation</div>
+        <div class="def">The ability to manage and control your emotional responses to situations.</div>
+        <code>Regular creative activity improves emotional regulation in young people.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">digital media</div>
+        <div class="def">Content — videos, posts, podcasts — created and distributed through digital platforms.</div>
+        <code>Mia is considering a career in digital media after her success on YouTube.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">mental clarity</div>
+        <div class="def">A state of clear, focused thinking — free from stress or mental fog.</div>
+        <code>Morning swims give her the mental clarity she needs before a busy school day.</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4 -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">🎯</span>Common Collocations</h2>
+    <p class="instr">Learn these natural word combinations used when talking about hobbies, ambition, and teen life.</p>
+
+    <div class="grammar-box">
+      <h4>🎮 Hobbies and passions</h4>
+      <ul>
+        <li><strong>pursue a hobby</strong> = to actively follow and develop an interest. <code>Teenagers who pursue creative hobbies develop stronger problem-solving skills.</code></li>
+        <li><strong>develop a skill</strong> = to improve an ability through practice and effort. <code>She developed her editing skills entirely through self-teaching.</code></li>
+        <li><strong>dedicate time to</strong> = to choose to spend time on something important. <code>Despite her busy schedule, she dedicates 30 minutes a day to violin.</code></li>
+        <li><strong>nurture a talent</strong> = to care for and develop a natural ability. <code>Schools should do more to nurture talent outside of academic subjects.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>💡 Success and ambition</h4>
+      <ul>
+        <li><strong>turn a passion into a career</strong> = to make your hobby your profession. <code>More teenagers are turning their passions into careers through social media.</code></li>
+        <li><strong>build an audience</strong> = to grow a group of followers or viewers over time. <code>Building an audience takes months of consistent effort and original content.</code></li>
+        <li><strong>make a name for yourself</strong> = to become known and respected in a field. <code>She's making a name for herself in the esports community at just 17.</code></li>
+        <li><strong>break into an industry</strong> = to successfully enter a competitive field. <code>Digital media is a hard industry to break into without a strong portfolio.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>🧠 Wellbeing and balance</h4>
+      <ul>
+        <li><strong>switch off</strong> = to stop thinking about problems and relax completely. <code>Swimming is the only time she truly switches off from everything.</code></li>
+        <li><strong>mental wellbeing</strong> = the overall health of your mind, emotions, and thoughts. <code>Regular physical activity is proven to boost mental wellbeing in teenagers.</code></li>
+        <li><strong>strike a balance</strong> = to find the right amount of two competing things. <code>She has managed to strike a balance between school, sport, and content creation.</code></li>
+        <li><strong>take its toll</strong> = to gradually cause damage or exhaustion. <code>Too many activities can take their toll on your energy and performance.</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TAB 5 -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking Practice</h2>
+    <p class="instr">Speak for <strong>1½–2 minutes</strong> per question. Use <strong>at least 3 suggested expressions</strong> per answer. The last task is a role-play — swap roles after!</p>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 01 · YOUR HOBBY IDENTITY</span>
+      <div class="speaking-q">Which hobby or activity says the most about who you are as a person? Walk us through it — how it started, why you love it, and where it might take you.</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">I've been doing it since...</span>
+          <span class="chip">I first got into it when...</span>
+          <span class="chip">it's more than just...</span>
+          <span class="chip">nurture a talent</span>
+          <span class="chip">it defines me because...</span>
+          <span class="chip">in the long run</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 02 · GAMING AS A SKILL</span>
+      <div class="speaking-q">Mia argues that running an esports team is "not that different from running a business." Do you agree? What genuine skills can gaming develop — and what are its limitations?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">collaborative problem-solving</span>
+          <span class="chip">strategic thinking</span>
+          <span class="chip">on the one hand</span>
+          <span class="chip">admittedly</span>
+          <span class="chip">nevertheless</span>
+          <span class="chip">the evidence suggests</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 03 · PASSION TO CAREER</span>
+      <div class="speaking-q">Is turning your hobby into a career a good idea — or does it ruin what you loved about it? Would you want to make money from your passion? What are the risks?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">turn a passion into a career</span>
+          <span class="chip">brand deal</span>
+          <span class="chip">build an audience</span>
+          <span class="chip">even though it sounds appealing...</span>
+          <span class="chip">the downside is...</span>
+          <span class="chip">it depends on whether...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 04 · DO ADULTS GET IT?</span>
+      <div class="speaking-q">The reading says "not all learning looks like school." Do you think adults understand how teenagers actually learn through hobbies? What do they misunderstand most?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">not all learning looks like...</span>
+          <span class="chip">self-taught</span>
+          <span class="chip">underestimate</span>
+          <span class="chip">it could be argued that</span>
+          <span class="chip">despite what people think</span>
+          <span class="chip">in reality</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 05 · ROLE-PLAY (swap roles!)</span>
+      <div class="speaking-q"><strong>Student A:</strong> You want to take a gap year after school to grow your content creation business. Convince your parent it's a serious career path, not a waste of time.<br><br><strong>Student B:</strong> You are the parent. You support the hobby but worry about the financial risks and a lack of qualifications. Ask probing questions and challenge their plan.</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">I've already built an audience of...</span>
+          <span class="chip">make a name for myself</span>
+          <span class="chip">I take your point, however...</span>
+          <span class="chip">the risk is that...</span>
+          <span class="chip">digital media is a growing industry</span>
+          <span class="chip">what if it doesn't work out?</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 6 -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🔗</span>Matching Exercise</h2>
+    <p class="instr">Match each term on the left with its correct definition. Click a term, then click its match.</p>
+    <div class="match-grid">
+      <div class="match-col">
+        <span class="match-item" data-word="amass">Amass</span>
+        <span class="match-item" data-word="side-hustle">Side hustle</span>
+        <span class="match-item" data-word="esports">Esports</span>
+        <span class="match-item" data-word="sceptical">Sceptical</span>
+        <span class="match-item" data-word="meditative">Meditative</span>
+        <span class="match-item" data-word="brand-deal">Brand deal</span>
+        <span class="match-item" data-word="resilience">Resilience</span>
+        <span class="match-item" data-word="mental-clarity">Mental clarity</span>
+        <span class="match-item" data-word="self-taught">Self-taught</span>
+        <span class="match-item" data-word="emotional-reg">Emotional regulation</span>
+      </div>
+      <div class="match-col">
+        <span class="match-item" data-def="sceptical">Doubtful and not easily convinced that something is true or worthwhile</span>
+        <span class="match-item" data-def="amass">To gradually collect or build up a large amount over time</span>
+        <span class="match-item" data-def="brand-deal">A paid agreement between a creator and a company to promote products</span>
+        <span class="match-item" data-def="esports">Competitive video gaming in organised tournaments, often for prizes</span>
+        <span class="match-item" data-def="side-hustle">A way of earning money alongside school or a main job, often creative</span>
+        <span class="match-item" data-def="resilience">The capacity to recover from difficulties and keep going despite setbacks</span>
+        <span class="match-item" data-def="meditative">Providing a calming, reflective mental state; helping clear the mind</span>
+        <span class="match-item" data-def="self-taught">Having learned a skill without formal lessons or teachers</span>
+        <span class="match-item" data-def="mental-clarity">A state of focused, clear thinking, free from stress or confusion</span>
+        <span class="match-item" data-def="emotional-reg">The ability to manage and control one's emotional responses effectively</span>
+      </div>
+    </div>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- TAB 7 -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the Blanks</h2>
+    <p class="instr">Use a word or phrase from the Word Bank to complete each sentence. Each item is used once.</p>
+
+    <div class="word-bank">
+      <span class="word-bank-label">📖 WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">amassed</span>
+        <span class="wb-word">side hustle</span>
+        <span class="wb-word">sceptical</span>
+        <span class="wb-word">meditative</span>
+        <span class="wb-word">resilience</span>
+        <span class="wb-word">brand deal</span>
+        <span class="wb-word">esports</span>
+        <span class="wb-word">mental clarity</span>
+        <span class="wb-word">emotional regulation</span>
+        <span class="wb-word">digital media</span>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>Mia has <input class="fill-input" data-answer="amassed">, 47,000 followers across YouTube and TikTok over three years.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>What started as a <input class="fill-input" data-answer="side hustle">, has become a serious career prospect for her.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>Her parents were initially <input class="fill-input" data-answer="sceptical">, but eventually came around and supported her channel.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>She signed her first <input class="fill-input" data-answer="brand deal">, with a gaming headset company at seventeen.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>Mia co-runs an amateur <input class="fill-input" data-answer="esports">, team that competes in regional gaming tournaments.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">06</span>She finds playing the violin deeply <input class="fill-input" data-answer="meditative">, especially after stressful days.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">07</span>Research shows that creative hobbies build <input class="fill-input" data-answer="resilience">, in teenagers facing academic pressure.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">08</span>Morning swims give her the <input class="fill-input" data-answer="mental clarity">, to focus during long school days.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">09</span>Creative activities improve <input class="fill-input" data-answer="emotional regulation">, helping teens manage stress and anxiety.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">10</span>Mia is seriously considering a career in <input class="fill-input" data-answer="digital media">, after her success on YouTube and TikTok.</p>
+    </div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check Answers</button>
+    <span class="score" id="score7">— / 10</span>
+  </section>
+
+  <!-- TAB 8 -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">❓</span>Multiple Choice</h2>
+    <p class="instr">Choose the best answer based on the reading and vocabulary.</p>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q01</span>How old was Mia when she started uploading gaming videos?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) 14</button>
+        <button class="mc-opt">b) 15</button>
+        <button class="mc-opt">c) 16</button>
+        <button class="mc-opt">d) 17</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q02</span>What skills did Mia develop through content creation?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Only video editing</button>
+        <button class="mc-opt">b) Esports and swimming coaching</button>
+        <button class="mc-opt">c) Video editing, graphic design, scriptwriting, and marketing</button>
+        <button class="mc-opt">d) Coding and app development</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q03</span>Why did Mia give up competitive swimming?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) She suffered an injury</button>
+        <button class="mc-opt">b) It was taking up too much time</button>
+        <button class="mc-opt">c) She became more interested in gaming</button>
+        <button class="mc-opt">d) Her school removed the programme</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q04</span>How long has Mia's esports team been running?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Three years</button>
+        <button class="mc-opt">b) Six months</button>
+        <button class="mc-opt">c) Three months</button>
+        <button class="mc-opt">d) Eighteen months</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q05</span>What does "come around" mean in the reading?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To change your opinion and become more supportive</button>
+        <button class="mc-opt">b) To visit someone at their home</button>
+        <button class="mc-opt">c) To return to a previous activity</button>
+        <button class="mc-opt">d) To become angry about something</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q06</span>Why does Mia still swim, even though she quit competitive swimming?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) She is training to return to competitions</button>
+        <button class="mc-opt">b) Her parents insist she keeps swimming</button>
+        <button class="mc-opt">c) She uses it for mental clarity and stress relief</button>
+        <button class="mc-opt">d) She is coaching younger swimmers at the club</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q07</span>What does the 2024 study mentioned in the text find about creative hobbies?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) They reduce academic performance</button>
+        <button class="mc-opt">b) They develop resilience, problem-solving, and emotional regulation</button>
+        <button class="mc-opt">c) They are only beneficial for girls</button>
+        <button class="mc-opt">d) They are only effective when combined with sport</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q08</span>What does "not all learning looks like school" mean?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Schools are becoming less important</button>
+        <button class="mc-opt">b) Only practical skills matter in life</button>
+        <button class="mc-opt">c) Schools should change their appearance</button>
+        <button class="mc-opt">d) Valuable learning happens in many forms beyond formal education</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q09</span>How long has Mia played violin?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Since she was seven — about ten years</button>
+        <button class="mc-opt">b) Since she was twelve</button>
+        <button class="mc-opt">c) For three years</button>
+        <button class="mc-opt">d) She recently picked it up as a new hobby</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>What does "amass" mean in the reading?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To quickly lose something</button>
+        <button class="mc-opt">b) To pretend to have something you don't</button>
+        <button class="mc-opt">c) To gradually collect or build up a large amount over time</button>
+        <button class="mc-opt">d) To share equally with others</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q11</span>According to Mia, what makes esports similar to business?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Both make a lot of money</button>
+        <button class="mc-opt">b) Both require organising people, managing schedules, and preparing strategies</button>
+        <button class="mc-opt">c) Both are done on computers</button>
+        <button class="mc-opt">d) Both involve marketing and brand deals</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q12</span>What is the main argument of the reading?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Teenagers should spend less time on screens</button>
+        <button class="mc-opt">b) Content creation is the best career for young people</button>
+        <button class="mc-opt">c) Sport is more valuable than gaming for teenagers</button>
+        <button class="mc-opt">d) Teenagers develop real and significant skills through hobbies that adults often undervalue</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkMC()">✓ Check MC</button>
+    <span class="score" id="score8">— / 12</span>
+  </section>
+
+  <!-- TAB 9: PERFECT TENSES -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">⏱️</span>Perfect Tenses</h2>
+    <p class="instr">Complete the exercises using the correct perfect tense form.</p>
+
+    <div class="grammar-box">
+      <h4>⏱️ Perfect Tenses — Key Uses</h4>
+      <ul>
+        <li><strong>Present Perfect Simple:</strong> life experience or recent past with present result. <code>Mia has amassed 47,000 followers since she started posting.</code></li>
+        <li><strong>Present Perfect Continuous:</strong> ongoing action from past to now — emphasises duration. <code>She has been playing violin since she was seven. / The team has been competing for 18 months.</code></li>
+        <li><strong>Past Perfect:</strong> something that happened before another past event. <code>By the time she was 17, she had already signed a brand deal.</code></li>
+        <li><strong>Key signals:</strong> since, for, already, yet, just, ever, never, by the time, before.</li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Use a verb form from the Word Bank to complete each sentence.</p>
+
+    <div class="word-bank">
+      <span class="word-bank-label">📖 WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">has been playing</span>
+        <span class="wb-word">have developed</span>
+        <span class="wb-word">had already taught</span>
+        <span class="wb-word">has qualified</span>
+        <span class="wb-word">has been going</span>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>Mia <input class="fill-input" data-answer="has been playing">, violin since she was seven years old. (ongoing since past)</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>The esports team <input class="fill-input" data-answer="has been going">, for eighteen months now. (duration to present)</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>The team <input class="fill-input" data-answer="has qualified">, for the national competition this year. (recent achievement)</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>By the time she turned 17, she <input class="fill-input" data-answer="had already taught">, herself graphic design and marketing. (before a past moment)</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>Teenagers who pursue creative hobbies <input class="fill-input" data-answer="have developed">, stronger resilience than those who don't. (life experience / general result)</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Choose the correct tense.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q06</span>Which sentence is correct?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "She is playing violin for ten years."</button>
+        <button class="mc-opt">b) "She has been playing violin for ten years."</button>
+        <button class="mc-opt">c) "She plays violin since ten years."</button>
+        <button class="mc-opt">d) "She was playing violin for ten years."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q07</span>Which sentence uses the Past Perfect correctly?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Before she got the brand deal, she built her audience."</button>
+        <button class="mc-opt">b) "Before she got the brand deal, she has built her audience."</button>
+        <button class="mc-opt">c) "Before she got the brand deal, she had already built a large audience."</button>
+        <button class="mc-opt">d) "Before she got the brand deal, she was already building her audience."</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkPerfect()">✓ Check Perfect Tenses</button>
+    <span class="score" id="score9">— / 7</span>
+  </section>
+
+  <!-- TAB 10: CONCESSION & CONTRAST -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">⚖️</span>Concession & Contrast</h2>
+    <p class="instr">Concession structures allow you to acknowledge one side while arguing another. They make your speaking and writing much more sophisticated.</p>
+
+    <div class="grammar-box">
+      <h4>⚖️ Concession & Contrast Structures</h4>
+      <ul>
+        <li><strong>Although / Even though + clause:</strong> <code>Although gaming has a bad reputation, it develops real teamwork skills.</code></li>
+        <li><strong>Despite / In spite of + noun/gerund:</strong> <code>Despite having a packed schedule, she practises violin every night.</code></li>
+        <li><strong>However / Nevertheless / Even so:</strong> used to introduce a contrasting point. <code>Gaming can be addictive. Nevertheless, the evidence for its benefits is strong.</code></li>
+        <li><strong>Admittedly:</strong> acknowledges a weakness in your argument before moving on. <code>Admittedly, not every teenager will turn their hobby into a career.</code></li>
+        <li><strong>Whereas / While:</strong> compares two contrasting ideas. <code>While some see gaming as a waste of time, others view it as a valuable skill.</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Use a word or phrase from the Word Bank to complete each sentence.</p>
+
+    <div class="word-bank">
+      <span class="word-bank-label">📖 WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">Although</span>
+        <span class="wb-word">Despite</span>
+        <span class="wb-word">Nevertheless</span>
+        <span class="wb-word">Admittedly</span>
+        <span class="wb-word">whereas</span>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <p><span class="num">01</span><input class="fill-input" data-answer="Although">, her parents were initially sceptical, they eventually came to support her fully.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span><input class="fill-input" data-answer="Despite">, having a completely packed schedule, Mia practises violin for thirty minutes every night.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>Gaming can be time-consuming. <input class="fill-input" data-answer="Nevertheless">, the skills it develops are genuinely valuable in the real world.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span><input class="fill-input" data-answer="Admittedly">, not all teenagers can build a 47,000-follower audience — but that's not the only measure of success.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>Some adults see hobbies as a distraction, <input class="fill-input" data-answer="whereas">, research suggests they are a vital part of healthy development.</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Choose the correct concession structure.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q06</span>Which sentence uses "despite" correctly?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Despite she is busy, she practises every night."</button>
+        <button class="mc-opt">b) "Despite being busy, she practises every night."</button>
+        <button class="mc-opt">c) "Despite of being busy, she practises every night."</button>
+        <button class="mc-opt">d) "Despite to be busy, she practises every night."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q07</span>Which correctly uses "although" as a concession?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Although but gaming is fun, it can be addictive."</button>
+        <button class="mc-opt">b) "Although gaming is fun, however it can be addictive."</button>
+        <button class="mc-opt">c) "Although gaming is fun, it can still become addictive."</button>
+        <button class="mc-opt">d) "Although, gaming can be addictive."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q08</span>What is the purpose of using "admittedly" in an argument?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To acknowledge a weakness in your argument before making your main point stronger</button>
+        <button class="mc-opt">b) To completely change your opinion</button>
+        <button class="mc-opt">c) To agree with everything the other person says</button>
+        <button class="mc-opt">d) To express strong disagreement with a view</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkConcession()">✓ Check Concession</button>
+    <span class="score" id="score10">— / 8</span>
+  </section>
+
+  <footer>
+    🎧 ★ ★ &nbsp; HOBBIES & ACTIVITIES · B2 ENGLISH · TEEN EDITION &nbsp; ★ ★ 🎧
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING
+  let selectedWord = null, matched6 = 0;
+  document.querySelectorAll('#t6 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t6 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected'); selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected'); selectedWord.classList.add('matched');
+          item.classList.add('matched'); matched6++;
+          document.getElementById('score6').textContent = matched6 === 10 ? '★ 10 / 10 ★' : matched6 + ' / 10';
+          selectedWord = null;
+        } else { item.classList.add('wrong'); setTimeout(() => item.classList.remove('wrong'), 500); }
+      }
+    });
+  });
+
+  // FILL
+  function checkFill() {
+    let correct = 0;
+    document.querySelectorAll('#t7 .fill-input').forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === ans) { input.classList.add('correct'); correct++; }
+      else if (val) input.classList.add('wrong');
+    });
+    document.getElementById('score7').textContent = correct === 10 ? '★ 10 / 10 ★' : correct + ' / 10';
+  }
+
+  // MC
+  let mcScore = 0;
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); mcScore++; }
+        else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+        document.getElementById('score8').textContent = mcScore === 12 ? '★ 12 / 12 ★' : mcScore + ' / 12';
+      });
+    });
+  });
+
+  // PERFECT TENSES
+  let perfScore = 0;
+  function checkPerfect() {
+    let correct = 0;
+    document.querySelectorAll('#t9 .fill-input').forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === ans) { input.classList.add('correct'); correct++; }
+      else if (val) input.classList.add('wrong');
+    });
+    correct += perfScore;
+    document.getElementById('score9').textContent = correct === 7 ? '★ 7 / 7 ★' : correct + ' / 7';
+  }
+  document.querySelectorAll('#t9 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); perfScore++; }
+        else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+
+  // CONCESSION
+  let conScore = 0;
+  function checkConcession() {
+    let correct = 0;
+    document.querySelectorAll('#t10 .fill-input').forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === ans) { input.classList.add('correct'); correct++; }
+      else if (val) input.classList.add('wrong');
+    });
+    correct += conScore;
+    document.getElementById('score10').textContent = correct === 8 ? '★ 8 / 8 ★' : correct + ' / 8';
+  }
+  document.querySelectorAll('#t10 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); conScore++; }
+        else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+</script>
+</body>
+</html>
