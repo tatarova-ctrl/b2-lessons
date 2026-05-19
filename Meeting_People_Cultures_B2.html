@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meeting People in Different Cultures — B2 English</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #1a1a2e; --gold: #d4860e; --beige: #f5f1e8; --cream: #faf8f3; --gold-light: #f5e6d3; --dark-text: #2b2b2b; --mint: #e8f5e9; --mint-border: #4caf50; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--beige); color: var(--dark-text); line-height: 1.65; min-height: 100vh; background-image: radial-gradient(ellipse at top left, rgba(212,134,14,0.08) 0%, transparent 50%), radial-gradient(ellipse at bottom right, rgba(26,26,46,0.05) 0%, transparent 50%); }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+  header { background: var(--cream); border: 2px solid var(--navy); border-radius: 18px; padding: 32px 36px; margin-bottom: 28px; position: relative; box-shadow: 6px 6px 0 var(--navy); overflow: hidden; }
+  header::before { content: "🌍"; position: absolute; top: 24px; right: 30px; font-size: 100px; opacity: 0.12; z-index: 0; }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label { display: inline-block; font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 3px; background: var(--navy); color: var(--gold); padding: 5px 12px; border-radius: 4px; margin-bottom: 14px; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 5vw, 50px); line-height: 1.07; color: var(--navy); letter-spacing: -1px; }
+  h1 .accent { color: var(--gold); font-style: italic; }
+  .sub { font-size: 17px; color: #4a4a4a; margin-top: 10px; max-width: 640px; }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-family: 'Courier Prime', monospace; font-size: 11px; padding: 4px 10px; background: var(--gold-light); border: 1.5px solid var(--navy); border-radius: 20px; letter-spacing: 1px; color: var(--navy); }
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .tab { padding: 12px 15px; background: var(--cream); border: 2px solid var(--navy); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; color: var(--navy); border-radius: 10px; box-shadow: 3px 3px 0 var(--navy); transition: all 0.15s; }
+  .tab:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--navy); }
+  .tab.active { background: var(--navy); color: var(--gold); }
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)} }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 8px; color: var(--navy); }
+  .section-title .emoji { margin-right: 10px; }
+  .instr { color: #4a4a4a; margin-bottom: 22px; font-size: 15px; padding: 10px 14px; background: var(--gold-light); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; }
+  .word-bank { background: var(--mint); border: 2px solid var(--mint-border); border-radius: 12px; padding: 14px 18px; margin-bottom: 22px; }
+  .word-bank-label { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 2px; color: var(--mint-border); font-weight: 700; margin-bottom: 8px; display: block; }
+  .word-bank-words { display: flex; flex-wrap: wrap; gap: 8px; }
+  .wb-word { background: var(--cream); border: 1.5px solid var(--mint-border); border-radius: 6px; padding: 4px 10px; font-family: 'Courier Prime', monospace; font-size: 13px; color: var(--navy); }
+  .warmup-card { background: var(--cream); border: 2px solid var(--navy); border-left: 6px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: 4px 4px 0 var(--navy); }
+  .warmup-num { font-family: 'Courier Prime', monospace; color: var(--gold); font-weight: 700; font-size: 12px; letter-spacing: 2px; margin-bottom: 4px; }
+  .warmup-q { font-family: 'DM Serif Display', serif; font-size: 18px; line-height: 1.4; color: var(--navy); }
+  .speaking-card { background: var(--cream); border: 2px solid var(--navy); border-radius: 14px; padding: 22px 26px; margin-bottom: 18px; box-shadow: 4px 4px 0 var(--navy); }
+  .speaking-task-label { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 2px; color: var(--gold); font-weight: 700; margin-bottom: 6px; display: block; }
+  .speaking-q { font-family: 'DM Serif Display', serif; font-size: 18px; line-height: 1.4; color: var(--navy); margin-bottom: 14px; }
+  .try-use { background: var(--gold-light); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 10px 14px; }
+  .try-use strong { color: var(--gold); font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 1px; display: block; margin-bottom: 6px; }
+  .try-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: var(--cream); border: 1.5px solid var(--navy); border-radius: 20px; padding: 3px 10px; font-size: 13px; font-style: italic; color: var(--navy); }
+  .reading { background: var(--cream); border: 2px solid var(--navy); border-radius: 16px; padding: 30px 34px; box-shadow: 6px 6px 0 var(--navy); margin-bottom: 24px; }
+  .reading h3 { font-family: 'DM Serif Display', serif; font-size: 26px; margin-bottom: 6px; line-height: 1.2; color: var(--navy); }
+  .reading .byline { font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--gold); margin-bottom: 16px; }
+  .reading p { margin-bottom: 14px; line-height: 1.75; font-size: 15.5px; }
+  .reading strong { color: var(--gold); font-weight: 700; }
+  .grammar-box { background: var(--gold-light); border: 2px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 22px; }
+  .grammar-box h4 { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--navy); margin-bottom: 10px; }
+  .grammar-box ul { margin-left: 20px; }
+  .grammar-box li { margin-bottom: 9px; line-height: 1.6; color: var(--navy); font-size: 14.5px; }
+  .grammar-box code { background: var(--cream); padding: 2px 6px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--navy); }
+  .grammar-highlight { background: #e3f2fd; border: 2px solid #1976d2; border-radius: 12px; padding: 18px 22px; margin-bottom: 24px; }
+  .grammar-highlight h4 { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--navy); margin-bottom: 10px; }
+  .grammar-highlight ul { margin-left: 20px; }
+  .grammar-highlight li { margin-bottom: 9px; line-height: 1.6; color: var(--navy); font-size: 14.5px; }
+  .grammar-highlight code { background: var(--cream); padding: 2px 6px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--navy); }
+  .grammar-sub { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--navy); margin: 18px 0 8px 0; font-weight: 600; }
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .match-col { display: flex; flex-direction: column; gap: 9px; }
+  .match-item { background: var(--cream); border: 2px solid var(--navy); padding: 11px 14px; border-radius: 10px; cursor: pointer; transition: all 0.2s; box-shadow: 3px 3px 0 var(--navy); font-family: 'Inter', sans-serif; color: var(--navy); font-size: 14px; }
+  .match-item:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--navy); }
+  .match-item.selected { background: var(--gold-light); border-color: var(--gold); font-weight: 600; }
+  .match-item.matched { background: #e8f5e9; color: #2e7d32; border-color: #4caf50; cursor: default; }
+  .match-item.wrong { animation: shake 0.3s; }
+  @keyframes shake { 0%,100%{transform:translate(0)} 25%{transform:translate(-4px)} 75%{transform:translate(4px)} }
+  .fill-item { margin-bottom: 16px; }
+  .fill-item p { font-size: 15px; line-height: 1.75; color: var(--navy); }
+  .fill-input { border: none; border-bottom: 2px solid var(--navy); padding: 4px 6px; font-family: 'Courier Prime', monospace; background: transparent; min-width: 140px; color: var(--navy); font-size: 14px; }
+  .fill-input.correct { border-bottom-color: #4caf50; background: #e8f5e9; color: #2e7d32; }
+  .fill-input.wrong { border-bottom-color: #c62828; background: #ffcdd2; color: var(--navy); }
+  .num { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--gold); margin-right: 8px; font-size: 14px; }
+  .mc-item { margin-bottom: 20px; }
+  .mc-q { font-weight: 600; margin-bottom: 10px; font-size: 15px; color: var(--navy); line-height: 1.5; }
+  .mc-options { display: flex; flex-direction: column; gap: 9px; }
+  .mc-opt { background: var(--cream); border: 2px solid var(--navy); padding: 11px 14px; border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 14px; cursor: pointer; text-align: left; transition: all 0.2s; box-shadow: 3px 3px 0 var(--navy); color: var(--navy); }
+  .mc-opt:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--navy); }
+  .mc-opt:disabled { cursor: default; }
+  .mc-opt.correct { background: var(--gold-light); border-color: var(--gold); color: var(--gold); font-weight: 600; box-shadow: 3px 3px 0 var(--gold); }
+  .mc-opt.wrong { background: #ffcdd2; border-color: #c62828; }
+  .check-btn { background: var(--navy); color: var(--cream); border: 2px solid var(--navy); padding: 12px 24px; font-weight: 600; font-size: 14px; border-radius: 10px; cursor: pointer; box-shadow: 4px 4px 0 var(--navy); transition: all 0.2s; margin-right: 16px; margin-top: 8px; }
+  .check-btn:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--navy); }
+  .score { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--gold); font-size: 14px; }
+  footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 2px solid var(--navy); font-family: 'Courier Prime', monospace; font-size: 12px; color: #4a4a4a; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <span class="badge-label">LEVEL B2 · UPPER INTERMEDIATE</span>
+      <h1>Meeting People in<br>Different <span class="accent">Cultures</span></h1>
+      <p class="sub">Cross-cultural communication requires understanding, respect, and open-mindedness. Learn to navigate cultural differences with confidence and build meaningful connections across the globe.</p>
+      <div class="tags">
+        <span class="tag">#CULTURAL-AWARENESS</span>
+        <span class="tag">#COMMUNICATION</span>
+        <span class="tag">#ETIQUETTE</span>
+        <span class="tag">#GREETINGS</span>
+        <span class="tag">#TRADITIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="t1">1. Warm-up</button>
+    <button class="tab" data-tab="t2">2. Reading</button>
+    <button class="tab" data-tab="t3">3. Collocations</button>
+    <button class="tab" data-tab="t4">4. Speaking</button>
+    <button class="tab" data-tab="t5">5. Matching</button>
+    <button class="tab" data-tab="t6">6. Fill</button>
+    <button class="tab" data-tab="t7">7. Multiple Choice</button>
+    <button class="tab" data-tab="t8">8. Grammar: Present & Past</button>
+    <button class="tab" data-tab="t9">9. Grammar: Future & Perfect</button>
+  </div>
+
+  <!-- PANEL 1: WARM-UP -->
+  <section id="t1" class="panel active">
+    <h2 class="section-title"><span class="emoji">🔥</span>Warm-up</h2>
+    
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 1</div>
+      <div class="warmup-q">What cultural greetings do you know? Describe how people greet in at least three different countries.</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 2</div>
+      <div class="warmup-q">Have you ever experienced a cultural misunderstanding? How did you resolve it?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 3</div>
+      <div class="warmup-q">What do you think is the most important quality when meeting people from different cultures?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 4</div>
+      <div class="warmup-q">Describe a tradition or custom from your culture that foreigners might find unusual.</div>
+    </div>
+  </section>
+
+  <!-- PANEL 2: READING -->
+  <section id="t2" class="panel">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading</h2>
+    
+    <div class="reading">
+      <h3>The Art of Cross-Cultural Greetings</h3>
+      <div class="byline">· CULTURAL PERSPECTIVES ·</div>
+      <p>When meeting someone from a different culture, the first exchange is crucial. Greetings are not merely polite formalities; they are windows into cultural values, beliefs, and social hierarchies. Understanding these nuances can mean the difference between building rapport and causing offence.</p>
+      <p>In Western societies, particularly in North America and Northern Europe, the handshake remains the standard greeting in professional contexts. A firm handshake is interpreted as confidence and trustworthiness. However, in parts of the Middle East and South Asia, the <strong>left hand is traditionally considered unclean</strong>, making it essential to always offer your right hand.</p>
+      <p>Asian cultures emphasize respect through physical posture. In Japan, a bow is not just a greeting—it is a demonstration of humility and respect. The depth and duration of the bow correspond to the degree of respect shown. In Thailand, the wai (a gesture with hands pressed together) is equally significant. These are not mere customs; they reflect deeply rooted philosophical principles about social harmony and hierarchy.</p>
+      <p>Latin American and Mediterranean cultures often favour physical warmth. A kiss on the cheek, or even a warm hug, is common among acquaintances. In France, the number of cheek kisses varies by region, ranging from two to four. Meanwhile, in Arab countries, two men greeting might hold hands or kiss on the cheek without any romantic connotation—a gesture that might perplex those unfamiliar with the culture.</p>
+      <p>To navigate these differences successfully, one must cultivate <strong>cultural humility</strong>—the recognition that one's own cultural perspective is not universal. Making an effort to learn and respect local customs demonstrates genuine interest and often results in greater acceptance, even if your attempt is imperfect.</p>
+    </div>
+
+    <h3 class="section-title" style="margin-top: 28px;">Reading Comprehension</h3>
+    
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">1</span>According to the text, what does a firm handshake signify in Western societies?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Uncertainty</button>
+        <button class="mc-opt">b) Confidence and trustworthiness</button>
+        <button class="mc-opt">c) Formality and distance</button>
+        <button class="mc-opt">d) Weakness</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">2</span>Why is it important to use your right hand in the Middle East and South Asia?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Because the left hand is traditionally considered unclean</button>
+        <button class="mc-opt">b) Because the right hand is stronger</button>
+        <button class="mc-opt">c) Because it is more formal</button>
+        <button class="mc-opt">d) Because it shows dominance</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">3</span>What does the depth of a bow in Japan indicate?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) The person's age</button>
+        <button class="mc-opt">b) Nervousness</button>
+        <button class="mc-opt">c) The degree of respect shown</button>
+        <button class="mc-opt">d) Religious affiliation</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">4</span>What is the wai in Thai culture?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) A type of handshake</button>
+        <button class="mc-opt">b) A kiss on the cheek</button>
+        <button class="mc-opt">c) A bow of the head</button>
+        <button class="mc-opt">d) A gesture with hands pressed together</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">5</span>What does "cultural humility" mean according to the text?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Recognizing that one's own cultural perspective is not universal</button>
+        <button class="mc-opt">b) Being ashamed of one's culture</button>
+        <button class="mc-opt">c) Refusing to participate in other cultures</button>
+        <button class="mc-opt">d) Believing all cultures are inferior</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkR()">✓ Check Answers</button>
+    <span class="score" id="scoreR">— / 5</span>
+  </section>
+
+  <!-- PANEL 3: COLLOCATIONS -->
+  <section id="t3" class="panel">
+    <h2 class="section-title"><span class="emoji">🎯</span>Collocations</h2>
+    
+    <div class="instr">Match each word on the left with its correct collocation on the right.</div>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <div class="match-item" data-word="1">break the ice</div>
+        <div class="match-item" data-word="2">cultural</div>
+        <div class="match-item" data-word="3">observe</div>
+        <div class="match-item" data-word="4">social</div>
+        <div class="match-item" data-word="5">show</div>
+      </div>
+      <div class="match-col">
+        <div class="match-item" data-def="5">respect</div>
+        <div class="match-item" data-def="2">awareness</div>
+        <div class="match-item" data-def="3">customs</div>
+        <div class="match-item" data-def="4">hierarchy</div>
+        <div class="match-item" data-def="1">with a joke</div>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="void(0)" style="margin-top: 20px; visibility: hidden;">Auto-tracked</button>
+    <span class="score" id="score3">— / 5</span>
+  </section>
+
+  <!-- PANEL 4: SPEAKING -->
+  <section id="t4" class="panel">
+    <h2 class="section-title"><span class="emoji">🗣️</span>Speaking</h2>
+    
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 1</span>
+      <div class="speaking-q">Describe a greeting ritual from a culture you know well. Explain why it is important and what values it reflects.</div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 2</span>
+      <div class="speaking-q">Imagine you are meeting a business partner from Japan for the first time. What would you do to show respect for their culture?</div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 3</span>
+      <div class="speaking-q">Tell a story about a time you made a cultural mistake. How did you handle it, and what did you learn?</div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 4</span>
+      <div class="speaking-q">Compare greetings in two different cultures. What are the similarities and differences? Which do you find more meaningful?</div>
+    </div>
+
+    <div style="margin-top: 24px; padding: 16px 18px; background: var(--gold-light); border-radius: 10px; border-left: 4px solid var(--gold);">
+      <strong style="display: block; margin-bottom: 8px; color: var(--gold); font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 1px;">TRY USING THESE EXPRESSIONS:</strong>
+      <div class="try-chips">
+        <span class="chip">In my experience...</span>
+        <span class="chip">It's worth noting that...</span>
+        <span class="chip">From my perspective...</span>
+        <span class="chip">This demonstrates...</span>
+        <span class="chip">The underlying reason is...</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL 5: MATCHING -->
+  <section id="t5" class="panel">
+    <h2 class="section-title"><span class="emoji">🔗</span>Matching Idioms & Expressions</h2>
+    
+    <div class="instr">Match each idiom on the left with its definition on the right.</div>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <div class="match-item" data-word="a">break the ice</div>
+        <div class="match-item" data-word="b">hit it off</div>
+        <div class="match-item" data-word="c">get to know someone</div>
+        <div class="match-item" data-word="d">common ground</div>
+        <div class="match-item" data-word="e">step into someone's shoes</div>
+        <div class="match-item" data-word="f">cultural faux pas</div>
+        <div class="match-item" data-word="g">embrace customs</div>
+        <div class="match-item" data-word="h">clash of cultures</div>
+        <div class="match-item" data-word="i">social etiquette</div>
+        <div class="match-item" data-word="j">bridge the gap</div>
+      </div>
+      <div class="match-col">
+        <div class="match-item" data-def="a">To make someone comfortable in a social situation</div>
+        <div class="match-item" data-def="b">To like each other immediately</div>
+        <div class="match-item" data-def="c">To learn about someone gradually</div>
+        <div class="match-item" data-def="d">Shared interests or experiences</div>
+        <div class="match-item" data-def="e">To understand another person's perspective</div>
+        <div class="match-item" data-def="f">An embarrassing mistake in social situations</div>
+        <div class="match-item" data-def="g">To accept and welcome traditions</div>
+        <div class="match-item" data-def="h">A conflict between different cultural values</div>
+        <div class="match-item" data-def="i">Rules of polite behavior</div>
+        <div class="match-item" data-def="j">To reduce differences between groups</div>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="void(0)" style="margin-top: 20px; visibility: hidden;">Auto-tracked</button>
+    <span class="score" id="score5">— / 10</span>
+  </section>
+
+  <!-- PANEL 6: FILL IN THE GAPS -->
+  <section id="t6" class="panel">
+    <h2 class="section-title"><span class="emoji">⚡</span>Fill in the Gaps</h2>
+    
+    <div class="instr">Complete the sentences with the correct word from the word bank.</div>
+
+    <div class="word-bank">
+      <span class="word-bank-label">WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">etiquette</span>
+        <span class="wb-word">customs</span>
+        <span class="wb-word">breach</span>
+        <span class="wb-word">sensitive</span>
+        <span class="wb-word">embrace</span>
+        <span class="wb-word">observing</span>
+        <span class="wb-word">regardless</span>
+        <span class="wb-word">taboo</span>
+        <span class="wb-word">hierarchy</span>
+        <span class="wb-word">perspective</span>
+      </div>
+    </div>
+
+    <div class="fill-item"><p><span class="num">1</span>Understanding local <input type="text" class="fill-input" data-answer="customs"> is essential when travelling abroad.</p></div>
+    <div class="fill-item"><p><span class="num">2</span>A serious <input type="text" class="fill-input" data-answer="breach"> of <input type="text" class="fill-input" data-answer="etiquette"> can offend people from different cultures.</p></div>
+    <div class="fill-item"><p><span class="num">3</span>Being culturally <input type="text" class="fill-input" data-answer="sensitive"> means respecting beliefs that differ from your own.</p></div>
+    <div class="fill-item"><p><span class="num">4</span>Many cultures <input type="text" class="fill-input" data-answer="embrace"> the tradition of sharing meals with guests.</p></div>
+    <div class="fill-item"><p><span class="num">5</span>_____ of local traditions shows genuine interest in other people's cultures. (Hint: -ing form)</p></div>
+    <div class="fill-item"><p><span class="num">6</span>In some cultures, discussing salary is considered <input type="text" class="fill-input" data-answer="taboo">.</p></div>
+    <div class="fill-item"><p><span class="num">7</span>__________ of your background, respect for others is universal. (Hint: regardless)</p></div>
+    <div class="fill-item"><p><span class="num">8</span>Understanding the social <input type="text" class="fill-input" data-answer="hierarchy"> helps in business negotiations with Asian partners.</p></div>
+    <div class="fill-item"><p><span class="num">9</span>From a different <input type="text" class="fill-input" data-answer="perspective">, these customs make perfect sense.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>Learning about other cultures broadens your <input type="text" class="fill-input" data-answer="perspective"> on the world.</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check Answers</button>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- PANEL 7: MULTIPLE CHOICE -->
+  <section id="t7" class="panel">
+    <h2 class="section-title"><span class="emoji">❓</span>Multiple Choice Questions</h2>
+    
+    <div class="instr">Choose the correct answer for each question.</div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">1</span>Which greeting is most appropriate when meeting a person from Japan in a business setting?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) A firm handshake and direct eye contact</button>
+        <button class="mc-opt">b) A slight bow with respect</button>
+        <button class="mc-opt">c) A kiss on both cheeks</button>
+        <button class="mc-opt">d) A warm hug</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">2</span>In many Arab cultures, two men holding hands indicates ________.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Romantic relationship</button>
+        <button class="mc-opt">b) Disrespect</button>
+        <button class="mc-opt">c) Nervousness</button>
+        <button class="mc-opt">d) Friendship and respect</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">3</span>What should you avoid doing when dining with someone from India?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Using your left hand to eat</button>
+        <button class="mc-opt">b) Asking about the food</button>
+        <button class="mc-opt">c) Complimenting the meal</button>
+        <button class="mc-opt">d) Making eye contact</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">4</span>In which country would it be appropriate to compliment your host's possessions when visiting their home?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Germany</button>
+        <button class="mc-opt">b) Scandinavia</button>
+        <button class="mc-opt">c) Islamic cultures</button>
+        <button class="mc-opt">d) United Kingdom</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">5</span>What is the primary reason for learning about cultural differences?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To judge other cultures</button>
+        <button class="mc-opt">b) To build understanding and mutual respect</button>
+        <button class="mc-opt">c) To appear educated</button>
+        <button class="mc-opt">d) To change other people's traditions</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">6</span>Which statement best describes cultural sensitivity?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Criticizing practices different from your own</button>
+        <button class="mc-opt">b) Refusing to participate in other customs</button>
+        <button class="mc-opt">c) Believing your culture is superior</button>
+        <button class="mc-opt">d) Respecting and understanding differences</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkMC7()">✓ Check Answers</button>
+    <span class="score" id="score7">— / 6</span>
+  </section>
+
+  <!-- PANEL 8: GRAMMAR - PRESENT & PAST -->
+  <section id="t8" class="panel">
+    <h2 class="section-title"><span class="emoji">📚</span>Grammar: Present Simple vs Present Continuous / Past Simple vs Past Continuous</h2>
+    
+    <div class="grammar-box">
+      <h4>Present Simple vs Present Continuous</h4>
+      <ul>
+        <li><code>Present Simple</code> = habitual actions, facts: "I always greet people with a handshake."</li>
+        <li><code>Present Continuous</code> = actions happening now: "I am learning about Japanese customs."</li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>Past Simple vs Past Continuous</h4>
+      <ul>
+        <li><code>Past Simple</code> = completed actions: "I visited Japan last year."</li>
+        <li><code>Past Continuous</code> = actions in progress: "I was studying when he called." / "While I was traveling, I learned a lot."</li>
+      </ul>
+    </div>
+
+    <div class="grammar-sub">Part A: Present Simple vs Present Continuous</div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">1</span>She always ________ her guests with a warm hug.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) greets</button>
+        <button class="mc-opt">b) is greeting</button>
+        <button class="mc-opt">c) has greeted</button>
+        <button class="mc-opt">d) will greet</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">2</span>Right now, they ________ about cultural differences in the meeting.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) discuss</button>
+        <button class="mc-opt">b) are discussing</button>
+        <button class="mc-opt">c) discussed</button>
+        <button class="mc-opt">d) have discussed</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">3</span>He ________ three languages fluently.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) speaks</button>
+        <button class="mc-opt">b) is speaking</button>
+        <button class="mc-opt">c) has spoken</button>
+        <button class="mc-opt">d) was speaking</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">4</span>Currently, she ________ the traditions of her new culture.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) respects</button>
+        <button class="mc-opt">b) is respecting</button>
+        <button class="mc-opt">c) has respected</button>
+        <button class="mc-opt">d) respected</button>
+      </div>
+    </div>
+
+    <div class="grammar-sub">Part B: Past Simple vs Past Continuous</div>
+
+    <div class="fill-item"><p><span class="num">5</span>While I <input type="text" class="fill-input" data-answer="was waiting"> at the airport, I <input type="text" class="fill-input" data-answer="met"> a woman from Thailand.</p></div>
+
+    <div class="fill-item"><p><span class="num">6</span>They <input type="text" class="fill-input" data-answer="were discussing"> cultural differences when the power <input type="text" class="fill-input" data-answer="went"> out.</p></div>
+
+    <div class="fill-item"><p><span class="num">7</span>She <input type="text" class="fill-input" data-answer="traveled"> to five countries last year and <input type="text" class="fill-input" data-answer="learned"> so much about different cultures.</p></div>
+
+    <div class="fill-item"><p><span class="num">8</span>As he <input type="text" class="fill-input" data-answer="was working"> abroad, he <input type="text" class="fill-input" data-answer="developed"> deep respect for local customs.</p></div>
+
+    <div class="fill-item"><p><span class="num">9</span>I <input type="text" class="fill-input" data-answer="was reading"> the book when I <input type="text" class="fill-input" data-answer="found"> the perfect example for my essay.</p></div>
+
+    <div class="fill-item"><p><span class="num">10</span>They <input type="text" class="fill-input" data-answer="arrived"> late, but we <input type="text" class="fill-input" data-answer="were waiting"> patiently in the reception area.</p></div>
+
+    <div class="fill-item"><p><span class="num">11</span>When the earthquake <input type="text" class="fill-input" data-answer="happened">, we <input type="text" class="fill-input" data-answer="were eating"> dinner with our Chinese colleagues.</p></div>
+
+    <button class="check-btn" onclick="checkGr8()">✓ Check Parts A & B</button>
+    <span class="score" id="score8">— / 11</span>
+  </section>
+
+  <!-- PANEL 9: GRAMMAR - FUTURE & PERFECT -->
+  <section id="t9" class="panel">
+    <h2 class="section-title"><span class="emoji">📚</span>Grammar: Future with Will/Going to & Present Perfect</h2>
+    
+    <div class="grammar-highlight">
+      <h4>Will vs Going to</h4>
+      <ul>
+        <li><code>Will</code> = spontaneous decision, prediction: "I will help you learn about this culture."</li>
+        <li><code>Going to</code> = plan or intention: "I'm going to visit Japan next summer."</li>
+      </ul>
+    </div>
+
+    <div class="grammar-highlight">
+      <h4>Present Perfect</h4>
+      <ul>
+        <li><code>Have/Has + Past Participle</code> = recent action or life experience: "I have visited 15 countries." / "She has just returned from India."</li>
+        <li>Often used without a specific time: "I have always respected cultural differences."</li>
+      </ul>
+    </div>
+
+    <div class="grammar-sub">Part A: Will vs Going to</div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">1</span>I ________ to Japan next month. I've already booked my flight.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) will go</button>
+        <button class="mc-opt">b) am going to go</button>
+        <button class="mc-opt">c) go</button>
+        <button class="mc-opt">d) have gone</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">2</span>A: We need help organizing the cultural event.<br>B: Don't worry, I ________ you.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) will help</button>
+        <button class="mc-opt">b) am going to help</button>
+        <button class="mc-opt">c) have helped</button>
+        <button class="mc-opt">d) helped</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">3</span>It ________ rain soon. Look at those dark clouds!</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) will</button>
+        <button class="mc-opt">b) is going to</button>
+        <button class="mc-opt">c) has</button>
+        <button class="mc-opt">d) would</button>
+      </div>
+    </div>
+
+    <div class="grammar-sub">Part B: Present Perfect</div>
+
+    <div class="fill-item"><p><span class="num">4</span>She <input type="text" class="fill-input" data-answer="has lived"> in three different countries during her life.</p></div>
+
+    <div class="fill-item"><p><span class="num">5</span>I <input type="text" class="fill-input" data-answer="have never experienced"> such hospitality before I visited my friend in Morocco.</p></div>
+
+    <div class="fill-item"><p><span class="num">6</span>He <input type="text" class="fill-input" data-answer="has just returned"> from India, and he wants to share his experiences.</p></div>
+
+    <div class="fill-item"><p><span class="num">7</span>They <input type="text" class="fill-input" data-answer="have always shown"> respect for cultural differences.</p></div>
+
+    <div class="fill-item"><p><span class="num">8</span>We <input type="text" class="fill-input" data-answer="have known"> each other for many years since we <input type="text" class="fill-input" data-answer="met"> at university.</p></div>
+
+    <button class="check-btn" onclick="checkGr9()">✓ Check Parts A & B</button>
+    <span class="score" id="score9">— / 8</span>
+  </section>
+
+  <footer>🌍 ★ ★ &nbsp; MEETING PEOPLE IN DIFFERENT CULTURES · B2 ENGLISH &nbsp; ★ ★ 🌍</footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // READING COMPREHENSION
+  let scoreR = 0;
+  function checkR() {
+    scoreR = 0;
+    document.querySelectorAll('#t2 .mc-item').forEach(item => {
+      const correct = item.dataset.correct;
+      item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+        const letter = ['a','b','c','d'][i];
+        opt.disabled = true;
+        if (letter === correct) { opt.classList.add('correct'); scoreR++; } 
+        else if (opt.classList.contains('correct') || opt.classList.contains('wrong')) {} 
+        else { opt.classList.remove('wrong'); }
+      });
+    });
+    document.getElementById('scoreR').textContent = scoreR === 5 ? '★ 5 / 5 ★' : scoreR + ' / 5';
+  }
+
+  // COLLOCATIONS MATCHING
+  let sel = null, m3 = 0;
+  document.querySelectorAll('#t3 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) { document.querySelectorAll('#t3 [data-word]').forEach(w => w.classList.remove('selected')); item.classList.add('selected'); sel = item; }
+      else if (item.dataset.def && sel) {
+        if (sel.dataset.word === item.dataset.def) { sel.classList.remove('selected'); sel.classList.add('matched'); item.classList.add('matched'); m3++; document.getElementById('score3').textContent = m3 === 5 ? '★ 5 / 5 ★' : m3 + ' / 5'; sel = null; }
+        else { item.classList.add('wrong'); setTimeout(() => item.classList.remove('wrong'), 500); }
+      }
+    });
+  });
+
+  // IDIOMS MATCHING
+  let sel5 = null, m5 = 0;
+  document.querySelectorAll('#t5 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) { document.querySelectorAll('#t5 [data-word]').forEach(w => w.classList.remove('selected')); item.classList.add('selected'); sel5 = item; }
+      else if (item.dataset.def && sel5) {
+        if (sel5.dataset.word === item.dataset.def) { sel5.classList.remove('selected'); sel5.classList.add('matched'); item.classList.add('matched'); m5++; document.getElementById('score5').textContent = m5 === 10 ? '★ 10 / 10 ★' : m5 + ' / 10'; sel5 = null; }
+        else { item.classList.add('wrong'); setTimeout(() => item.classList.remove('wrong'), 500); }
+      }
+    });
+  });
+
+  // FILL IN THE GAPS
+  function checkFill() {
+    let c = 0;
+    document.querySelectorAll('#t6 .fill-input').forEach(i => {
+      const a = i.dataset.answer.toLowerCase().trim(), v = i.value.toLowerCase().trim();
+      i.classList.remove('correct','wrong');
+      if (v === a) { i.classList.add('correct'); c++; } else if (v) i.classList.add('wrong');
+    });
+    document.getElementById('score6').textContent = c === 10 ? '★ 10 / 10 ★' : c + ' / 10';
+  }
+
+  // MULTIPLE CHOICE - T7
+  let mc7 = 0;
+  document.querySelectorAll('#t7 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); mc7++; } else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+        document.getElementById('score7').textContent = mc7 === 6 ? '★ 6 / 6 ★' : mc7 + ' / 6';
+      });
+    });
+  });
+
+  // GRAMMAR 8
+  let g8mc = 0;
+  function checkGr8() {
+    let c = 0;
+    document.querySelectorAll('#t8 .fill-input').forEach(i => {
+      if (!i.dataset.answer) return;
+      const a = i.dataset.answer.toLowerCase().trim(), v = i.value.toLowerCase().trim();
+      i.classList.remove('correct','wrong');
+      if (v === a) { i.classList.add('correct'); c++; } else if (v) i.classList.add('wrong');
+    });
+    c += g8mc;
+    document.getElementById('score8').textContent = c === 11 ? '★ 11 / 11 ★' : c + ' / 11';
+  }
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); g8mc++; } else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+
+  // GRAMMAR 9
+  let g9mc = 0;
+  function checkGr9() {
+    let c = 0;
+    document.querySelectorAll('#t9 .fill-input').forEach(i => {
+      if (!i.dataset.answer) return;
+      const a = i.dataset.answer.toLowerCase().trim(), v = i.value.toLowerCase().trim();
+      i.classList.remove('correct','wrong');
+      if (v === a) { i.classList.add('correct'); c++; } else if (v) i.classList.add('wrong');
+    });
+    c += g9mc;
+    document.getElementById('score9').textContent = c === 8 ? '★ 8 / 8 ★' : c + ' / 8';
+  }
+  document.querySelectorAll('#t9 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); g9mc++; } else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+</script>
+</body>
+</html>
