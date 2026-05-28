@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Centres Popping Up as Mushrooms After Rain — B2 English</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #1a1a2e; --tech: #1f4788; --accent: #d4860e; --beige: #f5f1e8; --cream: #faf8f3; --gold-light: #f5e6d3; --dark-text: #2b2b2b; --mint: #e8f5e9; --mint-border: #4caf50; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--beige); color: var(--dark-text); line-height: 1.65; min-height: 100vh; background-image: radial-gradient(ellipse at top left, rgba(31,71,136,0.08) 0%, transparent 50%), radial-gradient(ellipse at bottom right, rgba(26,26,46,0.05) 0%, transparent 50%); }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+  header { background: var(--cream); border: 2px solid var(--tech); border-radius: 18px; padding: 32px 36px; margin-bottom: 28px; position: relative; box-shadow: 6px 6px 0 var(--tech); overflow: hidden; }
+  header::before { content: "🌐"; position: absolute; top: 24px; right: 30px; font-size: 100px; opacity: 0.12; z-index: 0; }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label { display: inline-block; font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 3px; background: var(--tech); color: var(--accent); padding: 5px 12px; border-radius: 4px; margin-bottom: 14px; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 5vw, 50px); line-height: 1.07; color: var(--tech); letter-spacing: -1px; }
+  h1 .accent { color: var(--accent); font-style: italic; }
+  .sub { font-size: 17px; color: #4a4a4a; margin-top: 10px; max-width: 640px; }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-family: 'Courier Prime', monospace; font-size: 11px; padding: 4px 10px; background: var(--gold-light); border: 1.5px solid var(--tech); border-radius: 20px; letter-spacing: 1px; color: var(--tech); }
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .tab { padding: 12px 15px; background: var(--cream); border: 2px solid var(--tech); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; color: var(--tech); border-radius: 10px; box-shadow: 3px 3px 0 var(--tech); transition: all 0.15s; }
+  .tab:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--tech); }
+  .tab.active { background: var(--tech); color: var(--accent); }
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)} }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 8px; color: var(--tech); }
+  .section-title .emoji { margin-right: 10px; }
+  .instr { color: #4a4a4a; margin-bottom: 22px; font-size: 15px; padding: 10px 14px; background: var(--gold-light); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; }
+  .word-bank { background: var(--mint); border: 2px solid var(--mint-border); border-radius: 12px; padding: 14px 18px; margin-bottom: 22px; }
+  .word-bank-label { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 2px; color: var(--mint-border); font-weight: 700; margin-bottom: 8px; display: block; }
+  .word-bank-words { display: flex; flex-wrap: wrap; gap: 8px; }
+  .wb-word { background: var(--cream); border: 1.5px solid var(--mint-border); border-radius: 6px; padding: 4px 10px; font-family: 'Courier Prime', monospace; font-size: 13px; color: var(--tech); }
+  .warmup-card { background: var(--cream); border: 2px solid var(--tech); border-left: 6px solid var(--accent); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: 4px 4px 0 var(--tech); }
+  .warmup-num { font-family: 'Courier Prime', monospace; color: var(--accent); font-weight: 700; font-size: 12px; letter-spacing: 2px; margin-bottom: 4px; }
+  .warmup-q { font-family: 'DM Serif Display', serif; font-size: 18px; line-height: 1.4; color: var(--tech); }
+  .speaking-card { background: var(--cream); border: 2px solid var(--tech); border-radius: 14px; padding: 22px 26px; margin-bottom: 18px; box-shadow: 4px 4px 0 var(--tech); }
+  .speaking-task-label { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 2px; color: var(--accent); font-weight: 700; margin-bottom: 6px; display: block; }
+  .speaking-q { font-family: 'DM Serif Display', serif; font-size: 18px; line-height: 1.4; color: var(--tech); margin-bottom: 14px; }
+  .try-use { background: var(--gold-light); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; }
+  .try-use strong { color: var(--accent); font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 1px; display: block; margin-bottom: 6px; }
+  .try-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: var(--cream); border: 1.5px solid var(--tech); border-radius: 20px; padding: 3px 10px; font-size: 13px; font-style: italic; color: var(--tech); }
+  .reading { background: var(--cream); border: 2px solid var(--tech); border-radius: 16px; padding: 30px 34px; box-shadow: 6px 6px 0 var(--tech); margin-bottom: 24px; }
+  .reading h3 { font-family: 'DM Serif Display', serif; font-size: 26px; margin-bottom: 6px; line-height: 1.2; color: var(--tech); }
+  .reading .byline { font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--accent); margin-bottom: 16px; }
+  .reading p { margin-bottom: 14px; line-height: 1.75; font-size: 15.5px; }
+  .reading strong { color: var(--accent); font-weight: 700; }
+  .grammar-box { background: var(--gold-light); border: 2px solid var(--accent); border-radius: 12px; padding: 18px 22px; margin-bottom: 22px; }
+  .grammar-box h4 { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--tech); margin-bottom: 10px; }
+  .grammar-box ul { margin-left: 20px; }
+  .grammar-box li { margin-bottom: 9px; line-height: 1.6; color: var(--tech); font-size: 14.5px; }
+  .grammar-box code { background: var(--cream); padding: 2px 6px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--tech); }
+  .grammar-highlight { background: #e3f2fd; border: 2px solid var(--tech); border-radius: 12px; padding: 18px 22px; margin-bottom: 24px; }
+  .grammar-highlight h4 { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--tech); margin-bottom: 10px; }
+  .grammar-highlight ul { margin-left: 20px; }
+  .grammar-highlight li { margin-bottom: 9px; line-height: 1.6; color: var(--tech); font-size: 14.5px; }
+  .grammar-highlight code { background: var(--cream); padding: 2px 6px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--tech); }
+  .grammar-sub { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--tech); margin: 18px 0 8px 0; font-weight: 600; }
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .match-col { display: flex; flex-direction: column; gap: 9px; }
+  .match-item { background: var(--cream); border: 2px solid var(--tech); padding: 11px 14px; border-radius: 10px; cursor: pointer; transition: all 0.2s; box-shadow: 3px 3px 0 var(--tech); font-family: 'Inter', sans-serif; color: var(--tech); font-size: 14px; }
+  .match-item:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--tech); }
+  .match-item.selected { background: var(--gold-light); border-color: var(--accent); font-weight: 600; }
+  .match-item.matched { background: #e8f5e9; color: #2e7d32; border-color: #4caf50; cursor: default; }
+  .match-item.wrong { animation: shake 0.3s; }
+  @keyframes shake { 0%,100%{transform:translate(0)} 25%{transform:translate(-4px)} 75%{transform:translate(4px)} }
+  .fill-item { margin-bottom: 16px; }
+  .fill-item p { font-size: 15px; line-height: 1.75; color: var(--tech); }
+  .fill-input { border: none; border-bottom: 2px solid var(--tech); padding: 4px 6px; font-family: 'Courier Prime', monospace; background: transparent; min-width: 140px; color: var(--tech); font-size: 14px; }
+  .fill-input.correct { border-bottom-color: #4caf50; background: #e8f5e9; color: #2e7d32; }
+  .fill-input.wrong { border-bottom-color: #c62828; background: #ffcdd2; color: var(--tech); }
+  .num { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--accent); margin-right: 8px; font-size: 14px; }
+  .mc-item { margin-bottom: 20px; }
+  .mc-q { font-weight: 600; margin-bottom: 10px; font-size: 15px; color: var(--tech); line-height: 1.5; }
+  .mc-options { display: flex; flex-direction: column; gap: 9px; }
+  .mc-opt { background: var(--cream); border: 2px solid var(--tech); padding: 11px 14px; border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 14px; cursor: pointer; text-align: left; transition: all 0.2s; box-shadow: 3px 3px 0 var(--tech); color: var(--tech); }
+  .mc-opt:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--tech); }
+  .mc-opt:disabled { cursor: default; }
+  .mc-opt.correct { background: var(--gold-light); border-color: var(--accent); color: var(--accent); font-weight: 600; box-shadow: 3px 3px 0 var(--accent); }
+  .mc-opt.wrong { background: #ffcdd2; border-color: #c62828; }
+  .check-btn { background: var(--tech); color: var(--cream); border: 2px solid var(--tech); padding: 12px 24px; font-weight: 600; font-size: 14px; border-radius: 10px; cursor: pointer; box-shadow: 4px 4px 0 var(--tech); transition: all 0.2s; margin-right: 16px; margin-top: 8px; }
+  .check-btn:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--tech); }
+  .score { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--accent); font-size: 14px; }
+  footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 2px solid var(--tech); font-family: 'Courier Prime', monospace; font-size: 12px; color: #4a4a4a; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <span class="badge-label">LEVEL B2 · UPPER INTERMEDIATE</span>
+      <h1>Data Centres Popping Up<br>as <span class="accent">Mushrooms After Rain</span></h1>
+      <p class="sub">Explore the explosive growth of data centres worldwide. Understand the technological revolution, infrastructure challenges, and global implications of this digital infrastructure boom.</p>
+      <div class="tags">
+        <span class="tag">#TECHNOLOGY</span>
+        <span class="tag">#INFRASTRUCTURE</span>
+        <span class="tag">#DATA-GROWTH</span>
+        <span class="tag">#SUSTAINABILITY</span>
+        <span class="tag">#GLOBAL-IMPACT</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="t1">1. Warm-up</button>
+    <button class="tab" data-tab="t2">2. Reading</button>
+    <button class="tab" data-tab="t3">3. Collocations</button>
+    <button class="tab" data-tab="t4">4. Speaking</button>
+    <button class="tab" data-tab="t5">5. Matching</button>
+    <button class="tab" data-tab="t6">6. Fill</button>
+    <button class="tab" data-tab="t7">7. Multiple Choice</button>
+    <button class="tab" data-tab="t8">8. Grammar: Conditionals & Passive</button>
+    <button class="tab" data-tab="t9">9. Grammar: Perfect & Continuous</button>
+  </div>
+
+  <!-- PANEL 1: WARM-UP -->
+  <section id="t1" class="panel active">
+    <h2 class="section-title"><span class="emoji">🔥</span>Warm-up Discussion</h2>
+    
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 1</div>
+      <div class="warmup-q">What role do data centres play in modern society? Can you think of examples of services that depend on them?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 2</div>
+      <div class="warmup-q">What do you think are the environmental consequences of building more data centres? Should there be regulations?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 3</div>
+      <div class="warmup-q">Have you noticed an increase in technology infrastructure in your region? Where have new data centres or tech facilities been built?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 4</div>
+      <div class="warmup-q">What do you think will be the biggest challenge for data centre development in the next decade: energy consumption, cooling, or something else?</div>
+    </div>
+  </section>
+
+  <!-- PANEL 2: READING -->
+  <section id="t2" class="panel">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading Comprehension</h2>
+    
+    <div class="reading">
+      <h3>The Digital Gold Rush: Data Centres Proliferate Globally</h3>
+      <div class="byline">· TECHNOLOGY & INFRASTRUCTURE ANALYSIS ·</div>
+      
+      <p>The metaphor is apt: data centres are sprouting across the globe as rapidly as mushrooms after a heavy rain. This explosive growth reflects the unprecedented demand for cloud computing, artificial intelligence, and digital services. Companies from tech giants to emerging enterprises are racing to build and expand massive facilities to store, process, and distribute vast quantities of data. The consequences of this phenomenon are both transformative and concerning, presenting opportunities and challenges that merit serious consideration.</p>
+
+      <p>The primary driver behind this expansion is the insatiable appetite for digital infrastructure. Every video streamed, email sent, and artificial intelligence model trained requires computational power housed within these facilities. <strong>Hyperscale data centres</strong>—enormous installations operated by companies like Amazon, Google, and Microsoft—have become the backbone of the modern economy. These facilities are not merely buildings; they represent billion-dollar investments in the technological foundation that underpins global commerce, communication, and innovation. The construction of such facilities has accelerated dramatically, particularly in developed nations and emerging markets in Asia.</p>
+
+      <p>However, this rapid proliferation brings significant environmental and logistical challenges. Data centres are notoriously energy-intensive, consuming approximately 1-2% of global electricity annually. <strong>Cooling systems</strong> required to prevent hardware from overheating demand enormous quantities of water and electricity, creating a considerable environmental footprint. Water scarcity in certain regions has prompted conflicts between data centre operators and local communities who depend on finite water resources. Furthermore, the construction of new facilities requires substantial real estate, infrastructure investment, and workforce development, straining local resources and ecosystems.</p>
+
+      <p>The geographical distribution of data centres is reshaping global digital landscape. While North America and Western Europe historically dominated, emerging regions like Ireland, Iceland, and Southeast Asia have become attractive destinations due to cooler climates and abundant renewable energy sources. This geographical shift has profound implications for digital sovereignty, data privacy, and geopolitical power dynamics. Governments are increasingly recognizing that controlling data centre infrastructure is paramount to national security and economic competitiveness.</p>
+
+      <p>Nevertheless, the industry is responding to sustainability concerns. Many companies are investing in renewable energy, implementing advanced cooling technologies, and adopting artificial intelligence to optimize power consumption. Some facilities are pioneering waste heat recovery, transforming excess energy into heating for nearby communities. Yet these innovations may prove insufficient without comprehensive regulatory frameworks and international cooperation. The challenge moving forward is to balance the legitimate demand for digital infrastructure with environmental responsibility and equitable resource management.</p>
+
+      <p>The data centre boom is undeniably transformative, enabling remarkable technological advancement and economic growth. However, without prudent planning and sustainable practices, this mushroom-like proliferation could create environmental and social problems that persist for generations. The decisions made today regarding data centre development will fundamentally shape the sustainability and fairness of our digital future.</p>
+    </div>
+
+    <h3 class="section-title" style="margin-top: 28px;">Comprehension Questions</h3>
+    
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">1</span>What is the primary driver of data centre expansion mentioned in the text?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Competition between governments</button>
+        <button class="mc-opt">b) Insatiable demand for digital infrastructure and cloud services</button>
+        <button class="mc-opt">c) Government mandates to build infrastructure</button>
+        <button class="mc-opt">d) The need to reduce unemployment</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">2</span>What percentage of global electricity do data centres consume annually?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Approximately 1-2%</button>
+        <button class="mc-opt">b) Approximately 5-7%</button>
+        <button class="mc-opt">c) Approximately 10-15%</button>
+        <button class="mc-opt">d) The text does not specify</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">3</span>According to the text, which regions have become attractive for new data centre construction and why?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) North America and Western Europe because of their population</button>
+        <button class="mc-opt">b) Southern Africa because of low labour costs</button>
+        <button class="mc-opt">c) Middle East because of abundant oil resources</button>
+        <button class="mc-opt">d) Ireland, Iceland, and Southeast Asia because of cooler climates and renewable energy</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">4</span>What concern arises from data centres' water consumption in certain regions?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Water pollution</button>
+        <button class="mc-opt">b) Flooding risks</button>
+        <button class="mc-opt">c) Water scarcity and conflicts with local communities</button>
+        <button class="mc-opt">d) Excessive rainfall</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">5</span>What is mentioned as an innovative approach to sustainability in data centres?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Reducing the number of facilities</button>
+        <button class="mc-opt">b) Waste heat recovery to provide heating to communities</button>
+        <button class="mc-opt">c) Relocating all centres to cold regions</button>
+        <button class="mc-opt">d) Abandoning cloud computing</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">6</span>What implication does the geographical shift of data centres have according to the text?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Reduced investment in developed nations</button>
+        <button class="mc-opt">b) Increased consumer costs</button>
+        <button class="mc-opt">c) Better global data distribution</button>
+        <button class="mc-opt">d) Profound implications for digital sovereignty, privacy, and geopolitics</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkR()">✓ Check Answers</button>
+    <span class="score" id="scoreR">— / 6</span>
+  </section>
+
+  <!-- PANEL 3: COLLOCATIONS -->
+  <section id="t3" class="panel">
+    <h2 class="section-title"><span class="emoji">🎯</span>Collocations & Phrases</h2>
+    
+    <div class="instr">Match each word on the left with its correct collocation on the right.</div>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <div class="match-item" data-word="1">exponential</div>
+        <div class="match-item" data-word="2">renewable</div>
+        <div class="match-item" data-word="3">digital</div>
+        <div class="match-item" data-word="4">environmental</div>
+        <div class="match-item" data-word="5">power consumption</div>
+      </div>
+      <div class="match-col">
+        <div class="match-item" data-def="1">growth</div>
+        <div class="match-item" data-def="2">energy</div>
+        <div class="match-item" data-def="3">sovereignty</div>
+        <div class="match-item" data-def="4">footprint</div>
+        <div class="match-item" data-def="5">optimize</div>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="void(0)" style="margin-top: 20px; visibility: hidden;">Auto-tracked</button>
+    <span class="score" id="score3">— / 5</span>
+  </section>
+
+  <!-- PANEL 4: SPEAKING -->
+  <section id="t4" class="panel">
+    <h2 class="section-title"><span class="emoji">🗣️</span>Speaking Tasks</h2>
+    
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 1</span>
+      <div class="speaking-q">Explain the analogy "data centres popping up like mushrooms after rain." Why is this metaphor appropriate? What does it suggest about the pace and scale of expansion?</div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 2</span>
+      <div class="speaking-q">Discuss the environmental implications of data centre proliferation. What are the main concerns, and what solutions might address them?</div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 3</span>
+      <div class="speaking-q">Analyse the shift of data centre locations from developed nations to emerging markets. What advantages do countries like Iceland and Ireland offer? What are the consequences?</div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 4</span>
+      <div class="speaking-q">Evaluate the argument that controlling data centre infrastructure is crucial to national security. Do you agree? Justify your position with examples.</div>
+    </div>
+
+    <div style="margin-top: 24px; padding: 16px 18px; background: var(--gold-light); border-radius: 10px; border-left: 4px solid var(--accent);">
+      <strong style="display: block; margin-bottom: 8px; color: var(--accent); font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 1px;">TRY USING THESE EXPRESSIONS:</strong>
+      <div class="try-chips">
+        <span class="chip">This raises the question of...</span>
+        <span class="chip">Furthermore, it is worth noting...</span>
+        <span class="chip">From a strategic perspective...</span>
+        <span class="chip">The implications are profound because...</span>
+        <span class="chip">This is coupled with...</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL 5: MATCHING -->
+  <section id="t5" class="panel">
+    <h2 class="section-title"><span class="emoji">🔗</span>Matching Vocabulary</h2>
+    
+    <div class="instr">Match each technical term on the left with its definition on the right.</div>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <div class="match-item" data-word="a">hyperscale</div>
+        <div class="match-item" data-word="b">computational</div>
+        <div class="match-item" data-word="c">proliferation</div>
+        <div class="match-item" data-word="d">infrastructure</div>
+        <div class="match-item" data-word="e">sovereign</div>
+        <div class="match-item" data-word="f">geopolitical</div>
+        <div class="match-item" data-word="g">latency</div>
+        <div class="match-item" data-word="h">redundancy</div>
+        <div class="match-item" data-word="i">bandwidth</div>
+        <div class="match-item" data-word="j">optimization</div>
+      </div>
+      <div class="match-col">
+        <div class="match-item" data-def="a">Related to computing power and processing</div>
+        <div class="match-item" data-def="b">Basic systems supporting infrastructure</div>
+        <div class="match-item" data-def="c">Relating to international politics and influence</div>
+        <div class="match-item" data-def="d">Rapid increase or spread</div>
+        <div class="match-item" data-def="e">Massive or enormously large in scale</div>
+        <div class="match-item" data-def="f">Delay in data transmission</div>
+        <div class="match-item" data-def="g">Duplication of systems for reliability</div>
+        <div class="match-item" data-def="h">Independent and autonomous authority</div>
+        <div class="match-item" data-def="i">Data transfer capacity</div>
+        <span class="match-item" data-def="j">Process of improving efficiency</span>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="void(0)" style="margin-top: 20px; visibility: hidden;">Auto-tracked</button>
+    <span class="score" id="score5">— / 10</span>
+  </section>
+
+  <!-- PANEL 6: FILL IN THE GAPS -->
+  <section id="t6" class="panel">
+    <h2 class="section-title"><span class="emoji">⚡</span>Fill in the Gaps</h2>
+    
+    <div class="instr">Complete the sentences with the correct word from the word bank.</div>
+
+    <div class="word-bank">
+      <span class="word-bank-label">WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">proliferation</span>
+        <span class="wb-word">fundamental</span>
+        <span class="wb-word">inevitable</span>
+        <span class="wb-word">infrastructure</span>
+        <span class="wb-word">sustainability</span>
+        <span class="wb-word">facilitate</span>
+        <span class="wb-word">compelling</span>
+        <span class="wb-word">unprecedented</span>
+        <span class="wb-word">paradox</span>
+        <span class="wb-word">exacerbate</span>
+      </div>
+    </div>
+
+    <div class="fill-item"><p><span class="num">1</span>The <input type="text" class="fill-input" data-answer="proliferation"> of data centres reflects the enormous demand for cloud computing services.</p></div>
+    <div class="fill-item"><p><span class="num">2</span>Data centre expansion has become <input type="text" class="fill-input" data-answer="inevitable"> in our increasingly digital world.</p></div>
+    <div class="fill-item"><p><span class="num">3</span>This technological boom requires substantial investment in digital <input type="text" class="fill-input" data-answer="infrastructure">.</p></div>
+    <div class="fill-item"><p><span class="num">4</span>There is a <input type="text" class="fill-input" data-answer="paradox">: we need more data centres, yet they consume enormous environmental resources.</p></div>
+    <div class="fill-item"><p><span class="num">5</span>Climate change may <input type="text" class="fill-input" data-answer="exacerbate"> the water scarcity problems data centres face.</p></div>
+    <div class="fill-item"><p><span class="num">6</span>Companies argue that renewable energy can <input type="text" class="fill-input" data-answer="facilitate"> sustainable data centre operations.</p></div>
+    <div class="fill-item"><p><span class="num">7</span>The <input type="text" class="fill-input" data-answer="unprecedented"> growth of data centres presents both opportunities and challenges.</p></div>
+    <div class="fill-item"><p><span class="num">8</span>Achieving <input type="text" class="fill-input" data-answer="sustainability"> in data centre operations requires innovative technological solutions.</p></div>
+    <div class="fill-item"><p><span class="num">9</span>There is a <input type="text" class="fill-input" data-answer="compelling"> argument that digital sovereignty is <input type="text" class="fill-input" data-answer="fundamental"> to national security.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>The decisions we make today regarding data centre development will have <input type="text" class="fill-input" data-answer="fundamental"> consequences for our digital future.</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check Answers</button>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- PANEL 7: MULTIPLE CHOICE -->
+  <section id="t7" class="panel">
+    <h2 class="section-title"><span class="emoji">❓</span>Multiple Choice: Advanced Questions</h2>
+    
+    <div class="instr">Choose the best answer for each question.</div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">1</span>What can be inferred about hyperscale data centres from the text?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) They are small, locally-managed facilities</button>
+        <button class="mc-opt">b) They represent insignificant economic investment</button>
+        <button class="mc-opt">c) They are critical to modern commerce and economy</button>
+        <button class="mc-opt">d) They are only operated by governments</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">2</span>What does the text imply about the relationship between data centre growth and water resources?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Water is abundant and poses no concerns</button>
+        <button class="mc-opt">b) Competition for water resources may create tensions in vulnerable regions</button>
+        <button class="mc-opt">c) Data centres actually improve water management</button>
+        <button class="mc-opt">d) Water consumption is negligible</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">3</span>According to the text, why are Ireland and Iceland advantageous locations for data centres?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Natural cooling and access to renewable energy</button>
+        <button class="mc-opt">b) Large local populations providing skilled labour</button>
+        <button class="mc-opt">c) Government subsidies and tax benefits</button>
+        <button class="mc-opt">d) Proximity to Silicon Valley</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">4</span>What is the author's primary concern about the data centre boom?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) That technology companies will lack funding</button>
+        <button class="mc-opt">b) That data centres are not being built fast enough</button>
+        <button class="mc-opt">c) That data centres will become obsolete</button>
+        <button class="mc-opt">d) That uncontrolled growth could create environmental and social problems</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">5</span>Which statement best reflects the author's position on balancing growth with sustainability?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Growth should be prioritized over environmental concerns</button>
+        <button class="mc-opt">b) Data centres should be banned entirely</button>
+        <button class="mc-opt">c) Growth and environmental responsibility must be balanced thoughtfully</button>
+        <button class="mc-opt">d) Technological solutions alone will resolve all challenges</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">6</span>What is suggested by the phrase "the mushroom-like proliferation" in the conclusion?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Data centres are natural and harmless</button>
+        <button class="mc-opt">b) Rapid, uncontrolled growth can be problematic without proper management</button>
+        <button class="mc-opt">c) Data centres require agricultural land</button>
+        <button class="mc-opt">d) Mushrooms are a good food source</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkMC7()">✓ Check Answers</button>
+    <span class="score" id="score7">— / 6</span>
+  </section>
+
+  <!-- PANEL 8: GRAMMAR - CONDITIONALS & PASSIVE -->
+  <section id="t8" class="panel">
+    <h2 class="section-title"><span class="emoji">📚</span>Grammar: Second & Third Conditionals / Passive Voice</h2>
+    
+    <div class="grammar-box">
+      <h4>Second Conditional (Hypothetical Present)</h4>
+      <ul>
+        <li><code>If + Past Simple, would + infinitive</code> = "If data centres used less water, communities would face fewer conflicts."</li>
+        <li>For unlikely or imaginary situations in the present/future</li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>Third Conditional (Past Hypothetical)</h4>
+      <ul>
+        <li><code>If + Past Perfect, would have + past participle</code> = "If we had regulated data centres earlier, environmental damage would have been prevented."</li>
+        <li>For situations that cannot be changed (regrets or speculation about the past)</li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>Passive Voice</h4>
+      <ul>
+        <li><code>Be + Past Participle</code> = "Data centres are operated by major tech companies."</li>
+        <li>Used when the action is more important than the doer, or when the doer is unknown</li>
+      </ul>
+    </div>
+
+    <div class="grammar-sub">Part A: Second & Third Conditionals</div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">1</span>If governments ________ stricter environmental regulations, data centre operators would invest more in renewable energy.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) implement</button>
+        <button class="mc-opt">b) implemented</button>
+        <button class="mc-opt">c) would implement</button>
+        <button class="mc-opt">d) had implemented</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">2</span>If water scarcity had been addressed earlier, the conflict between data centres and communities ________ have been avoided.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) would</button>
+        <button class="mc-opt">b) will</button>
+        <button class="mc-opt">c) would be</button>
+        <button class="mc-opt">d) could be</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">3</span>If data centre expansion continued unchecked, environmental consequences ________ catastrophic.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) will be</button>
+        <button class="mc-opt">b) would be</button>
+        <button class="mc-opt">c) would have been</button>
+        <button class="mc-opt">d) are</button>
+      </div>
+    </div>
+
+    <div class="grammar-sub">Part B: Passive Voice</div>
+
+    <div class="fill-item"><p><span class="num">4</span>Hyperscale data centres <input type="text" class="fill-input" data-answer="are operated"> by companies like Amazon, Google, and Microsoft.</p></div>
+
+    <div class="fill-item"><p><span class="num">5</span>Advanced cooling technologies <input type="text" class="fill-input" data-answer="are being implemented"> to reduce energy consumption.</p></div>
+
+    <div class="fill-item"><p><span class="num">6</span>New data centres <input type="text" class="fill-input" data-answer="have been built"> in regions with cooler climates and renewable energy access.</p></div>
+
+    <div class="fill-item"><p><span class="num">7</span>The environmental footprint of data centres <input type="text" class="fill-input" data-answer="is exacerbated"> by their high water consumption.</p></div>
+
+    <div class="fill-item"><p><span class="num">8</span>Digital sovereignty <input type="text" class="fill-input" data-answer="is considered"> crucial to national security by many governments.</p></div>
+
+    <div class="fill-item"><p><span class="num">9</span>Waste heat from data centres <input type="text" class="fill-input" data-answer="can be recovered"> and <input type="text" class="fill-input" data-answer="used"> for community heating systems.</p></div>
+
+    <div class="fill-item"><p><span class="num">10</span>The future sustainability of data centre infrastructure <input type="text" class="fill-input" data-answer="will be determined"> by decisions made today regarding regulation and innovation.</p></div>
+
+    <button class="check-btn" onclick="checkGr8()">✓ Check Parts A & B</button>
+    <span class="score" id="score8">— / 10</span>
+  </section>
+
+  <!-- PANEL 9: GRAMMAR - PERFECT & CONTINUOUS -->
+  <section id="t9" class="panel">
+    <h2 class="section-title"><span class="emoji">📚</span>Grammar: Present Perfect / Perfect Continuous & Past Perfect</h2>
+    
+    <div class="grammar-highlight">
+      <h4>Present Perfect vs Present Perfect Continuous</h4>
+      <ul>
+        <li><code>Have + Past Participle</code> = "Companies have built numerous data centres." (focus on completion)</li>
+        <li><code>Have been + -ing</code> = "Engineers have been developing cooling solutions." (focus on duration/ongoing)</li>
+      </ul>
+    </div>
+
+    <div class="grammar-highlight">
+      <h4>Past Perfect & Past Perfect Continuous</h4>
+      <ul>
+        <li><code>Had + Past Participle</code> = "By 2020, data centres had consumed vast amounts of energy."</li>
+        <li><code>Had been + -ing</code> = "Infrastructure had been expanding for years before concerns arose."</li>
+      </ul>
+    </div>
+
+    <div class="grammar-sub">Choose the Correct Form</div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">1</span>Data centres ________ exponentially over the last decade.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) have grown</button>
+        <button class="mc-opt">b) have been growing</button>
+        <button class="mc-opt">c) grew</button>
+        <button class="mc-opt">d) are growing</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">2</span>Tech companies ________ new sustainability measures since environmental concerns escalated.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) implement</button>
+        <button class="mc-opt">b) have been implementing</button>
+        <button class="mc-opt">c) implemented</button>
+        <button class="mc-opt">d) have implemented</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">3</span>By the time regulations were introduced, data centres ________ significant environmental damage.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) caused</button>
+        <button class="mc-opt">b) have caused</button>
+        <button class="mc-opt">c) are causing</button>
+        <button class="mc-opt">d) had already caused</button>
+      </div>
+    </div>
+
+    <div class="grammar-sub">Fill in the Correct Form</div>
+
+    <div class="fill-item"><p><span class="num">4</span>The industry <input type="text" class="fill-input" data-answer="has experienced"> unprecedented growth in recent years.</p></div>
+
+    <div class="fill-item"><p><span class="num">5</span>Researchers <input type="text" class="fill-input" data-answer="have been investigating"> sustainable solutions for cooling systems.</p></div>
+
+    <div class="fill-item"><p><span class="num">6</span>Before this decade, few people <input type="text" class="fill-input" data-answer="had considered"> the environmental impact of data centres.</p></div>
+
+    <div class="fill-item"><p><span class="num">7</span>Infrastructure investment <input type="text" class="fill-input" data-answer="has been increasing"> steadily as demand for cloud services rises.</p></div>
+
+    <div class="fill-item"><p><span class="num">8</span>The industry <input type="text" class="fill-input" data-answer="had been expanding"> rapidly before sustainability became a priority.</p></div>
+
+    <button class="check-btn" onclick="checkGr9()">✓ Check All Parts</button>
+    <span class="score" id="score9">— / 8</span>
+  </section>
+
+  <footer>🌐 ★ ★ &nbsp; DATA CENTRES PROLIFERATION · B2 ADVANCED ENGLISH &nbsp; ★ ★ 🌐</footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // READING COMPREHENSION
+  let scoreR = 0;
+  function checkR() {
+    scoreR = 0;
+    document.querySelectorAll('#t2 .mc-item').forEach(item => {
+      const correct = item.dataset.correct;
+      item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+        const letter = ['a','b','c','d'][i];
+        opt.disabled = true;
+        if (letter === correct) { opt.classList.add('correct'); scoreR++; } 
+        else if (opt.classList.contains('correct') || opt.classList.contains('wrong')) {} 
+        else { opt.classList.remove('wrong'); }
+      });
+    });
+    document.getElementById('scoreR').textContent = scoreR === 6 ? '★ 6 / 6 ★' : scoreR + ' / 6';
+  }
+
+  // COLLOCATIONS MATCHING
+  let sel = null, m3 = 0;
+  document.querySelectorAll('#t3 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) { document.querySelectorAll('#t3 [data-word]').forEach(w => w.classList.remove('selected')); item.classList.add('selected'); sel = item; }
+      else if (item.dataset.def && sel) {
+        if (sel.dataset.word === item.dataset.def) { sel.classList.remove('selected'); sel.classList.add('matched'); item.classList.add('matched'); m3++; document.getElementById('score3').textContent = m3 === 5 ? '★ 5 / 5 ★' : m3 + ' / 5'; sel = null; }
+        else { item.classList.add('wrong'); setTimeout(() => item.classList.remove('wrong'), 500); }
+      }
+    });
+  });
+
+  // VOCABULARY MATCHING
+  let sel5 = null, m5 = 0;
+  document.querySelectorAll('#t5 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) { document.querySelectorAll('#t5 [data-word]').forEach(w => w.classList.remove('selected')); item.classList.add('selected'); sel5 = item; }
+      else if (item.dataset.def && sel5) {
+        if (sel5.dataset.word === item.dataset.def) { sel5.classList.remove('selected'); sel5.classList.add('matched'); item.classList.add('matched'); m5++; document.getElementById('score5').textContent = m5 === 10 ? '★ 10 / 10 ★' : m5 + ' / 10'; sel5 = null; }
+        else { item.classList.add('wrong'); setTimeout(() => item.classList.remove('wrong'), 500); }
+      }
+    });
+  });
+
+  // FILL IN THE GAPS
+  function checkFill() {
+    let c = 0;
+    document.querySelectorAll('#t6 .fill-input').forEach(i => {
+      const a = i.dataset.answer.toLowerCase().trim(), v = i.value.toLowerCase().trim();
+      i.classList.remove('correct','wrong');
+      if (v === a) { i.classList.add('correct'); c++; } else if (v) i.classList.add('wrong');
+    });
+    document.getElementById('score6').textContent = c === 10 ? '★ 10 / 10 ★' : c + ' / 10';
+  }
+
+  // MULTIPLE CHOICE - T7
+  let mc7 = 0;
+  document.querySelectorAll('#t7 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); mc7++; } else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+        document.getElementById('score7').textContent = mc7 === 6 ? '★ 6 / 6 ★' : mc7 + ' / 6';
+      });
+    });
+  });
+
+  // GRAMMAR 8
+  let g8mc = 0;
+  function checkGr8() {
+    let c = 0;
+    document.querySelectorAll('#t8 .fill-input').forEach(i => {
+      if (!i.dataset.answer) return;
+      const a = i.dataset.answer.toLowerCase().trim(), v = i.value.toLowerCase().trim();
+      i.classList.remove('correct','wrong');
+      if (v === a) { i.classList.add('correct'); c++; } else if (v) i.classList.add('wrong');
+    });
+    c += g8mc;
+    document.getElementById('score8').textContent = c === 10 ? '★ 10 / 10 ★' : c + ' / 10';
+  }
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); g8mc++; } else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+
+  // GRAMMAR 9
+  let g9mc = 0;
+  function checkGr9() {
+    let c = 0;
+    document.querySelectorAll('#t9 .fill-input').forEach(i => {
+      if (!i.dataset.answer) return;
+      const a = i.dataset.answer.toLowerCase().trim(), v = i.value.toLowerCase().trim();
+      i.classList.remove('correct','wrong');
+      if (v === a) { i.classList.add('correct'); c++; } else if (v) i.classList.add('wrong');
+    });
+    c += g9mc;
+    document.getElementById('score9').textContent = c === 8 ? '★ 8 / 8 ★' : c + ' / 8';
+  }
+  document.querySelectorAll('#t9 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); g9mc++; } else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+</script>
+</body>
+</html>
