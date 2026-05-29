@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Centres — B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1A4FA0;--blue-light:#E8F0FC;--blue-dark:#0D2A5E;
+  --teal:#0E7490;--teal-light:#E0F5FA;
+  --amber:#D97706;--amber-light:#FEF3C7;--amber-dark:#7C3A00;
+  --ink:#111827;--muted:#6B7280;--border:#E5E7EB;
+  --bg:#F3F4F8;--white:#FFFFFF;
+  --correct:#166534;--correct-bg:#DCFCE7;
+  --wrong:#991B1B;--wrong-bg:#FEE2E2;
+  --answer:#92400E;--answer-bg:#FEF3C7;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7}
+
+/* HEADER */
+.site-header{background:var(--blue-dark);color:#fff;padding:2.5rem 1.5rem 2rem;position:relative;overflow:hidden}
+.site-header::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.04);pointer-events:none}
+.site-header::after{content:'';position:absolute;bottom:-50px;left:35%;width:200px;height:200px;border-radius:50%;background:rgba(14,116,144,0.15);pointer-events:none}
+.header-inner{max-width:880px;margin:0 auto;position:relative}
+.header-tag{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#7DD3FC;margin-bottom:.5rem;font-weight:500}
+.header-title{font-family:'Fraunces',serif;font-size:clamp(22px,4vw,36px);font-weight:600;line-height:1.18;margin-bottom:.65rem}
+.header-desc{font-size:15px;color:rgba(255,255,255,.65);max-width:580px;margin-bottom:1.2rem}
+.pill-row{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:11px;padding:3px 11px;border-radius:20px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);background:rgba(255,255,255,.06)}
+
+/* NAV */
+.nav-bar{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.nav-inner{max-width:880px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;padding:0 1rem}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-tab{flex-shrink:0;padding:.85rem 1rem;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2.5px solid transparent;transition:color .18s,border-color .18s;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;font-family:'DM Sans',sans-serif}
+.nav-tab:hover{color:var(--ink)}
+.nav-tab.active{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* MAIN */
+.main{max-width:880px;margin:0 auto;padding:2rem 1.5rem 5rem}
+.section{display:none}
+.section.active{display:block}
+.section-head{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:.3rem;color:var(--blue-dark)}
+.section-sub{font-size:14px;color:var(--muted);margin-bottom:1.75rem;max-width:600px}
+
+/* READING */
+.reading-box{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:2rem 2.25rem}
+.persona-tag{display:flex;align-items:center;gap:.85rem;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.persona-avatar{width:48px;height:48px;border-radius:50%;background:var(--blue);color:#fff;font-family:'Fraunces',serif;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:-.5px}
+.persona-name{font-weight:500;font-size:15px;line-height:1.3}
+.persona-role{font-size:13px;color:var(--muted);margin-top:2px}
+.reading-body p{font-size:15.5px;line-height:1.95;margin-bottom:1.1rem;color:#1a1a2e}
+.reading-body p:last-child{margin-bottom:0}
+.tl{color:#B45309;font-weight:600}
+.pull-quote{font-family:'Fraunces',serif;font-size:16px;font-style:italic;color:var(--teal);border-left:3px solid var(--teal);padding:.65rem 1.25rem;margin:1.25rem 0;background:var(--teal-light);border-radius:0 10px 10px 0}
+
+/* VOCAB / IDIOMS TABLE */
+.note-box{background:var(--blue-light);border-radius:8px;padding:.65rem 1rem;font-size:13px;color:var(--blue);margin-bottom:1.25rem;border:1px solid #C3D8F8}
+.vocab-table{width:100%;border-collapse:collapse}
+.vocab-table thead th{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:500;padding:.5rem .75rem;text-align:left;border-bottom:1px solid var(--border)}
+.vocab-table tbody tr{border-bottom:1px solid var(--border)}
+.vocab-table tbody tr:last-child{border-bottom:none}
+.vocab-table tbody tr:hover{background:var(--blue-light)}
+.vocab-table td{padding:.8rem .75rem;vertical-align:top;font-size:14px}
+.vt{font-weight:500;color:var(--blue-dark);min-width:200px}
+.vd{color:var(--muted);min-width:190px}
+.ve{color:#9CA3AF;font-style:italic}
+
+/* MATCHING */
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.match-col-head{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:500;margin-bottom:.75rem}
+.match-item{padding:.65rem 1rem;border:1px solid var(--border);border-radius:9px;font-size:14px;cursor:pointer;margin-bottom:7px;background:var(--white);transition:border-color .15s,background .15s;user-select:none}
+.match-item:hover{border-color:var(--teal);background:var(--teal-light)}
+.match-item.selected{border-color:var(--blue);background:var(--blue-light);color:var(--blue);font-weight:500}
+.match-item.correct{border-color:var(--correct);background:var(--correct-bg);color:var(--correct);cursor:default;font-weight:500}
+.match-item.wrong{border-color:var(--wrong);background:var(--wrong-bg);color:var(--wrong)}
+.score-row{display:flex;align-items:center;justify-content:space-between;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border);font-size:14px;color:var(--muted)}
+.score-val{font-size:18px;font-weight:600;color:var(--blue-dark)}
+
+/* GAPS */
+.wb-box{background:var(--amber-light);border:1px solid #FDE68A;border-radius:10px;padding:.85rem 1.1rem;margin-bottom:1.5rem;font-size:13.5px;color:var(--amber-dark)}
+.wb-box strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.09em;margin-bottom:.35rem;color:#92400E;font-weight:600}
+.gap-list{display:flex;flex-direction:column;gap:.9rem}
+.gap-item{display:flex;align-items:flex-start;gap:.85rem}
+.gap-num{min-width:28px;font-size:12px;font-weight:600;color:var(--muted);padding-top:7px;flex-shrink:0}
+.gap-text{font-size:15px;line-height:1.8;flex:1}
+.gap-input{display:inline-block;border:none;border-bottom:2px solid var(--border);background:transparent;font-size:15px;font-family:'DM Sans',sans-serif;color:var(--ink);padding:0 4px 2px;width:185px;outline:none;transition:border-color .2s}
+.gap-input:focus{border-bottom-color:var(--teal)}
+.gap-input.correct{border-bottom-color:var(--correct);color:var(--correct)}
+.gap-input.wrong{border-bottom-color:var(--wrong);color:var(--wrong)}
+.gap-input.shown{border-bottom-color:var(--amber);color:var(--amber-dark);font-style:italic}
+
+/* BUTTONS */
+.btn-row{display:flex;gap:.75rem;align-items:center;margin-top:1.5rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:.55rem 1.25rem;border-radius:8px;font-size:14px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:background .15s,transform .1s;border:1px solid var(--border);background:var(--white);color:var(--ink)}
+.btn:hover{background:#F9FAFB}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn-primary:hover{background:var(--blue-dark)}
+.btn-show{background:transparent;color:var(--muted);border-color:transparent;font-size:13px;padding:.4rem .75rem}
+.btn-show:hover{background:#F3F4F6;color:var(--ink)}
+
+/* MC */
+.mc-list{display:flex;flex-direction:column;gap:1.5rem}
+.mc-q-label{font-size:15px;font-weight:500;margin-bottom:.65rem;color:var(--blue-dark)}
+.mc-opts{display:flex;flex-direction:column;gap:.45rem}
+.mc-opt{display:flex;align-items:flex-start;gap:.65rem;padding:.6rem .9rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:14px;background:var(--white);transition:border-color .15s,background .15s;user-select:none}
+.mc-opt:hover{border-color:var(--teal);background:var(--teal-light)}
+.mc-opt input[type=radio]{margin-top:3px;accent-color:var(--blue);flex-shrink:0}
+.mc-opt.correct{border-color:var(--correct);background:var(--correct-bg);color:var(--correct)}
+.mc-opt.wrong{border-color:var(--wrong);background:var(--wrong-bg);color:var(--wrong)}
+
+/* SPEAKING */
+.fluency-box{background:var(--teal-light);border:1px solid #A5D8E6;border-radius:12px;padding:1.1rem 1.4rem;margin-bottom:2rem}
+.fluency-box h3{font-size:13px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.85rem}
+.fluency-cat{font-size:12px;font-weight:600;color:#155E75;margin-top:.6rem;margin-bottom:.15rem}
+.fluency-items{font-size:13px;color:#0F4C5C}
+.speak-cards{display:flex;flex-direction:column;gap:1rem}
+.speak-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.4rem}
+.speak-card-num{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.35rem;font-weight:500}
+.speak-card-q{font-size:15px;font-weight:500;margin-bottom:.8rem;color:var(--blue-dark)}
+.chip-row{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;padding:3px 10px;border-radius:20px;background:var(--teal-light);border:1px solid #A5D8E6;color:var(--teal)}
+.rapid-box{background:var(--blue-dark);border-radius:12px;padding:1.25rem 1.5rem;margin-top:1.5rem;color:#fff}
+.rapid-box h3{font-family:'Fraunces',serif;font-size:16px;margin-bottom:.3rem;color:#7DD3FC}
+.rapid-box p{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:1rem}
+.rapid-item{padding:.55rem .85rem;background:rgba(255,255,255,.07);border-radius:8px;font-size:14px;margin-bottom:.5rem;border-left:3px solid #7DD3FC;color:rgba(255,255,255,.9)}
+
+/* GRAMMAR */
+.gram-ref{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.75rem}
+.gram-ref h3{font-size:14px;font-weight:600;color:var(--blue-dark);margin-bottom:1rem}
+.gram-table{width:100%;border-collapse:collapse}
+.gram-table tr{border-bottom:1px solid var(--border)}
+.gram-table tr:last-child{border-bottom:none}
+.gram-table td{padding:.55rem .5rem;font-size:13.5px;vertical-align:top}
+.gram-table td:first-child{font-weight:500;color:var(--muted);min-width:220px;padding-right:1rem}
+.gram-table td:last-child{color:#555;font-style:italic}
+.gram-part{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600;margin:1.75rem 0 .85rem;display:flex;align-items:center;gap:.75rem}
+.gram-part::after{content:'';flex:1;height:1px;background:var(--border)}
+.gram-note{font-size:13px;color:var(--muted);margin-bottom:1rem;font-style:italic}
+.gram-sub{font-size:13px;color:var(--muted);margin:.3rem 0 .85rem}
+
+/* FOOTER */
+.lesson-footer{text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+
+@media(max-width:620px){
+  .match-grid{grid-template-columns:1fr}
+  .reading-box{padding:1.25rem 1rem}
+  .vocab-table{display:block;overflow-x:auto}
+  .gap-input{width:130px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-tag">⬥ Technology & Infrastructure · B2 English</div>
+    <h1 class="header-title">Data Centres Popping Up<br>as Mushrooms After Rain</h1>
+    <p class="header-desc">The language of the global data centre boom — why they're being built everywhere, who's building them, and what the rush really means for energy, land, and society.</p>
+    <div class="pill-row">
+      <span class="pill">CEFR B2</span>
+      <span class="pill">Technology & Infrastructure</span>
+      <span class="pill">Technical Vocabulary</span>
+      <span class="pill">Idioms & Nuance</span>
+      <span class="pill">Speaking · Grammar</span>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <button class="nav-tab active" onclick="showSection('reading',this)">① Reading</button>
+    <button class="nav-tab" onclick="showSection('vocab',this)">② Vocabulary</button>
+    <button class="nav-tab" onclick="showSection('idioms',this)">③ Idioms</button>
+    <button class="nav-tab" onclick="showSection('match',this)">④ Matching</button>
+    <button class="nav-tab" onclick="showSection('gaps',this)">⑤ Fill the gaps</button>
+    <button class="nav-tab" onclick="showSection('mc',this)">⑥ Multiple choice</button>
+    <button class="nav-tab" onclick="showSection('speaking',this)">⑦ Speaking 🎤</button>
+    <button class="nav-tab" onclick="showSection('grammar',this)">⑧ Grammar 📝</button>
+    <button class="nav-tab" onclick="showSection('grammar2',this)">⑨ Grammar 2 📝</button>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ① READING -->
+<section id="reading" class="section active">
+  <h2 class="section-head">📖 Reading text</h2>
+  <p class="section-sub">A data centre strategy consultant shares what's really driving the global boom — and why the consequences reach far beyond the server room. Target language is in <strong style="color:#B45309">orange bold</strong>.</p>
+  <div class="reading-box">
+    <div class="persona-tag">
+      <div class="persona-avatar">MO</div>
+      <div>
+        <div class="persona-name">★ Marcus Osei, 41 · Senior Data Centre Strategy Consultant</div>
+        <div class="persona-role">14 years in the industry · Based in London · Works across Europe, the Middle East and Asia</div>
+      </div>
+    </div>
+    <div class="reading-body">
+      <p>There's a phrase I keep hearing from journalists and planners right now: data centres are <span class="tl">popping up like mushrooms after rain</span>. And honestly, it's not an exaggeration. In the past three years, planning applications for large-scale <span class="tl">hyperscale facilities</span> have hit record levels across Europe, the US, and Southeast Asia. The AI boom, the explosion in <span class="tl">cloud computing</span>, and the relentless growth of streaming, e-commerce, and <span class="tl">digital workloads</span> have created a demand for compute power that the industry is genuinely struggling to keep pace with.</p>
+      <p>What most people don't realise is that a data centre isn't just a big room full of computers. It's an enormously complex piece of <span class="tl">critical infrastructure</span> — as essential to modern life as a power station or a water treatment plant. Inside, you'll find thousands of <span class="tl">server racks</span>, intricate <span class="tl">cooling systems</span> to stop the hardware from overheating, and <span class="tl">redundant power supplies</span> designed to keep everything running even if the national grid goes down. The best facilities have a <span class="tl">Power Usage Effectiveness</span> rating close to 1.0 — meaning almost none of the energy they consume is wasted on anything other than actual computing.</p>
+      <div class="pull-quote">"Every time someone says 'the cloud', what they really mean is someone else's computer in a warehouse the size of an aircraft hangar, somewhere outside Dublin or Frankfurt."</div>
+      <p>So who's building all of these? Primarily the <span class="tl">hyperscalers</span> — Amazon Web Services, Microsoft Azure, and Google Cloud — who are pouring tens of billions of dollars into new campuses every year. But there's also a fast-growing <span class="tl">colocation market</span>, where companies like Equinix and Digital Realty rent out space to businesses that want to house their own servers without managing the building themselves. And then there are the <span class="tl">edge data centres</span> — smaller, faster facilities built closer to end users to reduce <span class="tl">latency</span>, the tiny but critical delay between sending a request and getting a response. You can't run a self-driving car on a connection that takes half a second to respond.</p>
+      <p>The problem — and it's a serious one — is that all of this comes with a <span class="tl">staggering</span> environmental cost. A single large data centre can consume as much electricity as a small city. Water consumption is another growing concern; many facilities use millions of litres per day in <span class="tl">evaporative cooling</span> systems. Campaigners argue that the industry is <span class="tl">greenwashing</span> — making loud claims about renewable energy targets while quietly drawing on fossil-fuel-heavy local grids. The debate is fierce, and it's far from settled.</p>
+      <p>Governments are caught between two forces. On one hand, they want the jobs, the investment, and the geopolitical prestige that comes with hosting major <span class="tl">digital infrastructure</span>. On the other, they're facing legitimate pressure from local communities about land use, energy strain, and water. Ireland, for example, briefly imposed a moratorium on new data centre connections in Dublin because the existing electricity grid simply couldn't <span class="tl">cope with the load</span>. That's not a niche problem — it's a sign of things to come globally.</p>
+      <p>What I find fascinating — and what the media often misses — is that this isn't just a technology story. It's a story about <span class="tl">sovereign data</span>, about which countries get to control where the world's information sits, and who has access to it. When a European company hosts its data on a US hyperscaler, there are genuine legal and security questions about <span class="tl">data sovereignty</span>. That's exactly why countries like Germany, France, and Saudi Arabia are investing heavily in nationally-controlled alternatives.</p>
+      <p>If I had to <span class="tl">cut through the noise</span>, I'd say this: data centres are the infrastructure of the 21st century, the same way railways were in the 19th. The question isn't whether to build them. It's whether we're building them smartly, sustainably, and in a way that distributes their benefits — and their costs — fairly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ② VOCABULARY -->
+<section id="vocab" class="section">
+  <h2 class="section-head">💬 Vocabulary &amp; collocations</h2>
+  <p class="section-sub">Core technical and analytical vocabulary from the data centre world. Every example sentence reflects how these terms are used in real industry discussions.</p>
+  <div class="note-box">24 terms covering infrastructure, energy, geopolitics, and technology. Notice how the example sentences reflect real professional and journalistic usage.</div>
+  <table class="vocab-table">
+    <thead><tr><th>Term</th><th>Meaning</th><th>Example sentence</th></tr></thead>
+    <tbody id="vocabBody"></tbody>
+  </table>
+</section>
+
+<!-- ③ IDIOMS -->
+<section id="idioms" class="section">
+  <h2 class="section-head">💡 Idioms &amp; expressions</h2>
+  <p class="section-sub">B2 idioms and fixed expressions that give your English real texture in discussions about technology, growth, and consequences. All appear in the reading or speaking tasks.</p>
+  <div class="note-box">15 expressions — from vivid metaphors to professional phrasal verbs. Use them in speaking and writing to move beyond basic B2.</div>
+  <table class="vocab-table">
+    <thead><tr><th>Expression</th><th>Meaning</th><th>Example sentence</th></tr></thead>
+    <tbody id="idiomsBody"></tbody>
+  </table>
+</section>
+
+<!-- ④ MATCHING -->
+<section id="match" class="section">
+  <h2 class="section-head">🔗 Match the expression with its meaning</h2>
+  <p class="section-sub">Click a phrase on the left, then click its correct meaning on the right. Score updates live.</p>
+  <div class="match-grid">
+    <div><div class="match-col-head">Expression</div><div id="matchLeft"></div></div>
+    <div><div class="match-col-head">Meaning</div><div id="matchRight"></div></div>
+  </div>
+  <div class="score-row"><span>Matched correctly</span><span class="score-val" id="matchScore">0 / 10</span></div>
+</section>
+
+<!-- ⑤ FILL THE GAPS -->
+<section id="gaps" class="section">
+  <h2 class="section-head">✏️ Fill in the gaps</h2>
+  <p class="section-sub">Complete each sentence with an expression from the word bank. Use the correct grammatical form.</p>
+  <div class="wb-box">
+    <strong>◆ Word bank ◆</strong>
+    greenwashing · hyperscalers · cope with the load · data sovereignty · latency · pop up · digital workloads · staggering · cut through the noise · colocation
+  </div>
+  <div class="gap-list" id="gapList"></div>
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="checkGaps()">✓ Check my answers</button>
+    <button class="btn btn-show" onclick="showGapAnswers()">Show answers</button>
+    <span class="score-val" id="gapScore" style="margin-left:auto;font-size:16px">— / 10</span>
+  </div>
+</section>
+
+<!-- ⑥ MC -->
+<section id="mc" class="section">
+  <h2 class="section-head">🎯 Choose the best answer</h2>
+  <p class="section-sub">Pick the option that sounds most natural and precise at B2 level. Some questions test reading comprehension; others test vocabulary and idiom meaning.</p>
+  <div class="mc-list" id="mcList"></div>
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="checkMC()">✓ Check my answers</button>
+    <span class="score-val" id="mcScore" style="margin-left:auto;font-size:16px">— / 10</span>
+  </div>
+</section>
+
+<!-- ⑦ SPEAKING -->
+<section id="speaking" class="section">
+  <h2 class="section-head">🎤 Speaking practice with new vocabulary</h2>
+  <p class="section-sub">Speak for <strong>1½–2 minutes</strong> per question. Use at least <strong>4 words from each chip set</strong>. Work with a partner who ticks them off as you speak.</p>
+  <div class="fluency-box">
+    <h3>💬 Fluency boosters — B2 discourse markers</h3>
+    <div class="fluency-cat">Opening with nuance:</div>
+    <div class="fluency-items">"Honestly speaking…" / "In my experience…" / "What people often overlook is…"</div>
+    <div class="fluency-cat">Softening a strong opinion:</div>
+    <div class="fluency-items">"I'd argue that…" / "It could be said that…" / "To some extent…"</div>
+    <div class="fluency-cat">Building a point:</div>
+    <div class="fluency-items">"What's more…" / "On top of that…" / "And here's the thing…"</div>
+    <div class="fluency-cat">Giving a real example:</div>
+    <div class="fluency-items">"Take, for instance…" / "A case that comes to mind is…" / "This is exactly what happened in…"</div>
+    <div class="fluency-cat">Closing powerfully:</div>
+    <div class="fluency-items">"If you cut through the noise…" / "When push comes to shove…" / "Ultimately, it comes down to…"</div>
+  </div>
+  <div class="speak-cards" id="speakCards"></div>
+  <div class="rapid-box">
+    <h3>◆ Question 09 · Rapid-fire · 45 seconds each</h3>
+    <p>Short answers — no planning, just talk. Use at least one idiom in each answer!</p>
+    <div class="rapid-item">▸ A new hyperscale data centre is planned for a field outside your town. Are you for or against it?</div>
+    <div class="rapid-item">▸ A tech company claims its data centres run on 100% renewable energy. Do you believe them?</div>
+    <div class="rapid-item">▸ Should governments control where citizens' data is stored? Give your view in 45 seconds.</div>
+    <div class="rapid-item">▸ Someone says "the cloud" is just someone else's computer. Agree or disagree — and why?</div>
+    <div class="rapid-item">▸ Finish this: "The most important thing people don't understand about data centres is…"</div>
+  </div>
+</section>
+
+<!-- ⑧ GRAMMAR 1 -->
+<section id="grammar" class="section">
+  <h2 class="section-head">📝 Grammar: Conditionals &amp; Reported Speech</h2>
+  <p class="section-sub">A quick refresher, then a mixed exercise. Some items need a conditional, some need reported speech, and some need both. All sentences use data centre contexts.</p>
+
+  <div class="gram-ref">
+    <h3>◆ Conditionals — the quick map</h3>
+    <table class="gram-table">
+      <tr><td>1st conditional — real future</td><td>If the grid can't cope with the load, the council <em>will reject</em> the planning application.</td></tr>
+      <tr><td>2nd conditional — hypothetical present</td><td>If I <em>were</em> the minister, I <em>would impose</em> stricter water-use limits.</td></tr>
+      <tr><td>3rd conditional — past regret</td><td>If they <em>had invested</em> in renewables earlier, they <em>wouldn't have faced</em> the backlash.</td></tr>
+      <tr><td>Mixed — past condition → present result</td><td>If Ireland <em>had built</em> more grid capacity, it <em>wouldn't be</em> rationing connections now.</td></tr>
+    </table>
+    <div style="margin-top:.85rem;font-size:13px;color:var(--muted)">
+      <strong style="color:var(--muted)">2nd:</strong> If + past simple, <em>would</em> + infinitive &nbsp;·&nbsp;
+      <strong style="color:var(--muted)">3rd:</strong> If + past perfect, <em>would have</em> + past participle
+    </div>
+  </div>
+
+  <div class="gram-ref">
+    <h3>◆ Reported speech — key shifts</h3>
+    <table class="gram-table">
+      <tr><td>Present simple → past simple</td><td>"Latency is a critical issue." → She said latency <em>was</em> a critical issue.</td></tr>
+      <tr><td>Present continuous → past continuous</td><td>"We are expanding our campus." → He said they <em>were expanding</em> their campus.</td></tr>
+      <tr><td>Past simple → past perfect</td><td>"You ignored the energy report." → She said I <em>had ignored</em> the energy report.</td></tr>
+      <tr><td>will → would</td><td>"We'll reach net zero by 2030." → They said they <em>would reach</em> net zero by 2030.</td></tr>
+      <tr><td>Commands</td><td>"Reduce your cooling water usage." → She <em>told them to reduce</em> their cooling water usage.</td></tr>
+      <tr><td>Questions (indirect)</td><td>"Why didn't you flag the grid issue?" → He asked why I <em>hadn't flagged</em> the grid issue.</td></tr>
+    </table>
+  </div>
+
+  <div class="gram-part">Part A — Conditionals</div>
+  <div class="gap-list" id="gramListA"></div>
+
+  <div class="gram-part">Part B — Reported speech</div>
+  <div class="gap-list" id="gramListB"></div>
+
+  <div class="gram-part">Part C — Mixed (reported speech with embedded conditional)</div>
+  <p class="gram-note">Each item has two gaps. Watch the tense shifts in both clauses of the conditional as it is reported.</p>
+  <div class="gap-list" id="gramListC"></div>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="checkGram()">✓ Check grammar</button>
+    <button class="btn btn-show" onclick="showGramAnswers()">Show answers</button>
+    <span class="score-val" id="gramScore" style="margin-left:auto;font-size:16px">— / 18</span>
+  </div>
+</section>
+
+<!-- ⑨ GRAMMAR 2 -->
+<section id="grammar2" class="section">
+  <h2 class="section-head">📝 Grammar 2: Modal Verbs for Obligation, Ability &amp; Deduction</h2>
+  <p class="section-sub">Modals are essential for discussing policies, technical possibilities, and conclusions — all central to data centre debates. Learn the key contrasts, then practise across three exercise types.</p>
+
+  <div class="gram-ref">
+    <h3>◆ Modal verbs — the essential map</h3>
+    <table class="gram-table">
+      <tr><td>must / have to</td><td>Strong obligation — <em>All facilities must meet minimum PUE standards.</em></td></tr>
+      <tr><td>should / ought to</td><td>Advice or moral expectation — <em>Operators should publish their water usage data.</em></td></tr>
+      <tr><td>can / be able to</td><td>Ability or possibility — <em>Edge data centres can reduce latency significantly.</em></td></tr>
+      <tr><td>could (past ability)</td><td>Past possibility — <em>Early data centres could not run without massive cooling.</em></td></tr>
+      <tr><td>may / might</td><td>Present or future uncertainty — <em>The moratorium might be lifted next year.</em></td></tr>
+      <tr><td>must (deduction)</td><td>Logical certainty — <em>Consumption must be enormous if it equals a small city.</em></td></tr>
+      <tr><td>can't (negative deduction)</td><td>Logical impossibility — <em>Those claims can't be accurate — the numbers don't add up.</em></td></tr>
+      <tr><td>should have / could have</td><td>Past criticism or regret — <em>They should have invested in renewables sooner.</em></td></tr>
+    </table>
+  </div>
+
+  <div class="gram-part">Part A — Choose the correct modal</div>
+  <p class="gram-sub">Fill each gap with the most appropriate modal verb or modal phrase from the bracket.</p>
+  <div class="gap-list" id="mod2ListA"></div>
+
+  <div class="gram-part">Part B — Rewrite using a modal</div>
+  <p class="gram-note">Rewrite each sentence using the modal in brackets. You may need to change the verb form.</p>
+  <div class="gap-list" id="mod2ListB"></div>
+
+  <div class="gram-part">Part C — Modals in context: multiple choice</div>
+  <div class="mc-list" id="modMCList"></div>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="checkModal()">✓ Check grammar 2</button>
+    <button class="btn btn-show" onclick="showModalAnswers()">Show answers</button>
+    <span class="score-val" id="modScore" style="margin-left:auto;font-size:16px">— / 18</span>
+  </div>
+</section>
+
+<div class="lesson-footer">⬥ ⬥ ⬥ Data Centres · Digital Infrastructure · B2 English Worksheet ⬥ ⬥ ⬥</div>
+</main>
+
+<script>
+/* ════════════════════════════════════════
+   DATA
+════════════════════════════════════════ */
+const vocabData=[
+  ["hyperscale facility","an enormous data centre built and operated by major cloud companies at massive scale","Amazon's new hyperscale facility outside Warsaw will cover 50,000 square metres."],
+  ["cloud computing","storing and accessing data and software over the internet rather than locally","Most businesses now rely on cloud computing for everyday operations."],
+  ["digital workload","any computing task or process that runs on digital infrastructure","AI models generate digital workloads far heavier than traditional software."],
+  ["critical infrastructure","systems so essential that their failure would severely damage society or the economy","Governments now classify data centres as critical infrastructure, like power grids."],
+  ["server rack","a standardised frame housing multiple servers in a data centre","Every server rack in the hall was running at near full capacity."],
+  ["cooling system","equipment designed to remove heat from servers and prevent hardware failure","An advanced cooling system can cut energy consumption by up to 30%."],
+  ["redundant power supply","a backup power source that takes over automatically if the main supply fails","Without a redundant power supply, a power cut would wipe out the entire operation."],
+  ["Power Usage Effectiveness (PUE)","a ratio measuring how efficiently a data centre uses energy for computing","A PUE of 1.2 is considered excellent; anything above 2.0 is wasteful."],
+  ["hyperscaler","one of the very large companies — Amazon, Google, Microsoft — that operate global cloud infrastructure","The hyperscalers are spending billions on new campuses across every continent."],
+  ["colocation market","the industry where data centre space is rented out to companies to house their own servers","The colocation market is growing fast as firms outsource their physical infrastructure."],
+  ["edge data centre","a small, fast data centre positioned close to end users to reduce response times","An edge data centre in Lagos means African users no longer wait for a transatlantic signal."],
+  ["latency","the tiny delay between sending a digital request and receiving a response","High latency makes real-time applications like video calls and gaming unusable."],
+  ["evaporative cooling","a cooling method that uses water evaporation to reduce temperature","Evaporative cooling is efficient but can consume millions of litres of water per day."],
+  ["greenwashing","making misleading claims about environmental performance to improve public perception","Critics accuse several operators of greenwashing their energy commitments."],
+  ["digital infrastructure","the physical and virtual systems that enable digital communication and computing","Without reliable digital infrastructure, a modern economy simply cannot function."],
+  ["data sovereignty","the principle that data is subject to the laws of the country where it is stored","Data sovereignty concerns are driving investment in nationally-controlled cloud platforms."],
+  ["sovereign data","data that falls under a nation's legal jurisdiction and control","European legislators are pushing for sovereign data standards across all public sector systems."],
+  ["moratorium","an official temporary ban on a particular activity","Dublin issued a moratorium on new data centre grid connections due to energy shortages."],
+  ["to cope with the load","to successfully manage the demands placed on a system or infrastructure","The existing grid simply could not cope with the load from three new hyperscale sites."],
+  ["staggering (adjective)","shockingly large or impressive in scale","The staggering water consumption of large data centres is becoming a political issue."],
+  ["planning application","a formal request submitted to authorities for permission to build or develop land","The planning application was rejected on environmental grounds."],
+  ["net zero","a state where greenhouse gas emissions are balanced by efforts to remove them","Every major hyperscaler has pledged to reach net zero by 2030 or 2040."],
+  ["geopolitical prestige","the international standing and influence a country gains from strategic decisions","Hosting major cloud infrastructure brings both economic and geopolitical prestige."],
+  ["compute power","the processing capacity available to run software and data operations","Generative AI requires vastly more compute power than any previous technology."]
+];
+
+const idiomsData=[
+  ["to pop up like mushrooms after rain","to appear suddenly and in very large numbers everywhere","New data centre campuses are popping up like mushrooms after rain across Northern Europe."],
+  ["to keep pace with (something)","to move or grow at the same speed as something else","The grid is struggling to keep pace with the explosion in digital demand."],
+  ["to cut through the noise","to identify what is truly important, ignoring distractions and hype","Good analysts can cut through the noise and spot the real trends early."],
+  ["the tip of the iceberg","a small visible part of a much larger hidden problem","The water consumption figures we see publicly are just the tip of the iceberg."],
+  ["caught between two forces","in a difficult position because of two opposing pressures","Governments are caught between two forces: attracting investment and protecting the grid."],
+  ["to pour money into (something)","to invest very large sums into a project or initiative","The hyperscalers are pouring money into new campuses at a rate never seen before."],
+  ["far from settled","not yet resolved; still very much debated","The environmental debate around data centres is far from settled."],
+  ["to draw on (something)","to use a resource, often without it being immediately obvious","These facilities claim to use renewables but quietly draw on fossil-heavy local grids."],
+  ["to host something","to provide the physical location or infrastructure for something to operate","Ireland built its reputation on hosting major cloud infrastructure cheaply."],
+  ["to miss the point","to fail to understand what is truly important about something","Focusing only on the technology misses the point — this is really a story about power."],
+  ["to be in the pipeline","to be planned or in development, not yet completed","Twelve new hyperscale campuses are in the pipeline across the Gulf region."],
+  ["a race to the bottom","a competitive process where standards are lowered to attract investment","Without regulation, countries risk a race to the bottom on environmental protections."],
+  ["to put something on the map","to make a place or idea suddenly well-known or important","The Dublin data centre cluster put Ireland firmly on the global digital infrastructure map."],
+  ["window dressing","superficial changes made to create a positive impression without real substance","Those green energy pledges are window dressing — the carbon numbers tell a different story."],
+  ["to bite the bullet","to accept a difficult or unpleasant situation and deal with it decisively","Governments need to bite the bullet and invest in grid capacity now, before the crisis hits."]
+];
+
+const matchPairs=[
+  ["to pop up like mushrooms after rain","to appear suddenly and in very large numbers"],
+  ["greenwashing","making misleading claims about environmental performance"],
+  ["latency","the tiny delay between a digital request and its response"],
+  ["to cut through the noise","to identify what truly matters, ignoring distractions"],
+  ["data sovereignty","the principle that data is governed by the laws of where it is stored"],
+  ["far from settled","not yet resolved; still actively debated"],
+  ["a moratorium","an official temporary ban on an activity"],
+  ["to draw on something","to use a resource, often without it being obvious"],
+  ["the tip of the iceberg","a small visible sign of a much larger hidden problem"],
+  ["window dressing","superficial changes made only to create a positive impression"]
+];
+
+const gapItems=[
+  {pre:"New data centres are",blank:"popping up",hint:"pop up",post:"in every major region — the growth is extraordinary."},
+  {pre:"The three big",blank:"hyperscalers",hint:"hyperscalers",post:"— Amazon, Google, and Microsoft — are driving most of the construction."},
+  {pre:"Critics say many operators are",blank:"greenwashing",hint:"greenwashing",post:"— making renewable claims that don't hold up to scrutiny."},
+  {pre:"Countries are increasingly worried about",blank:"data sovereignty",hint:"data sovereignty",post:"and who controls where their citizens' information is stored."},
+  {pre:"High",blank:"latency",hint:"latency",post:"makes real-time applications like autonomous vehicles impossible to run safely."},
+  {pre:"The scale of the energy consumption is",blank:"staggering",hint:"staggering",post:"— one facility can use as much power as a mid-sized city."},
+  {pre:"The existing electricity grid in Dublin couldn't",blank:"cope with the load",hint:"cope with the load",post:"and connections had to be rationed."},
+  {pre:"Heavy AI processing creates enormous",blank:"digital workloads",hint:"digital workloads",post:"that older infrastructure was never designed to handle."},
+  {pre:"The",blank:"colocation",hint:"colocation",post:"market allows businesses to rent server space without managing their own buildings."},
+  {pre:"If I had to",blank:"cut through the noise",hint:"cut through the noise",post:", I'd say this is fundamentally a story about geopolitical power."}
+];
+
+const mcItems=[
+  {q:'Q1 — "Data centres are popping up like mushrooms after rain." This means they are…',opts:["a) growing slowly and steadily.","b) appearing suddenly and in very large numbers everywhere.","c) being built underground in most cities.","d) growing only in wet or cold climates."],ans:1},
+  {q:'Q2 — According to the reading, what is Power Usage Effectiveness (PUE)?',opts:["a) a measure of how fast a server can process data","b) a ratio that shows how efficiently a data centre uses energy","c) the total electricity bill of a data centre per year","d) a system for rating the internet speed of a facility"],ans:1},
+  {q:'Q3 — "Those green energy claims are just window dressing." This means the claims are…',opts:["a) genuinely impressive and well-evidenced.","b) related to the design of the buildings.","c) superficial and designed to create a positive image without real substance.","d) legally required by government regulation."],ans:2},
+  {q:'Q4 — What is a "colocation market"?',opts:["a) a system for placing data centres only in capital cities","b) an industry where companies rent data centre space to house their own servers","c) a method of connecting multiple data centres in a single building","d) a marketplace where second-hand server equipment is sold"],ans:1},
+  {q:'Q5 — Why did Dublin impose a moratorium on new data centre connections?',opts:["a) because the planning laws were changed by the EU","b) because the existing electricity grid could not cope with the demand","c) because local residents successfully blocked all new planning applications","d) because the cost of land in Dublin became too high"],ans:1},
+  {q:'Q6 — "The hyperscalers are pouring money into new campuses." This means they are…',opts:["a) wasting money carelessly on unnecessary projects.","b) investing very large sums into construction.","c) moving money between different countries to avoid tax.","d) spending money on educational programmes for students."],ans:1},
+  {q:'Q7 — What does "data sovereignty" mean in the context of the reading?',opts:["a) the speed at which data can be transferred between countries","b) the physical security of data centre buildings","c) the principle that data is subject to the laws of the country where it is stored","d) the right of individuals to delete their personal data"],ans:2},
+  {q:'Q8 — "The environmental debate is far from settled." This means…',opts:["a) the debate has been officially resolved by an international agreement.","b) the debate is still very much ongoing with no clear conclusion.","c) people have lost interest in the environmental argument.","d) scientists have reached a clear consensus on the issue."],ans:1},
+  {q:'Q9 — What is the main point Marcus makes in his final paragraph?',opts:["a) data centres should not be built at all until cleaner energy is available.","b) the real question is not whether to build data centres, but how to do so wisely and fairly.","c) governments should leave all decisions about data centres to private companies.","d) data centres are less important than railways were in the 19th century."],ans:1},
+  {q:'Q10 — Which phrase best means "a small visible sign of a much larger hidden problem"?',opts:["a) window dressing","b) the tip of the iceberg","c) a race to the bottom","d) far from settled"],ans:1}
+];
+
+const speakData=[
+  {num:"01",title:"Why the boom?",q:"Explain what is driving the rapid growth in data centres around the world. What are the main forces behind the boom?",words:["hyperscalers","cloud computing","digital workloads","compute power","to pop up like mushrooms","to keep pace with","in the pipeline"]},
+  {num:"02",title:"The environmental cost",q:"How serious is the environmental impact of data centres? Do you think the industry is doing enough to address it?",words:["staggering","evaporative cooling","PUE","greenwashing","window dressing","net zero","to draw on"]},
+  {num:"03",title:"Governments and infrastructure",q:"What pressures do governments face when deciding whether to allow new data centres to be built? How should they balance these pressures?",words:["critical infrastructure","moratorium","cope with the load","geopolitical prestige","caught between two forces","to bite the bullet","planning application"]},
+  {num:"04",title:"Data sovereignty",q:"Why does it matter which country stores a company's or government's data? Should there be international rules about this?",words:["data sovereignty","sovereign data","hyperscaler","to host","geopolitical prestige","a race to the bottom","far from settled"]},
+  {num:"05",title:"The cloud myth",q:'Marcus says "every time someone says the cloud, they really mean someone else\'s computer." What does this reveal about how people misunderstand digital technology?',words:["cloud computing","server rack","latency","edge data centre","to miss the point","to cut through the noise","digital infrastructure"]},
+  {num:"06",title:"Colocation vs hyperscale",q:"What is the difference between colocation and hyperscale facilities? Who uses each, and why? Which model do you think will grow faster?",words:["hyperscale facility","colocation market","edge data centre","redundant power supply","to pour money into","hyperscalers","cooling system"]},
+  {num:"07",title:"Winners and losers",q:"Who benefits most from the data centre boom — and who pays the highest cost? Is the current situation fair?",words:["greenwashing","digital infrastructure","moratorium","staggering","the tip of the iceberg","a race to the bottom","to put on the map"]},
+  {num:"08",title:"The future",q:"Do you think governments or companies should take the lead in building the next generation of digital infrastructure? What would the ideal future look like?",words:["data sovereignty","compute power","net zero","to cut through the noise","to bite the bullet","caught between two forces","to keep pace with"]}
+];
+
+/* ── GRAMMAR 1 DATA ── */
+const gramA=[
+  {pre:"If governments don't invest in grid capacity now, they",blank:"will struggle",hint:"(will + struggle)",post:"to approve new data centre applications."},
+  {pre:"If I were the minister of digital infrastructure, I",blank:"would impose",hint:"(would + impose)",post:"mandatory PUE limits on all new facilities."},
+  {pre:"If Ireland had built more grid capacity earlier, it",blank:"wouldn't have imposed",hint:"(wouldn't have + impose)",post:"a moratorium on new connections."},
+  {pre:"If the facility",blank:"had invested",hint:"(had + invest)",post:"in renewables from the start, the greenwashing accusations wouldn't exist now."},
+  {pre:"If operators publish their water usage data,",blank:"trust",hint:"(trust — present simple)",post:"in the industry will improve significantly."},
+  {pre:"If we had regulated hyperscaler land use properly, we",blank:"would be",hint:"(would + be)",post:"in a much stronger negotiating position today."}
+];
+const gramB=[
+  {pre:'The CEO said, "We are expanding our European campus." → The CEO said they',blank:"were expanding",hint:"2 words",post:"their European campus."},
+  {pre:'The regulator told the operator, "Reduce your water consumption immediately." → The regulator told the operator',blank:"to reduce",hint:"2 words",post:"its water consumption immediately."},
+  {pre:'She said, "We will reach net zero by 2030." → She said they',blank:"would reach",hint:"2 words",post:"net zero by 2030."},
+  {pre:'He said, "You ignored the environmental report." → He said I',blank:"had ignored",hint:"2 words",post:"the environmental report."},
+  {pre:'The journalist asked, "Why didn\'t you publish the PUE data?" → The journalist asked why they',blank:"hadn't published",hint:"2 words",post:"the PUE data."},
+  {pre:'She said, "The cooling systems are being upgraded." → She said the cooling systems',blank:"were being upgraded",hint:"3 words",post:"at that time."}
+];
+const gramC=[
+  {pre:'Marcus said, "If we keep ignoring the energy issue, we\'ll face a crisis." → Marcus said that if they',blank1:"kept",hint1:"(keep — past simple)",mid:"ignoring the energy issue, they",blank2:"would face",hint2:"(will → would)",post:"a crisis."},
+  {pre:'The minister said, "If I were a tech company, I would invest in sovereign data platforms." → The minister said that if she',blank1:"were",hint1:"(be)",mid:"a tech company, she",blank2:"would invest",hint2:"(would + invest)",post:"in sovereign data platforms."},
+  {pre:'The analyst said, "If they had listened to the grid warnings, this moratorium wouldn\'t be necessary." → The analyst said that if they',blank1:"had listened",hint1:"(listen — past perfect)",mid:"to the grid warnings, the moratorium",blank2:"wouldn't have been",hint2:"(wouldn't have + be)",post:"necessary."}
+];
+
+/* ── GRAMMAR 2 DATA ── */
+const mod2A=[
+  {pre:"All new data centres",blank:"must meet",hint:"(must / should + meet)",post:"minimum PUE standards before receiving planning permission."},
+  {pre:"Critics argue that operators",blank:"should publish",hint:"(should + publish)",post:"their real water and energy consumption data every year."},
+  {pre:"An edge data centre",blank:"can reduce",hint:"(can + reduce)",post:"latency dramatically for users in remote regions."},
+  {pre:"Those efficiency claims",blank:"can't be",hint:"(can't + be)",post:"accurate — the raw energy numbers completely contradict them."},
+  {pre:"The moratorium",blank:"might be lifted",hint:"(might + be lifted)",post:"next year if the grid expansion project stays on schedule."},
+  {pre:"The government",blank:"should have invested",hint:"(should have + invest)",post:"in grid capacity five years ago — now it's playing catch-up."}
+];
+const mod2B=[
+  {active:"It is obligatory for all facilities to carry out environmental impact assessments. (must)",blank:"All facilities must carry out environmental impact assessments.",hint:"must + base verb"},
+  {active:"It is possible that the energy grid will not cope with demand by 2030. (might)",blank:"The energy grid might not cope with demand by 2030.",hint:"might + base verb"},
+  {active:"It was a mistake for hyperscalers not to disclose their water usage sooner. (should have)",blank:"Hyperscalers should have disclosed their water usage sooner.",hint:"should have + past participle"},
+  {active:"It is logically impossible for the facility to run on 100% renewables given its location. (can't)",blank:"The facility can't be running on 100% renewables given its location.",hint:"can't + be + -ing"},
+  {active:"In the past, data centres were not able to operate without enormous cooling infrastructure. (could not)",blank:"In the past, data centres could not operate without enormous cooling infrastructure.",hint:"could not + base verb"},
+  {active:"I advise governments to bite the bullet and invest in grid expansion now. (ought to)",blank:"Governments ought to bite the bullet and invest in grid expansion now.",hint:"ought to + base verb"}
+];
+const modMC=[
+  {q:'Q1 — "Consumption must be enormous if it equals a small city." The modal here expresses…',opts:["a) an obligation imposed by law.","b) a logical deduction based on evidence.","c) a possibility that may or may not be true.","d) advice to the reader."],ans:1},
+  {q:'Q2 — Which sentence correctly expresses past criticism?',opts:["a) They should invest in renewables earlier.","b) They must have invested in renewables earlier.","c) They should have invested in renewables earlier.","d) They could invest in renewables earlier."],ans:2},
+  {q:'Q3 — "The moratorium might be lifted next year." This means it is…',opts:["a) certain to be lifted.","b) impossible to lift.","c) already been lifted.","d) possible but not certain that it will be lifted."],ans:3},
+  {q:'Q4 — Choose the sentence that expresses an obligation, not just advice.',opts:["a) Operators should publish their energy data.","b) Operators must publish their energy data by law.","c) Operators might publish their energy data.","d) Operators could publish their energy data if they wanted."],ans:1},
+  {q:'Q5 — "Those figures can\'t be right." This modal expresses…',opts:["a) advice about what to do with the figures.","b) a possibility that the figures might be wrong.","c) logical certainty that the figures are incorrect.","d) an obligation to check the figures."],ans:2},
+  {q:'Q6 — Which sentence uses "could" correctly to express past ability?',opts:["a) Early data centres could use renewable energy if they wanted.","b) Early data centres could not operate without massive air conditioning.","c) Early data centres could have been more efficient than they were.","d) Early data centres could be more efficient in the future."],ans:1}
+];
+
+/* ════════════════════════════════════════
+   BUILDERS
+════════════════════════════════════════ */
+function buildTable(id,data){
+  const tb=document.getElementById(id);
+  data.forEach(r=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td class="vt">${r[0]}</td><td class="vd">${r[1]}</td><td class="ve">"${r[2]}"</td>`;
+    tb.appendChild(tr);
+  });
+}
+buildTable('vocabBody',vocabData);
+buildTable('idiomsBody',idiomsData);
+
+/* MATCHING */
+let mSel={left:null,right:null},mScore=0;
+const mRight=[...matchPairs].map(p=>p[1]).sort(()=>Math.random()-.5);
+function buildMatch(){
+  const L=document.getElementById('matchLeft'),R=document.getElementById('matchRight');
+  matchPairs.forEach((p,i)=>{
+    const l=document.createElement('div');l.className='match-item';l.textContent=p[0];l.dataset.idx=i;
+    l.onclick=()=>selLeft(l,i);L.appendChild(l);
+    const r=document.createElement('div');r.className='match-item';r.textContent=mRight[i];r.dataset.val=mRight[i];
+    r.onclick=()=>selRight(r);R.appendChild(r);
+  });
+}
+function selLeft(el,idx){
+  document.querySelectorAll('#matchLeft .match-item').forEach(e=>{if(!e.classList.contains('correct'))e.classList.remove('selected')});
+  el.classList.add('selected');mSel.left={el,idx};tryMatch();
+}
+function selRight(el){
+  document.querySelectorAll('#matchRight .match-item').forEach(e=>{if(!e.classList.contains('correct'))e.classList.remove('selected')});
+  el.classList.add('selected');mSel.right={el};tryMatch();
+}
+function tryMatch(){
+  if(!mSel.left||!mSel.right)return;
+  const ok=mSel.right.el.dataset.val===matchPairs[mSel.left.idx][1];
+  if(ok){
+    mSel.left.el.classList.replace('selected','correct');
+    mSel.right.el.classList.replace('selected','correct');
+    mScore++;document.getElementById('matchScore').textContent=mScore+' / 10';
+  }else{
+    mSel.left.el.classList.replace('selected','wrong');
+    mSel.right.el.classList.replace('selected','wrong');
+    setTimeout(()=>{mSel.left.el.classList.remove('wrong');mSel.right.el.classList.remove('wrong')},700);
+  }
+  mSel={left:null,right:null};
+}
+buildMatch();
+
+/* GAPS */
+function buildGaps(){
+  const list=document.getElementById('gapList');
+  gapItems.forEach((s,i)=>{
+    const d=document.createElement('div');d.className='gap-item';
+    d.innerHTML=`<span class="gap-num">${String(i+1).padStart(2,'0')}</span><span class="gap-text">${s.pre} <input class="gap-input" data-ans="${s.blank}" placeholder="…"> ${s.post}</span>`;
+    list.appendChild(d);
+  });
+}
+buildGaps();
+const norm=s=>s.toLowerCase().trim().replace(/\s+/g,' ');
+function checkGaps(){
+  let sc=0;
+  document.querySelectorAll('#gapList .gap-input').forEach(inp=>{
+    inp.classList.remove('correct','wrong','shown');
+    if(norm(inp.value)===norm(inp.dataset.ans)){inp.classList.add('correct');sc++;}else inp.classList.add('wrong');
+  });
+  document.getElementById('gapScore').textContent=sc+' / 10';
+}
+function showGapAnswers(){
+  document.querySelectorAll('#gapList .gap-input').forEach(inp=>{
+    inp.value=inp.dataset.ans;inp.classList.remove('correct','wrong');inp.classList.add('shown');
+  });
+}
+
+/* MC */
+function buildMC(){
+  const list=document.getElementById('mcList');
+  mcItems.forEach((q,qi)=>{
+    const d=document.createElement('div');
+    const opts=q.opts.map((o,oi)=>`<label class="mc-opt" data-qi="${qi}" data-oi="${oi}"><input type="radio" name="mc${qi}" value="${oi}"> ${o}</label>`).join('');
+    d.innerHTML=`<div class="mc-q-label">${q.q}</div><div class="mc-opts">${opts}</div>`;
+    list.appendChild(d);
+  });
+}
+buildMC();
+function checkMC(){
+  let sc=0;
+  mcItems.forEach((q,qi)=>{
+    const sel=document.querySelector(`input[name="mc${qi}"]:checked`);
+    document.querySelectorAll(`label[data-qi="${qi}"]`).forEach(el=>el.classList.remove('correct','wrong'));
+    if(sel){
+      const oi=parseInt(sel.value);
+      document.querySelectorAll(`label[data-qi="${qi}"]`)[oi].classList.add(oi===q.ans?'correct':'wrong');
+      if(oi===q.ans)sc++;
+    }
+    document.querySelectorAll(`label[data-qi="${qi}"]`)[q.ans].classList.add('correct');
+  });
+  document.getElementById('mcScore').textContent=sc+' / 10';
+}
+
+/* SPEAKING */
+function buildSpeak(){
+  const wrap=document.getElementById('speakCards');
+  speakData.forEach(s=>{
+    const d=document.createElement('div');d.className='speak-card';
+    const chips=s.words.map(w=>`<span class="chip">${w}</span>`).join('');
+    d.innerHTML=`<div class="speak-card-num">◆ Question ${s.num} · ${s.title}</div><div class="speak-card-q">${s.q}</div><div class="chip-row">${chips}</div>`;
+    wrap.appendChild(d);
+  });
+}
+buildSpeak();
+
+/* GRAMMAR 1 */
+function mkInput(ans,hint,w){
+  return `<input class="gap-input" data-ans="${ans}" placeholder="${hint}" style="width:${w||185}px">`;
+}
+function buildGramA(){
+  const list=document.getElementById('gramListA');
+  gramA.forEach((s,i)=>{
+    const d=document.createElement('div');d.className='gap-item';
+    d.innerHTML=`<span class="gap-num">${String(i+1).padStart(2,'0')}</span><span class="gap-text">${s.pre} ${mkInput(s.blank,s.hint,200)} ${s.post}</span>`;
+    list.appendChild(d);
+  });
+}
+function buildGramB(){
+  const list=document.getElementById('gramListB');
+  gramB.forEach((s,i)=>{
+    const d=document.createElement('div');d.className='gap-item';
+    d.innerHTML=`<span class="gap-num">${String(i+7).padStart(2,'0')}</span><span class="gap-text">${s.pre} ${mkInput(s.blank,s.hint,180)} ${s.post}</span>`;
+    list.appendChild(d);
+  });
+}
+function buildGramC(){
+  const list=document.getElementById('gramListC');
+  gramC.forEach((s,i)=>{
+    const d=document.createElement('div');d.className='gap-item';
+    d.innerHTML=`<span class="gap-num">${String(i+13).padStart(2,'0')}</span><span class="gap-text">${s.pre} ${mkInput(s.blank1,s.hint1,155)} ${s.mid} ${mkInput(s.blank2,s.hint2,165)} ${s.post}</span>`;
+    list.appendChild(d);
+  });
+}
+buildGramA();buildGramB();buildGramC();
+function checkGram(){
+  let sc=0;
+  ['gramListA','gramListB','gramListC'].forEach(id=>{
+    document.querySelectorAll(`#${id} .gap-input`).forEach(inp=>{
+      inp.classList.remove('correct','wrong','shown');
+      if(norm(inp.value)===norm(inp.dataset.ans)){inp.classList.add('correct');sc++;}else inp.classList.add('wrong');
+    });
+  });
+  document.getElementById('gramScore').textContent=sc+' / 18';
+}
+function showGramAnswers(){
+  ['gramListA','gramListB','gramListC'].forEach(id=>{
+    document.querySelectorAll(`#${id} .gap-input`).forEach(inp=>{
+      inp.value=inp.dataset.ans;inp.classList.remove('correct','wrong');inp.classList.add('shown');
+    });
+  });
+}
+
+/* GRAMMAR 2 */
+function buildMod2A(){
+  const list=document.getElementById('mod2ListA');
+  mod2A.forEach((s,i)=>{
+    const d=document.createElement('div');d.className='gap-item';
+    d.innerHTML=`<span class="gap-num">${String(i+1).padStart(2,'0')}</span><span class="gap-text">${s.pre} ${mkInput(s.blank,s.hint,210)} ${s.post}</span>`;
+    list.appendChild(d);
+  });
+}
+function buildMod2B(){
+  const list=document.getElementById('mod2ListB');
+  mod2B.forEach((s,i)=>{
+    const d=document.createElement('div');d.className='gap-item';
+    d.innerHTML=`<span class="gap-num">${String(i+7).padStart(2,'0')}</span><span class="gap-text"><em style="color:var(--muted);font-size:13px">${s.active}</em><br><input class="gap-input" data-ans="${s.blank}" placeholder="${s.hint}" style="width:100%;margin-top:5px"></span>`;
+    list.appendChild(d);
+  });
+}
+function buildModMC(){
+  const list=document.getElementById('modMCList');
+  modMC.forEach((q,qi)=>{
+    const d=document.createElement('div');
+    const opts=q.opts.map((o,oi)=>`<label class="mc-opt" data-mqi="${qi}" data-moi="${oi}"><input type="radio" name="mmc${qi}" value="${oi}"> ${o}</label>`).join('');
+    d.innerHTML=`<div class="mc-q-label">${q.q}</div><div class="mc-opts">${opts}</div>`;
+    list.appendChild(d);
+  });
+}
+buildMod2A();buildMod2B();buildModMC();
+function checkModal(){
+  let sc=0;
+  ['mod2ListA','mod2ListB'].forEach(id=>{
+    document.querySelectorAll(`#${id} .gap-input`).forEach(inp=>{
+      inp.classList.remove('correct','wrong','shown');
+      if(norm(inp.value)===norm(inp.dataset.ans)){inp.classList.add('correct');sc++;}else inp.classList.add('wrong');
+    });
+  });
+  modMC.forEach((q,qi)=>{
+    const sel=document.querySelector(`input[name="mmc${qi}"]:checked`);
+    document.querySelectorAll(`label[data-mqi="${qi}"]`).forEach(el=>el.classList.remove('correct','wrong'));
+    if(sel){
+      const oi=parseInt(sel.value);
+      document.querySelectorAll(`label[data-mqi="${qi}"]`)[oi].classList.add(oi===q.ans?'correct':'wrong');
+      if(oi===q.ans)sc++;
+    }
+    document.querySelectorAll(`label[data-mqi="${qi}"]`)[q.ans].classList.add('correct');
+  });
+  document.getElementById('modScore').textContent=sc+' / 18';
+}
+function showModalAnswers(){
+  ['mod2ListA','mod2ListB'].forEach(id=>{
+    document.querySelectorAll(`#${id} .gap-input`).forEach(inp=>{
+      inp.value=inp.dataset.ans;inp.classList.remove('correct','wrong');inp.classList.add('shown');
+    });
+  });
+}
+
+/* NAV */
+function showSection(id,tab){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  tab.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
