@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Farm Pile Driver — B2 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sun: #E8A020;
+  --sun-light: #FEF3DC;
+  --sun-dark: #7A4F00;
+  --steel: #2C3E50;
+  --steel-mid: #4A6073;
+  --steel-light: #EEF2F5;
+  --grass: #3B7D4F;
+  --grass-light: #EBF5EE;
+  --sky: #1A6FA8;
+  --sky-light: #E6F2FB;
+  --ink: #1A1A1A;
+  --muted: #5A6575;
+  --border: #D8DDE4;
+  --bg: #F7F5F0;
+  --white: #FFFFFF;
+  --correct: #2D7A4A;
+  --correct-bg: #EBF7F0;
+  --wrong: #C0392B;
+  --wrong-bg: #FCECEA;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--steel);
+  color: #fff;
+  padding: 2.5rem 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: rgba(232,160,32,0.12);
+  pointer-events: none;
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: 40%;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: rgba(232,160,32,0.07);
+  pointer-events: none;
+}
+.header-inner { max-width: 860px; margin: 0 auto; position: relative; }
+.header-tag {
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--sun);
+  margin-bottom: .6rem;
+  font-weight: 500;
+}
+.header-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: .7rem;
+  color: #fff;
+}
+.header-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  max-width: 600px;
+  margin-bottom: 1.2rem;
+}
+.pill-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill {
+  font-size: 11px;
+  padding: 3px 11px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.07);
+}
+
+/* ── NAV TABS ── */
+.nav-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.nav-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 1rem;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-tab {
+  flex-shrink: 0;
+  padding: .85rem 1.1rem;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 2.5px solid transparent;
+  transition: color .2s, border-color .2s;
+  white-space: nowrap;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: 'DM Sans', sans-serif;
+}
+.nav-tab:hover { color: var(--steel); }
+.nav-tab.active {
+  color: var(--sun-dark);
+  border-bottom-color: var(--sun);
+}
+
+/* ── MAIN LAYOUT ── */
+.main { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+.section { display: none; }
+.section.active { display: block; }
+.section-head {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: .3rem;
+  color: var(--steel);
+}
+.section-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+  max-width: 580px;
+}
+
+/* ── READING ── */
+.reading-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem 2.25rem;
+}
+.persona-tag {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.persona-avatar {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--steel);
+  color: #fff;
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.persona-name { font-weight: 500; font-size: 15px; }
+.persona-role { font-size: 13px; color: var(--muted); }
+.reading-body p {
+  font-size: 15.5px;
+  line-height: 1.9;
+  margin-bottom: 1.1rem;
+  color: #222;
+}
+.reading-body p:last-child { margin-bottom: 0; }
+.tl { color: #B05D00; font-weight: 600; }
+.pull-quote {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--steel-mid);
+  border-left: 3px solid var(--sun);
+  padding: .6rem 1.25rem;
+  margin: 1.25rem 0;
+  background: var(--sun-light);
+  border-radius: 0 8px 8px 0;
+}
+
+/* ── VOCAB / IDIOMS TABLE ── */
+.vocab-note {
+  background: var(--steel-light);
+  border-radius: 8px;
+  padding: .65rem 1rem;
+  font-size: 13px;
+  color: var(--steel-mid);
+  margin-bottom: 1.25rem;
+}
+.vocab-table { width: 100%; border-collapse: collapse; }
+.vocab-table thead th {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--muted);
+  font-weight: 500;
+  padding: .5rem .75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.vocab-table tbody tr { border-bottom: 1px solid var(--border); }
+.vocab-table tbody tr:last-child { border-bottom: none; }
+.vocab-table tbody tr:hover { background: var(--steel-light); }
+.vocab-table td { padding: .8rem .75rem; vertical-align: top; }
+.vocab-term { font-weight: 500; font-size: 14px; color: var(--steel); min-width: 190px; }
+.vocab-def { font-size: 13.5px; color: var(--muted); min-width: 200px; }
+.vocab-ex { font-size: 13px; color: #888; font-style: italic; }
+
+/* ── MATCHING ── */
+.match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.match-col-head {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: .75rem;
+}
+.match-item {
+  padding: .65rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 7px;
+  background: var(--white);
+  transition: border-color .15s, background .15s, transform .1s;
+  user-select: none;
+}
+.match-item:hover { border-color: var(--steel-mid); background: var(--steel-light); }
+.match-item.selected { border-color: var(--sky); background: var(--sky-light); color: var(--sky); font-weight: 500; }
+.match-item.correct { border-color: var(--correct); background: var(--correct-bg); color: var(--correct); cursor: default; font-weight: 500; }
+.match-item.wrong { border-color: var(--wrong); background: var(--wrong-bg); color: var(--wrong); }
+.score-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--muted);
+}
+.score-val { font-size: 18px; font-weight: 600; color: var(--steel); }
+
+/* ── GAPS ── */
+.word-bank-box {
+  background: var(--sun-light);
+  border: 1px solid #F0D090;
+  border-radius: 10px;
+  padding: .85rem 1.1rem;
+  margin-bottom: 1.5rem;
+  font-size: 13.5px;
+  color: var(--sun-dark);
+}
+.word-bank-box strong {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  margin-bottom: .35rem;
+  color: #A07010;
+  font-weight: 600;
+}
+.gap-list { display: flex; flex-direction: column; gap: .85rem; }
+.gap-item { display: flex; align-items: flex-start; gap: .85rem; }
+.gap-num {
+  min-width: 28px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  padding-top: 7px;
+  flex-shrink: 0;
+}
+.gap-text { font-size: 15px; line-height: 1.75; flex: 1; }
+.gap-input {
+  display: inline-block;
+  border: none;
+  border-bottom: 2px solid var(--border);
+  background: transparent;
+  font-size: 15px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  padding: 0 4px 2px;
+  width: 180px;
+  outline: none;
+  transition: border-color .2s;
+}
+.gap-input:focus { border-bottom-color: var(--sky); }
+.gap-input.correct { border-bottom-color: var(--correct); color: var(--correct); }
+.gap-input.wrong { border-bottom-color: var(--wrong); color: var(--wrong); }
+.gap-input.answer-shown { border-bottom-color: var(--sun); color: var(--sun-dark); font-style: italic; }
+
+/* ── BUTTONS ── */
+.btn-row { display: flex; gap: .75rem; align-items: center; margin-top: 1.5rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: .55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .15s, transform .1s;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--steel);
+}
+.btn:hover { background: var(--steel-light); }
+.btn:active { transform: scale(0.98); }
+.btn-primary {
+  background: var(--steel);
+  color: #fff;
+  border-color: var(--steel);
+}
+.btn-primary:hover { background: var(--steel-mid); }
+.btn-show {
+  background: transparent;
+  color: var(--muted);
+  border-color: transparent;
+  font-size: 13px;
+  padding: .4rem .75rem;
+}
+.btn-show:hover { color: var(--ink); background: var(--steel-light); }
+
+/* ── MULTIPLE CHOICE ── */
+.mc-list { display: flex; flex-direction: column; gap: 1.5rem; }
+.mc-q-label {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: .65rem;
+  color: var(--steel);
+}
+.mc-q-label em { font-weight: 400; color: var(--muted); font-style: normal; font-size: 14px; }
+.mc-opts { display: flex; flex-direction: column; gap: .45rem; }
+.mc-opt {
+  display: flex;
+  align-items: flex-start;
+  gap: .65rem;
+  padding: .6rem .9rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  background: var(--white);
+  transition: border-color .15s, background .15s;
+}
+.mc-opt:hover { border-color: var(--steel-mid); background: var(--steel-light); }
+.mc-opt input[type=radio] { margin-top: 3px; accent-color: var(--sky); flex-shrink: 0; }
+.mc-opt.correct { border-color: var(--correct); background: var(--correct-bg); color: var(--correct); }
+.mc-opt.wrong { border-color: var(--wrong); background: var(--wrong-bg); color: var(--wrong); }
+
+/* ── SPEAKING ── */
+.fluency-box {
+  background: var(--sky-light);
+  border: 1px solid #B0D4EE;
+  border-radius: 12px;
+  padding: 1.1rem 1.4rem;
+  margin-bottom: 2rem;
+}
+.fluency-box h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sky);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: .85rem;
+}
+.fluency-cat { font-size: 12px; font-weight: 600; color: var(--steel-mid); margin-top: .6rem; margin-bottom: .15rem; }
+.fluency-items { font-size: 13px; color: #4A6A80; }
+.speak-cards { display: flex; flex-direction: column; gap: 1rem; }
+.speak-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.4rem;
+}
+.speak-card-num {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  margin-bottom: .35rem;
+  font-weight: 500;
+}
+.speak-card-q { font-size: 15px; font-weight: 500; margin-bottom: .8rem; color: var(--steel); }
+.chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--sky-light);
+  border: 1px solid #B0D4EE;
+  color: var(--sky);
+}
+.rapid-fire-box {
+  background: var(--steel);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  color: #fff;
+}
+.rapid-fire-box h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  margin-bottom: .3rem;
+  color: var(--sun);
+}
+.rapid-fire-box p { font-size: 13px; color: rgba(255,255,255,.6); margin-bottom: 1rem; }
+.rapid-item {
+  padding: .55rem .85rem;
+  background: rgba(255,255,255,0.07);
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: .5rem;
+  border-left: 3px solid var(--sun);
+  color: rgba(255,255,255,0.9);
+}
+
+/* ── GRAMMAR ── */
+.gram-ref {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.75rem;
+}
+.gram-ref h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--steel);
+  margin-bottom: 1rem;
+}
+.gram-table { width: 100%; border-collapse: collapse; }
+.gram-table tr { border-bottom: 1px solid var(--border); }
+.gram-table tr:last-child { border-bottom: none; }
+.gram-table td { padding: .55rem .5rem; font-size: 13.5px; vertical-align: top; }
+.gram-table td:first-child { font-weight: 500; color: var(--steel-mid); min-width: 210px; padding-right: 1rem; }
+.gram-table td:last-child { color: var(--muted); font-style: italic; }
+.gram-part-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 1.75rem 0 .85rem;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.gram-part-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.gram-note { font-size: 13px; color: var(--muted); margin-bottom: 1rem; font-style: italic; }
+
+/* ── FOOTER ── */
+.lesson-footer {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 620px) {
+  .match-grid { grid-template-columns: 1fr; }
+  .reading-box { padding: 1.25rem; }
+  .vocab-table { display: block; overflow-x: auto; }
+  .gap-input { width: 130px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-tag">⬥ Renewable Energy · B2 English</div>
+    <h1 class="header-title">Work Responsibilities of a<br>Solar Farm Pile Driver</h1>
+    <p class="header-desc">The technical language of solar construction — ground preparation, pile installation, safety protocols, and the teamwork behind every panel.</p>
+    <div class="pill-row">
+      <span class="pill">CEFR B2</span>
+      <span class="pill">Solar Construction</span>
+      <span class="pill">Technical Vocabulary</span>
+      <span class="pill">Idioms & Nuance</span>
+      <span class="pill">Speaking · Grammar</span>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <button class="nav-tab active" onclick="showSection('reading',this)">① Reading</button>
+    <button class="nav-tab" onclick="showSection('vocab',this)">② Vocabulary</button>
+    <button class="nav-tab" onclick="showSection('idioms',this)">③ Idioms</button>
+    <button class="nav-tab" onclick="showSection('match',this)">④ Matching</button>
+    <button class="nav-tab" onclick="showSection('gaps',this)">⑤ Fill the gaps</button>
+    <button class="nav-tab" onclick="showSection('mc',this)">⑥ Multiple choice</button>
+    <button class="nav-tab" onclick="showSection('speaking',this)">⑦ Speaking 🎤</button>
+    <button class="nav-tab" onclick="showSection('grammar',this)">⑧ Grammar 📝</button>
+    <button class="nav-tab" onclick="showSection('grammar2',this)">⑨ Grammar 2 📝</button>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ① READING -->
+<section id="reading" class="section active">
+  <h2 class="section-head">📖 Reading text</h2>
+  <p class="section-sub">A lead pile driver shares what the job really involves — from ground surveys to safety sign-offs. Target language is in <strong style="color:#B05D00">orange bold</strong>.</p>
+  <div class="reading-box">
+    <div class="persona-tag">
+      <div class="persona-avatar">DK</div>
+      <div>
+        <div class="persona-name">★ Danny Kowalski, 44 · Lead Pile Driver, Solar Construction</div>
+        <div class="persona-role">18 years in the industry · Current project: 400-acre solar farm, East Midlands</div>
+      </div>
+    </div>
+    <div class="reading-body">
+      <p>Most people drive past a solar farm and see rows of shiny panels catching the sun. What they don't see is the weeks of <span class="tl">ground preparation</span> that happened before a single panel went up. That's my world. I'm a pile driver, and my job is to make sure every <span class="tl">structural pile</span> goes into the ground at exactly the right angle, depth, and position — because if I get it wrong, nothing above me works correctly.</p>
+      <p>Before we ever start driving, there's a <span class="tl">geotechnical survey</span> to understand the soil conditions. Is it clay? Sandy? Are there rocks at two metres? That data shapes everything — the type of pile we use, the <span class="tl">torque settings</span> on the machine, how long each <span class="tl">drive cycle</span> takes. On a good site, you can <span class="tl">set a pile</span> in under three minutes. On a rocky site, you're fighting every inch.</p>
+      <div class="pull-quote">"A bad pile is invisible until it fails. And by the time it fails, there's a million pounds of solar equipment sitting on top of it."</div>
+      <p>My day starts with a <span class="tl">pre-shift safety briefing</span> — checking the rig, reviewing the <span class="tl">installation plan</span>, confirming ground markings with the <span class="tl">survey crew</span>. We work in a tight team: a <span class="tl">rig operator</span>, a ground hand to <span class="tl">guide the pile</span>, and a checker with a <span class="tl">digital inclinometer</span> — a device that measures the exact angle of each pile as it goes in. Every pile gets <span class="tl">logged</span> in real time. If something's <span class="tl">out of tolerance</span>, we stop immediately and <span class="tl">rectify</span> it before moving on.</p>
+      <p>People underestimate how precise this work is. The <span class="tl">pile spacing</span> has to match the <span class="tl">racking system</span> — the metal frame that holds the panels — to within a few millimetres. If I'm five centimetres off on one pile, the whole row of panels above it sits wrong. That affects the <span class="tl">panel tilt angle</span>, which affects how much energy the whole row generates. One mistake at my level <span class="tl">ripples up</span> through every trade above me.</p>
+      <p>Then there's the safety side. Working with heavy machinery in open fields comes with serious <span class="tl">hazard exposure</span> — overhead power lines, unstable ground, <span class="tl">buried services</span> like gas pipes and cables. Every morning we do a <span class="tl">site induction</span> for any new workers, and I personally sign off on the <span class="tl">method statement</span> before the rig moves an inch. It sounds like paperwork, but that paperwork is what keeps people alive.</p>
+      <p>What I love about this work is that you can see what you've built. At the end of a long week, there are three hundred <span class="tl">galvanised steel piles</span> sticking out of the ground in perfect rows, and in a few months' time, that field will be generating clean energy. We're not just <span class="tl">hitting a daily target</span> — we're building something that'll still be standing in thirty years.</p>
+      <p>If I had to <span class="tl">sum it up</span>, I'd say pile driving is about discipline, precision, and respect — for the machine, for the ground, and for the people working alongside you. Get those three things right, and the job looks after itself.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ② VOCABULARY -->
+<section id="vocab" class="section">
+  <h2 class="section-head">💬 Vocabulary &amp; collocations</h2>
+  <p class="section-sub">Core technical and professional vocabulary from the solar pile-driving world. Every example sentence reflects real site language.</p>
+  <div class="vocab-note">24 terms specific to solar construction and site work. Notice how each example sentence uses the word in a full professional sentence.</div>
+  <table class="vocab-table">
+    <thead><tr><th>Term</th><th>Meaning</th><th>Example sentence</th></tr></thead>
+    <tbody id="vocabBody"></tbody>
+  </table>
+</section>
+
+<!-- ③ IDIOMS -->
+<section id="idioms" class="section">
+  <h2 class="section-head">💡 Idioms &amp; expressions</h2>
+  <p class="section-sub">B2 idioms that give your English real texture. All of these appear in the reading or speaking tasks — use them to sound genuinely fluent on site and in the classroom.</p>
+  <div class="vocab-note">15 idioms and fixed expressions. Learn the meaning, then practise each one in the speaking section.</div>
+  <table class="vocab-table">
+    <thead><tr><th>Expression</th><th>Meaning</th><th>Example sentence</th></tr></thead>
+    <tbody id="idiomsBody"></tbody>
+  </table>
+</section>
+
+<!-- ④ MATCHING -->
+<section id="match" class="section">
+  <h2 class="section-head">🔗 Match the expression with its meaning</h2>
+  <p class="section-sub">Click a phrase on the left, then click its correct meaning on the right. Score updates live.</p>
+  <div class="match-grid">
+    <div>
+      <div class="match-col-head">Expression</div>
+      <div id="matchLeft"></div>
+    </div>
+    <div>
+      <div class="match-col-head">Meaning</div>
+      <div id="matchRight"></div>
+    </div>
+  </div>
+  <div class="score-row">
+    <span>Matched correctly</span>
+    <span class="score-val" id="matchScore">0 / 10</span>
+  </div>
+</section>
+
+<!-- ⑤ FILL THE GAPS -->
+<section id="gaps" class="section">
+  <h2 class="section-head">✏️ Fill in the gaps</h2>
+  <p class="section-sub">Complete each sentence with an expression from the word bank. Use the correct grammatical form.</p>
+  <div class="word-bank-box">
+    <strong>◆ Word bank ◆</strong>
+    out of tolerance · ripple up · set a pile · site induction · method statement · buried services · drive cycle · pre-shift briefing · hitting a daily target · sum it up
+  </div>
+  <div class="gap-list" id="gapList"></div>
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="checkGaps()">✓ Check my answers</button>
+    <button class="btn btn-show" onclick="showGapAnswers()">Show answers</button>
+    <span class="score-val" id="gapScore" style="margin-left:auto; font-size:16px">— / 10</span>
+  </div>
+</section>
+
+<!-- ⑥ MULTIPLE CHOICE -->
+<section id="mc" class="section">
+  <h2 class="section-head">🎯 Choose the best answer</h2>
+  <p class="section-sub">Pick the option that sounds most natural and precise at B2 level. Some questions test reading comprehension; others test vocabulary and idiom use.</p>
+  <div class="mc-list" id="mcList"></div>
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="checkMC()">✓ Check my answers</button>
+    <span class="score-val" id="mcScore" style="margin-left:auto; font-size:16px">— / 10</span>
+  </div>
+</section>
+
+<!-- ⑦ SPEAKING -->
+<section id="speaking" class="section">
+  <h2 class="section-head">🎤 Speaking practice with new vocabulary</h2>
+  <p class="section-sub">Speak for <strong>1½–2 minutes</strong> per question. The words in the blue chips must appear in your answer — use at least <strong>4 per question</strong>. Work with a partner who ticks them off as you speak.</p>
+  <div class="fluency-box">
+    <h3>💬 Fluency boosters — B2 discourse markers</h3>
+    <div class="fluency-cat">Opening with confidence:</div>
+    <div class="fluency-items">"From my experience on site…" / "In practical terms…" / "The way I see it…"</div>
+    <div class="fluency-cat">Adding detail:</div>
+    <div class="fluency-items">"What's more…" / "On top of that…" / "To give you a specific example…"</div>
+    <div class="fluency-cat">Showing consequence:</div>
+    <div class="fluency-items">"As a result…" / "This means that…" / "The knock-on effect is…"</div>
+    <div class="fluency-cat">Closing strongly:</div>
+    <div class="fluency-items">"When you boil it down…" / "At the end of the day…" / "Ultimately, what matters is…"</div>
+  </div>
+  <div class="speak-cards" id="speakCards"></div>
+  <div class="rapid-fire-box">
+    <h3>◆ Question 09 · Rapid-fire · 45 seconds each</h3>
+    <p>Short answers — no planning, just talk. Use at least one idiom in each answer!</p>
+    <div class="rapid-item">▸ The rig breaks down mid-morning and you're behind on your pile count. What do you do?</div>
+    <div class="rapid-item">▸ A new ground hand is skipping the inclinometer checks to go faster. How do you handle it?</div>
+    <div class="rapid-item">▸ The survey crew marks a pile position directly above a buried service. Your response?</div>
+    <div class="rapid-item">▸ A project manager pushes you to skip the pre-shift briefing to save time. What do you say?</div>
+    <div class="rapid-item">▸ Finish this: "The best piece of advice I ever got on a construction site was…"</div>
+  </div>
+</section>
+
+<!-- ⑧ GRAMMAR 1 -->
+<section id="grammar" class="section">
+  <h2 class="section-head">📝 Grammar: Conditionals &amp; Reported Speech</h2>
+  <p class="section-sub">A quick refresher, then a mixed exercise. Some items need a conditional, some need reported speech, and some need both. All sentences use solar construction contexts.</p>
+
+  <div class="gram-ref">
+    <h3>◆ Conditionals — the quick map</h3>
+    <table class="gram-table">
+      <tr><td>1st conditional — real future</td><td>If the pile is out of tolerance, we <em>will stop</em> and rectify it.</td></tr>
+      <tr><td>2nd conditional — hypothetical present</td><td>If I <em>were</em> the rig operator, I <em>would double-check</em> the torque settings.</td></tr>
+      <tr><td>3rd conditional — past regret</td><td>If we <em>had done</em> the geotechnical survey, we <em>wouldn't have hit</em> rock.</td></tr>
+      <tr><td>Mixed — past condition → present result</td><td>If we <em>had logged</em> that pile correctly, we <em>'d still be</em> on schedule now.</td></tr>
+    </table>
+    <div style="margin-top:.85rem; font-size:13px; color:var(--muted)">
+      <strong style="color:var(--steel-mid)">2nd:</strong> If + past simple, <em>would</em> + infinitive &nbsp;·&nbsp;
+      <strong style="color:var(--steel-mid)">3rd:</strong> If + past perfect, <em>would have</em> + past participle
+    </div>
+  </div>
+
+  <div class="gram-ref">
+    <h3>◆ Reported speech — key shifts</h3>
+    <table class="gram-table">
+      <tr><td>Present simple → past simple</td><td>"The ground is unstable." → He said the ground <em>was</em> unstable.</td></tr>
+      <tr><td>Present continuous → past continuous</td><td>"I'm reviewing the plan." → She said she <em>was reviewing</em> the plan.</td></tr>
+      <tr><td>Past simple → past perfect</td><td>"You missed the briefing." → He said I <em>had missed</em> the briefing.</td></tr>
+      <tr><td>will → would</td><td>"I'll sign off the method statement." → She said she <em>would sign</em> it off.</td></tr>
+      <tr><td>Commands</td><td>"Check the inclinometer." → She <em>told him to check</em> the inclinometer.</td></tr>
+      <tr><td>Questions (indirect)</td><td>"Why didn't you flag it?" → He asked why I <em>hadn't flagged</em> it.</td></tr>
+    </table>
+  </div>
+
+  <div class="gram-part-label">Part A — Conditionals</div>
+  <div class="gap-list" id="gramListA"></div>
+
+  <div class="gram-part-label">Part B — Reported speech</div>
+  <div class="gap-list" id="gramListB"></div>
+
+  <div class="gram-part-label">Part C — Mixed (reported speech with embedded conditional)</div>
+  <p class="gram-note">Each item has two gaps. The original speaker's conditional is reported — watch for the tense shifts in both clauses.</p>
+  <div class="gap-list" id="gramListC"></div>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="checkGram()">✓ Check grammar</button>
+    <button class="btn btn-show" onclick="showGramAnswers()">Show answers</button>
+    <span class="score-val" id="gramScore" style="margin-left:auto; font-size:16px">— / 18</span>
+  </div>
+</section>
+
+<!-- ⑨ GRAMMAR 2 -->
+<section id="grammar2" class="section">
+  <h2 class="section-head">📝 Grammar 2: The Passive Voice</h2>
+  <p class="section-sub">Technical and site-report language relies heavily on the passive. Learn the seven key forms, then practise them all in a solar construction context.</p>
+
+  <div class="gram-ref">
+    <h3>◆ Passive voice — the seven forms</h3>
+    <table class="gram-table">
+      <tr><td>Present simple passive</td><td>Every pile <em>is logged</em> in real time.</td></tr>
+      <tr><td>Present continuous passive</td><td>The site <em>is being surveyed</em> this morning.</td></tr>
+      <tr><td>Past simple passive</td><td>The method statement <em>was signed off</em> before we started.</td></tr>
+      <tr><td>Past continuous passive</td><td>The rig <em>was being serviced</em> when the manager arrived.</td></tr>
+      <tr><td>Present perfect passive</td><td>All three hundred piles <em>have been installed</em>.</td></tr>
+      <tr><td>Modal passive</td><td>The angle <em>must be checked</em> before moving on.</td></tr>
+      <tr><td>Infinitive passive</td><td>This pile needs <em>to be rectified</em> immediately.</td></tr>
+    </table>
+    <div style="margin-top:.85rem; font-size:13px; color:var(--muted)">Use the passive when the <em>action</em> matters more than who does it — common in technical reports, safety documents, and site instructions. Include "by + agent" only when who did it is important.</div>
+  </div>
+
+  <div class="gram-part-label">Part A — Complete with the correct passive form</div>
+  <div class="gap-list" id="passListA"></div>
+
+  <div class="gram-part-label">Part B — Rewrite as passive (type the full passive sentence)</div>
+  <p class="gram-note">Rewrite each active sentence as a passive. Include the agent (by + person) only if it adds important information.</p>
+  <div class="gap-list" id="passListB"></div>
+
+  <div class="gram-part-label">Part C — Choose: active or passive?</div>
+  <div class="mc-list" id="passMCList"></div>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="checkPassive()">✓ Check grammar 2</button>
+    <button class="btn btn-show" onclick="showPassiveAnswers()">Show answers</button>
+    <span class="score-val" id="passScore" style="margin-left:auto; font-size:16px">— / 18</span>
+  </div>
+</section>
+
+<div class="lesson-footer">⬥ ⬥ ⬥ Solar construction · Pile driving · B2 English worksheet ⬥ ⬥ ⬥</div>
+</main>
+
+<script>
+/* ── DATA ── */
+const vocabData = [
+  ["a geotechnical survey","a study of soil and ground conditions before construction begins","We always carry out a geotechnical survey before selecting pile type."],
+  ["a structural pile","a steel post driven into the ground to support a solar panel structure","Each structural pile must be set at the correct angle and depth."],
+  ["torque settings","the rotational force applied by the pile-driving machine, adjusted for soil type","We adjust the torque settings based on soil resistance throughout the day."],
+  ["a drive cycle","one complete sequence of driving a single pile into the ground","On hard ground, a drive cycle can take over ten minutes."],
+  ["to set a pile","to complete the installation of one pile at the correct position and depth","In good conditions, we can set a pile in under three minutes."],
+  ["a rig operator","the person who controls the pile-driving machine","The rig operator needs to respond instantly when ground conditions change."],
+  ["to guide the pile","to hold and direct the pile into position as it is being driven","The ground hand's job is to guide the pile and keep it perfectly plumb."],
+  ["a digital inclinometer","a device that measures the exact angle of a pile during installation","The checker reads the digital inclinometer after every single pile."],
+  ["out of tolerance","outside the acceptable range of measurement error; not within specification","If a pile is out of tolerance, we stop the rig and rectify it immediately."],
+  ["pile spacing","the precise measured distance between each pile in a row","Pile spacing must match the racking system to within a few millimetres."],
+  ["a racking system","the metal frame structure that holds solar panels above the ground","The racking system sits directly on top of the installed piles."],
+  ["a panel tilt angle","the angle at which solar panels are positioned to face the sun optimally","Even a small pile error can affect the panel tilt angle for the whole row."],
+  ["buried services","underground pipes, electrical cables, or ducts that must not be struck","We scan for buried services before driving begins in any new area."],
+  ["a method statement","a written document describing exactly how a task will be carried out safely","I sign off on the method statement before the rig moves a single inch."],
+  ["a site induction","a safety briefing given to all new workers before they begin on site","Every new person receives a full site induction on their first morning."],
+  ["galvanised steel piles","steel posts coated with zinc to prevent corrosion in the ground","All galvanised steel piles are tested for coating quality before delivery."],
+  ["to log (a pile)","to record a pile's position, depth, and angle data in the system","Every pile is logged in real time as it is set."],
+  ["to rectify","to correct something that is wrong or outside specification","We stopped the rig and rectified the angle before continuing the row."],
+  ["a pre-shift briefing","a safety and planning meeting held at the start of every shift","The pre-shift briefing covers hazards, team roles, and the day's targets."],
+  ["hazard exposure","the level of risk workers face from dangers present on the site","Overhead power lines significantly increase hazard exposure in open fields."],
+  ["an installation plan","a detailed drawing showing the exact position of every pile on site","The survey crew mark the ground directly from the installation plan."],
+  ["ground preparation","the process of clearing, assessing, and marking land before construction","Ground preparation on a large solar farm can take several weeks."],
+  ["a survey crew","the team that uses GPS equipment to mark exact pile positions on site","The survey crew confirmed all ground markings before we started driving."],
+  ["to hit a daily target","to complete the planned number of piles within one working shift","Weather conditions and rocky ground can make it hard to hit a daily target."]
+];
+
+const idiomsData = [
+  ["to ripple up","to cause a negative effect that spreads upward through a connected system","One wrong pile can ripple up and affect every panel in the row above."],
+  ["to fight every inch","to struggle hard against constant resistance, making very slow progress","On rocky ground, you're fighting every inch of the way down."],
+  ["to sign off on something","to give official approval before work can begin","The site manager must sign off on the method statement before driving starts."],
+  ["to look after itself","to go smoothly once the important basics are correctly in place","Get the first piles right and the whole row looks after itself."],
+  ["on the money","exactly right; perfectly accurate to the specification","That pile is on the money — angle, depth, and spacing are all perfect."],
+  ["to keep someone in the loop","to make sure they receive regular updates on what is happening","I keep the project manager in the loop after every hundred piles."],
+  ["to cut corners","to do something carelessly or incompletely in order to save time","In this job, cutting corners on safety will eventually get someone hurt."],
+  ["a knock-on effect","an indirect negative consequence caused by an earlier mistake or event","A wrong pile has a knock-on effect on every panel in the row above."],
+  ["to flag something up","to draw attention to a problem before it gets any worse","If a reading looks wrong, flag it up immediately before the next pile."],
+  ["to get something off the ground","to start a project or process successfully","The prep team got the whole job off the ground two weeks ahead of schedule."],
+  ["to be in the clear","to be free from risk, danger, or potential problems","Once we've scanned for buried services, we're in the clear to start driving."],
+  ["to take something in your stride","to deal with a difficulty calmly, without making a fuss or losing focus","Rig breakdowns happen — a good operator takes them in their stride."],
+  ["a steep learning curve","the challenge of learning something complex or difficult very quickly","Operating the rig is a steep learning curve for first-year pile drivers."],
+  ["to stand firm","to maintain your position or decision clearly, even under pressure","If a PM pushes you to rush the briefing, you have to stand firm."],
+  ["to sum it up","to state the most essential point or conclusion in a brief way","If I had to sum it up, I'd say it's all about precision and respect."]
+];
+
+const matchPairs = [
+  ["to ripple up", "to spread a negative effect upward through a connected system"],
+  ["to cut corners", "to do something carelessly to save time"],
+  ["out of tolerance", "outside the acceptable range of measurement error"],
+  ["to flag something up", "to highlight a problem before it gets worse"],
+  ["a method statement", "a written plan showing how a task will be done safely"],
+  ["a knock-on effect", "an indirect negative result caused by an earlier problem"],
+  ["buried services", "underground pipes and cables that must not be struck"],
+  ["to stand firm", "to hold your position clearly under pressure"],
+  ["a racking system", "the metal frame that holds solar panels above the ground"],
+  ["to be in the clear", "to be free from danger or risk"]
+];
+
+const gapItems = [
+  {pre:"When things go",blank:"out of tolerance",post:"on site, you stop the rig immediately — no exceptions.",hint:"out of tolerance"},
+  {pre:"Small errors at ground level",blank:"ripple up",post:"and affect every panel in the row above.",hint:"ripple up"},
+  {pre:"On a good day with firm soil, we can",blank:"set a pile",post:"in under three minutes.",hint:"set a pile"},
+  {pre:"Every new worker must complete a",blank:"site induction",post:"before touching any equipment on site.",hint:"site induction"},
+  {pre:"I personally sign off on the",blank:"method statement",post:"before the rig moves a single inch.",hint:"method statement"},
+  {pre:"We always scan for",blank:"buried services",post:"before starting to drive in any new area.",hint:"buried services"},
+  {pre:"On rocky ground, each",blank:"drive cycle",post:"can take ten minutes or more.",hint:"drive cycle"},
+  {pre:"The day always starts with a",blank:"pre-shift briefing",post:"to cover hazards, roles, and the day's targets.",hint:"pre-shift briefing"},
+  {pre:"We're not just",blank:"hitting a daily target",post:"— we're building something that lasts thirty years.",hint:"hitting a daily target"},
+  {pre:"If I had to",blank:"sum it up",post:", I'd say it's all about precision and respect.",hint:"sum it up"}
+];
+
+const mcItems = [
+  {q:'Q1 — "A bad pile is invisible until it fails." This means…', opts:["a) the pile is painted black so it cannot be seen.","b) problems only become visible after something goes wrong above it.","c) the survey crew cannot locate the pile after driving.","d) all piles are buried completely underground."], ans:1},
+  {q:'Q2 — Which phrase best means "to give official approval before work starts"?', opts:["a) to log a pile","b) to rectify","c) to sign off on something","d) to guide the pile"], ans:2},
+  {q:'Q3 — "He was fighting every inch." This tells us the work was…', opts:["a) fast and straightforward.","b) very difficult and required constant effort.","c) dangerous and needed special permits.","d) finished well ahead of schedule."], ans:1},
+  {q:'Q4 — What is a digital inclinometer used for?', opts:["a) measuring the depth of each pile","b) recording the daily pile count","c) measuring the exact angle of a pile as it is driven in","d) scanning for buried services underground"], ans:2},
+  {q:'Q5 — "One mistake ripples up." This means…', opts:["a) the mistake is immediately visible from the surface.","b) a single error at ground level causes problems at higher levels.","c) the rig operator needs to be informed in writing.","d) the machine vibrates when an error is detected."], ans:1},
+  {q:'Q6 — Which is the most natural B2 way to say a measurement is perfectly accurate?', opts:["a) It is on the money.","b) It is doing very well.","c) It is basically correct enough.","d) It is near enough for today."], ans:0},
+  {q:'Q7 — Why is pile spacing so critical on a solar farm?', opts:["a) It determines the colour of the galvanised coating.","b) It affects how easily the rig can reposition between drives.","c) It must match the racking system to within millimetres.","d) It controls how many piles can be driven per shift."], ans:2},
+  {q:'Q8 — "He kept the project manager in the loop." This means he…', opts:["a) invited the manager to operate the rig personally.","b) gave the manager regular updates on progress.","c) asked the manager to approve every single pile.","d) worked in a circular pattern across the site."], ans:1},
+  {q:'Q9 — What is the main purpose of a site induction?', opts:["a) to pay workers their daily site allowance","b) to brief new workers on safety before they start","c) to conduct a geotechnical survey of the ground","d) to log pile positions in the project database"], ans:1},
+  {q:'Q10 — "She took the breakdown in her stride." This means she…', opts:["a) repaired the rig entirely by herself.","b) was very angry and frustrated about the delay.","c) dealt with the problem calmly and without fuss.","d) refused to continue working until it was fixed."], ans:2}
+];
+
+const speakData = [
+  {num:"01",title:"Your role on site",q:"Describe the daily responsibilities of a pile driver on a solar farm. What does the job involve from the start of shift to the end?",words:["pre-shift briefing","ground preparation","installation plan","survey crew","to log","to set a pile","galvanised steel piles"]},
+  {num:"02",title:"Precision & consequences",q:"Why does precision matter so much in pile driving? What can go wrong if measurements are even slightly off?",words:["out of tolerance","pile spacing","racking system","panel tilt angle","to ripple up","a knock-on effect","to rectify"]},
+  {num:"03",title:"Safety first",q:"Describe the safety procedures a pile driver must follow before and during a shift. Why is each one important?",words:["method statement","site induction","buried services","hazard exposure","to sign off on","to flag something up","to stand firm"]},
+  {num:"04",title:"Difficult conditions",q:"Describe a day when site conditions make the job harder than usual. How do you adapt your approach?",words:["geotechnical survey","drive cycle","torque settings","to fight every inch","steep learning curve","to take in your stride","to hit a daily target"]},
+  {num:"05",title:"Teamwork on the rig",q:"How does teamwork function on a pile-driving crew? Who does what, and why does coordination matter so much?",words:["rig operator","to guide the pile","digital inclinometer","to keep in the loop","on the money","to look after itself","survey crew"]},
+  {num:"06",title:"Pressure to cut corners",q:"A project manager is pushing your crew to work faster and skip some safety checks. How do you respond?",words:["to cut corners","to stand firm","method statement","out of tolerance","to flag something up","hazard exposure","pre-shift briefing"]},
+  {num:"07",title:"The bigger picture",q:"Some people think a pile driver is simply a machine operator. How would you explain the real skill and importance of the role?",words:["geotechnical survey","structural pile","panel tilt angle","a steep learning curve","to get something off the ground","to ripple up","galvanised steel piles"]},
+  {num:"08",title:"Pride in the work",q:"What do you find most satisfying about working on solar farm construction? What does the job mean to you beyond the daily targets?",words:["hitting a daily target","to get something off the ground","to be in the clear","to look after itself","ground preparation","to sum it up","to stand firm"]}
+];
+
+/* ── GRAMMAR 1 DATA ── */
+const gramA = [
+  {pre:"If we don't check for buried services,",blank:"will hit",hint:"(will/might + hit)",post:"a cable and shut the whole site down."},
+  {pre:"If I were the project manager, I",blank:"would halt",hint:"(would + halt)",post:"the rig immediately and review the installation plan."},
+  {pre:"If we had done the geotechnical survey properly, we",blank:"wouldn't have hit",hint:"(wouldn't have + hit)",post:"rock at two metres."},
+  {pre:"If the pile",blank:"had been set",hint:"(had been + set — passive)",post:"correctly, the whole row would be perfectly straight now."},
+  {pre:"If you over-drive this pile now, the racking system",blank:"won't fit",hint:"(won't + fit)",post:"correctly above it."},
+  {pre:"If we had flagged that issue yesterday, we",blank:"would be",hint:"(would + be)",post:"on schedule right now instead of behind."}
+];
+const gramB = [
+  {pre:'The site manager said, "The ground is unstable here." → The site manager said the ground',blank:"was",hint:"1 word",post:"unstable there."},
+  {pre:'Danny told the crew, "Check the inclinometer after every pile." → Danny told the crew',blank:"to check",hint:"2 words",post:"the inclinometer after every pile."},
+  {pre:'She said, "I will sign off on the method statement." → She said she',blank:"would sign",hint:"2 words",post:"off on the method statement."},
+  {pre:'He said, "We missed the pre-shift briefing." → He said they',blank:"had missed",hint:"2 words",post:"the pre-shift briefing."},
+  {pre:'The manager asked, "Why didn\'t you flag this up?" → The manager asked why I',blank:"hadn't flagged",hint:"2 words",post:"it up."},
+  {pre:'She said, "The piles are being logged in real time." → She said the piles',blank:"were being logged",hint:"3 words",post:"in real time."}
+];
+const gramC = [
+  {pre:'Danny said, "If we rush the briefing, we\'ll have an accident." → Danny said that if they',blank1:"rushed",hint1:"(rush — past simple)",mid:"the briefing, they",blank2:"would have",hint2:"(will → would)",post:"an accident."},
+  {pre:'The supervisor said, "If I were you, I\'d flag it up immediately." → The supervisor said that if she',blank1:"were",hint1:"(be)",mid:"him, she",blank2:"would flag",hint2:"(would + flag)",post:"it up immediately."},
+  {pre:'The inspector said, "If they had logged every pile, this problem wouldn\'t exist." → The inspector said that if they',blank1:"had logged",hint1:"(log — past perfect)",mid:"every pile, that problem",blank2:"wouldn't have existed",hint2:"(wouldn't have + exist)",post:"."}
+];
+
+/* ── GRAMMAR 2 DATA ── */
+const passA = [
+  {pre:"The geotechnical report",blank:"was completed",hint:"(complete — past simple passive)",post:"two weeks before construction began on site."},
+  {pre:"Ground markings",blank:"are being checked",hint:"(check — present continuous passive)",post:"by the survey crew right now."},
+  {pre:"Every pile",blank:"must be set",hint:"(set — modal passive)",post:"within the tolerances shown on the installation plan."},
+  {pre:"The inclinometer data",blank:"is uploaded",hint:"(upload — present simple passive)",post:"to the project server after every pile is driven."},
+  {pre:"Several piles",blank:"had to be rectified",hint:"(rectify — past modal passive)",post:"after the morning inspection revealed angle errors."},
+  {pre:"The site induction",blank:"will be given",hint:"(give — future passive)",post:"to all new workers tomorrow morning before driving starts."}
+];
+const passB = [
+  {active:'Active: "The survey crew marks every pile position on site." →',blank:"Every pile position is marked (by the survey crew).",hint:"present simple passive"},
+  {active:'Active: "We logged all three hundred piles yesterday." →',blank:"All three hundred piles were logged yesterday.",hint:"past simple passive"},
+  {active:'Active: "Workers are currently installing the racking system." →',blank:"The racking system is being installed (by workers) currently.",hint:"present continuous passive"},
+  {active:'Active: "Workers have completed all piles in section A." →',blank:"All piles in section A have been completed.",hint:"present perfect passive"},
+  {active:'Active: "You must check the pile angle before moving the rig." →',blank:"The pile angle must be checked before moving the rig.",hint:"modal passive"},
+  {active:'Active: "The site manager signed off the method statement." →',blank:"The method statement was signed off (by the site manager).",hint:"past simple passive"}
+];
+const passMC = [
+  {q:'Q1 — Why is the passive preferred in technical reports and method statements?',opts:["a) Because the passive always sounds more polite.","b) Because the focus is on what was done, not on who did it.","c) Because passive sentences are always shorter.","d) Because technical writers prefer to avoid verbs."],ans:1},
+  {q:'Q2 — Which sentence uses the passive correctly?',opts:["a) The piles was driven yesterday by the crew.","b) The piles were driven yesterday.","c) The piles have drove yesterday.","d) The piles are drove by the crew."],ans:1},
+  {q:'Q3 — Choose the correct form: "They are currently repairing the rig."',opts:["a) The rig has been repaired.","b) The rig was being repaired.","c) The rig is being repaired.","d) The rig is repaired."],ans:2},
+  {q:'Q4 — Which sentence uses the infinitive passive correctly?',opts:["a) This pile needs to rectify.","b) This pile needs rectified immediately.","c) This pile needs to be rectified immediately.","d) This pile needs being rectified."],ans:2},
+  {q:'Q5 — When should you include "by + agent" in a passive sentence?',opts:["a) Always — it is always required in the passive.","b) Never — it always sounds unnatural.","c) Only when who performed the action is important or surprising.","d) Only in questions, never in statements."],ans:2},
+  {q:'Q6 — "Three hundred piles have been installed." What passive tense is this?',opts:["a) Past simple passive","b) Present continuous passive","c) Modal passive","d) Present perfect passive"],ans:3}
+];
+
+/* ── BUILDERS ── */
+function buildTable(tbodyId, data) {
+  const tb = document.getElementById(tbodyId);
+  data.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td class="vocab-term">${r[0]}</td><td class="vocab-def">${r[1]}</td><td class="vocab-ex">"${r[2]}"</td>`;
+    tb.appendChild(tr);
+  });
+}
+buildTable('vocabBody', vocabData);
+buildTable('idiomsBody', idiomsData);
+
+/* ── MATCHING ── */
+let matchSel = {left: null, right: null};
+let matchScore = 0;
+const shuffledRight = [...matchPairs].map(p => p[1]).sort(() => Math.random() - .5);
+function buildMatch() {
+  const L = document.getElementById('matchLeft'), R = document.getElementById('matchRight');
+  matchPairs.forEach((p, i) => {
+    const l = document.createElement('div'); l.className = 'match-item'; l.textContent = p[0]; l.dataset.idx = i;
+    l.onclick = () => selectLeft(l, i); L.appendChild(l);
+    const r = document.createElement('div'); r.className = 'match-item'; r.textContent = shuffledRight[i]; r.dataset.val = shuffledRight[i];
+    r.onclick = () => selectRight(r); R.appendChild(r);
+  });
+}
+function selectLeft(el, idx) {
+  document.querySelectorAll('#matchLeft .match-item').forEach(e => { if (!e.classList.contains('correct')) e.classList.remove('selected'); });
+  el.classList.add('selected'); matchSel.left = {el, idx}; tryMatch();
+}
+function selectRight(el) {
+  document.querySelectorAll('#matchRight .match-item').forEach(e => { if (!e.classList.contains('correct')) e.classList.remove('selected'); });
+  el.classList.add('selected'); matchSel.right = {el}; tryMatch();
+}
+function tryMatch() {
+  if (!matchSel.left || !matchSel.right) return;
+  const correct = matchSel.right.el.dataset.val === matchPairs[matchSel.left.idx][1];
+  if (correct) {
+    matchSel.left.el.classList.replace('selected','correct');
+    matchSel.right.el.classList.replace('selected','correct');
+    matchScore++; document.getElementById('matchScore').textContent = matchScore + ' / 10';
+  } else {
+    matchSel.left.el.classList.replace('selected','wrong');
+    matchSel.right.el.classList.replace('selected','wrong');
+    setTimeout(() => { matchSel.left.el.classList.remove('wrong'); matchSel.right.el.classList.remove('wrong'); }, 700);
+  }
+  matchSel = {left: null, right: null};
+}
+buildMatch();
+
+/* ── GAPS ── */
+function buildGaps() {
+  const list = document.getElementById('gapList');
+  gapItems.forEach((s, i) => {
+    const d = document.createElement('div'); d.className = 'gap-item';
+    d.innerHTML = `<span class="gap-num">${String(i+1).padStart(2,'0')}</span><span class="gap-text">${s.pre} <input class="gap-input" data-ans="${s.blank}" data-hint="${s.hint}" placeholder="…"> ${s.post}</span>`;
+    list.appendChild(d);
+  });
+}
+buildGaps();
+function normalise(s) { return s.toLowerCase().trim().replace(/\s+/g,' '); }
+function checkGaps() {
+  let sc = 0;
+  document.querySelectorAll('#gapList .gap-input').forEach(inp => {
+    inp.classList.remove('correct','wrong','answer-shown');
+    if (normalise(inp.value) === normalise(inp.dataset.ans)) { inp.classList.add('correct'); sc++; } else { inp.classList.add('wrong'); }
+  });
+  document.getElementById('gapScore').textContent = sc + ' / 10';
+}
+function showGapAnswers() {
+  document.querySelectorAll('#gapList .gap-input').forEach(inp => {
+    inp.value = inp.dataset.ans; inp.classList.remove('correct','wrong'); inp.classList.add('answer-shown');
+  });
+}
+
+/* ── MC ── */
+function buildMC() {
+  const list = document.getElementById('mcList');
+  mcItems.forEach((q, qi) => {
+    const d = document.createElement('div');
+    const opts = q.opts.map((o, oi) =>
+      `<label class="mc-opt" data-qi="${qi}" data-oi="${oi}"><input type="radio" name="mc${qi}" value="${oi}"> ${o}</label>`).join('');
+    d.innerHTML = `<div class="mc-q-label">${q.q}</div><div class="mc-opts">${opts}</div>`;
+    list.appendChild(d);
+  });
+}
+buildMC();
+function checkMC() {
+  let sc = 0;
+  mcItems.forEach((q, qi) => {
+    const sel = document.querySelector(`input[name="mc${qi}"]:checked`);
+    document.querySelectorAll(`label[data-qi="${qi}"]`).forEach(el => el.classList.remove('correct','wrong'));
+    if (sel) {
+      const oi = parseInt(sel.value);
+      document.querySelectorAll(`label[data-qi="${qi}"]`)[oi].classList.add(oi === q.ans ? 'correct' : 'wrong');
+      if (oi === q.ans) sc++;
+    }
+    document.querySelectorAll(`label[data-qi="${qi}"]`)[q.ans].classList.add('correct');
+  });
+  document.getElementById('mcScore').textContent = sc + ' / 10';
+}
+
+/* ── SPEAKING ── */
+function buildSpeak() {
+  const wrap = document.getElementById('speakCards');
+  speakData.forEach(s => {
+    const d = document.createElement('div'); d.className = 'speak-card';
+    const chips = s.words.map(w => `<span class="chip">${w}</span>`).join('');
+    d.innerHTML = `<div class="speak-card-num">◆ Question ${s.num} · ${s.title}</div><div class="speak-card-q">${s.q}</div><div class="chip-row">${chips}</div>`;
+    wrap.appendChild(d);
+  });
+}
+buildSpeak();
+
+/* ── GRAMMAR 1 ── */
+function makeGapInput(ans, hint, w) {
+  return `<input class="gap-input" data-ans="${ans}" placeholder="${hint}" style="width:${w||180}px">`;
+}
+function buildGramA() {
+  const list = document.getElementById('gramListA');
+  gramA.forEach((s, i) => {
+    const d = document.createElement('div'); d.className = 'gap-item';
+    d.innerHTML = `<span class="gap-num">${String(i+1).padStart(2,'0')}</span><span class="gap-text">${s.pre} ${makeGapInput(s.blank, s.hint, 200)} ${s.post}</span>`;
+    list.appendChild(d);
+  });
+}
+function buildGramB() {
+  const list = document.getElementById('gramListB');
+  gramB.forEach((s, i) => {
+    const d = document.createElement('div'); d.className = 'gap-item';
+    d.innerHTML = `<span class="gap-num">${String(i+7).padStart(2,'0')}</span><span class="gap-text">${s.pre} ${makeGapInput(s.blank, s.hint, 170)} ${s.post}</span>`;
+    list.appendChild(d);
+  });
+}
+function buildGramC() {
+  const list = document.getElementById('gramListC');
+  gramC.forEach((s, i) => {
+    const d = document.createElement('div'); d.className = 'gap-item';
+    d.innerHTML = `<span class="gap-num">${String(i+13).padStart(2,'0')}</span><span class="gap-text">${s.pre} ${makeGapInput(s.blank1, s.hint1, 155)} ${s.mid} ${makeGapInput(s.blank2, s.hint2, 165)} ${s.post}</span>`;
+    list.appendChild(d);
+  });
+}
+buildGramA(); buildGramB(); buildGramC();
+function checkGram() {
+  let sc = 0, tot = 0;
+  ['gramListA','gramListB','gramListC'].forEach(id => {
+    document.querySelectorAll(`#${id} .gap-input`).forEach(inp => {
+      tot++;
+      inp.classList.remove('correct','wrong','answer-shown');
+      if (normalise(inp.value) === normalise(inp.dataset.ans)) { inp.classList.add('correct'); sc++; } else { inp.classList.add('wrong'); }
+    });
+  });
+  document.getElementById('gramScore').textContent = sc + ' / 18';
+}
+function showGramAnswers() {
+  ['gramListA','gramListB','gramListC'].forEach(id => {
+    document.querySelectorAll(`#${id} .gap-input`).forEach(inp => {
+      inp.value = inp.dataset.ans; inp.classList.remove('correct','wrong'); inp.classList.add('answer-shown');
+    });
+  });
+}
+
+/* ── GRAMMAR 2 ── */
+function buildPassA() {
+  const list = document.getElementById('passListA');
+  passA.forEach((s, i) => {
+    const d = document.createElement('div'); d.className = 'gap-item';
+    d.innerHTML = `<span class="gap-num">${String(i+1).padStart(2,'0')}</span><span class="gap-text">${s.pre} ${makeGapInput(s.blank, s.hint, 210)} ${s.post}</span>`;
+    list.appendChild(d);
+  });
+}
+function buildPassB() {
+  const list = document.getElementById('passListB');
+  passB.forEach((s, i) => {
+    const d = document.createElement('div'); d.className = 'gap-item';
+    d.innerHTML = `<span class="gap-num">${String(i+7).padStart(2,'0')}</span><span class="gap-text"><em style="color:var(--muted);font-size:13px">${s.active}</em><br><input class="gap-input" data-ans="${s.blank}" placeholder="${s.hint}" style="width:100%;margin-top:4px"></span>`;
+    list.appendChild(d);
+  });
+}
+function buildPassMC() {
+  const list = document.getElementById('passMCList');
+  passMC.forEach((q, qi) => {
+    const d = document.createElement('div');
+    const opts = q.opts.map((o, oi) =>
+      `<label class="mc-opt" data-pqi="${qi}" data-poi="${oi}"><input type="radio" name="pmc${qi}" value="${oi}"> ${o}</label>`).join('');
+    d.innerHTML = `<div class="mc-q-label">${q.q}</div><div class="mc-opts">${opts}</div>`;
+    list.appendChild(d);
+  });
+}
+buildPassA(); buildPassB(); buildPassMC();
+function checkPassive() {
+  let sc = 0;
+  ['passListA','passListB'].forEach(id => {
+    document.querySelectorAll(`#${id} .gap-input`).forEach(inp => {
+      inp.classList.remove('correct','wrong','answer-shown');
+      if (normalise(inp.value) === normalise(inp.dataset.ans)) { inp.classList.add('correct'); sc++; } else { inp.classList.add('wrong'); }
+    });
+  });
+  passMC.forEach((q, qi) => {
+    const sel = document.querySelector(`input[name="pmc${qi}"]:checked`);
+    document.querySelectorAll(`label[data-pqi="${qi}"]`).forEach(el => el.classList.remove('correct','wrong'));
+    if (sel) {
+      const oi = parseInt(sel.value);
+      document.querySelectorAll(`label[data-pqi="${qi}"]`)[oi].classList.add(oi === q.ans ? 'correct' : 'wrong');
+      if (oi === q.ans) sc++;
+    }
+    document.querySelectorAll(`label[data-pqi="${qi}"]`)[q.ans].classList.add('correct');
+  });
+  document.getElementById('passScore').textContent = sc + ' / 18';
+}
+function showPassiveAnswers() {
+  ['passListA','passListB'].forEach(id => {
+    document.querySelectorAll(`#${id} .gap-input`).forEach(inp => {
+      inp.value = inp.dataset.ans; inp.classList.remove('correct','wrong'); inp.classList.add('answer-shown');
+    });
+  });
+}
+
+/* ── NAV ── */
+function showSection(id, tab) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  tab.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+</body>
+</html>
