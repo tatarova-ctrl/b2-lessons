@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life &amp; the Bigger Picture — B2 English Worksheet</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --indigo: #4F46E5;
+    --deep: #312E81;
+    --coral: #F97316;
+    --gold: #FBBF24;
+    --green: #10B981;
+    --cream: #FAF8F3;
+    --sand: #EAE2D0;
+    --ink: #1E1B4B;
+    --cloud: #ffffff;
+    --soft: #E0E7FF;
+    --blush: #FFE4D8;
+    --mint: #D1FAE5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(79,70,229,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(16,185,129,0.08) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "🧭";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 130px;
+    opacity: 0.13;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--gold);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(34px, 6vw, 56px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--coral); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 660px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--gold); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--indigo);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .block-head {
+    font-family: 'DM Serif Display', serif;
+    font-size: 23px;
+    color: var(--deep);
+    margin: 38px 0 6px;
+    padding-bottom: 6px;
+    border-bottom: 2px dashed var(--sand);
+  }
+  .block-head:first-of-type { margin-top: 10px; }
+  .block-head .step {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    display: block;
+  }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--indigo); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .hint { color: var(--deep); font-size: 13px; }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 190px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 260px; }
+  .fill-input:focus { outline: none; border-color: var(--indigo); background: var(--cream); }
+  .fill-input.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--indigo); }
+  .mc-opt.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--coral);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--gold);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--indigo);
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--indigo);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--indigo); }
+  .phrase-box {
+    background: var(--blush);
+    border: 2px dashed var(--coral);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .phrase-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .phrase-box .phrase-list { display: grid; gap: 6px; }
+  .phrase-box .phrase {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    border-left: 3px solid var(--indigo);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid { grid-template-columns: 1fr; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+
+  /* SHUFFLED WORD BANK */
+  .bank-words { display: inline; }
+  .bank-word { display: inline; white-space: nowrap; }
+  .bank-word:not(:last-child)::after { content: " · "; color: var(--gold); opacity: .85; }
+</style>
+</head><body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🧭 REAL-WORLD ENGLISH · B2</div>
+      <h1>Life &amp; <span class="accent">the Bigger Picture</span></h1>
+      <div class="sub">Four topics that touch everyone — looking after yourself, seeing the world, protecting the planet, and managing money. Grow your vocabulary, polish your grammar, and get talking.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">Teens &amp; Adults</span>
+        <span class="tag">Vocabulary &amp; Collocations</span>
+        <span class="tag">Grammar Focus</span>
+        <span class="tag">Speaking</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Health &amp; Wellbeing 🧘</button>
+    <button class="tab" data-tab="t2">② Travel &amp; Tourism ✈️</button>
+    <button class="tab" data-tab="t3">③ Environment 🌍</button>
+    <button class="tab" data-tab="t4">④ Money &amp; Finance 💰</button>
+    <button class="tab" data-tab="t5">⑤ Speaking 🎤</button>
+  </nav>
+
+  <!-- ================================================================= -->
+  <!-- =================== 1 · HEALTH & WELLBEING ===================== -->
+  <!-- ================================================================= -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">🧘</span>Health, Fitness &amp; Wellbeing</h2>
+    <p class="instr">Looking after your body and mind — exercise, diet, illness and stress. Grammar focus: <strong>modal verbs</strong> (obligation, advice and deduction).</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">to work out / a workout</div><div class="vocab-def">to exercise / an exercise session</div><div class="vocab-ex">"I work out three times a week."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to keep fit / stay in shape</div><div class="vocab-def">to stay healthy and strong</div><div class="vocab-ex">"Cycling helps me stay in shape."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be / get out of shape</div><div class="vocab-def">to become unfit</div><div class="vocab-ex">"I've got really out of shape lately."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a balanced diet</div><div class="vocab-def">eating the right mix of foods</div><div class="vocab-ex">"A balanced diet boosts your energy."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to cut down on</div><div class="vocab-def">to reduce (sugar, salt, etc.)</div><div class="vocab-ex">"I'm trying to cut down on sugar."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to give up</div><div class="vocab-def">to stop a bad habit completely</div><div class="vocab-ex">"He gave up smoking last year."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a sedentary lifestyle</div><div class="vocab-def">a lifestyle with little movement</div><div class="vocab-ex">"Office work can be very sedentary."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to put on / lose weight</div><div class="vocab-def">to gain / reduce body weight</div><div class="vocab-ex">"I put on a bit of weight over winter."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be under the weather</div><div class="vocab-def">to feel slightly ill</div><div class="vocab-ex">"I'm a bit under the weather today."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to come down with</div><div class="vocab-def">to start getting an illness</div><div class="vocab-ex">"I think I'm coming down with a cold."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be run-down</div><div class="vocab-def">tired, weak and not healthy</div><div class="vocab-ex">"She's been feeling run-down for weeks."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to recover from</div><div class="vocab-def">to get better after illness</div><div class="vocab-ex">"It took him a month to recover."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a check-up</div><div class="vocab-def">a medical examination</div><div class="vocab-ex">"I'm going for a check-up tomorrow."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a prescription / to prescribe</div><div class="vocab-def">a doctor's note for medicine</div><div class="vocab-ex">"The doctor prescribed antibiotics."</div></div>
+      <div class="vocab-card"><div class="vocab-term">mental health / wellbeing</div><div class="vocab-def">your emotional and psychological state</div><div class="vocab-ex">"Schools talk more about wellbeing now."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be stressed out / burnout</div><div class="vocab-def">very anxious / total exhaustion</div><div class="vocab-ex">"He's totally stressed out at work."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to get a good night's sleep</div><div class="vocab-def">to sleep well</div><div class="vocab-ex">"I never get a good night's sleep."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to take up</div><div class="vocab-def">to start a new sport or hobby</div><div class="vocab-ex">"I've taken up yoga this year."</div></div>
+      <div class="vocab-card"><div class="vocab-term">in moderation</div><div class="vocab-def">in sensible, limited amounts</div><div class="vocab-ex">"Sweets are fine in moderation."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to boost your immune system</div><div class="vocab-def">to make your body fight illness better</div><div class="vocab-ex">"Vitamin C may boost your immune system."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m1">
+      <div class="match-col">
+        <h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">to work out</div>
+        <div class="match-item" data-word="2">sedentary</div>
+        <div class="match-item" data-word="3">under the weather</div>
+        <div class="match-item" data-word="4">to cut down on</div>
+        <div class="match-item" data-word="5">burnout</div>
+        <div class="match-item" data-word="6">a check-up</div>
+        <div class="match-item" data-word="7">to recover</div>
+        <div class="match-item" data-word="8">a balanced diet</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="3">feeling slightly ill</div>
+        <div class="match-item" data-def="1">to exercise</div>
+        <div class="match-item" data-def="5">complete exhaustion from stress</div>
+        <div class="match-item" data-def="7">to get better after illness</div>
+        <div class="match-item" data-def="2">involving very little movement</div>
+        <div class="match-item" data-def="8">eating the right mix of foods</div>
+        <div class="match-item" data-def="4">to reduce the amount of something</div>
+        <div class="match-item" data-def="6">a medical examination</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m1">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word or phrase from the bank. Change the form where necessary. <em>(The bank is in random order!)</em></p>
+    <div class="word-bank">
+      <strong>🧘 WORD BANK 🧘</strong>
+      <span class="bank-words"><span class="bank-word">stressed out</span><span class="bank-word">balanced</span><span class="bank-word">give up</span><span class="bank-word">check-up</span><span class="bank-word">cut down</span><span class="bank-word">take up</span><span class="bank-word">work out</span><span class="bank-word">under the weather</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>I try to <input class="fill-input wide" data-answer="work out"> at the gym before school. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">02</span>A <input class="fill-input" data-answer="balanced"> diet gives you all the nutrients you need.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>My doctor told me to <input class="fill-input wide" data-answer="cut down" data-alt="cut down|cut down on"> on salt. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">04</span>He finally decided to <input class="fill-input wide" data-answer="give up"> fizzy drinks. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>I won't come out tonight — I'm feeling a bit <input class="fill-input wide" data-answer="under the weather"> . <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">06</span>She's completely <input class="fill-input wide" data-answer="stressed out"> because of her exams. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">07</span>I'm going to the clinic for a routine <input class="fill-input" data-answer="check-up" data-alt="check-up|checkup"> .</p></div>
+      <div class="fill-item"><p><span class="num">08</span>You should <input class="fill-input wide" data-answer="take up"> a sport to relax. <span class="hint">(2 words)</span></p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="b">
+        <div class="mc-q"><span class="num">Q1</span>If you "come down with" something, you…</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) recover completely</button>
+          <button class="mc-opt">b) start getting an illness</button>
+          <button class="mc-opt">c) lose weight</button>
+          <button class="mc-opt">d) join a gym</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="d">
+        <div class="mc-q"><span class="num">Q2</span>A "sedentary lifestyle" involves…</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) lots of intense exercise</button>
+          <button class="mc-opt">b) a very healthy diet</button>
+          <button class="mc-opt">c) frequent travel</button>
+          <button class="mc-opt">d) sitting a lot and little movement</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="a">
+        <div class="mc-q"><span class="num">Q3</span>"Everything is fine ___" means in sensible, limited amounts.</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) in moderation</button>
+          <button class="mc-opt">b) under the weather</button>
+          <button class="mc-opt">c) out of shape</button>
+          <button class="mc-opt">d) run-down</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="c">
+        <div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "You ___ smoke in the hospital." (it is forbidden)</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) don't have to</button>
+          <button class="mc-opt">b) should</button>
+          <button class="mc-opt">c) mustn't</button>
+          <button class="mc-opt">d) might</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="b">
+        <div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "She trains six hours a day — she ___ be incredibly fit." (logical certainty)</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) can't</button>
+          <button class="mc-opt">b) must</button>
+          <button class="mc-opt">c) shouldn't</button>
+          <button class="mc-opt">d) doesn't have to</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="a">
+        <div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> "It's optional — you ___ come if you're tired." (no obligation)</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) don't have to</button>
+          <button class="mc-opt">b) mustn't</button>
+          <button class="mc-opt">c) can't</button>
+          <button class="mc-opt">d) had better</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 Modal verbs</h3>
+    <div class="grammar-box">
+      <h4>🧘 Obligation, advice &amp; deduction</h4>
+      <ul>
+        <li><strong>Obligation:</strong> <code>must</code> (strong, often personal) / <code>have to</code> (external rule) → <em>I have to take this twice a day.</em></li>
+        <li><strong>Prohibition:</strong> <code>mustn't</code> / <code>can't</code> → <em>You mustn't eat before the blood test.</em></li>
+        <li><strong>No obligation:</strong> <code>don't have to</code> / <code>needn't</code> → <em>You don't have to come.</em></li>
+        <li><strong>Advice:</strong> <code>should</code> / <code>ought to</code> / <code>had better</code> → <em>You should sleep more. You'd better see a doctor.</em></li>
+        <li><strong>Deduction:</strong> <code>must</code> (sure it's true) / <code>can't</code> (sure it's false) / <code>might, could</code> (possible) → <em>He can't be ill — he's at the gym!</em></li>
+      </ul>
+      <div class="formula">strong logical guess → MUST · impossible → CAN'T</div>
+      <div class="formula">advice → SHOULD / OUGHT TO / HAD BETTER</div>
+    </div>
+    <p class="instr"><strong>Complete each sentence with the best modal.</strong> Read the clue in brackets.</p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>You <input class="fill-input" data-answer="should" data-alt="should|ought to"> exercise if you want to stay healthy. (advice) <span class="hint">(1–2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">02</span>You <input class="fill-input" data-answer="mustn't" data-alt="mustn't|must not|can't|cannot"> use your phone during the scan. (it's forbidden)</p></div>
+      <div class="fill-item"><p><span class="num">03</span>You <input class="fill-input" data-answer="shouldn't" data-alt="shouldn't|should not"> eat so much junk food. (advice not to)</p></div>
+      <div class="fill-item"><p><span class="num">04</span>She runs marathons, so she <input class="fill-input" data-answer="must"> be very fit. (logical certainty)</p></div>
+      <div class="fill-item"><p><span class="num">05</span>It's optional — you <input class="fill-input wide" data-answer="don't have to" data-alt="don't have to|do not have to|needn't|need not"> join in. (no obligation) <span class="hint">(1–3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">06</span>He <input class="fill-input" data-answer="can't" data-alt="can't|cannot"> be tired — he slept for ten hours! (impossible)</p></div>
+      <div class="fill-item"><p><span class="num">07</span>You'd <input class="fill-input" data-answer="better"> see a doctor about that cough. (strong advice)</p></div>
+      <div class="fill-item"><p><span class="num">08</span>I <input class="fill-input" data-answer="have"> to take this medicine after every meal. (external rule)</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- ===================== 2 · TRAVEL & TOURISM ===================== -->
+  <!-- ================================================================= -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">✈️</span>Travel &amp; Tourism</h2>
+    <p class="instr">Holidays, flights, sightseeing and exploring the world. Grammar focus: <strong>relative clauses</strong> (defining &amp; non-defining).</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">to go sightseeing</div><div class="vocab-def">to visit interesting places as a tourist</div><div class="vocab-ex">"We went sightseeing all day."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a tourist attraction / landmark</div><div class="vocab-def">a famous place visitors go to see</div><div class="vocab-ex">"The tower is the city's main landmark."</div></div>
+      <div class="vocab-card"><div class="vocab-term">off the beaten track</div><div class="vocab-def">away from popular tourist places</div><div class="vocab-ex">"We love going off the beaten track."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a package holiday</div><div class="vocab-def">flights + hotel booked together</div><div class="vocab-ex">"We booked a cheap package holiday."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to backpack / a backpacker</div><div class="vocab-def">to travel cheaply with a backpack</div><div class="vocab-ex">"She backpacked around Asia."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a budget airline</div><div class="vocab-def">a cheap, no-frills airline</div><div class="vocab-ex">"Budget airlines charge for luggage."</div></div>
+      <div class="vocab-card"><div class="vocab-term">jet lag</div><div class="vocab-def">tiredness after a long flight</div><div class="vocab-ex">"The jet lag lasted three days."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a stopover / a layover</div><div class="vocab-def">a short stop on a long journey</div><div class="vocab-ex">"We had a layover in Dubai."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to check in / check out</div><div class="vocab-def">to register at / leave a hotel</div><div class="vocab-ex">"Check-in is at 3 pm."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a guided tour</div><div class="vocab-def">a tour with a guide</div><div class="vocab-ex">"We took a guided tour of the old town."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a souvenir</div><div class="vocab-def">something you buy to remember a trip</div><div class="vocab-ex">"I bought a fridge magnet as a souvenir."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an itinerary</div><div class="vocab-def">a detailed travel plan</div><div class="vocab-ex">"Our itinerary was packed."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to splash out (on)</div><div class="vocab-def">to spend a lot of money on something</div><div class="vocab-ex">"We splashed out on a nice hotel."</div></div>
+      <div class="vocab-card"><div class="vocab-term">breathtaking scenery</div><div class="vocab-def">amazingly beautiful landscapes</div><div class="vocab-ex">"The scenery was breathtaking."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a bustling city</div><div class="vocab-def">a busy, lively city</div><div class="vocab-ex">"Bangkok is a bustling city."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a hidden gem</div><div class="vocab-def">a great place few people know about</div><div class="vocab-ex">"This café is a real hidden gem."</div></div>
+      <div class="vocab-card"><div class="vocab-term">peak / off season</div><div class="vocab-def">the busiest / quietest time to travel</div><div class="vocab-ex">"It's cheaper in the off season."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to get away from it all</div><div class="vocab-def">to escape your normal routine</div><div class="vocab-ex">"I just want to get away from it all."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be fully booked</div><div class="vocab-def">to have no places left</div><div class="vocab-ex">"The hostel was fully booked."</div></div>
+      <div class="vocab-card"><div class="vocab-term">culture shock</div><div class="vocab-def">surprise at a very different culture</div><div class="vocab-ex">"I had real culture shock at first."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m2">
+      <div class="match-col">
+        <h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">to go sightseeing</div>
+        <div class="match-item" data-word="2">off the beaten track</div>
+        <div class="match-item" data-word="3">jet lag</div>
+        <div class="match-item" data-word="4">a hidden gem</div>
+        <div class="match-item" data-word="5">an itinerary</div>
+        <div class="match-item" data-word="6">peak season</div>
+        <div class="match-item" data-word="7">a layover</div>
+        <div class="match-item" data-word="8">breathtaking</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="3">tiredness after a long flight</div>
+        <div class="match-item" data-def="1">to visit interesting places as a tourist</div>
+        <div class="match-item" data-def="5">a detailed travel plan</div>
+        <div class="match-item" data-def="7">a short stop on a long journey</div>
+        <div class="match-item" data-def="2">away from the usual tourist places</div>
+        <div class="match-item" data-def="8">extremely beautiful</div>
+        <div class="match-item" data-def="4">a wonderful place few people know about</div>
+        <div class="match-item" data-def="6">the busiest, most expensive time to travel</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m2">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word or phrase from the bank. Change the form where necessary. <em>(The bank is in random order!)</em></p>
+    <div class="word-bank">
+      <strong>✈️ WORD BANK ✈️</strong>
+      <span class="bank-words"><span class="bank-word">jet lag</span><span class="bank-word">off the beaten track</span><span class="bank-word">itinerary</span><span class="bank-word">splash out</span><span class="bank-word">peak season</span><span class="bank-word">hidden gem</span><span class="bank-word">sightseeing</span><span class="bank-word">get away</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>On our first day we went <input class="fill-input" data-answer="sightseeing"> around the old city.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>Our guide had planned a packed <input class="fill-input" data-answer="itinerary"> for the week.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>We prefer villages that are <input class="fill-input wide" data-answer="off the beaten track"> . <span class="hint">(4 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">04</span>After the flight from Tokyo, the <input class="fill-input wide" data-answer="jet lag"> was awful. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>Hotels are far more expensive during <input class="fill-input wide" data-answer="peak season"> . <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">06</span>That little restaurant is a real <input class="fill-input wide" data-answer="hidden gem"> . <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">07</span>For our anniversary we decided to <input class="fill-input wide" data-answer="splash out"> on a luxury hotel. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">08</span>I really need to <input class="fill-input wide" data-answer="get away"> from it all this summer. <span class="hint">(2 words)</span></p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="b">
+        <div class="mc-q"><span class="num">Q1</span>A "package holiday" usually includes…</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) only a flight</button>
+          <button class="mc-opt">b) flights and a hotel booked together</button>
+          <button class="mc-opt">c) a personal tour guide only</button>
+          <button class="mc-opt">d) travel insurance only</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="c">
+        <div class="mc-q"><span class="num">Q2</span>If a hotel is "fully booked", it…</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) is very cheap</button>
+          <button class="mc-opt">b) has just opened</button>
+          <button class="mc-opt">c) has no rooms left</button>
+          <button class="mc-opt">d) is off the beaten track</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="a">
+        <div class="mc-q"><span class="num">Q3</span>"Culture shock" is the feeling of…</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) surprise at a very different way of life</button>
+          <button class="mc-opt">b) excitement before a trip</button>
+          <button class="mc-opt">c) tiredness after flying</button>
+          <button class="mc-opt">d) missing your home comforts</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="d">
+        <div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "That's the guide ___ showed us the castle." (subject, person)</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) which</button>
+          <button class="mc-opt">b) whose</button>
+          <button class="mc-opt">c) where</button>
+          <button class="mc-opt">d) who</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="b">
+        <div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "Rome, ___ is full of history, is my favourite city." (non-defining)</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) that</button>
+          <button class="mc-opt">b) which</button>
+          <button class="mc-opt">c) where</button>
+          <button class="mc-opt">d) who</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="c">
+        <div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> "This is the hostel ___ we stayed last year." (refers to a place)</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) which</button>
+          <button class="mc-opt">b) who</button>
+          <button class="mc-opt">c) where</button>
+          <button class="mc-opt">d) whose</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 Relative clauses</h3>
+    <div class="grammar-box">
+      <h4>✈️ Joining ideas with who / which / that / where / whose</h4>
+      <ul>
+        <li><code>who</code> = people · <code>which</code> = things · <code>that</code> = people/things (defining only) · <code>where</code> = places · <code>whose</code> = possession.</li>
+        <li><strong>Defining</strong> clauses give essential information — <em>no commas</em>: <em>The guide who helped us was great.</em></li>
+        <li><strong>Non-defining</strong> clauses add extra info — <em>use commas</em>, and you <strong>cannot use <code>that</code></strong>: <em>Rome, which I love, is busy.</em></li>
+        <li>Use <code>when</code> for times: <em>Summer is the season when most people travel.</em></li>
+      </ul>
+      <div class="formula">extra info + commas → who / which (NOT that)</div>
+      <div class="formula">place → WHERE · time → WHEN · possession → WHOSE</div>
+    </div>
+    <p class="instr"><strong>Complete each sentence with the correct relative word</strong> (who, which, that, where, whose, when).</p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>A tour guide is someone <input class="fill-input" data-answer="who" data-alt="who|that"> shows visitors around.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>That's the hotel <input class="fill-input" data-answer="where"> we stayed last summer.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>Venice, <input class="fill-input" data-answer="which"> is famous for its canals, is sinking slowly. (non-defining)</p></div>
+      <div class="fill-item"><p><span class="num">04</span>I met a backpacker <input class="fill-input" data-answer="whose"> rucksack was bigger than mine.</p></div>
+      <div class="fill-item"><p><span class="num">05</span>The museum <input class="fill-input" data-answer="that" data-alt="that|which"> we visited was incredible.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>My sister, <input class="fill-input" data-answer="who"> lives in Spain, loves the beach. (non-defining)</p></div>
+      <div class="fill-item"><p><span class="num">07</span>August is the month <input class="fill-input" data-answer="when"> most tourists arrive.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>This is the souvenir <input class="fill-input" data-answer="that" data-alt="that|which"> I bought in Peru.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- ================== 3 · ENVIRONMENT & CLIMATE =================== -->
+  <!-- ================================================================= -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">🌍</span>The Environment &amp; Climate</h2>
+    <p class="instr">Climate change, energy, waste and protecting nature. Grammar focus: <strong>conditionals</strong> (zero, first and second).</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">climate change / global warming</div><div class="vocab-def">long-term rise in Earth's temperature</div><div class="vocab-ex">"Climate change affects us all."</div></div>
+      <div class="vocab-card"><div class="vocab-term">greenhouse gases</div><div class="vocab-def">gases that trap heat in the atmosphere</div><div class="vocab-ex">"Cars release greenhouse gases."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a carbon footprint</div><div class="vocab-def">the CO₂ your actions produce</div><div class="vocab-ex">"Flying increases your carbon footprint."</div></div>
+      <div class="vocab-card"><div class="vocab-term">renewable energy</div><div class="vocab-def">energy that won't run out (solar, wind)</div><div class="vocab-ex">"We need more renewable energy."</div></div>
+      <div class="vocab-card"><div class="vocab-term">fossil fuels</div><div class="vocab-def">coal, oil and gas</div><div class="vocab-ex">"Burning fossil fuels causes pollution."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to recycle / recycling</div><div class="vocab-def">to reuse materials instead of binning them</div><div class="vocab-ex">"We recycle paper, glass and plastic."</div></div>
+      <div class="vocab-card"><div class="vocab-term">single-use plastic</div><div class="vocab-def">plastic used once then thrown away</div><div class="vocab-ex">"Single-use plastic is being banned."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to cut down on waste</div><div class="vocab-def">to reduce rubbish</div><div class="vocab-ex">"Try to cut down on food waste."</div></div>
+      <div class="vocab-card"><div class="vocab-term">biodiversity</div><div class="vocab-def">the variety of living things</div><div class="vocab-ex">"Forests are rich in biodiversity."</div></div>
+      <div class="vocab-card"><div class="vocab-term">deforestation</div><div class="vocab-def">cutting down forests on a large scale</div><div class="vocab-ex">"Deforestation threatens wildlife."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an endangered species</div><div class="vocab-def">a type of animal at risk of dying out</div><div class="vocab-ex">"Pandas are an endangered species."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to go green</div><div class="vocab-def">to become more eco-friendly</div><div class="vocab-ex">"Many firms are trying to go green."</div></div>
+      <div class="vocab-card"><div class="vocab-term">sustainable / sustainability</div><div class="vocab-def">able to continue without harming the planet</div><div class="vocab-ex">"We need a sustainable economy."</div></div>
+      <div class="vocab-card"><div class="vocab-term">pollution / to pollute</div><div class="vocab-def">harmful waste in air, water or land</div><div class="vocab-ex">"Air pollution is a huge problem."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a drought / flooding</div><div class="vocab-def">long dry period / too much water</div><div class="vocab-ex">"The region suffered a long drought."</div></div>
+      <div class="vocab-card"><div class="vocab-term">eco-friendly</div><div class="vocab-def">not harmful to the environment</div><div class="vocab-ex">"These bags are eco-friendly."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to conserve / conservation</div><div class="vocab-def">to protect nature and resources</div><div class="vocab-ex">"We must conserve water."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to raise awareness</div><div class="vocab-def">to make people understand an issue</div><div class="vocab-ex">"The campaign raised awareness."</div></div>
+      <div class="vocab-card"><div class="vocab-term">extreme weather</div><div class="vocab-def">unusually severe weather events</div><div class="vocab-ex">"Extreme weather is becoming common."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to phase out</div><div class="vocab-def">to stop using gradually</div><div class="vocab-ex">"They're phasing out petrol cars."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m3">
+      <div class="match-col">
+        <h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">renewable energy</div>
+        <div class="match-item" data-word="2">fossil fuels</div>
+        <div class="match-item" data-word="3">deforestation</div>
+        <div class="match-item" data-word="4">single-use plastic</div>
+        <div class="match-item" data-word="5">biodiversity</div>
+        <div class="match-item" data-word="6">eco-friendly</div>
+        <div class="match-item" data-word="7">a drought</div>
+        <div class="match-item" data-word="8">to recycle</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="3">large-scale cutting down of forests</div>
+        <div class="match-item" data-def="1">energy that will not run out</div>
+        <div class="match-item" data-def="5">the variety of living things</div>
+        <div class="match-item" data-def="7">a long period with no rain</div>
+        <div class="match-item" data-def="2">coal, oil and gas</div>
+        <div class="match-item" data-def="8">to reuse materials instead of binning them</div>
+        <div class="match-item" data-def="4">plastic thrown away after one use</div>
+        <div class="match-item" data-def="6">not harmful to the environment</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m3">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word or phrase from the bank. Change the form where necessary. <em>(The bank is in random order!)</em></p>
+    <div class="word-bank">
+      <strong>🌍 WORD BANK 🌍</strong>
+      <span class="bank-words"><span class="bank-word">renewable</span><span class="bank-word">deforestation</span><span class="bank-word">eco-friendly</span><span class="bank-word">single-use</span><span class="bank-word">carbon footprint</span><span class="bank-word">endangered</span><span class="bank-word">fossil fuels</span><span class="bank-word">recycle</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>We should <input class="fill-input" data-answer="recycle"> as much of our rubbish as possible.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>Burning <input class="fill-input wide" data-answer="fossil fuels"> releases greenhouse gases. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">03</span>Solar and wind are types of <input class="fill-input" data-answer="renewable"> energy.</p></div>
+      <div class="fill-item"><p><span class="num">04</span>Many shops have banned <input class="fill-input" data-answer="single-use"> plastic bags.</p></div>
+      <div class="fill-item"><p><span class="num">05</span><input class="fill-input" data-answer="deforestation"> is destroying animal habitats.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>Cycling instead of driving lowers your <input class="fill-input wide" data-answer="carbon footprint"> . <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">07</span>The tiger is an <input class="fill-input" data-answer="endangered"> species.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>These cleaning products are completely <input class="fill-input" data-answer="eco-friendly" data-alt="eco-friendly|eco friendly"> .</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="b">
+        <div class="mc-q"><span class="num">Q1</span>"Renewable energy" is energy that…</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) creates a lot of pollution</button>
+          <button class="mc-opt">b) will never run out</button>
+          <button class="mc-opt">c) comes only from coal</button>
+          <button class="mc-opt">d) is very expensive to use</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="d">
+        <div class="mc-q"><span class="num">Q2</span>To "phase out" petrol cars means to…</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) sell more of them</button>
+          <button class="mc-opt">b) make them faster</button>
+          <button class="mc-opt">c) repair them</button>
+          <button class="mc-opt">d) gradually stop using them</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="a">
+        <div class="mc-q"><span class="num">Q3</span>An "endangered species" is one that is…</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) at risk of dying out</button>
+          <button class="mc-opt">b) increasing in number</button>
+          <button class="mc-opt">c) dangerous to humans</button>
+          <button class="mc-opt">d) newly discovered</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="c">
+        <div class="mc-q"><span class="num">Q4</span><strong>Grammar (zero):</strong> "If you heat ice, it ___." (a general fact)</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) will melt</button>
+          <button class="mc-opt">b) would melt</button>
+          <button class="mc-opt">c) melts</button>
+          <button class="mc-opt">d) melted</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="a">
+        <div class="mc-q"><span class="num">Q5</span><strong>Grammar (first):</strong> "If we don't act now, the planet ___ suffer." (real future)</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) will</button>
+          <button class="mc-opt">b) would</button>
+          <button class="mc-opt">c) is</button>
+          <button class="mc-opt">d) was</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="b">
+        <div class="mc-q"><span class="num">Q6</span><strong>Grammar (second):</strong> "If everyone recycled, we ___ produce far less waste." (hypothetical)</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) will</button>
+          <button class="mc-opt">b) would</button>
+          <button class="mc-opt">c) do</button>
+          <button class="mc-opt">d) are going to</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 Conditionals (0 · 1 · 2)</h3>
+    <div class="grammar-box">
+      <h4>🌍 Three conditionals for talking about the planet</h4>
+      <ul>
+        <li><strong>Zero</strong> (facts/general truths): <code>If + present, present</code> → <em>If you cut down forests, animals lose their homes.</em></li>
+        <li><strong>First</strong> (real future possibility): <code>If + present, will + verb</code> → <em>If we recycle more, we will reduce waste.</em></li>
+        <li><strong>Second</strong> (unreal / hypothetical now): <code>If + past, would + verb</code> → <em>If governments invested in solar, emissions would fall.</em></li>
+        <li>In the second conditional, use <code>were</code> for all persons: <em>If I were president…</em></li>
+      </ul>
+      <div class="formula">fact → present + present · real future → present + WILL</div>
+      <div class="formula">imaginary now → past + WOULD</div>
+    </div>
+    <p class="instr"><strong>Put the verb in brackets into the correct form</strong> for the type of conditional shown.</p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>If you heat plastic, it <input class="fill-input wide" data-answer="releases"> toxic fumes. (zero — release)</p></div>
+      <div class="fill-item"><p><span class="num">02</span>If we <input class="fill-input wide" data-answer="don't act" data-alt="don't act|do not act"> now, things will get worse. (first — not act) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">03</span>If everyone cycled, the air <input class="fill-input wide" data-answer="would be"> much cleaner. (second — be) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">04</span>Ice <input class="fill-input wide" data-answer="melts"> if the temperature rises. (zero — melt)</p></div>
+      <div class="fill-item"><p><span class="num">05</span>If governments <input class="fill-input wide" data-answer="invested"> more in solar power, we would cut emissions. (second — invest)</p></div>
+      <div class="fill-item"><p><span class="num">06</span>We <input class="fill-input wide" data-answer="will save" data-alt="will save|'ll save"> energy if we switch off the lights. (first — save) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">07</span>If I <input class="fill-input" data-answer="were" data-alt="were|was"> in charge, I would ban single-use plastic. (second — be)</p></div>
+      <div class="fill-item"><p><span class="num">08</span>Plants <input class="fill-input wide" data-answer="die"> if they don't get water. (zero — die)</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- =================== 4 · MONEY & FINANCE ======================== -->
+  <!-- ================================================================= -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">💰</span>Money &amp; Personal Finance</h2>
+    <p class="instr">Saving, spending, debt and budgeting. Grammar focus: <strong>gerunds &amp; infinitives</strong> (verb patterns).</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">to save up (for)</div><div class="vocab-def">to keep money for a future purchase</div><div class="vocab-ex">"I'm saving up for a laptop."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be broke</div><div class="vocab-def">to have no money (informal)</div><div class="vocab-ex">"I'm totally broke until payday."</div></div>
+      <div class="vocab-card"><div class="vocab-term">on a tight budget</div><div class="vocab-def">with very little money to spend</div><div class="vocab-ex">"We travelled on a tight budget."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to make ends meet</div><div class="vocab-def">to have just enough money to live</div><div class="vocab-ex">"It's hard to make ends meet."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to splash out / splurge</div><div class="vocab-def">to spend a lot, often on a treat</div><div class="vocab-ex">"I splurged on concert tickets."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be in debt / to owe</div><div class="vocab-def">to have to pay money back</div><div class="vocab-ex">"He's deep in debt."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to take out a loan</div><div class="vocab-def">to borrow money from a bank</div><div class="vocab-ex">"They took out a loan for the car."</div></div>
+      <div class="vocab-card"><div class="vocab-term">interest / interest rate</div><div class="vocab-def">extra money paid on a loan/savings</div><div class="vocab-ex">"The interest rate has gone up."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to pay off (a debt)</div><div class="vocab-def">to finish paying what you owe</div><div class="vocab-ex">"She paid off her student loan."</div></div>
+      <div class="vocab-card"><div class="vocab-term">savings / a savings account</div><div class="vocab-def">money kept for later</div><div class="vocab-ex">"I put part of my pay into savings."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be well off / wealthy</div><div class="vocab-def">to have plenty of money</div><div class="vocab-ex">"Her family is quite well off."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to live beyond your means</div><div class="vocab-def">to spend more than you earn</div><div class="vocab-ex">"They live beyond their means."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a bargain</div><div class="vocab-def">something bought very cheaply</div><div class="vocab-ex">"These shoes were a real bargain."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a rip-off</div><div class="vocab-def">something far too expensive</div><div class="vocab-ex">"€8 for a coffee is a rip-off!"</div></div>
+      <div class="vocab-card"><div class="vocab-term">to afford</div><div class="vocab-def">to have enough money for something</div><div class="vocab-ex">"I can't afford a new phone."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to budget / budgeting</div><div class="vocab-def">to plan how to spend your money</div><div class="vocab-ex">"Budgeting helps me save."</div></div>
+      <div class="vocab-card"><div class="vocab-term">disposable income</div><div class="vocab-def">money left after bills are paid</div><div class="vocab-ex">"Students have little disposable income."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to invest in</div><div class="vocab-def">to put money in to make more</div><div class="vocab-ex">"He invested in shares."</div></div>
+      <div class="vocab-card"><div class="vocab-term">value for money</div><div class="vocab-def">a good deal for what you pay</div><div class="vocab-ex">"This phone is great value for money."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a mortgage</div><div class="vocab-def">a long-term loan to buy a home</div><div class="vocab-ex">"They're paying off a mortgage."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m4">
+      <div class="match-col">
+        <h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">to save up</div>
+        <div class="match-item" data-word="2">to be broke</div>
+        <div class="match-item" data-word="3">to make ends meet</div>
+        <div class="match-item" data-word="4">a bargain</div>
+        <div class="match-item" data-word="5">a rip-off</div>
+        <div class="match-item" data-word="6">to be in debt</div>
+        <div class="match-item" data-word="7">to afford</div>
+        <div class="match-item" data-word="8">a mortgage</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="3">to have just enough money to live on</div>
+        <div class="match-item" data-def="1">to keep money for something in the future</div>
+        <div class="match-item" data-def="5">something far too expensive</div>
+        <div class="match-item" data-def="7">to have enough money for something</div>
+        <div class="match-item" data-def="2">to have no money at all</div>
+        <div class="match-item" data-def="8">a long-term loan to buy a home</div>
+        <div class="match-item" data-def="4">something bought very cheaply</div>
+        <div class="match-item" data-def="6">to owe money to someone</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m4">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word or phrase from the bank. Change the form where necessary. <em>(The bank is in random order!)</em></p>
+    <div class="word-bank">
+      <strong>💰 WORD BANK 💰</strong>
+      <span class="bank-words"><span class="bank-word">in debt</span><span class="bank-word">afford</span><span class="bank-word">budget</span><span class="bank-word">make ends meet</span><span class="bank-word">bargain</span><span class="bank-word">rip-off</span><span class="bank-word">save up</span><span class="bank-word">broke</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>I'm trying to <input class="fill-input wide" data-answer="save up"> for a holiday. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">02</span>I can't go out — I'm completely <input class="fill-input" data-answer="broke"> .</p></div>
+      <div class="fill-item"><p><span class="num">03</span>On one salary it's hard to <input class="fill-input wide" data-answer="make ends meet"> . <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">04</span>This jacket was only €15 — what a <input class="fill-input" data-answer="bargain"> !</p></div>
+      <div class="fill-item"><p><span class="num">05</span>After university many graduates are <input class="fill-input wide" data-answer="in debt"> . <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">06</span>If you <input class="fill-input" data-answer="budget"> carefully, you can still save a little.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>I'd love that car, but I just can't <input class="fill-input" data-answer="afford"> it.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>Paying €10 for a bottle of water is a total <input class="fill-input" data-answer="rip-off" data-alt="rip-off|ripoff|rip off"> .</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="c">
+        <div class="mc-q"><span class="num">Q1</span>To "live beyond your means" is to…</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) save most of your money</button>
+          <button class="mc-opt">b) live very simply</button>
+          <button class="mc-opt">c) spend more than you earn</button>
+          <button class="mc-opt">d) invest wisely</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="a">
+        <div class="mc-q"><span class="num">Q2</span>"Disposable income" is the money you have…</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) left after paying your bills</button>
+          <button class="mc-opt">b) borrowed from a bank</button>
+          <button class="mc-opt">c) saved in a pension</button>
+          <button class="mc-opt">d) owed to others</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="b">
+        <div class="mc-q"><span class="num">Q3</span>If something is "great value for money", it…</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) is extremely expensive</button>
+          <button class="mc-opt">b) is well worth what you pay</button>
+          <button class="mc-opt">c) can't be bought</button>
+          <button class="mc-opt">d) is always free</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="d">
+        <div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "I can't afford ___ a new phone right now."</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) buying</button>
+          <button class="mc-opt">b) buy</button>
+          <button class="mc-opt">c) bought</button>
+          <button class="mc-opt">d) to buy</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="a">
+        <div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "She enjoys ___ for bargains online."</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) shopping</button>
+          <button class="mc-opt">b) to shop</button>
+          <button class="mc-opt">c) shop</button>
+          <button class="mc-opt">d) shops</button>
+        </div>
+      </div>
+      <div class="mc-item" data-correct="c">
+        <div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> "They managed ___ off the whole loan early."</div>
+        <div class="mc-options">
+          <button class="mc-opt">a) paying</button>
+          <button class="mc-opt">b) pay</button>
+          <button class="mc-opt">c) to pay</button>
+          <button class="mc-opt">d) paid</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 Gerunds &amp; infinitives</h3>
+    <div class="grammar-box">
+      <h4>💰 -ing or to + verb?</h4>
+      <ul>
+        <li><strong>Verb + gerund (-ing):</strong> <code>enjoy, avoid, finish, mind, keep, consider, suggest, give up, can't help</code> → <em>I avoid spending too much.</em></li>
+        <li><strong>Verb + infinitive (to):</strong> <code>decide, want, hope, manage, afford, agree, refuse, plan, learn, offer, promise</code> → <em>We decided to save.</em></li>
+        <li><strong>After a preposition → gerund:</strong> <em>good at budgeting, interested in investing, instead of spending.</em></li>
+        <li><strong>To express purpose → infinitive:</strong> <em>I work extra hours to save money.</em></li>
+      </ul>
+      <div class="formula">avoid / enjoy / keep / good at … → -ING</div>
+      <div class="formula">decide / want / manage / afford … → TO + verb</div>
+    </div>
+    <p class="instr"><strong>Put the verb in brackets into the gerund (-ing) or infinitive (to …) form.</strong></p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>I can't afford <input class="fill-input wide" data-answer="to buy"> a car. (buy) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">02</span>She enjoys <input class="fill-input" data-answer="shopping"> for bargains. (shop)</p></div>
+      <div class="fill-item"><p><span class="num">03</span>We've decided <input class="fill-input wide" data-answer="to save"> for a house. (save) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">04</span>He keeps <input class="fill-input" data-answer="spending"> money he hasn't got. (spend)</p></div>
+      <div class="fill-item"><p><span class="num">05</span>I'm quite good at <input class="fill-input" data-answer="budgeting"> . (budget — after a preposition)</p></div>
+      <div class="fill-item"><p><span class="num">06</span>They managed <input class="fill-input wide" data-answer="to pay"> off the loan early. (pay) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">07</span>Would you consider <input class="fill-input" data-answer="investing"> in shares? (invest)</p></div>
+      <div class="fill-item"><p><span class="num">08</span>He gave up <input class="fill-input" data-answer="smoking"> to save money. (smoke)</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- ========================= 5 · SPEAKING ========================= -->
+  <!-- ================================================================= -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking — all four topics</h2>
+    <p class="instr">Speak <strong>1–2 minutes</strong> per question. Try to use at least <strong>3 words or phrases</strong> from the topic in each answer. Explain your opinions and give real examples!</p>
+
+    <div class="phrase-box">
+      <h4>💬 Useful phrases for any topic</h4>
+      <div class="phrase-list">
+        <div class="phrase"><strong>Opinion:</strong> "As far as I'm concerned…" / "I'd argue that…" / "In my view…"</div>
+        <div class="phrase"><strong>Agreeing / disagreeing:</strong> "I couldn't agree more." / "I see your point, but…"</div>
+        <div class="phrase"><strong>Giving examples:</strong> "A good example would be…" / "Take… for instance."</div>
+        <div class="phrase"><strong>Weighing up:</strong> "On the one hand… on the other hand…" / "The main advantage is…"</div>
+        <div class="phrase"><strong>Speculating:</strong> "It's likely that…" / "I imagine that…" / "It could well…"</div>
+      </div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ HEALTH · TASK 01</div>
+      <div class="speak-prompt">How healthy is your lifestyle, honestly? What would you like to cut down on, give up, or take up this year?</div>
+      <div class="speak-help"><strong>Try to use:</strong> a balanced diet · to work out · to cut down on · to give up · in moderation · a sedentary lifestyle</div>
+    </div>
+    <div class="speak-card">
+      <div class="speak-num">◆ HEALTH · TASK 02</div>
+      <div class="speak-prompt">People talk much more openly about mental health and wellbeing now. Is that a good thing? How do you deal with stress?</div>
+      <div class="speak-help"><strong>Try to use:</strong> wellbeing · stressed out · burnout · a good night's sleep · should / ought to · to recover from</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ TRAVEL · TASK 03</div>
+      <div class="speak-prompt">Describe the best trip you've ever taken. Where did you go, and what made it special?</div>
+      <div class="speak-help"><strong>Try to use:</strong> breathtaking scenery · a hidden gem · sightseeing · off the beaten track · an itinerary · a souvenir</div>
+    </div>
+    <div class="speak-card">
+      <div class="speak-num">◆ TRAVEL · TASK 04</div>
+      <div class="speak-prompt">Are you a "package holiday" person or a backpacker? Would you rather relax or get away from it all and explore?</div>
+      <div class="speak-help"><strong>Try to use:</strong> a package holiday · to backpack · a budget airline · peak season · to splash out · to get away from it all</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ ENVIRONMENT · TASK 05</div>
+      <div class="speak-prompt">What do you personally do to help the environment? Could you do more? What stops people from going green?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to recycle · single-use plastic · carbon footprint · eco-friendly · to cut down on waste · sustainable</div>
+    </div>
+    <div class="speak-card">
+      <div class="speak-num">◆ ENVIRONMENT · TASK 06</div>
+      <div class="speak-prompt">"If governments did more, ordinary people wouldn't need to worry." Do you agree? Whose job is it to fix climate change?</div>
+      <div class="speak-help"><strong>Try to use:</strong> renewable energy · fossil fuels · to phase out · second conditional (if… would) · to raise awareness</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ MONEY · TASK 07</div>
+      <div class="speak-prompt">Are you a saver or a spender? What are you saving up for at the moment, and how good are you at budgeting?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to save up · on a tight budget · to splash out · to budget · a bargain · disposable income</div>
+    </div>
+    <div class="speak-card">
+      <div class="speak-num">◆ MONEY · TASK 08</div>
+      <div class="speak-prompt">Should schools teach teenagers about money — loans, debt and budgeting? Why do so many people live beyond their means?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to be in debt · to take out a loan · interest · to make ends meet · to live beyond your means · value for money</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ CONNECT THE TOPICS · TASK 09</div>
+      <div class="speak-prompt">"A healthy, sustainable life is only possible if you have money." How far do you agree? Bring in at least two of today's topics.</div>
+      <div class="speak-help"><strong>Try to use:</strong> a balanced diet · eco-friendly · on a tight budget · to afford · value for money · sustainable</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUICK-FIRE · TASK 10 · 30 SECONDS EACH</div>
+      <div class="speak-prompt">No planning — just talk!</div>
+      <div class="speak-help">
+        ▸ One habit you really should give up.<br>
+        ▸ The dream destination you're saving up for.<br>
+        ▸ One simple way to shrink your carbon footprint.<br>
+        ▸ The best bargain you've ever found.<br>
+        ▸ Complete: "If I had a month off and unlimited money, I would…"
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    🧭 ★ ★ &nbsp; LIFE &amp; THE BIGGER PICTURE · B2 ENGLISH WORKSHEET · HEALTH · TRAVEL · ENVIRONMENT · MONEY &nbsp; ★ ★ 🧭
+  </footer>
+</div>
+<script>
+  // ---------- SHUFFLE WORD BANKS ----------
+  document.querySelectorAll('.bank-words').forEach(c => {
+    const words = Array.from(c.children);
+    for (let i = words.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [words[i], words[j]] = [words[j], words[i]];
+    }
+    words.forEach(w => c.appendChild(w));
+  });
+
+  // ---------- TABS ----------
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // ---------- MATCHING (works for every .match-grid independently) ----------
+  document.querySelectorAll('.match-grid').forEach(grid => {
+    let selected = null;
+    let matched = 0;
+    const total = grid.querySelectorAll('[data-word]').length;
+    const scoreEl = document.getElementById(grid.dataset.score);
+    grid.querySelectorAll('.match-item').forEach(item => {
+      item.addEventListener('click', () => {
+        if (item.classList.contains('matched')) return;
+        if (item.dataset.word) {
+          grid.querySelectorAll('[data-word]').forEach(w => w.classList.remove('selected'));
+          item.classList.add('selected');
+          selected = item;
+        } else if (item.dataset.def && selected) {
+          if (selected.dataset.word === item.dataset.def) {
+            selected.classList.remove('selected');
+            selected.classList.add('matched');
+            item.classList.add('matched');
+            matched++;
+            scoreEl.textContent = matched + ' / ' + total;
+            if (matched === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+            selected = null;
+          } else {
+            item.classList.add('wrong');
+            setTimeout(() => item.classList.remove('wrong'), 450);
+          }
+        }
+      });
+    });
+  });
+
+  // ---------- FILL / GRAMMAR CHECK (generic) ----------
+  // The check button sits right after a .fill-set, followed by a .score span.
+  function checkFill(btn) {
+    const set = btn.previousElementSibling; // the .fill-set
+    const scoreEl = btn.nextElementSibling;  // the .score span
+    const inputs = set.querySelectorAll('.fill-input');
+    let correct = 0;
+    inputs.forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const alts = input.dataset.alt ? input.dataset.alt.toLowerCase().split('|').map(s => s.trim()) : [ans];
+      const valid = alts.includes(ans) ? alts : [ans, ...alts];
+      const val = input.value.toLowerCase().trim().replace(/\s+/g, ' ');
+      input.classList.remove('correct', 'wrong');
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    const total = inputs.length;
+    scoreEl.textContent = correct + ' / ' + total;
+    if (correct === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+  }
+
+  // ---------- MULTIPLE CHOICE (generic, per .mc-set) ----------
+  document.querySelectorAll('.mc-set').forEach(set => {
+    let score = 0;
+    const total = set.querySelectorAll('.mc-item').length;
+    const scoreEl = set.nextElementSibling.querySelector('.score');
+    set.querySelectorAll('.mc-item').forEach(item => {
+      const correct = item.dataset.correct;
+      const opts = item.querySelectorAll('.mc-opt');
+      opts.forEach((opt, i) => {
+        const letter = ['a', 'b', 'c', 'd'][i];
+        opt.addEventListener('click', () => {
+          if (opt.disabled) return;
+          opts.forEach(o => o.disabled = true);
+          if (letter === correct) {
+            opt.classList.add('correct');
+            score++;
+          } else {
+            opt.classList.add('wrong');
+            opts.forEach((o, j) => { if (['a', 'b', 'c', 'd'][j] === correct) o.classList.add('correct'); });
+          }
+          scoreEl.textContent = score + ' / ' + total;
+          if (score === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>
