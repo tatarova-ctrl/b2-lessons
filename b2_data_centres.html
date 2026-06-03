@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Centres — B1 → C1 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --indigo: #4F46E5;
+    --deep: #312E81;
+    --coral: #F97316;
+    --gold: #FBBF24;
+    --green: #10B981;
+    --cream: #FAF8F3;
+    --sand: #EAE2D0;
+    --ink: #1E1B4B;
+    --cloud: #ffffff;
+    --soft: #E0E7FF;
+    --blush: #FFE4D8;
+    --mint: #D1FAE5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(79,70,229,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(16,185,129,0.08) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "🖥️";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 130px;
+    opacity: 0.13;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--gold);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(34px, 6vw, 56px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--coral); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 660px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--gold); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--indigo);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .block-head {
+    font-family: 'DM Serif Display', serif;
+    font-size: 23px;
+    color: var(--deep);
+    margin: 38px 0 6px;
+    padding-bottom: 6px;
+    border-bottom: 2px dashed var(--sand);
+  }
+  .block-head:first-of-type { margin-top: 10px; }
+  .block-head .step {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    display: block;
+  }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--indigo); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .hint { color: var(--deep); font-size: 13px; }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 190px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 260px; }
+  .fill-input:focus { outline: none; border-color: var(--indigo); background: var(--cream); }
+  .fill-input.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--indigo); }
+  .mc-opt.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--coral);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--gold);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--indigo);
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--indigo);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--indigo); }
+  .phrase-box {
+    background: var(--blush);
+    border: 2px dashed var(--coral);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .phrase-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .phrase-box .phrase-list { display: grid; gap: 6px; }
+  .phrase-box .phrase {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    border-left: 3px solid var(--indigo);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid { grid-template-columns: 1fr; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+
+  /* SHUFFLED WORD BANK */
+  .bank-words { display: inline; }
+  .bank-word { display: inline; white-space: nowrap; }
+  .bank-word:not(:last-child)::after { content: " · "; color: var(--gold); opacity: .85; }
+
+  /* LEVEL BADGES */
+  .level-badge { display:inline-block; font-family:'Courier Prime',monospace; font-size:9.5px; letter-spacing:1px; padding:2px 7px; border-radius:10px; margin-left:6px; vertical-align:middle; font-weight:700; }
+  .level-badge.b1 { background: var(--mint); color:#1a3d17; border:1px solid #2d6a2a; }
+  .level-badge.c1 { background: var(--blush); color:#7a3b1a; border:1px solid var(--coral); }
+  .level-header { display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; padding:4px 10px; border-radius:14px; margin-bottom:10px; font-weight:700; }
+  .level-header.b1 { background:var(--mint); color:#1a3d17; border:1.5px solid #2d6a2a; }
+  .level-header.c1 { background:var(--blush); color:#7a3b1a; border:1.5px solid var(--coral); }
+  /* READING BOXES */
+  .reading-box { background: var(--cloud); border: 2px solid var(--ink); border-radius: 14px; padding: 22px 26px; margin-bottom: 22px; box-shadow: 5px 5px 0 var(--ink); }
+  .reading-box.b1 { border-left: 8px solid var(--green); }
+  .reading-box.c1 { border-left: 8px solid var(--coral); }
+  .reading-box h3 { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ink); margin-bottom: 12px; }
+  .reading-box p { margin-bottom: 12px; font-size: 15px; line-height: 1.7; }
+  .reading-box .tl { background: var(--soft); padding: 1px 5px; border-radius: 3px; font-weight: 600; }
+  .reading-box.c1 .tl { background: var(--blush); }
+  .reading-box .quote { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 17px; color: var(--deep); border-left: 4px solid var(--coral); padding: 8px 14px; margin: 12px 0; background: var(--cream); border-radius: 0 8px 8px 0; }
+  .persona { display:flex; gap:14px; align-items:center; background:var(--ink); color:var(--cream); padding:12px 16px; border-radius:10px; margin-bottom:14px; }
+  .persona-avatar { width:50px; height:50px; border-radius:50%; background:var(--gold); color:var(--ink); display:flex; align-items:center; justify-content:center; font-family:'DM Serif Display',serif; font-size:22px; flex-shrink:0; }
+  .persona-name { font-weight:700; font-size:14px; color:var(--gold); }
+  .persona-role { font-size:12px; opacity:.85; }
+</style>
+</head><body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🖥️ DATA CENTRES · B1 → C1 ENGLISH</div>
+      <h1>Data Centres <span class="accent">Everywhere</span></h1>
+      <div class="sub">Servers, the cloud, sustainability and sovereignty — the invisible infrastructure powering modern life. Two levels in one lesson: clear B1 foundations plus C1 stretch language.</div>
+      <div class="tags">
+        <span class="tag">CEFR B1 → C1</span>
+        <span class="tag">Technology &amp; Society</span>
+        <span class="tag">Reading</span>
+        <span class="tag">Vocabulary &amp; Idioms</span>
+        <span class="tag">Grammar</span>
+        <span class="tag">Speaking</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Reading 📖</button>
+    <button class="tab" data-tab="t2">② Vocabulary &amp; Idioms 💬</button>
+    <button class="tab" data-tab="t3">③ Practice ✏️</button>
+    <button class="tab" data-tab="t4">④ Grammar 📝</button>
+    <button class="tab" data-tab="t5">⑤ Speaking 🎤</button>
+  </nav>
+
+  <!-- 1 · READING -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">Two versions of the same story: a simpler B1 version to build understanding, and an advanced C1 version with idioms and richer vocabulary. Highlighted words appear in the vocabulary section.</p>
+
+    <div class="persona">
+      <div class="persona-avatar">M</div>
+      <div>
+        <div class="persona-name">★ Marcus Osei, 41 · Senior Data Centre Strategy Consultant</div>
+        <div class="persona-role">14 years in the industry · Based in London · Works across Europe, the Middle East and Asia</div>
+      </div>
+    </div>
+
+    <div class="reading-box b1">
+      <span class="level-header b1">📘 B1 · CLEAR VERSION</span>
+      <h3>Data Centres Are Everywhere</h3>
+      <p>Every time you watch a video, send a message or ask an AI a question, you are using a <span class="tl">data centre</span>. A data centre is a huge building full of computers called <span class="tl">servers</span>. These servers store information and run the apps we use every day.</p>
+      <p>In the last few years, data centres have appeared all over the world. People say they are <span class="tl">popping up like mushrooms after rain</span>. The reason is simple: streaming, online shopping and especially AI all need a lot of <span class="tl">computer power</span>.</p>
+      <p>A data centre is not just a room full of computers. It needs strong <span class="tl">cooling systems</span>, because the machines get very hot. It also needs <span class="tl">backup power</span> in case the electricity goes off.</p>
+      <p>The biggest data centres belong to Amazon, Google and Microsoft. These three companies are called <span class="tl">hyperscalers</span> because their centres are so big. Other companies, like Equinix, rent space to smaller businesses.</p>
+      <p>But there is a problem. Data centres use a huge amount of <span class="tl">electricity</span>. One large data centre can use as much energy as a small city. They also need a lot of water. Some people say the industry is not doing enough to protect the <span class="tl">environment</span>.</p>
+      <p>Governments want the jobs and money that data centres bring. But they also worry about the energy and water. In Dublin, Ireland, the government had to stop building new data centres for a while. The local electricity system could not <span class="tl">cope</span>.</p>
+      <p>Data centres are the new railways of our century. The question is not whether to build them, but <em>how</em> to build them in a smart and fair way.</p>
+    </div>
+
+    <div class="reading-box c1">
+      <span class="level-header c1">📕 C1 · ADVANCED VERSION</span>
+      <h3>Popping Up Like Mushrooms After Rain</h3>
+      <p>There's a phrase I keep hearing from journalists and planners: data centres are <span class="tl">popping up like mushrooms after rain</span>. Honestly, it's no exaggeration. Planning applications for <span class="tl">hyperscale facilities</span> have hit record levels across Europe, the US and Southeast Asia. The AI boom, the explosion in <span class="tl">cloud computing</span>, and the relentless growth of streaming and <span class="tl">digital workloads</span> have created demand the industry is struggling to <span class="tl">keep pace with</span>.</p>
+      <p>A data centre isn't just a big room full of computers. It's an enormously complex piece of <span class="tl">critical infrastructure</span> — as essential as a power station. Inside, you'll find thousands of <span class="tl">server racks</span>, intricate cooling systems, and <span class="tl">redundant power supplies</span>. The best facilities have a <span class="tl">Power Usage Effectiveness</span> (PUE) close to 1.0 — meaning almost no wasted energy.</p>
+      <div class="quote">"Every time someone says 'the cloud', what they really mean is someone else's computer in a warehouse the size of an aircraft hangar, somewhere outside Dublin or Frankfurt."</div>
+      <p>The problem comes with a <span class="tl">staggering</span> environmental cost. A single large facility can consume as much electricity as a small city. Campaigners argue the industry is <span class="tl">greenwashing</span> — making loud claims about renewables while <span class="tl">drawing on</span> fossil-fuel-heavy grids. The debate is <span class="tl">far from settled</span>.</p>
+      <p>Governments are <span class="tl">caught between two forces</span>: the jobs and prestige of hosting <span class="tl">digital infrastructure</span>, and legitimate pressure from communities about land, energy and water. Ireland briefly imposed a <span class="tl">moratorium</span> on new connections in Dublin because the grid couldn't <span class="tl">cope with the load</span>.</p>
+      <p>It's not just a technology story. It's a story about <span class="tl">data sovereignty</span> — which countries control where the world's information sits. If I had to <span class="tl">cut through the noise</span>, I'd say data centres are the railways of the 21st century. The real question isn't whether to build them, but whether we're building them smartly and sustainably.</p>
+    </div>
+  </section>
+
+  <!-- 2 · VOCABULARY & IDIOMS -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">💬</span>Vocabulary &amp; Idioms</h2>
+    <p class="instr">Core vocabulary split by level. Start with B1 essentials, then push into C1 stretch language from the industry.</p>
+
+    <h3 class="block-head"><span class="step">VOCABULARY · CORE</span><span class="level-header b1">📘 B1 ESSENTIALS</span></h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">a data centre <span class="level-badge b1">B1</span></div><div class="vocab-def">a building full of computers that store information</div><div class="vocab-ex">"There's a new data centre near the airport."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a server <span class="level-badge b1">B1</span></div><div class="vocab-def">a powerful computer that stores data and runs apps</div><div class="vocab-ex">"The website is hosted on a server in Germany."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the cloud / cloud computing <span class="level-badge b1">B1</span></div><div class="vocab-def">storing files and using software over the internet</div><div class="vocab-ex">"All my photos are in the cloud."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to store data <span class="level-badge b1">B1</span></div><div class="vocab-def">to keep information on a computer</div><div class="vocab-ex">"The centre stores billions of files."</div></div>
+      <div class="vocab-card"><div class="vocab-term">AI / artificial intelligence <span class="level-badge b1">B1</span></div><div class="vocab-def">computer systems that can "learn" and think</div><div class="vocab-ex">"AI needs huge amounts of computer power."</div></div>
+      <div class="vocab-card"><div class="vocab-term">electricity / power <span class="level-badge b1">B1</span></div><div class="vocab-def">energy used by machines</div><div class="vocab-ex">"They use as much electricity as a small city."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a cooling system <span class="level-badge b1">B1</span></div><div class="vocab-def">a way of keeping machines from getting too hot</div><div class="vocab-ex">"The cooling system uses cold water."</div></div>
+      <div class="vocab-card"><div class="vocab-term">backup power <span class="level-badge b1">B1</span></div><div class="vocab-def">a second power source if the main one fails</div><div class="vocab-ex">"They have backup power in case of an outage."</div></div>
+      <div class="vocab-card"><div class="vocab-term">infrastructure <span class="level-badge b1">B1</span></div><div class="vocab-def">large systems a country needs (roads, power, internet)</div><div class="vocab-ex">"Data centres are modern infrastructure."</div></div>
+      <div class="vocab-card"><div class="vocab-term">environmental impact <span class="level-badge b1">B1</span></div><div class="vocab-def">the effect something has on nature</div><div class="vocab-ex">"The environmental impact is huge."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to keep pace with <span class="level-badge b1">B1</span></div><div class="vocab-def">to grow as fast as something else</div><div class="vocab-ex">"Supply can't keep pace with demand."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a hyperscaler <span class="level-badge b1">B1</span></div><div class="vocab-def">a huge tech company (Amazon, Google, Microsoft)</div><div class="vocab-ex">"The hyperscalers dominate the market."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">VOCABULARY · STRETCH</span><span class="level-header c1">📕 C1 ADVANCED</span></h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">a hyperscale facility <span class="level-badge c1">C1</span></div><div class="vocab-def">a very large data centre serving global cloud demand</div><div class="vocab-ex">"They opened a new hyperscale facility outside Frankfurt."</div></div>
+      <div class="vocab-card"><div class="vocab-term">colocation <span class="level-badge c1">C1</span></div><div class="vocab-def">renting space in a data centre for your own servers</div><div class="vocab-ex">"Many firms use colocation rather than build their own."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an edge data centre <span class="level-badge c1">C1</span></div><div class="vocab-def">a smaller centre built close to users to reduce delay</div><div class="vocab-ex">"Edge data centres power real-time apps."</div></div>
+      <div class="vocab-card"><div class="vocab-term">latency <span class="level-badge c1">C1</span></div><div class="vocab-def">the tiny delay between sending and receiving a request</div><div class="vocab-ex">"Low latency is critical for self-driving cars."</div></div>
+      <div class="vocab-card"><div class="vocab-term">Power Usage Effectiveness (PUE) <span class="level-badge c1">C1</span></div><div class="vocab-def">how efficiently a centre uses energy (1.0 is perfect)</div><div class="vocab-ex">"Their PUE is below 1.2 — that's excellent."</div></div>
+      <div class="vocab-card"><div class="vocab-term">redundant power supplies <span class="level-badge c1">C1</span></div><div class="vocab-def">duplicate power systems for reliability</div><div class="vocab-ex">"Every server rack has redundant power supplies."</div></div>
+      <div class="vocab-card"><div class="vocab-term">evaporative cooling <span class="level-badge c1">C1</span></div><div class="vocab-def">cooling that uses water turning into vapour</div><div class="vocab-ex">"Evaporative cooling uses millions of litres a day."</div></div>
+      <div class="vocab-card"><div class="vocab-term">greenwashing <span class="level-badge c1">C1</span></div><div class="vocab-def">pretending to be environmentally friendly</div><div class="vocab-ex">"Critics accuse them of greenwashing."</div></div>
+      <div class="vocab-card"><div class="vocab-term">data sovereignty <span class="level-badge c1">C1</span></div><div class="vocab-def">data is governed by the laws of where it is stored</div><div class="vocab-ex">"Data sovereignty matters for national security."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a moratorium <span class="level-badge c1">C1</span></div><div class="vocab-def">an official, temporary ban</div><div class="vocab-ex">"Dublin imposed a moratorium on new connections."</div></div>
+      <div class="vocab-card"><div class="vocab-term">digital workloads <span class="level-badge c1">C1</span></div><div class="vocab-def">the computing tasks a system has to handle</div><div class="vocab-ex">"AI creates enormous digital workloads."</div></div>
+      <div class="vocab-card"><div class="vocab-term">critical infrastructure <span class="level-badge c1">C1</span></div><div class="vocab-def">systems a country cannot function without</div><div class="vocab-ex">"Data centres are now critical infrastructure."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">IDIOMS &amp; EXPRESSIONS</span>💡 Useful in discussions</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">to pop up like mushrooms <span class="level-badge b1">B1</span></div><div class="vocab-def">to appear suddenly and in large numbers</div><div class="vocab-ex">"New cafés are popping up like mushrooms."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to pour money into <span class="level-badge b1">B1</span></div><div class="vocab-def">to invest very large sums in</div><div class="vocab-ex">"They've poured billions into AI."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to cope with the load <span class="level-badge b1">B1</span></div><div class="vocab-def">to manage the amount of work or demand</div><div class="vocab-ex">"The grid couldn't cope with the load."</div></div>
+      <div class="vocab-card"><div class="vocab-term">staggering <span class="level-badge c1">C1</span></div><div class="vocab-def">shockingly large or impressive</div><div class="vocab-ex">"The energy cost is staggering."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the tip of the iceberg <span class="level-badge c1">C1</span></div><div class="vocab-def">a small visible sign of a much bigger problem</div><div class="vocab-ex">"This is just the tip of the iceberg."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to draw on (a resource) <span class="level-badge c1">C1</span></div><div class="vocab-def">to use it, often quietly</div><div class="vocab-ex">"They draw on the local grid heavily."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to cut through the noise <span class="level-badge c1">C1</span></div><div class="vocab-def">to find what really matters among distractions</div><div class="vocab-ex">"Let me cut through the noise here."</div></div>
+      <div class="vocab-card"><div class="vocab-term">window dressing <span class="level-badge c1">C1</span></div><div class="vocab-def">surface changes done only to look good</div><div class="vocab-ex">"Their net-zero pledge is window dressing."</div></div>
+      <div class="vocab-card"><div class="vocab-term">far from settled <span class="level-badge c1">C1</span></div><div class="vocab-def">still being debated; not resolved</div><div class="vocab-ex">"The science is far from settled."</div></div>
+      <div class="vocab-card"><div class="vocab-term">caught between two forces <span class="level-badge c1">C1</span></div><div class="vocab-def">stuck between two competing pressures</div><div class="vocab-ex">"Governments are caught between two forces."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to bite the bullet <span class="level-badge c1">C1</span></div><div class="vocab-def">to do something difficult that you've been avoiding</div><div class="vocab-ex">"They'll have to bite the bullet and invest."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a race to the bottom <span class="level-badge c1">C1</span></div><div class="vocab-def">competition that drives standards lower and lower</div><div class="vocab-ex">"It's becoming a race to the bottom on prices."</div></div>
+    </div>
+  </section>
+
+  <!-- 3 · PRACTICE -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">✏️</span>Practice exercises</h2>
+    <p class="instr">Matching, gap-fill and multiple choice — mixing comprehension, vocabulary and idioms from the reading.</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · MATCHING</span>🔗 Match the term with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m1">
+      <div class="match-col"><h3>Term / phrase</h3>
+        <div class="match-item" data-word="1">a server</div>
+        <div class="match-item" data-word="2">cloud computing</div>
+        <div class="match-item" data-word="3">latency</div>
+        <div class="match-item" data-word="4">a hyperscaler</div>
+        <div class="match-item" data-word="5">greenwashing</div>
+        <div class="match-item" data-word="6">data sovereignty</div>
+        <div class="match-item" data-word="7">to keep pace with</div>
+        <div class="match-item" data-word="8">to pop up like mushrooms</div>
+      </div>
+      <div class="match-col"><h3>Meaning</h3>
+        <div class="match-item" data-def="3">a tiny delay between request and response</div>
+        <div class="match-item" data-def="1">a powerful computer that stores data and runs apps</div>
+        <div class="match-item" data-def="5">pretending to be environmentally friendly</div>
+        <div class="match-item" data-def="7">to grow as fast as something else</div>
+        <div class="match-item" data-def="2">using files and software over the internet</div>
+        <div class="match-item" data-def="8">to appear suddenly and in large numbers</div>
+        <div class="match-item" data-def="4">a huge tech company that runs global cloud services</div>
+        <div class="match-item" data-def="6">the idea that data is ruled by the laws of where it sits</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m1">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word from the bank. Change the form where necessary.</p>
+    <div class="word-bank"><strong>🖥️ WORD BANK 🖥️</strong>
+      <span class="bank-words"><span class="bank-word">data centre</span><span class="bank-word">hyperscalers</span><span class="bank-word">cooling</span><span class="bank-word">greenwashing</span><span class="bank-word">cope</span><span class="bank-word">latency</span><span class="bank-word">workloads</span><span class="bank-word">mushrooms</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>Every video you watch is stored in a huge <input class="fill-input wide" data-answer="data centre" data-alt="data centre|data center"> somewhere. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">02</span>The <input class="fill-input" data-answer="hyperscalers"> — Amazon, Google and Microsoft — build new campuses every year.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>Servers get extremely hot, so they need powerful <input class="fill-input" data-answer="cooling"> systems.</p></div>
+      <div class="fill-item"><p><span class="num">04</span>Critics accuse the industry of <input class="fill-input" data-answer="greenwashing"> — claiming to be green when it isn't.</p></div>
+      <div class="fill-item"><p><span class="num">05</span>In Dublin, the electricity grid couldn't <input class="fill-input" data-answer="cope"> with the load.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>High <input class="fill-input" data-answer="latency"> makes real-time apps like self-driving cars impossible.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>The AI boom creates enormous digital <input class="fill-input" data-answer="workloads">.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>New facilities are popping up like <input class="fill-input" data-answer="mushrooms"> after rain.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 03 · MULTIPLE CHOICE</span>🎯 Choose the best answer</h3>
+    <p class="instr">Click the option that fits best. Includes reading-comprehension questions.</p>
+    <div class="mc-set" data-total="8">
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q1</span>"Data centres are popping up like mushrooms after rain." This means they are…</div><div class="mc-options">
+        <button class="mc-opt">a) growing slowly and steadily</button><button class="mc-opt">b) appearing suddenly and in very large numbers</button><button class="mc-opt">c) only being built underground</button><button class="mc-opt">d) growing in cold climates</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q2</span>What is Power Usage Effectiveness (PUE)?</div><div class="mc-options">
+        <button class="mc-opt">a) how fast a server processes data</button><button class="mc-opt">b) a ratio showing how efficiently a centre uses energy</button><button class="mc-opt">c) the total electricity bill per year</button><button class="mc-opt">d) the internet speed rating of a facility</button></div></div>
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q3</span>"Those green claims are just window dressing" means the claims are…</div><div class="mc-options">
+        <button class="mc-opt">a) genuinely impressive</button><button class="mc-opt">b) about the building's design</button><button class="mc-opt">c) superficial and only for image</button><button class="mc-opt">d) legally required</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q4</span>What is "colocation"?</div><div class="mc-options">
+        <button class="mc-opt">a) putting data centres only in capital cities</button><button class="mc-opt">b) renting space in a data centre for your own servers</button><button class="mc-opt">c) connecting many data centres in one building</button><button class="mc-opt">d) selling second-hand servers</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q5</span>Why did Dublin impose a moratorium on new data centres?</div><div class="mc-options">
+        <button class="mc-opt">a) EU planning laws changed</button><button class="mc-opt">b) the electricity grid couldn't cope with demand</button><button class="mc-opt">c) residents blocked every application</button><button class="mc-opt">d) land prices in Dublin became too high</button></div></div>
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q6</span>"Data sovereignty" means…</div><div class="mc-options">
+        <button class="mc-opt">a) how fast data moves between countries</button><button class="mc-opt">b) the physical security of data centres</button><button class="mc-opt">c) data follows the laws of the country it sits in</button><button class="mc-opt">d) your right to delete your data</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q7</span>"The environmental debate is far from settled" means…</div><div class="mc-options">
+        <button class="mc-opt">a) it has been officially resolved</button><button class="mc-opt">b) it is still very much ongoing</button><button class="mc-opt">c) people have lost interest</button><button class="mc-opt">d) scientists agree completely</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q8</span>Which phrase means "a small visible sign of a much bigger hidden problem"?</div><div class="mc-options">
+        <button class="mc-opt">a) window dressing</button><button class="mc-opt">b) the tip of the iceberg</button><button class="mc-opt">c) a race to the bottom</button><button class="mc-opt">d) far from settled</button></div></div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 8</span></div>
+  </section>
+
+  <!-- 4 · GRAMMAR -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar focus</h2>
+    <p class="instr">Two grammar areas linked to discussions about data centres. B1 items are foundations; C1 items go further.</p>
+
+    <h3 class="block-head"><span class="step">GRAMMAR 1</span>🔄 Conditionals &amp; reported speech</h3>
+    <div class="grammar-box">
+      <h4>📘 B1 essentials → 📕 C1 stretch</h4>
+      <ul>
+        <li><strong>Zero conditional</strong> (facts): <code>If + present, present</code> → <em>If servers get hot, they fail.</em></li>
+        <li><strong>First conditional</strong> (real future): <code>If + present, will</code> → <em>If we invest now, we will reduce emissions.</em></li>
+        <li><strong>Second conditional</strong> (hypothetical now): <code>If + past, would</code> → <em>If everyone cared, we'd act faster.</em></li>
+        <li><strong>Third conditional</strong> (unreal past): <code>If + past perfect, would have + p.p.</code> → <em>If Ireland had built more capacity, it wouldn't have imposed a moratorium.</em></li>
+        <li><strong>Mixed conditional (C1):</strong> past condition → present result. <em>If they had invested earlier, we wouldn't be in this position now.</em></li>
+        <li><strong>Reported speech:</strong> tenses shift back: <em>"We are expanding." → He said they were expanding.</em> Reported questions use statement word order: <em>"Where is the centre?" → She asked where the centre was.</em></li>
+      </ul>
+      <div class="formula">UNREAL PAST → If + had + p.p., would have + p.p.</div>
+      <div class="formula">REPORTED → tenses move back one step; no <em>do/did</em>; <em>if/whether</em> for yes-no</div>
+    </div>
+    <p class="instr"><strong>Put the verb in brackets into the correct form.</strong></p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>If servers <input class="fill-input wide" data-answer="get" data-alt="get|don't get"> too hot, they stop working. (zero — get)</p></div>
+      <div class="fill-item"><p><span class="num">02</span>If governments invest in the grid, capacity <input class="fill-input wide" data-answer="will improve" data-alt="will improve|'ll improve"> quickly. (first — improve) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">03</span>If I <input class="fill-input wide" data-answer="were" data-alt="were|was"> the minister of digital infrastructure, I would set strict PUE limits. (second — be)</p></div>
+      <div class="fill-item"><p><span class="num">04</span>If Ireland had built more capacity, it <input class="fill-input wide" data-answer="wouldn't have imposed" data-alt="wouldn't have imposed|would not have imposed"> a moratorium. (third — not / impose) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>If the facility <input class="fill-input wide" data-answer="had invested"> in renewables from day one, there would be no greenwashing claims today. (mixed — invest) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">06</span>The CEO said the company <input class="fill-input wide" data-answer="would reduce" data-alt="would reduce|was going to reduce"> its emissions. ("we will reduce…") <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">07</span>The journalist asked where the new centre <input class="fill-input" data-answer="was"> located. ("where is it located?")</p></div>
+      <div class="fill-item"><p><span class="num">08</span>She asked <input class="fill-input" data-answer="if" data-alt="if|whether"> we had visited the facility. ("Have you visited the facility?")</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">GRAMMAR 2</span>🔧 Modal verbs · obligation, ability &amp; deduction</h3>
+    <div class="grammar-box">
+      <h4>📘 B1 → 📕 C1 across one grammar point</h4>
+      <ul>
+        <li><strong>Obligation:</strong> <code>must</code> (personal/strong), <code>have to</code> (external rule). <em>Operators have to follow EU rules.</em></li>
+        <li><strong>Prohibition:</strong> <code>mustn't / can't</code>. <em>You can't build here.</em></li>
+        <li><strong>No obligation:</strong> <code>don't have to</code>, <code>needn't</code>. <em>You don't have to be an engineer to understand it.</em></li>
+        <li><strong>Ability now:</strong> <code>can</code> · <strong>past ability:</strong> <code>could</code> (general) / <code>was able to</code> (specific success).</li>
+        <li><strong>Present deduction:</strong> <code>must</code> (sure true) / <code>can't</code> (sure false) / <code>might/could</code> (possible).</li>
+        <li><strong>Past deduction (C1):</strong> <code>must have</code> / <code>can't have</code> / <code>might have</code> + p.p. <em>The grid must have failed.</em></li>
+      </ul>
+      <div class="formula">OBLIGATION → must / have to · PROHIBITION → mustn't / can't</div>
+      <div class="formula">PAST DEDUCTION → modal + have + p.p.</div>
+    </div>
+    <p class="instr"><strong>Complete with the best modal form.</strong></p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>All operators <input class="fill-input wide" data-answer="have to" data-alt="have to|must"> obey environmental laws. (obligation) <span class="hint">(1–2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">02</span>You <input class="fill-input wide" data-answer="can't" data-alt="can't|cannot|mustn't|must not"> build a hyperscale facility next to a national park. (prohibition)</p></div>
+      <div class="fill-item"><p><span class="num">03</span>They <input class="fill-input" data-answer="must"> run thousands of servers in that building — listen to the noise! (sure true, now)</p></div>
+      <div class="fill-item"><p><span class="num">04</span>The whole grid <input class="fill-input wide" data-answer="must have failed" data-alt="must have failed"> last night — every centre went dark. (past deduction — fail) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>The campaigners <input class="fill-input wide" data-answer="can't be" data-alt="can't be|cannot be"> wrong about the water use — the data is public. (sure false, now) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">06</span>The new AI model <input class="fill-input wide" data-answer="might have been" data-alt="might have been|may have been|could have been"> trained in the Frankfurt centre. (past possibility) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">07</span>You don't <input class="fill-input" data-answer="have"> to be a tech expert to understand the basics. (no obligation)</p></div>
+      <div class="fill-item"><p><span class="num">08</span>In the 1990s, you <input class="fill-input" data-answer="couldn't" data-alt="couldn't|could not"> store much data locally. (past ability — negative)</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- 5 · SPEAKING -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking practice</h2>
+    <p class="instr">Eight tasks. The first four are friendlier B1 prompts; the last four push you into C1 discussion territory. Try to use at least <strong>3 words or phrases</strong> from the lesson in each answer.</p>
+
+    <div class="phrase-box"><h4>💬 Useful phrases</h4>
+      <div class="phrase-list">
+        <div class="phrase"><strong>Opening:</strong> "From what I understand…" / "If I had to sum it up…"</div>
+        <div class="phrase"><strong>Opinion:</strong> "I tend to think…" / "I'd argue that…"</div>
+        <div class="phrase"><strong>Conceding then pushing back:</strong> "That's a fair point, but…" / "I see that, however…"</div>
+        <div class="phrase"><strong>Speculating:</strong> "It might be that…" / "It must have been…"</div>
+        <div class="phrase"><strong>Conditionals in use:</strong> "If governments invested more, …" / "If they had acted earlier, …"</div>
+      </div>
+    </div>
+
+    <div class="speak-card"><div class="speak-num">◆ B1 · TASK 01 · WARM-UP</div><div class="speak-prompt">Describe a data centre in your own words. What's inside? What does it do?</div><div class="speak-help"><strong>Try to use:</strong> a data centre · a server · the cloud · to store data · cooling · backup power</div></div>
+    <div class="speak-card"><div class="speak-num">◆ B1 · TASK 02 · YOUR LIFE ONLINE</div><div class="speak-prompt">How much of your daily life depends on data centres? Think about videos, photos, messages, AI…</div><div class="speak-help"><strong>Try to use:</strong> cloud computing · AI · to store · electricity · to keep pace with</div></div>
+    <div class="speak-card"><div class="speak-num">◆ B1 · TASK 03 · ENVIRONMENT</div><div class="speak-prompt">Data centres use a lot of energy and water. Is that a problem? What could be done?</div><div class="speak-help"><strong>Try to use:</strong> environmental impact · electricity · cooling · greenwashing · to cope with</div></div>
+    <div class="speak-card"><div class="speak-num">◆ B1 · TASK 04 · BUILDING NEAR YOU</div><div class="speak-prompt">Imagine a hyperscaler wants to build a huge data centre in your area. Would you welcome it? Why / why not?</div><div class="speak-help"><strong>Try to use:</strong> a hyperscaler · infrastructure · jobs · environmental impact · to pop up like mushrooms</div></div>
+
+    <div class="speak-card"><div class="speak-num">◆ C1 · TASK 05 · THE BOOM</div><div class="speak-prompt">Explain what is driving the rapid growth of data centres globally. Where is the bottleneck?</div><div class="speak-help"><strong>Try to use:</strong> hyperscale facility · digital workloads · compute power · to pour money into · staggering · to keep pace with</div></div>
+    <div class="speak-card"><div class="speak-num">◆ C1 · TASK 06 · WINDOW DRESSING OR REAL?</div><div class="speak-prompt">Is the industry serious about sustainability, or is it mostly greenwashing? Defend your view with examples.</div><div class="speak-help"><strong>Try to use:</strong> greenwashing · window dressing · PUE · evaporative cooling · to draw on · far from settled</div></div>
+    <div class="speak-card"><div class="speak-num">◆ C1 · TASK 07 · SOVEREIGNTY</div><div class="speak-prompt">Why does it matter where a country's data is stored? Should there be international rules?</div><div class="speak-help"><strong>Try to use:</strong> data sovereignty · critical infrastructure · a moratorium · caught between two forces · a race to the bottom</div></div>
+    <div class="speak-card"><div class="speak-num">◆ C1 · TASK 08 · WHAT IF / WHAT NEXT</div><div class="speak-prompt">Use third or mixed conditionals to argue: "If governments had acted ten years ago, today's debate would look very different." Then predict the next ten years.</div><div class="speak-help"><strong>Try to use:</strong> "If they had…, we wouldn't…" · the tip of the iceberg · to bite the bullet · to cut through the noise · digital infrastructure</div></div>
+  </section>
+
+  <footer>🖥️ ★ ★ &nbsp; DATA CENTRES · B1 → C1 ENGLISH LESSON · READING · VOCABULARY · GRAMMAR · SPEAKING &nbsp; ★ ★ 🖥️</footer>
+</div>
+<script>
+  // ---------- SHUFFLE WORD BANKS (so order never hints at answers) ----------
+  document.querySelectorAll('.bank-words').forEach(c => {
+    const words = Array.from(c.children);
+    for (let i = words.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [words[i], words[j]] = [words[j], words[i]];
+    }
+    words.forEach(w => c.appendChild(w));
+  });
+
+  // ---------- TABS ----------
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // ---------- MATCHING (works for every .match-grid independently) ----------
+  document.querySelectorAll('.match-grid').forEach(grid => {
+    let selected = null;
+    let matched = 0;
+    const total = grid.querySelectorAll('[data-word]').length;
+    const scoreEl = document.getElementById(grid.dataset.score);
+    grid.querySelectorAll('.match-item').forEach(item => {
+      item.addEventListener('click', () => {
+        if (item.classList.contains('matched')) return;
+        if (item.dataset.word) {
+          grid.querySelectorAll('[data-word]').forEach(w => w.classList.remove('selected'));
+          item.classList.add('selected');
+          selected = item;
+        } else if (item.dataset.def && selected) {
+          if (selected.dataset.word === item.dataset.def) {
+            selected.classList.remove('selected');
+            selected.classList.add('matched');
+            item.classList.add('matched');
+            matched++;
+            scoreEl.textContent = matched + ' / ' + total;
+            if (matched === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+            selected = null;
+          } else {
+            item.classList.add('wrong');
+            setTimeout(() => item.classList.remove('wrong'), 450);
+          }
+        }
+      });
+    });
+  });
+
+  // ---------- FILL / GRAMMAR CHECK (generic) ----------
+  // The check button sits right after a .fill-set, followed by a .score span.
+  function checkFill(btn) {
+    const set = btn.previousElementSibling; // the .fill-set
+    const scoreEl = btn.nextElementSibling;  // the .score span
+    const inputs = set.querySelectorAll('.fill-input');
+    let correct = 0;
+    inputs.forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const alts = input.dataset.alt ? input.dataset.alt.toLowerCase().split('|').map(s => s.trim()) : [ans];
+      const valid = alts.includes(ans) ? alts : [ans, ...alts];
+      const val = input.value.toLowerCase().trim().replace(/\s+/g, ' ');
+      input.classList.remove('correct', 'wrong');
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    const total = inputs.length;
+    scoreEl.textContent = correct + ' / ' + total;
+    if (correct === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+  }
+
+  // ---------- MULTIPLE CHOICE (generic, per .mc-set) ----------
+  document.querySelectorAll('.mc-set').forEach(set => {
+    let score = 0;
+    const total = set.querySelectorAll('.mc-item').length;
+    const scoreEl = set.nextElementSibling.querySelector('.score');
+    set.querySelectorAll('.mc-item').forEach(item => {
+      const correct = item.dataset.correct;
+      const opts = item.querySelectorAll('.mc-opt');
+      opts.forEach((opt, i) => {
+        const letter = ['a', 'b', 'c', 'd'][i];
+        opt.addEventListener('click', () => {
+          if (opt.disabled) return;
+          opts.forEach(o => o.disabled = true);
+          if (letter === correct) {
+            opt.classList.add('correct');
+            score++;
+          } else {
+            opt.classList.add('wrong');
+            opts.forEach((o, j) => { if (['a', 'b', 'c', 'd'][j] === correct) o.classList.add('correct'); });
+          }
+          scoreEl.textContent = score + ' / ' + total;
+          if (score === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>
