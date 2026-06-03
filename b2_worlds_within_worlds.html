@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worlds Within Worlds — B2 English Worksheet</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --indigo: #4F46E5;
+    --deep: #312E81;
+    --coral: #F97316;
+    --gold: #FBBF24;
+    --green: #10B981;
+    --cream: #FAF8F3;
+    --sand: #EAE2D0;
+    --ink: #1E1B4B;
+    --cloud: #ffffff;
+    --soft: #E0E7FF;
+    --blush: #FFE4D8;
+    --mint: #D1FAE5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(79,70,229,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(16,185,129,0.08) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "🌳";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 130px;
+    opacity: 0.13;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--gold);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(34px, 6vw, 56px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--coral); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 660px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--gold); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--indigo);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .block-head {
+    font-family: 'DM Serif Display', serif;
+    font-size: 23px;
+    color: var(--deep);
+    margin: 38px 0 6px;
+    padding-bottom: 6px;
+    border-bottom: 2px dashed var(--sand);
+  }
+  .block-head:first-of-type { margin-top: 10px; }
+  .block-head .step {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    display: block;
+  }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--indigo); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .hint { color: var(--deep); font-size: 13px; }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 190px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 260px; }
+  .fill-input:focus { outline: none; border-color: var(--indigo); background: var(--cream); }
+  .fill-input.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--indigo); }
+  .mc-opt.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--coral);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--gold);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--indigo);
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--indigo);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--indigo); }
+  .phrase-box {
+    background: var(--blush);
+    border: 2px dashed var(--coral);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .phrase-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .phrase-box .phrase-list { display: grid; gap: 6px; }
+  .phrase-box .phrase {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    border-left: 3px solid var(--indigo);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid { grid-template-columns: 1fr; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+
+  /* SHUFFLED WORD BANK */
+  .bank-words { display: inline; }
+  .bank-word { display: inline; white-space: nowrap; }
+  .bank-word:not(:last-child)::after { content: " · "; color: var(--gold); opacity: .85; }
+</style>
+</head><body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🌳 PLACES · NATURE · FEELINGS · B2</div>
+      <h1>Worlds <span class="accent">Within Worlds</span></h1>
+      <div class="sub">Where we live, the wildlife around us, the festivals that bring us together and the emotions that shape us. Build vocabulary, polish grammar, get talking.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">Teens &amp; Adults</span>
+        <span class="tag">Vocabulary &amp; Collocations</span>
+        <span class="tag">Grammar Focus</span>
+        <span class="tag">Speaking</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① City vs Country 🏙️</button>
+    <button class="tab" data-tab="t2">② Animals &amp; Nature 🐘</button>
+    <button class="tab" data-tab="t3">③ Festivals &amp; Celebrations 🎉</button>
+    <button class="tab" data-tab="t4">④ Personality &amp; Emotions 💭</button>
+    <button class="tab" data-tab="t5">⑤ Speaking 🎤</button>
+  </nav>
+
+  <!-- 1 · CITY vs COUNTRY -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">🏙️</span>City vs Country Life</h2>
+    <p class="instr">Urban life, rural life, and everything in between. Grammar focus: <strong>comparatives &amp; superlatives</strong> (advanced).</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">urban / rural</div><div class="vocab-def">city / countryside</div><div class="vocab-ex">"They left urban life for a rural one."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the outskirts / the suburbs</div><div class="vocab-def">the edge of a city / residential areas</div><div class="vocab-ex">"They live in the suburbs."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the city centre / downtown</div><div class="vocab-def">the central business area</div><div class="vocab-ex">"The shops are downtown."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a high-rise / a skyscraper</div><div class="vocab-def">a very tall building</div><div class="vocab-ex">"They live in a high-rise flat."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a cottage / a farmhouse</div><div class="vocab-def">small rural house / farmer's house</div><div class="vocab-ex">"We rented a country cottage."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the cost of living</div><div class="vocab-def">how expensive daily life is</div><div class="vocab-ex">"The cost of living is rising."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the pace of life</div><div class="vocab-def">how fast or slow life feels</div><div class="vocab-ex">"The pace of life is slower here."</div></div>
+      <div class="vocab-card"><div class="vocab-term">overcrowded / spacious</div><div class="vocab-def">too full of people / with lots of room</div><div class="vocab-ex">"The metro gets overcrowded."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the rush hour</div><div class="vocab-def">the busiest travel times</div><div class="vocab-ex">"Avoid driving at rush hour."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the countryside</div><div class="vocab-def">land outside towns and cities</div><div class="vocab-ex">"We hike in the countryside."</div></div>
+      <div class="vocab-card"><div class="vocab-term">peaceful / quiet</div><div class="vocab-def">calm, without noise</div><div class="vocab-ex">"It's so peaceful here at night."</div></div>
+      <div class="vocab-card"><div class="vocab-term">amenities / facilities</div><div class="vocab-def">useful services (shops, schools)</div><div class="vocab-ex">"There are good amenities nearby."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a neighbourhood</div><div class="vocab-def">a local area where people live</div><div class="vocab-ex">"It's a friendly neighbourhood."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a commuter</div><div class="vocab-def">someone who travels to work daily</div><div class="vocab-ex">"He's a daily commuter into town."</div></div>
+      <div class="vocab-card"><div class="vocab-term">noise / air pollution</div><div class="vocab-def">harmful sound / dirty air</div><div class="vocab-ex">"Air pollution is bad in big cities."</div></div>
+      <div class="vocab-card"><div class="vocab-term">scenery / a view</div><div class="vocab-def">the natural landscape / what you see</div><div class="vocab-ex">"The scenery is breathtaking."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a village</div><div class="vocab-def">a very small rural community</div><div class="vocab-ex">"She grew up in a tiny village."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a metropolis</div><div class="vocab-def">a huge, important city</div><div class="vocab-ex">"Tokyo is a vast metropolis."</div></div>
+      <div class="vocab-card"><div class="vocab-term">tightly-knit / close-knit</div><div class="vocab-def">where everyone knows each other</div><div class="vocab-ex">"It's a close-knit community."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to move / relocate</div><div class="vocab-def">to change where you live</div><div class="vocab-ex">"They relocated to the coast."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m1">
+      <div class="match-col"><h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">urban</div>
+        <div class="match-item" data-word="2">the suburbs</div>
+        <div class="match-item" data-word="3">a high-rise</div>
+        <div class="match-item" data-word="4">overcrowded</div>
+        <div class="match-item" data-word="5">the pace of life</div>
+        <div class="match-item" data-word="6">amenities</div>
+        <div class="match-item" data-word="7">a commuter</div>
+        <div class="match-item" data-word="8">scenery</div>
+      </div>
+      <div class="match-col"><h3>Meaning</h3>
+        <div class="match-item" data-def="3">a very tall building</div>
+        <div class="match-item" data-def="1">connected to a city or town</div>
+        <div class="match-item" data-def="5">how fast or slow daily life feels</div>
+        <div class="match-item" data-def="7">someone who travels to work daily</div>
+        <div class="match-item" data-def="2">residential areas outside the centre</div>
+        <div class="match-item" data-def="8">the natural landscape</div>
+        <div class="match-item" data-def="4">too full of people</div>
+        <div class="match-item" data-def="6">useful local services and facilities</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m1">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word from the bank. Change the form where necessary.</p>
+    <div class="word-bank"><strong>🏙️ WORD BANK 🏙️</strong>
+      <span class="bank-words"><span class="bank-word">commute</span><span class="bank-word">peaceful</span><span class="bank-word">overcrowded</span><span class="bank-word">cost of living</span><span class="bank-word">pollution</span><span class="bank-word">neighbourhood</span><span class="bank-word">countryside</span><span class="bank-word">amenities</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>Many people <input class="fill-input" data-answer="commute"> two hours a day into the city.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>Our village is small but very <input class="fill-input" data-answer="peaceful">.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>The buses are completely <input class="fill-input" data-answer="overcrowded"> at rush hour.</p></div>
+      <div class="fill-item"><p><span class="num">04</span>The <input class="fill-input wide" data-answer="cost of living"> in this city is enormous. <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>Air <input class="fill-input" data-answer="pollution"> is much worse in big cities.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>Ours is a friendly <input class="fill-input" data-answer="neighbourhood" data-alt="neighbourhood|neighborhood"> where everyone knows each other.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>We escape to the <input class="fill-input" data-answer="countryside"> every weekend.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>The flat is small but the <input class="fill-input" data-answer="amenities"> nearby are excellent.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q1</span>A "metropolis" is…</div><div class="mc-options">
+        <button class="mc-opt">a) a small village</button><button class="mc-opt">b) a country cottage</button><button class="mc-opt">c) a huge, important city</button><button class="mc-opt">d) a quiet suburb</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q2</span>The "outskirts" of a city are…</div><div class="mc-options">
+        <button class="mc-opt">a) the edges of it</button><button class="mc-opt">b) the central streets</button><button class="mc-opt">c) the tallest buildings</button><button class="mc-opt">d) the underground stations</button></div></div>
+      <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q3</span>A "close-knit community" is one where…</div><div class="mc-options">
+        <button class="mc-opt">a) the houses are very close together</button><button class="mc-opt">b) crime is very high</button><button class="mc-opt">c) prices are very low</button><button class="mc-opt">d) people know each other well</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "The countryside is ___ less polluted than the city." (much bigger difference)</div><div class="mc-options">
+        <button class="mc-opt">a) very</button><button class="mc-opt">b) far</button><button class="mc-opt">c) more</button><button class="mc-opt">d) so</button></div></div>
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "This is ___ the most expensive city in the country." (emphasising the top)</div><div class="mc-options">
+        <button class="mc-opt">a) more</button><button class="mc-opt">b) much</button><button class="mc-opt">c) by far</button><button class="mc-opt">d) far</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> Choose the correct sentence.</div><div class="mc-options">
+        <button class="mc-opt">a) The bigger the city, the higher the rent.</button><button class="mc-opt">b) The bigger the city, the higher rent.</button><button class="mc-opt">c) Bigger the city, higher rent.</button><button class="mc-opt">d) The more big the city, the more high rent.</button></div></div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 Comparatives &amp; superlatives (advanced)</h3>
+    <div class="grammar-box"><h4>🏙️ Beyond -er and -est</h4>
+      <ul>
+        <li><strong>Equality:</strong> <code>as + adjective + as</code> → <em>The suburbs are as busy as the centre.</em> Negative: <code>not as / not so … as</code>.</li>
+        <li><strong>Make a comparison stronger:</strong> <code>much, far, a lot, considerably + comparative</code> → <em>It's far cheaper here.</em></li>
+        <li><strong>Make a comparison smaller:</strong> <code>a bit, slightly, a little + comparative</code> → <em>It's slightly noisier.</em></li>
+        <li><strong>Emphasise a superlative:</strong> <code>by far the …</code> → <em>It's by far the biggest city.</em></li>
+        <li><strong>Two changes that go together:</strong> <code>the + comparative …, the + comparative …</code> → <em>The bigger the city, the higher the rent.</em></li>
+      </ul>
+      <div class="formula">FAR / MUCH / A LOT + comparative · A BIT / SLIGHTLY + comparative</div>
+      <div class="formula">THE more …, THE more … (parallel change)</div>
+    </div>
+    <p class="instr"><strong>Complete each sentence with the correct form.</strong></p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>The countryside is <input class="fill-input" data-answer="far" data-alt="far|much|a lot"> cleaner than the city. (much bigger difference)</p></div>
+      <div class="fill-item"><p><span class="num">02</span>My flat isn't as <input class="fill-input" data-answer="spacious"> as yours. (equality — spacious)</p></div>
+      <div class="fill-item"><p><span class="num">03</span>This is <input class="fill-input wide" data-answer="by far"> the most exciting city in Europe. (emphasising the top) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">04</span>The new flat is <input class="fill-input wide" data-answer="a bit" data-alt="a bit|slightly|a little"> bigger than the old one. (small difference) <span class="hint">(1–2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>The bigger the city, <input class="fill-input" data-answer="the"> worse the traffic. (parallel change)</p></div>
+      <div class="fill-item"><p><span class="num">06</span>Rural life is <input class="fill-input" data-answer="not" data-alt="not|less"> as stressful as city life. (less than)</p></div>
+      <div class="fill-item"><p><span class="num">07</span>This is one of the <input class="fill-input" data-answer="most"> overcrowded places I've ever seen. (superlative)</p></div>
+      <div class="fill-item"><p><span class="num">08</span>The further from the centre, <input class="fill-input wide" data-answer="the cheaper"> the rent. (parallel change — cheap) <span class="hint">(2 words)</span></p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- 2 · ANIMALS & NATURE -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">🐘</span>Animals &amp; Nature</h2>
+    <p class="instr">Wildlife, habitats and the natural world. Grammar focus: <strong>modals of past deduction</strong> (must have, can't have, might have, could have).</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">wildlife</div><div class="vocab-def">wild animals and plants</div><div class="vocab-ex">"The park is full of wildlife."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a habitat</div><div class="vocab-def">the natural home of an animal</div><div class="vocab-ex">"Forests are their habitat."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a species</div><div class="vocab-def">a type of animal or plant</div><div class="vocab-ex">"A new species was found."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a predator / prey</div><div class="vocab-def">a hunter / what is hunted</div><div class="vocab-ex">"The lion is a top predator."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a herd / a flock / a pack</div><div class="vocab-def">group of mammals / birds / wolves</div><div class="vocab-ex">"A herd of elephants passed by."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an endangered species</div><div class="vocab-def">animals at risk of dying out</div><div class="vocab-ex">"Pandas are endangered."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be extinct</div><div class="vocab-def">to no longer exist</div><div class="vocab-ex">"Dodos are extinct."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to hunt / poaching</div><div class="vocab-def">to kill animals / illegal hunting</div><div class="vocab-ex">"Poaching threatens rhinos."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a nature reserve</div><div class="vocab-def">a protected wild area</div><div class="vocab-ex">"They live on a nature reserve."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to protect / conservation</div><div class="vocab-def">to keep safe / protecting nature</div><div class="vocab-ex">"Conservation work saves species."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a rainforest</div><div class="vocab-def">a hot, wet forest with huge biodiversity</div><div class="vocab-ex">"The rainforest is shrinking."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a coral reef</div><div class="vocab-def">an underwater rocky ecosystem</div><div class="vocab-ex">"Coral reefs are dying."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to migrate / migration</div><div class="vocab-def">to move long distances seasonally</div><div class="vocab-ex">"Birds migrate every autumn."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a mammal / a reptile / an amphibian</div><div class="vocab-def">three groups of animals</div><div class="vocab-ex">"Frogs are amphibians."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to adapt</div><div class="vocab-def">to change to suit new conditions</div><div class="vocab-ex">"Animals adapt to climate change."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a stray (animal)</div><div class="vocab-def">a homeless cat or dog</div><div class="vocab-ex">"He adopted a stray dog."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a paw / a claw / a beak</div><div class="vocab-def">animal foot / nail / bird's mouth</div><div class="vocab-ex">"The cat's claw got stuck."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a den / a burrow / a nest</div><div class="vocab-def">a wolf's / rabbit's / bird's home</div><div class="vocab-ex">"The fox returned to its den."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to breed</div><div class="vocab-def">to produce young</div><div class="vocab-ex">"Pandas struggle to breed."</div></div>
+      <div class="vocab-card"><div class="vocab-term">biodiversity</div><div class="vocab-def">the variety of life</div><div class="vocab-ex">"Rainforests are rich in biodiversity."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m2">
+      <div class="match-col"><h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">a habitat</div>
+        <div class="match-item" data-word="2">a predator</div>
+        <div class="match-item" data-word="3">extinct</div>
+        <div class="match-item" data-word="4">poaching</div>
+        <div class="match-item" data-word="5">a herd</div>
+        <div class="match-item" data-word="6">to migrate</div>
+        <div class="match-item" data-word="7">biodiversity</div>
+        <div class="match-item" data-word="8">a stray</div>
+      </div>
+      <div class="match-col"><h3>Meaning</h3>
+        <div class="match-item" data-def="3">no longer existing on Earth</div>
+        <div class="match-item" data-def="1">the natural home of an animal</div>
+        <div class="match-item" data-def="5">a large group of mammals</div>
+        <div class="match-item" data-def="7">the variety of life in a place</div>
+        <div class="match-item" data-def="2">an animal that hunts others</div>
+        <div class="match-item" data-def="8">a cat or dog with no home</div>
+        <div class="match-item" data-def="4">the illegal hunting of animals</div>
+        <div class="match-item" data-def="6">to move long distances by season</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m2">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word from the bank. Change the form where necessary.</p>
+    <div class="word-bank"><strong>🐘 WORD BANK 🐘</strong>
+      <span class="bank-words"><span class="bank-word">wildlife</span><span class="bank-word">endangered</span><span class="bank-word">habitat</span><span class="bank-word">migrate</span><span class="bank-word">conservation</span><span class="bank-word">poaching</span><span class="bank-word">rainforest</span><span class="bank-word">species</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>The national park is full of <input class="fill-input" data-answer="wildlife">.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>The orangutan is an <input class="fill-input" data-answer="endangered"> species.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>Cutting down forests destroys their <input class="fill-input" data-answer="habitat">.</p></div>
+      <div class="fill-item"><p><span class="num">04</span>Every autumn, these birds <input class="fill-input" data-answer="migrate"> south.</p></div>
+      <div class="fill-item"><p><span class="num">05</span><input class="fill-input" data-answer="Conservation"> groups are trying to save the rhino.</p></div>
+      <div class="fill-item"><p><span class="num">06</span><input class="fill-input" data-answer="Poaching"> remains a serious threat in Africa.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>The Amazon <input class="fill-input" data-answer="rainforest"> is shrinking every year.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>Scientists discovered a new <input class="fill-input" data-answer="species"> of frog.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q1</span>An "amphibian" is an animal that…</div><div class="mc-options">
+        <button class="mc-opt">a) only lives on land</button><button class="mc-opt">b) lives in water and on land</button><button class="mc-opt">c) lays eggs in trees</button><button class="mc-opt">d) hunts at night</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q2</span>"Prey" is…</div><div class="mc-options">
+        <button class="mc-opt">a) an animal that is hunted</button><button class="mc-opt">b) an animal that hunts</button><button class="mc-opt">c) a young animal</button><button class="mc-opt">d) a baby bird</button></div></div>
+      <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q3</span>To "adapt" means to…</div><div class="mc-options">
+        <button class="mc-opt">a) die out</button><button class="mc-opt">b) hunt for food</button><button class="mc-opt">c) sleep through winter</button><button class="mc-opt">d) change to suit new conditions</button></div></div>
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "The footprints are huge — it ___ a bear." (sure it's true)</div><div class="mc-options">
+        <button class="mc-opt">a) might have been</button><button class="mc-opt">b) can't have been</button><button class="mc-opt">c) must have been</button><button class="mc-opt">d) had to be</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "A lion in this forest? It ___ a lion — there are none here." (sure it's false)</div><div class="mc-options">
+        <button class="mc-opt">a) can't have been</button><button class="mc-opt">b) must have been</button><button class="mc-opt">c) might have been</button><button class="mc-opt">d) shouldn't have been</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> "The cage is empty. The animal ___ escaped through this hole." (a possibility)</div><div class="mc-options">
+        <button class="mc-opt">a) must have</button><button class="mc-opt">b) might have</button><button class="mc-opt">c) can't have</button><button class="mc-opt">d) had to have</button></div></div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 Modals of past deduction</h3>
+    <div class="grammar-box"><h4>🐘 Guessing about what happened</h4>
+      <ul>
+        <li>Use these to make a <strong>logical guess about the past</strong>.</li>
+        <li>Form: <code>modal + have + past participle</code>.</li>
+        <li><strong>Sure it's true:</strong> <code>must have</code> → <em>The grass is flat — a deer must have slept here.</em></li>
+        <li><strong>Sure it's false:</strong> <code>can't have</code> / <code>couldn't have</code> → <em>It can't have been a tiger — they don't live here.</em></li>
+        <li><strong>Possible:</strong> <code>might have</code>, <code>could have</code>, <code>may have</code> → <em>The bird might have flown south already.</em></li>
+      </ul>
+      <div class="formula">SURE TRUE → must have + p.p. · SURE FALSE → can't have + p.p.</div>
+      <div class="formula">MAYBE → might / could / may have + p.p.</div>
+    </div>
+    <p class="instr"><strong>Complete with the correct modal of past deduction.</strong></p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>The footprints are huge — it <input class="fill-input wide" data-answer="must have been"> a bear. (sure true — be) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">02</span>It <input class="fill-input wide" data-answer="can't have been" data-alt="can't have been|cannot have been|couldn't have been"> a lion — none live in this forest. (sure false — be) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">03</span>The cage is empty — the animal <input class="fill-input wide" data-answer="might have escaped" data-alt="might have escaped|may have escaped|could have escaped"> through this hole. (possible — escape) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">04</span>She <input class="fill-input wide" data-answer="must have seen"> the elephants — she came back so excited! (sure true — see) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>The birds <input class="fill-input wide" data-answer="might have flown" data-alt="might have flown|may have flown|could have flown"> south already. (possible — fly) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">06</span>That <input class="fill-input wide" data-answer="can't have been" data-alt="can't have been|cannot have been|couldn't have been"> a wolf — they're extinct around here. (sure false — be) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">07</span>Someone <input class="fill-input wide" data-answer="must have left"> food out — that's why the foxes came. (sure true — leave) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">08</span>The injured bird <input class="fill-input wide" data-answer="could have died" data-alt="could have died|might have died|may have died"> without help. (possible — die) <span class="hint">(3 words)</span></p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- 3 · FESTIVALS & CELEBRATIONS -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">🎉</span>Festivals &amp; Celebrations</h2>
+    <p class="instr">Parties, traditions and special days. Grammar focus: <strong>so / such / too / enough</strong>.</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">to celebrate / a celebration</div><div class="vocab-def">to mark a happy occasion</div><div class="vocab-ex">"We celebrated her birthday."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a tradition / traditional</div><div class="vocab-def">a long-standing custom</div><div class="vocab-ex">"It's an old family tradition."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a custom</div><div class="vocab-def">a typical way of doing things</div><div class="vocab-ex">"It's a local custom here."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a public holiday / a bank holiday</div><div class="vocab-def">an official day off</div><div class="vocab-ex">"Monday is a public holiday."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a parade / a procession</div><div class="vocab-def">a public march of celebration</div><div class="vocab-ex">"We watched the parade."</div></div>
+      <div class="vocab-card"><div class="vocab-term">fireworks</div><div class="vocab-def">explosive lights in the sky</div><div class="vocab-ex">"The fireworks were spectacular."</div></div>
+      <div class="vocab-card"><div class="vocab-term">decorations</div><div class="vocab-def">things put up to make a place look festive</div><div class="vocab-ex">"We hung the decorations early."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a costume</div><div class="vocab-def">a special outfit for a festival</div><div class="vocab-ex">"His Halloween costume was scary."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to throw a party</div><div class="vocab-def">to organise a party</div><div class="vocab-ex">"She threw a huge party."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to gather / a gathering</div><div class="vocab-def">to come together / a meeting</div><div class="vocab-ex">"Families gather for the meal."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to mark (an occasion)</div><div class="vocab-def">to celebrate or remember it</div><div class="vocab-ex">"We marked the day with a toast."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an anniversary</div><div class="vocab-def">a yearly date you remember</div><div class="vocab-ex">"Today is our anniversary."</div></div>
+      <div class="vocab-card"><div class="vocab-term">religious / secular</div><div class="vocab-def">to do with religion / non-religious</div><div class="vocab-ex">"It started as a religious feast."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a feast / a banquet</div><div class="vocab-def">a large, special meal</div><div class="vocab-ex">"The wedding feast was huge."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to exchange gifts</div><div class="vocab-def">to give presents to each other</div><div class="vocab-ex">"We exchange gifts at Christmas."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a toast / to raise a glass</div><div class="vocab-def">a short speech with drinks held up</div><div class="vocab-ex">"Let's raise a glass to the bride."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a host / a guest</div><div class="vocab-def">the inviter / the invited</div><div class="vocab-ex">"You're a wonderful host."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to commemorate</div><div class="vocab-def">to honour the memory of</div><div class="vocab-ex">"The day commemorates the heroes."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a national holiday</div><div class="vocab-def">a holiday across the whole country</div><div class="vocab-ex">"It's a national holiday."</div></div>
+      <div class="vocab-card"><div class="vocab-term">memorable / a once-in-a-lifetime</div><div class="vocab-def">worth remembering / unique</div><div class="vocab-ex">"It was a memorable evening."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m3">
+      <div class="match-col"><h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">a tradition</div>
+        <div class="match-item" data-word="2">a parade</div>
+        <div class="match-item" data-word="3">a costume</div>
+        <div class="match-item" data-word="4">to throw a party</div>
+        <div class="match-item" data-word="5">an anniversary</div>
+        <div class="match-item" data-word="6">a feast</div>
+        <div class="match-item" data-word="7">to commemorate</div>
+        <div class="match-item" data-word="8">a host</div>
+      </div>
+      <div class="match-col"><h3>Meaning</h3>
+        <div class="match-item" data-def="3">a special outfit for an occasion</div>
+        <div class="match-item" data-def="1">a custom passed down over time</div>
+        <div class="match-item" data-def="5">the yearly date of an event</div>
+        <div class="match-item" data-def="7">to honour the memory of</div>
+        <div class="match-item" data-def="2">a public march of celebration</div>
+        <div class="match-item" data-def="8">the person who invites others</div>
+        <div class="match-item" data-def="4">to organise a party</div>
+        <div class="match-item" data-def="6">a large, special meal</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m3">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word from the bank. Change the form where necessary.</p>
+    <div class="word-bank"><strong>🎉 WORD BANK 🎉</strong>
+      <span class="bank-words"><span class="bank-word">celebrate</span><span class="bank-word">tradition</span><span class="bank-word">fireworks</span><span class="bank-word">decorations</span><span class="bank-word">costume</span><span class="bank-word">gathering</span><span class="bank-word">anniversary</span><span class="bank-word">toast</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>How will you <input class="fill-input" data-answer="celebrate"> your birthday this year?</p></div>
+      <div class="fill-item"><p><span class="num">02</span>Eating fish on Friday is a long-standing <input class="fill-input" data-answer="tradition">.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>The <input class="fill-input" data-answer="fireworks"> lit up the entire city.</p></div>
+      <div class="fill-item"><p><span class="num">04</span>We put up the Christmas <input class="fill-input" data-answer="decorations"> last weekend.</p></div>
+      <div class="fill-item"><p><span class="num">05</span>She wore an amazing dragon <input class="fill-input" data-answer="costume"> to the parade.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>It was a small family <input class="fill-input" data-answer="gathering"> in our garden.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>Today is our tenth wedding <input class="fill-input" data-answer="anniversary">.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>Let's raise a <input class="fill-input" data-answer="toast"> to the happy couple!</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q1</span>A "secular" festival is one that…</div><div class="mc-options">
+        <button class="mc-opt">a) only families celebrate</button><button class="mc-opt">b) is not religious</button><button class="mc-opt">c) lasts more than a week</button><button class="mc-opt">d) is a public holiday</button></div></div>
+      <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q2</span>A "feast" is…</div><div class="mc-options">
+        <button class="mc-opt">a) a small snack</button><button class="mc-opt">b) a quick lunch</button><button class="mc-opt">c) an apology</button><button class="mc-opt">d) a large, special meal</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q3</span>To "commemorate" an event is to…</div><div class="mc-options">
+        <button class="mc-opt">a) honour its memory</button><button class="mc-opt">b) cancel it</button><button class="mc-opt">c) film it</button><button class="mc-opt">d) attend it</button></div></div>
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "The parade was ___ loud!" </div><div class="mc-options">
+        <button class="mc-opt">a) such</button><button class="mc-opt">b) too</button><button class="mc-opt">c) so</button><button class="mc-opt">d) enough</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "It was ___ a beautiful celebration!"</div><div class="mc-options">
+        <button class="mc-opt">a) such</button><button class="mc-opt">b) so</button><button class="mc-opt">c) too</button><button class="mc-opt">d) enough</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> "She's too young ___ stay up for the fireworks."</div><div class="mc-options">
+        <button class="mc-opt">a) for</button><button class="mc-opt">b) to</button><button class="mc-opt">c) that</button><button class="mc-opt">d) so</button></div></div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 so / such / too / enough</h3>
+    <div class="grammar-box"><h4>🎉 Adding emphasis and limits</h4>
+      <ul>
+        <li><code>so + adjective/adverb</code> → <em>The food was so good!</em></li>
+        <li><code>such + (a/an) + (adjective) + noun</code> → <em>It was such a fun day. It was such fun!</em></li>
+        <li><code>too + adjective</code> = more than is wanted: <em>The music is too loud.</em></li>
+        <li><code>adjective + enough</code> = the right amount: <em>She's old enough to stay up.</em></li>
+        <li><code>enough + noun</code> = the right quantity: <em>We don't have enough chairs.</em></li>
+        <li>Result clause: <code>so/such … (that)…</code>; purpose with too/enough: <code>too/enough … to + verb</code>.</li>
+      </ul>
+      <div class="formula">so + ADJ · such + (a) (ADJ) NOUN · too + ADJ (to…) · ADJ + enough (to…)</div>
+    </div>
+    <p class="instr"><strong>Complete each sentence with so / such / too / enough.</strong></p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>The fireworks were <input class="fill-input" data-answer="so"> loud the babies cried.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>It was <input class="fill-input" data-answer="such"> a beautiful wedding!</p></div>
+      <div class="fill-item"><p><span class="num">03</span>The music was <input class="fill-input" data-answer="too"> loud for my grandmother.</p></div>
+      <div class="fill-item"><p><span class="num">04</span>She isn't old <input class="fill-input" data-answer="enough"> to stay up for midnight.</p></div>
+      <div class="fill-item"><p><span class="num">05</span>We didn't buy <input class="fill-input" data-answer="enough"> decorations for the whole street.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>It was <input class="fill-input" data-answer="such"> an amazing parade that we stayed two hours.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>The cake was <input class="fill-input" data-answer="so"> delicious nobody could stop eating it.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>He was <input class="fill-input" data-answer="too"> tired to dance any more.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- 4 · PERSONALITY & EMOTIONS -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">💭</span>Personality &amp; Emotions</h2>
+    <p class="instr">Who we are and how we feel. Grammar focus: <strong>-ed vs -ing adjectives</strong>.</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">outgoing / sociable</div><div class="vocab-def">enjoys being with people</div><div class="vocab-ex">"She's very outgoing."</div></div>
+      <div class="vocab-card"><div class="vocab-term">shy / reserved</div><div class="vocab-def">quiet and not open with people</div><div class="vocab-ex">"He's quite reserved at first."</div></div>
+      <div class="vocab-card"><div class="vocab-term">easy-going / laid-back</div><div class="vocab-def">relaxed, not easily upset</div><div class="vocab-ex">"He's so laid-back about everything."</div></div>
+      <div class="vocab-card"><div class="vocab-term">stubborn</div><div class="vocab-def">refusing to change your mind</div><div class="vocab-ex">"She's incredibly stubborn."</div></div>
+      <div class="vocab-card"><div class="vocab-term">ambitious</div><div class="vocab-def">strongly wanting success</div><div class="vocab-ex">"He's an ambitious young manager."</div></div>
+      <div class="vocab-card"><div class="vocab-term">generous / mean</div><div class="vocab-def">giving freely / unwilling to give</div><div class="vocab-ex">"My grandma was very generous."</div></div>
+      <div class="vocab-card"><div class="vocab-term">reliable / unreliable</div><div class="vocab-def">can / can't be trusted</div><div class="vocab-ex">"He's the most reliable friend I have."</div></div>
+      <div class="vocab-card"><div class="vocab-term">moody / cheerful</div><div class="vocab-def">often unhappy / often happy</div><div class="vocab-ex">"She's a bit moody today."</div></div>
+      <div class="vocab-card"><div class="vocab-term">sensitive</div><div class="vocab-def">easily affected by emotions</div><div class="vocab-ex">"He's a sensitive child."</div></div>
+      <div class="vocab-card"><div class="vocab-term">self-confident</div><div class="vocab-def">sure about yourself</div><div class="vocab-ex">"She's self-confident on stage."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to lose your temper</div><div class="vocab-def">to become very angry</div><div class="vocab-ex">"He rarely loses his temper."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be in a good / bad mood</div><div class="vocab-def">to feel happy / upset</div><div class="vocab-ex">"I'm in a great mood today."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be over the moon</div><div class="vocab-def">extremely happy</div><div class="vocab-ex">"She was over the moon."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be down in the dumps</div><div class="vocab-def">very sad</div><div class="vocab-ex">"He's a bit down in the dumps."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to feel left out</div><div class="vocab-def">to feel excluded from a group</div><div class="vocab-ex">"I felt left out at the party."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to look on the bright side</div><div class="vocab-def">to be optimistic</div><div class="vocab-ex">"Try to look on the bright side."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a sense of humour</div><div class="vocab-def">the ability to enjoy funny things</div><div class="vocab-ex">"She has a great sense of humour."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to bottle up (feelings)</div><div class="vocab-def">to keep feelings inside</div><div class="vocab-ex">"Don't bottle up your anger."</div></div>
+      <div class="vocab-card"><div class="vocab-term">grateful / thankful</div><div class="vocab-def">feeling appreciation</div><div class="vocab-ex">"I'm so grateful for your help."</div></div>
+      <div class="vocab-card"><div class="vocab-term">overwhelmed</div><div class="vocab-def">unable to cope with strong feelings</div><div class="vocab-ex">"I felt overwhelmed by the news."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m4">
+      <div class="match-col"><h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">outgoing</div>
+        <div class="match-item" data-word="2">stubborn</div>
+        <div class="match-item" data-word="3">laid-back</div>
+        <div class="match-item" data-word="4">reliable</div>
+        <div class="match-item" data-word="5">moody</div>
+        <div class="match-item" data-word="6">over the moon</div>
+        <div class="match-item" data-word="7">to bottle up</div>
+        <div class="match-item" data-word="8">overwhelmed</div>
+      </div>
+      <div class="match-col"><h3>Meaning</h3>
+        <div class="match-item" data-def="3">relaxed and not easily upset</div>
+        <div class="match-item" data-def="1">enjoys being around other people</div>
+        <div class="match-item" data-def="5">often in a bad mood</div>
+        <div class="match-item" data-def="7">to keep emotions hidden inside</div>
+        <div class="match-item" data-def="2">refusing to change your mind</div>
+        <div class="match-item" data-def="8">unable to cope with strong feelings</div>
+        <div class="match-item" data-def="4">someone you can trust to do things</div>
+        <div class="match-item" data-def="6">extremely happy</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m4">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word from the bank. Change the form where necessary.</p>
+    <div class="word-bank"><strong>💭 WORD BANK 💭</strong>
+      <span class="bank-words"><span class="bank-word">outgoing</span><span class="bank-word">ambitious</span><span class="bank-word">generous</span><span class="bank-word">reliable</span><span class="bank-word">temper</span><span class="bank-word">left out</span><span class="bank-word">bright side</span><span class="bank-word">grateful</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>She's so <input class="fill-input" data-answer="outgoing"> — she talks to everyone.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>He's an <input class="fill-input" data-answer="ambitious"> young scientist with big plans.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>My uncle was incredibly <input class="fill-input" data-answer="generous"> with his time.</p></div>
+      <div class="fill-item"><p><span class="num">04</span>You can count on her — she's totally <input class="fill-input" data-answer="reliable">.</p></div>
+      <div class="fill-item"><p><span class="num">05</span>He almost never loses his <input class="fill-input" data-answer="temper">.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>I felt a bit <input class="fill-input wide" data-answer="left out"> at the party. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">07</span>Try to look on the <input class="fill-input wide" data-answer="bright side"> — things will improve. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">08</span>I'm so <input class="fill-input" data-answer="grateful"> for everything you've done.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q1</span>Someone "down in the dumps" is…</div><div class="mc-options">
+        <button class="mc-opt">a) very excited</button><button class="mc-opt">b) feeling very sad</button><button class="mc-opt">c) extremely tired</button><button class="mc-opt">d) angry with everyone</button></div></div>
+      <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q2</span>A "sensitive" person…</div><div class="mc-options">
+        <button class="mc-opt">a) never shows emotion</button><button class="mc-opt">b) is always cheerful</button><button class="mc-opt">c) is hard to please</button><button class="mc-opt">d) is easily affected by feelings</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q3</span>If you "bottle up" your feelings, you…</div><div class="mc-options">
+        <button class="mc-opt">a) keep them inside</button><button class="mc-opt">b) share them openly</button><button class="mc-opt">c) write them down</button><button class="mc-opt">d) shout about them</button></div></div>
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "The film was really ___." (it caused the feeling)</div><div class="mc-options">
+        <button class="mc-opt">a) bored</button><button class="mc-opt">b) interested</button><button class="mc-opt">c) boring</button><button class="mc-opt">d) excited</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "I was so ___ by the news." (my feeling)</div><div class="mc-options">
+        <button class="mc-opt">a) shocked</button><button class="mc-opt">b) shocking</button><button class="mc-opt">c) shock</button><button class="mc-opt">d) shocks</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> "What an ___ story!" (it causes the feeling in us)</div><div class="mc-options">
+        <button class="mc-opt">a) amazed</button><button class="mc-opt">b) amazing</button><button class="mc-opt">c) amazement</button><button class="mc-opt">d) amaze</button></div></div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 -ed vs -ing adjectives</h3>
+    <div class="grammar-box"><h4>💭 How I feel vs what causes the feeling</h4>
+      <ul>
+        <li><code>-ed adjectives</code> describe <strong>how a person feels</strong>: <em>I'm bored. She felt excited. He looked surprised.</em></li>
+        <li><code>-ing adjectives</code> describe <strong>the thing that causes the feeling</strong>: <em>The lesson is boring. The news is exciting. The film was surprising.</em></li>
+        <li>Test: a person is <em>interested</em>, a book is <em>interesting</em>. A person is <em>tired</em>, a journey is <em>tiring</em>.</li>
+        <li>Common pairs: bored/boring, tired/tiring, excited/exciting, interested/interesting, surprised/surprising, shocked/shocking, amazed/amazing, frightened/frightening, confused/confusing, embarrassed/embarrassing.</li>
+      </ul>
+      <div class="formula">PERSON feels → -ED · THING causes the feeling → -ING</div>
+    </div>
+    <p class="instr"><strong>Choose the right form</strong> of the adjective in brackets.</p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>I'm so <input class="fill-input" data-answer="tired"> after that long day. (tire — my feeling)</p></div>
+      <div class="fill-item"><p><span class="num">02</span>The journey home was really <input class="fill-input" data-answer="tiring">. (tire — the thing)</p></div>
+      <div class="fill-item"><p><span class="num">03</span>That film was absolutely <input class="fill-input" data-answer="terrifying">. (terrify — the thing)</p></div>
+      <div class="fill-item"><p><span class="num">04</span>The children were <input class="fill-input" data-answer="terrified"> by the thunder. (terrify — their feeling)</p></div>
+      <div class="fill-item"><p><span class="num">05</span>I felt really <input class="fill-input" data-answer="embarrassed"> when I fell over. (embarrass — my feeling)</p></div>
+      <div class="fill-item"><p><span class="num">06</span>What an <input class="fill-input" data-answer="embarrassing"> moment! (embarrass — the moment)</p></div>
+      <div class="fill-item"><p><span class="num">07</span>The instructions were so <input class="fill-input" data-answer="confusing">. (confuse — the instructions)</p></div>
+      <div class="fill-item"><p><span class="num">08</span>She was <input class="fill-input" data-answer="amazed"> by the size of the venue. (amaze — her feeling)</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- 5 · SPEAKING -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking — all four topics</h2>
+    <p class="instr">Speak <strong>1–2 minutes</strong> per question. Use at least <strong>3 words or phrases</strong> from the topic in each answer.</p>
+
+    <div class="phrase-box"><h4>💬 Useful phrases for any topic</h4>
+      <div class="phrase-list">
+        <div class="phrase"><strong>Opinion:</strong> "I tend to think that…" / "From where I stand…"</div>
+        <div class="phrase"><strong>Agreeing / disagreeing:</strong> "Couldn't agree more." / "I'd push back on that…"</div>
+        <div class="phrase"><strong>Speculating about the past:</strong> "It must have been…" / "It might have been…"</div>
+        <div class="phrase"><strong>Comparing:</strong> "Far more / much less than…" / "The bigger…, the more…"</div>
+        <div class="phrase"><strong>Describing feelings:</strong> "I was over the moon when…" / "It was really exciting because…"</div>
+      </div>
+    </div>
+
+    <div class="speak-card"><div class="speak-num">◆ CITY/COUNTRY · TASK 01</div><div class="speak-prompt">Would you rather live in a busy city or quiet countryside? Compare them — use <em>far / much / by far</em>.</div><div class="speak-help"><strong>Try to use:</strong> urban · rural · pace of life · cost of living · amenities · overcrowded</div></div>
+    <div class="speak-card"><div class="speak-num">◆ CITY/COUNTRY · TASK 02</div><div class="speak-prompt">Describe your neighbourhood. What's the best and worst thing about it?</div><div class="speak-help"><strong>Try to use:</strong> a neighbourhood · close-knit · suburbs · scenery · noise pollution · commute</div></div>
+
+    <div class="speak-card"><div class="speak-num">◆ NATURE · TASK 03</div><div class="speak-prompt">What's your favourite animal, and why? Talk about an encounter with wildlife you've had.</div><div class="speak-help"><strong>Try to use:</strong> wildlife · a habitat · a predator · a species · to migrate · biodiversity</div></div>
+    <div class="speak-card"><div class="speak-num">◆ NATURE · TASK 04</div><div class="speak-prompt">Imagine you find tracks in the woods. Speculate about what happened. (Use <em>must have / can't have / might have</em>!)</div><div class="speak-help"><strong>Try to use:</strong> "It must have been…" · "It can't have been…" · "It might have…" · a predator · prey · a den</div></div>
+
+    <div class="speak-card"><div class="speak-num">◆ FESTIVALS · TASK 05</div><div class="speak-prompt">Describe a festival or celebration that matters to you. What happens? What do people wear and eat?</div><div class="speak-help"><strong>Try to use:</strong> a tradition · to celebrate · a feast · decorations · a costume · to gather</div></div>
+    <div class="speak-card"><div class="speak-num">◆ FESTIVALS · TASK 06</div><div class="speak-prompt">Describe the best (or worst) party you've been to. Use <em>so / such / too / enough</em>!</div><div class="speak-help"><strong>Try to use:</strong> "It was such a…" · "so loud" · "too crowded" · "not big enough" · a host · memorable</div></div>
+
+    <div class="speak-card"><div class="speak-num">◆ PERSONALITY · TASK 07</div><div class="speak-prompt">How would your best friend describe your personality? What about your worst trait?</div><div class="speak-help"><strong>Try to use:</strong> outgoing · laid-back · ambitious · stubborn · reliable · sensitive</div></div>
+    <div class="speak-card"><div class="speak-num">◆ EMOTIONS · TASK 08</div><div class="speak-prompt">Describe a time you felt over the moon, and a time you felt down in the dumps. (Use <em>-ed / -ing adjectives</em>!)</div><div class="speak-help"><strong>Try to use:</strong> over the moon · down in the dumps · overwhelmed · "I was so excited because…" · "It was really exciting…"</div></div>
+
+    <div class="speak-card"><div class="speak-num">◆ CONNECT THE TOPICS · TASK 09</div><div class="speak-prompt">"City life makes people more stressed, but more interesting." Agree or disagree, using two of today's topics.</div><div class="speak-help"><strong>Try to use:</strong> urban · pace of life · sociable · stressed · biodiversity · overwhelming</div></div>
+
+    <div class="speak-card"><div class="speak-num">◆ QUICK-FIRE · TASK 10 · 30 SECONDS EACH</div><div class="speak-prompt">No planning — just talk!</div><div class="speak-help">
+        ▸ One place you'd love to relocate to — and why.<br>
+        ▸ An animal you'd never want to meet in the wild.<br>
+        ▸ The most memorable celebration of your life.<br>
+        ▸ One word your friends would use to describe you.<br>
+        ▸ Complete: "It must have been the most overwhelming day of my life when…"
+      </div></div>
+  </section>
+
+  <footer>🌳 ★ ★ &nbsp; WORLDS WITHIN WORLDS · B2 ENGLISH · CITY · NATURE · CELEBRATIONS · EMOTIONS &nbsp; ★ ★ 🌳</footer>
+</div>
+<script>
+  // ---------- SHUFFLE WORD BANKS (so order never hints at answers) ----------
+  document.querySelectorAll('.bank-words').forEach(c => {
+    const words = Array.from(c.children);
+    for (let i = words.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [words[i], words[j]] = [words[j], words[i]];
+    }
+    words.forEach(w => c.appendChild(w));
+  });
+
+  // ---------- TABS ----------
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // ---------- MATCHING (works for every .match-grid independently) ----------
+  document.querySelectorAll('.match-grid').forEach(grid => {
+    let selected = null;
+    let matched = 0;
+    const total = grid.querySelectorAll('[data-word]').length;
+    const scoreEl = document.getElementById(grid.dataset.score);
+    grid.querySelectorAll('.match-item').forEach(item => {
+      item.addEventListener('click', () => {
+        if (item.classList.contains('matched')) return;
+        if (item.dataset.word) {
+          grid.querySelectorAll('[data-word]').forEach(w => w.classList.remove('selected'));
+          item.classList.add('selected');
+          selected = item;
+        } else if (item.dataset.def && selected) {
+          if (selected.dataset.word === item.dataset.def) {
+            selected.classList.remove('selected');
+            selected.classList.add('matched');
+            item.classList.add('matched');
+            matched++;
+            scoreEl.textContent = matched + ' / ' + total;
+            if (matched === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+            selected = null;
+          } else {
+            item.classList.add('wrong');
+            setTimeout(() => item.classList.remove('wrong'), 450);
+          }
+        }
+      });
+    });
+  });
+
+  // ---------- FILL / GRAMMAR CHECK (generic) ----------
+  // The check button sits right after a .fill-set, followed by a .score span.
+  function checkFill(btn) {
+    const set = btn.previousElementSibling; // the .fill-set
+    const scoreEl = btn.nextElementSibling;  // the .score span
+    const inputs = set.querySelectorAll('.fill-input');
+    let correct = 0;
+    inputs.forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const alts = input.dataset.alt ? input.dataset.alt.toLowerCase().split('|').map(s => s.trim()) : [ans];
+      const valid = alts.includes(ans) ? alts : [ans, ...alts];
+      const val = input.value.toLowerCase().trim().replace(/\s+/g, ' ');
+      input.classList.remove('correct', 'wrong');
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    const total = inputs.length;
+    scoreEl.textContent = correct + ' / ' + total;
+    if (correct === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+  }
+
+  // ---------- MULTIPLE CHOICE (generic, per .mc-set) ----------
+  document.querySelectorAll('.mc-set').forEach(set => {
+    let score = 0;
+    const total = set.querySelectorAll('.mc-item').length;
+    const scoreEl = set.nextElementSibling.querySelector('.score');
+    set.querySelectorAll('.mc-item').forEach(item => {
+      const correct = item.dataset.correct;
+      const opts = item.querySelectorAll('.mc-opt');
+      opts.forEach((opt, i) => {
+        const letter = ['a', 'b', 'c', 'd'][i];
+        opt.addEventListener('click', () => {
+          if (opt.disabled) return;
+          opts.forEach(o => o.disabled = true);
+          if (letter === correct) {
+            opt.classList.add('correct');
+            score++;
+          } else {
+            opt.classList.add('wrong');
+            opts.forEach((o, j) => { if (['a', 'b', 'c', 'd'][j] === correct) o.classList.add('correct'); });
+          }
+          scoreEl.textContent = score + ' / ' + total;
+          if (score === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>
