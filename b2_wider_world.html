@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wider World — B2 English Worksheet</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --indigo: #4F46E5;
+    --deep: #312E81;
+    --coral: #F97316;
+    --gold: #FBBF24;
+    --green: #10B981;
+    --cream: #FAF8F3;
+    --sand: #EAE2D0;
+    --ink: #1E1B4B;
+    --cloud: #ffffff;
+    --soft: #E0E7FF;
+    --blush: #FFE4D8;
+    --mint: #D1FAE5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(79,70,229,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(16,185,129,0.08) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "🛰️";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 130px;
+    opacity: 0.13;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--gold);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(34px, 6vw, 56px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--coral); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 660px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--gold); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--indigo);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .block-head {
+    font-family: 'DM Serif Display', serif;
+    font-size: 23px;
+    color: var(--deep);
+    margin: 38px 0 6px;
+    padding-bottom: 6px;
+    border-bottom: 2px dashed var(--sand);
+  }
+  .block-head:first-of-type { margin-top: 10px; }
+  .block-head .step {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    display: block;
+  }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--indigo); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .hint { color: var(--deep); font-size: 13px; }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 190px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 260px; }
+  .fill-input:focus { outline: none; border-color: var(--indigo); background: var(--cream); }
+  .fill-input.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--indigo); }
+  .mc-opt.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--coral);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--gold);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--indigo);
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--indigo);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--indigo); }
+  .phrase-box {
+    background: var(--blush);
+    border: 2px dashed var(--coral);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .phrase-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .phrase-box .phrase-list { display: grid; gap: 6px; }
+  .phrase-box .phrase {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    border-left: 3px solid var(--indigo);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid { grid-template-columns: 1fr; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+
+  /* SHUFFLED WORD BANK */
+  .bank-words { display: inline; }
+  .bank-word { display: inline; white-space: nowrap; }
+  .bank-word:not(:last-child)::after { content: " · "; color: var(--gold); opacity: .85; }
+</style>
+</head><body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🛰️ SOCIETY · MEDIA · SCIENCE · B2</div>
+      <h1>The <span class="accent">Wider World</span></h1>
+      <div class="sub">From the courtroom to outer space — crime and justice, the media we consume, the families we grow up in, and the science reshaping our future.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">Teens &amp; Adults</span>
+        <span class="tag">Vocabulary &amp; Collocations</span>
+        <span class="tag">Grammar Focus</span>
+        <span class="tag">Speaking</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Crime &amp; Justice ⚖️</button>
+    <button class="tab" data-tab="t2">② The Media 📰</button>
+    <button class="tab" data-tab="t3">③ Relationships &amp; Family 👨‍👩‍👧</button>
+    <button class="tab" data-tab="t4">④ Science &amp; Space 🔭</button>
+    <button class="tab" data-tab="t5">⑤ Speaking 🎤</button>
+  </nav>
+
+  <!-- 1 · CRIME & JUSTICE -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">⚖️</span>Crime &amp; Justice</h2>
+    <p class="instr">Crimes, courts and consequences. Grammar focus: the <strong>third conditional</strong> (an unreal past).</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">to commit a crime</div><div class="vocab-def">to do something illegal</div><div class="vocab-ex">"He committed a serious crime."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an offender</div><div class="vocab-def">a person who breaks the law</div><div class="vocab-ex">"Young offenders get special treatment."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a suspect</div><div class="vocab-def">someone thought to be guilty</div><div class="vocab-ex">"The police have a suspect."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a witness</div><div class="vocab-def">someone who saw what happened</div><div class="vocab-ex">"A witness described the robber."</div></div>
+      <div class="vocab-card"><div class="vocab-term">evidence / proof</div><div class="vocab-def">facts that show what happened</div><div class="vocab-ex">"There wasn't enough evidence."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to arrest</div><div class="vocab-def">to take someone into custody</div><div class="vocab-ex">"He was arrested at the scene."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to charge (with)</div><div class="vocab-def">to formally accuse of a crime</div><div class="vocab-ex">"She was charged with theft."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a trial</div><div class="vocab-def">a court process to decide guilt</div><div class="vocab-ex">"The trial lasted two weeks."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a jury</div><div class="vocab-def">people who decide the verdict</div><div class="vocab-ex">"The jury found him guilty."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a verdict</div><div class="vocab-def">the decision: guilty or not guilty</div><div class="vocab-ex">"The verdict shocked everyone."</div></div>
+      <div class="vocab-card"><div class="vocab-term">guilty / innocent</div><div class="vocab-def">having / not having done the crime</div><div class="vocab-ex">"He insists he is innocent."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a sentence</div><div class="vocab-def">a punishment given by a judge</div><div class="vocab-ex">"She got a five-year sentence."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a fine / to fine</div><div class="vocab-def">money paid as a punishment</div><div class="vocab-ex">"He was fined €500."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a victim</div><div class="vocab-def">a person harmed by a crime</div><div class="vocab-ex">"The victim was unhurt."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a burglar</div><div class="vocab-def">someone who breaks in to steal</div><div class="vocab-ex">"There was a burglary next door."</div></div>
+      <div class="vocab-card"><div class="vocab-term">shoplifting</div><div class="vocab-def">stealing from a shop</div><div class="vocab-ex">"Shoplifting has risen this year."</div></div>
+      <div class="vocab-card"><div class="vocab-term">fraud</div><div class="vocab-def">cheating to gain money illegally</div><div class="vocab-ex">"He was jailed for fraud."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to break the law</div><div class="vocab-def">to do something illegal</div><div class="vocab-ex">"You're breaking the law."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to get away with</div><div class="vocab-def">to avoid punishment</div><div class="vocab-ex">"They got away with it."</div></div>
+      <div class="vocab-card"><div class="vocab-term">community service</div><div class="vocab-def">unpaid work as a punishment</div><div class="vocab-ex">"He was given community service."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m1">
+      <div class="match-col">
+        <h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">a suspect</div>
+        <div class="match-item" data-word="2">a witness</div>
+        <div class="match-item" data-word="3">a verdict</div>
+        <div class="match-item" data-word="4">a fine</div>
+        <div class="match-item" data-word="5">a burglar</div>
+        <div class="match-item" data-word="6">evidence</div>
+        <div class="match-item" data-word="7">to arrest</div>
+        <div class="match-item" data-word="8">a victim</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="3">the court's decision: guilty or not</div>
+        <div class="match-item" data-def="1">a person thought to have done the crime</div>
+        <div class="match-item" data-def="5">someone who breaks in to steal</div>
+        <div class="match-item" data-def="7">to take someone into police custody</div>
+        <div class="match-item" data-def="2">a person who saw what happened</div>
+        <div class="match-item" data-def="8">a person harmed by a crime</div>
+        <div class="match-item" data-def="4">money paid as a punishment</div>
+        <div class="match-item" data-def="6">facts that show what happened</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m1">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word from the bank. Change the form where necessary.</p>
+    <div class="word-bank"><strong>⚖️ WORD BANK ⚖️</strong>
+      <span class="bank-words"><span class="bank-word">commit</span><span class="bank-word">witness</span><span class="bank-word">evidence</span><span class="bank-word">arrested</span><span class="bank-word">fine</span><span class="bank-word">trial</span><span class="bank-word">guilty</span><span class="bank-word">victim</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>The police <input class="fill-input" data-answer="arrested"> two men near the bank.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>There wasn't enough <input class="fill-input" data-answer="evidence"> to charge her.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>A <input class="fill-input" data-answer="witness"> saw the whole robbery.</p></div>
+      <div class="fill-item"><p><span class="num">04</span>The jury found the defendant <input class="fill-input" data-answer="guilty">.</p></div>
+      <div class="fill-item"><p><span class="num">05</span>He had to pay a large <input class="fill-input" data-answer="fine"> for speeding.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>The <input class="fill-input" data-answer="trial"> will begin next month.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>Some people <input class="fill-input" data-answer="commit"> crimes out of desperation.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>The <input class="fill-input" data-answer="victim"> of the theft called the police.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q1</span>The group who decide if someone is guilty is the…</div><div class="mc-options">
+        <button class="mc-opt">a) suspect</button><button class="mc-opt">b) jury</button><button class="mc-opt">c) witness</button><button class="mc-opt">d) victim</button></div></div>
+      <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q2</span>To "get away with" a crime means to…</div><div class="mc-options">
+        <button class="mc-opt">a) confess to it</button><button class="mc-opt">b) be sent to prison</button><button class="mc-opt">c) report it</button><button class="mc-opt">d) avoid being punished</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q3</span>Stealing goods from a shop is called…</div><div class="mc-options">
+        <button class="mc-opt">a) shoplifting</button><button class="mc-opt">b) fraud</button><button class="mc-opt">c) a verdict</button><button class="mc-opt">d) bail</button></div></div>
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "If he hadn't broken in, he ___ arrested." (unreal past)</div><div class="mc-options">
+        <button class="mc-opt">a) wouldn't be</button><button class="mc-opt">b) won't have been</button><button class="mc-opt">c) wouldn't have been</button><button class="mc-opt">d) didn't get</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "The jury would have decided differently if the witness ___."</div><div class="mc-options">
+        <button class="mc-opt">a) would speak</button><button class="mc-opt">b) had spoken</button><button class="mc-opt">c) has spoken</button><button class="mc-opt">d) spoke</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> Which is a correct third conditional?</div><div class="mc-options">
+        <button class="mc-opt">a) If they had locked the door, the burglar wouldn't have got in.</button><button class="mc-opt">b) If they locked the door, the burglar won't get in.</button><button class="mc-opt">c) If they would lock the door, the burglar hadn't got in.</button><button class="mc-opt">d) If they have locked the door, the burglar didn't get in.</button></div></div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 The third conditional</h3>
+    <div class="grammar-box"><h4>⚖️ Talking about an imaginary past</h4>
+      <ul>
+        <li>For the <strong>past that did NOT happen</strong> — regrets and imagined results.</li>
+        <li>Form: <code>If + past perfect, would have + past participle</code>.</li>
+        <li><em>If he had told the truth, the judge would have been kinder.</em></li>
+        <li>Halves can swap: <em>The burglar wouldn't have got in if they had locked the door.</em></li>
+        <li>Other modals: <code>could have</code>, <code>might have</code>.</li>
+      </ul>
+      <div class="formula">IF + had + p.p. , WOULD HAVE + p.p.</div>
+    </div>
+    <p class="instr"><strong>Put the verbs into the third conditional.</strong> Watch the negatives.</p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>If he hadn't broken the law, he <input class="fill-input wide" data-answer="wouldn't have been" data-alt="wouldn't have been|would not have been"> arrested. (not / be) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">02</span>If the witness had spoken, the jury <input class="fill-input wide" data-answer="would have reached"> a different verdict. (reach) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">03</span>She wouldn't have been fined if she <input class="fill-input wide" data-answer="had driven"> more slowly. (drive) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">04</span>If they had locked the door, the burglar <input class="fill-input wide" data-answer="wouldn't have got" data-alt="wouldn't have got|would not have got|wouldn't have gotten|would not have gotten"> in. (not / get) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>If I <input class="fill-input wide" data-answer="had seen"> the thief, I would have called the police. (see) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">06</span>The victim would have escaped if she <input class="fill-input wide" data-answer="had run"> faster. (run) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">07</span>If the police had arrived sooner, they <input class="fill-input wide" data-answer="would have caught"> the suspect. (catch) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">08</span>He <input class="fill-input wide" data-answer="wouldn't have committed" data-alt="wouldn't have committed|would not have committed"> the crime if he had had a job. (not / commit) <span class="hint">(3 words)</span></p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- 2 · THE MEDIA -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📰</span>The Media</h2>
+    <p class="instr">News, journalism, bias and the online world. Grammar focus: <strong>reported questions</strong>.</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">the press</div><div class="vocab-def">newspapers and journalists in general</div><div class="vocab-ex">"The press covered it widely."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a headline</div><div class="vocab-def">the title of a news story</div><div class="vocab-ex">"It made front-page headlines."</div></div>
+      <div class="vocab-card"><div class="vocab-term">breaking news</div><div class="vocab-def">important news happening right now</div><div class="vocab-ex">"We interrupt for breaking news."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a reporter</div><div class="vocab-def">someone who reports the news</div><div class="vocab-ex">"A reporter asked tough questions."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a source</div><div class="vocab-def">where information comes from</div><div class="vocab-ex">"Always check your sources."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to cover / coverage</div><div class="vocab-def">to report on / reporting of an event</div><div class="vocab-ex">"The coverage was non-stop."</div></div>
+      <div class="vocab-card"><div class="vocab-term">biased / bias</div><div class="vocab-def">unfairly favouring one side</div><div class="vocab-ex">"The article felt very biased."</div></div>
+      <div class="vocab-card"><div class="vocab-term">fake news</div><div class="vocab-def">false stories spread as if true</div><div class="vocab-ex">"Fake news spreads fast online."</div></div>
+      <div class="vocab-card"><div class="vocab-term">clickbait</div><div class="vocab-def">titles designed just to get clicks</div><div class="vocab-ex">"That headline is pure clickbait."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a tabloid</div><div class="vocab-def">a popular paper full of gossip</div><div class="vocab-ex">"Tabloids love celebrity gossip."</div></div>
+      <div class="vocab-card"><div class="vocab-term">mainstream media</div><div class="vocab-def">the big, traditional news outlets</div><div class="vocab-ex">"The mainstream media ignored it."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to go viral</div><div class="vocab-def">to spread very fast online</div><div class="vocab-ex">"The clip went viral overnight."</div></div>
+      <div class="vocab-card"><div class="vocab-term">censorship</div><div class="vocab-def">blocking information from the public</div><div class="vocab-ex">"There is strict censorship there."</div></div>
+      <div class="vocab-card"><div class="vocab-term">freedom of the press</div><div class="vocab-def">the right of media to report freely</div><div class="vocab-ex">"Freedom of the press is vital."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a scoop / an exclusive</div><div class="vocab-def">a story only one outlet has</div><div class="vocab-ex">"The paper landed a scoop."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to broadcast</div><div class="vocab-def">to send out on TV or radio</div><div class="vocab-ex">"It was broadcast live."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an editorial</div><div class="vocab-def">an opinion piece by the editors</div><div class="vocab-ex">"The editorial criticised the plan."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to fact-check</div><div class="vocab-def">to verify whether claims are true</div><div class="vocab-ex">"Reporters must fact-check claims."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to leak</div><div class="vocab-def">to reveal secret information</div><div class="vocab-ex">"The documents were leaked."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an anchor / a presenter</div><div class="vocab-def">a person who hosts a news show</div><div class="vocab-ex">"The anchor introduced the report."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m2">
+      <div class="match-col"><h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">a headline</div>
+        <div class="match-item" data-word="2">breaking news</div>
+        <div class="match-item" data-word="3">biased</div>
+        <div class="match-item" data-word="4">fake news</div>
+        <div class="match-item" data-word="5">clickbait</div>
+        <div class="match-item" data-word="6">a source</div>
+        <div class="match-item" data-word="7">to cover</div>
+        <div class="match-item" data-word="8">a tabloid</div>
+      </div>
+      <div class="match-col"><h3>Meaning</h3>
+        <div class="match-item" data-def="3">unfairly favouring one side</div>
+        <div class="match-item" data-def="1">the title of a news story</div>
+        <div class="match-item" data-def="5">a title designed only to get clicks</div>
+        <div class="match-item" data-def="7">to report on an event</div>
+        <div class="match-item" data-def="2">important news happening right now</div>
+        <div class="match-item" data-def="8">a popular paper full of gossip</div>
+        <div class="match-item" data-def="4">false stories spread as if true</div>
+        <div class="match-item" data-def="6">where information comes from</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m2">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word from the bank. Change the form where necessary.</p>
+    <div class="word-bank"><strong>📰 WORD BANK 📰</strong>
+      <span class="bank-words"><span class="bank-word">headline</span><span class="bank-word">breaking</span><span class="bank-word">biased</span><span class="bank-word">fake news</span><span class="bank-word">clickbait</span><span class="bank-word">source</span><span class="bank-word">coverage</span><span class="bank-word">censorship</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>The <input class="fill-input" data-answer="headline"> grabbed everyone's attention.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>We interrupt this programme with <input class="fill-input" data-answer="breaking"> news.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>The report was clearly <input class="fill-input" data-answer="biased"> towards one party.</p></div>
+      <div class="fill-item"><p><span class="num">04</span>Be careful — a lot of <input class="fill-input wide" data-answer="fake news"> circulates online. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>That title is just <input class="fill-input" data-answer="clickbait"> to get views.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>A good journalist always checks the <input class="fill-input" data-answer="source">.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>The election got round-the-clock <input class="fill-input" data-answer="coverage">.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>Strict <input class="fill-input" data-answer="censorship"> stops journalists reporting freely.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q1</span>A story that only one news outlet has is called…</div><div class="mc-options">
+        <button class="mc-opt">a) a headline</button><button class="mc-opt">b) an editorial</button><button class="mc-opt">c) a scoop / an exclusive</button><button class="mc-opt">d) clickbait</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q2</span>If information is "leaked", it is…</div><div class="mc-options">
+        <button class="mc-opt">a) revealed when it was meant to be secret</button><button class="mc-opt">b) carefully fact-checked</button><button class="mc-opt">c) deleted permanently</button><button class="mc-opt">d) broadcast on every channel</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q3</span>"Freedom of the press" means the media can…</div><div class="mc-options">
+        <button class="mc-opt">a) charge any price they like</button><button class="mc-opt">b) report news without being controlled</button><button class="mc-opt">c) never make mistakes</button><button class="mc-opt">d) only print good news</button></div></div>
+      <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "Where do you work?" → The reporter asked me where I ___.</div><div class="mc-options">
+        <button class="mc-opt">a) do work</button><button class="mc-opt">b) did I work</button><button class="mc-opt">c) work</button><button class="mc-opt">d) worked</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "Is the story true?" → He asked ___ the story was true.</div><div class="mc-options">
+        <button class="mc-opt">a) that</button><button class="mc-opt">b) whether</button><button class="mc-opt">c) what</button><button class="mc-opt">d) does</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> Which reported question is correct?</div><div class="mc-options">
+        <button class="mc-opt">a) She asked me if I had read the article.</button><button class="mc-opt">b) She asked me did I read the article.</button><button class="mc-opt">c) She asked me have I read the article.</button><button class="mc-opt">d) She asked me that I read the article.</button></div></div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 Reported questions</h3>
+    <div class="grammar-box"><h4>📰 Turning questions into statements</h4>
+      <ul>
+        <li><strong>Statement word order</strong> — no inversion: <em>"Where is it?" → She asked where it was.</em></li>
+        <li><strong>No <code>do / does / did</code></strong>: <em>"Where do you live?" → He asked where I lived.</em></li>
+        <li><strong>Yes/no → <code>if</code> or <code>whether</code></strong>: <em>"Are you ready?" → She asked if I was ready.</em></li>
+        <li><strong>Tenses shift back</strong>: is→was, do→did, have→had, will→would.</li>
+      </ul>
+      <div class="formula">"Do/Are you …?" → asked IF/WHETHER + I + past verb</div>
+    </div>
+    <p class="instr"><strong>Complete the reported question.</strong></p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>"Where do you get your news?" → She asked where I <input class="fill-input" data-answer="got"> my news. <span class="hint">(1 word)</span></p></div>
+      <div class="fill-item"><p><span class="num">02</span>"Is the story true?" → He asked <input class="fill-input" data-answer="whether" data-alt="whether|if"> the story was true. <span class="hint">(1 word)</span></p></div>
+      <div class="fill-item"><p><span class="num">03</span>"Did you read the article?" → They asked me <input class="fill-input" data-answer="if" data-alt="if|whether"> I had read it. <span class="hint">(1 word)</span></p></div>
+      <div class="fill-item"><p><span class="num">04</span>"Who wrote this?" → The editor asked who <input class="fill-input wide" data-answer="had written"> it. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>"Are you a journalist?" → She asked me if I <input class="fill-input" data-answer="was"> a journalist. <span class="hint">(1 word)</span></p></div>
+      <div class="fill-item"><p><span class="num">06</span>"What time does the news start?" → He asked what time the news <input class="fill-input" data-answer="started">. <span class="hint">(1 word)</span></p></div>
+      <div class="fill-item"><p><span class="num">07</span>"Have you checked the source?" → My editor asked <input class="fill-input" data-answer="if" data-alt="if|whether"> I had checked it. <span class="hint">(1 word)</span></p></div>
+      <div class="fill-item"><p><span class="num">08</span>"Why are you filming?" → The officer asked why I <input class="fill-input wide" data-answer="was filming">. <span class="hint">(2 words)</span></p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- 3 · RELATIONSHIPS & FAMILY -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">👨‍👩‍👧</span>Relationships &amp; Family</h2>
+    <p class="instr">Family life, friendships and getting along. Grammar focus: <strong>used to / would / be used to</strong>.</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">to get on (well) with</div><div class="vocab-def">to have a good relationship with</div><div class="vocab-ex">"I get on well with my mum."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to fall out (with)</div><div class="vocab-def">to argue and stop being friends</div><div class="vocab-ex">"They fell out over money."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to make up</div><div class="vocab-def">to be friends again after a row</div><div class="vocab-ex">"We argued but soon made up."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a close-knit family</div><div class="vocab-def">a family with strong bonds</div><div class="vocab-ex">"We're a close-knit family."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an only child</div><div class="vocab-def">a child with no siblings</div><div class="vocab-ex">"As an only child, I had my own room."</div></div>
+      <div class="vocab-card"><div class="vocab-term">siblings</div><div class="vocab-def">brothers and sisters</div><div class="vocab-ex">"I have three younger siblings."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to take after</div><div class="vocab-def">to resemble an older relative</div><div class="vocab-ex">"She takes after her father."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to look up to</div><div class="vocab-def">to admire and respect someone</div><div class="vocab-ex">"I look up to my sister."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to bring up / to raise</div><div class="vocab-def">to care for a child until adulthood</div><div class="vocab-ex">"They brought up four kids."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an upbringing</div><div class="vocab-def">the way you were raised</div><div class="vocab-ex">"She had a strict upbringing."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a row / an argument</div><div class="vocab-def">an angry disagreement</div><div class="vocab-ex">"They had a huge row."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to get engaged / married</div><div class="vocab-def">to promise to marry / to marry</div><div class="vocab-ex">"They got engaged last year."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to split up / get divorced</div><div class="vocab-def">to end a relationship / marriage</div><div class="vocab-ex">"His parents split up."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to have a lot in common</div><div class="vocab-def">to share many interests</div><div class="vocab-ex">"We have a lot in common."</div></div>
+      <div class="vocab-card"><div class="vocab-term">in-laws</div><div class="vocab-def">your partner's family</div><div class="vocab-ex">"My in-laws live nearby."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to drift apart</div><div class="vocab-def">to slowly become less close</div><div class="vocab-ex">"Old friends sometimes drift apart."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be there for someone</div><div class="vocab-def">to support someone when needed</div><div class="vocab-ex">"She's always there for me."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a generation gap</div><div class="vocab-def">differences between age groups</div><div class="vocab-ex">"There's a real generation gap."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to settle down</div><div class="vocab-def">to start a stable family life</div><div class="vocab-ex">"He's not ready to settle down."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to start a family</div><div class="vocab-def">to have your first child</div><div class="vocab-ex">"They want to start a family."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m3">
+      <div class="match-col"><h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">to get on with</div>
+        <div class="match-item" data-word="2">to fall out</div>
+        <div class="match-item" data-word="3">to take after</div>
+        <div class="match-item" data-word="4">an only child</div>
+        <div class="match-item" data-word="5">siblings</div>
+        <div class="match-item" data-word="6">a close-knit family</div>
+        <div class="match-item" data-word="7">to make up</div>
+        <div class="match-item" data-word="8">a generation gap</div>
+      </div>
+      <div class="match-col"><h3>Meaning</h3>
+        <div class="match-item" data-def="3">to look or behave like an older relative</div>
+        <div class="match-item" data-def="1">to have a good relationship with</div>
+        <div class="match-item" data-def="5">brothers and sisters</div>
+        <div class="match-item" data-def="7">to become friends again after a row</div>
+        <div class="match-item" data-def="2">to argue and stop being friends</div>
+        <div class="match-item" data-def="8">differences in attitude between age groups</div>
+        <div class="match-item" data-def="4">a child with no brothers or sisters</div>
+        <div class="match-item" data-def="6">a family with very strong bonds</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m3">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word from the bank. Change the form where necessary.</p>
+    <div class="word-bank"><strong>👨‍👩‍👧 WORD BANK 👨‍👩‍👧</strong>
+      <span class="bank-words"><span class="bank-word">get on</span><span class="bank-word">fall out</span><span class="bank-word">take after</span><span class="bank-word">only child</span><span class="bank-word">siblings</span><span class="bank-word">close-knit</span><span class="bank-word">make up</span><span class="bank-word">generation gap</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>I really <input class="fill-input wide" data-answer="get on"> with my cousins. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">02</span>Brothers and sisters sometimes <input class="fill-input wide" data-answer="fall out"> over silly things. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">03</span>Everyone says I <input class="fill-input wide" data-answer="take after"> my grandmother. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">04</span>As an <input class="fill-input wide" data-answer="only child">, she never had to share. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>I have two older <input class="fill-input" data-answer="siblings">.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>We're a very <input class="fill-input" data-answer="close-knit" data-alt="close-knit|close knit"> family.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>They had a row but soon <input class="fill-input wide" data-answer="made up">. <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">08</span>There's a big <input class="fill-input wide" data-answer="generation gap"> between us. <span class="hint">(2 words)</span></p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q1</span>To "look up to" someone means to…</div><div class="mc-options">
+        <button class="mc-opt">a) argue with them</button><button class="mc-opt">b) admire and respect them</button><button class="mc-opt">c) avoid them</button><button class="mc-opt">d) look exactly like them</button></div></div>
+      <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q2</span>If two old friends "drift apart", they…</div><div class="mc-options">
+        <button class="mc-opt">a) get married</button><button class="mc-opt">b) have a big row</button><button class="mc-opt">c) move in together</button><button class="mc-opt">d) slowly become less close</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q3</span>Your "in-laws" are…</div><div class="mc-options">
+        <button class="mc-opt">a) your partner's family</button><button class="mc-opt">b) your closest friends</button><button class="mc-opt">c) your own siblings</button><button class="mc-opt">d) your neighbours</button></div></div>
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "When I was little, we ___ live by the sea." (past state)</div><div class="mc-options">
+        <button class="mc-opt">a) would</button><button class="mc-opt">b) are used to</button><button class="mc-opt">c) used to</button><button class="mc-opt">d) use to</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "I'm an only child, so I'm not ___ a room." (accustomed to)</div><div class="mc-options">
+        <button class="mc-opt">a) used to share</button><button class="mc-opt">b) used to sharing</button><button class="mc-opt">c) use to share</button><button class="mc-opt">d) would share</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> Which describes a <em>repeated past action</em> correctly?</div><div class="mc-options">
+        <button class="mc-opt">a) Every summer we would visit our grandparents.</button><button class="mc-opt">b) Every summer we are used to visit our grandparents.</button><button class="mc-opt">c) Every summer we use to visiting our grandparents.</button><button class="mc-opt">d) Every summer we would visited our grandparents.</button></div></div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 used to / would / be used to</h3>
+    <div class="grammar-box"><h4>👨‍👩‍👧 Three look-alikes — keep them apart!</h4>
+      <ul>
+        <li><code>used to + verb</code> = past habit/state not true now: <em>We used to live abroad.</em></li>
+        <li><code>would + verb</code> = repeated past action (NOT states): <em>Every weekend we would walk to the market.</em></li>
+        <li><code>be used to + noun / -ing</code> = be accustomed to (now): <em>I'm used to sharing a room.</em></li>
+        <li><code>get used to + -ing</code> = become accustomed: <em>I soon got used to having a baby sister.</em></li>
+      </ul>
+      <div class="formula">past habit/state → USED TO + verb · accustomed now → BE USED TO + -ing</div>
+    </div>
+    <p class="instr"><strong>Complete with the correct form.</strong> Read the clue in brackets.</p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>We <input class="fill-input wide" data-answer="used to live"> in a small flat when I was a baby. (past state — live) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">02</span>Every summer, my dad <input class="fill-input wide" data-answer="would take" data-alt="would take|used to take"> us to the lake. (repeated past — take) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">03</span>As an only child, I'm not <input class="fill-input wide" data-answer="used to sharing"> a bedroom. (accustomed — share) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">04</span>It was strange at first, but I soon got <input class="fill-input wide" data-answer="used to having"> a big family around me. (become accustomed — have) <span class="hint">(3 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>I <input class="fill-input wide" data-answer="used to look up to"> my older brother. (past state — look up to) <span class="hint">(4 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">06</span>He <input class="fill-input wide" data-answer="used to"> argue with his parents, but they get on now. (past habit) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">07</span>We live abroad now and we're <input class="fill-input wide" data-answer="used to"> speaking a new language. (accustomed) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">08</span>My grandparents <input class="fill-input wide" data-answer="would tell" data-alt="would tell|used to tell"> us amazing stories. (repeated past — tell) <span class="hint">(2 words)</span></p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- 4 · SCIENCE & SPACE -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">🔭</span>Science &amp; Space</h2>
+    <p class="instr">Discoveries, experiments and the universe. Grammar focus: <strong>articles</strong> (a / an / the / no article).</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">an experiment / to carry out</div><div class="vocab-def">a scientific test / to perform one</div><div class="vocab-ex">"They carried out an experiment."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a hypothesis</div><div class="vocab-def">an idea you test scientifically</div><div class="vocab-ex">"The data supported the hypothesis."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a theory</div><div class="vocab-def">a well-tested explanation</div><div class="vocab-ex">"The theory of evolution."</div></div>
+      <div class="vocab-card"><div class="vocab-term">research</div><div class="vocab-def">careful study to find facts</div><div class="vocab-ex">"She conducts cancer research."</div></div>
+      <div class="vocab-card"><div class="vocab-term">data / evidence</div><div class="vocab-def">facts collected for analysis</div><div class="vocab-ex">"The data is very promising."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a breakthrough</div><div class="vocab-def">a major, sudden advance</div><div class="vocab-ex">"It was a medical breakthrough."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a discovery / to discover</div><div class="vocab-def">finding something new</div><div class="vocab-ex">"They discovered a new planet."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a vaccine</div><div class="vocab-def">medicine that prevents a disease</div><div class="vocab-ex">"The vaccine saved millions."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a cure / to cure</div><div class="vocab-def">something that ends an illness</div><div class="vocab-ex">"There's no cure yet."</div></div>
+      <div class="vocab-card"><div class="vocab-term">gravity</div><div class="vocab-def">the force that pulls objects down</div><div class="vocab-ex">"There is no gravity in space."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the solar system</div><div class="vocab-def">the Sun and the planets around it</div><div class="vocab-ex">"Saturn is in our solar system."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a galaxy</div><div class="vocab-def">a huge group of stars</div><div class="vocab-ex">"Our galaxy is the Milky Way."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an orbit / to orbit</div><div class="vocab-def">the curved path around a planet/star</div><div class="vocab-ex">"The Moon orbits the Earth."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a satellite</div><div class="vocab-def">an object that orbits a planet</div><div class="vocab-ex">"They launched a new satellite."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a telescope</div><div class="vocab-def">a tool for seeing distant objects</div><div class="vocab-ex">"The telescope captured a galaxy."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a spacecraft / a probe</div><div class="vocab-def">a vehicle / device sent into space</div><div class="vocab-ex">"The probe reached Mars."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an astronaut</div><div class="vocab-def">a person trained to travel in space</div><div class="vocab-ex">"The astronaut floated freely."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to launch</div><div class="vocab-def">to send a rocket into space</div><div class="vocab-ex">"They launched the rocket at dawn."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a black hole</div><div class="vocab-def">a region where gravity traps light</div><div class="vocab-ex">"They photographed a black hole."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the universe</div><div class="vocab-def">all of space and everything in it</div><div class="vocab-ex">"The universe is still expanding."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m4">
+      <div class="match-col"><h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">a hypothesis</div>
+        <div class="match-item" data-word="2">a breakthrough</div>
+        <div class="match-item" data-word="3">gravity</div>
+        <div class="match-item" data-word="4">an orbit</div>
+        <div class="match-item" data-word="5">a satellite</div>
+        <div class="match-item" data-word="6">a telescope</div>
+        <div class="match-item" data-word="7">to launch</div>
+        <div class="match-item" data-word="8">the universe</div>
+      </div>
+      <div class="match-col"><h3>Meaning</h3>
+        <div class="match-item" data-def="3">the force that pulls objects downwards</div>
+        <div class="match-item" data-def="1">an idea that you test scientifically</div>
+        <div class="match-item" data-def="5">an object that orbits a planet</div>
+        <div class="match-item" data-def="7">to send a rocket into space</div>
+        <div class="match-item" data-def="2">a major, sudden scientific advance</div>
+        <div class="match-item" data-def="8">all of space and everything in it</div>
+        <div class="match-item" data-def="4">the curved path around a planet or star</div>
+        <div class="match-item" data-def="6">a tool for seeing distant objects</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m4">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word from the bank. Change the form where necessary.</p>
+    <div class="word-bank"><strong>🔭 WORD BANK 🔭</strong>
+      <span class="bank-words"><span class="bank-word">experiment</span><span class="bank-word">hypothesis</span><span class="bank-word">breakthrough</span><span class="bank-word">gravity</span><span class="bank-word">orbit</span><span class="bank-word">satellite</span><span class="bank-word">telescope</span><span class="bank-word">research</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>The scientists carried out an <input class="fill-input" data-answer="experiment"> in the lab.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>The results confirmed their <input class="fill-input" data-answer="hypothesis">.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>The new vaccine was a real medical <input class="fill-input" data-answer="breakthrough">.</p></div>
+      <div class="fill-item"><p><span class="num">04</span>Without <input class="fill-input" data-answer="gravity">, astronauts float around.</p></div>
+      <div class="fill-item"><p><span class="num">05</span>The Moon takes about a month to <input class="fill-input" data-answer="orbit"> the Earth.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>They launched a weather <input class="fill-input" data-answer="satellite"> into space.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>You can see Saturn's rings through a <input class="fill-input" data-answer="telescope">.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>She does important <input class="fill-input" data-answer="research"> into rare diseases.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q1</span>A "hypothesis" is…</div><div class="mc-options">
+        <button class="mc-opt">a) a proven fact</button><button class="mc-opt">b) an idea you test scientifically</button><button class="mc-opt">c) a type of telescope</button><button class="mc-opt">d) a finished experiment</button></div></div>
+      <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q2</span>A "black hole" is a region where…</div><div class="mc-options">
+        <button class="mc-opt">a) there are many stars</button><button class="mc-opt">b) astronauts train</button><button class="mc-opt">c) satellites are built</button><button class="mc-opt">d) gravity is so strong it traps light</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q3</span>A sudden, major scientific advance is a…</div><div class="mc-options">
+        <button class="mc-opt">a) breakthrough</button><button class="mc-opt">b) hypothesis</button><button class="mc-opt">c) satellite</button><button class="mc-opt">d) orbit</button></div></div>
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q4</span><strong>Grammar (articles):</strong> "She made ___ important discovery."</div><div class="mc-options">
+        <button class="mc-opt">a) a</button><button class="mc-opt">b) the</button><button class="mc-opt">c) an</button><button class="mc-opt">d) — (no article)</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q5</span><strong>Grammar (articles):</strong> "___ universe is expanding."</div><div class="mc-options">
+        <button class="mc-opt">a) A</button><button class="mc-opt">b) The</button><button class="mc-opt">c) An</button><button class="mc-opt">d) — (no article)</button></div></div>
+      <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q6</span><strong>Grammar (articles):</strong> "___ scientists test every theory." (people in general)</div><div class="mc-options">
+        <button class="mc-opt">a) A</button><button class="mc-opt">b) An</button><button class="mc-opt">c) The</button><button class="mc-opt">d) — (no article)</button></div></div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 Articles: a / an / the / —</h3>
+    <div class="grammar-box"><h4>🔭 When to use each one</h4>
+      <ul>
+        <li><code>a / an</code> = one of many, first mention: <em>a planet, an experiment</em>. Use <code>an</code> before a vowel <em>sound</em>.</li>
+        <li><code>the</code> = specific, already mentioned, or unique: <em>the Sun, the Moon, the universe</em>.</li>
+        <li><strong>No article (—)</strong> with plural/uncountable nouns in general: <em>Scientists do research. Gravity is invisible.</em></li>
+        <li>No article with most names: <em>Earth, Mars, Einstein</em>.</li>
+      </ul>
+      <div class="formula">first/one of many → A/AN · unique → THE · general plural/uncountable → —</div>
+    </div>
+    <p class="instr"><strong>Type the correct article:</strong> <code>a</code>, <code>an</code>, <code>the</code>, or <code>–</code> (a dash) if none is needed.</p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>The Sun is <input class="fill-input" data-answer="a"> star at the centre of our solar system.</p></div>
+      <div class="fill-item"><p><span class="num">02</span><input class="fill-input" data-answer="the"> Moon orbits the Earth once a month.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>She has made <input class="fill-input" data-answer="an"> important discovery about DNA.</p></div>
+      <div class="fill-item"><p><span class="num">04</span><input class="fill-input" data-answer="the"> universe contains billions of galaxies.</p></div>
+      <div class="fill-item"><p><span class="num">05</span>Scientists are fascinated by <input class="fill-input" data-answer="-" data-alt="-|–|—|no|none|zero|x|nothing"> gravity. (uncountable)</p></div>
+      <div class="fill-item"><p><span class="num">06</span>NASA launched <input class="fill-input" data-answer="a"> new satellite last week.</p></div>
+      <div class="fill-item"><p><span class="num">07</span><input class="fill-input" data-answer="-" data-alt="-|–|—|no|none|zero|x|nothing"> astronauts must train for years. (people in general)</p></div>
+      <div class="fill-item"><p><span class="num">08</span>A telescope is <input class="fill-input" data-answer="a"> tool for studying distant stars.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- 5 · SPEAKING -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking — all four topics</h2>
+    <p class="instr">Speak <strong>1–2 minutes</strong> per question. Use at least <strong>3 words or phrases</strong> from the topic in each answer.</p>
+
+    <div class="phrase-box"><h4>💬 Useful phrases for any topic</h4>
+      <div class="phrase-list">
+        <div class="phrase"><strong>Opinion:</strong> "It seems to me that…" / "I'm convinced that…"</div>
+        <div class="phrase"><strong>Agreeing / disagreeing:</strong> "That's exactly how I feel." / "I'm not so sure…"</div>
+        <div class="phrase"><strong>Examples:</strong> "A case in point is…" / "Just think about…"</div>
+        <div class="phrase"><strong>Weighing up:</strong> "There are two sides to this…" / "It depends on…"</div>
+        <div class="phrase"><strong>Hypothesising:</strong> "If that had happened, …" / "Imagine if…"</div>
+      </div>
+    </div>
+
+    <div class="speak-card"><div class="speak-num">◆ CRIME · TASK 01</div><div class="speak-prompt">Should the punishment always fit the crime? Are fines, prison and community service fair?</div><div class="speak-help"><strong>Try to use:</strong> to commit a crime · a sentence · a fine · community service · an offender · guilty / innocent</div></div>
+    <div class="speak-card"><div class="speak-num">◆ CRIME · TASK 02</div><div class="speak-prompt">Think of a famous court case. What happened, and was the verdict right? (Use the third conditional!)</div><div class="speak-help"><strong>Try to use:</strong> a trial · a jury · a verdict · evidence · "If they had…, they would have…"</div></div>
+    <div class="speak-card"><div class="speak-num">◆ MEDIA · TASK 03</div><div class="speak-prompt">Where do you get your news, and how do you decide whether to trust a story?</div><div class="speak-help"><strong>Try to use:</strong> mainstream media · a source · biased · fake news · clickbait · to fact-check</div></div>
+    <div class="speak-card"><div class="speak-num">◆ MEDIA · TASK 04</div><div class="speak-prompt">Should there be limits on what the press can publish, or is freedom of the press always more important?</div><div class="speak-help"><strong>Try to use:</strong> freedom of the press · censorship · to leak · coverage · a scoop · the press</div></div>
+    <div class="speak-card"><div class="speak-num">◆ FAMILY · TASK 05</div><div class="speak-prompt">Describe your family. Who are you closest to, and who do you take after?</div><div class="speak-help"><strong>Try to use:</strong> to get on with · to take after · siblings · close-knit · to look up to · an only child</div></div>
+    <div class="speak-card"><div class="speak-num">◆ FAMILY · TASK 06</div><div class="speak-prompt">How was family life different for your grandparents' generation? (Use <em>used to / would</em>!)</div><div class="speak-help"><strong>Try to use:</strong> used to · would · a generation gap · an upbringing · to bring up · to settle down</div></div>
+    <div class="speak-card"><div class="speak-num">◆ SCIENCE · TASK 07</div><div class="speak-prompt">What scientific discovery or breakthrough has changed the world most? Why?</div><div class="speak-help"><strong>Try to use:</strong> a breakthrough · a discovery · research · a vaccine · a cure · a theory</div></div>
+    <div class="speak-card"><div class="speak-num">◆ SPACE · TASK 08</div><div class="speak-prompt">Should we spend billions exploring space when there are problems on Earth?</div><div class="speak-help"><strong>Try to use:</strong> the universe · a galaxy · to launch · a spacecraft · an astronaut · gravity</div></div>
+    <div class="speak-card"><div class="speak-num">◆ CONNECT THE TOPICS · TASK 09</div><div class="speak-prompt">"The media decides what we think about crime, family and science." How far do you agree?</div><div class="speak-help"><strong>Try to use:</strong> coverage · biased · fake news · a breakthrough · a verdict · mainstream media</div></div>
+    <div class="speak-card"><div class="speak-num">◆ QUICK-FIRE · TASK 10 · 30 SECONDS EACH</div><div class="speak-prompt">No planning — just talk!</div><div class="speak-help">
+        ▸ One law you would change if you could.<br>
+        ▸ The last news headline you actually remember.<br>
+        ▸ A family member you really look up to.<br>
+        ▸ A scientific question you'd love answered.<br>
+        ▸ Complete: "If humans hadn't invented the internet, life today would…"
+      </div></div>
+  </section>
+
+  <footer>🛰️ ★ ★ &nbsp; THE WIDER WORLD · B2 ENGLISH · CRIME · MEDIA · FAMILY · SCIENCE &nbsp; ★ ★ 🛰️</footer>
+</div>
+<script>
+  // ---------- SHUFFLE WORD BANKS (so order never hints at answers) ----------
+  document.querySelectorAll('.bank-words').forEach(c => {
+    const words = Array.from(c.children);
+    for (let i = words.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [words[i], words[j]] = [words[j], words[i]];
+    }
+    words.forEach(w => c.appendChild(w));
+  });
+
+  // ---------- TABS ----------
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // ---------- MATCHING (works for every .match-grid independently) ----------
+  document.querySelectorAll('.match-grid').forEach(grid => {
+    let selected = null;
+    let matched = 0;
+    const total = grid.querySelectorAll('[data-word]').length;
+    const scoreEl = document.getElementById(grid.dataset.score);
+    grid.querySelectorAll('.match-item').forEach(item => {
+      item.addEventListener('click', () => {
+        if (item.classList.contains('matched')) return;
+        if (item.dataset.word) {
+          grid.querySelectorAll('[data-word]').forEach(w => w.classList.remove('selected'));
+          item.classList.add('selected');
+          selected = item;
+        } else if (item.dataset.def && selected) {
+          if (selected.dataset.word === item.dataset.def) {
+            selected.classList.remove('selected');
+            selected.classList.add('matched');
+            item.classList.add('matched');
+            matched++;
+            scoreEl.textContent = matched + ' / ' + total;
+            if (matched === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+            selected = null;
+          } else {
+            item.classList.add('wrong');
+            setTimeout(() => item.classList.remove('wrong'), 450);
+          }
+        }
+      });
+    });
+  });
+
+  // ---------- FILL / GRAMMAR CHECK (generic) ----------
+  // The check button sits right after a .fill-set, followed by a .score span.
+  function checkFill(btn) {
+    const set = btn.previousElementSibling; // the .fill-set
+    const scoreEl = btn.nextElementSibling;  // the .score span
+    const inputs = set.querySelectorAll('.fill-input');
+    let correct = 0;
+    inputs.forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const alts = input.dataset.alt ? input.dataset.alt.toLowerCase().split('|').map(s => s.trim()) : [ans];
+      const valid = alts.includes(ans) ? alts : [ans, ...alts];
+      const val = input.value.toLowerCase().trim().replace(/\s+/g, ' ');
+      input.classList.remove('correct', 'wrong');
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    const total = inputs.length;
+    scoreEl.textContent = correct + ' / ' + total;
+    if (correct === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+  }
+
+  // ---------- MULTIPLE CHOICE (generic, per .mc-set) ----------
+  document.querySelectorAll('.mc-set').forEach(set => {
+    let score = 0;
+    const total = set.querySelectorAll('.mc-item').length;
+    const scoreEl = set.nextElementSibling.querySelector('.score');
+    set.querySelectorAll('.mc-item').forEach(item => {
+      const correct = item.dataset.correct;
+      const opts = item.querySelectorAll('.mc-opt');
+      opts.forEach((opt, i) => {
+        const letter = ['a', 'b', 'c', 'd'][i];
+        opt.addEventListener('click', () => {
+          if (opt.disabled) return;
+          opts.forEach(o => o.disabled = true);
+          if (letter === correct) {
+            opt.classList.add('correct');
+            score++;
+          } else {
+            opt.classList.add('wrong');
+            opts.forEach((o, j) => { if (['a', 'b', 'c', 'd'][j] === correct) o.classList.add('correct'); });
+          }
+          scoreEl.textContent = score + ' / ' + total;
+          if (score === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>
