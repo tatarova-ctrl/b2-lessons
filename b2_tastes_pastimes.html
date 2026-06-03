@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tastes &amp; Pastimes — B2 English Worksheet</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --indigo: #4F46E5;
+    --deep: #312E81;
+    --coral: #F97316;
+    --gold: #FBBF24;
+    --green: #10B981;
+    --cream: #FAF8F3;
+    --sand: #EAE2D0;
+    --ink: #1E1B4B;
+    --cloud: #ffffff;
+    --soft: #E0E7FF;
+    --blush: #FFE4D8;
+    --mint: #D1FAE5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(79,70,229,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(16,185,129,0.08) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "🎨";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 130px;
+    opacity: 0.13;
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--gold);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(34px, 6vw, 56px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--coral); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 660px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--gold); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--indigo);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .block-head {
+    font-family: 'DM Serif Display', serif;
+    font-size: 23px;
+    color: var(--deep);
+    margin: 38px 0 6px;
+    padding-bottom: 6px;
+    border-bottom: 2px dashed var(--sand);
+  }
+  .block-head:first-of-type { margin-top: 10px; }
+  .block-head .step {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    display: block;
+  }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--indigo); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .hint { color: var(--deep); font-size: 13px; }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 190px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 260px; }
+  .fill-input:focus { outline: none; border-color: var(--indigo); background: var(--cream); }
+  .fill-input.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--indigo); }
+  .mc-opt.correct { background: var(--mint); border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--coral);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--gold);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--indigo);
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--indigo);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--indigo); }
+  .phrase-box {
+    background: var(--blush);
+    border: 2px dashed var(--coral);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .phrase-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .phrase-box .phrase-list { display: grid; gap: 6px; }
+  .phrase-box .phrase {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    border-left: 3px solid var(--indigo);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid { grid-template-columns: 1fr; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+
+  /* SHUFFLED WORD BANK */
+  .bank-words { display: inline; }
+  .bank-word { display: inline; white-space: nowrap; }
+  .bank-word:not(:last-child)::after { content: " · "; color: var(--gold); opacity: .85; }
+</style>
+</head><body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🎨 TASTE · PLAY · ART · STYLE · B2</div>
+      <h1>Tastes &amp; <span class="accent">Pastimes</span></h1>
+      <div class="sub">The things we eat, the games we play, the art we love and the clothes we wear. Build vocabulary, sharpen grammar, get talking about what makes life enjoyable.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">Teens &amp; Adults</span>
+        <span class="tag">Vocabulary &amp; Collocations</span>
+        <span class="tag">Grammar Focus</span>
+        <span class="tag">Speaking</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Food &amp; Cooking 🍳</button>
+    <button class="tab" data-tab="t2">② Sport &amp; Competition ⚽</button>
+    <button class="tab" data-tab="t3">③ Music &amp; The Arts 🎵</button>
+    <button class="tab" data-tab="t4">④ Fashion &amp; Shopping 👗</button>
+    <button class="tab" data-tab="t5">⑤ Speaking 🎤</button>
+  </nav>
+
+  <!-- 1 · FOOD & COOKING -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">🍳</span>Food &amp; Cooking</h2>
+    <p class="instr">Ingredients, recipes and what's on your plate. Grammar focus: <strong>quantifiers</strong> (some/any, much/many, a few/a little, lots of).</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">a recipe</div><div class="vocab-def">instructions for cooking a dish</div><div class="vocab-ex">"This recipe is my grandmother's."</div></div>
+      <div class="vocab-card"><div class="vocab-term">ingredients</div><div class="vocab-def">the foods you need for a dish</div><div class="vocab-ex">"Lay out all your ingredients first."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to chop / slice / dice</div><div class="vocab-def">to cut into pieces / thin pieces / cubes</div><div class="vocab-ex">"Chop the onions finely."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to whisk / stir / mix</div><div class="vocab-def">to beat / move with a spoon / combine</div><div class="vocab-ex">"Whisk the eggs until light."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to season / seasoning</div><div class="vocab-def">to add salt, pepper or spices</div><div class="vocab-ex">"Season generously with pepper."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to simmer / boil</div><div class="vocab-def">to cook gently / strongly in liquid</div><div class="vocab-ex">"Let the sauce simmer for an hour."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to fry / roast / grill</div><div class="vocab-def">to cook in oil / oven / over heat</div><div class="vocab-ex">"Roast the chicken for 90 minutes."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a pinch / a dash</div><div class="vocab-def">a tiny amount</div><div class="vocab-ex">"Add a pinch of salt."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a tablespoon / teaspoon</div><div class="vocab-def">a large / small measuring spoon</div><div class="vocab-ex">"Two tablespoons of oil."</div></div>
+      <div class="vocab-card"><div class="vocab-term">raw / cooked</div><div class="vocab-def">not cooked / ready to eat</div><div class="vocab-ex">"You can't eat raw chicken."</div></div>
+      <div class="vocab-card"><div class="vocab-term">overcooked / undercooked</div><div class="vocab-def">cooked too long / not enough</div><div class="vocab-ex">"The steak is overcooked."</div></div>
+      <div class="vocab-card"><div class="vocab-term">tasty / delicious / bland</div><div class="vocab-def">has lots of flavour / no flavour</div><div class="vocab-ex">"The soup is a bit bland."</div></div>
+      <div class="vocab-card"><div class="vocab-term">spicy / savoury / sweet</div><div class="vocab-def">hot / salty &amp; not sweet / sugary</div><div class="vocab-ex">"I prefer savoury food."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a dish / a course</div><div class="vocab-def">a prepared food / part of a meal</div><div class="vocab-ex">"My favourite dish is lasagne."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to eat out / takeaway</div><div class="vocab-def">to eat at a restaurant / take home</div><div class="vocab-ex">"We eat out once a week."</div></div>
+      <div class="vocab-card"><div class="vocab-term">leftovers</div><div class="vocab-def">food not eaten that you save</div><div class="vocab-ex">"I had pasta leftovers for lunch."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be starving / peckish</div><div class="vocab-def">very hungry / a little hungry</div><div class="vocab-ex">"I'm absolutely starving!"</div></div>
+      <div class="vocab-card"><div class="vocab-term">mouth-watering</div><div class="vocab-def">looks/smells extremely delicious</div><div class="vocab-ex">"Those cakes look mouth-watering."</div></div>
+      <div class="vocab-card"><div class="vocab-term">comfort food</div><div class="vocab-def">food that makes you feel cosy</div><div class="vocab-ex">"Soup is the perfect comfort food."</div></div>
+      <div class="vocab-card"><div class="vocab-term">home-cooked</div><div class="vocab-def">made at home, not bought</div><div class="vocab-ex">"Nothing beats a home-cooked meal."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m1">
+      <div class="match-col"><h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">a recipe</div>
+        <div class="match-item" data-word="2">ingredients</div>
+        <div class="match-item" data-word="3">to chop</div>
+        <div class="match-item" data-word="4">leftovers</div>
+        <div class="match-item" data-word="5">savoury</div>
+        <div class="match-item" data-word="6">bland</div>
+        <div class="match-item" data-word="7">to simmer</div>
+        <div class="match-item" data-word="8">mouth-watering</div>
+      </div>
+      <div class="match-col"><h3>Meaning</h3>
+        <div class="match-item" data-def="3">to cut into pieces</div>
+        <div class="match-item" data-def="1">instructions for cooking a dish</div>
+        <div class="match-item" data-def="5">salty rather than sweet</div>
+        <div class="match-item" data-def="7">to cook gently in liquid</div>
+        <div class="match-item" data-def="2">the foods needed for a dish</div>
+        <div class="match-item" data-def="8">looking or smelling delicious</div>
+        <div class="match-item" data-def="4">food saved from an earlier meal</div>
+        <div class="match-item" data-def="6">tasting of very little</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m1">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word from the bank. Change the form where necessary.</p>
+    <div class="word-bank"><strong>🍳 WORD BANK 🍳</strong>
+      <span class="bank-words"><span class="bank-word">recipe</span><span class="bank-word">ingredients</span><span class="bank-word">chop</span><span class="bank-word">simmer</span><span class="bank-word">season</span><span class="bank-word">leftovers</span><span class="bank-word">starving</span><span class="bank-word">bland</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>I followed my grandmother's <input class="fill-input" data-answer="recipe"> for apple pie.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>First, lay out all your <input class="fill-input" data-answer="ingredients"> on the counter.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>Could you <input class="fill-input" data-answer="chop"> the onions, please?</p></div>
+      <div class="fill-item"><p><span class="num">04</span>Let the sauce <input class="fill-input" data-answer="simmer"> on low heat for an hour.</p></div>
+      <div class="fill-item"><p><span class="num">05</span>Don't forget to <input class="fill-input" data-answer="season"> the meat before frying.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>I had pasta <input class="fill-input" data-answer="leftovers"> for lunch today.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>I haven't eaten all day — I'm <input class="fill-input" data-answer="starving">!</p></div>
+      <div class="fill-item"><p><span class="num">08</span>This soup needs more salt — it's a bit <input class="fill-input" data-answer="bland">.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q1</span>Food that "tastes of very little" is described as…</div><div class="mc-options">
+        <button class="mc-opt">a) spicy</button><button class="mc-opt">b) mouth-watering</button><button class="mc-opt">c) bland</button><button class="mc-opt">d) savoury</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q2</span>To "simmer" something means to cook it…</div><div class="mc-options">
+        <button class="mc-opt">a) at very high temperature</button><button class="mc-opt">b) gently in liquid</button><button class="mc-opt">c) in oil</button><button class="mc-opt">d) in the oven</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q3</span>If you are "peckish", you are…</div><div class="mc-options">
+        <button class="mc-opt">a) a little hungry</button><button class="mc-opt">b) extremely full</button><button class="mc-opt">c) very thirsty</button><button class="mc-opt">d) feeling sick</button></div></div>
+      <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "How ___ eggs do we need?" </div><div class="mc-options">
+        <button class="mc-opt">a) much</button><button class="mc-opt">b) some</button><button class="mc-opt">c) a little</button><button class="mc-opt">d) many</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "There isn't ___ milk left." (uncountable, negative)</div><div class="mc-options">
+        <button class="mc-opt">a) many</button><button class="mc-opt">b) much</button><button class="mc-opt">c) few</button><button class="mc-opt">d) a few</button></div></div>
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> "Just a ___ of sugar in my tea, please." (small uncountable amount)</div><div class="mc-options">
+        <button class="mc-opt">a) few</button><button class="mc-opt">b) many</button><button class="mc-opt">c) little</button><button class="mc-opt">d) lot</button></div></div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 Quantifiers</h3>
+    <div class="grammar-box"><h4>🍳 How much / how many?</h4>
+      <ul>
+        <li><code>some</code> = positive sentences &amp; polite offers/requests · <code>any</code> = negatives &amp; questions: <em>I have some milk. I don't have any milk. Do you have any?</em></li>
+        <li><code>many</code> = countable (eggs, tomatoes) · <code>much</code> = uncountable (milk, sugar). Both are common in negatives/questions.</li>
+        <li><code>a lot of / lots of</code> = both, mainly positive: <em>lots of tomatoes, lots of salt.</em></li>
+        <li><code>a few</code> = a small positive number (countable) · <code>a little</code> = a small positive amount (uncountable).</li>
+        <li><code>few / little</code> (without <em>a</em>) = almost none — negative feel.</li>
+      </ul>
+      <div class="formula">countable → MANY / A FEW · uncountable → MUCH / A LITTLE</div>
+      <div class="formula">positive → SOME / LOTS OF · negatives &amp; questions → ANY</div>
+    </div>
+    <p class="instr"><strong>Type the correct quantifier.</strong> Read the clue in brackets.</p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>There isn't <input class="fill-input" data-answer="much" data-alt="much|any"> milk left in the fridge. (uncountable, negative)</p></div>
+      <div class="fill-item"><p><span class="num">02</span>How <input class="fill-input" data-answer="many"> eggs do we need for the cake? (countable Q)</p></div>
+      <div class="fill-item"><p><span class="num">03</span>Could you add <input class="fill-input" data-answer="some"> salt, please? (polite request)</p></div>
+      <div class="fill-item"><p><span class="num">04</span>I'd like just a <input class="fill-input" data-answer="little"> sugar in my coffee. (small amount, uncountable)</p></div>
+      <div class="fill-item"><p><span class="num">05</span>We've got <input class="fill-input" data-answer="lots" data-alt="lots|a lot"> of tomatoes — let's make sauce. (a large positive amount)</p></div>
+      <div class="fill-item"><p><span class="num">06</span>There aren't <input class="fill-input" data-answer="many" data-alt="many|any"> apples in the bowl. (countable, negative)</p></div>
+      <div class="fill-item"><p><span class="num">07</span>Add a <input class="fill-input" data-answer="few"> chopped onions to the pan. (small number, countable)</p></div>
+      <div class="fill-item"><p><span class="num">08</span>Is there <input class="fill-input" data-answer="any"> pasta in the cupboard? (Q uncountable)</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- 2 · SPORT & COMPETITION -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">⚽</span>Sport &amp; Competition</h2>
+    <p class="instr">Teams, matches, victories and defeats. Grammar focus: <strong>wish / if only</strong>.</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">to compete / a competitor</div><div class="vocab-def">to take part in a contest</div><div class="vocab-ex">"She competes at national level."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to take part in</div><div class="vocab-def">to participate in</div><div class="vocab-ex">"He took part in the Olympics."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a team / a coach</div><div class="vocab-def">a group of players / their trainer</div><div class="vocab-ex">"The coach gave us a pep talk."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a fan / a supporter</div><div class="vocab-def">someone who follows a team</div><div class="vocab-ex">"He's a lifelong fan."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a referee / an umpire</div><div class="vocab-def">the official who applies the rules</div><div class="vocab-ex">"The referee blew the whistle."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a match / a tournament</div><div class="vocab-def">a single game / a whole event</div><div class="vocab-ex">"The tournament lasts two weeks."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a league / a fixture</div><div class="vocab-def">a competition season / a scheduled game</div><div class="vocab-ex">"The fixture is on Saturday."</div></div>
+      <div class="vocab-card"><div class="vocab-term">the final / a semi-final</div><div class="vocab-def">the last / second-to-last match</div><div class="vocab-ex">"They lost in the semi-final."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to score (a goal)</div><div class="vocab-def">to get a point / goal</div><div class="vocab-ex">"He scored in the last minute."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to take the lead</div><div class="vocab-def">to move into first place</div><div class="vocab-ex">"They took the lead at half time."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to beat / a defeat</div><div class="vocab-def">to win against / a loss</div><div class="vocab-ex">"We beat them three-nil."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to thrash</div><div class="vocab-def">to win by a huge margin</div><div class="vocab-ex">"We thrashed them 6–0."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a draw / to draw</div><div class="vocab-def">a tie / to finish level</div><div class="vocab-ex">"The match ended in a draw."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to qualify for</div><div class="vocab-def">to earn a place in</div><div class="vocab-ex">"They qualified for the World Cup."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be knocked out</div><div class="vocab-def">to be eliminated</div><div class="vocab-ex">"We were knocked out in round one."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a comeback</div><div class="vocab-def">a recovery after losing</div><div class="vocab-ex">"What an incredible comeback!"</div></div>
+      <div class="vocab-card"><div class="vocab-term">a personal best</div><div class="vocab-def">your own top result</div><div class="vocab-ex">"She set a new personal best."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to train / fit</div><div class="vocab-def">to prepare physically / in good shape</div><div class="vocab-ex">"He trains six days a week."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an underdog</div><div class="vocab-def">the team/player expected to lose</div><div class="vocab-ex">"Everyone loves a good underdog story."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a foul / a penalty</div><div class="vocab-def">a rule break / a punishment</div><div class="vocab-ex">"The referee gave a penalty."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m2">
+      <div class="match-col"><h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">to score</div>
+        <div class="match-item" data-word="2">an underdog</div>
+        <div class="match-item" data-word="3">a draw</div>
+        <div class="match-item" data-word="4">a comeback</div>
+        <div class="match-item" data-word="5">a referee</div>
+        <div class="match-item" data-word="6">to beat</div>
+        <div class="match-item" data-word="7">fit</div>
+        <div class="match-item" data-word="8">a tournament</div>
+      </div>
+      <div class="match-col"><h3>Meaning</h3>
+        <div class="match-item" data-def="3">a match that ends with the same score</div>
+        <div class="match-item" data-def="1">to get a goal or a point</div>
+        <div class="match-item" data-def="5">the official who applies the rules</div>
+        <div class="match-item" data-def="7">in good physical shape</div>
+        <div class="match-item" data-def="2">a team/player expected to lose</div>
+        <div class="match-item" data-def="8">a competition with many matches</div>
+        <div class="match-item" data-def="4">a recovery from a losing position</div>
+        <div class="match-item" data-def="6">to win against another team or player</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m2">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word from the bank. Change the form where necessary.</p>
+    <div class="word-bank"><strong>⚽ WORD BANK ⚽</strong>
+      <span class="bank-words"><span class="bank-word">score</span><span class="bank-word">referee</span><span class="bank-word">fans</span><span class="bank-word">comeback</span><span class="bank-word">beat</span><span class="bank-word">tournament</span><span class="bank-word">qualify</span><span class="bank-word">defeat</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>He managed to <input class="fill-input" data-answer="score"> in the last minute of the match.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>The <input class="fill-input" data-answer="referee"> blew the whistle for half time.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>Thousands of <input class="fill-input" data-answer="fans"> filled the stadium.</p></div>
+      <div class="fill-item"><p><span class="num">04</span>Down 2–0, the team made an amazing <input class="fill-input" data-answer="comeback"> to win 3–2.</p></div>
+      <div class="fill-item"><p><span class="num">05</span>We <input class="fill-input" data-answer="beat"> them three-nil in the final.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>The <input class="fill-input" data-answer="tournament"> lasts two weeks.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>If we win on Sunday, we'll <input class="fill-input" data-answer="qualify"> for the next round.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>It was a disappointing <input class="fill-input" data-answer="defeat"> for the home team.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q1</span>To "thrash" the other team is to…</div><div class="mc-options">
+        <button class="mc-opt">a) draw with them</button><button class="mc-opt">b) lose narrowly</button><button class="mc-opt">c) beat them by a big margin</button><button class="mc-opt">d) be knocked out by them</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q2</span>"A personal best" is…</div><div class="mc-options">
+        <button class="mc-opt">a) the best team result ever</button><button class="mc-opt">b) your own best result so far</button><button class="mc-opt">c) the world record</button><button class="mc-opt">d) a type of medal</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q3</span>An "underdog" is…</div><div class="mc-options">
+        <button class="mc-opt">a) the team expected to lose</button><button class="mc-opt">b) the champion team</button><button class="mc-opt">c) the team captain</button><button class="mc-opt">d) the official referee</button></div></div>
+      <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "I wish I ___ taller!" (unreal present)</div><div class="mc-options">
+        <button class="mc-opt">a) am</button><button class="mc-opt">b) will be</button><button class="mc-opt">c) had been</button><button class="mc-opt">d) were</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "If only I ___ harder before the final!" (regret about the past)</div><div class="mc-options">
+        <button class="mc-opt">a) trained</button><button class="mc-opt">b) had trained</button><button class="mc-opt">c) would train</button><button class="mc-opt">d) train</button></div></div>
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> "I wish you ___ shouting at the ref!" (annoyance)</div><div class="mc-options">
+        <button class="mc-opt">a) stopped</button><button class="mc-opt">b) had stopped</button><button class="mc-opt">c) would stop</button><button class="mc-opt">d) will stop</button></div></div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 wish / if only</h3>
+    <div class="grammar-box"><h4>⚽ Three patterns for regrets and dreams</h4>
+      <ul>
+        <li><code>wish + past simple</code> = wish about <strong>now</strong> (unreal present): <em>I wish I were taller. I wish I had more time.</em></li>
+        <li><code>wish + past perfect</code> = <strong>regret about the past</strong>: <em>I wish I had trained harder before the final.</em></li>
+        <li><code>wish + would</code> = <strong>annoyance</strong> / want someone else to change: <em>I wish you would stop shouting!</em></li>
+        <li><code>if only</code> works the same way as <code>wish</code>, only more emphatic.</li>
+        <li>Use <code>were</code> for all persons after <em>wish/if only</em>: <em>I wish I were…</em></li>
+      </ul>
+      <div class="formula">unreal NOW → wish + past simple (were / knew / had)</div>
+      <div class="formula">regret PAST → wish + had + p.p. · annoyance → wish + would</div>
+    </div>
+    <p class="instr"><strong>Put the verb in brackets into the correct form.</strong></p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>I wish I <input class="fill-input" data-answer="were" data-alt="were|was"> taller. (unreal present — be)</p></div>
+      <div class="fill-item"><p><span class="num">02</span>If only I <input class="fill-input wide" data-answer="had trained"> harder before the final! (past regret — train) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">03</span>He wishes he <input class="fill-input wide" data-answer="hadn't lost" data-alt="hadn't lost|had not lost"> the match. (past regret — not / lose) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">04</span>I wish you <input class="fill-input wide" data-answer="would stop"> shouting at the referee! (annoyance — stop) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>She wishes she <input class="fill-input" data-answer="knew"> how to swim. (unreal present — know)</p></div>
+      <div class="fill-item"><p><span class="num">06</span>If only the team <input class="fill-input wide" data-answer="had scored"> one more goal! (past regret — score) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">07</span>I wish I <input class="fill-input" data-answer="could"> run as fast as him. (unreal present — can)</p></div>
+      <div class="fill-item"><p><span class="num">08</span>They wish they <input class="fill-input wide" data-answer="had qualified"> for the final. (past regret — qualify) <span class="hint">(2 words)</span></p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- 3 · MUSIC & THE ARTS -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">🎵</span>Music &amp; The Arts</h2>
+    <p class="instr">Concerts, albums, galleries and the people who make them. Grammar focus: <strong>linking words</strong> (contrast, reason, purpose, result).</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">a genre</div><div class="vocab-def">a category of music or art</div><div class="vocab-ex">"My favourite genre is jazz."</div></div>
+      <div class="vocab-card"><div class="vocab-term">live music / a gig</div><div class="vocab-def">music played in person / a concert</div><div class="vocab-ex">"There's a gig tonight."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a concert / a venue</div><div class="vocab-def">a live show / the place it happens</div><div class="vocab-ex">"The venue holds 2,000 people."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an album / a track</div><div class="vocab-def">a collection of songs / one song</div><div class="vocab-ex">"My favourite track is the last one."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to release / a release</div><div class="vocab-def">to make available to the public</div><div class="vocab-ex">"They released a new single."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to perform / a performance</div><div class="vocab-def">to play in public / a show</div><div class="vocab-ex">"Her performance was electric."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an audience / a crowd</div><div class="vocab-def">the people watching</div><div class="vocab-ex">"The audience cheered loudly."</div></div>
+      <div class="vocab-card"><div class="vocab-term">catchy</div><div class="vocab-def">easy to remember (of a tune)</div><div class="vocab-ex">"That chorus is so catchy!"</div></div>
+      <div class="vocab-card"><div class="vocab-term">a band / a solo artist</div><div class="vocab-def">a group / a single performer</div><div class="vocab-ex">"He started as a solo artist."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to go on tour</div><div class="vocab-def">to travel and perform in many cities</div><div class="vocab-ex">"The band is going on tour."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be into (music)</div><div class="vocab-def">to be very interested in</div><div class="vocab-ex">"She's really into indie rock."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a hit / a flop</div><div class="vocab-def">a big success / a failure</div><div class="vocab-ex">"The song was a massive hit."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a streaming service</div><div class="vocab-def">an app for music or video online</div><div class="vocab-ex">"I listen on a streaming service."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a soundtrack</div><div class="vocab-def">the music in a film</div><div class="vocab-ex">"The soundtrack is incredible."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a masterpiece</div><div class="vocab-def">an outstanding work of art</div><div class="vocab-ex">"That painting is a masterpiece."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an exhibition / a gallery</div><div class="vocab-def">an art show / where art is shown</div><div class="vocab-ex">"The exhibition opens on Friday."</div></div>
+      <div class="vocab-card"><div class="vocab-term">contemporary / classical</div><div class="vocab-def">modern / traditional &amp; old</div><div class="vocab-ex">"I prefer contemporary art."</div></div>
+      <div class="vocab-card"><div class="vocab-term">talented / gifted</div><div class="vocab-def">with great natural ability</div><div class="vocab-ex">"She's an incredibly talented singer."</div></div>
+      <div class="vocab-card"><div class="vocab-term">overrated / underrated</div><div class="vocab-def">praised too much / not enough</div><div class="vocab-ex">"I think that album is overrated."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a cover (version)</div><div class="vocab-def">a new version of an old song</div><div class="vocab-ex">"It's just a cover of a 70s hit."</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m3">
+      <div class="match-col"><h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">a genre</div>
+        <div class="match-item" data-word="2">catchy</div>
+        <div class="match-item" data-word="3">a gig</div>
+        <div class="match-item" data-word="4">an audience</div>
+        <div class="match-item" data-word="5">a masterpiece</div>
+        <div class="match-item" data-word="6">contemporary</div>
+        <div class="match-item" data-word="7">overrated</div>
+        <div class="match-item" data-word="8">an exhibition</div>
+      </div>
+      <div class="match-col"><h3>Meaning</h3>
+        <div class="match-item" data-def="3">a live music show</div>
+        <div class="match-item" data-def="1">a category of music or art</div>
+        <div class="match-item" data-def="5">an outstanding work of art</div>
+        <div class="match-item" data-def="7">praised more than it deserves</div>
+        <div class="match-item" data-def="2">easy to remember after one listen</div>
+        <div class="match-item" data-def="8">a show of works in a gallery</div>
+        <div class="match-item" data-def="4">the people watching a performance</div>
+        <div class="match-item" data-def="6">modern, from the present time</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m3">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word from the bank. Change the form where necessary.</p>
+    <div class="word-bank"><strong>🎵 WORD BANK 🎵</strong>
+      <span class="bank-words"><span class="bank-word">gig</span><span class="bank-word">album</span><span class="bank-word">audience</span><span class="bank-word">catchy</span><span class="bank-word">masterpiece</span><span class="bank-word">performance</span><span class="bank-word">exhibition</span><span class="bank-word">talented</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>We're going to a <input class="fill-input" data-answer="gig"> at a small club tonight.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>The band released their fifth <input class="fill-input" data-answer="album"> last week.</p></div>
+      <div class="fill-item"><p><span class="num">03</span>The <input class="fill-input" data-answer="audience"> cheered after every song.</p></div>
+      <div class="fill-item"><p><span class="num">04</span>The chorus is so <input class="fill-input" data-answer="catchy"> — I can't stop singing it.</p></div>
+      <div class="fill-item"><p><span class="num">05</span>That painting is considered a <input class="fill-input" data-answer="masterpiece">.</p></div>
+      <div class="fill-item"><p><span class="num">06</span>Her live <input class="fill-input" data-answer="performance"> blew everyone away.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>The <input class="fill-input" data-answer="exhibition"> at the gallery closes on Sunday.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>He's an incredibly <input class="fill-input" data-answer="talented"> young pianist.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q1</span>A song that is "underrated" is one that…</div><div class="mc-options">
+        <button class="mc-opt">a) gets too much attention</button><button class="mc-opt">b) deserves more attention than it gets</button><button class="mc-opt">c) was never released</button><button class="mc-opt">d) is hard to remember</button></div></div>
+      <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q2</span>A "cover" is…</div><div class="mc-options">
+        <button class="mc-opt">a) the lyrics of a song</button><button class="mc-opt">b) a music video</button><button class="mc-opt">c) the album packaging</button><button class="mc-opt">d) a new version of an existing song</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q3</span>If a band "goes on tour", they…</div><div class="mc-options">
+        <button class="mc-opt">a) travel and perform in many cities</button><button class="mc-opt">b) record a new album</button><button class="mc-opt">c) take a long holiday</button><button class="mc-opt">d) break up</button></div></div>
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "___ the venue was small, the concert was amazing." (contrast)</div><div class="mc-options">
+        <button class="mc-opt">a) Because</button><button class="mc-opt">b) So</button><button class="mc-opt">c) Although</button><button class="mc-opt">d) Due to</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "We enjoyed the gig ___ the bad sound." (contrast + noun)</div><div class="mc-options">
+        <button class="mc-opt">a) although</button><button class="mc-opt">b) despite</button><button class="mc-opt">c) because</button><button class="mc-opt">d) so</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> "The exhibition closed early ___ the heavy rain." (reason + noun)</div><div class="mc-options">
+        <button class="mc-opt">a) because of</button><button class="mc-opt">b) because</button><button class="mc-opt">c) although</button><button class="mc-opt">d) so that</button></div></div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 Linking words</h3>
+    <div class="grammar-box"><h4>🎵 Joining ideas: contrast · reason · purpose · result</h4>
+      <ul>
+        <li><strong>Contrast + clause:</strong> <code>although, even though, though, while, whereas</code> → <em>Although it was raining, we went.</em></li>
+        <li><strong>Contrast + noun / -ing:</strong> <code>despite, in spite of</code> → <em>Despite the rain, we went.</em></li>
+        <li><strong>Reason + clause:</strong> <code>because, since, as</code> · <strong>+ noun:</strong> <code>because of, due to</code>.</li>
+        <li><strong>Purpose:</strong> <code>to / in order to / so as to + verb</code> · <code>so that + clause</code> → <em>I trained hard so that I could win.</em></li>
+        <li><strong>Result:</strong> <code>so, therefore, as a result</code> → <em>It was loud, so we left.</em></li>
+      </ul>
+      <div class="formula">contrast + clause → ALTHOUGH · contrast + noun → DESPITE</div>
+      <div class="formula">reason + noun → BECAUSE OF · purpose → IN ORDER TO / SO THAT</div>
+    </div>
+    <p class="instr"><strong>Complete each sentence with the correct linking word.</strong></p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span><input class="fill-input" data-answer="Although" data-alt="Although|Even though|Though"> the venue was small, the concert was amazing. (contrast + clause)</p></div>
+      <div class="fill-item"><p><span class="num">02</span>We enjoyed the gig <input class="fill-input" data-answer="despite" data-alt="despite|in spite of"> the bad sound. (contrast + noun)</p></div>
+      <div class="fill-item"><p><span class="num">03</span>She practises every day <input class="fill-input wide" data-answer="in order" data-alt="in order|so as"> to improve her singing. (purpose) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">04</span>The exhibition closed early <input class="fill-input wide" data-answer="because of" data-alt="because of|due to"> the heavy rain. (reason + noun) <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">05</span>The band cancelled the tour, <input class="fill-input" data-answer="so" data-alt="so|therefore"> thousands of fans were upset. (result)</p></div>
+      <div class="fill-item"><p><span class="num">06</span><input class="fill-input" data-answer="Although" data-alt="Although|Even though|Though"> she had a sore throat, she gave a great performance. (contrast + clause)</p></div>
+      <div class="fill-item"><p><span class="num">07</span>He turned the music down <input class="fill-input" data-answer="so"> that the neighbours wouldn't complain. (purpose + clause)</p></div>
+      <div class="fill-item"><p><span class="num">08</span><input class="fill-input" data-answer="Despite" data-alt="Despite|In spite of"> being a beginner, she played beautifully. (contrast + -ing)</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- 4 · FASHION & SHOPPING -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">👗</span>Fashion &amp; Shopping</h2>
+    <p class="instr">Trends, sales and how we put outfits together. Grammar focus: the <strong>causative</strong> (have / get something done).</p>
+
+    <h3 class="block-head"><span class="step">STEP 01 · KEY VOCABULARY</span>📚 Vocabulary &amp; collocations</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">a trend / trendy</div><div class="vocab-def">a popular style / fashionable</div><div class="vocab-ex">"Big bags are the latest trend."</div></div>
+      <div class="vocab-card"><div class="vocab-term">old-fashioned</div><div class="vocab-def">out of date</div><div class="vocab-ex">"That jacket looks old-fashioned."</div></div>
+      <div class="vocab-card"><div class="vocab-term">in / out of fashion</div><div class="vocab-def">currently popular / no longer</div><div class="vocab-ex">"Flared jeans are in fashion again."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a brand / designer</div><div class="vocab-def">a label / a famous fashion creator</div><div class="vocab-ex">"It's a luxury designer brand."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a high street brand</div><div class="vocab-def">an everyday, affordable label</div><div class="vocab-ex">"I shop at high street brands."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a bargain</div><div class="vocab-def">something bought cheaply</div><div class="vocab-ex">"This top was a real bargain."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a sale / on sale</div><div class="vocab-def">a period of reduced prices</div><div class="vocab-ex">"Everything is on sale this week."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to try on</div><div class="vocab-def">to put on clothes to test the fit</div><div class="vocab-ex">"Try them on before you buy."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to fit / to suit</div><div class="vocab-def">to be the right size / to look good on</div><div class="vocab-ex">"That colour really suits you."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a refund</div><div class="vocab-def">money returned when you bring an item back</div><div class="vocab-ex">"Can I get a refund, please?"</div></div>
+      <div class="vocab-card"><div class="vocab-term">to return / a receipt</div><div class="vocab-def">to bring back / the printed proof</div><div class="vocab-ex">"Keep the receipt to return it."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to shop online</div><div class="vocab-def">to buy things on the internet</div><div class="vocab-ex">"I shop online for almost everything."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a wardrobe</div><div class="vocab-def">all your clothes / a clothes cupboard</div><div class="vocab-ex">"I need a whole new wardrobe."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an outfit</div><div class="vocab-def">a complete set of clothes</div><div class="vocab-ex">"That's a great outfit!"</div></div>
+      <div class="vocab-card"><div class="vocab-term">accessories</div><div class="vocab-def">extras like belts, bags, jewellery</div><div class="vocab-ex">"Finish the look with accessories."</div></div>
+      <div class="vocab-card"><div class="vocab-term">window-shopping</div><div class="vocab-def">looking at shops without buying</div><div class="vocab-ex">"We just did some window-shopping."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a fitting room</div><div class="vocab-def">a small room for trying clothes</div><div class="vocab-ex">"The fitting room is over there."</div></div>
+      <div class="vocab-card"><div class="vocab-term">second-hand / vintage</div><div class="vocab-def">used / from another era, often valued</div><div class="vocab-ex">"I love vintage shops."</div></div>
+      <div class="vocab-card"><div class="vocab-term">fast fashion</div><div class="vocab-def">cheap clothing made very quickly</div><div class="vocab-ex">"Fast fashion harms the planet."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to dress up / dress down</div><div class="vocab-def">to wear smart / casual clothes</div><div class="vocab-ex">"Should I dress up for dinner?"</div></div>
+    </div>
+
+    <h3 class="block-head"><span class="step">STEP 02 · MATCHING</span>🔗 Match the word with its meaning</h3>
+    <p class="instr">Click a word on the left, then its meaning on the right.</p>
+    <div class="match-grid" data-score="m4">
+      <div class="match-col"><h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">a trend</div>
+        <div class="match-item" data-word="2">old-fashioned</div>
+        <div class="match-item" data-word="3">to try on</div>
+        <div class="match-item" data-word="4">a refund</div>
+        <div class="match-item" data-word="5">an outfit</div>
+        <div class="match-item" data-word="6">a bargain</div>
+        <div class="match-item" data-word="7">second-hand</div>
+        <div class="match-item" data-word="8">fast fashion</div>
+      </div>
+      <div class="match-col"><h3>Meaning</h3>
+        <div class="match-item" data-def="3">to put on clothes to check the fit</div>
+        <div class="match-item" data-def="1">a current popular style</div>
+        <div class="match-item" data-def="5">a complete set of clothes</div>
+        <div class="match-item" data-def="7">previously owned by someone else</div>
+        <div class="match-item" data-def="2">no longer in style</div>
+        <div class="match-item" data-def="8">cheap clothes produced very quickly</div>
+        <div class="match-item" data-def="4">money returned when you bring something back</div>
+        <div class="match-item" data-def="6">something bought at a low price</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;"><span class="score" id="m4">0 / 8</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 03 · FILL THE GAPS</span>✏️ Complete the sentences</h3>
+    <p class="instr">Use a word from the bank. Change the form where necessary.</p>
+    <div class="word-bank"><strong>👗 WORD BANK 👗</strong>
+      <span class="bank-words"><span class="bank-word">trendy</span><span class="bank-word">try on</span><span class="bank-word">refund</span><span class="bank-word">outfit</span><span class="bank-word">bargain</span><span class="bank-word">sale</span><span class="bank-word">brand</span><span class="bank-word">second-hand</span></span>
+    </div>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>That café is really <input class="fill-input" data-answer="trendy"> at the moment.</p></div>
+      <div class="fill-item"><p><span class="num">02</span>Can I <input class="fill-input wide" data-answer="try on"> these jeans? <span class="hint">(2 words)</span></p></div>
+      <div class="fill-item"><p><span class="num">03</span>The dress didn't fit, so I asked for a <input class="fill-input" data-answer="refund">.</p></div>
+      <div class="fill-item"><p><span class="num">04</span>She wore a stunning <input class="fill-input" data-answer="outfit"> to the wedding.</p></div>
+      <div class="fill-item"><p><span class="num">05</span>These shoes were €20 — what a <input class="fill-input" data-answer="bargain">!</p></div>
+      <div class="fill-item"><p><span class="num">06</span>The summer <input class="fill-input" data-answer="sale"> starts on Monday.</p></div>
+      <div class="fill-item"><p><span class="num">07</span>I prefer high street <input class="fill-input" data-answer="brand"> names to designer labels.</p></div>
+      <div class="fill-item"><p><span class="num">08</span>I bought this jacket in a <input class="fill-input" data-answer="second-hand" data-alt="second-hand|second hand"> shop.</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check answers</button>
+    <span class="score">— / 8</span>
+
+    <h3 class="block-head"><span class="step">STEP 04 · MULTIPLE CHOICE</span>🎯 Choose the best option</h3>
+    <p class="instr">Click the answer that fits best.</p>
+    <div class="mc-set" data-total="6">
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q1</span>If a colour "suits" you, it…</div><div class="mc-options">
+        <button class="mc-opt">a) is the right size for you</button><button class="mc-opt">b) looks good on you</button><button class="mc-opt">c) is too expensive</button><button class="mc-opt">d) is out of fashion</button></div></div>
+      <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q2</span>"Window-shopping" means…</div><div class="mc-options">
+        <button class="mc-opt">a) shopping for windows</button><button class="mc-opt">b) shopping online</button><button class="mc-opt">c) returning items</button><button class="mc-opt">d) looking at shops without buying</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q3</span>"Fast fashion" is criticised because it…</div><div class="mc-options">
+        <button class="mc-opt">a) is cheap, throwaway and harms the planet</button><button class="mc-opt">b) lasts for decades</button><button class="mc-opt">c) only uses natural materials</button><button class="mc-opt">d) is impossible to buy online</button></div></div>
+      <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q4</span><strong>Grammar:</strong> "I'm having my dress ___ for the wedding." (causative)</div><div class="mc-options">
+        <button class="mc-opt">a) alter</button><button class="mc-opt">b) altering</button><button class="mc-opt">c) altered</button><button class="mc-opt">d) to alter</button></div></div>
+      <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q5</span><strong>Grammar:</strong> "She had her hair ___ yesterday." (someone cut it for her)</div><div class="mc-options">
+        <button class="mc-opt">a) cutting</button><button class="mc-opt">b) cut</button><button class="mc-opt">c) to cut</button><button class="mc-opt">d) cuts</button></div></div>
+      <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q6</span><strong>Grammar:</strong> Which sentence is correct?</div><div class="mc-options">
+        <button class="mc-opt">a) We're getting our windows cleaned tomorrow.</button><button class="mc-opt">b) We're getting clean our windows tomorrow.</button><button class="mc-opt">c) We're getting clean tomorrow our windows.</button><button class="mc-opt">d) We're getting our windows to clean tomorrow.</button></div></div>
+    </div>
+    <div style="margin-top:6px;"><span class="score">0 / 6</span></div>
+
+    <h3 class="block-head"><span class="step">STEP 05 · GRAMMAR FOCUS</span>📝 The causative — have / get something done</h3>
+    <div class="grammar-box"><h4>👗 When someone else does it for you</h4>
+      <ul>
+        <li>Use it when you <strong>arrange for someone else</strong> to do a job for you.</li>
+        <li>Form: <code>subject + have / get + object + past participle</code>.</li>
+        <li><em>I cut my hair.</em> = I did it myself. <em>I had my hair cut.</em> = the hairdresser did it.</li>
+        <li><code>get</code> is a bit more informal than <code>have</code>: <em>I'm getting my car washed.</em></li>
+        <li>Works in any tense: <em>had it done, will have it done, am having it done.</em></li>
+      </ul>
+      <div class="formula">HAVE / GET + object + past participle</div>
+      <div class="formula">I had my dress ALTERED · We're getting the car FIXED</div>
+    </div>
+    <p class="instr"><strong>Put the verb in brackets into the correct form</strong> for the causative.</p>
+    <div class="fill-set" data-total="8">
+      <div class="fill-item"><p><span class="num">01</span>I'm having my dress <input class="fill-input" data-answer="altered"> for the wedding. (alter)</p></div>
+      <div class="fill-item"><p><span class="num">02</span>She had her hair <input class="fill-input" data-answer="cut"> yesterday. (cut)</p></div>
+      <div class="fill-item"><p><span class="num">03</span>We're getting our windows <input class="fill-input" data-answer="cleaned"> tomorrow. (clean)</p></div>
+      <div class="fill-item"><p><span class="num">04</span>He had a custom suit <input class="fill-input" data-answer="made"> for the interview. (make)</p></div>
+      <div class="fill-item"><p><span class="num">05</span>You should get your watch <input class="fill-input" data-answer="repaired"> — it's broken. (repair)</p></div>
+      <div class="fill-item"><p><span class="num">06</span>They have their family photos <input class="fill-input" data-answer="taken"> every year. (take)</p></div>
+      <div class="fill-item"><p><span class="num">07</span>I'm having my nails <input class="fill-input" data-answer="done"> before the party. (do)</p></div>
+      <div class="fill-item"><p><span class="num">08</span>We had our shopping <input class="fill-input" data-answer="delivered"> straight to the house. (deliver)</p></div>
+    </div>
+    <button class="check-btn" onclick="checkFill(this)">✓ Check grammar</button>
+    <span class="score">— / 8</span>
+  </section>
+
+  <!-- 5 · SPEAKING -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking — all four topics</h2>
+    <p class="instr">Speak <strong>1–2 minutes</strong> per question. Try to use at least <strong>3 words or phrases</strong> from the topic in each answer.</p>
+
+    <div class="phrase-box"><h4>💬 Useful phrases for any topic</h4>
+      <div class="phrase-list">
+        <div class="phrase"><strong>Opinion:</strong> "Personally, I'd say…" / "If I'm honest…"</div>
+        <div class="phrase"><strong>Agreeing / disagreeing:</strong> "Spot on." / "I see it differently — …"</div>
+        <div class="phrase"><strong>Examples:</strong> "Take… for example." / "A perfect example is…"</div>
+        <div class="phrase"><strong>Comparing:</strong> "Whereas X is…, Y is…" / "Compared to…, …"</div>
+        <div class="phrase"><strong>Wishing &amp; regretting:</strong> "I really wish I had…" / "If only I could…"</div>
+      </div>
+    </div>
+
+    <div class="speak-card"><div class="speak-num">◆ FOOD · TASK 01</div><div class="speak-prompt">Are you a confident cook? Describe a dish you make really well — what's in it and how do you prepare it?</div><div class="speak-help"><strong>Try to use:</strong> a recipe · ingredients · to chop · to simmer · to season · home-cooked</div></div>
+    <div class="speak-card"><div class="speak-num">◆ FOOD · TASK 02</div><div class="speak-prompt">Do you prefer eating out or eating in? Is fast food a problem in your country?</div><div class="speak-help"><strong>Try to use:</strong> to eat out · a takeaway · comfort food · mouth-watering · bland · a balanced meal</div></div>
+
+    <div class="speak-card"><div class="speak-num">◆ SPORT · TASK 03</div><div class="speak-prompt">Which sport do you follow or play? Describe a recent match or competition you watched.</div><div class="speak-help"><strong>Try to use:</strong> a team · to score · a comeback · to beat · a referee · a fan</div></div>
+    <div class="speak-card"><div class="speak-num">◆ SPORT · TASK 04</div><div class="speak-prompt">Talk about a sporting moment you'd love to change. (Use <em>wish / if only</em>!)</div><div class="speak-help"><strong>Try to use:</strong> "I wish I had…" · "If only the team had…" · a defeat · to qualify · to train · a personal best</div></div>
+
+    <div class="speak-card"><div class="speak-num">◆ MUSIC · TASK 05</div><div class="speak-prompt">Describe the best live music experience you've ever had — or one you'd love to have.</div><div class="speak-help"><strong>Try to use:</strong> a gig · a venue · a performance · catchy · an audience · talented</div></div>
+    <div class="speak-card"><div class="speak-num">◆ ART · TASK 06</div><div class="speak-prompt">Is some modern art really art, in your opinion? Talk about a piece you love or hate — and use <em>although / despite / because of</em>.</div><div class="speak-help"><strong>Try to use:</strong> a masterpiece · contemporary · overrated · an exhibition · "Although…" · "Despite…"</div></div>
+
+    <div class="speak-card"><div class="speak-num">◆ FASHION · TASK 07</div><div class="speak-prompt">How would you describe your style? Do you follow trends or do your own thing?</div><div class="speak-help"><strong>Try to use:</strong> a trend · trendy · an outfit · to suit · accessories · to dress up</div></div>
+    <div class="speak-card"><div class="speak-num">◆ SHOPPING · TASK 08</div><div class="speak-prompt">Online shopping vs the high street — which do you prefer, and why? What do you think about fast fashion?</div><div class="speak-help"><strong>Try to use:</strong> to shop online · a high street brand · a bargain · a refund · fast fashion · second-hand</div></div>
+
+    <div class="speak-card"><div class="speak-num">◆ CONNECT THE TOPICS · TASK 09</div><div class="speak-prompt">"What we eat, listen to and wear says everything about who we are." Agree or disagree, using two of today's topics.</div><div class="speak-help"><strong>Try to use:</strong> a genre · an outfit · home-cooked · a brand · "Despite…" · "Although…"</div></div>
+
+    <div class="speak-card"><div class="speak-num">◆ QUICK-FIRE · TASK 10 · 30 SECONDS EACH</div><div class="speak-prompt">No planning — just talk!</div><div class="speak-help">
+        ▸ The dish you couldn't live without.<br>
+        ▸ The sporting moment you'd love to relive — or undo.<br>
+        ▸ A song that's been stuck in your head this week.<br>
+        ▸ The last thing you bought and regretted.<br>
+        ▸ Complete: "If only I had had my hair cut before…"
+      </div></div>
+  </section>
+
+  <footer>🎨 ★ ★ &nbsp; TASTES &amp; PASTIMES · B2 ENGLISH · FOOD · SPORT · MUSIC · FASHION &nbsp; ★ ★ 🎨</footer>
+</div>
+<script>
+  // ---------- SHUFFLE WORD BANKS (so order never hints at answers) ----------
+  document.querySelectorAll('.bank-words').forEach(c => {
+    const words = Array.from(c.children);
+    for (let i = words.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [words[i], words[j]] = [words[j], words[i]];
+    }
+    words.forEach(w => c.appendChild(w));
+  });
+
+  // ---------- TABS ----------
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // ---------- MATCHING (works for every .match-grid independently) ----------
+  document.querySelectorAll('.match-grid').forEach(grid => {
+    let selected = null;
+    let matched = 0;
+    const total = grid.querySelectorAll('[data-word]').length;
+    const scoreEl = document.getElementById(grid.dataset.score);
+    grid.querySelectorAll('.match-item').forEach(item => {
+      item.addEventListener('click', () => {
+        if (item.classList.contains('matched')) return;
+        if (item.dataset.word) {
+          grid.querySelectorAll('[data-word]').forEach(w => w.classList.remove('selected'));
+          item.classList.add('selected');
+          selected = item;
+        } else if (item.dataset.def && selected) {
+          if (selected.dataset.word === item.dataset.def) {
+            selected.classList.remove('selected');
+            selected.classList.add('matched');
+            item.classList.add('matched');
+            matched++;
+            scoreEl.textContent = matched + ' / ' + total;
+            if (matched === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+            selected = null;
+          } else {
+            item.classList.add('wrong');
+            setTimeout(() => item.classList.remove('wrong'), 450);
+          }
+        }
+      });
+    });
+  });
+
+  // ---------- FILL / GRAMMAR CHECK (generic) ----------
+  // The check button sits right after a .fill-set, followed by a .score span.
+  function checkFill(btn) {
+    const set = btn.previousElementSibling; // the .fill-set
+    const scoreEl = btn.nextElementSibling;  // the .score span
+    const inputs = set.querySelectorAll('.fill-input');
+    let correct = 0;
+    inputs.forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const alts = input.dataset.alt ? input.dataset.alt.toLowerCase().split('|').map(s => s.trim()) : [ans];
+      const valid = alts.includes(ans) ? alts : [ans, ...alts];
+      const val = input.value.toLowerCase().trim().replace(/\s+/g, ' ');
+      input.classList.remove('correct', 'wrong');
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    const total = inputs.length;
+    scoreEl.textContent = correct + ' / ' + total;
+    if (correct === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+  }
+
+  // ---------- MULTIPLE CHOICE (generic, per .mc-set) ----------
+  document.querySelectorAll('.mc-set').forEach(set => {
+    let score = 0;
+    const total = set.querySelectorAll('.mc-item').length;
+    const scoreEl = set.nextElementSibling.querySelector('.score');
+    set.querySelectorAll('.mc-item').forEach(item => {
+      const correct = item.dataset.correct;
+      const opts = item.querySelectorAll('.mc-opt');
+      opts.forEach((opt, i) => {
+        const letter = ['a', 'b', 'c', 'd'][i];
+        opt.addEventListener('click', () => {
+          if (opt.disabled) return;
+          opts.forEach(o => o.disabled = true);
+          if (letter === correct) {
+            opt.classList.add('correct');
+            score++;
+          } else {
+            opt.classList.add('wrong');
+            opts.forEach((o, j) => { if (['a', 'b', 'c', 'd'][j] === correct) o.classList.add('correct'); });
+          }
+          scoreEl.textContent = score + ' / ' + total;
+          if (score === total) scoreEl.textContent = '★ ' + total + ' / ' + total + ' ★';
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>
