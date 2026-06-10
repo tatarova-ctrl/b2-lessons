@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Run the Room — Business English Speaking Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"👑";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">💎 BUSINESS ENGLISH · B2–C1 · OWN THE ROOM</div>
+      <h1>Run the <span class="accent">Room</span></h1>
+      <div class="sub">Four conversations that decide who actually leads, sells, delivers and persuades — told through real human stories, not theory. Read the ~400-word column, steal the vocabulary and idioms, then run the room yourself.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2–C1</span>
+        <span class="tag">READING ~400 WORDS</span>
+        <span class="tag">VOCAB + IDIOMS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">68 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Leadership 👑</button>
+    <button class="tab" data-tab="t2">② Pricing 💸</button>
+    <button class="tab" data-tab="t3">③ Projects 📈</button>
+    <button class="tab" data-tab="t4">④ Pitches 🎤</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">👑</span>Leadership &amp; Management</h2>
+<p class="instr">What the best managers do differently. Target language is in <b>gold</b>; idioms come later.</p>
+<article class="reading">
+<h3>The Manager Who Said ‘I Don’t Know’</h3>
+<div class="byline">★ David Okonkwo · Leadership coach · Management column</div>
+<p>For years, I believed a good manager was someone with all the answers — the boss who could solve any problem, predict any outcome, and never look uncertain. Then a quiet team leader named Priya completely changed my mind.</p>
+<p>In a tense meeting, a junior engineer asked her a brutally hard question. Everyone expected her to <b>bluff her way through</b> it — that’s what managers do, right? Instead she paused and said four words I’ll never forget: <em>“I don’t know. Let’s find out.”</em> The room relaxed. People started talking. Within twenty minutes the team had cracked a problem that had been stuck for weeks.</p>
+<p>That moment captures something the best leaders grasp instinctively: <b>psychological safety</b> — the feeling that you won’t be punished for speaking up — is the single biggest driver of team performance. When people aren’t afraid to ask questions or admit mistakes, they take smart risks. When they are afraid, they go quiet, and good ideas die in silence.</p>
+<div class="pull-quote">“The best managers don’t have the loudest voice. They build the room where every other voice feels safe to speak.”</div>
+<p>Here’s the uncomfortable truth for new managers: your instinct is to <b>micromanage</b>. You hover, you check, you take the work back the moment it isn’t done your way. It feels responsible, but it quietly tells your team <em>I don’t trust you</em>. Great managers do the opposite — they <b>delegate</b> real responsibility and then <b>step back</b>, even when it’s hard to watch.</p>
+<p>The second habit is <b>radical candour</b>: caring about people personally while challenging them directly. Weak managers soften feedback until it means nothing — “great job, maybe tweak a few things.” Strong ones are kind and clear at once: “This isn’t ready yet, and I know you can get it there. Here’s what’s missing.” People can handle the truth. What they can’t handle is not knowing where they stand.</p>
+<p>Finally, the rarest skill of all: when things go wrong, great managers <b>take ownership</b> instead of <b>pointing fingers</b>. And when things go right, they <b>give credit</b> to the team. They <b>lead by example</b> rather than by title.</p>
+<p>So if you’re stepping into management, forget the myth of the all-knowing boss. Your job isn’t to be the smartest person in the room. It’s to build a room where smart people do their best work — and sometimes that starts with three honest words: <em>I don’t know.</em></p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">psychological safety</div><div class="vocab-def">the feeling that you can speak up without being punished or judged</div><div class="vocab-ex">“High-performing teams are built on psychological safety.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to delegate</div><div class="vocab-def">to give responsibility for a task to someone else</div><div class="vocab-ex">“A good leader knows what to delegate and what to keep.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to micromanage</div><div class="vocab-def">to control every small detail of other people’s work</div><div class="vocab-ex">“Nobody enjoys being micromanaged.”</div></div>
+<div class="vocab-card"><div class="vocab-term">radical candour</div><div class="vocab-def">being kind to people while giving direct, honest feedback</div><div class="vocab-ex">“Radical candour means caring personally and challenging directly.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to take ownership</div><div class="vocab-def">to accept full responsibility for a result, good or bad</div><div class="vocab-ex">“She took ownership of the failure instead of blaming others.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to empower</div><div class="vocab-def">to give someone the confidence and authority to act</div><div class="vocab-ex">“Great managers empower their teams to decide.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to lead by example</div><div class="vocab-def">to behave the way you want others to behave</div><div class="vocab-ex">“He leads by example, arriving early and staying calm.”</div></div>
+<div class="vocab-card"><div class="vocab-term">buy-in</div><div class="vocab-def">genuine agreement and support from the people involved</div><div class="vocab-ex">“Without buy-in from the team, the plan will fail.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to bluff your way through (sth)</div><div class="idiom-def">to pretend you know or can do more than you really can</div><div class="idiom-ex">“He had no idea, so he tried to bluff his way through the interview.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to point fingers</div><div class="idiom-def">to blame other people</div><div class="idiom-ex">“When sales dropped, everyone started pointing fingers.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to give credit where it’s due</div><div class="idiom-def">to recognise someone’s good work honestly</div><div class="idiom-ex">“I’ll give credit where it’s due — she saved the project.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to know where you stand</div><div class="idiom-def">to understand clearly how you’re being judged or what your position is</div><div class="idiom-ex">“Good feedback lets people know where they stand.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to step up</div><div class="idiom-def">to take on more responsibility when it’s needed</div><div class="idiom-ex">“When the manager left, she stepped up and led the team.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to be on the same page</div><div class="idiom-def">to share the same understanding or goal</div><div class="idiom-ex">“Let’s make sure we’re all on the same page before we start.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">delegate</span><span class="bw">psychological safety</span><span class="bw">micromanage</span><span class="bw">lead by example</span><span class="bw">radical candour</span><span class="bw">take ownership</span><span class="bw">step up</span><span class="bw">point fingers</span></div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> New managers often <input class="fill-input" type="text" autocomplete="off" data-answer="micromanage" aria-label="answer 1"> because they don’t trust their team yet.</div>
+<div class="fill-item"><span class="qn">2.</span> When mistakes happen, mature leaders <input class="fill-input" type="text" autocomplete="off" data-answer="take ownership" aria-label="answer 2"> rather than blame the market.</div>
+<div class="fill-item"><span class="qn">3.</span> Teams do their best work when there is real <input class="fill-input" type="text" autocomplete="off" data-answer="psychological safety" aria-label="answer 3">.</div>
+<div class="fill-item"><span class="qn">4.</span> A manager who arrives early and stays calm tends to <input class="fill-input" type="text" autocomplete="off" data-answer="lead by example" aria-label="answer 4">.</div>
+<div class="fill-item"><span class="qn">5.</span> Learn to <input class="fill-input" type="text" autocomplete="off" data-answer="delegate" aria-label="answer 5"> tasks instead of doing everything yourself.</div>
+<div class="fill-item"><span class="qn">6.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="radical candour" aria-label="answer 6"> means being kind and brutally honest at the same time.</div>
+<div class="fill-item"><span class="qn">7.</span> When the boss resigned, a junior colleague had to <input class="fill-input" type="text" autocomplete="off" data-answer="step up" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> Instead of solving the problem, the whole team began to <input class="fill-input" type="text" autocomplete="off" data-answer="point fingers" aria-label="answer 8">.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>According to the writer, the biggest driver of team performance is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the manager’s intelligence</div>
+<div class="mc-opt" data-i="1"><b>B.</b> psychological safety</div>
+<div class="mc-opt" data-i="2"><b>C.</b> strict deadlines</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Saying ‘I don’t know. Let’s find out’ made the team…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> lose respect for Priya</div>
+<div class="mc-opt" data-i="1"><b>B.</b> relax and start solving the problem</div>
+<div class="mc-opt" data-i="2"><b>C.</b> leave the meeting</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q3</span>‘Radical candour’ combines…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> caring personally and challenging directly</div>
+<div class="mc-opt" data-i="1"><b>B.</b> praising everyone constantly</div>
+<div class="mc-opt" data-i="2"><b>C.</b> avoiding all conflict</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Micromanaging quietly signals to a team that…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> you trust them</div>
+<div class="mc-opt" data-i="1"><b>B.</b> you don’t trust them</div>
+<div class="mc-opt" data-i="2"><b>C.</b> you are busy</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Great managers respond to success by…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> taking the credit themselves</div>
+<div class="mc-opt" data-i="1"><b>B.</b> giving credit to the team</div>
+<div class="mc-opt" data-i="2"><b>C.</b> staying silent</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The article’s main message is that a manager’s job is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> have every answer</div>
+<div class="mc-opt" data-i="1"><b>B.</b> build a room where smart people do their best work</div>
+<div class="mc-opt" data-i="2"><b>C.</b> speak the most</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q3</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What makes a manager someone you actually <em>want</em> to work for?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Have you ever had a boss who micromanaged you? How did it feel?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Is it a sign of weakness or strength for a leader to say ‘I don’t know’?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q4–Q7</span></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Can psychological safety exist in a very competitive company?</div></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is ‘radical candour’ realistic, or do people just get offended?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should leaders be liked, respected, or feared — and why?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">When is delegating a task actually just dumping it on someone?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q8–Q9</span></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Role-play: give a talented but careless colleague honest feedback — kindly but clearly.</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Role-play: a team member made a costly error. Have the conversation without pointing fingers.</div></div>
+<div class="q-group-head">Hot takes<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">‘The best leaders speak the least.’ Agree or disagree?</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Can leadership really be taught, or are some people simply born with it?</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Will AI ever make a better manager than a human?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you is a manager; the other is a talented team member who keeps cutting corners. Hold a two-minute feedback conversation using <em>radical candour</em> — kind, clear, and without <em>pointing fingers</em>.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q13–Q17</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Tell us about a time you (or someone you know) had to <b>bluff your way through</b> something.</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Describe a boss or teacher who truly <b>led by example</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">When is it right to <b>take ownership</b> of a mistake that wasn’t fully your fault?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Do you find it easy to <b>give credit where it’s due</b>, or do you forget?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Describe a moment when you had to <b>step up</b> unexpectedly.</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">💸</span>Pricing, Inflation &amp; Value</h2>
+<p class="instr">Why price is psychology wearing a number. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>Why a £4 Coffee Feels Cheap (and a £4 App Feels Outrageous)</h3>
+<div class="byline">★ Elena Rossi · Pricing strategist · Value column</div>
+<p>Here’s a puzzle I give every class I teach. Most people will happily pay £4 for a coffee they’ll forget in twenty minutes — yet the same people will rage about paying £4 for an app they’ll use every day for years. Why? The answer reveals almost everything about how <b>pricing</b> really works, and here’s the twist: it has very little to do with cost.</p>
+<p>Customers don’t judge price against what something <em>costs to make</em>. They judge it against what it <em>feels worth</em> — what economists call <b>perceived value</b>. A coffee comes with a warm cup, a smell, a ritual, a smiling barista. An app is invisible. Same price, completely different feeling.</p>
+<p>This is why smart companies obsess over <b>anchoring</b>. Show someone a £900 laptop beside a £1,400 one, and suddenly the £900 feels reasonable — even if you only planned to spend £600. The expensive option isn’t really there to sell. It’s there to make everything else look like a bargain.</p>
+<div class="pull-quote">“Price isn’t a number on a label. It’s a story your customer tells themselves about what they’re getting.”</div>
+<p>Then there’s the trick everyone has noticed but few can name: <b>shrinkflation</b>. Instead of raising the price, companies quietly shrink the product. The chocolate bar gets thinner; the crisp packet holds more air. The <b>price point</b> stays the same, so customers feel safe — even though they’re paying more per gram. Clever, and a little sneaky.</p>
+<p>Now the strategy that surprises my students most: going <em>up</em>, not down. We assume cheaper always wins. But <b>premium positioning</b> — deliberately charging more — can actually increase demand, because a high price signals quality. A £2 watch feels like a toy; the same watch at £200 feels like a statement. Slashing your price to <b>undercut</b> rivals can quietly tell the market your product is cheap in every sense.</p>
+<p>Of course, none of this escapes <b>inflation</b>. When prices rise across the board, customers feel <b>sticker shock</b> — that jolt of surprise at the till — and businesses face a brutal choice: raise prices and risk losing people, or absorb the cost and watch profits shrink.</p>
+<p>The lesson? Price is psychology wearing a number. Before you argue that something is “too expensive,” ask the better question: expensive <em>compared to what</em> — and worth it <em>to whom</em>? Get that right, and you’ll never look at a price tag the same way again.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">perceived value</div><div class="vocab-def">what a customer <em>feels</em> something is worth, not what it costs</div><div class="vocab-ex">“Marketing is mostly about raising perceived value.”</div></div>
+<div class="vocab-card"><div class="vocab-term">anchoring</div><div class="vocab-def">using one reference price to make another price seem better</div><div class="vocab-ex">“The £1,400 model is anchoring; it makes £900 look cheap.”</div></div>
+<div class="vocab-card"><div class="vocab-term">premium positioning</div><div class="vocab-def">deliberately charging a high price to signal quality</div><div class="vocab-ex">“Luxury brands rely on premium positioning.”</div></div>
+<div class="vocab-card"><div class="vocab-term">shrinkflation</div><div class="vocab-def">reducing a product’s size while keeping the price the same</div><div class="vocab-ex">“Shoppers are angry about shrinkflation in supermarkets.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a price point</div><div class="vocab-def">the specific price at which a product is offered</div><div class="vocab-ex">“We launched a cheaper price point for students.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to undercut</div><div class="vocab-def">to charge less than a competitor to win customers</div><div class="vocab-ex">“They undercut every rival and still lost money.”</div></div>
+<div class="vocab-card"><div class="vocab-term">dynamic pricing</div><div class="vocab-def">changing prices in real time based on demand</div><div class="vocab-ex">“Airlines and taxis use dynamic pricing.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a loss leader</div><div class="vocab-def">a cheap product sold to attract buyers who then spend more</div><div class="vocab-ex">“The £1 milk is a loss leader to get you into the shop.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">sticker shock</div><div class="idiom-def">a feeling of surprise at how expensive something is</div><div class="idiom-ex">“I got sticker shock when I saw the rent in that city.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to cost an arm and a leg</div><div class="idiom-def">to be extremely expensive</div><div class="idiom-ex">“Concert tickets these days cost an arm and a leg.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to be worth every penny</div><div class="idiom-def">to be a very good use of the money spent</div><div class="idiom-ex">“The course was expensive, but worth every penny.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a steal / a bargain</div><div class="idiom-def">something very cheap for its real value</div><div class="idiom-ex">“At that price, the laptop was an absolute steal.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to tighten your belt</div><div class="idiom-def">to spend less money than before</div><div class="idiom-ex">“With prices rising, families are tightening their belts.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to break the bank</div><div class="idiom-def">to cost more than you can comfortably afford</div><div class="idiom-ex">“A nice dinner out shouldn’t break the bank.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">loss leader</span><span class="bw">price point</span><span class="bw">perceived value</span><span class="bw">anchoring</span><span class="bw">premium positioning</span><span class="bw">undercut</span><span class="bw">sticker shock</span><span class="bw">shrinkflation</span></div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> Placing an expensive option nearby is a classic case of <input class="fill-input" type="text" autocomplete="off" data-answer="anchoring" aria-label="answer 1">.</div>
+<div class="fill-item"><span class="qn">2.</span> Luxury brands use <input class="fill-input" type="text" autocomplete="off" data-answer="premium positioning" aria-label="answer 2"> to make a high price feel desirable.</div>
+<div class="fill-item"><span class="qn">3.</span> Customers don’t pay for cost — they pay for <input class="fill-input" type="text" autocomplete="off" data-answer="perceived value" aria-label="answer 3">.</div>
+<div class="fill-item"><span class="qn">4.</span> The bar got thinner but the price stayed the same: pure <input class="fill-input" type="text" autocomplete="off" data-answer="shrinkflation" aria-label="answer 4">.</div>
+<div class="fill-item"><span class="qn">5.</span> The supermarket sells cheap bread as a <input class="fill-input" type="text" autocomplete="off" data-answer="loss leader" aria-label="answer 5"> to pull shoppers in.</div>
+<div class="fill-item"><span class="qn">6.</span> Trying to <input class="fill-input" type="text" autocomplete="off" data-answer="undercut" aria-label="answer 6"> your rivals can make your brand look cheap.</div>
+<div class="fill-item"><span class="qn">7.</span> After inflation hit, shoppers felt real <input class="fill-input" type="text" autocomplete="off" data-answer="sticker shock" aria-label="answer 7"> at the checkout.</div>
+<div class="fill-item"><span class="qn">8.</span> We added a budget <input class="fill-input" type="text" autocomplete="off" data-answer="price point" aria-label="answer 8"> to reach younger customers.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>Customers mainly judge a price against…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> what it cost to make</div>
+<div class="mc-opt" data-i="1"><b>B.</b> what it feels worth to them</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the average wage</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The expensive laptop next to a cheaper one is an example of…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> shrinkflation</div>
+<div class="mc-opt" data-i="1"><b>B.</b> anchoring</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a loss leader</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>‘Shrinkflation’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> raising the price openly</div>
+<div class="mc-opt" data-i="1"><b>B.</b> shrinking the product but keeping the price</div>
+<div class="mc-opt" data-i="2"><b>C.</b> giving discounts</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q4</span>Premium positioning works because a high price…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> signals quality and status</div>
+<div class="mc-opt" data-i="1"><b>B.</b> always means lower demand</div>
+<div class="mc-opt" data-i="2"><b>C.</b> is required by law</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>A risk of constantly undercutting rivals is that…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> customers pay too much</div>
+<div class="mc-opt" data-i="1"><b>B.</b> your product looks cheap in every sense</div>
+<div class="mc-opt" data-i="2"><b>C.</b> prices become illegal</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer’s key message is that price is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> fixed by costs</div>
+<div class="mc-opt" data-i="1"><b>B.</b> psychology wearing a number</div>
+<div class="mc-opt" data-i="2"><b>C.</b> always too high</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q3</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What’s the most you’d ever pay for a cup of coffee — and why?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Do you trust expensive brands more than cheap ones? Be honest.</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What’s something you happily overpay for?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q4–Q7</span></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Is premium positioning clever marketing or simply tricking people?</div></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should shrinkflation be illegal, or is it fair business?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Does a high price ever genuinely make a product <em>better</em>?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Who should protect customers during high inflation — companies or governments?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q8–Q9</span></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Role-play: convince a sceptical buyer that your expensive product is worth the price.</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Role-play: you run a café and must raise prices. Explain it to a loyal regular.</div></div>
+<div class="q-group-head">Hot takes<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">‘Cheaper is almost always worse.’ Agree or disagree?</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Will physical price tags still exist in twenty years?</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Is brand loyalty smart, or just expensive habit?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you sells a premium product that <em>costs an arm and a leg</em>; the other is a customer with <em>sticker shock</em>. Persuade them it’s <em>worth every penny</em> — without dropping the price.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q13–Q17</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Describe the last thing you bought that gave you <b>sticker shock</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">What’s something that <b>cost an arm and a leg</b> but was <b>worth every penny</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">When money is tight, how do you <b>tighten your belt</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Tell us about a time you got a real <b>bargain</b> — or got ripped off.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What’s a treat you allow yourself that doesn’t <b>break the bank</b>?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">📈</span>Project Management</h2>
+<p class="instr">Why projects really run late — and it isn’t the software. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Project That Was ‘90% Done’ for Six Months</h3>
+<div class="byline">★ Tom Hayes · Delivery lead · Project column</div>
+<p>Every experienced project manager knows the joke, because they’ve lived it: the project that’s been <em>“90% finished”</em> for half a year. The final 10% never seems to arrive. Understanding <em>why</em> is one of the most useful things you can learn in business — and it’s far more about people than spreadsheets.</p>
+<p>The first culprit is <b>scope creep</b>. A project starts simple. Then someone says, “While we’re at it, could we just add…” — and suddenly the small website has a login, a chatbot and a loyalty scheme. Each request sounds harmless. Together, they quietly sink the timeline. Good managers learn to say a polite but firm no, or to <b>deprioritise</b> extras for later.</p>
+<p>The second is the <b>planning fallacy</b>: our stubborn human habit of assuming everything will go perfectly. We estimate the best case and forget that people get sick, suppliers <b>fall behind</b>, and the one person who understands the database goes on holiday. That’s why smart teams build in buffers and break work into short <b>sprints</b> instead of one giant push.</p>
+<div class="pull-quote">“A deadline isn’t the day the work ends. It’s the day you stop pretending the surprises won’t happen.”</div>
+<p>Then there are <b>bottlenecks</b> — the single slow step that holds everything up. You can have ten brilliant people, but if every <b>deliverable</b> must pass through one overloaded approver, the whole team moves at that person’s speed. Finding and fixing bottlenecks is often the fastest way to rescue a struggling project.</p>
+<p>This is where <b>agile</b> thinking changed the game. Instead of planning everything up front and hoping, agile teams work in small cycles, show real progress often, and adjust as they learn. They’d rather be roughly right and flexible than precisely wrong and stuck.</p>
+<p>But my favourite tool is the simplest: the <b>retrospective</b>. After each phase the team asks three honest questions — what went well, what went badly, and what we’ll do differently. No blame, just learning. The teams that <b>get to the bottom of</b> their mistakes don’t repeat them.</p>
+<p>Here’s the deeper truth, though. Projects rarely fail because of bad software or weak plans. They fail because people <b>overpromise</b> to avoid awkward conversations, hide problems until it’s too late, and confuse <em>looking busy</em> with making progress. The best project managers aren’t the best planners — they’re the bravest communicators, willing to say early and clearly, “We’re not actually at 90%. Let’s talk about the real number.”</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">scope creep</div><div class="vocab-def">the gradual, uncontrolled growth of a project’s tasks</div><div class="vocab-ex">“Scope creep is the silent killer of deadlines.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a deliverable</div><div class="vocab-def">a specific result a project must produce and hand over</div><div class="vocab-ex">“The first deliverable is due on Friday.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a milestone</div><div class="vocab-def">an important checkpoint or stage in a project</div><div class="vocab-ex">“Hitting that milestone proved we were on track.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a bottleneck</div><div class="vocab-def">a single slow point that holds everything else up</div><div class="vocab-ex">“One approver became the bottleneck for the whole team.”</div></div>
+<div class="vocab-card"><div class="vocab-term">agile</div><div class="vocab-def">a flexible way of working in short, repeated cycles</div><div class="vocab-ex">“We switched to agile and shipped features weekly.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a sprint</div><div class="vocab-def">a short, fixed period of focused work</div><div class="vocab-ex">“Each sprint lasts two weeks.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a retrospective</div><div class="vocab-def">a meeting to review honestly what went well and badly</div><div class="vocab-ex">“In the retrospective we admitted what slowed us down.”</div></div>
+<div class="vocab-card"><div class="vocab-term">stakeholders</div><div class="vocab-def">everyone with an interest in a project’s outcome</div><div class="vocab-ex">“We have to keep all the stakeholders informed.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to fall behind (schedule)</div><div class="idiom-def">to become late compared with the plan</div><div class="idiom-ex">“Two suppliers fell behind and the launch slipped.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to get to the bottom of (sth)</div><div class="idiom-def">to find the real cause of a problem</div><div class="idiom-ex">“Let’s get to the bottom of why we keep missing deadlines.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to overpromise (and underdeliver)</div><div class="idiom-def">to promise more than you can actually do</div><div class="idiom-ex">“Never overpromise just to win the contract.”</div></div>
+<div class="idiom-card"><div class="idiom-term">back to the drawing board</div><div class="idiom-def">to start again after something fails</div><div class="idiom-ex">“The prototype flopped, so it’s back to the drawing board.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to drop the ball</div><div class="idiom-def">to fail to do something you were responsible for</div><div class="idiom-ex">“Someone dropped the ball and the client wasn’t informed.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to be in the weeds</div><div class="idiom-def">to be stuck in too much small detail</div><div class="idiom-ex">“The meeting got lost in the weeds for an hour.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">bottleneck</span><span class="bw">fall behind</span><span class="bw">planning fallacy</span><span class="bw">retrospective</span><span class="bw">overpromise</span><span class="bw">scope creep</span><span class="bw">deprioritise</span><span class="bw">agile</span></div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> Adding ‘just one more feature’ again and again is classic <input class="fill-input" type="text" autocomplete="off" data-answer="scope creep" aria-label="answer 1">.</div>
+<div class="fill-item"><span class="qn">2.</span> Assuming everything goes perfectly is called the <input class="fill-input" type="text" autocomplete="off" data-answer="planning fallacy" aria-label="answer 2">.</div>
+<div class="fill-item"><span class="qn">3.</span> If one approver slows everyone down, they’ve become a <input class="fill-input" type="text" autocomplete="off" data-answer="bottleneck" aria-label="answer 3">.</div>
+<div class="fill-item"><span class="qn">4.</span> Honest teams hold a <input class="fill-input" type="text" autocomplete="off" data-answer="retrospective" aria-label="answer 4"> after every phase to learn.</div>
+<div class="fill-item"><span class="qn">5.</span> Working in short, flexible cycles is the heart of <input class="fill-input" type="text" autocomplete="off" data-answer="agile" aria-label="answer 5">.</div>
+<div class="fill-item"><span class="qn">6.</span> Let’s <input class="fill-input" type="text" autocomplete="off" data-answer="deprioritise" aria-label="answer 6"> the nice-to-have features and focus on the core.</div>
+<div class="fill-item"><span class="qn">7.</span> Don’t <input class="fill-input" type="text" autocomplete="off" data-answer="overpromise" aria-label="answer 7"> deadlines just to keep the client happy today.</div>
+<div class="fill-item"><span class="qn">8.</span> When suppliers <input class="fill-input" type="text" autocomplete="off" data-answer="fall behind" aria-label="answer 8">, the whole timeline shifts.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The main reason projects fail, according to the writer, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> bad software</div>
+<div class="mc-opt" data-i="1"><b>B.</b> human behaviour and weak communication</div>
+<div class="mc-opt" data-i="2"><b>C.</b> slow computers</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>‘Scope creep’ is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> cutting features to save time</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the uncontrolled growth of a project’s tasks</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a type of deadline</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q3</span>The ‘planning fallacy’ is the habit of…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> assuming everything will go perfectly</div>
+<div class="mc-opt" data-i="1"><b>B.</b> planning too much detail</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ignoring the client</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>A bottleneck is dangerous because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it speeds the team up</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the team moves at the slowest step’s speed</div>
+<div class="mc-opt" data-i="2"><b>C.</b> it adds features</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Agile teams prefer to be…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> precisely wrong and fixed</div>
+<div class="mc-opt" data-i="1"><b>B.</b> roughly right and flexible</div>
+<div class="mc-opt" data-i="2"><b>C.</b> slow but certain</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>A retrospective should focus on…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> blaming the slowest person</div>
+<div class="mc-opt" data-i="1"><b>B.</b> honest learning, not blame</div>
+<div class="mc-opt" data-i="2"><b>C.</b> celebrating only</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q3</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Are you a planner or someone who improvises? Which works better for you?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Tell us about a project (any kind) that took far longer than expected.</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do deadlines motivate you or stress you out?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q4–Q7</span></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Why do people overpromise even when they know it’s risky?</div></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is it ever right to launch something that’s only ‘80% ready’?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should one person be blamed when a team project fails?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Does ‘agile’ actually help, or is it just a buzzword?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q8–Q9</span></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Role-play: tell a client the project is behind schedule — honestly but calmly.</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Role-play: a teammate keeps adding ‘just one more thing’. Push back politely.</div></div>
+<div class="q-group-head">Hot takes<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">‘Most meetings are a waste of time.’ Agree or disagree?</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Will AI project managers replace human ones?</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Is being busy the same as being productive?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you is a project lead; the other is an anxious client. The project has <em>fallen behind schedule</em> because of <em>scope creep</em>. Have the honest conversation — don’t <em>overpromise</em> to make them feel better.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q13–Q17</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Tell us about a time a plan <b>fell behind schedule</b>. What went wrong?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">When was the last time you (or your team) <b>dropped the ball</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Describe a situation where you had to go <b>back to the drawing board</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Why do people <b>overpromise</b> — and how can we stop ourselves?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">How do you <b>get to the bottom of</b> a problem when nobody will admit fault?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">🎤</span>Pitches &amp; Presentations</h2>
+<p class="instr">The best pitch the writer ever saw had no slides. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Best Pitch I Ever Saw Had No Slides</h3>
+<div class="byline">★ Sofia Marín · Communication coach · Presentation column</div>
+<p>I’ve watched more than a thousand business pitches, and the best one I ever saw broke every rule I’d been taught. No slick <b>pitch deck</b>. No charts. No laser pointer. The founder simply stood up, looked at the investors, and said: “Last year, my grandmother nearly took the wrong medication. This app makes sure that never happens to your family.” Then she paused. <b>You could have heard a pin drop.</b> She’d <b>won the room over</b> in fifteen seconds — before mentioning a single feature.</p>
+<p>That’s the secret nobody tells you: people don’t buy information, they buy <b>a story</b>. Facts inform, but stories move. The strongest pitches open with <b>a hook</b> — a moment, a question, a surprising number — that makes the audience <em>need</em> to hear what comes next.</p>
+<p>The second skill is learning to <b>read the room</b>. Average presenters deliver the same speech regardless of who’s listening. Great ones watch faces, notice when eyes glaze over, and <b>tailor their message</b> on the spot. If the room is bored, they <b>cut to the chase</b>. If it’s curious, they slow down and go deeper.</p>
+<div class="pull-quote">“Nobody remembers your data. They remember how you made them feel about your data.”</div>
+<p>Here’s a trap even experts fall into — the <b>curse of knowledge</b>. When you know your subject inside out, you forget what it’s like not to. You drown people in jargon, and your brilliant idea <b>falls flat</b>. The cure is brutal simplicity: if a twelve-year-old couldn’t repeat your main point, it isn’t clear enough yet.</p>
+<p>Then comes the part most people fear: questions. But tough questions are a gift — they mean people are engaged. Strong presenters don’t panic or waffle. They pause, answer honestly, and aren’t afraid to say “I don’t know, but I’ll find out.” Confidence isn’t knowing everything; it’s being calm when you don’t.</p>
+<p>Finally, every great pitch ends with a clear <b>call to action</b>. So many presentations simply… stop. The lights come up and nobody knows what to do next. Don’t leave your audience guessing. Tell them exactly what you want: “Here’s the one decision I’m asking you to make today.”</p>
+<p>The good news? None of this requires charisma you were born with. It takes preparation, empathy, and the courage to be human in a suit. Strip away the buzzwords and a great pitch is just one person, telling one true story, asking for one clear thing. Master that, and you’ll <b>nail</b> presentations long after everyone’s forgotten their slides.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a pitch deck</div><div class="vocab-def">a short slide presentation used to sell an idea</div><div class="vocab-ex">“Investors barely glanced at the pitch deck.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a hook</div><div class="vocab-def">an opening that grabs attention immediately</div><div class="vocab-ex">“Open with a hook, not your job title.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to read the room</div><div class="vocab-def">to sense the audience’s mood and react to it</div><div class="vocab-ex">“She read the room and dropped half her slides.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to tailor your message</div><div class="vocab-def">to adapt what you say to a specific audience</div><div class="vocab-ex">“Tailor your message — engineers and investors want different things.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the curse of knowledge</div><div class="vocab-def">forgetting what it’s like <em>not</em> to know your own subject</div><div class="vocab-ex">“Experts suffer from the curse of knowledge.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a call to action</div><div class="vocab-def">a clear request telling the audience what to do next</div><div class="vocab-ex">“End with a strong call to action.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a value proposition</div><div class="vocab-def">the clear reason your offer is worth choosing</div><div class="vocab-ex">“In one line, what’s your value proposition?”</div></div>
+<div class="vocab-card"><div class="vocab-term">an elevator pitch</div><div class="vocab-def">a 30-second summary of your idea</div><div class="vocab-ex">“Can you give me your elevator pitch?”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to win someone over</div><div class="idiom-def">to gain someone’s support or agreement</div><div class="idiom-ex">“Her honesty won the whole panel over.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to fall flat</div><div class="idiom-def">to fail to get the reaction you wanted</div><div class="idiom-ex">“The joke fell flat and the room went quiet.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to cut to the chase</div><div class="idiom-def">to get to the important point quickly</div><div class="idiom-ex">“We’re short on time, so let me cut to the chase.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to nail (sth)</div><div class="idiom-def">to do something perfectly</div><div class="idiom-ex">“He completely nailed the final presentation.”</div></div>
+<div class="idiom-card"><div class="idiom-term">you could have heard a pin drop</div><div class="idiom-def">there was total silence and attention</div><div class="idiom-ex">“When she finished, you could have heard a pin drop.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to get the ball rolling</div><div class="idiom-def">to start something, especially a discussion</div><div class="idiom-ex">“Let me get the ball rolling with one quick question.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">tailor</span><span class="bw">pitch deck</span><span class="bw">read the room</span><span class="bw">hook</span><span class="bw">curse of knowledge</span><span class="bw">fall flat</span><span class="bw">call to action</span><span class="bw">win over</span></div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> Open with a strong <input class="fill-input" type="text" autocomplete="off" data-answer="hook" aria-label="answer 1"> so people <em>need</em> to keep listening.</div>
+<div class="fill-item"><span class="qn">2.</span> Average speakers ignore the audience; great ones <input class="fill-input" type="text" autocomplete="off" data-answer="read the room" aria-label="answer 2">.</div>
+<div class="fill-item"><span class="qn">3.</span> Always <input class="fill-input" type="text" autocomplete="off" data-answer="tailor" aria-label="answer 3"> your message to who is actually listening.</div>
+<div class="fill-item"><span class="qn">4.</span> Drowning people in jargon is the <input class="fill-input" type="text" autocomplete="off" data-answer="curse of knowledge" aria-label="answer 4"> in action.</div>
+<div class="fill-item"><span class="qn">5.</span> End every pitch with a clear <input class="fill-input" type="text" autocomplete="off" data-answer="call to action" aria-label="answer 5">.</div>
+<div class="fill-item"><span class="qn">6.</span> Without a story, even smart slides <input class="fill-input" type="text" autocomplete="off" data-answer="fall flat" aria-label="answer 6">.</div>
+<div class="fill-item"><span class="qn">7.</span> The founder skipped the <input class="fill-input" type="text" autocomplete="off" data-answer="pitch deck" aria-label="answer 7"> entirely and just told a story.</div>
+<div class="fill-item"><span class="qn">8.</span> A single honest sentence can <input class="fill-input" type="text" autocomplete="off" data-answer="win over" aria-label="answer 8"> a whole room.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The best pitch the writer ever saw…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> used the most data</div>
+<div class="mc-opt" data-i="1"><b>B.</b> had no slides at all</div>
+<div class="mc-opt" data-i="2"><b>C.</b> lasted an hour</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>People ultimately buy…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> information</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a story and a feeling</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the cheapest option</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>‘Reading the room’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> reading your notes aloud</div>
+<div class="mc-opt" data-i="1"><b>B.</b> sensing the audience and adapting</div>
+<div class="mc-opt" data-i="2"><b>C.</b> reading every slide</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>The ‘curse of knowledge’ is when an expert…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> knows too little</div>
+<div class="mc-opt" data-i="1"><b>B.</b> forgets what it’s like not to know</div>
+<div class="mc-opt" data-i="2"><b>C.</b> speaks too slowly</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Tough questions during a pitch are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a disaster to avoid</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a sign people are engaged</div>
+<div class="mc-opt" data-i="2"><b>C.</b> always unfair</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q6</span>A great pitch should end with…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a clear call to action</div>
+<div class="mc-opt" data-i="1"><b>B.</b> an apology</div>
+<div class="mc-opt" data-i="2"><b>C.</b> more data</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q3</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">How do you feel about speaking in front of people — thrilled or terrified?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What’s the best presentation you’ve ever watched? What made it work?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do slides help a presentation or hide a weak one?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q4–Q7</span></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Is storytelling manipulation, or just good communication?</div></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Can anyone learn to be a confident speaker, or is it a gift?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Why do so many smart people give boring presentations?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">How honest should you be when you don’t know the answer to a question?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q8–Q9</span></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Role-play: give a 30-second elevator pitch for any product you like.</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Role-play: an investor fires a tough question; answer it calmly and honestly.</div></div>
+<div class="q-group-head">Hot takes<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">‘PowerPoint has made us worse communicators.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Will AI write all our presentations soon — and should it?</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Is charisma overrated in business?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you pitches a simple product in 60 seconds and must <em>win the room over</em> with a story, not features. The other plays a tough investor who fires one hard question. Don’t let it <em>fall flat</em> — <em>cut to the chase</em> and end with a clear <em>call to action</em>.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q13–Q17</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Tell us about a presentation, joke or idea of yours that <b>fell flat</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Who’s someone who can <b>win a room over</b> instantly? What’s their secret?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">When did you last <b>nail</b> something in front of other people?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Are you good at <b>reading the room</b>? Give a real example.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What’s your best way to <b>get the ball rolling</b> when everyone is silent?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+
+  <footer>★ ★ &nbsp; RUN THE ROOM · B2–C1 BUSINESS ENGLISH · LEADERSHIP · PRICING · PROJECTS · PITCHES &nbsp; ★ ★</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
