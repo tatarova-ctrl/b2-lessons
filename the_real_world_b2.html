@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Real World — B2 English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#4F46E5; --deep:#312E81; --coral:#F97316; --gold:#FBBF24;
+    --green:#10B981; --cream:#FAF8F3; --sand:#EAE2D0; --ink:#1E1B4B;
+    --cloud:#ffffff; --soft:#E0E7FF; --blush:#FFE4D8; --mint:#D1FAE5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(79,70,229,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(16,185,129,.08) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{
+    background:var(--cloud); border:2px solid var(--ink); border-radius:18px;
+    padding:32px 36px; margin-bottom:26px; position:relative;
+    box-shadow:6px 6px 0 var(--ink); overflow:hidden;
+  }
+  header::before{content:"🌍";position:absolute;top:26px;right:30px;font-size:130px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{
+    display:inline-block; font-family:'Courier Prime',monospace; font-size:11px;
+    letter-spacing:3px; background:var(--ink); color:var(--gold);
+    padding:5px 12px; border-radius:4px; margin-bottom:14px;
+  }
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:70ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{
+    font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px;
+    background:var(--soft); color:var(--deep); border:1.5px solid var(--ink);
+    padding:5px 11px; border-radius:6px;
+  }
+
+  /* TABS */
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{
+    font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px;
+    background:var(--cloud); border:2px solid var(--ink); border-radius:10px;
+    padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink);
+    transition:transform .12s, box-shadow .12s, background .12s, color .12s; color:var(--ink);
+  }
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--indigo); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{
+    font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink);
+    margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1;
+  }
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  /* READING */
+  .reading{
+    background:var(--cloud); border:2px solid var(--ink); border-radius:14px;
+    padding:26px 30px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px;
+  }
+  .reading h3{font-family:'DM Serif Display',serif; font-size:25px; margin-bottom:4px}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:14px}
+  .reading p{margin-bottom:12px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--indigo); font-weight:600}
+
+  /* VOCAB */
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px; margin-bottom:6px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  /* MATCH */
+  .match-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+  .match-col h4{font-family:'DM Serif Display',serif; font-size:18px; margin-bottom:10px; color:var(--deep)}
+  .match-item{
+    padding:12px 14px; border:2px solid var(--ink); background:var(--cloud); margin-bottom:8px;
+    cursor:pointer; font-size:14px; border-radius:8px; user-select:none; box-shadow:2px 2px 0 var(--ink);
+    transition:transform .1s, background .12s, box-shadow .12s;
+  }
+  .match-item:hover{background:var(--soft)}
+  .match-item.selected{background:var(--indigo); color:#fff; box-shadow:2px 2px 0 var(--deep)}
+  .match-item.matched{background:var(--mint); border-color:var(--green); color:var(--deep); cursor:default; box-shadow:none; opacity:.75}
+  .match-item.matched::after{content:" ✓"; color:var(--green); font-weight:700}
+  .match-item.shake{animation:shake .35s}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+  /* GAP FILL */
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{
+    font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink);
+    border:none; border-bottom:2px solid var(--indigo); background:var(--soft);
+    padding:3px 8px; min-width:150px; border-radius:5px 5px 0 0; margin:0 2px;
+  }
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  /* MC */
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--indigo); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  /* BUTTONS */
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{
+    font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px;
+    background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px;
+    border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s, box-shadow .1s;
+  }
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  /* SPEAKING */
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--indigo); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s, box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:18px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .match-grid{grid-template-columns:1fr}
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:120px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">📚 B2 ENGLISH · 4 ESSENTIAL TOPICS · AGE 14+</div>
+      <h1>The Real <span class="accent">World</span></h1>
+      <div class="sub">Four conversations that shape your life right now — how you learn, how you'll work, how you'll move, and how technology runs your day. Read the text, collect the highlighted vocabulary, do the exercises, then talk it all through.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING + VOCAB</span>
+        <span class="tag">MATCHING + GAP-FILL</span>
+        <span class="tag">MULTIPLE CHOICE</span>
+        <span class="tag">48 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Studies 🎓</button>
+    <button class="tab" data-tab="t2">② Work 💼</button>
+    <button class="tab" data-tab="t3">③ Transport 🚄</button>
+    <button class="tab" data-tab="t4">④ Technology 📱</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🎓</span>Studies &amp; Education</h2>
+<p class="instr">How the best students actually learn. The <b>highlighted</b> words are your target language — you'll need them below.</p>
+<article class="reading">
+<h3>The Learning Brain</h3>
+<div class="byline">★ Study skills · How top students really work</div>
+<p>Most teenagers assume that the students at the top of the class are simply <b>gifted</b>. The truth is more encouraging: research suggests that <em>how</em> you study matters more than natural talent, and almost anyone can <b>broaden their horizons</b> with the right habits.</p>
+<p>Take the most common method of all &mdash; <b>cramming</b>. The night before a test, students try to memorise everything at once. It feels productive, but the information <b>fades</b> within days. Psychologists prefer <b>spaced repetition</b>: reviewing material in short sessions over time, just before you forget it.</p>
+<p>Another trap is <b>rote learning</b> &mdash; repeating facts without understanding them. You might pass the test, but you will struggle to <b>grasp the concept</b> behind it. Real understanding comes from asking <em>why</em>, not just <em>what</em>.</p>
+<p>Perhaps the most powerful idea in education is a <b>growth mindset</b>. Students who believe ability can grow tend to <b>bounce back</b> from failure, while those who see it as fixed often give up. A bad grade, in this view, is feedback, not a verdict.</p>
+<p>School is not only about marks. <b>Extracurricular activities</b> teach skills no <b>curriculum</b> can, and they help you <b>keep up with</b> a fast-changing world. And learning no longer stops at the school gates: <b>lifelong learning</b> means the most successful people never stop being curious.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">Study these before the exercises. Each card gives the meaning and an example.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">to cram</div><div class="vocab-def">to study a lot of information quickly, just before a test</div><div class="vocab-ex">“I had to cram all night before the exam.”</div></div>
+<div class="vocab-card"><div class="vocab-term">spaced repetition</div><div class="vocab-def">reviewing material in short sessions spread over time</div><div class="vocab-ex">“Spaced repetition is the best way to learn vocabulary.”</div></div>
+<div class="vocab-card"><div class="vocab-term">rote learning</div><div class="vocab-def">memorising by repetition, without real understanding</div><div class="vocab-ex">“Rote learning helps you pass, but not understand.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to grasp a concept</div><div class="vocab-def">to fully understand a difficult idea</div><div class="vocab-ex">“It took me a while to grasp the concept of gravity.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a growth mindset</div><div class="vocab-def">the belief that ability improves with effort</div><div class="vocab-ex">“A growth mindset turns failure into feedback.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to bounce back</div><div class="vocab-def">to recover quickly after a setback</div><div class="vocab-ex">“Strong students bounce back from bad marks.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the curriculum</div><div class="vocab-def">the subjects studied at a school or on a course</div><div class="vocab-ex">“Coding is now part of our curriculum.”</div></div>
+<div class="vocab-card"><div class="vocab-term">lifelong learning</div><div class="vocab-def">continuing to learn throughout your life</div><div class="vocab-ex">“Lifelong learning keeps your mind sharp.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">🔗</span>Matching</h2>
+<p class="instr">Click an expression, then click its meaning. Correct pairs lock in green.</p>
+<div class="match-grid" data-match="t1">
+<div class="match-col"><h4>Expression</h4>
+<div class="match-item" data-side="t" data-pair="0">to cram</div>
+<div class="match-item" data-side="t" data-pair="1">spaced repetition</div>
+<div class="match-item" data-side="t" data-pair="2">rote learning</div>
+<div class="match-item" data-side="t" data-pair="3">to grasp a concept</div>
+<div class="match-item" data-side="t" data-pair="4">a growth mindset</div>
+<div class="match-item" data-side="t" data-pair="5">to bounce back</div>
+<div class="match-item" data-side="t" data-pair="6">curriculum</div>
+<div class="match-item" data-side="t" data-pair="7">lifelong learning</div>
+</div>
+<div class="match-col"><h4>Meaning</h4>
+<div class="match-item" data-side="d" data-pair="6">the subjects studied at school</div>
+<div class="match-item" data-side="d" data-pair="7">learning throughout your whole life</div>
+<div class="match-item" data-side="d" data-pair="2">memorising without understanding</div>
+<div class="match-item" data-side="d" data-pair="4">believing ability can improve with effort</div>
+<div class="match-item" data-side="d" data-pair="0">to learn a lot quickly, just before a test</div>
+<div class="match-item" data-side="d" data-pair="3">to fully understand an idea</div>
+<div class="match-item" data-side="d" data-pair="1">reviewing in short sessions over time</div>
+<div class="match-item" data-side="d" data-pair="5">to recover after a setback</div>
+</div></div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Use the word bank to complete each sentence, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">grasp</span>
+<span class="bw">rote learning</span>
+<span class="bw">lifelong learning</span>
+<span class="bw">spaced repetition</span>
+<span class="bw">curriculum</span>
+<span class="bw">cram</span>
+<span class="bw">growth mindset</span>
+<span class="bw">bounce back</span>
+</div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> I never study all term, so I have to <input class="fill-input" type="text" autocomplete="off" data-answer="cram" aria-label="answer 1"> everything the night before.</div>
+<div class="fill-item"><span class="qn">2.</span> Flashcards and <input class="fill-input" type="text" autocomplete="off" data-answer="spaced repetition" aria-label="answer 2"> helped me remember 500 new words.</div>
+<div class="fill-item"><span class="qn">3.</span> Just repeating facts is <input class="fill-input" type="text" autocomplete="off" data-answer="rote learning" aria-label="answer 3">; you forget them fast.</div>
+<div class="fill-item"><span class="qn">4.</span> It took me ages to <input class="fill-input" type="text" autocomplete="off" data-answer="grasp" aria-label="answer 4"> the idea of negative numbers.</div>
+<div class="fill-item"><span class="qn">5.</span> With a <input class="fill-input" type="text" autocomplete="off" data-answer="growth mindset" aria-label="answer 5">, a bad grade is just feedback.</div>
+<div class="fill-item"><span class="qn">6.</span> Don't give up &mdash; learn to <input class="fill-input" type="text" autocomplete="off" data-answer="bounce back" aria-label="answer 6"> after a failure.</div>
+<div class="fill-item"><span class="qn">7.</span> Our school <input class="fill-input" type="text" autocomplete="off" data-answer="curriculum" aria-label="answer 7"> now includes philosophy.</div>
+<div class="fill-item"><span class="qn">8.</span> The phrase ‘<input class="fill-input" type="text" autocomplete="off" data-answer="lifelong learning" aria-label="answer 8">’ means you never stop learning.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Multiple choice</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>Success in learning depends mostly on…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> natural talent you're born with</div>
+<div class="mc-opt" data-i="1"><b>B.</b> how you choose to study</div>
+<div class="mc-opt" data-i="2"><b>C.</b> good luck</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Why does cramming usually fail?</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it's too boring</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the information fades quickly</div>
+<div class="mc-opt" data-i="2"><b>C.</b> it takes too long</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>‘Spaced repetition’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> reading something once, slowly</div>
+<div class="mc-opt" data-i="1"><b>B.</b> short study sessions over time</div>
+<div class="mc-opt" data-i="2"><b>C.</b> copying your notes</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>A growth mindset sees a bad grade as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> proof you're not clever</div>
+<div class="mc-opt" data-i="1"><b>B.</b> useful feedback to improve</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a reason to quit</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>‘Rote learning’ is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> learning with deep understanding</div>
+<div class="mc-opt" data-i="1"><b>B.</b> memorising without understanding</div>
+<div class="mc-opt" data-i="2"><b>C.</b> learning by doing</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>‘Lifelong learning’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> learning only while at school</div>
+<div class="mc-opt" data-i="1"><b>B.</b> never stopping learning</div>
+<div class="mc-opt" data-i="2"><b>C.</b> learning one language</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q3</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's your favourite and least favourite subject &mdash; and why?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Do you study better alone or with friends?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">How do you usually revise for a test?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q4–Q7</span></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are exams a fair way to measure how clever someone is?</div></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Which matters more: top grades or extracurricular activities?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">‘Your brain is a muscle, not a container.’ Do you agree?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should schools teach practical skills like cooking and money?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q8–Q9</span></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">A friend just failed a test and wants to quit. Convince them to bounce back.</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Persuade your head teacher to add one new subject to the curriculum.</div></div>
+<div class="q-group-head">Hot takes<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Will teachers be replaced by AI in 20 years?</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Is homework genuinely useful, or a waste of time?</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">‘School kills creativity.’ Agree or disagree?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you just failed an important test and feels like giving up. The other believes in a <em>growth mindset</em>. Comfort them, then convince them the bad grade is <em>feedback</em>, not a verdict.</div>
+<div class="phrases"><h5>Useful phrases for your answers</h5><div class="ptags"><span>In my opinion…</span><span>I’d argue that…</span><span>On the one hand… on the other…</span><span>That’s a fair point, but…</span><span>It depends on…</span><span>I’m not convinced that…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">💼</span>Employment &amp; Unemployment</h2>
+<p class="instr">What work will really look like for your generation. Target language is in <b>highlighted bold</b>.</p>
+<article class="reading">
+<h3>Work Isn't What It Used to Be</h3>
+<div class="byline">★ The job market · The world of work you're about to enter</div>
+<p>A generation ago, people often had <b>a job for life</b>. They joined one company, slowly <b>climbed the career ladder</b>, and retired with a pension. For today's teenagers, the <b>job market</b> looks completely different.</p>
+<p>First, machines are changing everything. Some routine jobs are disappearing as tasks become automated, and workers are <b>made redundant</b>. But new roles appear too &mdash; in coding, design, green energy and care. The trick is to keep learning so you don't <b>fall behind</b>.</p>
+<p>Second, the way we work has changed. Many people now enjoy <b>remote work</b>, logging in from home instead of <b>commuting</b> to an office. Others join the <b>gig economy</b>, taking short, flexible jobs through apps rather than one steady contract.</p>
+<p>With so much change, <b>job security</b> &mdash; the feeling that your job is safe &mdash; is harder to find. <b>Unemployment</b> can rise quickly when the economy struggles, and being <b>out of work</b> is stressful, both financially and emotionally.</p>
+<p>So what helps? Employers increasingly value <b>soft skills</b> &mdash; communication, teamwork, problem-solving &mdash; as much as qualifications. A strong <b>CV</b> still matters, but the people who <b>land a good job</b> are usually those who can adapt, learn fast and work well with others.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">Study these before the exercises. Each card gives the meaning and an example.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">the job market</div><div class="vocab-def">the supply of and demand for jobs</div><div class="vocab-ex">“The job market for engineers is strong right now.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to climb the career ladder</div><div class="vocab-def">to be promoted to higher positions over time</div><div class="vocab-ex">“She climbed the career ladder from intern to manager.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to be made redundant</div><div class="vocab-def">to lose your job because it's no longer needed</div><div class="vocab-ex">“Hundreds were made redundant when the plant closed.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the gig economy</div><div class="vocab-def">a system of short, flexible jobs instead of permanent ones</div><div class="vocab-ex">“Delivery riders are part of the gig economy.”</div></div>
+<div class="vocab-card"><div class="vocab-term">remote work</div><div class="vocab-def">working from home or away from the office</div><div class="vocab-ex">“Remote work saves me two hours of commuting.”</div></div>
+<div class="vocab-card"><div class="vocab-term">job security</div><div class="vocab-def">the certainty that you will keep your job</div><div class="vocab-ex">“Civil servants usually have good job security.”</div></div>
+<div class="vocab-card"><div class="vocab-term">soft skills</div><div class="vocab-def">personal skills like communication and teamwork</div><div class="vocab-ex">“Soft skills can matter more than your degree.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to land a job</div><div class="vocab-def">to succeed in getting a job</div><div class="vocab-ex">“He landed a job at a top tech company.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">🔗</span>Matching</h2>
+<p class="instr">Click an expression, then click its meaning. Correct pairs lock in green.</p>
+<div class="match-grid" data-match="t2">
+<div class="match-col"><h4>Expression</h4>
+<div class="match-item" data-side="t" data-pair="0">the job market</div>
+<div class="match-item" data-side="t" data-pair="1">to climb the career ladder</div>
+<div class="match-item" data-side="t" data-pair="2">to be made redundant</div>
+<div class="match-item" data-side="t" data-pair="3">the gig economy</div>
+<div class="match-item" data-side="t" data-pair="4">remote work</div>
+<div class="match-item" data-side="t" data-pair="5">job security</div>
+<div class="match-item" data-side="t" data-pair="6">soft skills</div>
+<div class="match-item" data-side="t" data-pair="7">to land a job</div>
+</div>
+<div class="match-col"><h4>Meaning</h4>
+<div class="match-item" data-side="d" data-pair="7">to succeed in getting a job</div>
+<div class="match-item" data-side="d" data-pair="4">working away from the office</div>
+<div class="match-item" data-side="d" data-pair="2">to lose a job that's no longer needed</div>
+<div class="match-item" data-side="d" data-pair="5">the certainty of keeping your job</div>
+<div class="match-item" data-side="d" data-pair="1">to be promoted over time</div>
+<div class="match-item" data-side="d" data-pair="0">the supply and demand for jobs</div>
+<div class="match-item" data-side="d" data-pair="3">short, flexible, app-based jobs</div>
+<div class="match-item" data-side="d" data-pair="6">personal skills like teamwork</div>
+</div></div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Use the word bank to complete each sentence, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">remote work</span>
+<span class="bw">job security</span>
+<span class="bw">made redundant</span>
+<span class="bw">gig economy</span>
+<span class="bw">job market</span>
+<span class="bw">soft skills</span>
+<span class="bw">career ladder</span>
+<span class="bw">land</span>
+</div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> After college I want to <input class="fill-input" type="text" autocomplete="off" data-answer="land" aria-label="answer 1"> a job in marketing.</div>
+<div class="fill-item"><span class="qn">2.</span> Drivers and couriers often work in the <input class="fill-input" type="text" autocomplete="off" data-answer="gig economy" aria-label="answer 2">.</div>
+<div class="fill-item"><span class="qn">3.</span> When the company merged, 200 people were <input class="fill-input" type="text" autocomplete="off" data-answer="made redundant" aria-label="answer 3">.</div>
+<div class="fill-item"><span class="qn">4.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="remote work" aria-label="answer 4"> lets me work from anywhere with wi-fi.</div>
+<div class="fill-item"><span class="qn">5.</span> Teamwork and communication are valuable <input class="fill-input" type="text" autocomplete="off" data-answer="soft skills" aria-label="answer 5">.</div>
+<div class="fill-item"><span class="qn">6.</span> A government job usually offers good <input class="fill-input" type="text" autocomplete="off" data-answer="job security" aria-label="answer 6">.</div>
+<div class="fill-item"><span class="qn">7.</span> She started as an intern and climbed the <input class="fill-input" type="text" autocomplete="off" data-answer="career ladder" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="job market" aria-label="answer 8"> for nurses is very strong at the moment.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Multiple choice</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>‘To be made redundant’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> to be promoted</div>
+<div class="mc-opt" data-i="1"><b>B.</b> to lose a job that's no longer needed</div>
+<div class="mc-opt" data-i="2"><b>C.</b> to retire early</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The gig economy is based on…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> jobs for life</div>
+<div class="mc-opt" data-i="1"><b>B.</b> short, flexible jobs</div>
+<div class="mc-opt" data-i="2"><b>C.</b> unpaid work</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Soft skills include…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> coding only</div>
+<div class="mc-opt" data-i="1"><b>B.</b> communication and teamwork</div>
+<div class="mc-opt" data-i="2"><b>C.</b> lifting heavy boxes</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>‘Job security’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a very high salary</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the certainty of keeping your job</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a company car</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>‘Remote work’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> working overtime</div>
+<div class="mc-opt" data-i="1"><b>B.</b> working away from the office</div>
+<div class="mc-opt" data-i="2"><b>C.</b> working two jobs</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>To ‘climb the career ladder’ is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> change careers completely</div>
+<div class="mc-opt" data-i="1"><b>B.</b> get promoted over time</div>
+<div class="mc-opt" data-i="2"><b>C.</b> lose your job</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q3</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What job did you want as a child? Has that changed?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Would you rather work from home or in an office?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's one job you would never want to do?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q4–Q7</span></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Is it better to have one job for life or to change jobs often?</div></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are soft skills really as important as qualifications?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should AI and robots be allowed to replace human workers?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is a university degree still worth it today?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q8–Q9</span></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Run a job interview: one is the nervous candidate, one is the manager.</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Persuade a cautious friend to take a risky job at a start-up.</div></div>
+<div class="q-group-head">Hot takes<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Will the four-day working week become normal?</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">‘There's no such thing as a dream job.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">In 20 years, will most people work in the gig economy?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you is a manager interviewing for a part-time summer job; the other is a teenager with no experience but excellent <em>soft skills</em>. Run a two-minute interview &mdash; then swap roles.</div>
+<div class="phrases"><h5>Useful phrases for your answers</h5><div class="ptags"><span>In my opinion…</span><span>I’d argue that…</span><span>On the one hand… on the other…</span><span>That’s a fair point, but…</span><span>It depends on…</span><span>I’m not convinced that…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🚄</span>Modern Transportation</h2>
+<p class="instr">The quiet revolution on our roads and rails. Target language is in <b>highlighted bold</b>.</p>
+<article class="reading">
+<h3>How We Move Is Changing Fast</h3>
+<div class="byline">★ Mobility · The future of getting from A to B</div>
+<p>For a century, the world ran on petrol. Today, the way we move is being reinvented &mdash; and the goal is to <b>cut emissions</b> without making life slower or more expensive.</p>
+<p>The most visible change is the rise of <b>electric vehicles</b>. Quiet, clean and increasingly affordable, EVs are slowly replacing petrol cars and helping drivers shrink their <b>carbon footprint</b>. Charging networks are spreading, though limited range still worries some buyers.</p>
+<p>Cities are rethinking the daily <b>commute</b>. Better <b>public transport</b> &mdash; buses, trams and especially <b>high-speed rail</b> &mdash; can move thousands of people while easing <b>traffic congestion</b>. Many cities now reward cycling and walking over driving.</p>
+<p>Then there is the technology that sounds like science fiction: <b>self-driving cars</b>. Powered by sensors and AI, <b>autonomous vehicles</b> promise fewer accidents and more free time &mdash; but they raise hard questions about safety and jobs.</p>
+<p>Sharing is part of the future too. Through <b>ride-sharing</b> apps, one car can serve many people, cutting the number of vehicles on the road. None of this works, however, without serious investment in <b>infrastructure</b> &mdash; the roads, rails, charging points and networks that hold a modern transport system together.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">Study these before the exercises. Each card gives the meaning and an example.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">electric vehicles (EVs)</div><div class="vocab-def">cars or bikes powered by electricity, not petrol</div><div class="vocab-ex">“Half of all new cars sold there are now EVs.”</div></div>
+<div class="vocab-card"><div class="vocab-term">carbon footprint</div><div class="vocab-def">the amount of CO₂ your activities produce</div><div class="vocab-ex">“Taking the train cuts your carbon footprint.”</div></div>
+<div class="vocab-card"><div class="vocab-term">public transport</div><div class="vocab-def">shared transport such as buses and trains</div><div class="vocab-ex">“I use public transport to get to school.”</div></div>
+<div class="vocab-card"><div class="vocab-term">traffic congestion</div><div class="vocab-def">too many vehicles causing slow, blocked roads</div><div class="vocab-ex">“Traffic congestion is worst at rush hour.”</div></div>
+<div class="vocab-card"><div class="vocab-term">autonomous cars</div><div class="vocab-def">vehicles that drive themselves</div><div class="vocab-ex">“Autonomous cars use sensors and AI to navigate.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to commute</div><div class="vocab-def">to travel regularly between home and work or school</div><div class="vocab-ex">“She commutes an hour each way.”</div></div>
+<div class="vocab-card"><div class="vocab-term">ride-sharing</div><div class="vocab-def">sharing a car journey with others, often via an app</div><div class="vocab-ex">“Ride-sharing reduces the number of cars.”</div></div>
+<div class="vocab-card"><div class="vocab-term">infrastructure</div><div class="vocab-def">the basic systems and structures a place needs</div><div class="vocab-ex">“Charging EVs needs the right infrastructure.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">🔗</span>Matching</h2>
+<p class="instr">Click an expression, then click its meaning. Correct pairs lock in green.</p>
+<div class="match-grid" data-match="t3">
+<div class="match-col"><h4>Expression</h4>
+<div class="match-item" data-side="t" data-pair="0">electric vehicles</div>
+<div class="match-item" data-side="t" data-pair="1">carbon footprint</div>
+<div class="match-item" data-side="t" data-pair="2">public transport</div>
+<div class="match-item" data-side="t" data-pair="3">traffic congestion</div>
+<div class="match-item" data-side="t" data-pair="4">autonomous cars</div>
+<div class="match-item" data-side="t" data-pair="5">to commute</div>
+<div class="match-item" data-side="t" data-pair="6">ride-sharing</div>
+<div class="match-item" data-side="t" data-pair="7">infrastructure</div>
+</div>
+<div class="match-col"><h4>Meaning</h4>
+<div class="match-item" data-side="d" data-pair="4">vehicles that drive themselves</div>
+<div class="match-item" data-side="d" data-pair="2">shared transport like buses and trains</div>
+<div class="match-item" data-side="d" data-pair="3">blocked roads from too many cars</div>
+<div class="match-item" data-side="d" data-pair="5">to travel regularly to work or school</div>
+<div class="match-item" data-side="d" data-pair="7">the basic systems a place needs to work</div>
+<div class="match-item" data-side="d" data-pair="1">the amount of CO₂ you produce</div>
+<div class="match-item" data-side="d" data-pair="0">cars powered by electricity, not petrol</div>
+<div class="match-item" data-side="d" data-pair="6">sharing a journey, often via an app</div>
+</div></div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Use the word bank to complete each sentence, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">Public transport</span>
+<span class="bw">congestion</span>
+<span class="bw">Electric vehicles</span>
+<span class="bw">infrastructure</span>
+<span class="bw">ride-sharing</span>
+<span class="bw">commute</span>
+<span class="bw">autonomous</span>
+<span class="bw">carbon footprint</span>
+</div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> I <input class="fill-input" type="text" autocomplete="off" data-answer="commute" aria-label="answer 1"> to school by train every morning.</div>
+<div class="fill-item"><span class="qn">2.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="public transport" aria-label="answer 2"> like buses and trams reduce the number of cars.</div>
+<div class="fill-item"><span class="qn">3.</span> Flying a lot increases your <input class="fill-input" type="text" autocomplete="off" data-answer="carbon footprint" aria-label="answer 3">.</div>
+<div class="fill-item"><span class="qn">4.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="electric vehicles" aria-label="answer 4"> run on batteries instead of petrol.</div>
+<div class="fill-item"><span class="qn">5.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="autonomous" aria-label="answer 5"> cars can drive themselves using AI.</div>
+<div class="fill-item"><span class="qn">6.</span> At rush hour the traffic <input class="fill-input" type="text" autocomplete="off" data-answer="congestion" aria-label="answer 6"> is terrible.</div>
+<div class="fill-item"><span class="qn">7.</span> Apps make <input class="fill-input" type="text" autocomplete="off" data-answer="ride-sharing" aria-label="answer 7"> easy: just split a ride.</div>
+<div class="fill-item"><span class="qn">8.</span> EVs need charging <input class="fill-input" type="text" autocomplete="off" data-answer="infrastructure" aria-label="answer 8"> everywhere.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Multiple choice</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>An EV is powered by…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> petrol</div>
+<div class="mc-opt" data-i="1"><b>B.</b> electricity</div>
+<div class="mc-opt" data-i="2"><b>C.</b> steam</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>‘Carbon footprint’ measures…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> your shoe size</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the CO₂ you produce</div>
+<div class="mc-opt" data-i="2"><b>C.</b> your weight</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Autonomous cars…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> need no roads</div>
+<div class="mc-opt" data-i="1"><b>B.</b> drive themselves</div>
+<div class="mc-opt" data-i="2"><b>C.</b> run on coal</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Traffic congestion happens when…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> roads are empty</div>
+<div class="mc-opt" data-i="1"><b>B.</b> there are too many vehicles</div>
+<div class="mc-opt" data-i="2"><b>C.</b> it's sunny</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q5</span>‘To commute’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> to travel regularly to work or school</div>
+<div class="mc-opt" data-i="1"><b>B.</b> to buy a car</div>
+<div class="mc-opt" data-i="2"><b>C.</b> to repair a road</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q6</span>‘Infrastructure’ includes…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> roads, rails and networks</div>
+<div class="mc-opt" data-i="1"><b>B.</b> clothes and shoes</div>
+<div class="mc-opt" data-i="2"><b>C.</b> food and drink</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q3</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">How do you usually get to school?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's the best and worst form of transport you've used?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Would you like to own a car one day? Why?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q4–Q7</span></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Should city centres ban petrol cars completely?</div></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is public transport in your area good enough?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Would you trust a self-driving car with your life?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">How could we get people to use cars less?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q8–Q9</span></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Convince your parents to let you cycle to school instead of being driven.</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">A mayor announces a new high-speed rail line; the other is an angry driver who'll lose a road.</div></div>
+<div class="q-group-head">Hot takes<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Will private car ownership disappear in your lifetime?</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">‘Flying should be taxed much more heavily.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Are electric cars really as green as people claim?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you is a city planner who wants to ban cars from the centre and add trams and bike lanes; the other runs a shop and fears losing customers. Debate it for two minutes &mdash; use today's vocabulary.</div>
+<div class="phrases"><h5>Useful phrases for your answers</h5><div class="ptags"><span>In my opinion…</span><span>I’d argue that…</span><span>On the one hand… on the other…</span><span>That’s a fair point, but…</span><span>It depends on…</span><span>I’m not convinced that…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">📱</span>Modern Technology</h2>
+<p class="instr">The tools that run &mdash; and sometimes ruin &mdash; our days. Target language is in <b>highlighted bold</b>.</p>
+<article class="reading">
+<h3>Life on the Screen</h3>
+<div class="byline">★ Digital life · The technology that shapes every day</div>
+<p>No generation has ever been as connected as yours. From the moment you wake up, <b>smart devices</b> shape your day &mdash; but the same tools that empower us can quietly take over.</p>
+<p>The biggest story is <b>artificial intelligence</b>. AI now writes, draws, translates and answers questions in seconds. It is <b>cutting-edge</b> and genuinely useful, yet it raises real worries about jobs, honesty and who controls it.</p>
+<p>Then there is <b>social media</b>. A single clever video can <b>go viral</b> and reach millions overnight. But endless scrolling is deliberately <b>addictive</b>, and constant comparison can damage how young people feel about themselves. Managing your <b>screen time</b> is now a real life skill.</p>
+<p>Everything you do online leaves a <b>digital footprint</b> &mdash; posts, photos, searches and likes that can follow you for years. Protecting your <b>online privacy</b>, choosing strong passwords and thinking before you share have never mattered more.</p>
+<p>Good technology should be <b>user-friendly</b>: powerful but easy to use. And whatever you create, remember one boring but vital habit &mdash; always <b>back up your data</b>, because devices break, get lost or get stolen when you least expect it.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">Study these before the exercises. Each card gives the meaning and an example.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">artificial intelligence (AI)</div><div class="vocab-def">computer systems that perform tasks needing human intelligence</div><div class="vocab-ex">“AI can write a whole essay in seconds.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to go viral</div><div class="vocab-def">to spread very quickly online</div><div class="vocab-ex">“Her video went viral overnight.”</div></div>
+<div class="vocab-card"><div class="vocab-term">screen time</div><div class="vocab-def">the amount of time spent looking at a screen</div><div class="vocab-ex">“My phone tracks my screen time.”</div></div>
+<div class="vocab-card"><div class="vocab-term">digital footprint</div><div class="vocab-def">the trail of data you leave online</div><div class="vocab-ex">“Employers can check your digital footprint.”</div></div>
+<div class="vocab-card"><div class="vocab-term">cutting-edge</div><div class="vocab-def">the most advanced and modern</div><div class="vocab-ex">“This is cutting-edge technology.”</div></div>
+<div class="vocab-card"><div class="vocab-term">user-friendly</div><div class="vocab-def">easy to use</div><div class="vocab-ex">“The app is simple and user-friendly.”</div></div>
+<div class="vocab-card"><div class="vocab-term">addictive</div><div class="vocab-def">making you want to keep doing it</div><div class="vocab-ex">“Social media is designed to be addictive.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to back up (data)</div><div class="vocab-def">to save a copy in case the original is lost</div><div class="vocab-ex">“Always back up your photos to the cloud.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">🔗</span>Matching</h2>
+<p class="instr">Click an expression, then click its meaning. Correct pairs lock in green.</p>
+<div class="match-grid" data-match="t4">
+<div class="match-col"><h4>Expression</h4>
+<div class="match-item" data-side="t" data-pair="0">artificial intelligence</div>
+<div class="match-item" data-side="t" data-pair="1">to go viral</div>
+<div class="match-item" data-side="t" data-pair="2">screen time</div>
+<div class="match-item" data-side="t" data-pair="3">digital footprint</div>
+<div class="match-item" data-side="t" data-pair="4">cutting-edge</div>
+<div class="match-item" data-side="t" data-pair="5">user-friendly</div>
+<div class="match-item" data-side="t" data-pair="6">addictive</div>
+<div class="match-item" data-side="t" data-pair="7">to back up data</div>
+</div>
+<div class="match-col"><h4>Meaning</h4>
+<div class="match-item" data-side="d" data-pair="5">easy to use</div>
+<div class="match-item" data-side="d" data-pair="3">the trail of data you leave online</div>
+<div class="match-item" data-side="d" data-pair="0">systems doing tasks that need human intelligence</div>
+<div class="match-item" data-side="d" data-pair="2">the time spent looking at a screen</div>
+<div class="match-item" data-side="d" data-pair="7">to save a copy in case the original is lost</div>
+<div class="match-item" data-side="d" data-pair="6">making you want to keep doing it</div>
+<div class="match-item" data-side="d" data-pair="4">the most advanced and modern</div>
+<div class="match-item" data-side="d" data-pair="1">to spread very quickly online</div>
+</div></div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Use the word bank to complete each sentence, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">cutting-edge</span>
+<span class="bw">addictive</span>
+<span class="bw">screen time</span>
+<span class="bw">go viral</span>
+<span class="bw">back up</span>
+<span class="bw">digital footprint</span>
+<span class="bw">user-friendly</span>
+<span class="bw">Artificial intelligence</span>
+</div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="artificial intelligence" aria-label="answer 1"> can now translate languages instantly.</div>
+<div class="fill-item"><span class="qn">2.</span> Be careful &mdash; your <input class="fill-input" type="text" autocomplete="off" data-answer="digital footprint" aria-label="answer 2"> can follow you for years.</div>
+<div class="fill-item"><span class="qn">3.</span> Games are designed to be <input class="fill-input" type="text" autocomplete="off" data-answer="addictive" aria-label="answer 3"> so you keep playing.</div>
+<div class="fill-item"><span class="qn">4.</span> Remember to <input class="fill-input" type="text" autocomplete="off" data-answer="back up" aria-label="answer 4"> your files before the update.</div>
+<div class="fill-item"><span class="qn">5.</span> A good app is powerful but <input class="fill-input" type="text" autocomplete="off" data-answer="user-friendly" aria-label="answer 5">.</div>
+<div class="fill-item"><span class="qn">6.</span> I try to limit my <input class="fill-input" type="text" autocomplete="off" data-answer="screen time" aria-label="answer 6"> to two hours a day.</div>
+<div class="fill-item"><span class="qn">7.</span> If a clip is funny enough, it can <input class="fill-input" type="text" autocomplete="off" data-answer="go viral" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> Their newest phone uses <input class="fill-input" type="text" autocomplete="off" data-answer="cutting-edge" aria-label="answer 8"> technology.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Multiple choice</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>‘To go viral’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> to get a computer virus</div>
+<div class="mc-opt" data-i="1"><b>B.</b> to spread quickly online</div>
+<div class="mc-opt" data-i="2"><b>C.</b> to delete a post</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Your ‘digital footprint’ is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> your shoe size online</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the data trail you leave</div>
+<div class="mc-opt" data-i="2"><b>C.</b> your screen size</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>‘User-friendly’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> expensive</div>
+<div class="mc-opt" data-i="1"><b>B.</b> easy to use</div>
+<div class="mc-opt" data-i="2"><b>C.</b> dangerous</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>We back up data so that…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it looks nicer</div>
+<div class="mc-opt" data-i="1"><b>B.</b> we don't lose it</div>
+<div class="mc-opt" data-i="2"><b>C.</b> it loads faster</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>‘Cutting-edge’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> old-fashioned</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the most advanced</div>
+<div class="mc-opt" data-i="2"><b>C.</b> broken</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Social media is often addictive because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it's educational</div>
+<div class="mc-opt" data-i="1"><b>B.</b> it's designed to keep you scrolling</div>
+<div class="mc-opt" data-i="2"><b>C.</b> it's slow</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q3</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the first app you open in the morning?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Could you survive a week without your phone?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's the best piece of technology you own?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q4–Q7</span></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Does social media do more harm or good for teenagers?</div></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should there be an age limit for social media?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is AI a bigger opportunity or a bigger threat?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">How much screen time is too much?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q8–Q9</span></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Convince a parent to raise your screen-time limit.</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">A tech CEO defends an addictive app to a worried journalist.</div></div>
+<div class="q-group-head">Hot takes<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Will AI make human creativity less valuable?</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">‘Phones should be banned in all schools.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">In 20 years, will online privacy still exist?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you is a worried parent who wants to limit phones at home; the other is a teenager arguing for more freedom and trust. Make your case using today's vocabulary &mdash; <em>screen time</em>, <em>digital footprint</em>, <em>addictive</em>.</div>
+<div class="phrases"><h5>Useful phrases for your answers</h5><div class="ptags"><span>In my opinion…</span><span>I’d argue that…</span><span>On the one hand… on the other…</span><span>That’s a fair point, but…</span><span>It depends on…</span><span>I’m not convinced that…</span></div></div>
+</section>
+
+  <footer>★ ★ &nbsp; THE REAL WORLD · B2 ENGLISH · STUDIES · WORK · TRANSPORT · TECHNOLOGY &nbsp; ★ ★</footer>
+</div>
+
+<script>
+/* TABS */
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+/* MATCHING (scoped per grid) */
+document.querySelectorAll('.match-grid').forEach(function(grid){
+  var sel=null;
+  grid.addEventListener('click',function(e){
+    var it=e.target.closest('.match-item');
+    if(!it||it.classList.contains('matched'))return;
+    if(!sel){sel=it;it.classList.add('selected');return;}
+    if(sel===it){it.classList.remove('selected');sel=null;return;}
+    if(sel.dataset.side!==it.dataset.side && sel.dataset.pair===it.dataset.pair){
+      sel.classList.remove('selected');sel.classList.add('matched');it.classList.add('matched');sel=null;
+    }else{
+      it.classList.add('shake');var bad=it;setTimeout(function(){bad.classList.remove('shake');},350);
+      sel.classList.remove('selected');sel=null;
+    }
+  });
+});
+
+/* GAP FILL */
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;}
+    else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length;
+  sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id);sc.textContent='\u2013';sc.classList.remove('win');
+}
+
+/* MULTIPLE CHOICE */
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
