@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>People Power — Business English Speaking Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"🤝";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">💎 BUSINESS ENGLISH · B2–C1 · THE HUMAN SIDE · SPEAKING FOCUS</div>
+      <h1>People <span class="accent">Power</span></h1>
+      <div class="sub">Four conversations that decide how organisations really run — hiring the right people, holding meetings worth attending, keeping skills sharp, and turning customers into fans. Read the column, steal the vocabulary and idioms, then speak like someone who actually gets it.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2–C1</span>
+        <span class="tag">READING ~400 WORDS</span>
+        <span class="tag">VOCAB + IDIOMS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">68 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Hiring 🎯</button>
+    <button class="tab" data-tab="t2">② Meetings 📅</button>
+    <button class="tab" data-tab="t3">③ Upskilling 📚</button>
+    <button class="tab" data-tab="t4">④ Customers 💬</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🎯</span>Headhunting &amp; Recruitment</h2>
+<p class="instr">A senior headhunter on what really gets you hired &mdash; and what quietly gets you rejected. Target idioms are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The CV Got You In. The First Five Minutes Will Keep You There.</h3>
+<div class="byline">★ Hannah Lindqvist · Executive headhunter · Twelve years placing senior talent</div>
+<p>After twelve years interviewing senior candidates, I'll let you in on something nobody likes to admit: most hires aren't decided by the answers. They're decided in the first five minutes &mdash; before anyone has said anything that matters. We tell ourselves we're being objective. We're not. We're pattern-matching.</p>
+<p>The CV gets you through the door. Beyond that, it barely matters. What I'm actually watching for is harder to define and easier to feel. Do you ask questions back? Do you smile at the receptionist as well as the CEO? When I challenge you, do you defend or do you think? That last one tells me more than any qualification on your <b>résumé</b>.</p>
+<p>Most candidates lose the role in small, accidental ways. They bad-mouth their last boss &mdash; one of the biggest <b>red flags</b> I see. They describe themselves as a “perfectionist” as if it's a brave confession. They talk endlessly about <em>their</em> needs and not once about how they'd actually help the team. None of these are dealbreakers on paper. All of them are dealbreakers in the room.</p>
+<div class="pull-quote">Nobody is ever hired for being the smartest person available. They're hired for being the easiest person to work with who is also good enough.</div>
+<p>The market itself has changed. Today's senior roles are filled in a quiet <b>war for talent</b>: the best people are rarely looking, they're already employed, and they need to be approached, not posted to. That's why we spend most of our time chasing <b>passive candidates</b> on LinkedIn, not screening eager applicants. The active candidate pile, frankly, is the last place I look.</p>
+<p>When you do get the offer, here's where it gets uncomfortable. If you're any good, your current employer will hit you with a <b>counter-offer</b> within hours. Tempting, yes. But the data is brutal: roughly half of people who accept a counter-offer leave within twelve months anyway. The reasons that pushed you out don't disappear just because the salary went up.</p>
+<p>And once you do start a new role, the first ninety days are everything. The people I see succeed don't try to redesign the company in week one. They ask questions, build relationships, and <b>hit the ground running</b> on small, visible wins. They're a <b>culture fit</b> not because they agree with everyone, but because they bother to understand the room before changing it. So before your next interview, stop rehearsing answers. Decide instead what kind of colleague you want to be &mdash; and walk in as that person from minute one. People hire other people. Not bullet points.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a headhunter</div><div class="vocab-def">a specialist recruiter for senior roles</div><div class="vocab-ex">“A headhunter approached her on LinkedIn.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to poach talent</div><div class="vocab-def">to attract skilled people away from a rival</div><div class="vocab-ex">“They poached three of our best engineers.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a passive candidate</div><div class="vocab-def">someone not actively looking for a job</div><div class="vocab-ex">“The best hires are usually passive candidates.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a shortlist</div><div class="vocab-def">the final small group of candidates</div><div class="vocab-ex">“We have a shortlist of four.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a counter-offer</div><div class="vocab-def">a better offer made to keep someone</div><div class="vocab-ex">“Her boss came back with a counter-offer.”</div></div>
+<div class="vocab-card"><div class="vocab-term">culture fit</div><div class="vocab-def">how well someone matches a team's style</div><div class="vocab-ex">“Skills matter, but culture fit is what lasts.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to onboard a hire</div><div class="vocab-def">to help a new employee start well</div><div class="vocab-ex">“Bad onboarding kills good hires.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a résumé / CV</div><div class="vocab-def">a written summary of your career</div><div class="vocab-ex">“Tailor your résumé to every role.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">a culture fit</div><div class="idiom-def">someone whose values and style match the team</div><div class="idiom-ex">“Skills matter, but culture fit lasts longer.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a counter-offer</div><div class="idiom-def">a better offer made to keep someone from leaving</div><div class="idiom-ex">“Her boss matched the salary with a counter-offer.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to ghost someone</div><div class="idiom-def">to stop replying with no explanation</div><div class="idiom-ex">“Two finalists ghosted us after the offer.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a red flag</div><div class="idiom-def">a warning sign</div><div class="idiom-ex">“Bad-mouthing every ex-employer is a red flag.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to hit the ground running</div><div class="idiom-def">to start a new job effectively and fast</div><div class="idiom-ex">“She hit the ground running in week one.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a war for talent</div><div class="idiom-def">intense competition between firms for skilled people</div><div class="idiom-ex">“Senior AI engineers are in a real war for talent.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">passive candidates</span><span class="bw">red flags</span><span class="bw">counter-offer</span><span class="bw">poach</span><span class="bw">culture fit</span><span class="bw">hit the ground running</span><span class="bw">shortlist</span><span class="bw">war for talent</span></div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> Bad-mouthing past employers is one of the biggest <input class="fill-input" type="text" autocomplete="off" data-answer="red flags" aria-label="answer 1">.</div>
+<div class="fill-item"><span class="qn">2.</span> Most senior hires today are <input class="fill-input" type="text" autocomplete="off" data-answer="passive candidates" aria-label="answer 2"> who weren't looking.</div>
+<div class="fill-item"><span class="qn">3.</span> After his resignation, his boss made him a generous <input class="fill-input" type="text" autocomplete="off" data-answer="counter-offer" aria-label="answer 3">.</div>
+<div class="fill-item"><span class="qn">4.</span> Skills matter, but <input class="fill-input" type="text" autocomplete="off" data-answer="culture fit" aria-label="answer 4"> decides who survives the first year.</div>
+<div class="fill-item"><span class="qn">5.</span> The best new hires ask questions and <input class="fill-input" type="text" autocomplete="off" data-answer="hit the ground running" aria-label="answer 5"> on small wins.</div>
+<div class="fill-item"><span class="qn">6.</span> Rival firms keep trying to <input class="fill-input" type="text" autocomplete="off" data-answer="poach" aria-label="answer 6"> our senior team.</div>
+<div class="fill-item"><span class="qn">7.</span> We've narrowed it down to a <input class="fill-input" type="text" autocomplete="off" data-answer="shortlist" aria-label="answer 7"> of four.</div>
+<div class="fill-item"><span class="qn">8.</span> The current AI <input class="fill-input" type="text" autocomplete="off" data-answer="war for talent" aria-label="answer 8"> has pushed salaries up by 40%.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says most hiring decisions are made…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> from the CV</div>
+<div class="mc-opt" data-i="1"><b>B.</b> in the first five minutes</div>
+<div class="mc-opt" data-i="2"><b>C.</b> at the salary stage</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The biggest red flag the writer mentions is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> being nervous</div>
+<div class="mc-opt" data-i="1"><b>B.</b> bad-mouthing a previous boss</div>
+<div class="mc-opt" data-i="2"><b>C.</b> wearing the wrong outfit</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Most senior roles today are filled by…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> loud active applicants</div>
+<div class="mc-opt" data-i="1"><b>B.</b> passive candidates already in jobs</div>
+<div class="mc-opt" data-i="2"><b>C.</b> internal promotions only</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Roughly what proportion of people who accept a counter-offer leave within a year?</div>
+<div class="mc-opt" data-i="0"><b>A.</b> 10%</div>
+<div class="mc-opt" data-i="1"><b>B.</b> about half</div>
+<div class="mc-opt" data-i="2"><b>C.</b> nobody does</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The writer's definition of a culture fit is someone who…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> always agrees</div>
+<div class="mc-opt" data-i="1"><b>B.</b> understands the room before changing it</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never disagrees</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>In the first 90 days, successful new hires…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> redesign the company</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ask, listen and win small</div>
+<div class="mc-opt" data-i="2"><b>C.</b> stay invisible</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the most stressful interview you've ever had?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Have you ever been on the <em>other</em> side of an interview?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Is your CV up to date right now? Be honest.</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">If you had to hire someone tomorrow, what would you ask them first?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are first impressions in interviews fair, or just lazy thinking?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should companies hire purely on skills, ignoring degrees entirely?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is it ever ethical to <em>poach</em> people from a friendly partner company?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should salary be discussed in the first interview or the last?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Are personality tests a useful hiring tool, or modern astrology?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: you're being headhunted while perfectly happy where you are. Handle the call.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: deliver bad news to a strong candidate who didn't get the job.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design the first 90 days of a senior hire's onboarding plan.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">Will AI agents do most of the first-round interviewing within five years?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">‘LinkedIn is killing real recruitment.’ Agree?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you is interviewing a strong but slightly arrogant candidate; the other plays the candidate. Push back hard on one weak answer &mdash; and notice whether they <em>defend</em> or <em>think</em>.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Describe a job interview where you, or a friend, were a brilliant <b>culture fit</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever received a <b>counter-offer</b> &mdash; or seen someone get one? What happened?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Have you ever been <b>ghosted</b> by a company after an interview? How did it feel?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">What's the biggest <b>red flag</b> you can spot during an interview?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Tell us about a time you, or someone you know, truly <b>hit the ground running</b>.</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">📅</span>Meetings &amp; Meeting Culture</h2>
+<p class="instr">A productivity coach on why your meetings are killing your week. Target idioms are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Meeting That Should Have Been an Email</h3>
+<div class="byline">★ Daniel Ortiz · Productivity coach · Inside 200 companies a year</div>
+<p>I'm going to say what most professionals quietly think and rarely say out loud: about half of your meetings shouldn't exist. They eat the day, leak energy, and reach decisions that could have been written down in three sentences. We're so used to <b>death by meeting</b> that we've forgotten what working actually looks like.</p>
+<p>Here's the diagnostic I use with executive teams. For every meeting in your calendar this week, ask one question: <em>What decision will be made in this meeting that couldn't be made by email?</em> If you can't answer it in one sentence, it's an email. If you can, it deserves the time. Most people, when they try this honestly, cut their meeting load by a third in a fortnight.</p>
+<div class="pull-quote">A meeting without a decision is a status update with snacks. Status updates belong in writing.</div>
+<p>The well-run meetings I see share three boring habits. They start with a written <b>agenda</b> nobody is allowed to add to mid-flight. They have a clear chair whose job is to <b>steer the conversation</b> &mdash; not to dominate it, but to gently bring people back when they <b>go off on a tangent</b> or <b>derail</b> the discussion. And they end with <b>action points</b>: who is doing what, by when. No action points, no meeting.</p>
+<p>On the etiquette side, the biggest sin is <b>talking over</b> people. I've watched million-dollar decisions get made by whoever was loudest in the room and not by whoever was right. Strong chairs name it instantly: “Let Priya finish.” Two words. They change the whole room.</p>
+<p>Then there's the modern crisis: <b>back-to-back</b> meetings with no thinking time between them. We schedule humans like CPUs and then act surprised when nothing creative comes out. The healthiest companies I work with are quietly shifting work to <b>async</b> &mdash; written updates and shared documents &mdash; so the rare live meeting is actually about deciding something hard together. Meetings hide chaos. Writing forces clarity.</p>
+<p>Finally, please learn to <b>wrap up</b>. Most meetings overrun because nobody knows how to end them. A good chair pulls the plug at minus three: “We have three minutes. Action points, decisions, who does what.” That's it. Anything else can be a follow-up. If you take one habit from this column, take that one. Your week will silently get its life back.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">an agenda</div><div class="vocab-def">a written plan of what a meeting will cover</div><div class="vocab-ex">“Send the agenda the day before, not five minutes before.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to chair a meeting</div><div class="vocab-def">to lead it and keep it on track</div><div class="vocab-ex">“She chaired the merger meeting brilliantly.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to steer the conversation</div><div class="vocab-def">to gently guide where it goes</div><div class="vocab-ex">“A good chair steers without dominating.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an action point</div><div class="vocab-def">a clear next step assigned to a named person</div><div class="vocab-ex">“End every meeting with action points.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a stand-up</div><div class="vocab-def">a short, daily meeting done quickly</div><div class="vocab-ex">“Our 10-minute stand-up replaced an hour-long sync.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a town hall</div><div class="vocab-def">a large company-wide meeting</div><div class="vocab-ex">“The CEO answered tough questions at the town hall.”</div></div>
+<div class="vocab-card"><div class="vocab-term">back-to-back</div><div class="vocab-def">scheduled with no gap in between</div><div class="vocab-ex">“I had six back-to-back calls today.”</div></div>
+<div class="vocab-card"><div class="vocab-term">async (asynchronous)</div><div class="vocab-def">not requiring people to be online at the same time</div><div class="vocab-ex">“Async updates cut our meeting load in half.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">death by meeting</div><div class="idiom-def">exhaustion from too many low-value meetings</div><div class="idiom-ex">“Most of our week is just death by meeting.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to derail a meeting</div><div class="idiom-def">to push it off-topic and waste time</div><div class="idiom-ex">“One off-topic question derailed the whole hour.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to wrap up</div><div class="idiom-def">to bring something to a close</div><div class="idiom-ex">“Let's wrap up and send the action points.”</div></div>
+<div class="idiom-card"><div class="idiom-term">an action point</div><div class="idiom-def">a clear next step assigned to a person</div><div class="idiom-ex">“Every meeting must end with action points.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to talk over someone</div><div class="idiom-def">to interrupt and speak across their voice</div><div class="idiom-ex">“Stop talking over Maria &mdash; she had a point.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to circle back</div><div class="idiom-def">to return to a topic later</div><div class="idiom-ex">“Let's circle back on pricing next week.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">async</span><span class="bw">back-to-back</span><span class="bw">death by meeting</span><span class="bw">agenda</span><span class="bw">action points</span><span class="bw">talked over</span><span class="bw">wrap up</span><span class="bw">derailed</span></div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> Most of our week is just <input class="fill-input" type="text" autocomplete="off" data-answer="death by meeting" aria-label="answer 1">.</div>
+<div class="fill-item"><span class="qn">2.</span> Please send the <input class="fill-input" type="text" autocomplete="off" data-answer="agenda" aria-label="answer 2"> the day before, not five minutes before.</div>
+<div class="fill-item"><span class="qn">3.</span> One off-topic question completely <input class="fill-input" type="text" autocomplete="off" data-answer="derailed" aria-label="answer 3"> the discussion.</div>
+<div class="fill-item"><span class="qn">4.</span> End every meeting with <input class="fill-input" type="text" autocomplete="off" data-answer="action points" aria-label="answer 4"> assigned to named people.</div>
+<div class="fill-item"><span class="qn">5.</span> Maria was repeatedly <input class="fill-input" type="text" autocomplete="off" data-answer="talked over" aria-label="answer 5"> by louder voices in the room.</div>
+<div class="fill-item"><span class="qn">6.</span> I had six <input class="fill-input" type="text" autocomplete="off" data-answer="back-to-back" aria-label="answer 6"> calls today and didn't think once.</div>
+<div class="fill-item"><span class="qn">7.</span> Let's <input class="fill-input" type="text" autocomplete="off" data-answer="wrap up" aria-label="answer 7"> &mdash; what are the decisions and who owns them?</div>
+<div class="fill-item"><span class="qn">8.</span> Moving updates to <input class="fill-input" type="text" autocomplete="off" data-answer="async" aria-label="answer 8"> tools freed up Friday afternoons.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer's test for whether a meeting should happen is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> is the room free?</div>
+<div class="mc-opt" data-i="1"><b>B.</b> what decision will be made that couldn't be made by email?</div>
+<div class="mc-opt" data-i="2"><b>C.</b> do people have free time?</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Three habits of well-run meetings are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> snacks, chair, jokes</div>
+<div class="mc-opt" data-i="1"><b>B.</b> agenda, chair, action points</div>
+<div class="mc-opt" data-i="2"><b>C.</b> clock, screen, slides</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Talking over others mostly leads to decisions made by…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the most informed</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the loudest</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the boss</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>‘Back-to-back’ meetings hurt because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> food is bad</div>
+<div class="mc-opt" data-i="1"><b>B.</b> there's no thinking time</div>
+<div class="mc-opt" data-i="2"><b>C.</b> they're too short</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Async work is praised because it…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> increases meetings</div>
+<div class="mc-opt" data-i="1"><b>B.</b> forces written clarity</div>
+<div class="mc-opt" data-i="2"><b>C.</b> slows decisions</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q6</span>The writer's rule for the last minutes of a meeting is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> recap, decisions, owners</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ask for jokes</div>
+<div class="mc-opt" data-i="2"><b>C.</b> leave silently</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">How many meetings do you have in a normal week?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Have you ever fallen asleep, on or off camera, in a meeting?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's the longest pointless meeting you've ever sat through?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are you a better contributor in writing or in conversation?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Why is <em>death by meeting</em> such a universal problem?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should cameras be mandatory in remote meetings?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is a meeting without a decision ever worth holding?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">How do you raise a hand without sounding rude when someone is dominating?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will async writing replace most live meetings in five years?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: chair a meeting where two senior colleagues won't stop arguing.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: politely shut down a meeting that's already 15 minutes over.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Redesign your company's meeting culture in five concrete rules.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘Status updates belong in writing, not in meetings.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will AI sit in meetings and write the action points for us?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you is chairing a Monday team meeting. The other plays a colleague who keeps <em>talking over</em> the team and <em>derailing</em> the agenda. Bring it back on track without humiliating them.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Describe the worst case of <b>death by meeting</b> you've ever lived through.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever been in a meeting that got completely <b>derailed</b>? By what?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What's the politest way to <b>wrap up</b> a meeting that's overrunning?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Tell us about a colleague who constantly <b>talks over</b> others. How should they be handled?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">When is “Let's <b>circle back</b>” genuinely useful &mdash; and when is it code for ‘never’?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">📚</span>Skilling &amp; Upskilling</h2>
+<p class="instr">A learning lead on why the half-life of a skill is now five years &mdash; and what to do about it. Target idioms are in <b>gold</b>.</p>
+<article class="reading">
+<h3>What Got You Here Won't Get You There</h3>
+<div class="byline">★ Anya Saito · Head of Learning · Built upskilling programmes across three industries</div>
+<p>There's a number I share with every CEO I work with that quietly changes their plans for the year: the average commercial skill now has a shelf-life of about five years. The thing your team learned in 2020 isn't broken; it's just running out of road. The companies that keep winning don't pay for more degrees. They build the habit of relentless, low-key upskilling into how people work.</p>
+<p>The first myth I dismantle is that <b>upskilling</b> means abandoning what you know. It doesn't. To upskill is to go deeper in the field you're already in. <b>Reskilling</b> &mdash; learning an entirely different job &mdash; is the dramatic story HR conferences love, but the truth is that most people don't need to reinvent themselves. They need to sharpen the edges of what they're already doing.</p>
+<div class="pull-quote">The most dangerous career mistake isn't picking the wrong skill. It's quietly switching to autopilot in the right one.</div>
+<p>Once you've been good at something for a decade, the brain stops working very hard. That's why the most experienced people on a team are sometimes the slowest to grow. They're not lazy &mdash; they're efficient, which looks identical from the outside. The cure is uncomfortable: deliberately put yourself on a <b>learning curve</b> every year. A new tool, a new method, a new domain at the edge of your job. Discomfort is your only honest feedback that growth is happening.</p>
+<p>Then there's the part nobody likes: identifying your <b>skills gap</b>. Most people guess it. The strong ones ask. Send three colleagues you respect a single question: “What could I do, that I currently don't, that would actually be useful?” Then prepare yourself: their answers will be sharper than you expect. That's the point.</p>
+<p>The format matters less than people think. <b>Bootcamps</b>, <b>micro-credentials</b>, online courses, books, a <b>mentor</b>, an AI tutor &mdash; pick whatever you'll actually finish. Eighty percent of a finished course beats one hundred percent of a course you signed up for and abandoned in week two.</p>
+<p>If you want one rule to live by, here it is. Aim to be slightly uncomfortable for an hour every week with something professionally new. Not heroic. Not glamorous. Just one steady hour. That single habit will compound into a career most of your peers will quietly envy. Lifelong learning isn't a slogan. It's the only competitive advantage that doesn't depreciate.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a skills gap</div><div class="vocab-def">the difference between what you know and what you need</div><div class="vocab-ex">“Our team has a real data-skills gap.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to upskill</div><div class="vocab-def">to deepen the skills you already have</div><div class="vocab-ex">“Engineers are upskilling in AI every month.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to reskill</div><div class="vocab-def">to learn an entirely different job</div><div class="vocab-ex">“Many drivers may have to reskill within ten years.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a mentor</div><div class="vocab-def">a more experienced guide for your career</div><div class="vocab-ex">“Find a mentor outside your own company.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a learning curve</div><div class="vocab-def">the difficulty of learning something new</div><div class="vocab-ex">“The first month was a steep learning curve.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a bootcamp</div><div class="vocab-def">a short, intensive training course</div><div class="vocab-ex">“She did a 12-week data bootcamp.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a micro-credential</div><div class="vocab-def">a small, focused certificate or badge</div><div class="vocab-ex">“Micro-credentials are slowly replacing long courses.”</div></div>
+<div class="vocab-card"><div class="vocab-term">AI literacy</div><div class="vocab-def">the basic skills to use AI responsibly</div><div class="vocab-ex">“AI literacy is the new digital literacy.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">a skills gap</div><div class="idiom-def">the difference between skills you have and skills you need</div><div class="idiom-ex">“We have a serious data-skills gap on the team.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to reskill</div><div class="idiom-def">to learn an entirely new field of work</div><div class="idiom-ex">“Many drivers will need to reskill within ten years.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to upskill</div><div class="idiom-def">to deepen the skills you already have</div><div class="idiom-ex">“Engineers are upskilling in AI almost monthly.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a lifelong learner</div><div class="idiom-def">someone who keeps learning their whole career</div><div class="idiom-ex">“The best leaders are quiet lifelong learners.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a learning curve</div><div class="idiom-def">the difficulty of becoming good at something new</div><div class="idiom-ex">“The first month was a steep learning curve.”</div></div>
+<div class="idiom-card"><div class="idiom-term">on autopilot</div><div class="idiom-def">working without thinking or growing</div><div class="idiom-ex">“After ten years, he was just on autopilot.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">mentor</span><span class="bw">autopilot</span><span class="bw">reskill</span><span class="bw">bootcamp</span><span class="bw">micro-credential</span><span class="bw">skills gap</span><span class="bw">upskill</span><span class="bw">learning curve</span></div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> Be honest about the <input class="fill-input" type="text" autocomplete="off" data-answer="skills gap" aria-label="answer 1"> between your job today and your job in two years.</div>
+<div class="fill-item"><span class="qn">2.</span> Most engineers need to <input class="fill-input" type="text" autocomplete="off" data-answer="upskill" aria-label="answer 2"> in AI, not reinvent themselves.</div>
+<div class="fill-item"><span class="qn">3.</span> If automation arrives in your sector, you may need to <input class="fill-input" type="text" autocomplete="off" data-answer="reskill" aria-label="answer 3"> entirely.</div>
+<div class="fill-item"><span class="qn">4.</span> A good external <input class="fill-input" type="text" autocomplete="off" data-answer="mentor" aria-label="answer 4"> is the single best career investment you'll make.</div>
+<div class="fill-item"><span class="qn">5.</span> The first three months were a vertical <input class="fill-input" type="text" autocomplete="off" data-answer="learning curve" aria-label="answer 5">, but I came out a different professional.</div>
+<div class="fill-item"><span class="qn">6.</span> She did a 12-week data <input class="fill-input" type="text" autocomplete="off" data-answer="bootcamp" aria-label="answer 6"> and switched careers within the year.</div>
+<div class="fill-item"><span class="qn">7.</span> After ten years in the role, he was just on <input class="fill-input" type="text" autocomplete="off" data-answer="autopilot" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> A short <input class="fill-input" type="text" autocomplete="off" data-answer="micro-credential" aria-label="answer 8"> in prompt engineering can boost any role.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says the average commercial skill now lasts roughly…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> one year</div>
+<div class="mc-opt" data-i="1"><b>B.</b> five years</div>
+<div class="mc-opt" data-i="2"><b>C.</b> twenty years</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Upskilling means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> leaving your career</div>
+<div class="mc-opt" data-i="1"><b>B.</b> deepening your current field</div>
+<div class="mc-opt" data-i="2"><b>C.</b> quitting work</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>The biggest danger after ten years of mastery is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> forgetting basics</div>
+<div class="mc-opt" data-i="1"><b>B.</b> slipping into autopilot</div>
+<div class="mc-opt" data-i="2"><b>C.</b> being too curious</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>To find your real skills gap, the writer suggests…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> guessing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> asking three respected colleagues</div>
+<div class="mc-opt" data-i="2"><b>C.</b> reading a book</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The best learning format is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the most prestigious</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the one you'll finish</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the cheapest</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q6</span>The writer's one rule is to be uncomfortable…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> for an hour every week</div>
+<div class="mc-opt" data-i="1"><b>B.</b> every weekend</div>
+<div class="mc-opt" data-i="2"><b>C.</b> once a year</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the last new skill you learned for fun?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Are you a fast learner or a slow, deep one?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do you prefer books, videos, or learning from people?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What did you learn at school that's been completely useless?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Which skills do you think will matter most in 2035?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are degrees still worth what they cost?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should companies pay for employees' learning &mdash; or should it be personal?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Can you really upskill while doing a demanding day job?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will AI tutors replace teachers, courses and bootcamps entirely?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: convince a sceptical boss to fund a bootcamp for you.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">A junior colleague asks how to grow in this company. What do you actually say?</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a one-year personal upskilling plan for yourself, with numbers.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘Companies will soon hire purely on skills, not CVs or degrees.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Predict the next skill that everyone will rush to learn.</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you is a manager whose star employee has stopped growing; the other plays the employee. Hold the conversation kindly but honestly &mdash; name the <em>autopilot</em>, name a possible <em>learning curve</em>, and agree on one concrete step.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">What's a real <b>skills gap</b> you've noticed in yourself or at your workplace?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">If you had to <b>reskill</b> completely tomorrow, what would you choose to do?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Describe a steep <b>learning curve</b> you've climbed. Was it worth it?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Have you ever felt yourself slipping into <b>autopilot</b> at work or school? How did you snap out of it?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Who's the most committed <b>lifelong learner</b> you know? What do they actually do?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">💬</span>Customer Service &amp; Relationships</h2>
+<p class="instr">A CX lead on why most companies measure the wrong thing &mdash; and how to actually keep customers. Target idioms are in <b>gold</b>.</p>
+<article class="reading">
+<h3>Your Customers Will Forgive Almost Anything Except This</h3>
+<div class="byline">★ Liam Murphy · Customer Experience director · Lifted retention at three global brands</div>
+<p>After fifteen years inside customer-service teams, I can sum up what really keeps customers loyal in one short sentence: people forgive almost any mistake, but they will not forgive being made to feel stupid or invisible. Everything else is detail. Once you understand that, half of customer experience stops being mysterious.</p>
+<p>Most companies measure the wrong thing. They obsess over <b>NPS</b> &mdash; the famous “how likely are you to recommend us” score &mdash; and treat a 7 like a personal insult. NPS isn't useless, but it's a thermometer, not a treatment. Far more useful is to follow customers through the entire <b>customer journey</b> and ask, at every <b>touchpoint</b>, one specific question: <em>was this moment easier or harder than the customer expected?</em></p>
+<div class="pull-quote">Loyalty is built in the small moments where you didn't have to try, and you did anyway.</div>
+<p>Here's the part executives don't want to hear. The single biggest driver of <b>churn</b> isn't price. It's <b>effort</b>. Customers leave the brand that made cancelling a subscription feel like a hostage negotiation. They stay with the one that fixed the broken order in two messages without making them prove anything. <b>Friction</b> is the silent killer of every brand &mdash; the slow tax of every minor annoyance you've stopped noticing.</p>
+<p>On the people side, the best customer-service teams I've ever run weren't the ones with the perfect scripts. They were the ones whose agents had real authority to fix things. Empowered humans build <b>rapport</b> in 30 seconds and solve in two. Disempowered humans read approved sentences and infuriate everyone. If your agents have to escalate every refund, your brand is leaking trust whether you can see it or not.</p>
+<p>Of course, plenty of small touches matter too. A genuinely warm welcome. Remembering a customer's name. An apology before a fix, never instead of one. The occasional <b>going the extra mile</b> &mdash; a small gesture nobody asked for &mdash; turns ordinary buyers into <b>brand ambassadors</b> who do your marketing for free.</p>
+<p>Then there's the long game. Loyalty programmes are fine; community is better. The brands quietly winning the next decade aren't optimising discount codes &mdash; they're building tribes that genuinely care about the product and each other. So before your next CX upgrade, walk your own customer journey, end to end, as a stranger would. You'll find five painful <b>pain points</b> in an afternoon. Fix three of them. Your retention numbers will quietly transform &mdash; without spending a cent on advertising.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">customer experience (CX)</div><div class="vocab-def">the whole journey a customer has with you</div><div class="vocab-ex">“CX is now our biggest differentiator.”</div></div>
+<div class="vocab-card"><div class="vocab-term">NPS (Net Promoter Score)</div><div class="vocab-def">a score from how likely customers are to recommend you</div><div class="vocab-ex">“Don't worship NPS &mdash; act on what's behind it.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a touchpoint</div><div class="vocab-def">a specific moment of contact with the brand</div><div class="vocab-ex">“Every touchpoint shapes the relationship.”</div></div>
+<div class="vocab-card"><div class="vocab-term">churn</div><div class="vocab-def">customers leaving over time</div><div class="vocab-ex">“High churn quietly kills any subscription business.”</div></div>
+<div class="vocab-card"><div class="vocab-term">retention</div><div class="vocab-def">keeping customers loyal</div><div class="vocab-ex">“Retention is cheaper than acquisition.”</div></div>
+<div class="vocab-card"><div class="vocab-term">rapport</div><div class="vocab-def">a warm, trusting connection</div><div class="vocab-ex">“Great agents build rapport in 30 seconds.”</div></div>
+<div class="vocab-card"><div class="vocab-term">friction</div><div class="vocab-def">small annoyances that slow customers down</div><div class="vocab-ex">“Friction is the silent killer of CX.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a pain point</div><div class="vocab-def">a real problem the customer feels</div><div class="vocab-ex">“Solve one painful pain point and they're yours.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to go the extra mile</div><div class="idiom-def">to do more than what's expected</div><div class="idiom-ex">“She went the extra mile to fix his order.”</div></div>
+<div class="idiom-card"><div class="idiom-term">word of mouth</div><div class="idiom-def">customers recommending you to others</div><div class="idiom-ex">“Word of mouth is our best marketing channel.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a deal-breaker</div><div class="idiom-def">an issue that ends the relationship</div><div class="idiom-ex">“Slow refunds were the deal-breaker for me.”</div></div>
+<div class="idiom-card"><div class="idiom-term">the customer journey</div><div class="idiom-def">every step a customer takes with your brand</div><div class="idiom-ex">“Map the customer journey before fixing anything.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a pain point</div><div class="idiom-def">a real problem the customer feels</div><div class="idiom-ex">“Solve one painful pain point and they're yours.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a brand ambassador</div><div class="idiom-def">a customer who promotes you for free</div><div class="idiom-ex">“One delighted customer becomes a brand ambassador.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">rapport</span><span class="bw">customer journey</span><span class="bw">friction</span><span class="bw">churn</span><span class="bw">go the extra mile</span><span class="bw">brand ambassadors</span><span class="bw">pain points</span><span class="bw">NPS</span></div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> Map the entire <input class="fill-input" type="text" autocomplete="off" data-answer="customer journey" aria-label="answer 1"> before changing anything.</div>
+<div class="fill-item"><span class="qn">2.</span> If you fix friction, <input class="fill-input" type="text" autocomplete="off" data-answer="churn" aria-label="answer 2"> usually drops within a quarter.</div>
+<div class="fill-item"><span class="qn">3.</span> Tiny <input class="fill-input" type="text" autocomplete="off" data-answer="friction" aria-label="answer 3"> is the silent tax most companies refuse to measure.</div>
+<div class="fill-item"><span class="qn">4.</span> A great agent builds <input class="fill-input" type="text" autocomplete="off" data-answer="rapport" aria-label="answer 4"> in the first thirty seconds.</div>
+<div class="fill-item"><span class="qn">5.</span> Empower agents to <input class="fill-input" type="text" autocomplete="off" data-answer="go the extra mile" aria-label="answer 5"> when it really matters.</div>
+<div class="fill-item"><span class="qn">6.</span> Identify three real <input class="fill-input" type="text" autocomplete="off" data-answer="pain points" aria-label="answer 6"> and fix them this month.</div>
+<div class="fill-item"><span class="qn">7.</span> Delighted customers quietly become unpaid <input class="fill-input" type="text" autocomplete="off" data-answer="brand ambassadors" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> Don't worship <input class="fill-input" type="text" autocomplete="off" data-answer="nps" aria-label="answer 8"> &mdash; act on what's behind the score.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says the one thing customers won't forgive is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> bad pricing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> being made to feel stupid or invisible</div>
+<div class="mc-opt" data-i="2"><b>C.</b> slow delivery</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>According to the writer, NPS is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the perfect metric</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a thermometer, not a treatment</div>
+<div class="mc-opt" data-i="2"><b>C.</b> completely useless</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>The single biggest driver of churn is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> price</div>
+<div class="mc-opt" data-i="1"><b>B.</b> effort and friction</div>
+<div class="mc-opt" data-i="2"><b>C.</b> competition</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Great CX teams give agents…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> perfect scripts</div>
+<div class="mc-opt" data-i="1"><b>B.</b> real authority to fix things</div>
+<div class="mc-opt" data-i="2"><b>C.</b> more managers</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Going the extra mile turns ordinary buyers into…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> complainers</div>
+<div class="mc-opt" data-i="1"><b>B.</b> brand ambassadors</div>
+<div class="mc-opt" data-i="2"><b>C.</b> passive users</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's homework before any CX upgrade is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> hire consultants</div>
+<div class="mc-opt" data-i="1"><b>B.</b> walk your own customer journey</div>
+<div class="mc-opt" data-i="2"><b>C.</b> raise prices</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the best customer service you've ever experienced?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">And the worst?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Are you the type who complains, or the type who quietly leaves?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Have you ever been a customer-service agent yourself?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is great customer service a real strategy, or just expensive politeness?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should AI chatbots ever fully replace human agents?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">What's worth more &mdash; a happy first-time customer or a loyal repeat one?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Are loyalty programmes still effective in 2026?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Is it ever acceptable to “fire” a difficult customer?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: handle a furious customer whose order is two weeks late.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Design the perfect onboarding journey for a new app user.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">If you could fix one CX pain point in a famous brand, which and how?</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘In five years, AI service will feel more personal than human service.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will community, not loyalty programmes, become the new way brands keep customers?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you is a furious customer whose subscription was charged after a clear cancellation; the other is a support agent with real authority to fix it. Rebuild <em>rapport</em>, name the <em>friction</em>, and turn this into a customer who stays.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Tell us about a brand or person who went <b>the extra mile</b> for you.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever recommended a product purely through <b>word of mouth</b>? Why that one?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What's an absolute <b>deal-breaker</b> for you in customer service?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Describe a real <b>pain point</b> in a recent customer journey of yours.</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Are <em>you</em> a <b>brand ambassador</b> for any company &mdash; even without realising it?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+
+  <footer>🤝 ★ ★ &nbsp; PEOPLE POWER · B2–C1 BUSINESS ENGLISH · HIRING · MEETINGS · UPSKILLING · CX &nbsp; ★ ★ 🤝</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
