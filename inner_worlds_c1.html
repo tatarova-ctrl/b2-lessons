@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inner Worlds — C1 English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"🌀";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🌀 C1 ENGLISH · MIND · DESIRE · DREAMS · THE UNSEEN · ADVANCED LEARNERS</div>
+      <h1>Inner <span class="accent">Worlds</span></h1>
+      <div class="sub">Four conversations about the most interesting territory any of us will ever explore &mdash; our own minds. What we picture, what we want, what we dream, and the hidden engine quietly running it all. Read the essay, absorb the advanced vocabulary and idioms, then think out loud.</div>
+      <div class="tags">
+        <span class="tag">CEFR C1</span>
+        <span class="tag">ESSAY ~500 WORDS</span>
+        <span class="tag">ADVANCED VOCAB + IDIOMS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">68+ SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Visualization 🧭</button>
+    <button class="tab" data-tab="t2">② Desire 🔥</button>
+    <button class="tab" data-tab="t3">③ Dreams 🌙</button>
+    <button class="tab" data-tab="t4">④ Subconscious 🌀</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🧭</span>Visualization &amp; Manifestation</h2>
+<p class="instr">A sports psychologist on what the mind can &mdash; and can't &mdash; conjure into being. Target idioms are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Quiet Power of Picturing the Life You Want</h3>
+<div class="byline">★ Dr Inara Petrov · Sports psychologist · Worked with Olympic medallists and CEOs</div>
+<p>In the late 1990s, when I started coaching elite athletes, the language of <b>visualization</b> was still treated with mild embarrassment by serious scientists. Today, the same scientists run <b>fMRI</b> scans showing that when a sprinter merely imagines her race, the same neural pathways light up as when she physically runs. The mind, it turns out, does not draw a clean line between picturing an experience and living it. That single biological fact is the engine behind everything that's now sold under the noisier banner of <b>manifestation</b>.</p>
+<p>Let me be precise, because precision is half the battle here. Visualization is the deliberate practice of <b>mental rehearsal</b>: vividly imagining yourself succeeding at a specific task, complete with sounds, sensations and emotions. Done well, it primes the brain to react more efficiently when the real moment arrives. Done badly &mdash; as a kind of comforting daydream &mdash; it does nothing at all. It is not magic, no matter how confident the influencer telling you otherwise.</p>
+<div class="pull-quote">Picturing a life is the first half of building it. The second half is showing up, in trainers, on the days you'd rather not.</div>
+<p>The <b>law of attraction</b> often promoted on social media takes a real psychological effect and exaggerates it into wishful thinking. The genuine effect is more modest, but more interesting. When you <b>set your sights on</b> a specific outcome, your brain begins to notice opportunities that were always there. You read articles you used to skim. You strike up conversations you'd previously have skipped. Visualization, in other words, sharpens <b>attention</b>, not the universe.</p>
+<p>There is also a subtler mechanism at work: <b>self-efficacy</b> &mdash; your private belief in your own ability to act effectively. People with high self-efficacy don't necessarily have better skills than their peers; they have a clearer mental image of themselves <em>using</em> their skills under pressure. They've rehearsed the moment so often, in private, that the public version feels familiar. In that sense, every confident-looking person you've ever envied is the result of <b>a self-fulfilling prophecy</b> they painstakingly built.</p>
+<p>Of course, this practice has its <b>pitfalls</b>. If we picture only the glamorous endpoint &mdash; the trophy, the offer, the round of applause &mdash; we leave the difficult middle untouched. Athletes who visualize only the winning sprint, but never the lonely <b>training</b>, often <b>fall apart</b> when the work gets boring. The fix is what psychologists call <b>contrastive visualization</b>: pair the desired outcome vividly with the realistic obstacles you'll meet on the way. The dream <em>and</em> the resistance, side by side.</p>
+<p>Finally, beware anyone who tries to sell you outcomes without effort. Vision boards, mantras and meditations have their place, but the strongest evidence still favours a stubbornly old-fashioned trio: clarity, repeated mental rehearsal, and consistent action. Manifestation &mdash; the version that actually works &mdash; isn't waiting for the universe to deliver. It is patiently building the version of yourself who could plausibly receive what you've imagined. So picture richly, plan honestly, and turn up. The future you want will not be conjured. It will be earned, one quiet rehearsal at a time.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">visualization</div><div class="vocab-def">the practice of vividly imagining outcomes</div><div class="vocab-ex">“Olympic athletes use visualization daily.”</div></div>
+<div class="vocab-card"><div class="vocab-term">manifestation</div><div class="vocab-def">the popular idea of creating reality through thought</div><div class="vocab-ex">“Manifestation has been oversold by social media.”</div></div>
+<div class="vocab-card"><div class="vocab-term">mental rehearsal</div><div class="vocab-def">practising an action in your imagination</div><div class="vocab-ex">“Mental rehearsal can lower stage fright.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the law of attraction</div><div class="vocab-def">the belief that thoughts attract matching events</div><div class="vocab-ex">“The law of attraction is not supported by serious science.”</div></div>
+<div class="vocab-card"><div class="vocab-term">self-efficacy</div><div class="vocab-def">belief in your own ability to act effectively</div><div class="vocab-ex">“Self-efficacy predicts long-term success.”</div></div>
+<div class="vocab-card"><div class="vocab-term">contrastive visualization</div><div class="vocab-def">pairing desired outcomes with realistic obstacles</div><div class="vocab-ex">“Contrastive visualization is more effective than wishful thinking.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a pitfall</div><div class="vocab-def">a hidden danger</div><div class="vocab-ex">“Pure positive thinking has its pitfalls.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a self-fulfilling prophecy</div><div class="vocab-def">a belief that produces its own outcome</div><div class="vocab-ex">“His low self-image became a self-fulfilling prophecy.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">a self-fulfilling prophecy</div><div class="idiom-def">a belief that brings about its own outcome</div><div class="idiom-ex">“His fear of failure became a self-fulfilling prophecy.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to pull something out of thin air</div><div class="idiom-def">to invent or produce something from nothing</div><div class="idiom-ex">“Confidence isn't pulled out of thin air.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to set your sights on</div><div class="idiom-def">to decide firmly to achieve something</div><div class="idiom-ex">“She set her sights on Oxford at sixteen.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to dress something up</div><div class="idiom-def">to make it look better than it is</div><div class="idiom-ex">“Don't dress up wishful thinking as a real plan.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to take it on faith</div><div class="idiom-def">to accept without evidence</div><div class="idiom-ex">“No serious athlete takes manifestation on faith alone.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to have a hand in</div><div class="idiom-def">to be partly responsible for</div><div class="idiom-ex">“Your imagination has a hand in your future.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">manifestation</span><span class="bw">visualization</span><span class="bw">mental rehearsal</span><span class="bw">pitfalls</span><span class="bw">self-efficacy</span><span class="bw">self-fulfilling</span><span class="bw">law of attraction</span><span class="bw">contrastive</span></div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> Top performers swear by daily <input class="fill-input" type="text" autocomplete="off" data-answer="visualization" aria-label="answer 1"> before competition.</div>
+<div class="fill-item"><span class="qn">2.</span> The cruder versions of <input class="fill-input" type="text" autocomplete="off" data-answer="manifestation" aria-label="answer 2"> promise outcomes without effort.</div>
+<div class="fill-item"><span class="qn">3.</span> Surgeons use <input class="fill-input" type="text" autocomplete="off" data-answer="mental rehearsal" aria-label="answer 3"> to prepare for complex operations.</div>
+<div class="fill-item"><span class="qn">4.</span> Strong <input class="fill-input" type="text" autocomplete="off" data-answer="self-efficacy" aria-label="answer 4"> is a better predictor of success than raw talent.</div>
+<div class="fill-item"><span class="qn">5.</span> His fear of public speaking became a <input class="fill-input" type="text" autocomplete="off" data-answer="self-fulfilling" aria-label="answer 5"> prophecy.</div>
+<div class="fill-item"><span class="qn">6.</span> Even useful techniques have <input class="fill-input" type="text" autocomplete="off" data-answer="pitfalls" aria-label="answer 6"> if used naively.</div>
+<div class="fill-item"><span class="qn">7.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="law of attraction" aria-label="answer 7"> exaggerates a small real effect into wishful thinking.</div>
+<div class="fill-item"><span class="qn">8.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="contrastive" aria-label="answer 8"> visualization pairs the goal with the realistic obstacles.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>Brain scans show that merely imagining an action…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> does nothing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> activates similar neural pathways to doing it</div>
+<div class="mc-opt" data-i="2"><b>C.</b> is harmful</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Effective visualization is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a comforting daydream</div>
+<div class="mc-opt" data-i="1"><b>B.</b> specific, multi-sensory mental rehearsal</div>
+<div class="mc-opt" data-i="2"><b>C.</b> random thinking</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>‘The law of attraction’, the writer says, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a robust scientific theory</div>
+<div class="mc-opt" data-i="1"><b>B.</b> an exaggeration of a real but modest effect</div>
+<div class="mc-opt" data-i="2"><b>C.</b> entirely fake</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>People with high self-efficacy have…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> better innate skills</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a clearer mental image of using their skills under pressure</div>
+<div class="mc-opt" data-i="2"><b>C.</b> more luck</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>A key pitfall of visualizing only success is that…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> you become arrogant</div>
+<div class="mc-opt" data-i="1"><b>B.</b> you don't prepare for the boring middle</div>
+<div class="mc-opt" data-i="2"><b>C.</b> you sleep too much</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>‘Contrastive visualization’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> picturing only the goal</div>
+<div class="mc-opt" data-i="1"><b>B.</b> pairing the goal with realistic obstacles</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ignoring the goal</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Have you ever rehearsed an important conversation in your head before having it?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Do you believe ‘positive thinking’ actually works?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Is there an outcome you've been picturing for a long time?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are you more of a visual or a verbal thinker?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Where does evidence-based visualization end and pseudoscience begin?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Has social media made ‘manifestation’ helpful or harmful for young people?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Can you visualize your way out of a genuinely bad situation?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should schools teach mental rehearsal as a serious skill?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Is self-efficacy more decided by genes, upbringing, or deliberate practice?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: explain visualization to a sceptical, scientifically-minded friend.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Design a 21-day visualization plan for someone preparing for an exam.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Pitch a research study that could distinguish real visualization from wishful thinking.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘In 20 years, mental rehearsal will be taught like maths.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Is the manifestation industry mostly empowering or exploitative?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you is an athlete coach explaining genuine <em>visualization</em> to a sceptical scientist; the other plays the scientist. Defend the practice, name its <em>pitfalls</em>, and distinguish it from the cruder <em>law of attraction</em>.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Describe a moment when something became a <b>self-fulfilling prophecy</b> in your own life.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever <b>set your sights on</b> something quietly improbable? What happened?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Where in life do you think people <b>dress up</b> wishful thinking as a real plan?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Can confidence be <b>pulled out of thin air</b>, or does it always have roots?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Where does your imagination clearly <b>have a hand in</b> the way your life turns out?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">🔥</span>Desire &amp; What We Really Want</h2>
+<p class="instr">A philosopher on the most under-examined question of your life: <em>where do my desires actually come from?</em> Target idioms are in <b>gold</b>.</p>
+<article class="reading">
+<h3>Most People Want What They Were Told to Want</h3>
+<div class="byline">★ Professor Lior Salman · Philosophy of mind · Twenty years teaching ethics to undergraduates</div>
+<p>Every September I ask my new students a deceptively simple question: “What do you actually want?” Most respond fluently within seconds. A career, financial freedom, a particular city, a particular kind of partner. Then I ask the follow-up, which they almost never see coming: “And where did that desire come from?” The room goes quiet. The honest answer, in most cases, is some combination of parents, peers, films and algorithms. We tend to think of <b>desire</b> as private and original, but in truth it is one of the most imitated phenomena in human life.</p>
+<p>The French thinker René Girard called this <b>mimetic desire</b>: we don't want things directly, we want them because someone we admire wants them. Watch a toddler ignore a toy for half an hour, then notice another child reach for it &mdash; suddenly nothing else matters. Adults are, embarrassingly, not so different. The car you long for, the holiday you've saved for, the job title you've quietly <b>set your sights on</b> &mdash; trace each one carefully back and you'll usually find another person at the origin.</p>
+<div class="pull-quote">You cannot truly choose a life until you have asked, with real courage, whose dreams have been borrowing your imagination.</div>
+<p>Modern culture has industrialised this. Social media is not, primarily, a service for connection; it is a vast, frictionless system for transmitting desires from strangers to you. We scroll past three hundred lives an hour and quietly absorb their <b>aspirations</b>, their <b>ambitions</b>, their unspoken assumptions about what a good life looks like. Then we get up from the screen confused about why we feel inexplicably dissatisfied with our own perfectly reasonable lives.</p>
+<p>This isn't an argument for renouncing wants. To live without desire is to be a sort of philosophical ghost. But it is a strong argument for what the Greeks called <b>self-knowledge</b>: pausing long enough to <b>take stock</b> of which of your wants are genuinely yours and which were quietly installed. Authentic desire feels, on reflection, durable and personal. Borrowed desire feels louder but oddly hollow, especially once you've actually achieved it.</p>
+<p>There is also the trouble of <b>insatiability</b>. The human brain's reward system, for evolutionary reasons, weakens the pleasure of any outcome you actually obtain. You imagine the promotion; you receive it; within weeks it feels normal. This is what behavioural scientists call the <b>hedonic treadmill</b>, and it is, ironically, what keeps most people running their entire lives. <b>The grass is always greener</b> not because other lives are better, but because your brain reserves a special kind of enchantment exclusively for things you don't yet have.</p>
+<p>What helps? First, scrutinise the source of each ambition: did you decide on it in the quiet of your own thinking, or did you absorb it during three hours of scrolling? Second, give weight to desires that <b>recur</b> calmly over years rather than ones that flare brightly during one inspiring weekend. Third, learn to enjoy the having, not only the getting. The unhappy <b>paradox</b> is that the people who most ferociously chase imitated dreams often end up &mdash; in their own words, in my office, twenty years later &mdash; being their own <b>worst enemy</b>. Choose carefully. Otherwise you may spend your one life climbing, with great determination, the wrong ladder.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">desire</div><div class="vocab-def">a strong wish for something</div><div class="vocab-ex">“Desire shapes almost every major decision.”</div></div>
+<div class="vocab-card"><div class="vocab-term">mimetic desire</div><div class="vocab-def">wanting what others want</div><div class="vocab-ex">“Mimetic desire explains most of fashion.”</div></div>
+<div class="vocab-card"><div class="vocab-term">aspiration</div><div class="vocab-def">a strong hope or ambition</div><div class="vocab-ex">“Her aspirations changed completely at university.”</div></div>
+<div class="vocab-card"><div class="vocab-term">ambition</div><div class="vocab-def">strong desire to succeed</div><div class="vocab-ex">“Healthy ambition is not the same as greed.”</div></div>
+<div class="vocab-card"><div class="vocab-term">self-knowledge</div><div class="vocab-def">clear understanding of yourself</div><div class="vocab-ex">“Self-knowledge is the slowest skill to master.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the hedonic treadmill</div><div class="vocab-def">the tendency for new pleasures to become normal</div><div class="vocab-ex">“The hedonic treadmill defeats most lottery winners.”</div></div>
+<div class="vocab-card"><div class="vocab-term">insatiability</div><div class="vocab-def">the state of never being satisfied</div><div class="vocab-ex">“Insatiability is a quiet form of suffering.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a paradox</div><div class="vocab-def">a contradiction containing a truth</div><div class="vocab-ex">“It's a paradox that wanting less can feel like more.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to be one's own worst enemy</div><div class="idiom-def">to harm yourself through your own actions</div><div class="idiom-ex">“Most ambitious people are their own worst enemy.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to keep up with the Joneses</div><div class="idiom-def">to copy your neighbours' lifestyle to compete</div><div class="idiom-ex">“Modern life is one long attempt to keep up with the Joneses.”</div></div>
+<div class="idiom-card"><div class="idiom-term">the grass is always greener</div><div class="idiom-def">other people's situations always look better</div><div class="idiom-ex">“The grass is always greener on someone else's career path.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to bend over backwards</div><div class="idiom-def">to make great efforts to please</div><div class="idiom-ex">“She bent over backwards for a reward she didn't actually want.”</div></div>
+<div class="idiom-card"><div class="idiom-term">at all costs</div><div class="idiom-def">whatever the price or effort</div><div class="idiom-ex">“Some pursue success at all costs and lose themselves doing it.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to take stock</div><div class="idiom-def">to pause and review your situation</div><div class="idiom-ex">“Every few years, take stock of what you really want.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">take stock</span><span class="bw">insatiability</span><span class="bw">mimetic</span><span class="bw">aspirations</span><span class="bw">self-knowledge</span><span class="bw">hedonic treadmill</span><span class="bw">paradox</span><span class="bw">ambition</span></div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> Most fashions spread through <input class="fill-input" type="text" autocomplete="off" data-answer="mimetic" aria-label="answer 1"> desire, not through reasoning.</div>
+<div class="fill-item"><span class="qn">2.</span> Her <input class="fill-input" type="text" autocomplete="off" data-answer="aspirations" aria-label="answer 2"> shifted dramatically after a year abroad.</div>
+<div class="fill-item"><span class="qn">3.</span> Driven <input class="fill-input" type="text" autocomplete="off" data-answer="ambition" aria-label="answer 3"> without self-knowledge can ruin you.</div>
+<div class="fill-item"><span class="qn">4.</span> Real <input class="fill-input" type="text" autocomplete="off" data-answer="self-knowledge" aria-label="answer 4"> takes decades and a willingness to be wrong about yourself.</div>
+<div class="fill-item"><span class="qn">5.</span> New possessions thrill us briefly &mdash; that's the <input class="fill-input" type="text" autocomplete="off" data-answer="hedonic treadmill" aria-label="answer 5">.</div>
+<div class="fill-item"><span class="qn">6.</span> The deepest unhappiness is often just <input class="fill-input" type="text" autocomplete="off" data-answer="insatiability" aria-label="answer 6">.</div>
+<div class="fill-item"><span class="qn">7.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="paradox" aria-label="answer 7"> is that we work hardest for the things we'll value least.</div>
+<div class="fill-item"><span class="qn">8.</span> It pays to <input class="fill-input" type="text" autocomplete="off" data-answer="take stock" aria-label="answer 8"> of your real desires once a year.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The professor's central claim is that most desires are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> original and private</div>
+<div class="mc-opt" data-i="1"><b>B.</b> imitated from others</div>
+<div class="mc-opt" data-i="2"><b>C.</b> entirely chosen</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>‘Mimetic desire’ means wanting things…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> that nobody else wants</div>
+<div class="mc-opt" data-i="1"><b>B.</b> because someone we admire wants them</div>
+<div class="mc-opt" data-i="2"><b>C.</b> at random</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Social media is described as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> primarily a connection tool</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a system for transmitting desires</div>
+<div class="mc-opt" data-i="2"><b>C.</b> mostly harmless</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>‘Self-knowledge’ here means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> sharing more online</div>
+<div class="mc-opt" data-i="1"><b>B.</b> examining which desires are genuinely yours</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ignoring desires</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The ‘hedonic treadmill’ is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a kind of exercise</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the way new pleasures quickly become normal</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a financial idea</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>His final image is of someone climbing…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a famous ladder</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the wrong ladder for their life</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a small staircase</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the most expensive thing you've ever truly wanted?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Have you ever wanted something only to lose interest after getting it?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">How much do your friends shape your wants?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What do you wish you wanted less?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is any desire ever truly original?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are influencers really just professional desire-transmitters?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should schools teach ‘self-knowledge’ as seriously as maths?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is ambition inherently good, inherently bad, or neither?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Where does healthy ambition end and insatiability begin?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: help a friend decide whether their dream is theirs or borrowed.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Defend the position that life is better with fewer wants.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a 30-day audit of your own desires — step by step.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘We don't choose our desires &mdash; they choose us.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will future generations want fundamentally different things than ours?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you is a friend who has just announced an ambitious life plan; the other plays a calm professor who suspects the dream is borrowed. Ask careful questions, name <em>mimetic desire</em>, and avoid being patronising.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">When have you been your own <b>worst enemy</b> in pursuing what you wanted?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">How much of modern ambition is just <b>keeping up with the Joneses</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Do you ever feel that <b>the grass is always greener</b> in someone else's life? Whose, recently?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Have you ever <b>bent over backwards</b> for something you later realised you didn't really want?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">If you <b>took stock</b> of your life tonight, what's one desire you'd quietly drop?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🌙</span>Dreams &amp; the Sleeping Brain</h2>
+<p class="instr">A sleep scientist on the eight hours every night that nobody really teaches you about. Target idioms are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Eight Hours Nobody Teaches You About</h3>
+<div class="byline">★ Dr Maren Ostrowski · Sleep neuroscientist · 18 years inside the dreaming brain</div>
+<p>Every night, with no effort whatsoever, you become an artist. Your sleeping brain composes original films starring people you haven't seen for a decade, invents architecture that doesn't exist, and runs <b>simulations</b> of conversations you never had. By morning, most of these private masterpieces are lost. For roughly a third of your life, you are someone else &mdash; and most of us never give that someone a second thought.</p>
+<p><b>Dreams</b> mostly occur during <b>REM sleep</b>, the phase in which your eyes move rapidly under closed lids and your brain becomes paradoxically active, almost as alert as in waking life. Other phases &mdash; deeper, slower &mdash; handle memory <b>consolidation</b>, immune repair and hormone regulation. Skip sleep, and you skip all of it. The cost compounds quickly: cognitive function dulls, mood deteriorates, and judgement degrades long before you feel sleepy. The price of a missing night is more or less the price of being a little drunk.</p>
+<div class="pull-quote">What looks like rest is actually a sophisticated factory. The hours you waste protecting your sleep are the most productive of your entire day.</div>
+<p>The function of dreams themselves is still debated, but the leading theories are no longer dismissive. <b>Threat simulation theory</b> suggests dreams allow us to safely rehearse dangers we'd otherwise meet unprepared. Other models argue dreams help us <b>process</b> emotions by softening the sharp edges of recent memories overnight. This explains why a problem that feels devastating at midnight often, by some quiet alchemy, looks tractable at breakfast. Sleep doesn't make the problem smaller; it makes <em>you</em> larger.</p>
+<p>Then there are <b>nightmares</b>, which most of us treat as malfunctions. They are usually nothing of the sort. The unconscious is finally addressing what the waking mind has refused to. The anxiety that's <b>in the back of your mind</b> all week often <b>rears its head</b> in your dreams precisely because you've ignored it during the day. Recurring nightmares, in particular, are worth taking seriously rather than swatting away with a coffee.</p>
+<p>Some sleepers report <b>lucid dreams</b>, in which they become aware that they are dreaming and can influence the action. The phenomenon is real and trainable; brain scans confirm a unique neural signature in lucid dreamers. There is something quietly thrilling about the idea that a part of the mind can wake up inside the show that the rest of it is producing.</p>
+<p>Modern life, however, is a vast experiment in sleep deprivation. Late screens disrupt the production of <b>melatonin</b>, the hormone that orchestrates sleep onset. Stress floods us with cortisol at exactly the hour we should be unwinding. Caffeine, taken after midday, lingers in the bloodstream long past lights-out. The cumulative effect is a population that's chronically a little under-slept and chronically a little less itself. The remedy is unglamorous: a steady bedtime, a dim hour before sleep, a cool dark room, and patience for the boring fact that no productivity hack outperforms eight hours. Take your dreams seriously. They're trying to tell you something. And modern science is, at last, beginning to <b>give them their due</b>.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">REM sleep</div><div class="vocab-def">the dream-rich sleep phase with rapid eye movements</div><div class="vocab-ex">“Most vivid dreams occur during REM sleep.”</div></div>
+<div class="vocab-card"><div class="vocab-term">consolidation</div><div class="vocab-def">the process of fixing memories in the brain</div><div class="vocab-ex">“Consolidation happens largely during deep sleep.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a nightmare</div><div class="vocab-def">a frightening, disturbing dream</div><div class="vocab-ex">“She woke from a vivid nightmare at 4 a.m.”</div></div>
+<div class="vocab-card"><div class="vocab-term">lucid dreaming</div><div class="vocab-def">being aware that you are dreaming</div><div class="vocab-ex">“Lucid dreaming can be trained over months.”</div></div>
+<div class="vocab-card"><div class="vocab-term">melatonin</div><div class="vocab-def">the hormone that regulates the sleep cycle</div><div class="vocab-ex">“Screens disrupt melatonin production.”</div></div>
+<div class="vocab-card"><div class="vocab-term">insomnia</div><div class="vocab-def">persistent difficulty sleeping</div><div class="vocab-ex">“Chronic insomnia damages every system in the body.”</div></div>
+<div class="vocab-card"><div class="vocab-term">sleep deprivation</div><div class="vocab-def">the state of not sleeping enough</div><div class="vocab-ex">“Sleep deprivation impairs judgement before fatigue.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the subconscious</div><div class="vocab-def">mental activity below conscious awareness</div><div class="vocab-ex">“Dreams reveal the subconscious at work.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to be in the back of your mind</div><div class="idiom-def">to be quietly present in your thoughts</div><div class="idiom-ex">“That fear had been in the back of my mind for weeks.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to wear off</div><div class="idiom-def">to gradually disappear</div><div class="idiom-ex">“The terror of the dream slowly wore off.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to rear its head</div><div class="idiom-def">(of a problem) to appear again</div><div class="idiom-ex">“Old anxieties rear their heads at night.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to chase your tail</div><div class="idiom-def">to be very busy without real progress</div><div class="idiom-ex">“Daytime worries chase their tail in our dreams.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to come out of left field</div><div class="idiom-def">to be completely unexpected</div><div class="idiom-ex">“Some dream images come out of left field.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to give something its due</div><div class="idiom-def">to acknowledge its real value</div><div class="idiom-ex">“Modern science is finally giving dreams their due.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">lucid</span><span class="bw">sleep deprivation</span><span class="bw">nightmare</span><span class="bw">insomnia</span><span class="bw">subconscious</span><span class="bw">REM</span><span class="bw">consolidation</span><span class="bw">melatonin</span></div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> Most vivid dreams occur during <input class="fill-input" type="text" autocomplete="off" data-answer="rem" aria-label="answer 1"> sleep.</div>
+<div class="fill-item"><span class="qn">2.</span> Memory <input class="fill-input" type="text" autocomplete="off" data-answer="consolidation" aria-label="answer 2"> depends on uninterrupted deep sleep.</div>
+<div class="fill-item"><span class="qn">3.</span> She had the same <input class="fill-input" type="text" autocomplete="off" data-answer="nightmare" aria-label="answer 3"> three nights in a row.</div>
+<div class="fill-item"><span class="qn">4.</span> With practice, some people achieve <input class="fill-input" type="text" autocomplete="off" data-answer="lucid" aria-label="answer 4"> dreams.</div>
+<div class="fill-item"><span class="qn">5.</span> Phones before bed wreck your <input class="fill-input" type="text" autocomplete="off" data-answer="melatonin" aria-label="answer 5"> levels.</div>
+<div class="fill-item"><span class="qn">6.</span> Stress is the leading cause of modern <input class="fill-input" type="text" autocomplete="off" data-answer="insomnia" aria-label="answer 6">.</div>
+<div class="fill-item"><span class="qn">7.</span> Chronic <input class="fill-input" type="text" autocomplete="off" data-answer="sleep deprivation" aria-label="answer 7"> ages the brain prematurely.</div>
+<div class="fill-item"><span class="qn">8.</span> Dreams give us a back-door view of the <input class="fill-input" type="text" autocomplete="off" data-answer="subconscious" aria-label="answer 8">.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>During REM sleep, the brain is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> less active than awake</div>
+<div class="mc-opt" data-i="1"><b>B.</b> paradoxically active, almost as alert as waking</div>
+<div class="mc-opt" data-i="2"><b>C.</b> completely off</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q2</span>Skipping sleep, the writer says, is like being…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a little drunk</div>
+<div class="mc-opt" data-i="1"><b>B.</b> mildly hungry</div>
+<div class="mc-opt" data-i="2"><b>C.</b> unusually focused</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>‘Threat simulation theory’ proposes that dreams…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> are useless</div>
+<div class="mc-opt" data-i="1"><b>B.</b> let us safely rehearse dangers</div>
+<div class="mc-opt" data-i="2"><b>C.</b> predict the future</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>The writer's view of nightmares is that they are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> malfunctions to suppress</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the unconscious finally addressing ignored issues</div>
+<div class="mc-opt" data-i="2"><b>C.</b> random noise</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Lucid dreaming is described as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> mythological</div>
+<div class="mc-opt" data-i="1"><b>B.</b> real and trainable</div>
+<div class="mc-opt" data-i="2"><b>C.</b> always harmful</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The strongest sleep advice the writer gives is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> use sleep apps</div>
+<div class="mc-opt" data-i="1"><b>B.</b> steady bedtime, dim light, cool room</div>
+<div class="mc-opt" data-i="2"><b>C.</b> drink coffee at midnight</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Are you a vivid dreamer, or do you rarely remember dreams?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's the most memorable dream you've ever had?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever had a nightmare that affected the next day?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you sleep enough? Be honest.</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should schools and workplaces officially recognise sleep as a performance issue?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are recurring nightmares messages worth decoding?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is lucid dreaming a gift or a slightly unhealthy obsession?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should phones be banned from bedrooms by law?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will we one day be able to record our dreams?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: convince an over-worker that sleep is non-negotiable.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Describe the strangest dream you can recall, in full detail.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a perfect, evidence-based pre-sleep routine.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘In 30 years, recording dreams will be normal.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Are dreams ultimately meaningful or just neural static?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you sleeps four hours a night and is proud of it; the other plays a calm neuroscientist friend. Use <em>REM sleep</em>, <em>consolidation</em> and <em>sleep deprivation</em> to make a quiet but irresistible case for change.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Describe a recurring worry that's always <b>in the back of your mind</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Tell us about a dream that <b>came out of left field</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What's a fear that keeps <b>rearing its head</b> in your dreams?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Do you remember a dream whose feeling took ages to <b>wear off</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Why is modern science only now <b>giving</b> dreams <b>their due</b>?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">🌀</span>The Subconscious Mind</h2>
+<p class="instr">A psychoanalyst on the part of you you have never actually met &mdash; and which is, quietly, running most of the show. Target idioms are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Driver You've Never Met</h3>
+<div class="byline">★ Dr Yusuf Tahir · Psychoanalyst &amp; lecturer · Author of 'Beneath the Headlines'</div>
+<p>I sometimes ask new patients to imagine the conscious mind as a small, articulate driver perched on top of an elephant. The driver believes it is steering. The elephant, larger and infinitely older, has been moving in its own direction for years. Most of what we call “my decisions” are, in truth, the driver hurriedly inventing justifications for choices the elephant had already made. The driver is not a liar. It simply has no idea that it isn't fully in charge.</p>
+<p>This is the basic insight of the modern understanding of the <b>subconscious</b>. Below conscious awareness sits a vast network of <b>associations</b>, <b>memories</b>, and emotional habits that processes information thousands of times faster than your conscious thinking. Your <b>intuition</b> &mdash; that sudden, wordless knowing &mdash; isn't mystical. It's the elephant noticing something the driver hasn't seen yet.</p>
+<div class="pull-quote">You spend your life negotiating with someone you have never been formally introduced to: yourself.</div>
+<p>But the subconscious is not just a clever assistant. It also stores the bruises. Unresolved fears, half-buried <b>trauma</b>, and the silent rules absorbed from childhood do not politely retire. They re-emerge as patterns: the relationships that always end the same way, the inexplicable rage at small provocations, the persistent sense that something <em>under the surface</em> is not quite right. People often arrive in therapy convinced they have a behavioural problem. Usually they have an unread book inside them, and they are paying the late fees on it daily.</p>
+<p>Then there is the trouble of <b>defence mechanisms</b>. <b>Denial</b>, <b>projection</b>, intellectualisation, displacement &mdash; these are the small, ingenious tricks the mind uses to protect itself from truths it is not yet ready to face. They are not signs of weakness; they are signs of intelligence under stress. The work, however, isn't to eliminate them. It is to recognise them in action, gently, so they no longer <b>call the shots</b> behind your back.</p>
+<p>Self-knowledge, in this framework, is less a destination than a long, slightly humbling correspondence with the elephant. The tools are unspectacular: writing about recurring patterns, paying attention to dreams, noticing the situations that disproportionately upset you, allowing trusted people to mirror back the things you can't see. Every adult has a <b>blind spot</b> about themselves. The mature project of a lifetime is to shrink it.</p>
+<p>There is also the cultural side. Modern life is allergic to slowness. We <b>second-guess</b> ourselves constantly while ignoring the deeper signals the subconscious sends in dreams, in the body, in odd reactions we'd rather not examine. Meditation, therapy, journalling, long walks alone &mdash; these aren't luxuries. They are the only known ways to bring the elephant and the driver into the same conversation.</p>
+<p>The promise on the other side is significant. People who do this work don't become serene, frictionless beings. They simply <b>grasp at straws</b> less often. They make decisions that feel, in retrospect, less like accidents and more like authorship. They are no longer surprised by their own behaviour. And the part of them that used to sabotage things from the shadows finally gets a chair at the table. So introduce yourself to the driver, by all means &mdash; but spend at least as much time learning the elephant's name.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">the subconscious</div><div class="vocab-def">mental activity below conscious awareness</div><div class="vocab-ex">“The subconscious processes vast amounts of data quietly.”</div></div>
+<div class="vocab-card"><div class="vocab-term">intuition</div><div class="vocab-def">wordless, immediate understanding</div><div class="vocab-ex">“Strong intuition is often built on hidden experience.”</div></div>
+<div class="vocab-card"><div class="vocab-term">trauma</div><div class="vocab-def">lasting psychological harm from past events</div><div class="vocab-ex">“Untreated trauma quietly shapes adult relationships.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a defence mechanism</div><div class="vocab-def">an unconscious strategy to avoid painful truth</div><div class="vocab-ex">“Denial is the most common defence mechanism.”</div></div>
+<div class="vocab-card"><div class="vocab-term">denial</div><div class="vocab-def">refusing to accept an uncomfortable reality</div><div class="vocab-ex">“Denial protects us until we're ready.”</div></div>
+<div class="vocab-card"><div class="vocab-term">projection</div><div class="vocab-def">attributing your own feelings to other people</div><div class="vocab-ex">“Projection is how we accuse others of our own faults.”</div></div>
+<div class="vocab-card"><div class="vocab-term">repression</div><div class="vocab-def">unconsciously pushing thoughts out of awareness</div><div class="vocab-ex">“Long-term repression often surfaces as physical illness.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a blind spot</div><div class="vocab-def">an area you cannot see clearly about yourself</div><div class="vocab-ex">“Even therapists have blind spots.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">under the surface</div><div class="idiom-def">not visible, but quietly present</div><div class="idiom-ex">“Under the surface, the mind never stops working.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to bring something to light</div><div class="idiom-def">to reveal something hidden</div><div class="idiom-ex">“Therapy brought to light a memory I'd buried.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to second-guess yourself</div><div class="idiom-def">to doubt your own decisions repeatedly</div><div class="idiom-ex">“Stop second-guessing yourself — your gut isn't always wrong.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to grasp at straws</div><div class="idiom-def">to try desperate, unlikely solutions</div><div class="idiom-ex">“Without self-knowledge we grasp at straws.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to call the shots</div><div class="idiom-def">to make the real decisions</div><div class="idiom-ex">“Often the subconscious is calling the shots.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a blind spot</div><div class="idiom-def">an area you can't see clearly about yourself</div><div class="idiom-ex">“Everyone has a blind spot about themselves.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">defence mechanism</span><span class="bw">subconscious</span><span class="bw">trauma</span><span class="bw">intuition</span><span class="bw">denial</span><span class="bw">repression</span><span class="bw">projection</span><span class="bw">blind spot</span></div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="subconscious" aria-label="answer 1"> runs far more of our behaviour than we admit.</div>
+<div class="fill-item"><span class="qn">2.</span> His <input class="fill-input" type="text" autocomplete="off" data-answer="intuition" aria-label="answer 2"> saved him in that interview, even though he couldn't say why.</div>
+<div class="fill-item"><span class="qn">3.</span> Untreated <input class="fill-input" type="text" autocomplete="off" data-answer="trauma" aria-label="answer 3"> can shape three generations.</div>
+<div class="fill-item"><span class="qn">4.</span> Intellectualising your feelings is a sophisticated <input class="fill-input" type="text" autocomplete="off" data-answer="defence mechanism" aria-label="answer 4">.</div>
+<div class="fill-item"><span class="qn">5.</span> Refusing to accept the diagnosis was textbook <input class="fill-input" type="text" autocomplete="off" data-answer="denial" aria-label="answer 5">.</div>
+<div class="fill-item"><span class="qn">6.</span> She accused him of arrogance — a textbook case of <input class="fill-input" type="text" autocomplete="off" data-answer="projection" aria-label="answer 6">.</div>
+<div class="fill-item"><span class="qn">7.</span> Years of <input class="fill-input" type="text" autocomplete="off" data-answer="repression" aria-label="answer 7"> often resurface as anxiety.</div>
+<div class="fill-item"><span class="qn">8.</span> Every adult has at least one significant <input class="fill-input" type="text" autocomplete="off" data-answer="blind spot" aria-label="answer 8">.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer's image of the mind is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a brain in a box</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a small driver on a huge elephant</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a clean computer</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Intuition, in this view, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> mystical</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the subconscious noticing first</div>
+<div class="mc-opt" data-i="2"><b>C.</b> always wrong</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Defence mechanisms are described as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> signs of weakness</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ingenious tricks of an intelligent mind under stress</div>
+<div class="mc-opt" data-i="2"><b>C.</b> always harmful</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Self-knowledge, he says, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a destination</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a long correspondence with yourself</div>
+<div class="mc-opt" data-i="2"><b>C.</b> quickly finished</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The cultural problem he identifies is that modern life…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> is too slow</div>
+<div class="mc-opt" data-i="1"><b>B.</b> is allergic to slowness</div>
+<div class="mc-opt" data-i="2"><b>C.</b> listens too much</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>People who do this inner work…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> become serene</div>
+<div class="mc-opt" data-i="1"><b>B.</b> grasp at straws less often</div>
+<div class="mc-opt" data-i="2"><b>C.</b> stop sleeping</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Do you trust your intuition? When has it been right?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Have you ever surprised yourself with a strong emotional reaction?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Are you the kind of person who journals or reflects regularly?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Could you sit in silence for ten minutes with no phone?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is intuition a kind of intelligence we underestimate?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are defence mechanisms ever genuinely helpful?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should some form of therapy be available to every teenager?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Can you ever fully know yourself, or is self-knowledge always partial?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Is meditation overhyped, or genuinely transformative?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: gently help a friend recognise a recurring pattern in their relationships.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Describe one defence mechanism you suspect you yourself use.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a year-long plan to shrink your biggest blind spot.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘Therapy will become as routine as going to the dentist.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will AI ever be able to reflect our subconscious back to us usefully?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you has noticed a pattern in your friend's relationships; the other plays the friend who is genuinely unaware. Open the conversation carefully, name a possible <em>blind spot</em>, and avoid sounding like a therapist with a manual.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">What's a <b>blind spot</b> you've discovered about yourself in the last few years?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">When does your subconscious clearly <b>call the shots</b> &mdash; before tests, before sleep, before decisions?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Have you ever had something <b>come to light</b> about yourself unexpectedly?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Why do we <b>second-guess ourselves</b> most before the most important moments?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Where in life do people <b>grasp at straws</b> because they don't really know themselves?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+
+  <footer>🌀 ★ ★ &nbsp; INNER WORLDS · C1 ENGLISH · VISUALIZATION · DESIRE · DREAMS · THE SUBCONSCIOUS &nbsp; ★ ★ 🌀</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
