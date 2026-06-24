@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Attention Business — B2 English for Digital Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"📣";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">📣 B2 ENGLISH · DIGITAL MARKETING · CONTENT · AI · CUSTOMERS</div>
+      <h1>The Attention <span class="accent">Business</span></h1>
+      <div class="sub">Four conversations from inside the modern marketing world &mdash; how brands really find customers online, how to make video and content that people actually watch, how AI tools are quietly rewriting the work, and how to turn one-time buyers into a real community. Read the column, learn the real vocabulary and expressions, then sound like someone who works in the field.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~400 WORDS</span>
+        <span class="tag">REAL MARKETING VOCAB</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">68+ SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Digital Marketing 📣</button>
+    <button class="tab" data-tab="t2">② Content &amp; Video 🎬</button>
+    <button class="tab" data-tab="t3">③ AI Tools 🤖</button>
+    <button class="tab" data-tab="t4">④ Customers 💬</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">📣</span>Digital Marketing Fundamentals</h2>
+<p class="instr">A marketing director on how customers really find a brand online &mdash; and why most ads quietly fail. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>Nobody Buys From a Stranger</h3>
+<div class="byline">★ Sara Marinković · Marketing director · Built three brands from zero to global</div>
+<p>I'll tell you the sentence I write at the top of every new marketing plan: <em>nobody buys from a stranger</em>. The customer of 2026 doesn't see one of your ads and run to your shop. They see your name three or four times, in different places, over several weeks. They look at your website. They read one comment. They ignore you twice more. Then, one Tuesday morning, they finally <b>convert</b>. Modern marketing isn't about shouting louder. It's about being calmly present, again and again, until trust grows.</p>
+<p>Every digital marketing plan I build sits on three legs. The first is <b>SEO</b> &mdash; search engine optimisation. When a customer types “best physio in Madrid”, you want to appear on the first page of Google. Good SEO is about clear websites, useful content and patience. It's slow, but the customers it brings are often the best ones, because they were actively searching for you.</p>
+<div class="pull-quote">The cheapest marketing in the world is to deserve the customer first. The most expensive is to chase them when you don't.</div>
+<p>The second leg is <b>paid ads</b>. <b>PPC</b> on Google, plus social ads on Instagram, TikTok, LinkedIn, YouTube. Used well, they bring fast traffic. Used badly, they're a black hole for money. Successful companies don't <b>throw money at it</b>. They test small, measure the <b>click-through rate</b> and <b>conversion rate</b>, and slowly scale up the ads that actually work.</p>
+<p>The third leg is <b>organic social media</b> and <b>content marketing</b>. This is your free space &mdash; posts, videos, articles, podcasts &mdash; where you build a personality, not just sell things. The brands I admire most don't behave like brands online. They sound like a smart, generous friend. They answer real questions. They show real people. They make customers feel seen, before they sell anything.</p>
+<p>Behind all this sits the <b>marketing funnel</b>: the journey from a stranger who has never heard of you, to a curious visitor, to a happy customer. Each stage needs different content. Awareness at the top (“do I know this brand?”), consideration in the middle (“is it for me?”), and conversion at the bottom (“I'll buy”). Most brands shout “BUY NOW” at people who don't even know they exist yet. No wonder it doesn't work.</p>
+<p>Finally, measure everything. <b>Analytics</b> are not optional. How many people land on your homepage? Where do they come from? Where do they leave? The team that wins is rarely the most creative one. It's the one that quietly looks at the numbers every week, kills what doesn't work, and doubles down on what does. Marketing is not a fireworks show. It's a long, patient conversation &mdash; with data on one side and humans on the other.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">SEO</div><div class="vocab-def">making your website easy to find on search engines</div><div class="vocab-ex">“Good SEO brings free traffic for years.”</div></div>
+<div class="vocab-card"><div class="vocab-term">PPC ads</div><div class="vocab-def">pay-per-click advertising on platforms like Google</div><div class="vocab-ex">“PPC works fast but costs more than SEO.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a click-through rate (CTR)</div><div class="vocab-def">the percentage of people who click on an ad</div><div class="vocab-ex">“Our CTR doubled after we changed the photo.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a conversion rate</div><div class="vocab-def">the percentage of visitors who buy or sign up</div><div class="vocab-ex">“A 2% conversion rate is normal for online shops.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a marketing funnel</div><div class="vocab-def">the journey from stranger to customer</div><div class="vocab-ex">“Each stage of the funnel needs different content.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a target audience</div><div class="vocab-def">the specific group of people you sell to</div><div class="vocab-ex">“Our target audience is parents of small children.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a campaign</div><div class="vocab-def">a coordinated marketing effort</div><div class="vocab-ex">“The summer campaign runs from June to August.”</div></div>
+<div class="vocab-card"><div class="vocab-term">analytics</div><div class="vocab-def">data about how people use your website</div><div class="vocab-ex">“Look at the analytics before deciding anything.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to go viral</div><div class="idiom-def">to spread very fast online</div><div class="idiom-ex">“Their tiny TikTok video went viral overnight.”</div></div>
+<div class="idiom-card"><div class="idiom-term">low-hanging fruit</div><div class="idiom-def">easy wins that bring fast results</div><div class="idiom-ex">“Fixing the broken checkout was low-hanging fruit.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to move the needle</div><div class="idiom-def">to make a real difference to results</div><div class="idiom-ex">“Email finally moved the needle for them.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to be on the radar</div><div class="idiom-def">to be noticed by customers or rivals</div><div class="idiom-ex">“After the campaign, the brand was on everyone's radar.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to throw money at it</div><div class="idiom-def">to spend a lot without a plan</div><div class="idiom-ex">“Don't just throw money at Google ads.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to swim against the tide</div><div class="idiom-def">to do the opposite of everyone else</div><div class="idiom-ex">“Quiet, calm marketing is swimming against the tide.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">PPC</span><span class="bw">SEO</span><span class="bw">click-through rate</span><span class="bw">target audience</span><span class="bw">conversion rate</span><span class="bw">funnel</span><span class="bw">campaign</span><span class="bw">analytics</span></div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> Good <input class="fill-input" type="text" autocomplete="off" data-answer="seo" aria-label="answer 1"> takes months, but the traffic it brings is almost free.</div>
+<div class="fill-item"><span class="qn">2.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="ppc" aria-label="answer 2"> ads bring fast traffic, but the budget can disappear quickly.</div>
+<div class="fill-item"><span class="qn">3.</span> Our <input class="fill-input" type="text" autocomplete="off" data-answer="click-through rate" aria-label="answer 3"> doubled after we changed the photo in the ad.</div>
+<div class="fill-item"><span class="qn">4.</span> A typical online shop has a <input class="fill-input" type="text" autocomplete="off" data-answer="conversion rate" aria-label="answer 4"> of around 2%.</div>
+<div class="fill-item"><span class="qn">5.</span> Each stage of the marketing <input class="fill-input" type="text" autocomplete="off" data-answer="funnel" aria-label="answer 5"> needs different content.</div>
+<div class="fill-item"><span class="qn">6.</span> Define your <input class="fill-input" type="text" autocomplete="off" data-answer="target audience" aria-label="answer 6"> before you spend a single euro.</div>
+<div class="fill-item"><span class="qn">7.</span> The new summer <input class="fill-input" type="text" autocomplete="off" data-answer="campaign" aria-label="answer 7"> runs across Instagram and Google.</div>
+<div class="fill-item"><span class="qn">8.</span> Always check the <input class="fill-input" type="text" autocomplete="off" data-answer="analytics" aria-label="answer 8"> before deciding to kill an ad.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer's central idea is that…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> one ad is usually enough</div>
+<div class="mc-opt" data-i="1"><b>B.</b> customers buy after seeing you many times</div>
+<div class="mc-opt" data-i="2"><b>C.</b> customers buy at random</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Good SEO is described as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> fast and expensive</div>
+<div class="mc-opt" data-i="1"><b>B.</b> slow but full of high-quality customers</div>
+<div class="mc-opt" data-i="2"><b>C.</b> useless today</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Paid ads, used badly, are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> always great</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a black hole for money</div>
+<div class="mc-opt" data-i="2"><b>C.</b> slow and cheap</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Content marketing should make a brand sound like…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a loud salesperson</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a smart, generous friend</div>
+<div class="mc-opt" data-i="2"><b>C.</b> an angry boss</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Most brands shout ‘BUY NOW’ at people who…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> are ready to buy</div>
+<div class="mc-opt" data-i="1"><b>B.</b> don't even know they exist</div>
+<div class="mc-opt" data-i="2"><b>C.</b> are already customers</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The team that wins, the writer says, is the one that…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> is most creative</div>
+<div class="mc-opt" data-i="1"><b>B.</b> quietly looks at the numbers and adjusts</div>
+<div class="mc-opt" data-i="2"><b>C.</b> spends the most money</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Which brand's marketing do you genuinely enjoy?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's the last ad that actually made you buy something?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Are you good or bad at ignoring online ads?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you find sponsored posts annoying, helpful, or both?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are online ads more useful, or just more invasive?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is SEO still worth doing in the age of AI search?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should small businesses always invest in paid ads first?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Can a small brand really beat a giant one with smart marketing?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Are influencers still trusted, or has the bubble burst?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: convince a small business owner to spend money on SEO before on ads.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Design a 90-day marketing funnel for a new local café.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Pick a brand you know. What would you fix in their marketing first?</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘In ten years, traditional ads will be gone.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will AI search engines kill SEO as we know it?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're the digital marketer for a small clothing brand. The owner is angry that their <em>PPC</em> ads aren't working. Calmly explain <em>SEO</em>, the <em>funnel</em>, <em>conversion rate</em> and why patience usually beats panic.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Tell us about a brand that suddenly seemed to be <b>on the radar</b> of everyone you know.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever seen a small business <b>throw money at</b> ads with no clear plan?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What's a piece of <b>low-hanging fruit</b> most small businesses miss?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Describe a marketing change that really <b>moved the needle</b> for a brand you know.</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Have you ever seen a campaign <b>go viral</b> by accident? What happened?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">🎬</span>Content &amp; Video Creation</h2>
+<p class="instr">A content creator on what makes a video stop the scroll &mdash; and what doesn't. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Three Seconds That Decide Everything</h3>
+<div class="byline">★ Carlos Mendes · Content creator · Built a 2-million-follower channel from his bedroom</div>
+<p>Five years ago, I made my first video in my bedroom with a phone and a desk lamp. Last month, three million people watched a short of mine without me spending a single euro on ads. People always ask me what changed. The answer is the same boring secret nobody wants to hear: I learned to take the first three seconds of every video deadly seriously.</p>
+<p>On every modern platform &mdash; TikTok, Instagram Reels, YouTube Shorts &mdash; you have about three seconds before the viewer's thumb scrolls away. Three seconds. If your <b>hook</b> is weak, the rest of your video, however brilliant, will never be seen. New creators spend an hour on the editing and one minute on the opening. The professionals do exactly the opposite.</p>
+<div class="pull-quote">Don't make a perfect video. Make a video the first three seconds of which a tired person at midnight cannot scroll past.</div>
+<p>A good hook does three things. It promises something interesting (“The one mistake every beginner makes…”). It creates a tiny question in the viewer's head (“Wait, why is she doing that?”). And it shows clearly what kind of content you make. The hook is a contract: <em>if you stay, this is what you'll get.</em></p>
+<p>But hooks alone don't build a channel. <b>Content strategy</b> does. Pick a clear topic, a clear voice, a clear <b>target audience</b>. Don't make videos for “everyone”. The most successful creators make videos for one specific person and let everyone else watch by accident. “Marketing tips” goes nowhere. “Marketing tips for tiny dental clinics” quietly builds an empire.</p>
+<p>Production matters less than people think. Good lighting and clean audio beat an expensive camera every single time. Viewers will forgive a shaky frame. They will not forgive bad sound. Spend twenty euros on a clip-on microphone before you spend two thousand on a fancy lens.</p>
+<p><b>Storytelling</b> is the secret of long-form content. Even a 30-second video can have a tiny structure: situation, problem, twist, lesson. Set the scene, show the trouble, surprise them, give them something useful. The brain is wired for stories. It tolerates information when wrapped in one and ignores it when not.</p>
+<p>Then there's the unglamorous part: <b>consistency</b>. Most creators quit at month four. The people who reach a hundred thousand followers are not more talented; they post regularly when nobody is watching yet. Add a clear <b>call to action</b> (“follow for part two”), study your <b>analytics</b>, and adjust calmly. Your first hundred videos are practice. Your second hundred are when you really start. Most people quit at video forty. That's why the field is wide open for whoever stays.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">content</div><div class="vocab-def">posts, videos, articles or other media a brand makes</div><div class="vocab-ex">“Good content is the engine of modern marketing.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a hook</div><div class="vocab-def">the opening that grabs the viewer's attention</div><div class="vocab-ex">“Your hook is more important than your whole script.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a thumbnail</div><div class="vocab-def">the small preview image of a video</div><div class="vocab-ex">“A good thumbnail can double your views.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a call to action (CTA)</div><div class="vocab-def">a clear instruction at the end of content</div><div class="vocab-ex">“End every video with a clear call to action.”</div></div>
+<div class="vocab-card"><div class="vocab-term">engagement</div><div class="vocab-def">likes, comments, shares and watch time</div><div class="vocab-ex">“High engagement helps the algorithm push your video.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an algorithm</div><div class="vocab-def">the system that decides what users see</div><div class="vocab-ex">“The algorithm rewards videos that finish strong.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a niche</div><div class="vocab-def">a narrow, specific area of focus</div><div class="vocab-ex">“Pick a niche you can genuinely own.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a follower</div><div class="vocab-def">someone who subscribes to your account</div><div class="vocab-ex">“She gained 10,000 followers in a single month.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to hook the audience</div><div class="idiom-def">to grab attention immediately</div><div class="idiom-ex">“A strong opening hooks the audience in three seconds.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to set the scene</div><div class="idiom-def">to give context for what's coming</div><div class="idiom-ex">“Start the video by setting the scene.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to grab someone's attention</div><div class="idiom-def">to make people stop and watch</div><div class="idiom-ex">“The first frame must grab attention.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to cut to the chase</div><div class="idiom-def">to skip the introduction and get to the point</div><div class="idiom-ex">“Cut to the chase &mdash; show the product.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to keep them coming back</div><div class="idiom-def">to make people watch you again</div><div class="idiom-ex">“Useful content keeps them coming back.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to be a slow burn</div><div class="idiom-def">to grow gradually rather than explode</div><div class="idiom-ex">“Her channel was a slow burn for two years.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">followers</span><span class="bw">algorithm</span><span class="bw">content</span><span class="bw">hook</span><span class="bw">call to action</span><span class="bw">engagement</span><span class="bw">niche</span><span class="bw">thumbnail</span></div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> Useful, regular <input class="fill-input" type="text" autocomplete="off" data-answer="content" aria-label="answer 1"> is the engine of modern marketing.</div>
+<div class="fill-item"><span class="qn">2.</span> The first three seconds are your <input class="fill-input" type="text" autocomplete="off" data-answer="hook" aria-label="answer 2"> &mdash; treat them seriously.</div>
+<div class="fill-item"><span class="qn">3.</span> A clear <input class="fill-input" type="text" autocomplete="off" data-answer="thumbnail" aria-label="answer 3"> can double the views of an old video.</div>
+<div class="fill-item"><span class="qn">4.</span> End every short with a clear <input class="fill-input" type="text" autocomplete="off" data-answer="call to action" aria-label="answer 4"> &mdash; even just ‘follow for part two’.</div>
+<div class="fill-item"><span class="qn">5.</span> High <input class="fill-input" type="text" autocomplete="off" data-answer="engagement" aria-label="answer 5"> tells the platform your video is worth pushing.</div>
+<div class="fill-item"><span class="qn">6.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="algorithm" aria-label="answer 6"> rewards videos that hold attention to the end.</div>
+<div class="fill-item"><span class="qn">7.</span> Pick a small <input class="fill-input" type="text" autocomplete="off" data-answer="niche" aria-label="answer 7"> you can quietly dominate.</div>
+<div class="fill-item"><span class="qn">8.</span> She gained 10,000 new <input class="fill-input" type="text" autocomplete="off" data-answer="followers" aria-label="answer 8"> in just one month.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says you have about… before a viewer scrolls away.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> thirty seconds</div>
+<div class="mc-opt" data-i="1"><b>B.</b> three seconds</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ten seconds</div>
+</div>
+<div class="mc-item" data-correct="2">
+<div class="mc-q"><span class="qn">Q2</span>A good hook does all of these except…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> promise something interesting</div>
+<div class="mc-opt" data-i="1"><b>B.</b> create a question</div>
+<div class="mc-opt" data-i="2"><b>C.</b> insult the viewer</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Successful creators make videos for…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> everyone</div>
+<div class="mc-opt" data-i="1"><b>B.</b> one specific person</div>
+<div class="mc-opt" data-i="2"><b>C.</b> themselves only</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>The writer says viewers won't forgive…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a shaky frame</div>
+<div class="mc-opt" data-i="1"><b>B.</b> bad sound</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a long video</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Long-form content depends most on…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> expensive cameras</div>
+<div class="mc-opt" data-i="1"><b>B.</b> storytelling</div>
+<div class="mc-opt" data-i="2"><b>C.</b> filters</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Most creators quit at month…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> one</div>
+<div class="mc-opt" data-i="1"><b>B.</b> four</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ten</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's your favourite content creator right now? Why?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Do you scroll, or do you actually watch?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever made a video that you posted publicly?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What kind of videos do you waste the most time on?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are short videos making us worse at concentrating?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should there be a daily limit on short-form video apps?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is being a content creator a real career?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should brands work with small creators instead of big celebrities?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will long YouTube videos make a real comeback?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: pitch a content strategy for a local bakery on Instagram.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Design the first ten videos for a brand-new niche channel.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Take a boring topic (e.g. tax) and turn it into a hook that works.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">Will AI presenters host most short videos in five years?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">‘There are too many creators &mdash; the market is full.’ Agree?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You manage social media for a small fitness studio. Plan the next short video with the owner. Choose the <em>niche</em>, design a strong <em>hook</em>, agree on a clear <em>call to action</em> and explain how you'll read the <em>engagement</em> data afterwards.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">How long do you give a video before you scroll past? Three seconds, more, less?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Describe a video that completely <b>hooked you</b> in the first frame.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">When is it better to <b>set the scene</b>, and when should you <b>cut to the chase</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Tell us about a creator whose content <b>keeps you coming back</b>. Why?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Could you have the patience to grow a channel as a <b>slow burn</b> for two years?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🤖</span>AI Tools in Marketing</h2>
+<p class="instr">A marketing tech lead on how AI is quietly rewriting the job &mdash; and where it still gets things spectacularly wrong. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>Your New Junior Marketer Works 24/7</h3>
+<div class="byline">★ Priya Sharma · Marketing tech lead · Inside fast-growing agencies</div>
+<p>Last year my team produced more content than ever before, with fewer people. The reason isn't magic. We hired AI as a quiet junior member of the team. <b>AI bots</b> now help us draft posts, summarise customer reviews, generate first ideas for ads, write the boring 80% of an email so the human can focus on the clever 20%. AI doesn't replace marketers. It replaces the lazy version of every marketer.</p>
+<p>The most useful tools right now fall into three groups. <b>Generative AI</b> &mdash; ChatGPT, Claude, Gemini &mdash; for text, brainstorming, summaries and first drafts. <b>Image and video tools</b> &mdash; Midjourney, Runway, Sora &mdash; for visuals, mood boards and short clips. And <b>automation tools</b> &mdash; Zapier, Make, HubSpot &mdash; that connect everything: when a lead fills a form, the system sends an email, adds them to a list, tags them, alerts the salesperson, and books a call. None of these are new ideas. They are just suddenly cheap.</p>
+<div class="pull-quote">AI doesn't replace marketers. It replaces the lazy version of every marketer.</div>
+<p>But the secret weapon is the <b>prompt</b>. A short, vague prompt gives short, vague results. A clear, detailed prompt &mdash; with the audience, tone, length, and an example &mdash; gives something genuinely useful. We've started writing prompts the way we used to write briefs for an agency. The better the brief, the better the output. <b>Prompt engineering</b> is now a real skill, not a buzzword.</p>
+<p>AI is brilliant at certain tasks. It can summarise 200 reviews into five themes in two minutes. It can translate a campaign into eight languages by lunchtime. It can suggest twenty headline options when your brain has gone blank. For repetitive tasks at scale &mdash; tagging, sorting, first drafts &mdash; it is genuinely a <b>game-changer</b>.</p>
+<p>But it also fails confidently. AI will happily <b>hallucinate</b> a statistic, invent a quote, or claim a competitor said something they didn't. It can also quietly produce “all brands sound the same” content, full of correct words but with no soul. The agencies winning right now are not the ones using AI most. They are the ones <em>using it best</em>: AI for speed, humans for taste.</p>
+<p>There are ethical problems too. Should you tell customers when an email was written by AI? When is an AI “influencer” acceptable? Should AI-generated art credit the artists it was trained on? Smart marketing teams discuss these questions openly, instead of pretending they don't exist.</p>
+<p>My honest advice is simple. Learn two or three AI tools well, not twenty badly. Treat every AI output as a <em>first draft</em>, not a final piece. Always keep a <b>human in the loop</b> for anything customer-facing. And remember: AI will only ever make you more of what you already are. A careful marketer becomes faster. A lazy marketer becomes louder. Choose carefully which one you want to be.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">artificial intelligence (AI)</div><div class="vocab-def">computer systems that perform tasks needing intelligence</div><div class="vocab-ex">“AI is changing every part of marketing.”</div></div>
+<div class="vocab-card"><div class="vocab-term">generative AI</div><div class="vocab-def">AI that creates new text, images or video</div><div class="vocab-ex">“Generative AI now drafts most of our first ideas.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a prompt</div><div class="vocab-def">an instruction given to an AI</div><div class="vocab-ex">“A clear prompt makes all the difference.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a chatbot</div><div class="vocab-def">an AI program that talks to users</div><div class="vocab-ex">“Our chatbot handles 70% of basic questions.”</div></div>
+<div class="vocab-card"><div class="vocab-term">automation</div><div class="vocab-def">using software to do repetitive tasks</div><div class="vocab-ex">“Automation freed up two hours of my day.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a workflow</div><div class="vocab-def">a sequence of steps in a process</div><div class="vocab-ex">“We mapped the whole email workflow in one afternoon.”</div></div>
+<div class="vocab-card"><div class="vocab-term">data-driven</div><div class="vocab-def">based on real numbers and evidence</div><div class="vocab-ex">“Data-driven decisions beat opinions.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to hallucinate</div><div class="vocab-def">(of AI) to invent false facts</div><div class="vocab-ex">“Always check &mdash; AI loves to hallucinate sources.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">the human in the loop</div><div class="idiom-def">a person who checks AI's work</div><div class="idiom-ex">“Keep a human in the loop for important content.”</div></div>
+<div class="idiom-card"><div class="idiom-term">garbage in, garbage out</div><div class="idiom-def">bad input gives bad output</div><div class="idiom-ex">“Garbage in, garbage out applies to AI too.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to do the heavy lifting</div><div class="idiom-def">to handle the hardest part</div><div class="idiom-ex">“Let AI do the heavy lifting on first drafts.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to be a game-changer</div><div class="idiom-def">to change everything in a field</div><div class="idiom-ex">“AI image tools were a game-changer for small teams.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a one-trick pony</div><div class="idiom-def">good at only one thing</div><div class="idiom-ex">“No AI tool is just a one-trick pony anymore.”</div></div>
+<div class="idiom-card"><div class="idiom-term">at the click of a button</div><div class="idiom-def">very easily, with no effort</div><div class="idiom-ex">“Translations now happen at the click of a button.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">chatbot</span><span class="bw">data-driven</span><span class="bw">prompt</span><span class="bw">workflow</span><span class="bw">hallucinate</span><span class="bw">AI</span><span class="bw">generative</span><span class="bw">automation</span></div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> Smart teams now use <input class="fill-input" type="text" autocomplete="off" data-answer="ai" aria-label="answer 1"> for the boring 80% of every task.</div>
+<div class="fill-item"><span class="qn">2.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="generative" aria-label="answer 2"> tools can write a first draft in seconds.</div>
+<div class="fill-item"><span class="qn">3.</span> A clear, detailed <input class="fill-input" type="text" autocomplete="off" data-answer="prompt" aria-label="answer 3"> gives a clear, detailed result.</div>
+<div class="fill-item"><span class="qn">4.</span> Our <input class="fill-input" type="text" autocomplete="off" data-answer="chatbot" aria-label="answer 4"> now handles 70% of basic customer questions.</div>
+<div class="fill-item"><span class="qn">5.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="automation" aria-label="answer 5"> saves us about ten hours a week per person.</div>
+<div class="fill-item"><span class="qn">6.</span> We mapped the whole onboarding <input class="fill-input" type="text" autocomplete="off" data-answer="workflow" aria-label="answer 6"> in one afternoon.</div>
+<div class="fill-item"><span class="qn">7.</span> All our decisions are <input class="fill-input" type="text" autocomplete="off" data-answer="data-driven" aria-label="answer 7">, not based on feelings.</div>
+<div class="fill-item"><span class="qn">8.</span> AI will happily <input class="fill-input" type="text" autocomplete="off" data-answer="hallucinate" aria-label="answer 8"> a statistic that doesn't exist.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says AI hasn't replaced marketers; it has replaced…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the best marketers</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the lazy version of every marketer</div>
+<div class="mc-opt" data-i="2"><b>C.</b> customers</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Generative AI is mainly used for…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> delivering parcels</div>
+<div class="mc-opt" data-i="1"><b>B.</b> text, brainstorming and first drafts</div>
+<div class="mc-opt" data-i="2"><b>C.</b> tracking GPS</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>The ‘secret weapon’ of working with AI is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the cheapest tool</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a clear, detailed prompt</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a fancy interface</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>AI is described as great at…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> taste and originality</div>
+<div class="mc-opt" data-i="1"><b>B.</b> summarising reviews and translating fast</div>
+<div class="mc-opt" data-i="2"><b>C.</b> emotional work</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>A famous AI failure mode is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> refuse to answer</div>
+<div class="mc-opt" data-i="1"><b>B.</b> invent statistics confidently</div>
+<div class="mc-opt" data-i="2"><b>C.</b> work too slowly</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's advice for staying useful is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> learn twenty tools badly</div>
+<div class="mc-opt" data-i="1"><b>B.</b> learn 2 or 3 tools well and keep a human in the loop</div>
+<div class="mc-opt" data-i="2"><b>C.</b> stop using AI</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Which AI tool do you actually use, if any?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Have you ever caught AI inventing a fact?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's the smartest thing AI has ever done for you?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What's the dumbest?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should AI-written content always be labelled as such?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Will junior marketing roles disappear because of AI?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is it lazy to use AI for ideas, or just modern?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should AI art credit the artists it was trained on?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">What's the right balance between AI speed and human taste?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: convince a small business owner to start using one AI tool this month.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Design a 5-rule AI policy for a small marketing team.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Demo a great prompt for a real marketing task in front of the class.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘In five years, every marketer will be an AI marketer.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will AI influencers eventually beat human ones?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're a marketing manager. Your boss wants to fire two team members because “AI can do their work”. Calmly explain what AI does brilliantly, what it does badly, and why you need a <em>human in the loop</em> for anything customer-facing.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Where is it smart to let AI <b>do the heavy lifting</b> in marketing, and where is it dangerous?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Has any AI tool been a real <b>game-changer</b> for you personally?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Have you experienced a <b>garbage in, garbage out</b> moment with AI?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Why is keeping a <b>human in the loop</b> still important for brand content?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Which AI tool used to feel like a <b>one-trick pony</b> but now does much more?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">💬</span>Customer Relationships &amp; Community</h2>
+<p class="instr">A community manager on the moment marketing becomes something better &mdash; a real relationship. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>Selling Once vs. Keeping Forever</h3>
+<div class="byline">★ Liam Murphy · Community &amp; CX manager · Built loyal audiences for three direct-to-consumer brands</div>
+<p>Most marketing books talk about how to sell something once. Real businesses live or die on whether the customer comes back. After ten years inside online brands, I can tell you the boring truth: keeping a customer is five times cheaper than finding a new one, and far more enjoyable. Yet most companies obsess over new <b>leads</b> and quietly ignore the customers they already have. It's like throwing a brilliant party and never inviting your real friends.</p>
+<p>The first idea to take seriously is the <b>customer journey</b>. From the moment a stranger discovers your brand to the moment they're a five-year loyal fan, there are dozens of small <b>touchpoints</b>: the homepage, the first email, the unboxing, the chat with support, the second purchase, the moment they recommend you to a friend. Each touchpoint either builds trust or quietly destroys it. Brands lose customers far more often through small frictions than through big disasters.</p>
+<div class="pull-quote">Loyalty is built in the small moments where you didn't have to try, and you did anyway.</div>
+<p>Then there's <b>customer service</b>, which I'd rename “marketing in disguise”. A patient, kind, fast support team is one of the most powerful growth tools a brand has. People talk for years about the customer service that surprised them. A two-line email reply with real warmth is worth more than a million-euro ad. <b>Word of mouth</b> from happy customers is still the cheapest and most trusted marketing in the world.</p>
+<p><b>Email marketing</b> is the quiet hero of customer relationships. Social media platforms own your followers; email is the one channel you really control. A monthly <b>newsletter</b> with useful, friendly content keeps a brand on the customer's radar without shouting. The brands I admire send genuinely good emails. The boring ones still send weekly discount codes that nobody opens.</p>
+<p>Then there's the magic of <b>community</b>. A loyalty programme says “spend ten more, get 5% off.” A community says “you belong here.” Real communities &mdash; small Discord servers, a brilliant newsletter with comments, a yearly meet-up &mdash; turn customers into a tribe. They forgive small mistakes. They recommend you for free. They become unpaid <b>brand ambassadors</b>. You cannot fake this. Communities know within minutes if the brand is genuine or pretending.</p>
+<p>Modern <b>CRM</b> tools &mdash; HubSpot, Klaviyo, Mailchimp &mdash; help you track, segment and remember every customer. Used kindly, they let a brand send the right message at the right time: a happy birthday note, a useful guide a week after purchase, a check-in after silence. Used badly, they feel creepy and cold. Tools don't create care; they only scale it.</p>
+<p>If you take one idea from this column, take this. Spend less time chasing new strangers and more time deserving the customers you already have. Listen. Reply. Remember names. Send useful things. Apologise sincerely when you mess up. The brands that will quietly win the next decade aren't the loudest. They are the ones that act, every day, like a small business that genuinely knows your name.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a lead</div><div class="vocab-def">a potential customer who has shown interest</div><div class="vocab-ex">“We have fifty new leads from yesterday's webinar.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a customer journey</div><div class="vocab-def">the whole experience a customer has with you</div><div class="vocab-ex">“Map the customer journey before changing anything.”</div></div>
+<div class="vocab-card"><div class="vocab-term">CRM</div><div class="vocab-def">customer relationship management software</div><div class="vocab-ex">“CRM helps us remember every customer.”</div></div>
+<div class="vocab-card"><div class="vocab-term">retention</div><div class="vocab-def">keeping customers loyal</div><div class="vocab-ex">“Retention is far cheaper than acquisition.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a newsletter</div><div class="vocab-def">a regular email to subscribers</div><div class="vocab-ex">“Our monthly newsletter has 40,000 readers.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a brand ambassador</div><div class="vocab-def">a loyal customer who recommends you</div><div class="vocab-ex">“One happy customer becomes a brand ambassador.”</div></div>
+<div class="vocab-card"><div class="vocab-term">loyalty</div><div class="vocab-def">the tendency to keep buying from the same brand</div><div class="vocab-ex">“Loyalty is built in small moments, not in points.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a community</div><div class="vocab-def">a connected group of fans of a brand</div><div class="vocab-ex">“A real community is worth more than a million followers.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">word of mouth</div><div class="idiom-def">customers recommending you to others</div><div class="idiom-ex">“Word of mouth is still the cheapest marketing.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to go the extra mile</div><div class="idiom-def">to do more than expected</div><div class="idiom-ex">“Loyal customers remember when you go the extra mile.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a brand ambassador</div><div class="idiom-def">a customer who promotes you for free</div><div class="idiom-ex">“One happy customer becomes a brand ambassador.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to ring a bell</div><div class="idiom-def">to sound familiar</div><div class="idiom-ex">““Does the name Klear ring a bell?””</div></div>
+<div class="idiom-card"><div class="idiom-term">to keep in touch</div><div class="idiom-def">to stay in regular contact</div><div class="idiom-ex">“Newsletters help you keep in touch with old customers.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to lose touch</div><div class="idiom-def">to stop being in contact</div><div class="idiom-ex">“After one purchase, most brands lose touch with the customer.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">retention</span><span class="bw">lead</span><span class="bw">CRM</span><span class="bw">customer journey</span><span class="bw">newsletter</span><span class="bw">loyalty</span><span class="bw">brand ambassador</span><span class="bw">community</span></div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> We had fifty new <input class="fill-input" type="text" autocomplete="off" data-answer="leads" aria-label="answer 1"> from yesterday's free webinar.</div>
+<div class="fill-item"><span class="qn">2.</span> Map the whole <input class="fill-input" type="text" autocomplete="off" data-answer="customer journey" aria-label="answer 2"> before redesigning anything.</div>
+<div class="fill-item"><span class="qn">3.</span> Our <input class="fill-input" type="text" autocomplete="off" data-answer="crm" aria-label="answer 3"> remembers every email a customer has ever opened.</div>
+<div class="fill-item"><span class="qn">4.</span> Strong <input class="fill-input" type="text" autocomplete="off" data-answer="retention" aria-label="answer 4"> means we spend far less on new ads.</div>
+<div class="fill-item"><span class="qn">5.</span> Our monthly <input class="fill-input" type="text" autocomplete="off" data-answer="newsletter" aria-label="answer 5"> now has 40,000 quiet readers.</div>
+<div class="fill-item"><span class="qn">6.</span> Happy customers quietly become unpaid <input class="fill-input" type="text" autocomplete="off" data-answer="brand ambassadors" aria-label="answer 6">.</div>
+<div class="fill-item"><span class="qn">7.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="loyalty" aria-label="answer 7"> comes from kindness, not from points cards.</div>
+<div class="fill-item"><span class="qn">8.</span> A small, real <input class="fill-input" type="text" autocomplete="off" data-answer="community" aria-label="answer 8"> beats a million empty followers.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>Keeping a customer is roughly… than finding a new one.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> five times more expensive</div>
+<div class="mc-opt" data-i="1"><b>B.</b> five times cheaper</div>
+<div class="mc-opt" data-i="2"><b>C.</b> exactly the same cost</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Brands lose customers more often through…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> one big disaster</div>
+<div class="mc-opt" data-i="1"><b>B.</b> many small frictions</div>
+<div class="mc-opt" data-i="2"><b>C.</b> good service</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Customer service is described as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a cost centre</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ‘marketing in disguise’</div>
+<div class="mc-opt" data-i="2"><b>C.</b> unnecessary</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>The writer says email marketing is special because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it's the loudest channel</div>
+<div class="mc-opt" data-i="1"><b>B.</b> it's the one channel you really control</div>
+<div class="mc-opt" data-i="2"><b>C.</b> it always converts</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>A real community is described as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a loyalty programme</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a tribe that forgives mistakes and recommends you</div>
+<div class="mc-opt" data-i="2"><b>C.</b> just a Discord server</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>CRM tools, used badly, feel…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> warm</div>
+<div class="mc-opt" data-i="1"><b>B.</b> creepy and cold</div>
+<div class="mc-opt" data-i="2"><b>C.</b> invisible</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Which brand do you genuinely love?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Have you ever told friends about a great customer service experience?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do you read any newsletters? Which?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are you part of an online community linked to a brand?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is customer service really marketing, or a separate thing?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should loyalty programmes be replaced by communities?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Are CRMs helpful or creepy?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is email marketing dying or quietly winning?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Should brands fire ‘toxic’ customers who hurt their community?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: handle a furious customer whose order arrived broken.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Design the perfect onboarding journey for a new subscription app.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">If you had to fix one CX pain point in a famous brand, which and how?</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘Communities will replace social media as the main marketing space.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will AI ever truly run a customer relationship?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're a community manager for a small online brand. A customer wrote a furious public review after a delayed delivery. Plan your reply: name the <em>friction</em>, apologise sincerely, <em>go the extra mile</em>, and protect the trust of the whole <em>community</em> reading along.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Tell us about a small business you genuinely act as a <b>brand ambassador</b> for.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">When did a company last <b>go the extra mile</b> for you? Did you tell anyone?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Is <b>word of mouth</b> dying because of social media, or stronger than ever?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Do any brands you bought from once still <b>keep in touch</b> in a way you actually like?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">How quickly do most brands <b>lose touch</b> with their customers after a sale?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+
+  <footer>📣 ★ ★ &nbsp; THE ATTENTION BUSINESS · B2 MARKETING ENGLISH · DIGITAL · CONTENT · AI · COMMUNITY &nbsp; ★ ★ 📣</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
