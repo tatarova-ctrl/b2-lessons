@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On the Ward — English for a Rehab-Clinic Nurse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"💊";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">💊 NURSING ENGLISH · B1–B2 · REHAB CLINIC · DAY · EVENING · NIGHT</div>
+      <h1>On the <span class="accent">Ward</span></h1>
+      <div class="sub">Four lessons for nurses working in a private rehabilitation clinic who care for English-speaking patients. From the first hello at the bedside, through the medication round and daily troubles, to the handover at the end of the shift &mdash; the vocabulary, the phrases, and the situations you really meet at work.</div>
+      <div class="tags">
+        <span class="tag">CEFR B1–B2</span>
+        <span class="tag">READING ~360 WORDS</span>
+        <span class="tag">PRACTICAL VOCAB + PHRASES</span>
+        <span class="tag">GAP-FILL + COMPREHENSION</span>
+        <span class="tag">ROLE-PLAY WITH PATIENTS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Bedside 🛏️</button>
+    <button class="tab" data-tab="t2">② Medications 💊</button>
+    <button class="tab" data-tab="t3">③ Daily Troubles 🤕</button>
+    <button class="tab" data-tab="t4">④ Handover &amp; Nights 🌙</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🛏️</span>At the Bedside</h2>
+<p class="instr">How a good nurse opens a visit &mdash; what to ask, what to check, how to build trust in three minutes. Useful phrases are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The First Three Minutes Decide the Whole Visit</h3>
+<div class="byline">★ Sister Olivia Brennan · Senior nurse · Twenty years in private rehabilitation</div>
+<p>In rehabilitation, you visit each patient many times a day. The first minutes of every visit really matter. If you walk in tired and silent, the patient feels it. If you walk in calm and friendly, they relax &mdash; and the rest of the visit goes much better. You don't need extra time. You just need a clear routine.</p>
+<p>I always start with a smile and the patient's name. “Good morning, Mrs Lopez. How are you feeling today?” Then I check their <b>identity</b> at the start of every shift: “<b>Can you tell me your full name and date of birth?</b>” It feels formal, but it keeps patients safe. People in rehab often share rooms and have similar names. Mistakes are easy.</p>
+<div class="pull-quote">A patient who trusts you will tell you about a small pain at 7 a.m. A patient who doesn't will hide it until midnight.</div>
+<p>Next come the <b>vital signs</b>: <b>blood pressure</b>, <b>pulse</b>, <b>temperature</b>, breathing rate, and <b>oxygen saturation</b>. I always explain before I touch the patient. “<b>I'm just going to check your blood pressure</b>, it won't take a minute.” Patients in private clinics expect this kind of small politeness, and it lowers their anxiety.</p>
+<p>Then I check their <b>comfort</b>: pillows, water, the position of the bed. A patient in pain or sitting badly will never enjoy their session of <b>physiotherapy</b> in the afternoon. Five seconds spent fixing a pillow can save you an hour of trouble later.</p>
+<p>I also ask one quiet, open question every morning: “<b>Is there anything worrying you?</b>” Many older patients won't complain; they don't want to be a problem. That single question often brings out a real concern &mdash; a phone call they're waiting for, a fear about tomorrow's <b>treatment</b>, a small symptom they didn't think mattered.</p>
+<p>Before I leave, I always tell them when I'll be back. “<b>I'll be back in ten minutes</b> with your tablets.” Patients in rehab can feel lonely between visits. A simple promise of return makes the waiting easier. Some of my best feedback over the years has come from patients who said, “You always told me when you were coming back. I felt safe.” That sentence, after twenty years, still tells me the same thing: in nursing, the small things are not the small things.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">vital signs</div><div class="vocab-def">measurements like blood pressure, pulse, temperature and breathing</div><div class="vocab-ex">“I take her vital signs every four hours.”</div></div>
+<div class="vocab-card"><div class="vocab-term">blood pressure</div><div class="vocab-def">the pressure of blood in the arteries</div><div class="vocab-ex">“Her blood pressure is a little high today.”</div></div>
+<div class="vocab-card"><div class="vocab-term">pulse</div><div class="vocab-def">the beat of the heart felt in an artery</div><div class="vocab-ex">“His pulse is strong and regular.”</div></div>
+<div class="vocab-card"><div class="vocab-term">temperature</div><div class="vocab-def">how hot or cold the body is</div><div class="vocab-ex">“Her temperature is 38.2 — she has a fever.”</div></div>
+<div class="vocab-card"><div class="vocab-term">oxygen saturation</div><div class="vocab-def">the amount of oxygen in the blood</div><div class="vocab-ex">“His oxygen saturation has dropped to 92%.”</div></div>
+<div class="vocab-card"><div class="vocab-term">identity check</div><div class="vocab-def">confirming who the patient is</div><div class="vocab-ex">“Always do an identity check before any medication.”</div></div>
+<div class="vocab-card"><div class="vocab-term">comfort</div><div class="vocab-def">feeling at ease in body and mind</div><div class="vocab-ex">“Let's improve her comfort with another pillow.”</div></div>
+<div class="vocab-card"><div class="vocab-term">physiotherapy</div><div class="vocab-def">exercises and movement to help recovery</div><div class="vocab-ex">“She has physiotherapy at 11 a.m.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">“How are you feeling today?”</div><div class="idiom-def">Standard friendly opening question.</div><div class="idiom-ex">““Good morning, Mr Smith. How are you feeling today?””</div></div>
+<div class="idiom-card"><div class="idiom-term">“I'm just going to check your blood pressure.”</div><div class="idiom-def">Explaining a routine task before doing it.</div><div class="idiom-ex">““I'm just going to check your blood pressure, it won't take a minute.””</div></div>
+<div class="idiom-card"><div class="idiom-term">“Can you tell me your full name and date of birth?”</div><div class="idiom-def">Safe-identification question.</div><div class="idiom-ex">“Always ask: “Can you tell me your full name and date of birth?””</div></div>
+<div class="idiom-card"><div class="idiom-term">“Is there anything worrying you?”</div><div class="idiom-def">Inviting the patient to share concerns.</div><div class="idiom-ex">““Is there anything worrying you this morning?””</div></div>
+<div class="idiom-card"><div class="idiom-term">“Let me know if you feel any discomfort.”</div><div class="idiom-def">Inviting the patient to speak up.</div><div class="idiom-ex">““Let me know straight away if you feel any discomfort.””</div></div>
+<div class="idiom-card"><div class="idiom-term">“I'll be back in ten minutes.”</div><div class="idiom-def">Reassuring the patient that help is near.</div><div class="idiom-ex">““I'll be back in ten minutes to check on you again.””</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">blood pressure</span><span class="bw">vital signs</span><span class="bw">pulse</span><span class="bw">identity</span><span class="bw">temperature</span><span class="bw">oxygen saturation</span><span class="bw">comfort</span><span class="bw">physiotherapy</span></div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> I take her <input class="fill-input" type="text" autocomplete="off" data-answer="vital signs" aria-label="answer 1"> every four hours.</div>
+<div class="fill-item"><span class="qn">2.</span> His <input class="fill-input" type="text" autocomplete="off" data-answer="blood pressure" aria-label="answer 2"> is 140 over 90 &mdash; a little high.</div>
+<div class="fill-item"><span class="qn">3.</span> Her <input class="fill-input" type="text" autocomplete="off" data-answer="pulse" aria-label="answer 3"> is fast and a bit irregular.</div>
+<div class="fill-item"><span class="qn">4.</span> His <input class="fill-input" type="text" autocomplete="off" data-answer="temperature" aria-label="answer 4"> rose to 38.5 during the night.</div>
+<div class="fill-item"><span class="qn">5.</span> Her <input class="fill-input" type="text" autocomplete="off" data-answer="oxygen saturation" aria-label="answer 5"> has dropped to 91% &mdash; please call the doctor.</div>
+<div class="fill-item"><span class="qn">6.</span> Always do an <input class="fill-input" type="text" autocomplete="off" data-answer="identity" aria-label="answer 6"> check before giving medication.</div>
+<div class="fill-item"><span class="qn">7.</span> Let's improve her <input class="fill-input" type="text" autocomplete="off" data-answer="comfort" aria-label="answer 7"> with an extra pillow.</div>
+<div class="fill-item"><span class="qn">8.</span> Mr Brown has <input class="fill-input" type="text" autocomplete="off" data-answer="physiotherapy" aria-label="answer 8"> at 11 a.m. today.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says the first minutes of a visit…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> don't matter much</div>
+<div class="mc-opt" data-i="1"><b>B.</b> really matter</div>
+<div class="mc-opt" data-i="2"><b>C.</b> are only for vital signs</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>She starts every visit with…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a quick injection</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a smile and the patient's name</div>
+<div class="mc-opt" data-i="2"><b>C.</b> silence</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>The identity check is important because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it's a tradition</div>
+<div class="mc-opt" data-i="1"><b>B.</b> mistakes between patients are easy</div>
+<div class="mc-opt" data-i="2"><b>C.</b> it impresses patients</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>She always explains a check before…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> leaving the room</div>
+<div class="mc-opt" data-i="1"><b>B.</b> touching the patient</div>
+<div class="mc-opt" data-i="2"><b>C.</b> calling the doctor</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The quiet open question she asks each morning is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> ‘Are you sleeping?’</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ‘Is there anything worrying you?’</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ‘Did you eat?’</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q6</span>Telling patients when she will return helps them…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> feel safe and less lonely</div>
+<div class="mc-opt" data-i="1"><b>B.</b> sleep more</div>
+<div class="mc-opt" data-i="2"><b>C.</b> get up faster</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">How long have you been working as a nurse?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What kind of patients are most difficult to greet in the morning?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's the very first thing you do when you enter a patient's room?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are private clinic patients different from hospital patients? How?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q8</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Why is identity check so important, even with patients you know well?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">How do you handle a patient who clearly hates being checked every few hours?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should families be in the room during vital signs?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">What do you do when an older patient says ‘everything is fine’ but clearly isn't?</div></div>
+<div class="q-group-head">Patient role-plays<span class="q-tag">Q9–Q11</span></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Role-play: greet a new English-speaking patient on his first morning. Do the full bedside routine.</div></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: a patient is worried about their afternoon physiotherapy. Calm them.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: a patient's blood pressure is higher than usual. Explain and reassure.</div></div>
+<div class="q-group-head">Reflection<span class="q-tag">Q12–Q14</span></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">What's the kindest thing a patient has ever said about your care?</div></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">Have you ever made a small mistake at the bedside that taught you a big lesson?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">If you could change one thing about how rehab clinics greet patients, what would it be?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're meeting an English-speaking patient for the first time at 7 a.m. Do the full bedside routine in English: greet, <em>identity check</em>, explain, take <em>vital signs</em>, ask if anything is worrying them, and tell them when you'll be back.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Practise out loud: how do you say <b>“How are you feeling today?”</b> in three slightly different friendly ways?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Show how you would politely ask <b>“Can you tell me your full name and date of birth?”</b> to a confused elderly patient.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Role-play with a partner: explain <b>“I'm just going to check your blood pressure”</b>, step by step.</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">What's a calm, kind way to ask <b>“Is there anything worrying you?”</b> without sounding nosy?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Practise: <b>“I'll be back in ten minutes”</b> &mdash; show how to reassure a nervous patient.</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">💊</span>The Medication Round</h2>
+<p class="instr">How to give medicines safely &mdash; the right patient, the right pill, the right reason &mdash; and how to explain each one in clear English. Useful phrases are in <b>gold</b>.</p>
+<article class="reading">
+<h3>Right Patient, Right Pill, Right Reason</h3>
+<div class="byline">★ Nurse Ahmad Reza · Senior medication nurse · Trains new staff at a private clinic</div>
+<p>The medication round is the part of the shift where mistakes hurt the most. In a private rehab clinic, most patients take several pills every day. Some take more than ten. They need someone calm, careful, and never in a hurry. Speed feels efficient. It isn't. A small error in <b>dosage</b> can put a patient back in hospital for a week.</p>
+<p>We follow a simple rule called the “five rights”: right patient, right <b>medication</b>, right <b>dose</b>, right time, right route. Every nurse I train repeats this in the corridor every morning. Before any tablet goes into a patient's hand, I ask, “<b>Can you tell me your full name and date of birth?</b>” — even with a patient I've known for two weeks. Then I check the chart, then the box. Two checks, no shortcuts.</p>
+<div class="pull-quote">Patients forgive almost anything except feeling unsafe with their medication. Take your time. Always.</div>
+<p>I explain each pill in simple English. “<b>This little blue one is for your blood pressure.</b> The white one is for your <b>cholesterol</b>. This is a <b>painkiller</b> &mdash; take it only if you need it.” Patients in private clinics often ask many questions. That's a good thing. A patient who asks questions is a patient who notices changes.</p>
+<p>I always check for allergies, even when it's written in the chart. “<b>Are you allergic to any medications?</b>” Some patients only remember a strong reaction when you ask them directly. I also warn about common <b>side effects</b>. “<b>You may feel a little drowsy.</b> Don't try to get up alone afterwards.” Patients respect honesty far more than fake confidence.</p>
+<p>Three problems come up almost every day. First, a missed <b>dose</b>: “<b>Have you taken your morning tablets?</b>” Many patients forget. Second, refusing to take a pill &mdash; usually because the patient doesn't understand it. Two minutes of clear explanation fixes most of these. Third, a new <b>side effect</b>: “I feel sick after the new tablet.” I take that seriously, every single time. I tell them, “<b>Call me if you notice anything unusual</b>,” before I leave the room.</p>
+<p>Above all, never sign for a medication you didn't actually give. Never give a medication someone else prepared without checking it yourself. The medication round is repetitive work, but inside the routine, every patient deserves the same careful attention you'd give the first one.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">medication</div><div class="vocab-def">medicine given to a patient</div><div class="vocab-ex">“She's on five different medications.”</div></div>
+<div class="vocab-card"><div class="vocab-term">dose / dosage</div><div class="vocab-def">the amount of a medicine</div><div class="vocab-ex">“Check the dose carefully.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a side effect</div><div class="vocab-def">an unwanted effect of a medicine</div><div class="vocab-ex">“Drowsiness is a common side effect.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an allergy</div><div class="vocab-def">a bad reaction to a substance</div><div class="vocab-ex">“Does she have any allergies?”</div></div>
+<div class="vocab-card"><div class="vocab-term">a painkiller</div><div class="vocab-def">a medicine that reduces pain</div><div class="vocab-ex">“He needs a painkiller after physio.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an antibiotic</div><div class="vocab-def">a medicine that fights bacterial infections</div><div class="vocab-ex">“She's on antibiotics for a chest infection.”</div></div>
+<div class="vocab-card"><div class="vocab-term">cholesterol</div><div class="vocab-def">a fatty substance in the blood</div><div class="vocab-ex">“His cholesterol is high.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a prescription</div><div class="vocab-def">a doctor's order for medicine</div><div class="vocab-ex">“Here is the prescription for her new tablets.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">“This is for your blood pressure.”</div><div class="idiom-def">Explaining the purpose of a tablet.</div><div class="idiom-ex">““This little blue one is for your blood pressure.””</div></div>
+<div class="idiom-card"><div class="idiom-term">“Are you allergic to any medications?”</div><div class="idiom-def">Safety check before giving a drug.</div><div class="idiom-ex">“Always ask new patients: “Are you allergic to any medications?””</div></div>
+<div class="idiom-card"><div class="idiom-term">“Please take this with a full glass of water.”</div><div class="idiom-def">Standard instruction for many tablets.</div><div class="idiom-ex">““Please take this with a full glass of water.””</div></div>
+<div class="idiom-card"><div class="idiom-term">“You may feel a little drowsy.”</div><div class="idiom-def">Warning about a common side effect.</div><div class="idiom-ex">““This one may make you feel a little drowsy &mdash; that's normal.””</div></div>
+<div class="idiom-card"><div class="idiom-term">“Have you taken your morning tablets?”</div><div class="idiom-def">Checking on the patient's own medications.</div><div class="idiom-ex">““Have you taken your morning tablets yet?””</div></div>
+<div class="idiom-card"><div class="idiom-term">“Call me if you notice anything unusual.”</div><div class="idiom-def">Encouraging early reporting of side effects.</div><div class="idiom-ex">““Call me straight away if you notice anything unusual after this injection.””</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">cholesterol</span><span class="bw">antibiotic</span><span class="bw">medication</span><span class="bw">dose</span><span class="bw">allergy</span><span class="bw">painkiller</span><span class="bw">prescription</span><span class="bw">side effect</span></div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> Mrs Lopez is on four different <input class="fill-input" type="text" autocomplete="off" data-answer="medication" aria-label="answer 1">.</div>
+<div class="fill-item"><span class="qn">2.</span> Always double-check the <input class="fill-input" type="text" autocomplete="off" data-answer="dose" aria-label="answer 2"> before giving the tablet.</div>
+<div class="fill-item"><span class="qn">3.</span> Drowsiness is a common <input class="fill-input" type="text" autocomplete="off" data-answer="side effect" aria-label="answer 3"> of this medicine.</div>
+<div class="fill-item"><span class="qn">4.</span> Does he have any <input class="fill-input" type="text" autocomplete="off" data-answer="allergy" aria-label="answer 4"> I should know about?</div>
+<div class="fill-item"><span class="qn">5.</span> Please give him a mild <input class="fill-input" type="text" autocomplete="off" data-answer="painkiller" aria-label="answer 5"> after his session.</div>
+<div class="fill-item"><span class="qn">6.</span> She's still on the <input class="fill-input" type="text" autocomplete="off" data-answer="antibiotic" aria-label="answer 6"> for her chest infection.</div>
+<div class="fill-item"><span class="qn">7.</span> Here is the new <input class="fill-input" type="text" autocomplete="off" data-answer="prescription" aria-label="answer 7"> from the doctor.</div>
+<div class="fill-item"><span class="qn">8.</span> His <input class="fill-input" type="text" autocomplete="off" data-answer="cholesterol" aria-label="answer 8"> has dropped since he started the new diet.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The medication round is, the writer says, the place where mistakes…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> are rare</div>
+<div class="mc-opt" data-i="1"><b>B.</b> hurt the most</div>
+<div class="mc-opt" data-i="2"><b>C.</b> are quickly fixed</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The ‘five rights’ are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> five medications a day</div>
+<div class="mc-opt" data-i="1"><b>B.</b> right patient, medication, dose, time, route</div>
+<div class="mc-opt" data-i="2"><b>C.</b> five colours of tablet</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Before giving a tablet, the writer checks identity…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> only with new patients</div>
+<div class="mc-opt" data-i="1"><b>B.</b> every single time</div>
+<div class="mc-opt" data-i="2"><b>C.</b> once a week</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>He believes patients who ask many questions are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a problem</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a good thing</div>
+<div class="mc-opt" data-i="2"><b>C.</b> always nervous</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>If a patient refuses a pill, his usual cause is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> pure stubbornness</div>
+<div class="mc-opt" data-i="1"><b>B.</b> not understanding it</div>
+<div class="mc-opt" data-i="2"><b>C.</b> laziness</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>His final advice includes…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> sign first, give later</div>
+<div class="mc-opt" data-i="1"><b>B.</b> never sign for a medication you didn't actually give</div>
+<div class="mc-opt" data-i="2"><b>C.</b> trust your colleagues fully</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Have you ever had a near-miss with a medication?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Do your patients usually know what their tablets are for?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's the trickiest medication you've ever given?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you check the chart twice, or three times?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q8</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should patients always know exactly why they take each tablet?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">What do you do when a patient refuses a medication?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should families be allowed to bring extra medication from home?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">How do you handle a doctor who is hard to reach when you need a prescription clarified?</div></div>
+<div class="q-group-head">Patient role-plays<span class="q-tag">Q9–Q11</span></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Role-play: explain a new tablet to a worried English-speaking patient.</div></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: a patient says they feel sick after their new medication. What do you do?</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: a patient refuses their morning painkiller. Find out why, kindly.</div></div>
+<div class="q-group-head">Reflection<span class="q-tag">Q12–Q14</span></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">What's the most common cause of medication mistakes on your ward?</div></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">How could the medication round be made even safer?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">What's the most useful thing a senior colleague ever taught you about giving medicines?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A new English-speaking patient is on six different tablets after her hip operation. You're doing her first morning medication round. Use the five rights out loud: identity check, allergy check, explain each tablet, warn about <em>side effects</em>, and invite questions.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Show how you would say <b>“This is for your blood pressure”</b> while showing the tablet to the patient.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Role-play asking a new admission: <b>“Are you allergic to any medications?”</b> Add two follow-up questions.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Explain to a worried patient: <b>“You may feel a little drowsy.”</b> What else might you add?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">How do you politely check <b>“Have you taken your morning tablets?”</b> with a patient who often forgets?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Practise: <b>“Call me if you notice anything unusual.”</b> Give two examples of what “unusual” might mean.</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🤕</span>Pain, Falls &amp; Daily Troubles</h2>
+<p class="instr">The quiet daily problems that can ruin a recovery &mdash; pain, dizziness, falls, low mood &mdash; and how to spot them early. Useful phrases are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Quiet Things That Can Ruin a Recovery</h3>
+<div class="byline">★ Nurse Helena Schmidt · Senior rehab nurse · Specialist in elderly care</div>
+<p>When patients arrive in our rehab clinic, they expect to focus on big things: surgery, exercises, getting home. But what actually slows down their recovery is almost always smaller and quieter. Untreated pain. A bad night's sleep. A trip to the bathroom that ends on the floor. After fifteen years on the ward, I can tell you the daily troubles are where the real work of a rehab nurse happens.</p>
+<p>The most important question I ask, several times a day, is about <b>pain</b>. “<b>On a scale of 1 to 10, how bad is the pain right now?</b>” Many older patients underplay their pain. They were taught not to complain. So I also watch for signs &mdash; quiet faces, slow movement, broken sleep. If a patient says “it's fine” but their score is six, I take the six seriously. I always ask, “<b>Where exactly does it hurt?</b>” &mdash; the location often changes the treatment.</p>
+<div class="pull-quote">A small problem you noticed at 8 a.m. is much easier to fix than the same problem at midnight.</div>
+<p><b>Falls</b> are the biggest fear in rehab. Most happen during a quick trip to the bathroom. Patients don't want to bother us, so they try to get up alone. That's why we say, kindly but firmly, “<b>Please don't try to get up on your own. Ring the bell.</b>” We check the room: clear floor, slippers in reach, walking frame nearby. A patient with the wrong shoes is a fall waiting to happen.</p>
+<p><b>Dizziness</b> is another quiet danger. After surgery or with low blood pressure, patients feel fine in bed and almost faint when they stand. I always ask, “<b>Are you feeling dizzy?</b>” before any movement. We sit them up slowly. We wait. Patience here prevents real injury.</p>
+<p>Then there are the unglamorous problems. <b>Constipation</b> is common after surgery, painkillers and limited movement. I check politely: “<b>When did you last open your bowels?</b>” Many patients are embarrassed. A kind, normal tone helps. Sleep is another one. Painkillers, noise, worry, and an unfamiliar bed all damage sleep, and a tired patient cannot do good physiotherapy.</p>
+<p>And quietly, there's the question of <b>mood</b>. Rehab is hard. Recovery is slow. Many patients feel <b>low</b>, especially in the second week when the first energy wears off. I sit down for two extra minutes. I don't try to fix anything. I just listen. When something feels seriously wrong, I don't hesitate: “<b>I'll call the doctor straight away.</b>” Asking for help fast is not weakness; it's good nursing.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">pain</div><div class="vocab-def">an unpleasant physical feeling</div><div class="vocab-ex">“She has pain in her right hip.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a fall</div><div class="vocab-def">an accident where the patient ends up on the floor</div><div class="vocab-ex">“After a fall, we always check vital signs.”</div></div>
+<div class="vocab-card"><div class="vocab-term">dizziness</div><div class="vocab-def">feeling unsteady or about to faint</div><div class="vocab-ex">“Dizziness on standing is very common after surgery.”</div></div>
+<div class="vocab-card"><div class="vocab-term">constipation</div><div class="vocab-def">difficulty in going to the toilet</div><div class="vocab-ex">“Painkillers often cause constipation.”</div></div>
+<div class="vocab-card"><div class="vocab-term">nausea</div><div class="vocab-def">the feeling of wanting to be sick</div><div class="vocab-ex">“Some antibiotics cause nausea.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a wound</div><div class="vocab-def">an injury or cut on the skin</div><div class="vocab-ex">“Check the wound for signs of infection.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a bedsore (pressure sore)</div><div class="vocab-def">a sore caused by lying in one position</div><div class="vocab-ex">“We turn her every two hours to prevent bedsores.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a mobility aid</div><div class="vocab-def">a stick, frame or wheelchair</div><div class="vocab-ex">“She uses a walking frame as her mobility aid.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">“On a scale of 1 to 10, how bad is the pain?”</div><div class="idiom-def">Pain assessment question.</div><div class="idiom-ex">““On a scale of 1 to 10, how bad is the pain right now?””</div></div>
+<div class="idiom-card"><div class="idiom-term">“Where exactly does it hurt?”</div><div class="idiom-def">Locating the source of pain.</div><div class="idiom-ex">““Where exactly does it hurt? Can you point to it?””</div></div>
+<div class="idiom-card"><div class="idiom-term">“Please don't try to get up on your own.”</div><div class="idiom-def">Fall prevention.</div><div class="idiom-ex">““Please don't try to get up on your own; ring the bell.””</div></div>
+<div class="idiom-card"><div class="idiom-term">“Are you feeling dizzy?”</div><div class="idiom-def">Checking for a common rehab problem.</div><div class="idiom-ex">““Are you feeling dizzy or lightheaded?””</div></div>
+<div class="idiom-card"><div class="idiom-term">“When did you last open your bowels?”</div><div class="idiom-def">Polite way to ask about constipation.</div><div class="idiom-ex">““When did you last open your bowels, Mrs Lee?””</div></div>
+<div class="idiom-card"><div class="idiom-term">“I'll call the doctor straight away.”</div><div class="idiom-def">Reassuring escalation phrase.</div><div class="idiom-ex">““Your temperature is high &mdash; I'll call the doctor straight away.””</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">constipation</span><span class="bw">bedsore</span><span class="bw">dizziness</span><span class="bw">wound</span><span class="bw">mobility aid</span><span class="bw">pain</span><span class="bw">fall</span><span class="bw">nausea</span></div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> Mrs Chen still has <input class="fill-input" type="text" autocomplete="off" data-answer="pain" aria-label="answer 1"> in her left knee.</div>
+<div class="fill-item"><span class="qn">2.</span> There was a small <input class="fill-input" type="text" autocomplete="off" data-answer="fall" aria-label="answer 2"> in the bathroom this morning.</div>
+<div class="fill-item"><span class="qn">3.</span> He feels <input class="fill-input" type="text" autocomplete="off" data-answer="dizziness" aria-label="answer 3"> every time he stands up.</div>
+<div class="fill-item"><span class="qn">4.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="constipation" aria-label="answer 4"> is one of the most common problems after surgery.</div>
+<div class="fill-item"><span class="qn">5.</span> She has <input class="fill-input" type="text" autocomplete="off" data-answer="nausea" aria-label="answer 5"> after the new tablet.</div>
+<div class="fill-item"><span class="qn">6.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="wound" aria-label="answer 6"> on her arm is healing well.</div>
+<div class="fill-item"><span class="qn">7.</span> Turn the patient every two hours to prevent a <input class="fill-input" type="text" autocomplete="off" data-answer="bedsore" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> Make sure his walking frame &mdash; his main <input class="fill-input" type="text" autocomplete="off" data-answer="mobility aid" aria-label="answer 8"> &mdash; is in reach.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says recovery is most often slowed by…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the big things</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the quiet daily troubles</div>
+<div class="mc-opt" data-i="2"><b>C.</b> family visits</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Older patients sometimes…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> exaggerate their pain</div>
+<div class="mc-opt" data-i="1"><b>B.</b> underplay their pain</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ignore the nurse</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Most falls happen…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> in the corridor</div>
+<div class="mc-opt" data-i="1"><b>B.</b> on a quick trip to the bathroom</div>
+<div class="mc-opt" data-i="2"><b>C.</b> during physiotherapy</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Before any movement, she asks…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> if they're hungry</div>
+<div class="mc-opt" data-i="1"><b>B.</b> if they're feeling dizzy</div>
+<div class="mc-opt" data-i="2"><b>C.</b> if they're tired</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>She checks constipation by…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> sending the doctor</div>
+<div class="mc-opt" data-i="1"><b>B.</b> politely asking when bowels last opened</div>
+<div class="mc-opt" data-i="2"><b>C.</b> not asking</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her view on calling the doctor fast is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> wait as long as possible</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ask quickly &mdash; not weakness, just good nursing</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never call</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the most common complaint you hear during morning rounds?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Are your patients usually honest about their pain?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever prevented a fall just in time?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What's the most awkward question you have to ask patients?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q8</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">How can you make older patients more comfortable saying ‘it hurts’?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">What single change would reduce falls on your ward?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">How do you balance respecting privacy with checking bowel movements?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should family members be told about patient mood problems?</div></div>
+<div class="q-group-head">Patient role-plays<span class="q-tag">Q9–Q11</span></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Role-play: assess pain in a quiet English-speaking patient who keeps saying ‘I'm fine’.</div></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: stop a determined patient from getting up alone at night.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: a patient is feeling low. Sit with them for two minutes.</div></div>
+<div class="q-group-head">Reflection<span class="q-tag">Q12–Q14</span></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Tell us about a small daily problem you spotted that turned out to be very important.</div></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">What did you learn the hard way about falls?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Why is asking for the doctor fast a sign of good nursing, not weakness?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A patient says her hip pain is ‘fine’ but you can see she's not herself. Run a full check: pain score, dizziness, mobility, sleep and mood. Use <em>painkiller</em>, <em>fall</em> and <em>nausea</em> in your speech.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Role-play a pain assessment using <b>“On a scale of 1 to 10, how bad is the pain?”</b> &mdash; with a quiet patient who underplays things.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Practise saying <b>“Where exactly does it hurt?”</b> kindly, then describe what you would do with that information.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Show how you'd insist <b>“Please don't try to get up on your own”</b> to an independent older man.</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Practise the polite version of <b>“When did you last open your bowels?”</b> &mdash; this is a real daily question on a rehab ward.</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Role-play: tell a worried patient <b>“I'll call the doctor straight away”</b> &mdash; what exactly will you say next?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">🌙</span>Handover &amp; Night Shifts</h2>
+<p class="instr">How to pass on a patient safely at the end of your shift, and how to handle the special challenges of a night shift. Useful phrases are in <b>gold</b>.</p>
+<article class="reading">
+<h3>Passing the Patient On</h3>
+<div class="byline">★ Nurse Margaret Okonkwo · Night-shift coordinator · Clinical mentor for 25 years</div>
+<p>At the end of every shift, you give your patients to someone else. The minutes you spend on a <b>handover</b> are some of the most important of the whole day. A clear handover protects the patient. A rushed handover puts them at risk. In a private rehab clinic, where patients sometimes have very personal needs, the right information has to travel cleanly between three shifts: morning, evening and night.</p>
+<p>We use a simple structure called <b>SBAR</b>: <b>Situation</b>, <b>Background</b>, <b>Assessment</b>, <b>Recommendation</b>. “Mrs Lee, room 12, post hip operation, day 4. Background: usually on two painkillers, one allergy to penicillin. Assessment: pain score 4 today, mobilising well, but a little constipated. Recommendation: continue current plan, encourage water, watch for nausea.” Twenty seconds. Everything the next nurse needs.</p>
+<div class="pull-quote">A handover is not a story. It is the safety belt between two nurses. Make it short, accurate and complete.</div>
+<p>Before I leave the patient, I always say, “<b>I'm handing over to my colleague.</b> <b>She'll be looking after you tonight.</b>” Patients in private clinics often build a quick bond with their day nurse. Telling them clearly who is taking over helps them sleep better.</p>
+<p>The <b>night shift</b> has its own rhythm. Most patients sleep, but not all. Some are <b>restless</b>. Some are in pain. Some can't sleep because they're worried about home. Before lights out, I always ask, “<b>Is there anything you need before lights out?</b>” Water, an extra blanket, the curtains closed differently, a question they didn't ask earlier &mdash; small things make a huge difference at 10 p.m.</p>
+<p>I also reassure them: “<b>I'll check on you during the night.</b> Ring the bell if you need me.” This is not just polite. Patients who feel they're being watched safely actually sleep better and ring the bell less. Anxiety at night can quickly become real symptoms.</p>
+<p>Night shifts also bring quieter emergencies. <b>Confusion</b> in older patients often gets worse after dark &mdash; we call it ‘sundowning’. A high temperature, a sudden change in <b>breathing</b>, low blood pressure, or a fall in the bathroom &mdash; these are the moments when you call the doctor without hesitating. “I'll call the doctor straight away.” No pride, no waiting until morning.</p>
+<p>Finally, the family. Calls come at strange hours in private clinics. Some patients have no one. Others have ten relatives ringing in turns. When I pass on a message &mdash; “<b>Your family called earlier; they send their love</b>” &mdash; I always check the patient's face. A small message at night can be the most important thing that happens to them all day.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a handover</div><div class="vocab-def">when one nurse passes the patient to the next</div><div class="vocab-ex">“Handover is at 7 a.m. and 7 p.m.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a shift</div><div class="vocab-def">the period of work a nurse covers</div><div class="vocab-ex">“I'm on the evening shift today.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the day shift</div><div class="vocab-def">the morning and afternoon work period</div><div class="vocab-ex">“The day shift ends at 3 p.m.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the night shift</div><div class="vocab-def">the overnight work period</div><div class="vocab-ex">“I prefer the night shift &mdash; it's quieter.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a ward</div><div class="vocab-def">a section of the clinic with patients</div><div class="vocab-ex">“Our ward has twelve patients.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a chart</div><div class="vocab-def">the patient's written medical record</div><div class="vocab-ex">“Update the chart after every visit.”</div></div>
+<div class="vocab-card"><div class="vocab-term">restless</div><div class="vocab-def">unable to lie or sit still</div><div class="vocab-ex">“He's been restless all night.”</div></div>
+<div class="vocab-card"><div class="vocab-term">confusion</div><div class="vocab-def">not knowing where you are or what's happening</div><div class="vocab-ex">“Confusion is common in older patients at night.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">“I'm handing over to my colleague.”</div><div class="idiom-def">Introducing the next nurse.</div><div class="idiom-ex">““I'm handing over to my colleague Anna now; she'll take care of you tonight.””</div></div>
+<div class="idiom-card"><div class="idiom-term">“She'll be looking after you tonight.”</div><div class="idiom-def">Easing the change of staff.</div><div class="idiom-ex">““Anna will be looking after you tonight; she knows everything about you.””</div></div>
+<div class="idiom-card"><div class="idiom-term">“Try to get some rest.”</div><div class="idiom-def">Polite night-shift closing.</div><div class="idiom-ex">““Try to get some rest, Mr Singh. Ring the bell if you need me.””</div></div>
+<div class="idiom-card"><div class="idiom-term">“Is there anything you need before lights out?”</div><div class="idiom-def">Anticipating night-time needs.</div><div class="idiom-ex">““Is there anything you need before lights out? Water? An extra blanket?””</div></div>
+<div class="idiom-card"><div class="idiom-term">“I'll check on you during the night.”</div><div class="idiom-def">Reassuring presence at night.</div><div class="idiom-ex">““Don't worry, I'll check on you every two hours.””</div></div>
+<div class="idiom-card"><div class="idiom-term">“Your family called earlier.”</div><div class="idiom-def">Passing on a family message.</div><div class="idiom-ex">““Your daughter called earlier; she'll come tomorrow at ten.””</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">night shift</span><span class="bw">handover</span><span class="bw">day shift</span><span class="bw">shift</span><span class="bw">ward</span><span class="bw">restless</span><span class="bw">chart</span><span class="bw">confusion</span></div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="handover" aria-label="answer 1"> at 7 a.m. should never take more than fifteen minutes per patient.</div>
+<div class="fill-item"><span class="qn">2.</span> I'm on the evening <input class="fill-input" type="text" autocomplete="off" data-answer="shift" aria-label="answer 2"> today.</div>
+<div class="fill-item"><span class="qn">3.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="day shift" aria-label="answer 3"> ends at 3 p.m.</div>
+<div class="fill-item"><span class="qn">4.</span> On the <input class="fill-input" type="text" autocomplete="off" data-answer="night shift" aria-label="answer 4">, most patients are asleep by ten.</div>
+<div class="fill-item"><span class="qn">5.</span> Our <input class="fill-input" type="text" autocomplete="off" data-answer="ward" aria-label="answer 5"> has twelve rehab patients at the moment.</div>
+<div class="fill-item"><span class="qn">6.</span> Please update the <input class="fill-input" type="text" autocomplete="off" data-answer="chart" aria-label="answer 6"> after every visit.</div>
+<div class="fill-item"><span class="qn">7.</span> He's been <input class="fill-input" type="text" autocomplete="off" data-answer="restless" aria-label="answer 7"> all night and won't settle.</div>
+<div class="fill-item"><span class="qn">8.</span> Mrs Park shows some <input class="fill-input" type="text" autocomplete="off" data-answer="confusion" aria-label="answer 8"> after dark &mdash; classic sundowning.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer compares a good handover to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a long story</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a safety belt</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a phone call</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>SBAR stands for…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> Sit, Breathe, Ask, Rest</div>
+<div class="mc-opt" data-i="1"><b>B.</b> Situation, Background, Assessment, Recommendation</div>
+<div class="mc-opt" data-i="2"><b>C.</b> Slow, Brief, Active, Respectful</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Before leaving the patient, the writer…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> disappears quietly</div>
+<div class="mc-opt" data-i="1"><b>B.</b> clearly introduces the next nurse</div>
+<div class="mc-opt" data-i="2"><b>C.</b> calls the doctor</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Asking ‘Is there anything you need before lights out?’…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> takes too long</div>
+<div class="mc-opt" data-i="1"><b>B.</b> is small but very effective</div>
+<div class="mc-opt" data-i="2"><b>C.</b> is only for new patients</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>‘Sundowning’ refers to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> high temperature at night</div>
+<div class="mc-opt" data-i="1"><b>B.</b> confusion in older patients after dark</div>
+<div class="mc-opt" data-i="2"><b>C.</b> tiredness at the end of a shift</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her rule about calling the doctor at night is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> wait until morning</div>
+<div class="mc-opt" data-i="1"><b>B.</b> call without hesitating</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ask family first</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Which shift do you prefer &mdash; morning, evening, or night?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's the hardest thing about night shifts?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">How long is a typical handover where you work?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Have you ever received a confusing handover? What happened?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q8</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is SBAR a useful structure, or just paperwork?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should families be allowed to call at any hour, or have set times?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">How do you stay sharp at 4 a.m.?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should night nurses be paid more &mdash; and is your clinic fair about it?</div></div>
+<div class="q-group-head">Patient role-plays<span class="q-tag">Q9–Q11</span></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Role-play: hand over Mrs Lee, post hip operation day 4, to the night nurse using SBAR.</div></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: settle a worried, restless patient who can't sleep.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: at 3 a.m., a patient's temperature is 38.7. Talk to the doctor on the phone.</div></div>
+<div class="q-group-head">Reflection<span class="q-tag">Q12–Q14</span></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Tell us about the most important call you ever made on a night shift.</div></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">What's one improvement that would make handover much better?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">What advice would you give a new nurse about her first night shift?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> It's 7 p.m. Hand over your three rehab patients to the night nurse using <em>SBAR</em>. Then settle one anxious English-speaking patient before lights out &mdash; use <em>handover</em>, <em>night shift</em>, and reassure him that you'll check on him during the night.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Role-play <b>“I'm handing over to my colleague”</b> with a patient who has bonded with you and is upset.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Practise <b>“Try to get some rest”</b> with a patient who can't sleep and wants to talk.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What three things would you check before saying <b>“Is there anything you need before lights out?”</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Role-play telling a worried patient <b>“I'll check on you during the night”</b> &mdash; how often, and why?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Practise <b>“Your family called earlier”</b> with a patient whose family rarely calls. Be sensitive.</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+
+  <footer>💊 ★ ★ &nbsp; ON THE WARD · NURSING ENGLISH · BEDSIDE · MEDICATIONS · DAILY CARE · HANDOVER &nbsp; ★ ★ 💊</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
