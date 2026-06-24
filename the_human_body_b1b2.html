@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Human Body — B1–B2 Medical English</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"🫀";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🫀 MEDICAL ENGLISH · B1–B2 · BODY · INJURIES · ORGANS · DOCTORS</div>
+      <h1>The Human <span class="accent">Body</span></h1>
+      <div class="sub">Four practical lessons for nurses, students and anyone who has to describe a body, an injury or an illness in English. From a twisted ankle in the kitchen to a colonoscopy, from the heart to the right specialist for the job &mdash; the real vocabulary, in plain English.</div>
+      <div class="tags">
+        <span class="tag">CEFR B1–B2</span>
+        <span class="tag">READING ~400 WORDS</span>
+        <span class="tag">REAL MEDICAL VOCAB</span>
+        <span class="tag">GAP-FILL + COMPREHENSION</span>
+        <span class="tag">PATIENT ROLE-PLAYS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Injuries 🦴</button>
+    <button class="tab" data-tab="t2">② Organs ❤️</button>
+    <button class="tab" data-tab="t3">③ Scans &amp; Tests 🔬</button>
+    <button class="tab" data-tab="t4">④ Specialists 🩺</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🦴</span>The Body &amp; Common Injuries</h2>
+<p class="instr">Body parts and the everyday accidents that send people to the clinic. Useful action verbs are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Day My Leg Said No</h3>
+<div class="byline">★ Nurse Marta Costa · A&amp;E and rehab clinic · Sees 30 injuries a week</div>
+<p>I work in a private rehabilitation clinic. Every morning starts the same way: patients walk in with a story. “I was cooking dinner and I <b>cut my finger</b>.” “I <b>fell down the stairs</b> last night.” “I <b>twisted my ankle</b> playing football on Sunday.” Most accidents at home or in sport are small, but they teach us a lot about the human body.</p>
+<p>Let's start at the top. The <b>head</b> contains the brain and the face. Patients often <b>bang their head</b> on cupboard doors or low ceilings. Below the head is the <b>neck</b>, and from the shoulders down the arms there are the <b>shoulder</b>, the <b>elbow</b>, the <b>wrist</b>, the <b>hand</b> and the <b>fingers</b>. Patients often <b>sprain a wrist</b> in a fall, or <b>dislocate a shoulder</b> in a sport like rugby. To ‘sprain’ means to stretch or tear the soft tissue around a joint. To ‘dislocate’ means a bone has moved out of its normal place.</p>
+<div class="pull-quote">Patients rarely arrive in pain because of the body. They arrive because something the body normally does without thinking has suddenly become difficult.</div>
+<p>The middle of the body is the <b>chest</b> and the <b>back</b>. Back pain is one of the most common reasons people visit a rehab clinic. Lifting heavy things badly, sitting at a screen for hours, or sleeping in a strange position can all cause back trouble. Then we have the <b>hips</b>, the <b>knees</b>, the <b>ankles</b> and the <b>feet</b>. The knee is one of the busiest joints in the body, and one of the easiest to damage. Older patients <b>break a hip</b>, runners <b>tear a ligament</b>, footballers <b>twist a knee</b>.</p>
+<p>On the skin, simple injuries are everywhere. A <b>cut</b> from a kitchen knife. A <b>bruise</b> after bumping into a corner. A <b>burn</b> from a hot pan. A <b>graze</b> on a child's knee. Most of these heal on their own, but we still clean them, check them and make sure there is no infection. A small wound that gets infected can ruin a holiday.</p>
+<p>Then there are the big accidents. A <b>broken arm</b> after falling off a bike. A <b>fractured rib</b> after a car accident. A <b>head injury</b> after a fall on ice. These patients need an X-ray quickly, and sometimes a hospital stay before they come to us for <b>rehabilitation</b>.</p>
+<p>The most important thing we teach patients is calm. Don't panic. Don't try to walk on a leg that hurts. Sit down, call for help, breathe slowly. The body is strong. With the right care, even a serious injury can heal beautifully &mdash; especially in the first 48 hours, when how you act really matters.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a joint</div><div class="vocab-def">where two bones meet, like a knee or elbow</div><div class="vocab-ex">“Many injuries happen in the joints.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a bone</div><div class="vocab-def">the hard parts of the body's skeleton</div><div class="vocab-ex">“X-rays show bones very clearly.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a muscle</div><div class="vocab-def">tissue in the body that produces movement</div><div class="vocab-ex">“After surgery she had to strengthen her leg muscles.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a ligament</div><div class="vocab-def">tissue that connects bones at a joint</div><div class="vocab-ex">“He tore a ligament in his right knee.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a fracture</div><div class="vocab-def">a broken bone</div><div class="vocab-ex">“She has a small fracture in her wrist.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a sprain</div><div class="vocab-def">an injury to a ligament</div><div class="vocab-ex">“A sprain heals more slowly than people expect.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a bruise</div><div class="vocab-def">a purple mark on the skin from a bump</div><div class="vocab-ex">“I have a bruise where I hit the door.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a wound</div><div class="vocab-def">a cut or injury to the skin</div><div class="vocab-ex">“Clean the wound carefully before bandaging it.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to break a leg / an arm</div><div class="idiom-def">to fracture the bone</div><div class="idiom-ex">“She broke her leg skiing last winter.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to twist your ankle</div><div class="idiom-def">to injure the joint by turning it badly</div><div class="idiom-ex">“I twisted my ankle going down the stairs.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to sprain a wrist</div><div class="idiom-def">to stretch or tear ligaments without breaking</div><div class="idiom-ex">“He sprained his wrist playing volleyball.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to dislocate a shoulder</div><div class="idiom-def">to push a bone out of its normal position</div><div class="idiom-ex">“Rugby players often dislocate a shoulder.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to cut your finger</div><div class="idiom-def">to make a wound with a sharp object</div><div class="idiom-ex">“I cut my finger slicing onions.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to bang your head</div><div class="idiom-def">to hit your head hard against something</div><div class="idiom-ex">“She banged her head on the cupboard door.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">bone</span><span class="bw">joint</span><span class="bw">muscle</span><span class="bw">sprain</span><span class="bw">ligament</span><span class="bw">fracture</span><span class="bw">bruise</span><span class="bw">wound</span></div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> The knee is one of the most complex <input class="fill-input" type="text" autocomplete="off" data-answer="joint" aria-label="answer 1"> in the body.</div>
+<div class="fill-item"><span class="qn">2.</span> X-rays show the <input class="fill-input" type="text" autocomplete="off" data-answer="bone" aria-label="answer 2"> in very fine detail.</div>
+<div class="fill-item"><span class="qn">3.</span> After her operation, she had to rebuild her leg <input class="fill-input" type="text" autocomplete="off" data-answer="muscle" aria-label="answer 3">.</div>
+<div class="fill-item"><span class="qn">4.</span> He tore a <input class="fill-input" type="text" autocomplete="off" data-answer="ligament" aria-label="answer 4"> in his right knee playing football.</div>
+<div class="fill-item"><span class="qn">5.</span> She has a small <input class="fill-input" type="text" autocomplete="off" data-answer="fracture" aria-label="answer 5"> in her wrist; we'll plaster it.</div>
+<div class="fill-item"><span class="qn">6.</span> That's not a fracture, it's a <input class="fill-input" type="text" autocomplete="off" data-answer="sprain" aria-label="answer 6"> &mdash; just a few weeks of rest.</div>
+<div class="fill-item"><span class="qn">7.</span> There's a big purple <input class="fill-input" type="text" autocomplete="off" data-answer="bruise" aria-label="answer 7"> on his shoulder.</div>
+<div class="fill-item"><span class="qn">8.</span> We always clean the <input class="fill-input" type="text" autocomplete="off" data-answer="wound" aria-label="answer 8"> carefully before bandaging it.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>‘To sprain’ means to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> break a bone in half</div>
+<div class="mc-opt" data-i="1"><b>B.</b> stretch or tear soft tissue around a joint</div>
+<div class="mc-opt" data-i="2"><b>C.</b> cut the skin</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q2</span>‘To dislocate a shoulder’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a bone has moved out of its normal place</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a cut on the shoulder</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a burn on the skin</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>One of the most common reasons people visit a rehab clinic is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> headaches</div>
+<div class="mc-opt" data-i="1"><b>B.</b> back pain</div>
+<div class="mc-opt" data-i="2"><b>C.</b> tooth pain</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>‘A graze’ is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a deep cut</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a small skin injury</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a bruise</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>A patient who has ‘fractured a rib’ has…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> torn a muscle</div>
+<div class="mc-opt" data-i="1"><b>B.</b> broken a rib</div>
+<div class="mc-opt" data-i="2"><b>C.</b> bruised a leg</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer says how you act in the first 48 hours…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> doesn't matter</div>
+<div class="mc-opt" data-i="1"><b>B.</b> really matters</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never makes a difference</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Which body part of yours gives you the most trouble?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Are you usually clumsy in the kitchen?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's the worst injury you've ever had?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are you afraid of breaking a bone? Have you ever?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q8</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should sports clubs make protective gear compulsory for adults too?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are children today less active and therefore weaker than older generations?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Why do older patients fear falls so much, and how should we talk about it?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is back pain really a ‘disease of modern life’?</div></div>
+<div class="q-group-head">Patient role-plays<span class="q-tag">Q9–Q11</span></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Role-play: a patient comes in with a swollen ankle. Ask the right questions.</div></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: explain to a nervous patient how a wound on the leg will be cleaned.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: a worried mother brings in a child with a bumped head.</div></div>
+<div class="q-group-head">Reflection<span class="q-tag">Q12–Q14</span></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">How would you explain the difference between a sprain and a fracture in simple English?</div></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">What was the most surprising injury story you've heard at work?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">What's the most important piece of advice you'd give a patient in the first 48 hours after an injury?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A patient walks in saying, “I think I just <em>twisted my ankle</em> in the car park.” Run the full conversation: ask what happened, check for a <em>fracture</em> or <em>sprain</em>, look for a <em>bruise</em>, and explain what happens next.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Tell us about a time you, or someone you know, <b>broke a leg or an arm</b>. How did it happen?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever <b>twisted your ankle</b>? Where were you?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Describe a moment when someone you know <b>cut their finger</b> in the kitchen.</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Have you ever <b>banged your head</b> badly? What happened next?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">What sport or activity carries the highest risk of a <b>dislocated shoulder</b> or a <b>sprained wrist</b>?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">❤️</span>Inside the Body</h2>
+<p class="instr">The quiet workers: the major organs and the diseases that affect them. Target vocabulary is in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Quiet Workers</h3>
+<div class="byline">★ Dr Vincenzo Romano · Internal medicine specialist · 25 years in private practice</div>
+<p>When you wake up, your body has already done thousands of important things without asking you. The <b>heart</b> has beaten around 25,000 times. The <b>lungs</b> have moved millions of litres of air. The <b>liver</b>, the <b>kidneys</b> and the <b>brain</b> have cleaned, filtered and processed without a break. Most patients only think about their internal organs when something stops working. That's the moment they walk into my office.</p>
+<p>Let's start with the <b>heart</b>. The heart is a muscle the size of your fist that pumps blood around the body. When the arteries that feed it get blocked, the result is a <b>heart attack</b>. Patients often describe it as “a heavy weight on the chest.” Other big problems include <b>high blood pressure</b> (‘hypertension’) and an irregular heartbeat. Most heart disease is partly genetic and partly lifestyle: smoking, food, stress and lack of movement.</p>
+<div class="pull-quote">The organs that hurt loudly are the ones we usually save. The ones that suffer in silence are the ones that kill us.</div>
+<p>Above the heart sit the <b>lungs</b>. They bring oxygen into the blood and remove carbon dioxide. Common diseases include <b>pneumonia</b> (a serious infection of the lungs), <b>asthma</b> (when the airways tighten) and the long-term damage from smoking known as <b>COPD</b>. A patient who is short of breath at rest should never be ignored.</p>
+<p>Below the lungs we find the <b>stomach</b>, the <b>liver</b> and the <b>intestines</b>. The stomach can develop a <b>stomach ulcer</b> &mdash; a painful sore in its lining. The liver can become inflamed in <b>hepatitis</b>, or scarred in <b>cirrhosis</b>, often from too much alcohol. Patients with stomach problems often delay coming in, hoping the pain will pass. It usually doesn't.</p>
+<p>Then there are the <b>kidneys</b>, two bean-shaped organs that filter your blood. Hard pieces can form inside them, called <b>kidney stones</b>, and the pain when they move is famously one of the worst pains in medicine. <b>Diabetes</b> is also a major problem here: too much sugar in the blood, over years, slowly damages the kidneys, the eyes, and the small blood vessels everywhere in the body.</p>
+<p>And finally, the <b>brain</b>. A <b>stroke</b> happens when blood stops flowing to part of the brain. Speed is everything: every minute, brain cells die. We tell families the simple FAST test: <b>F</b>ace dropping, <b>A</b>rm weakness, <b>S</b>peech problems, <b>T</b>ime to call an ambulance. The faster they call, the better the recovery.</p>
+<p>Most serious internal diseases are not sudden lightning strikes. They are quiet stories that develop over years. The best gift you can give your patients is not panic &mdash; it is the calm habit of yearly check-ups, simple <b>blood tests</b>, and the courage to come early. The body whispers long before it shouts. Our job is to teach patients to listen.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">the heart</div><div class="vocab-def">the muscle that pumps blood</div><div class="vocab-ex">“His heart was a little fast today.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the lungs</div><div class="vocab-def">the organs we use to breathe</div><div class="vocab-ex">“Smoking damages the lungs slowly.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the liver</div><div class="vocab-def">an organ that cleans the blood</div><div class="vocab-ex">“Too much alcohol damages the liver.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the kidneys</div><div class="vocab-def">two organs that filter waste from blood</div><div class="vocab-ex">“His kidneys are working at 60% capacity.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the brain</div><div class="vocab-def">the organ that controls thought and the body</div><div class="vocab-ex">“A stroke can damage parts of the brain.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the stomach</div><div class="vocab-def">the organ that begins digestion</div><div class="vocab-ex">“She has pain in her upper stomach.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an artery</div><div class="vocab-def">a tube that carries blood from the heart</div><div class="vocab-ex">“A blocked artery causes a heart attack.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a chronic disease</div><div class="vocab-def">a long-term illness that doesn't fully go away</div><div class="vocab-ex">“Diabetes is a chronic disease.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">a heart attack</div><div class="idiom-def">when blood flow to the heart suddenly stops</div><div class="idiom-ex">“He had a small heart attack at 55.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a stroke</div><div class="idiom-def">when blood flow to part of the brain stops</div><div class="idiom-ex">“After her stroke, she couldn't speak for a week.”</div></div>
+<div class="idiom-card"><div class="idiom-term">high blood pressure</div><div class="idiom-def">blood pressure that is dangerously high</div><div class="idiom-ex">“High blood pressure runs in our family.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a stomach ulcer</div><div class="idiom-def">a sore in the lining of the stomach</div><div class="idiom-ex">“Stress and smoking can cause a stomach ulcer.”</div></div>
+<div class="idiom-card"><div class="idiom-term">kidney stones</div><div class="idiom-def">hard pieces that form inside the kidneys</div><div class="idiom-ex">“Kidney stones are extremely painful.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a chronic illness</div><div class="idiom-def">a long-term condition that doesn't fully go away</div><div class="idiom-ex">“Diabetes is a chronic illness.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">chronic</span><span class="bw">stomach</span><span class="bw">heart</span><span class="bw">lungs</span><span class="bw">kidneys</span><span class="bw">brain</span><span class="bw">arteries</span><span class="bw">liver</span></div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> Smoking damages the <input class="fill-input" type="text" autocomplete="off" data-answer="lungs" aria-label="answer 1"> slowly, over many years.</div>
+<div class="fill-item"><span class="qn">2.</span> Too much alcohol can seriously harm the <input class="fill-input" type="text" autocomplete="off" data-answer="liver" aria-label="answer 2">.</div>
+<div class="fill-item"><span class="qn">3.</span> Her <input class="fill-input" type="text" autocomplete="off" data-answer="kidneys" aria-label="answer 3"> are still working at only 60% capacity.</div>
+<div class="fill-item"><span class="qn">4.</span> A stroke is an emergency in the <input class="fill-input" type="text" autocomplete="off" data-answer="brain" aria-label="answer 4">.</div>
+<div class="fill-item"><span class="qn">5.</span> She has burning pain in her upper <input class="fill-input" type="text" autocomplete="off" data-answer="stomach" aria-label="answer 5">.</div>
+<div class="fill-item"><span class="qn">6.</span> A blocked <input class="fill-input" type="text" autocomplete="off" data-answer="arteries" aria-label="answer 6"> is what causes most heart attacks.</div>
+<div class="fill-item"><span class="qn">7.</span> His <input class="fill-input" type="text" autocomplete="off" data-answer="heart" aria-label="answer 7"> is racing &mdash; we need an ECG.</div>
+<div class="fill-item"><span class="qn">8.</span> Diabetes is a <input class="fill-input" type="text" autocomplete="off" data-answer="chronic" aria-label="answer 8"> illness; you live with it, you don't ‘cure’ it.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>Patients often describe a heart attack as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a sharp pain in the foot</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a heavy weight on the chest</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a headache</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Pneumonia is a serious infection of the…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> heart</div>
+<div class="mc-opt" data-i="1"><b>B.</b> lungs</div>
+<div class="mc-opt" data-i="2"><b>C.</b> liver</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>‘Hepatitis’ means the liver is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> broken</div>
+<div class="mc-opt" data-i="1"><b>B.</b> inflamed</div>
+<div class="mc-opt" data-i="2"><b>C.</b> missing</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Kidney stones are described as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> always painless</div>
+<div class="mc-opt" data-i="1"><b>B.</b> one of the worst pains in medicine</div>
+<div class="mc-opt" data-i="2"><b>C.</b> easy to ignore</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>‘FAST’ helps families spot a…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> stomach ulcer</div>
+<div class="mc-opt" data-i="1"><b>B.</b> stroke</div>
+<div class="mc-opt" data-i="2"><b>C.</b> fracture</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's view of most serious internal diseases is that they are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> sudden lightning strikes</div>
+<div class="mc-opt" data-i="1"><b>B.</b> quiet stories that develop over years</div>
+<div class="mc-opt" data-i="2"><b>C.</b> invented by doctors</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Which organ do you think you take most for granted?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Does anyone in your family have a chronic illness?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">When did you last have a full check-up?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are you a regular blood-test person, or do you avoid it?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q8</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should yearly check-ups be free or even compulsory after 40?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is the modern lifestyle the biggest enemy of the human body?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should sugar be taxed in the way alcohol and tobacco are?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Do patients have a right to refuse a clearly recommended treatment?</div></div>
+<div class="q-group-head">Patient role-plays<span class="q-tag">Q9–Q11</span></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Role-play: a patient says, ‘I just feel tired all the time.’ Ask the right questions.</div></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: gently break the news of newly diagnosed diabetes to a patient.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: explain the FAST test for stroke to a worried family.</div></div>
+<div class="q-group-head">Reflection<span class="q-tag">Q12–Q14</span></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">What's the kindest way to tell someone they need to change their lifestyle?</div></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">Why are some patients so afraid of bad news that they refuse tests?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">How can a clinic encourage patients to come early rather than late?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A 60-year-old patient comes in with chest pain and a headache. Ask careful questions about <em>heart</em>, <em>arteries</em>, <em>high blood pressure</em> and family history. Decide if you need to call the doctor straight away.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Does anyone in your family have <b>high blood pressure</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Do you know someone who has had a <b>heart attack</b> or a <b>stroke</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Are <b>kidney stones</b> common in your country? Why might that be?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">What kind of stress or lifestyle can cause a <b>stomach ulcer</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Tell us about a <b>chronic illness</b> that someone close to you manages well.</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🔬</span>Scans, Tests &amp; Diagnoses</h2>
+<p class="instr">What modern tests really show &mdash; and how to explain them in clear English to a nervous patient. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>What the Pictures See That You Can't</h3>
+<div class="byline">★ Dr Sarah Olusoga · Radiologist · Twenty years reading scans</div>
+<p>Modern medicine is built on pictures and numbers. Two hundred years ago, a doctor could only look, listen and touch. Today we can see inside the human body with extraordinary clarity. As a radiologist, I read scans every day. The technology is impressive, but the most important moment is still the one where I explain the results to a patient in language they can understand.</p>
+<p>The simplest and oldest scan is the <b>X-ray</b>. It uses radiation to make a picture, especially of <b>bones</b>. If you fall on the ice and hurt your wrist, the first question is always: “Is anything broken?” An X-ray gives that answer in two minutes. It's not perfect for soft tissue, but for bones it is still our best friend.</p>
+<p>For more detailed images we use a <b>CT scan</b> (computed tomography). It takes many X-rays from different angles and a computer turns them into thin “slices” of the body. We use CT for chest problems, head injuries, internal bleeding and suspected cancers. It's fast, which is why every emergency department has one.</p>
+<div class="pull-quote">A scan does not give us a diagnosis. It gives us a clue. The diagnosis still comes from a careful conversation with the patient.</div>
+<p>An <b>MRI scan</b> (magnetic resonance imaging) uses powerful magnets rather than radiation. It is brilliant for soft tissue: the brain, the spinal cord, joints, muscles, the heart. It is also noisy and slow &mdash; some patients find the closed tube difficult. We always check beforehand if they have metal in their body, because metal and strong magnets do not get along.</p>
+<p>An <b>ultrasound</b> is the friendly relative of the scan family: no radiation, no noise, just sound waves and a clear gel. It is famous for pregnancy, but we also use it for the heart, the abdomen and the thyroid. It's safe, cheap and very informative.</p>
+<p>Then come the tests with a camera at the end of a small tube. A <b>gastroscopy</b> looks at the stomach and the upper part of the digestive system &mdash; useful when we suspect an ulcer or a problem swallowing. A <b>colonoscopy</b> looks at the lower bowel and is a key test for bowel cancer. Many patients dread it, but it's the single test that has saved the most lives in the last thirty years.</p>
+<p>Finally, the simplest investigations are still some of the best. A <b>blood test</b> can tell us about anaemia, infection, diabetes, kidney function and the liver. A <b>urine test</b> can find an infection in two minutes. An <b>ECG</b> records the electrical activity of the heart and takes only five minutes. Sometimes a <b>biopsy</b> &mdash; taking a tiny piece of tissue &mdash; is needed for a final answer.</p>
+<p>When patients come for results, I try to remember one thing. The numbers and pictures are mine; the body is theirs. My job is to explain, in normal words, what the picture means and what will happen next. Behind every scan is a person hoping for good news — or hoping to be told the bad news kindly.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">an X-ray</div><div class="vocab-def">an image of the inside of the body using radiation</div><div class="vocab-ex">“An X-ray showed a small fracture.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a CT scan</div><div class="vocab-def">a detailed scan using many X-rays</div><div class="vocab-ex">“A CT scan is fast and useful in emergencies.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an MRI scan</div><div class="vocab-def">a detailed scan using magnets</div><div class="vocab-ex">“The MRI showed damage in the knee.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an ultrasound</div><div class="vocab-def">a scan using sound waves</div><div class="vocab-ex">“She had an ultrasound to check the baby.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a blood test</div><div class="vocab-def">an examination of a blood sample</div><div class="vocab-ex">“The blood test showed high cholesterol.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an ECG</div><div class="vocab-def">a recording of the electrical activity of the heart</div><div class="vocab-ex">“The ECG was completely normal.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a biopsy</div><div class="vocab-def">taking a small piece of tissue for testing</div><div class="vocab-ex">“The biopsy result is back tomorrow.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a diagnosis</div><div class="vocab-def">the doctor's identification of a disease</div><div class="vocab-ex">“The diagnosis took several weeks.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">an X-ray</div><div class="idiom-def">an image of bones using radiation</div><div class="idiom-ex">“The X-ray shows a small fracture.”</div></div>
+<div class="idiom-card"><div class="idiom-term">an MRI scan</div><div class="idiom-def">a detailed scan using a magnetic field</div><div class="idiom-ex">“She had an MRI to check her knee.”</div></div>
+<div class="idiom-card"><div class="idiom-term">an ultrasound</div><div class="idiom-def">a scan using sound waves</div><div class="idiom-ex">“Pregnancy is usually monitored with ultrasound.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a blood test</div><div class="idiom-def">an examination of a blood sample</div><div class="idiom-ex">“The blood test came back normal.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a colonoscopy</div><div class="idiom-def">an examination of the lower bowel with a camera</div><div class="idiom-ex">“Most people need a colonoscopy after fifty.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a gastroscopy</div><div class="idiom-def">an examination of the stomach with a camera</div><div class="idiom-ex">“A gastroscopy can find an ulcer quickly.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">ultrasound</span><span class="bw">biopsy</span><span class="bw">MRI</span><span class="bw">ECG</span><span class="bw">diagnosis</span><span class="bw">X-ray</span><span class="bw">CT</span><span class="bw">blood test</span></div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="x-ray" aria-label="answer 1"> showed a small fracture in the wrist.</div>
+<div class="fill-item"><span class="qn">2.</span> A <input class="fill-input" type="text" autocomplete="off" data-answer="ct" aria-label="answer 2"> scan is fast and used in many emergencies.</div>
+<div class="fill-item"><span class="qn">3.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="mri" aria-label="answer 3"> scan showed damage to the soft tissue.</div>
+<div class="fill-item"><span class="qn">4.</span> Pregnant women are usually monitored by <input class="fill-input" type="text" autocomplete="off" data-answer="ultrasound" aria-label="answer 4">.</div>
+<div class="fill-item"><span class="qn">5.</span> Her <input class="fill-input" type="text" autocomplete="off" data-answer="blood test" aria-label="answer 5"> showed high cholesterol and low iron.</div>
+<div class="fill-item"><span class="qn">6.</span> His <input class="fill-input" type="text" autocomplete="off" data-answer="ecg" aria-label="answer 6"> was completely normal, so the heart looks fine.</div>
+<div class="fill-item"><span class="qn">7.</span> The doctor wants a small <input class="fill-input" type="text" autocomplete="off" data-answer="biopsy" aria-label="answer 7"> before giving a final answer.</div>
+<div class="fill-item"><span class="qn">8.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="diagnosis" aria-label="answer 8"> took several weeks of tests to be sure.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>X-rays are mostly used to look at…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> soft tissue</div>
+<div class="mc-opt" data-i="1"><b>B.</b> bones</div>
+<div class="mc-opt" data-i="2"><b>C.</b> blood</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>A CT scan is preferred in emergencies because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it is colourful</div>
+<div class="mc-opt" data-i="1"><b>B.</b> it is fast</div>
+<div class="mc-opt" data-i="2"><b>C.</b> it is silent</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>MRI scans use…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> radiation</div>
+<div class="mc-opt" data-i="1"><b>B.</b> powerful magnets</div>
+<div class="mc-opt" data-i="2"><b>C.</b> sound waves</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Ultrasound is famous for…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the brain</div>
+<div class="mc-opt" data-i="1"><b>B.</b> pregnancy and the abdomen</div>
+<div class="mc-opt" data-i="2"><b>C.</b> bones</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The single test the writer says has saved the most lives in 30 years is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the MRI</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the colonoscopy</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the ECG</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>She believes the most important part of her job is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> taking the picture</div>
+<div class="mc-opt" data-i="1"><b>B.</b> explaining results in plain words</div>
+<div class="mc-opt" data-i="2"><b>C.</b> working alone</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What was the last medical test you had?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Are you afraid of scans, blood tests, or neither?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever been in an MRI machine?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you usually understand your test results, or do you nod and pretend?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q8</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should everyone have a yearly blood test, free of charge?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are private clinics doing too many scans and tests?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should patients always see their own scans?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Why do some people refuse a colonoscopy, even when it could save their life?</div></div>
+<div class="q-group-head">Patient role-plays<span class="q-tag">Q9–Q11</span></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Role-play: explain to a nervous patient what an MRI scan will feel like.</div></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: prepare a patient for a colonoscopy. Be honest, but reassuring.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: deliver ‘good but not perfect’ blood test results.</div></div>
+<div class="q-group-head">Reflection<span class="q-tag">Q12–Q14</span></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">How can a clinic make scans less scary for older patients?</div></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">Have you ever had to explain a test result to a family member?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">What's the most important sentence a doctor can say when giving results?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A patient is booked for a <em>colonoscopy</em> next week and is very anxious. Walk them through the day: the <em>blood test</em> first, what they'll eat, what the camera does, recovery, and what the <em>diagnosis</em> might look like.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Have you ever had an <b>MRI scan</b>? What was it like?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Describe the last time you had an <b>X-ray</b> or an <b>ultrasound</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Why do many people fear a <b>colonoscopy</b>, even though it can save lives?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Have you, or someone you know, had a <b>gastroscopy</b>? What did they find?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">If you could only have one medical test once a year, would you choose a <b>blood test</b> or a scan?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">🩺</span>Who's Who at the Clinic</h2>
+<p class="instr">How to send a patient to the right specialist &mdash; and explain to them, in plain English, who does what. Useful words are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Right Door for the Right Problem</h3>
+<div class="byline">★ Dr Henrik Bergström · GP and clinic director · Coordinates 14 specialists</div>
+<p>If you visit a private clinic with a problem, the first person you usually meet is a <b>GP</b> &mdash; a general practitioner, or family doctor. The GP is the front door of medicine. Their job is to listen, examine, look at your history and decide what to do next. Sometimes the answer is a tablet and a follow-up. Sometimes the answer is a <b>referral</b> &mdash; a letter to a specialist who has spent years learning one specific part of the body.</p>
+<p>Specialists exist because the human body is too big and too complicated for one doctor to know everything. After medical school, a young doctor chooses a path and spends another five, six, sometimes ten years training in one area. By the time they treat patients, they have seen thousands of cases of one type of problem.</p>
+<div class="pull-quote">A good GP is not the doctor who knows everything. A good GP is the doctor who knows exactly who to send you to.</div>
+<p>Let me walk you through the most common doors at our clinic. A <b>paediatrician</b> looks after children, from new-born babies to teenagers. A <b>gynaecologist</b> takes care of women's health, especially the reproductive system, while an <b>obstetrician</b> specialises in pregnancy and birth. A <b>dermatologist</b> treats the skin, hair and nails. They are the people you see for a worrying mole, persistent acne, or a strange rash.</p>
+<p>If your problem is the heart, you'll meet a <b>cardiologist</b>. If your problem is the digestive system &mdash; stomach, intestines, liver &mdash; you'll be sent to a <b>gastroenterologist</b>. A <b>neurologist</b> deals with the brain and the nervous system, including headaches, epilepsy and stroke care. An <b>orthopaedic surgeon</b> treats bones, joints and sports injuries, which means our rehab clinic talks to them every single day. An <b>ENT specialist</b> (ear, nose and throat) deals with hearing, sinus problems and the throat.</p>
+<p>Other essential doctors are easy to forget. An <b>internist</b> &mdash; the European version of an internal medicine specialist &mdash; manages adult patients with multiple chronic conditions. A <b>urologist</b> treats kidneys, bladder and male reproductive health. An <b>endocrinologist</b> looks after hormones, including thyroid problems and diabetes. A <b>psychiatrist</b> treats mental health from a medical angle, while a <b>psychologist</b> focuses on therapy and behaviour. And of course, the <b>dentist</b> looks after the teeth and gums &mdash; the door we should all walk through twice a year, but most of us avoid.</p>
+<p>When a nurse phones a specialist on behalf of a patient, the conversation is short, clear and structured. “I have a 58-year-old man with chest pain and a family history of heart disease. We've done an ECG and a blood test. Can he see Dr Kovacs today?” Two minutes. Clean information. A decision. That's how a private clinic works at its best: the patient walks through one door, and inside, we quietly find them the right one.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a GP</div><div class="vocab-def">a family doctor for everyday problems</div><div class="vocab-ex">“Start with your GP and ask for a referral.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a specialist</div><div class="vocab-def">a doctor with one specific field</div><div class="vocab-ex">“She sent me to a specialist for my knee.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a referral</div><div class="vocab-def">a letter from a GP to a specialist</div><div class="vocab-ex">“I'm waiting for a referral to a neurologist.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a paediatrician</div><div class="vocab-def">a doctor for children</div><div class="vocab-ex">“Our paediatrician is very kind with babies.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a gynaecologist</div><div class="vocab-def">a doctor for women's reproductive health</div><div class="vocab-ex">“She has a yearly check with her gynaecologist.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a dermatologist</div><div class="vocab-def">a doctor for skin, hair and nails</div><div class="vocab-ex">“The dermatologist removed the mole.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a cardiologist</div><div class="vocab-def">a doctor for the heart</div><div class="vocab-ex">“The cardiologist scheduled an ECG.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a dentist</div><div class="vocab-def">a doctor who treats teeth and gums</div><div class="vocab-ex">“Try to see your dentist twice a year.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">a GP (general practitioner)</div><div class="idiom-def">a family doctor for everyday problems</div><div class="idiom-ex">“Start with your GP and ask for a referral.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a specialist</div><div class="idiom-def">a doctor with one specific field</div><div class="idiom-ex">“She sent me to a specialist.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a paediatrician</div><div class="idiom-def">a doctor for children</div><div class="idiom-ex">“Our paediatrician is excellent with babies.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a dermatologist</div><div class="idiom-def">a doctor for skin problems</div><div class="idiom-ex">“The dermatologist removed the mole.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a cardiologist</div><div class="idiom-def">a doctor for the heart</div><div class="idiom-ex">“Cardiologists treat heart attacks and rhythm problems.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a referral</div><div class="idiom-def">a letter from a GP to a specialist</div><div class="idiom-ex">“I'm waiting for a referral to a neurologist.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">paediatrician</span><span class="bw">GP</span><span class="bw">referral</span><span class="bw">specialist</span><span class="bw">gynaecologist</span><span class="bw">cardiologist</span><span class="bw">dermatologist</span><span class="bw">dentist</span></div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> Always start with your <input class="fill-input" type="text" autocomplete="off" data-answer="gp" aria-label="answer 1"> unless it's an emergency.</div>
+<div class="fill-item"><span class="qn">2.</span> She sent me to a <input class="fill-input" type="text" autocomplete="off" data-answer="specialist" aria-label="answer 2"> who deals only with knee injuries.</div>
+<div class="fill-item"><span class="qn">3.</span> I'm waiting for a <input class="fill-input" type="text" autocomplete="off" data-answer="referral" aria-label="answer 3"> to a neurologist.</div>
+<div class="fill-item"><span class="qn">4.</span> Take a worried baby to a <input class="fill-input" type="text" autocomplete="off" data-answer="paediatrician" aria-label="answer 4"> first, not the GP.</div>
+<div class="fill-item"><span class="qn">5.</span> She had a routine yearly check with her <input class="fill-input" type="text" autocomplete="off" data-answer="gynaecologist" aria-label="answer 5">.</div>
+<div class="fill-item"><span class="qn">6.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="dermatologist" aria-label="answer 6"> removed the suspicious mole on her shoulder.</div>
+<div class="fill-item"><span class="qn">7.</span> After his chest pain, the <input class="fill-input" type="text" autocomplete="off" data-answer="cardiologist" aria-label="answer 7"> scheduled an ECG immediately.</div>
+<div class="fill-item"><span class="qn">8.</span> Don't forget the <input class="fill-input" type="text" autocomplete="off" data-answer="dentist" aria-label="answer 8"> &mdash; teeth tell you a lot about general health.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The ‘front door’ of medicine, the writer says, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a cardiologist</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a GP</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a surgeon</div>
+</div>
+<div class="mc-item" data-correct="2">
+<div class="mc-q"><span class="qn">Q2</span>After medical school, a specialist usually trains for another…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> six months</div>
+<div class="mc-opt" data-i="1"><b>B.</b> one year</div>
+<div class="mc-opt" data-i="2"><b>C.</b> five to ten years</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>A dermatologist takes care of…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the heart</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the skin, hair and nails</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the bones</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>A gastroenterologist treats problems of the…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> heart</div>
+<div class="mc-opt" data-i="1"><b>B.</b> digestive system</div>
+<div class="mc-opt" data-i="2"><b>C.</b> brain</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q5</span>An ENT specialist works with the…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> ear, nose and throat</div>
+<div class="mc-opt" data-i="1"><b>B.</b> kidneys</div>
+<div class="mc-opt" data-i="2"><b>C.</b> skin</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's idea of a good GP is one who…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> knows everything</div>
+<div class="mc-opt" data-i="1"><b>B.</b> knows who to send you to</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never refers anyone</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Who is your GP &mdash; if you have one?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What was the last specialist you saw?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do you go to the dentist twice a year, honestly?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Have you ever been to a dermatologist?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q8</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is it better to start with a GP, or go straight to a specialist?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are private clinics making patients see too many different specialists?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should mental health specialists be as easy to see as a GP?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is the dentist often forgotten in general health? Why?</div></div>
+<div class="q-group-head">Patient role-plays<span class="q-tag">Q9–Q11</span></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Role-play: a confused patient doesn't know which specialist to ask for. Help them.</div></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: phone a cardiologist on behalf of a patient with chest pain.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: explain to a worried parent which specialist to take their child to.</div></div>
+<div class="q-group-head">Reflection<span class="q-tag">Q12–Q14</span></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">How do you remember the names of so many specialists in English?</div></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">Which specialist was the most difficult to spell when you first learned the word?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">What's the most important piece of information to give when you call a specialist?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A patient walks in confused. “My stomach hurts, my skin has spots, and I have headaches.” Help them work out which <em>specialist</em> to see first, what a <em>referral</em> from their <em>GP</em> would say, and which test or scan might come first.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">When did you last visit your <b>GP</b>? What was it for?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever needed a <b>referral</b> to a specialist? Who, and why?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Would you take a child to a <b>paediatrician</b> or a GP first?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Have you ever seen a <b>dermatologist</b> for a skin problem?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Is it easy to see a <b>specialist</b> quickly in your country?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+
+  <footer>🫀 ★ ★ &nbsp; THE HUMAN BODY · B1–B2 MEDICAL ENGLISH · INJURIES · ORGANS · SCANS · SPECIALISTS &nbsp; ★ ★ 🫀</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
