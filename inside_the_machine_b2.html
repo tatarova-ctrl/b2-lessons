@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inside the Machine — B2 English for IT Professionals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"⚙️";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">⚙️ B2 ENGLISH · IT INDUSTRY · CODE · AI · SECURITY · CLOUD</div>
+      <h1>Inside the <span class="accent">Machine</span></h1>
+      <div class="sub">Four conversations from inside the tech industry &mdash; what developers really spend their day on, how AI is rewriting the job, why your password is somebody's full-time target, and where your data actually lives. Read the column, learn the real vocabulary and expressions, then talk like someone who works in the field.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~400 WORDS</span>
+        <span class="tag">REAL IT VOCAB + IDIOMS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">68+ SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Dev 🌐</button>
+    <button class="tab" data-tab="t2">② AI 🤖</button>
+    <button class="tab" data-tab="t3">③ Security 🔐</button>
+    <button class="tab" data-tab="t4">④ Cloud ☁️</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🌐</span>Software &amp; Web Development</h2>
+<p class="instr">A senior developer on what writing code is actually like &mdash; once you stop being a junior. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>Code Is Just the Beginning</h3>
+<div class="byline">★ Marina Volkova · Senior software engineer · Worked at three start-ups and one bank</div>
+<p>I'll tell you a secret about software engineering that nobody mentions on bootcamp websites. Writing code is the easy part. Most of my day isn't typing. It's reading other people's code, fixing strange <b>bugs</b>, sitting in meetings, and explaining a small mistake that broke something at 2 a.m. The actual programming is maybe two hours out of eight. The rest is the slow, careful work that turns code into a real product.</p>
+<p>When you're new, you imagine that a developer just writes <b>features</b> all day. In reality, every line of code is part of a longer journey. You write the change, you open a <b>pull request</b>, you wait for a <b>code review</b> from a senior colleague. They point out problems you didn't see. You rewrite parts. The <b>tests</b> run. Sometimes they fail. You debug, you push again. Only after all of this do you <b>ship</b> anything.</p>
+<div class="pull-quote">Good developers don't write more code. They write code that someone else can safely change in two years' time.</div>
+<p><b>Bugs</b> are part of life. A clever bug feels almost human &mdash; it appears only on Tuesdays, only for one user, only when they click in a certain order. The hardest skill in development isn't writing new code; it's reading old code well enough to fix it. Most of the world's most useful software is twenty years old and held together by people who patiently learn how it works.</p>
+<p>Modern teams ship constantly. We use <b>version control</b> like Git to manage changes, <b>CI/CD pipelines</b> to test and release them, and <b>monitoring</b> tools to see if anything breaks once real users arrive. The phrase “it works on my machine” is now a tired joke for a reason. Real software has to work for thousands of people on different devices, with bad Wi-Fi, in countries you've never been to.</p>
+<p>Then there's the human side. <b>Stand-up</b> meetings every morning. Discussions with <b>product managers</b> about priorities. Pair programming with a colleague when something is hard. Mentoring a junior, which often teaches you more than it teaches them. Engineering is a team sport. The people who become great are not the lonely geniuses of films. They are calm communicators who can disagree without drama.</p>
+<p>And then there's the difficult bit nobody warns you about: maintenance. Old code, old bugs, technical <b>debt</b> from quick decisions made years ago. Beautiful new projects are rare. Most of the work is keeping existing systems alive and slightly improving them, week by week. The young developers I admire most are not the ones who say, “I built this in a weekend.” They are the ones who say, “I made this old, scary system 10% easier to work with.” That sentence is the real definition of seniority.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a bug</div><div class="vocab-def">a mistake in code that causes wrong behaviour</div><div class="vocab-ex">“I spent two hours hunting one tiny bug.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a feature</div><div class="vocab-def">a new capability of the software</div><div class="vocab-ex">“The new search feature ships next week.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a pull request (PR)</div><div class="vocab-def">a proposal of code changes for review</div><div class="vocab-ex">“Please review my pull request before lunch.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a code review</div><div class="vocab-def">when colleagues check each other's code</div><div class="vocab-ex">“Code reviews catch most serious mistakes.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to debug</div><div class="vocab-def">to find and fix a bug</div><div class="vocab-ex">“I had to debug the payment flow.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to deploy</div><div class="vocab-def">to release a new version to users</div><div class="vocab-ex">“We deploy every Wednesday.”</div></div>
+<div class="vocab-card"><div class="vocab-term">version control</div><div class="vocab-def">a system that tracks code changes</div><div class="vocab-ex">“We use Git for version control.”</div></div>
+<div class="vocab-card"><div class="vocab-term">technical debt</div><div class="vocab-def">work needed to fix old, messy code</div><div class="vocab-ex">“Years of quick fixes create technical debt.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to ship code</div><div class="idiom-def">to release new code to users</div><div class="idiom-ex">“We ship code twice a week.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to push to production</div><div class="idiom-def">to send the new version to live users</div><div class="idiom-ex">“Don't push to production on a Friday.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a quick fix</div><div class="idiom-def">a fast, temporary solution</div><div class="idiom-ex">“That patch is just a quick fix, not a real solution.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to break the build</div><div class="idiom-def">to push code that makes the system fail</div><div class="idiom-ex">“He broke the build five minutes before lunch.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to be on call</div><div class="idiom-def">to be available for emergencies outside normal hours</div><div class="idiom-ex">“She's on call this weekend.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to throw it over the wall</div><div class="idiom-def">to pass work to another team without proper handover</div><div class="idiom-ex">“Don't throw it over the wall to the support team.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">feature</span><span class="bw">bug</span><span class="bw">pull request</span><span class="bw">deploy</span><span class="bw">code review</span><span class="bw">debug</span><span class="bw">version control</span><span class="bw">technical debt</span></div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> That tiny <input class="fill-input" type="text" autocomplete="off" data-answer="bug" aria-label="answer 1"> only appears on iPhones, and only after midnight.</div>
+<div class="fill-item"><span class="qn">2.</span> The new export <input class="fill-input" type="text" autocomplete="off" data-answer="feature" aria-label="answer 2"> ships at the end of the sprint.</div>
+<div class="fill-item"><span class="qn">3.</span> Please review my <input class="fill-input" type="text" autocomplete="off" data-answer="pull request" aria-label="answer 3"> when you have ten minutes.</div>
+<div class="fill-item"><span class="qn">4.</span> A good <input class="fill-input" type="text" autocomplete="off" data-answer="code review" aria-label="answer 4"> catches mistakes nobody else would have seen.</div>
+<div class="fill-item"><span class="qn">5.</span> It took me an entire afternoon to <input class="fill-input" type="text" autocomplete="off" data-answer="debug" aria-label="answer 5"> that login problem.</div>
+<div class="fill-item"><span class="qn">6.</span> We don't <input class="fill-input" type="text" autocomplete="off" data-answer="deploy" aria-label="answer 6"> on Fridays — nobody wants to be on call all weekend.</div>
+<div class="fill-item"><span class="qn">7.</span> Without <input class="fill-input" type="text" autocomplete="off" data-answer="version control" aria-label="answer 7"> we wouldn't be able to undo a single mistake.</div>
+<div class="fill-item"><span class="qn">8.</span> Years of quick fixes leave you with a mountain of <input class="fill-input" type="text" autocomplete="off" data-answer="technical debt" aria-label="answer 8">.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says her day is mostly…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> writing fresh code</div>
+<div class="mc-opt" data-i="1"><b>B.</b> reading code, meetings and fixing bugs</div>
+<div class="mc-opt" data-i="2"><b>C.</b> drinking coffee</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>After writing a change, the next step is usually…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> going home</div>
+<div class="mc-opt" data-i="1"><b>B.</b> opening a pull request and waiting for review</div>
+<div class="mc-opt" data-i="2"><b>C.</b> pushing straight to users</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>The hardest skill in development is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> typing fast</div>
+<div class="mc-opt" data-i="1"><b>B.</b> reading old code well enough to fix it</div>
+<div class="mc-opt" data-i="2"><b>C.</b> designing logos</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>The phrase ‘it works on my machine’ is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a serious bug name</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a tired joke about software that fails for real users</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a tool from Microsoft</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Stand-ups, pair programming and mentoring all show that engineering is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a solo activity</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a team sport</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a writing job</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The young developer she admires most says…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> ‘I built this in a weekend’</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ‘I made an old scary system 10% easier to work with’</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ‘I shipped 1000 lines today’</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the first programming language you ever learned?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's your favourite type of bug to fix?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">How do you feel during a code review &mdash; nervous, neutral or excited?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What's your earliest tech memory?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are bootcamps a real path into engineering, or oversold?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is technical debt always bad, or sometimes a sensible trade-off?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should companies measure developers by lines of code shipped?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is pair programming useful, or just a slow conversation?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will the role of ‘junior developer’ still exist in ten years?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: explain to a non-technical manager why you can't ship today.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Walk a junior through your code-review style, step by step.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design the perfect 30-minute morning routine for a developer.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘In five years, most code will be written by AI.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will universities or self-teaching produce the best developers of the next decade?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're a senior dev mentoring a new junior. They've just opened their first <em>pull request</em> and one test is failing. Help them <em>debug</em> calmly, talk about <em>code review</em> habits, and explain why you don't <em>deploy</em> on a Friday.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">How often does your team actually <b>ship code</b> to users?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever <b>broken the build</b>? What happened next?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Describe a <b>quick fix</b> that ended up living for two years.</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">What's the worst time of day to <b>push to production</b>? Defend your answer.</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Have you ever <b>been on call</b> at a weekend? Tell us the story.</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">🤖</span>AI &amp; Machine Learning at Work</h2>
+<p class="instr">An ML engineer on what AI in a real team looks like &mdash; far less glamorous, far more useful. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Colleague Who Never Sleeps</h3>
+<div class="byline">★ Daniel Park · Machine learning engineer · Five years building AI for retail and health</div>
+<p>When people ask me what an AI engineer does, they expect stories from science-fiction films. The reality is much more boring &mdash; and much more interesting. Most of my time isn't training enormous models. It's cleaning data, fixing the same five errors, talking with product teams, and arguing about whether we should use AI for a problem at all. AI is the colleague who never sleeps. That doesn't mean it's always right.</p>
+<p>The most common projects fall into two groups. <b>Predictive models</b> guess something: which customers might leave, which patients are at risk, when a machine will break. <b>Generative AI</b> produces something new: text, images, code, audio. Both depend on the same secret: <b>data</b>. With clean, useful data, ordinary algorithms win. With messy data, even the best <b>model</b> in the world looks stupid. <b>Garbage in, garbage out</b> is older than computers, and it's still the most important rule in the field.</p>
+<div class="pull-quote">AI doesn't replace thinking. It accelerates whatever thinking was already happening. If the thinking was lazy, AI just produces lazy answers faster.</div>
+<p>Modern teams use AI in two very different ways. Some treat it like a calculator: small, focused tools inside their products &mdash; a recommendation engine, a search ranker, a translation service. Others treat it like a junior colleague: a <b>large language model</b> that can draft an email, summarise a document, suggest a function. Both are real engineering. Both need careful design, testing and monitoring.</p>
+<p>The hardest part isn't the maths. It's deployment. Once a model is built, it has to run reliably at scale, handle weird inputs, and not say something embarrassing. Real teams put a lot of work into <b>guardrails</b>, evaluations and human review. The famous failures &mdash; chatbots saying offensive things, medical AIs giving dangerous advice &mdash; usually happen when teams shipped a clever model without the boring supporting structure.</p>
+<p>Then there's the ethics. AI systems can quietly copy human <b>bias</b> hidden in the data. A hiring model trained on years of biased decisions will simply produce more biased decisions, much faster. The interesting AI engineers I know spend serious time thinking about who their model can hurt, who's underrepresented in the data, and what <b>fairness</b> would actually look like in their use case.</p>
+<p>For everyone else: the practical advice is short. Learn one or two AI tools well. Don't treat AI output as truth; treat it as a fast first draft. Always keep a <b>human in the loop</b> for important decisions. And remember that the people who'll do best in the next decade are not the ones who use AI to think less. They are the ones who use AI to think faster, then check the work carefully &mdash; like the senior colleague we all want to be.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">artificial intelligence</div><div class="vocab-def">systems that perform tasks needing intelligence</div><div class="vocab-ex">“AI is everywhere now.”</div></div>
+<div class="vocab-card"><div class="vocab-term">machine learning</div><div class="vocab-def">AI that learns patterns from data</div><div class="vocab-ex">“Machine learning needs huge datasets.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a model</div><div class="vocab-def">a trained system that makes predictions or outputs</div><div class="vocab-ex">“We retrained the model last week.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a dataset</div><div class="vocab-def">a collection of data used to train AI</div><div class="vocab-ex">“Our dataset has 50 million examples.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an algorithm</div><div class="vocab-def">a step-by-step set of rules</div><div class="vocab-ex">“Sorting algorithms are taught in week one.”</div></div>
+<div class="vocab-card"><div class="vocab-term">training</div><div class="vocab-def">the process of teaching a model from data</div><div class="vocab-ex">“Training took three days on a big GPU.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a prompt</div><div class="vocab-def">an instruction given to a generative AI</div><div class="vocab-ex">“A good prompt makes all the difference.”</div></div>
+<div class="vocab-card"><div class="vocab-term">bias</div><div class="vocab-def">unfair patterns in data or decisions</div><div class="vocab-ex">“Untreated bias makes AI quietly unfair.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">the human in the loop</div><div class="idiom-def">a person who checks and approves AI decisions</div><div class="idiom-ex">“For medical AI, you always need a human in the loop.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to outsource your thinking</div><div class="idiom-def">to let AI do the reasoning for you</div><div class="idiom-ex">“If you outsource your thinking, your skills will fade.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to be a black box</div><div class="idiom-def">to be something whose internal workings are hidden</div><div class="idiom-ex">“Large AI models are still mostly a black box.”</div></div>
+<div class="idiom-card"><div class="idiom-term">garbage in, garbage out</div><div class="idiom-def">bad data produces bad results</div><div class="idiom-ex">“Garbage in, garbage out — clean your dataset first.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to ride the wave</div><div class="idiom-def">to take advantage of a popular trend</div><div class="idiom-ex">“Every tech company is riding the AI wave.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to keep humans in mind</div><div class="idiom-def">to design for real people, not just systems</div><div class="idiom-ex">“Always keep humans in mind when you deploy a model.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">bias</span><span class="bw">training</span><span class="bw">artificial intelligence</span><span class="bw">machine learning</span><span class="bw">dataset</span><span class="bw">algorithm</span><span class="bw">prompt</span><span class="bw">model</span></div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="artificial intelligence" aria-label="answer 1"> is no longer a research project; it's in every product.</div>
+<div class="fill-item"><span class="qn">2.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="machine learning" aria-label="answer 2"> is the part of AI that learns from data.</div>
+<div class="fill-item"><span class="qn">3.</span> We retrained the <input class="fill-input" type="text" autocomplete="off" data-answer="model" aria-label="answer 3"> after we found errors in the data.</div>
+<div class="fill-item"><span class="qn">4.</span> Our <input class="fill-input" type="text" autocomplete="off" data-answer="dataset" aria-label="answer 4"> has fifty million labelled examples.</div>
+<div class="fill-item"><span class="qn">5.</span> Sorting <input class="fill-input" type="text" autocomplete="off" data-answer="algorithms" aria-label="answer 5"> are taught in your very first computer science class.</div>
+<div class="fill-item"><span class="qn">6.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="training" aria-label="answer 6"> this model took three days on a big GPU.</div>
+<div class="fill-item"><span class="qn">7.</span> A clear <input class="fill-input" type="text" autocomplete="off" data-answer="prompt" aria-label="answer 7"> is the difference between gold and garbage.</div>
+<div class="fill-item"><span class="qn">8.</span> Hidden <input class="fill-input" type="text" autocomplete="off" data-answer="bias" aria-label="answer 8"> in the data quietly produces unfair decisions.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says most of his time is spent…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> training huge models</div>
+<div class="mc-opt" data-i="1"><b>B.</b> cleaning data, fixing errors and talking with teams</div>
+<div class="mc-opt" data-i="2"><b>C.</b> reading research papers</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>‘Garbage in, garbage out’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> never throw data away</div>
+<div class="mc-opt" data-i="1"><b>B.</b> bad data produces bad results</div>
+<div class="mc-opt" data-i="2"><b>C.</b> models love rubbish</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Predictive models try to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> produce new content</div>
+<div class="mc-opt" data-i="1"><b>B.</b> guess something</div>
+<div class="mc-opt" data-i="2"><b>C.</b> write code</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Generative AI produces…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> predictions</div>
+<div class="mc-opt" data-i="1"><b>B.</b> new content like text or images</div>
+<div class="mc-opt" data-i="2"><b>C.</b> old reports</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Famous AI failures usually happen because teams…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> used too much data</div>
+<div class="mc-opt" data-i="1"><b>B.</b> skipped the boring supporting work like guardrails</div>
+<div class="mc-opt" data-i="2"><b>C.</b> were too cautious</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's practical advice includes…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> trust the output completely</div>
+<div class="mc-opt" data-i="1"><b>B.</b> keep a human in the loop for important decisions</div>
+<div class="mc-opt" data-i="2"><b>C.</b> use AI for everything</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the first time you used AI for something serious?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Which AI tool do you actually use every day?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you been impressed or disappointed lately?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are you more excited or worried about AI?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Which jobs in tech will AI most reshape over the next five years?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should companies be required to label AI-generated content?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is it lazy to use AI for code, or just modern?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">How do you handle AI bias in a hiring tool?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will AI replace junior developers, or grow them faster?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: pitch a cautious manager on adding AI to one feature.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: explain ‘hallucinations’ to a non-technical colleague.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a 5-rule AI policy for a 50-person tech team.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘In ten years, every developer will be an AI engineer.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will open-source AI overtake closed models?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're an ML engineer; your colleague plays a product manager who wants to ship an AI feature “by Friday”. Calmly explain <em>training</em>, <em>dataset</em>, <em>bias</em> and the need for a <em>human in the loop</em> &mdash; without sounding like you're slowing the project down for fun.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Where in your work or life is there a real <b>human in the loop</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Do you ever feel that AI tools make you <b>outsource your thinking</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What part of modern AI still feels like a <b>black box</b> to you?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Tell us about a project where it was clearly <b>garbage in, garbage out</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Is your company <b>riding the AI wave</b>? Wisely or recklessly?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🔐</span>Cybersecurity &amp; Online Safety</h2>
+<p class="instr">A cybersecurity analyst on the door you didn't realise you left open. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Door You Left Open</h3>
+<div class="byline">★ Amina Chen · Cybersecurity analyst · Defends 3,000 employees and their inboxes</div>
+<p>I have a job most people don't think about until something goes wrong. I'm a cybersecurity analyst, which means I spend my days watching attacks that almost worked and trying to stop the ones still on their way. The first thing I'll tell you is the truth that most companies discover too late: the technology isn't usually the problem. People are. The <b>weakest link</b> in any system is the human who clicks the wrong link at 9 a.m. on a Monday.</p>
+<p>The most common attack you'll meet is <b>phishing</b>. A fake email pretending to be your bank, your boss, or your delivery service, asking you to log in or open an attachment. They are getting better every month, especially with AI helping criminals write perfect English. The clue is almost always urgency. Real organisations rarely write, “Your account will be closed in 30 minutes.” Scammers do.</p>
+<div class="pull-quote">Most hacks are not James Bond. They are someone tired, distracted and in a hurry, clicking one link they shouldn't have.</div>
+<p>The second classic is <b>weak passwords</b>. “Password123” is still embarrassingly common. Re-using the same password across sites is even worse: one <b>breach</b> and the attacker has the key to your whole life. A password manager and <b>two-factor authentication</b> (2FA) are the two cheapest, most powerful upgrades any user can make. <b>Better safe than sorry</b>.</p>
+<p>Then there's <b>ransomware</b>, the nightmare of IT teams. A criminal group gets inside, <b>encrypts</b> all your files, and demands payment for the key. Hospitals, schools and city councils have all been hit. The cost is rarely the ransom itself; it's the weeks of <b>downtime</b>, lost data and damaged trust. Good backups, regularly tested, are the only real defence.</p>
+<p>On the defensive side, modern teams use <b>firewalls</b>, antivirus, <b>VPNs</b>, intrusion detection, and constant <b>security updates</b>. But the most powerful tool is still training. The companies with the fewest incidents are the ones that run regular fake phishing tests and teach their staff to spot bad emails. A culture where people happily report a mistake is far safer than one where they hide it.</p>
+<p>On a personal level, the rules aren't dramatic. Use long, unique passwords. Turn on 2FA everywhere. Update your devices when they ask. Be suspicious of any message that creates urgency. Cover your laptop camera if it makes you sleep better. None of this is glamorous. All of it works. Security is mostly a thousand small, boring habits done well — with the occasional <b>wake-up call</b> that reminds you why they matter.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a hacker</div><div class="vocab-def">someone who breaks into computer systems</div><div class="vocab-ex">“The hacker found a weakness in the website.”</div></div>
+<div class="vocab-card"><div class="vocab-term">phishing</div><div class="vocab-def">fake emails or messages tricking you into giving away data</div><div class="vocab-ex">“Phishing emails are the most common attack.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a password</div><div class="vocab-def">a secret code to access an account</div><div class="vocab-ex">“Use a different password for every site.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a data breach</div><div class="vocab-def">an incident where private data is leaked or stolen</div><div class="vocab-ex">“After the breach, millions changed their passwords.”</div></div>
+<div class="vocab-card"><div class="vocab-term">two-factor authentication (2FA)</div><div class="vocab-def">an extra security step beyond just a password</div><div class="vocab-ex">“2FA blocks most account takeovers.”</div></div>
+<div class="vocab-card"><div class="vocab-term">malware</div><div class="vocab-def">harmful software like viruses or spyware</div><div class="vocab-ex">“The laptop was infected with malware.”</div></div>
+<div class="vocab-card"><div class="vocab-term">ransomware</div><div class="vocab-def">malware that locks your files for a ransom</div><div class="vocab-ex">“Ransomware shut the whole hospital for a week.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a firewall</div><div class="vocab-def">a security system that filters internet traffic</div><div class="vocab-ex">“Every company server has a firewall.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to slip through the cracks</div><div class="idiom-def">to be missed or overlooked</div><div class="idiom-ex">“Some phishing emails slip through the cracks of every filter.”</div></div>
+<div class="idiom-card"><div class="idiom-term">the weakest link</div><div class="idiom-def">the most vulnerable part of a system</div><div class="idiom-ex">“The weakest link is usually a human, not the firewall.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to leave the door open</div><div class="idiom-def">to allow easy access (often by accident)</div><div class="idiom-ex">“A weak password leaves the door open for hackers.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a wake-up call</div><div class="idiom-def">a sudden warning that forces change</div><div class="idiom-ex">“The data breach was a wake-up call for the whole company.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to play it safe</div><div class="idiom-def">to choose the cautious option</div><div class="idiom-ex">“Play it safe — enable two-factor authentication today.”</div></div>
+<div class="idiom-card"><div class="idiom-term">better safe than sorry</div><div class="idiom-def">it is wiser to take precautions</div><div class="idiom-ex">“Patch the server now — better safe than sorry.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">data breach</span><span class="bw">ransomware</span><span class="bw">password</span><span class="bw">malware</span><span class="bw">firewall</span><span class="bw">hacker</span><span class="bw">phishing</span><span class="bw">two-factor</span></div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> A <input class="fill-input" type="text" autocomplete="off" data-answer="hacker" aria-label="answer 1"> used a weak password to break into the system.</div>
+<div class="fill-item"><span class="qn">2.</span> Most cyber-attacks still start with a <input class="fill-input" type="text" autocomplete="off" data-answer="phishing" aria-label="answer 2"> email.</div>
+<div class="fill-item"><span class="qn">3.</span> Never use the same <input class="fill-input" type="text" autocomplete="off" data-answer="password" aria-label="answer 3"> on two important websites.</div>
+<div class="fill-item"><span class="qn">4.</span> After the <input class="fill-input" type="text" autocomplete="off" data-answer="data breach" aria-label="answer 4">, millions of users had to change their details.</div>
+<div class="fill-item"><span class="qn">5.</span> Turning on <input class="fill-input" type="text" autocomplete="off" data-answer="two-factor" aria-label="answer 5"> authentication blocks most attacks.</div>
+<div class="fill-item"><span class="qn">6.</span> The laptop was infected with <input class="fill-input" type="text" autocomplete="off" data-answer="malware" aria-label="answer 6"> from a fake download.</div>
+<div class="fill-item"><span class="qn">7.</span> The hospital was hit by <input class="fill-input" type="text" autocomplete="off" data-answer="ransomware" aria-label="answer 7"> and lost a week of work.</div>
+<div class="fill-item"><span class="qn">8.</span> A modern <input class="fill-input" type="text" autocomplete="off" data-answer="firewall" aria-label="answer 8"> can block thousands of attacks every minute.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says the weakest link in most systems is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the firewall</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the human user</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the encryption</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Phishing emails almost always rely on…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> bad grammar</div>
+<div class="mc-opt" data-i="1"><b>B.</b> urgency</div>
+<div class="mc-opt" data-i="2"><b>C.</b> attachments</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Re-using the same password across sites means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> nothing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> one breach exposes everything</div>
+<div class="mc-opt" data-i="2"><b>C.</b> faster login</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Ransomware encrypts your files and…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> deletes them</div>
+<div class="mc-opt" data-i="1"><b>B.</b> demands payment for the key</div>
+<div class="mc-opt" data-i="2"><b>C.</b> makes them public</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The best real defence against ransomware is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> paying fast</div>
+<div class="mc-opt" data-i="1"><b>B.</b> regularly tested backups</div>
+<div class="mc-opt" data-i="2"><b>C.</b> strong opinions</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her personal rules include…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> sharing passwords with friends</div>
+<div class="mc-opt" data-i="1"><b>B.</b> 2FA everywhere and updating devices</div>
+<div class="mc-opt" data-i="2"><b>C.</b> clicking every link</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Have you, or someone you know, ever fallen for a phishing email?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">How many passwords do you actually have?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do you use a password manager?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you cover your laptop camera?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should companies pay ransomware criminals to get their data back?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should governments be allowed to read encrypted messages?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is it ethical to test employees with fake phishing emails?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should there be a ‘driving licence’ for using the internet?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Are tech companies doing enough to protect ordinary users?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: train a worried older relative to recognise phishing.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: explain a data breach to the company CEO.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a 5-step cybersecurity policy for a small business.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘Passwords will be gone within ten years.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will AI make cyber-attacks unstoppable, or stoppable?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A colleague has just clicked a suspicious link and entered their company password into a fake login page. Walk them through the next 15 minutes: stay calm, isolate the device, change the password, enable <em>2FA</em>, and report it &mdash; without making them feel stupid.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Have you ever caught a phishing email that nearly <b>slipped through the cracks</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Who is usually the <b>weakest link</b> in a company's security &mdash; tech or people?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What's the easiest way people <b>leave the door open</b> for hackers without realising it?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Has a hack ever been a real <b>wake-up call</b> for you or someone you know?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">What's one cybersecurity habit where you should just <b>play it safe</b>?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">☁️</span>Cloud, Data &amp; Remote Work</h2>
+<p class="instr">A cloud architect on the building that runs your life &mdash; the one you'll never visit. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>Your Office Lives in a Building You'll Never Visit</h3>
+<div class="byline">★ Felipe Almeida · Cloud architect · Designs systems that serve millions</div>
+<p>Every email you send, every photo you back up, every video call &mdash; all of it lives in buildings you'll probably never see. Huge, cold, humming warehouses called <b>data centres</b>, filled with thousands of <b>servers</b>, somewhere outside a city like Dublin, Singapore or Virginia. People say “the cloud” as if it's a mysterious sky. It isn't. The cloud is just somebody else's computer, in a building you don't own.</p>
+<p>Cloud computing has quietly changed the tech industry more than almost anything else. Twenty years ago, every company had to buy and look after its own servers. Today, most run on platforms like AWS, Google Cloud or Azure. You can <b>spin up</b> a powerful new server in two minutes, pay only for what you use, and shut it down again when you're done. This is why a small team of five engineers can now serve millions of users.</p>
+<div class="pull-quote">You can rent more computing power for a coffee than the entire Apollo programme had. The question is no longer whether you can build it. It's what you'll build with it.</div>
+<p><b>Data</b> is the other big change. Every product now collects information &mdash; what users click, where they pause, what they search for. That data lives in <b>databases</b>, gets cleaned by <b>data engineers</b>, and gets used by <b>data analysts</b> to make decisions. A modern company without data is like a ship without instruments. Whether that's healthy is another question entirely.</p>
+<p>Then there's <b>DevOps</b> &mdash; the modern way of running software. Instead of one team writing code and another team running it, the same team does both. They use <b>automation</b>, <b>monitoring</b> and <b>CI/CD pipelines</b> to deploy small changes quickly and safely. When something goes wrong &mdash; and it always does &mdash; alerts wake up someone <b>on call</b>. The famous saying is, “you build it, you run it.” No more <b>throwing it over the wall</b>.</p>
+<p>The cloud also enabled the modern remote work movement. With everything in browsers and shared documents, <b>remote teams</b> can ship serious products from twenty time zones. <b>Async</b> communication &mdash; writing things down properly instead of needing constant meetings &mdash; is now a core skill. The best remote teams I work with feel more focused and less stressed than the average office team.</p>
+<p>But there's a quiet warning here too. The cloud is convenient, but it concentrates enormous power in a handful of giant companies. When one of them has an outage, a third of the internet <b>goes down</b> for an afternoon. Costs can spiral if you don't watch them. And your data is in someone else's hands. So learn the basics, design for failure, keep good backups, and remember: the cloud is just somebody else's computer. The smart engineer treats it with respect, not magic.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">the cloud</div><div class="vocab-def">internet-based computing services</div><div class="vocab-ex">“All our files are in the cloud now.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a server</div><div class="vocab-def">a powerful computer that delivers services</div><div class="vocab-ex">“One server can handle thousands of users.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a data centre</div><div class="vocab-def">a building full of servers</div><div class="vocab-ex">“The data centre uses enough power for a small town.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a database</div><div class="vocab-def">an organised collection of stored data</div><div class="vocab-ex">“User data lives in our main database.”</div></div>
+<div class="vocab-card"><div class="vocab-term">downtime</div><div class="vocab-def">when a service is not working</div><div class="vocab-ex">“We had two hours of downtime on Sunday.”</div></div>
+<div class="vocab-card"><div class="vocab-term">DevOps</div><div class="vocab-def">a culture combining development and operations</div><div class="vocab-ex">“DevOps shortens the path from idea to user.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a backup</div><div class="vocab-def">a saved copy of data for safety</div><div class="vocab-ex">“Without backups, ransomware is fatal.”</div></div>
+<div class="vocab-card"><div class="vocab-term">remote work</div><div class="vocab-def">working away from a physical office</div><div class="vocab-ex">“Most of our team is fully remote.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to be on the cloud</div><div class="idiom-def">to run on remote internet servers</div><div class="idiom-ex">“All our documents are on the cloud now.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to scale up</div><div class="idiom-def">to grow capacity quickly</div><div class="idiom-ex">“We had to scale up after the product went viral.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to go down</div><div class="idiom-def">(of a service) to stop working</div><div class="idiom-ex">“The website went down at 3 a.m.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to spin up a server</div><div class="idiom-def">to start a new server quickly</div><div class="idiom-ex">“We can spin up a server in two minutes.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to work from anywhere</div><div class="idiom-def">to do remote work from any location</div><div class="idiom-ex">“With cloud tools, you can work from anywhere.”</div></div>
+<div class="idiom-card"><div class="idiom-term">the single source of truth</div><div class="idiom-def">the one place where the correct data lives</div><div class="idiom-ex">“The database is our single source of truth.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">database</span><span class="bw">cloud</span><span class="bw">data centre</span><span class="bw">server</span><span class="bw">downtime</span><span class="bw">backup</span><span class="bw">DevOps</span><span class="bw">remote</span></div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> Almost everything we do now runs in the <input class="fill-input" type="text" autocomplete="off" data-answer="cloud" aria-label="answer 1">.</div>
+<div class="fill-item"><span class="qn">2.</span> One <input class="fill-input" type="text" autocomplete="off" data-answer="server" aria-label="answer 2"> can handle thousands of users at the same time.</div>
+<div class="fill-item"><span class="qn">3.</span> Their main <input class="fill-input" type="text" autocomplete="off" data-answer="data centre" aria-label="answer 3"> in Dublin uses enough electricity for a small town.</div>
+<div class="fill-item"><span class="qn">4.</span> User profiles live in a separate <input class="fill-input" type="text" autocomplete="off" data-answer="database" aria-label="answer 4"> for security.</div>
+<div class="fill-item"><span class="qn">5.</span> We had two hours of <input class="fill-input" type="text" autocomplete="off" data-answer="downtime" aria-label="answer 5"> on Sunday afternoon.</div>
+<div class="fill-item"><span class="qn">6.</span> Modern <input class="fill-input" type="text" autocomplete="off" data-answer="devops" aria-label="answer 6"> teams ship small changes many times a day.</div>
+<div class="fill-item"><span class="qn">7.</span> Without recent <input class="fill-input" type="text" autocomplete="off" data-answer="backups" aria-label="answer 7">, ransomware would have ruined us.</div>
+<div class="fill-item"><span class="qn">8.</span> Most of our engineers are fully <input class="fill-input" type="text" autocomplete="off" data-answer="remote" aria-label="answer 8"> &mdash; we have no central office.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>‘The cloud’, the writer says, is really…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a mystical network in the sky</div>
+<div class="mc-opt" data-i="1"><b>B.</b> someone else's computer in a building you don't own</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a kind of weather system</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>With cloud platforms, a small team can…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> only serve a few users</div>
+<div class="mc-opt" data-i="1"><b>B.</b> serve millions</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never grow</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Modern companies treat data like…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a luxury</div>
+<div class="mc-opt" data-i="1"><b>B.</b> navigation instruments for a ship</div>
+<div class="mc-opt" data-i="2"><b>C.</b> old paperwork</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>DevOps means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> splitting build and run between two teams</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the same team builds and runs the software</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never deploying</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Async communication is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> always talking out loud</div>
+<div class="mc-opt" data-i="1"><b>B.</b> writing things down properly to reduce meetings</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never replying</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's quiet warning is that the cloud…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> always saves money</div>
+<div class="mc-opt" data-i="1"><b>B.</b> concentrates power in a few giant companies</div>
+<div class="mc-opt" data-i="2"><b>C.</b> makes failure impossible</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">How much of your daily work is on the cloud?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Could you work fully remotely? Have you ever?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's the longest outage of a service you remember?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you trust big cloud companies with your data?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is the cloud always cheaper, or just more flexible?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should governments break up the biggest cloud providers?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is remote work better for productivity, or for life balance?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should companies be required to publish how much data they collect?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will most companies bring some servers back in-house in the next ten years?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: pitch your boss on moving the company's main database to the cloud.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: explain a major outage to a furious customer.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design the perfect remote-first engineering team in five rules.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘In 20 years, almost everyone will work fully remotely if they want to.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will AI run our cloud systems with very few human engineers?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A junior engineer wants to <em>spin up</em> ten <em>servers</em> in the <em>cloud</em> for a tiny test project. Explain costs, <em>downtime</em>, <em>backups</em> and <em>monitoring</em> in plain English — so they design for failure, not just for sunny weather.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">What's the longest your favourite app or website has ever <b>gone down</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Could your daily work survive if the cloud went away for a week?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Is your team able to <b>scale up</b> if a million new users arrive tomorrow?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Where in your data do you have a real <b>single source of truth</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Could you genuinely <b>work from anywhere</b> &mdash; or do you need an office to focus?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+
+  <footer>⚙️ ★ ★ &nbsp; INSIDE THE MACHINE · B2 IT ENGLISH · DEV · AI · SECURITY · CLOUD &nbsp; ★ ★ ⚙️</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
