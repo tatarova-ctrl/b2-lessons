@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mind &amp; World — B2 English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"🌍";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🌍 B2 ENGLISH · MIND · MONEY · MOVEMENT · FUTURE · AGE 15+</div>
+      <h1>Mind &amp; <span class="accent">World</span></h1>
+      <div class="sub">Four conversations about the invisible things shaping your life &mdash; how your memory really works, what your money quietly says about you, why the right trip can change you forever, and the planet you'll inherit. Read the column, pick up the vocabulary and idioms, then talk it through.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~400 WORDS</span>
+        <span class="tag">VOCAB + IDIOMS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">68 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Memory 🧠</button>
+    <button class="tab" data-tab="t2">② Money 💸</button>
+    <button class="tab" data-tab="t3">③ Travel 🌍</button>
+    <button class="tab" data-tab="t4">④ Climate 🌱</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🧠</span>Memory &amp; The Mind</h2>
+<p class="instr">A cognitive psychologist on the strange truth about your own memory. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>Why Your Brain Lies to You About the Past</h3>
+<div class="byline">★ Dr Naomi Bridger · Cognitive psychologist · Twenty years studying memory</div>
+<p>Here's a sentence that always makes my students uncomfortable: most of your strongest memories are at least a little bit wrong. Not invented, not fake, but quietly edited every time you remember them. Your brain isn't a video camera. It's a storyteller. And like every storyteller, it cares more about a good story than perfect details.</p>
+<p>Memory works in two main forms. Your <b>short-term memory</b> is a small, busy space &mdash; it holds about seven things at once, like a phone number, for about thirty seconds. Your <b>long-term memory</b> is the huge library where things go if they really matter. Most of what you experience never makes it into that library at all. Your brain throws most of the day away &mdash; and that's a good thing. Remembering everything would be unbearable.</p>
+<div class="pull-quote">Every time you remember something clearly, you change it a little. Memory isn't a photograph. It's a painting you keep repainting.</div>
+<p>Some experiences become <b>vivid</b>, almost cinematic. Your first day at a new school. A bad accident. The first time you fell in love. These are sometimes called “flashbulb memories”, and they feel so real that we trust them completely. The funny thing is, studies show even these are full of small mistakes. We remember the feeling perfectly, but the facts drift a little every year.</p>
+<p>Everyday <b>forgetting</b> isn't a sign of stupidity, by the way. It's how a healthy brain works. The names that <b>slip your mind</b>, the keys you can't find, the word that's <b>on the tip of your tongue</b> &mdash; all completely normal. The brain prioritises what's emotional and useful, not what's true.</p>
+<p>The good news is that memory can be <b>trained</b>. Sleep is the most powerful and most ignored trick. While you sleep, your brain literally replays the day and moves important things into long-term storage. Skip sleep and you study twice as hard for half the result. Smart students don't <b>cram</b>; they sleep, review in short sessions and use the simple magic of <b>spaced repetition</b>: meeting an idea again just before you forget it.</p>
+<p>Finally, there are emotional sides to memory we rarely talk about. <b>Nostalgia</b> &mdash; that warm feeling about the past &mdash; isn't just sentimental. Research suggests it actually reduces loneliness and stress. Sharing old stories with family, looking through photos, even taking <b>a trip down memory lane</b> on a quiet Sunday, all of it makes us feel more like ourselves. So next time you can't remember where you put your phone, don't panic. Your brain isn't broken. It's just choosing what really matters.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">short-term memory</div><div class="vocab-def">memory that holds information for a short time</div><div class="vocab-ex">“A phone number lives in your short-term memory.”</div></div>
+<div class="vocab-card"><div class="vocab-term">long-term memory</div><div class="vocab-def">memory that stores information for a long time</div><div class="vocab-ex">“Childhood songs are in your long-term memory.”</div></div>
+<div class="vocab-card"><div class="vocab-term">vivid</div><div class="vocab-def">very clear and lifelike</div><div class="vocab-ex">“I have vivid memories of that summer.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to forget</div><div class="vocab-def">to be unable to remember</div><div class="vocab-ex">“I keep forgetting my password.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to recall</div><div class="vocab-def">to remember something on purpose</div><div class="vocab-ex">“I can't recall her exact words.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to memorise</div><div class="vocab-def">to learn something by heart</div><div class="vocab-ex">“We had to memorise the poem.”</div></div>
+<div class="vocab-card"><div class="vocab-term">nostalgia</div><div class="vocab-def">a warm, slightly sad feeling about the past</div><div class="vocab-ex">“That old song fills me with nostalgia.”</div></div>
+<div class="vocab-card"><div class="vocab-term">amnesia</div><div class="vocab-def">loss of memory, often after illness or shock</div><div class="vocab-ex">“After the accident he had short-term amnesia.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to slip your mind</div><div class="idiom-def">to be forgotten by accident</div><div class="idiom-ex">“Her birthday completely slipped my mind.”</div></div>
+<div class="idiom-card"><div class="idiom-term">on the tip of my tongue</div><div class="idiom-def">almost remembered, but not quite</div><div class="idiom-ex">“His name is on the tip of my tongue!”</div></div>
+<div class="idiom-card"><div class="idiom-term">to jog your memory</div><div class="idiom-def">to help you remember something</div><div class="idiom-ex">“Here's a photo to jog your memory.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a senior moment</div><div class="idiom-def">a small, funny forgetful moment</div><div class="idiom-ex">“I had a senior moment and forgot my own phone number.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to take a trip down memory lane</div><div class="idiom-def">to recall happy old times</div><div class="idiom-ex">“Looking through old photos is a trip down memory lane.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a blast from the past</div><div class="idiom-def">something or someone from long ago</div><div class="idiom-ex">“Hearing that song was a real blast from the past.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">long-term</span><span class="bw">short-term</span><span class="bw">vivid</span><span class="bw">memorise</span><span class="bw">forget</span><span class="bw">recall</span><span class="bw">nostalgia</span><span class="bw">cram</span></div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> Phone numbers stay in your <input class="fill-input" type="text" autocomplete="off" data-answer="short-term" aria-label="answer 1"> memory for only a few seconds.</div>
+<div class="fill-item"><span class="qn">2.</span> Important childhood events live in your <input class="fill-input" type="text" autocomplete="off" data-answer="long-term" aria-label="answer 2"> memory.</div>
+<div class="fill-item"><span class="qn">3.</span> I have such <input class="fill-input" type="text" autocomplete="off" data-answer="vivid" aria-label="answer 3"> memories of that holiday.</div>
+<div class="fill-item"><span class="qn">4.</span> I keep promising to call him, then I <input class="fill-input" type="text" autocomplete="off" data-answer="forget" aria-label="answer 4">.</div>
+<div class="fill-item"><span class="qn">5.</span> I can't <input class="fill-input" type="text" autocomplete="off" data-answer="recall" aria-label="answer 5"> exactly what he said, but it was kind.</div>
+<div class="fill-item"><span class="qn">6.</span> Try to <input class="fill-input" type="text" autocomplete="off" data-answer="memorise" aria-label="answer 6"> five new words a day.</div>
+<div class="fill-item"><span class="qn">7.</span> There's a strange <input class="fill-input" type="text" autocomplete="off" data-answer="nostalgia" aria-label="answer 7"> in those old photos.</div>
+<div class="fill-item"><span class="qn">8.</span> Don't <input class="fill-input" type="text" autocomplete="off" data-answer="cram" aria-label="answer 8"> the night before — sleep is more useful.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer's main idea is that strong memories are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> always accurate</div>
+<div class="mc-opt" data-i="1"><b>B.</b> quietly edited each time we use them</div>
+<div class="mc-opt" data-i="2"><b>C.</b> completely fake</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q2</span>Short-term memory holds about…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> seven things</div>
+<div class="mc-opt" data-i="1"><b>B.</b> seventy things</div>
+<div class="mc-opt" data-i="2"><b>C.</b> one thing</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>‘Flashbulb memories’ feel cinematic but…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> are 100% accurate</div>
+<div class="mc-opt" data-i="1"><b>B.</b> contain small mistakes too</div>
+<div class="mc-opt" data-i="2"><b>C.</b> are usually invented</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Everyday forgetting is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a sign your brain is failing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> completely normal</div>
+<div class="mc-opt" data-i="2"><b>C.</b> caused by social media</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The most powerful aid to memory mentioned is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> coffee</div>
+<div class="mc-opt" data-i="1"><b>B.</b> sleep</div>
+<div class="mc-opt" data-i="2"><b>C.</b> loud music</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>‘Nostalgia’, research suggests, can…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> damage memory</div>
+<div class="mc-opt" data-i="1"><b>B.</b> reduce loneliness and stress</div>
+<div class="mc-opt" data-i="2"><b>C.</b> increase anxiety</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's your earliest clear memory?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What kind of things do you forget most often?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Are you good or bad at remembering names?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What song instantly takes you back to your childhood?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Why do we remember some days perfectly and others not at all?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is it healthier to forget bad memories, or to face them?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should schools teach memory techniques as a subject?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Do phones and AI make our memories weaker or stronger?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Could you trust your own memory in court?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: explain to a friend how to study for an exam without cramming.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Describe, in detail, the most vivid memory of your last year.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a perfect, memory-friendly daily routine for a student.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘In 50 years, we'll record everything we see and replay our memories.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Is nostalgia a positive emotion or a kind of trap?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you is a teenager panicking about a huge exam tomorrow; the other plays a calm friend who knows the science. Talk about <em>cramming</em>, <em>spaced repetition</em> and sleep — and agree on a 12-hour plan.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Tell us about a time something important totally <b>slipped your mind</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Has a name ever been <b>on the tip of your tongue</b> for hours? Whose?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What helps you most to <b>jog your memory</b> when you're studying?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Describe a recent moment that took you on a <b>trip down memory lane</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Who, or what song or smell, is a real <b>blast from the past</b> for you?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">💸</span>Money &amp; Smart Spending</h2>
+<p class="instr">A financial coach on the questions rich people ask &mdash; that nobody teaches you at school. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Question Rich People Ask That Broke People Don't</h3>
+<div class="byline">★ Aaron Patel · Personal finance coach · Helps families build healthy money habits</div>
+<p>I run workshops on money for teenagers and adults, and every single time I ask the same opening question: “Before you buy something you really want, what do you ask yourself?” Most people say “Can I afford it?” Smart spenders ask a different question: “Is this the best version of how I could spend this money?” That tiny change separates people who quietly build wealth from people who don't.</p>
+<p>Personal finance isn't really about being rich. It's about understanding three simple ideas: how you <b>earn</b> money, how you <b>spend</b> it, and how you <b>save</b> what's left. Most of us are okay at the first two and disastrous at the third. We treat saving as ‘what's left over’, but ‘what's left over’ is almost always zero. That's why financial coaches insist: pay yourself first. Move your savings the day you get paid, and live on the rest.</p>
+<div class="pull-quote">Money won't make you happy. But understanding it will quietly remove a huge amount of unhappiness from your life.</div>
+<p>Then there's the modern problem of impulse buying. Apps make spending feel painless. One tap and it's done. That's why your <b>bank account</b> can quietly empty between payday and payday without you noticing. The fix is unglamorous: budget. A simple <b>budget</b> on your phone, separating needs from wants, will show you what's eating your money. Many young people are shocked to find it's not big things but tiny daily habits — the daily coffee, the small online orders, the streaming services they forgot they had.</p>
+<p><b>Credit cards</b> are another silent danger. Used well, they're free and even useful. Used badly, they turn small wants into long-term <b>debt</b>. If you ever can't pay the full balance, the bank quietly charges you 20% or more in <b>interest</b>. That's where the financial trap closes around millions of people: not in one big mistake, but in many tiny ones.</p>
+<p>The good news is that small habits compound powerfully. Save even a little, and time does most of the work. A teenager who saves €50 a month from sixteen to thirty has tens of thousands in the bank, almost without trying. <b>Investing</b> &mdash; carefully, slowly &mdash; turbocharges that. You don't need to be a stock market genius. You need patience, low fees and time on your side.</p>
+<p>Finally, learn to talk about money with people you trust. Money becomes scary mostly when we keep it secret. The families I see thrive ask their teenagers what things cost, why they cost it, and how to make smart choices. So before your next big purchase, try the rich person's question. <b>Is this the best version of how I could spend this money?</b> Sometimes the answer is yes. Often, it isn't — and that's when real wealth starts.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">to earn</div><div class="vocab-def">to receive money for work</div><div class="vocab-ex">“She earns a good salary.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to spend</div><div class="vocab-def">to use money to buy something</div><div class="vocab-ex">“I spent too much on clothes this month.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to save</div><div class="vocab-def">to keep money for later</div><div class="vocab-ex">“Try to save 10% of what you earn.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a budget</div><div class="vocab-def">a plan for how to spend money</div><div class="vocab-ex">“Stick to your monthly budget.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a bank account</div><div class="vocab-def">a record of your money in a bank</div><div class="vocab-ex">“I opened my first bank account at 16.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a credit card</div><div class="vocab-def">a card that lets you spend now and pay later</div><div class="vocab-ex">“Don't max out your credit card.”</div></div>
+<div class="vocab-card"><div class="vocab-term">debt</div><div class="vocab-def">money you owe someone</div><div class="vocab-ex">“Student debt can take years to pay off.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to invest</div><div class="vocab-def">to use money to make more money</div><div class="vocab-ex">“She invests a little every month.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">to tighten your belt</div><div class="idiom-def">to spend less money</div><div class="idiom-ex">“With rent going up, we'll have to tighten our belts.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to break the bank</div><div class="idiom-def">to cost too much money</div><div class="idiom-ex">“A nice holiday doesn't have to break the bank.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to make ends meet</div><div class="idiom-def">to have just enough money to live</div><div class="idiom-ex">“Some families struggle to make ends meet.”</div></div>
+<div class="idiom-card"><div class="idiom-term">an arm and a leg</div><div class="idiom-def">a lot of money</div><div class="idiom-ex">“That phone cost an arm and a leg.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to save for a rainy day</div><div class="idiom-def">to save money for difficult times</div><div class="idiom-ex">“Always save a little for a rainy day.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to pay through the nose</div><div class="idiom-def">to pay much more than something is worth</div><div class="idiom-ex">“In tourist areas, you pay through the nose for coffee.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">invest</span><span class="bw">credit card</span><span class="bw">earn</span><span class="bw">spend</span><span class="bw">budget</span><span class="bw">bank account</span><span class="bw">debt</span><span class="bw">save</span></div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> How much you <input class="fill-input" type="text" autocomplete="off" data-answer="earn" aria-label="answer 1"> matters less than how much you keep.</div>
+<div class="fill-item"><span class="qn">2.</span> Try not to <input class="fill-input" type="text" autocomplete="off" data-answer="spend" aria-label="answer 2"> everything the day you get paid.</div>
+<div class="fill-item"><span class="qn">3.</span> If you <input class="fill-input" type="text" autocomplete="off" data-answer="save" aria-label="answer 3"> even a little every month, time does most of the work.</div>
+<div class="fill-item"><span class="qn">4.</span> A simple monthly <input class="fill-input" type="text" autocomplete="off" data-answer="budget" aria-label="answer 4"> shows where your money really goes.</div>
+<div class="fill-item"><span class="qn">5.</span> Money is automatically moved from my <input class="fill-input" type="text" autocomplete="off" data-answer="bank account" aria-label="answer 5"> on the 1st.</div>
+<div class="fill-item"><span class="qn">6.</span> Don't pay only the minimum on your <input class="fill-input" type="text" autocomplete="off" data-answer="credit card" aria-label="answer 6"> — the interest is huge.</div>
+<div class="fill-item"><span class="qn">7.</span> Many graduates leave university in serious <input class="fill-input" type="text" autocomplete="off" data-answer="debt" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> Even small amounts you <input class="fill-input" type="text" autocomplete="off" data-answer="invest" aria-label="answer 8"> can grow over many years.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The smart spender's question is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> can I afford it?</div>
+<div class="mc-opt" data-i="1"><b>B.</b> is this the best version of how I could spend this money?</div>
+<div class="mc-opt" data-i="2"><b>C.</b> do I have time to buy it?</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>‘Pay yourself first’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> spend on yourself first</div>
+<div class="mc-opt" data-i="1"><b>B.</b> move money to savings the day you get paid</div>
+<div class="mc-opt" data-i="2"><b>C.</b> earn before others</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Most people's money is eaten by…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> one huge mistake</div>
+<div class="mc-opt" data-i="1"><b>B.</b> many tiny daily habits</div>
+<div class="mc-opt" data-i="2"><b>C.</b> clothes only</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Used badly, credit cards lead to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> instant savings</div>
+<div class="mc-opt" data-i="1"><b>B.</b> long-term debt and high interest</div>
+<div class="mc-opt" data-i="2"><b>C.</b> tax benefits</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>To get rich slowly, the writer suggests…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> picking risky stocks</div>
+<div class="mc-opt" data-i="1"><b>B.</b> patience, low fees, time</div>
+<div class="mc-opt" data-i="2"><b>C.</b> working three jobs</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>He says talking about money…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> is rude</div>
+<div class="mc-opt" data-i="1"><b>B.</b> helps families thrive</div>
+<div class="mc-opt" data-i="2"><b>C.</b> is illegal</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Are you a spender or a saver?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What was the first thing you ever saved up for?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's the best thing you've ever spent money on?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What's the worst purchase you've ever made?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should personal finance be taught in school?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is it ever right to borrow money for something fun?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Are credit cards more dangerous than helpful?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should adults give teenagers a monthly budget?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Is it possible to be rich and unhappy at the same time?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: convince a friend to stop daily impulse buying.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Design a realistic monthly budget for a student.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">If you suddenly had €10,000, what would you do with it — step by step?</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘Cash will disappear within 20 years.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will most young people retire later than their parents?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you wants to buy a very expensive new phone using a <em>credit card</em>; the other plays a calm friend who quietly suggests a <em>budget</em> first. Have the conversation kindly &mdash; use “save”, “debt” and “invest”.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">When was the last time your family had to <b>tighten its belt</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Describe a really fun thing to do that doesn't <b>break the bank</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Do you know anyone who <b>saves for a rainy day</b>? Are you that kind of person?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Tell us about something that costs <b>an arm and a leg</b> in your country.</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">Where do tourists really <b>pay through the nose</b> for ordinary things?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🌍</span>Travel &amp; Wanderlust</h2>
+<p class="instr">A travel writer on why the best trips aren't the ones in the brochures. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Trip That Changes You Isn't the One You Planned</h3>
+<div class="byline">★ Hugo Almeida · Slow-travel writer · Crossed five continents mostly by train</div>
+<p>I've been a travel writer for fifteen years and I'll tell you the strange thing nobody admits in glossy magazines. The trips that change your life almost never go to plan. The booked tour, the perfect hotel, the famous landmark with the perfect view &mdash; you'll forget most of it. What you remember, years later, is a long bus ride, a stranger laughing at your bad pronunciation, a small meal in a tiny restaurant the guidebook never mentioned. Travel teaches you what you actually like, not what you were told to like.</p>
+<p>There are three rough kinds of travel today. The first is <b>tourism</b> &mdash; short trips to famous places, ticking off cathedrals and beaches. The second is <b>backpacking</b> &mdash; longer, cheaper, slower, with a small bag and a flexible plan. The third is <b>working holidays</b>, or even living in another country for a few months. Each has its place. But the people I see grow the most are the ones who travel slowly, not the ones who travel often.</p>
+<div class="pull-quote">The most beautiful place in the world is the one where you accidentally feel like yourself for the first time.</div>
+<p>Modern travel has a problem nobody likes to mention: <b>overtourism</b>. Some cities &mdash; Venice, Barcelona, Kyoto &mdash; have more tourists than locals on busy days. Prices rise, families are pushed out, and the very places people travelled thousands of miles to see start to feel like theme parks. If we love a place, the kindest thing we can do is go in low season, stay longer, eat where locals eat, and not treat the city like a backdrop for photos.</p>
+<p>The greener answer is <b>sustainable travel</b>. Not perfect, just better. Trains instead of short flights where possible. Smaller hotels run by local families. Spending more time in fewer places, instead of racing through ten countries in ten days. You'll see less, but you'll actually <em>see</em> it.</p>
+<p>There's also the strange power of travelling alone. <b>Solo travel</b> sounds frightening, especially the first time, but most people who try it come back braver, calmer and more curious than they left. There's no group to hide behind. You order the food. You read the timetable. You ask the questions. By the end of the trip you realise you can handle far more than you thought.</p>
+<p>And then there's the deeper thing: travel teaches you about home. You go away to see how other people live and you come back understanding your own country in a completely new way. So if you have the chance, plan less, go slower, and pay attention. The world is bigger and kinder than the news suggests. Don't wait until you're old to <b>hit the road</b>. Start where you are. The trip that changes you is already waiting.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a destination</div><div class="vocab-def">a place you travel to</div><div class="vocab-ex">“Iceland is a popular destination for hikers.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a backpacker</div><div class="vocab-def">a young traveller with a small bag and budget</div><div class="vocab-ex">“The hostel was full of friendly backpackers.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a guidebook</div><div class="vocab-def">a book with travel information</div><div class="vocab-ex">“Don't only trust the guidebook.”</div></div>
+<div class="vocab-card"><div class="vocab-term">overtourism</div><div class="vocab-def">too many tourists in one place</div><div class="vocab-ex">“Overtourism is harming many famous cities.”</div></div>
+<div class="vocab-card"><div class="vocab-term">sustainable travel</div><div class="vocab-def">travel with low harm to people and planet</div><div class="vocab-ex">“Trains are part of sustainable travel.”</div></div>
+<div class="vocab-card"><div class="vocab-term">solo travel</div><div class="vocab-def">travelling alone</div><div class="vocab-ex">“Solo travel changed how she sees herself.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a souvenir</div><div class="vocab-def">a small object you buy to remember a trip</div><div class="vocab-ex">“I bought a tiny souvenir from each city.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a culture shock</div><div class="vocab-def">surprise at how different a new place is</div><div class="vocab-ex">“Tokyo gave me proper culture shock.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">itchy feet</div><div class="idiom-def">a strong urge to travel</div><div class="idiom-ex">“I've got itchy feet — I haven't left the country in years.”</div></div>
+<div class="idiom-card"><div class="idiom-term">off the beaten track</div><div class="idiom-def">away from the usual tourist places</div><div class="idiom-ex">“We found a tiny village off the beaten track.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to live out of a suitcase</div><div class="idiom-def">to travel constantly without a permanent home</div><div class="idiom-ex">“She's been living out of a suitcase for two years.”</div></div>
+<div class="idiom-card"><div class="idiom-term">a once-in-a-lifetime trip</div><div class="idiom-def">a journey you may never repeat</div><div class="idiom-ex">“Visiting Antarctica was a once-in-a-lifetime trip.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to catch the travel bug</div><div class="idiom-def">to develop a love of travelling</div><div class="idiom-ex">“After Thailand, I really caught the travel bug.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to hit the road</div><div class="idiom-def">to start a journey</div><div class="idiom-ex">“We hit the road at sunrise.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">overtourism</span><span class="bw">souvenir</span><span class="bw">guidebook</span><span class="bw">solo</span><span class="bw">culture shock</span><span class="bw">destination</span><span class="bw">backpacker</span><span class="bw">sustainable</span></div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> Kyoto remains a dream <input class="fill-input" type="text" autocomplete="off" data-answer="destination" aria-label="answer 1"> for many travellers.</div>
+<div class="fill-item"><span class="qn">2.</span> As a teenage <input class="fill-input" type="text" autocomplete="off" data-answer="backpacker" aria-label="answer 2">, I survived on noodles and trains.</div>
+<div class="fill-item"><span class="qn">3.</span> Skip the <input class="fill-input" type="text" autocomplete="off" data-answer="guidebook" aria-label="answer 3"> for one day and just get lost.</div>
+<div class="fill-item"><span class="qn">4.</span> Venice is now famous for <input class="fill-input" type="text" autocomplete="off" data-answer="overtourism" aria-label="answer 4"> as much as for its beauty.</div>
+<div class="fill-item"><span class="qn">5.</span> Choosing the train over the plane is one form of <input class="fill-input" type="text" autocomplete="off" data-answer="sustainable" aria-label="answer 5"> travel.</div>
+<div class="fill-item"><span class="qn">6.</span> Her first <input class="fill-input" type="text" autocomplete="off" data-answer="solo" aria-label="answer 6"> trip really changed her confidence.</div>
+<div class="fill-item"><span class="qn">7.</span> I always bring back a small <input class="fill-input" type="text" autocomplete="off" data-answer="souvenir" aria-label="answer 7"> for my mum.</div>
+<div class="fill-item"><span class="qn">8.</span> My first week in India was full of <input class="fill-input" type="text" autocomplete="off" data-answer="culture shock" aria-label="answer 8">.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says we mostly remember from trips…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the famous monuments</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the small unplanned moments</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the hotels</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>‘Backpacking’ usually means travel that is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> expensive and short</div>
+<div class="mc-opt" data-i="1"><b>B.</b> cheap, slow and flexible</div>
+<div class="mc-opt" data-i="2"><b>C.</b> very fast and luxurious</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q3</span>Overtourism turns cities into…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> theme parks</div>
+<div class="mc-opt" data-i="1"><b>B.</b> empty museums</div>
+<div class="mc-opt" data-i="2"><b>C.</b> peaceful villages</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q4</span>Sustainable travel mostly means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> seeing less but really seeing it</div>
+<div class="mc-opt" data-i="1"><b>B.</b> visiting ten countries fast</div>
+<div class="mc-opt" data-i="2"><b>C.</b> staying in big hotels</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Solo travel, the writer says, often makes people…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> lonelier</div>
+<div class="mc-opt" data-i="1"><b>B.</b> braver and more curious</div>
+<div class="mc-opt" data-i="2"><b>C.</b> more nervous</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>In the end, travel teaches you most about…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> money</div>
+<div class="mc-opt" data-i="1"><b>B.</b> home</div>
+<div class="mc-opt" data-i="2"><b>C.</b> languages</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What was your last trip away from home?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Do you usually plan every day, or just see what happens?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's the most beautiful place you've been?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Have you ever experienced real culture shock?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should famous cities limit the number of tourists?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is solo travel a good idea for teenagers?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Are travel guidebooks already useless because of social media?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should short flights be banned in countries with fast trains?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Are influencers good or bad for the way people travel?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: persuade a nervous friend to come on a backpacking trip.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Plan a perfect three-day, sustainable trip near your home.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Describe the trip that you'd most love to take in your life.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘Travel in 30 years will be mostly virtual.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will more young people choose to live abroad than ever before?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you wants a five-star resort holiday in a famous city; the other dreams of slow <em>backpacking</em> through small villages. Make your case using <em>destination</em>, <em>overtourism</em> and <em>culture shock</em>.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Do you have <b>itchy feet</b> right now? Where would you go?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Describe a place <b>off the beaten track</b> that you love.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Could you happily <b>live out of a suitcase</b> for a year?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">What would your <b>once-in-a-lifetime trip</b> be?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">When did you first <b>catch the travel bug</b> &mdash; or do you still need to?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">🌱</span>Climate &amp; The Future</h2>
+<p class="instr">A climate scientist on the generation who'll actually fix this. Target language is in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Generation Who'll Actually Fix This</h3>
+<div class="byline">★ Dr Helena Brandt · Climate scientist · 25 years of fieldwork</div>
+<p>I've worked on climate for twenty-five years. Most people my age, when they hear that, get a sad look in their eyes. They expect bad news. But here's what I tell teenagers: I'm cautiously hopeful, for the first time in my career. Your generation will live through hard years, yes. You'll also be the people who actually change things. Not because you're saints. Because you don't have a choice.</p>
+<p>The basics, quickly. <b>Climate change</b> is real, human-caused, and already here. Burning <b>fossil fuels</b> &mdash; oil, coal, gas &mdash; releases <b>greenhouse gases</b> into the atmosphere. Those gases trap heat. The result, over decades, is <b>global warming</b> &mdash; warmer oceans, melting ice, stronger storms, longer heatwaves and odd, unstable seasons. The science isn't a question anymore. It's a fact, like gravity.</p>
+<div class="pull-quote">Despair is comfortable. It lets you do nothing. The hardest, bravest thing you can do is stay hopeful and keep acting anyway.</div>
+<p>What's changed in the last few years is the solutions. <b>Renewable energy</b> &mdash; solar panels, wind turbines, water power &mdash; is now cheaper in many countries than coal or gas. Cars are quietly going electric. Cities are redesigning their streets for bikes and trains. China alone now builds more <b>solar power</b> in a year than the entire US has in its history. Most people don't realise how fast this is happening.</p>
+<p>But personal habits matter too, even though they're a smaller piece of the puzzle. Eating a bit less meat, especially beef. Flying a little less. Repairing instead of replacing. <b>Recycling</b> properly &mdash; not just into the green bin and forgotten. Reducing waste at home. Choosing second-hand. Each one is small. Together, across millions of people, they're real.</p>
+<p>The deepest danger isn't physical. It's psychological. <b>Climate anxiety</b> is now common among young people, and I understand it completely. The temptation is to either <b>bury your head in the sand</b> or fall into hopelessness. Both reactions feel honest. Both lead to the same place: doing nothing. The middle path &mdash; informed, calm, active &mdash; is harder, but it's the only one that works.</p>
+<p>I'll finish honestly. We probably won't avoid all the damage. Some places will be flooded. Some species will disappear. The next twenty years will be uncomfortable. But the difference between a hard future and a catastrophic one is decided right now, mostly by what governments do, but also by the millions of small choices ordinary people make. Don't <b>face the music</b> too late. Your generation already understands more about this than mine did at your age. Stay informed, stay loud, vote when you can, and act in your own life — not because it'll fix everything, but because despair is the only thing that's truly useless.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">climate change</div><div class="vocab-def">long-term changes in weather patterns</div><div class="vocab-ex">“Climate change is already affecting our farms.”</div></div>
+<div class="vocab-card"><div class="vocab-term">global warming</div><div class="vocab-def">the rise in Earth's average temperature</div><div class="vocab-ex">“Global warming has accelerated this decade.”</div></div>
+<div class="vocab-card"><div class="vocab-term">greenhouse gases</div><div class="vocab-def">gases that trap heat in the atmosphere</div><div class="vocab-ex">“Cars release greenhouse gases.”</div></div>
+<div class="vocab-card"><div class="vocab-term">fossil fuels</div><div class="vocab-def">oil, coal and gas formed underground over millions of years</div><div class="vocab-ex">“Most countries still rely on fossil fuels.”</div></div>
+<div class="vocab-card"><div class="vocab-term">renewable energy</div><div class="vocab-def">energy from sources that don't run out</div><div class="vocab-ex">“Renewable energy is now cheaper than coal.”</div></div>
+<div class="vocab-card"><div class="vocab-term">solar power</div><div class="vocab-def">electricity from sunlight</div><div class="vocab-ex">“They put solar power on their roof.”</div></div>
+<div class="vocab-card"><div class="vocab-term">recycling</div><div class="vocab-def">reusing materials to reduce waste</div><div class="vocab-ex">“Proper recycling saves real resources.”</div></div>
+<div class="vocab-card"><div class="vocab-term">climate anxiety</div><div class="vocab-def">worry or fear about the climate crisis</div><div class="vocab-ex">“Many young people now feel climate anxiety.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💬</span>Idioms &amp; expressions</h2>
+<p class="instr">Natural expressions to steal for your own speaking. You’ll use these in the questions at the bottom.</p>
+<div class="idiom-grid">
+<div class="idiom-card"><div class="idiom-term">a drop in the ocean</div><div class="idiom-def">a tiny amount that won't really help</div><div class="idiom-ex">“One person recycling is just a drop in the ocean.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to face the music</div><div class="idiom-def">to accept hard consequences</div><div class="idiom-ex">“Politicians will eventually have to face the music.”</div></div>
+<div class="idiom-card"><div class="idiom-term">the calm before the storm</div><div class="idiom-def">a quiet period before something difficult</div><div class="idiom-ex">“This warm winter feels like the calm before the storm.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to bury your head in the sand</div><div class="idiom-def">to ignore an obvious problem</div><div class="idiom-ex">“Don't bury your head in the sand about climate change.”</div></div>
+<div class="idiom-card"><div class="idiom-term">to leave no stone unturned</div><div class="idiom-def">to try everything possible</div><div class="idiom-ex">“Scientists are leaving no stone unturned in the search.”</div></div>
+<div class="idiom-card"><div class="idiom-term">at the eleventh hour</div><div class="idiom-def">at the very last moment</div><div class="idiom-ex">“Action came at the eleventh hour.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word or phrase from the bank, then press <b>Check</b>.</p>
+<div class="bank"><span class="bw">fossil fuels</span><span class="bw">climate change</span><span class="bw">greenhouse gases</span><span class="bw">global warming</span><span class="bw">renewable</span><span class="bw">recycling</span><span class="bw">solar power</span><span class="bw">climate anxiety</span></div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="climate change" aria-label="answer 1"> has already made some summers dangerous.</div>
+<div class="fill-item"><span class="qn">2.</span> Scientists warned about <input class="fill-input" type="text" autocomplete="off" data-answer="global warming" aria-label="answer 2"> as early as the 1970s.</div>
+<div class="fill-item"><span class="qn">3.</span> Cars and planes release huge amounts of <input class="fill-input" type="text" autocomplete="off" data-answer="greenhouse gases" aria-label="answer 3">.</div>
+<div class="fill-item"><span class="qn">4.</span> Most electricity still comes from <input class="fill-input" type="text" autocomplete="off" data-answer="fossil fuels" aria-label="answer 4">.</div>
+<div class="fill-item"><span class="qn">5.</span> Wind and water are forms of <input class="fill-input" type="text" autocomplete="off" data-answer="renewable" aria-label="answer 5"> energy.</div>
+<div class="fill-item"><span class="qn">6.</span> They put <input class="fill-input" type="text" autocomplete="off" data-answer="solar power" aria-label="answer 6"> on the roof and cut their bills in half.</div>
+<div class="fill-item"><span class="qn">7.</span> Proper <input class="fill-input" type="text" autocomplete="off" data-answer="recycling" aria-label="answer 7"> only works if everyone separates waste correctly.</div>
+<div class="fill-item"><span class="qn">8.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="climate anxiety" aria-label="answer 8"> is now common among teenagers, and it makes total sense.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each — tap to reveal.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer's overall message is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it's all hopeless</div>
+<div class="mc-opt" data-i="1"><b>B.</b> cautious hope and action</div>
+<div class="mc-opt" data-i="2"><b>C.</b> everything will be fine</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Global warming is caused mainly by…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> volcanoes</div>
+<div class="mc-opt" data-i="1"><b>B.</b> burning fossil fuels</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the Sun changing</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Renewable energy is now…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> always more expensive</div>
+<div class="mc-opt" data-i="1"><b>B.</b> cheaper than coal or gas in many countries</div>
+<div class="mc-opt" data-i="2"><b>C.</b> still very rare</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q4</span>The writer says personal habits are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a smaller, but real, part of the puzzle</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the only thing that matters</div>
+<div class="mc-opt" data-i="2"><b>C.</b> completely useless</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q5</span>Two unhelpful reactions she warns about are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> denial and despair</div>
+<div class="mc-opt" data-i="1"><b>B.</b> action and curiosity</div>
+<div class="mc-opt" data-i="2"><b>C.</b> reading and voting</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>She believes the next twenty years will be…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> catastrophic, no matter what</div>
+<div class="mc-opt" data-i="1"><b>B.</b> uncomfortable but not catastrophic if we act</div>
+<div class="mc-opt" data-i="2"><b>C.</b> easy and pleasant</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss in pairs or as a group. Push for full, reasoned answers — this is B2–C1.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Have you noticed the weather changing where you live?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's one small green habit you already have?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do you feel hopeful or worried about the future?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you eat less meat now than five years ago?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should governments force people to fly less?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are rich countries responsible for fixing climate change?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is climate anxiety helpful, or harmful?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should schools strike for the climate?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Could one teenager really make a difference?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: convince a doubtful adult that climate change is real and urgent.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Design a 5-step climate plan for your school.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Describe a city of the future where things actually went right.</div></div>
+<div class="q-group-head">Hot takes &amp; predictions<span class="q-tag">Q13–Q14</span></div>
+<div class="q-item"><div class="q-num">13</div><div class="q-text">‘In 20 years, no new cars sold will use petrol.’ Agree?</div></div>
+<div class="q-item"><div class="q-num">14</div><div class="q-text">Will your generation live better or worse than your parents'?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> One of you is a young climate activist; the other plays a cautious uncle who thinks the science is exaggerated. Stay calm — use <em>fossil fuels</em>, <em>renewable energy</em> and <em>climate change</em> — and convince him without lecturing.</div>
+<div class="q-group-head" style="margin-top:26px">Talk it out — use the expressions<span class="q-tag idiom-tag">Q15–Q19</span></div>
+<p class="instr" style="margin-top:-4px">Answer each one and <b>use the bold idiom</b> naturally as you speak.</p>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Is one person recycling really just a <b>drop in the ocean</b>? Defend your answer.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Are some governments <b>burying their heads in the sand</b> about the climate?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Have you ever fixed something at <b>the eleventh hour</b>? What happened?</div></div>
+<div class="q-item idiom-q"><div class="q-num">18</div><div class="q-text">Do you feel like we're living in <b>the calm before the storm</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">19</div><div class="q-text">If we want a liveable future, where should we <b>leave no stone unturned</b> first?</div></div>
+<div class="phrases"><h5>Useful phrases for B2–C1 discussion</h5><div class="ptags"><span>The way I see it…</span><span>I take your point, but…</span><span>That said…</span><span>To play devil’s advocate…</span><span>There’s a strong case for…</span><span>I’d push back on that…</span><span>If anything…</span><span>It boils down to…</span></div></div>
+</section>
+
+  <footer>🌍 ★ ★ &nbsp; MIND &amp; WORLD · B2 ENGLISH · MEMORY · MONEY · TRAVEL · CLIMATE &nbsp; ★ ★ 🌍</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
