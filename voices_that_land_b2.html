@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voices That Land — B2 Communication English</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"🎙️";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🎙️ COMMUNICATION ENGLISH · B2 · PHRASAL VERBS &amp; COLLOCATIONS · SPEAK · LISTEN · LEARN</div>
+      <h1>Voices That <span class="accent">Land</span></h1>
+      <div class="sub">Four conversations about the most useful skill of all &mdash; making yourself understood, and really understanding others. How to give a presentation people remember, how to use your voice well, how to actually listen, and how the world's best podcasts can become your second university. Every highlighted item is a phrasal verb or a collocation you'll really use.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~470 WORDS</span>
+        <span class="tag">PHRASAL VERBS &amp; COLLOCATIONS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">76 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Presentations 🎯</button>
+    <button class="tab" data-tab="t2">② Voice 🎙️</button>
+    <button class="tab" data-tab="t3">③ Listening 👂</button>
+    <button class="tab" data-tab="t4">④ Podcasts 🎧</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🎯</span>Presentation Skills</h2>
+<p class="instr">How to give a presentation people actually remember. Highlighted items are phrasal verbs and collocations &mdash; learn them and use them.</p>
+<article class="reading">
+<h3>The Speaker Everyone Remembers</h3>
+<div class="byline">★ Naomi Ferreira · Presentation coach · Trains business leaders across Europe</div>
+<p>I've watched thousands of presentations. Most of them <b>fall flat</b>. Smart, hard-working professionals stand up, <b>read off their slides</b>, and <b>lose the room</b> within a minute. They didn't fail because they weren't intelligent. They failed because nobody ever taught them that a presentation isn't about your slides. It's about whether you can quietly hold the attention of strangers for fifteen minutes.</p>
+<p>Let's start with the beginning. How you <b>kick off a talk</b> decides everything. The first thirty seconds are when the audience silently decides whether to listen or to mentally <b>check out</b>. Don't open with “Hello, I'm Naomi, today I'd like to talk about…”. Open with a question, a number, or a tiny story. <b>Warm up the room</b> like a host, not a teacher.</p>
+<blockquote class="pull-quote">“Your audience will forget your slides within an hour. They will remember how you made them feel for years.”</blockquote>
+<p>Then comes the structure. Great speakers <b>walk the audience through</b> a clear path. They <b>build up to</b> a main point, support it with one or two examples, and <b>circle back</b> to it at the end. Bad speakers <b>jump around</b>, <b>throw in</b> too much information, and confuse the room. Keep it simple. If you can't explain your idea in one sentence, you don't really know it yet.</p>
+<p>The hardest skill is to <b>get your point across</b> without filling every second with words. Pauses are your friend. Many nervous speakers <b>rush through</b> their slides because silence feels uncomfortable. But silence gives the audience time to think, and it makes you sound calm and senior. <b>Slow down</b>. <b>Breathe</b>. Look at three different faces in the room.</p>
+<p>Then there's the relationship with your slides. Don't <b>read off</b> them. The audience can read faster than you can speak. Use slides as wallpaper, not as a script. The best presenters <b>glance at</b> a slide, then look at the people. Their slides are simple: one big idea each, sometimes a photo, almost no text. If you need to fit ten lines on a slide, you have ten slides, not one.</p>
+<p>When the inevitable problem arrives &mdash; a tough question, a technical issue, an audience member who <b>talks over</b> you &mdash; stay calm. Smile. Take a breath. “That's a great question. Let me come back to it after the next slide” is a complete and respectful sentence. Don't try to <b>blag your way through</b> an answer you don't know.</p>
+<p>And finally, the ending. Most speakers <b>run out of time</b> at the end and quietly mumble, “So, yeah, thank you.” Don't be most speakers. <b>Wrap up</b> with a clear, simple takeaway. “If you remember one thing today, remember this.” Then stop. Take questions. <b>Stand your ground</b> when challenged, but never argue. Try this in your next talk: spend more time on your opening 60 seconds and closing 60 seconds than on everything in between. People remember beginnings and endings. The middle is just the bridge.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a presentation</div><div class="vocab-def">a talk given to an audience</div><div class="vocab-ex">“Her presentation was clear and short.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a slide</div><div class="vocab-def">one page of a slideshow</div><div class="vocab-ex">“Each slide had only one idea.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a hook</div><div class="vocab-def">an opening that grabs attention</div><div class="vocab-ex">“A good hook decides the first minute.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an audience</div><div class="vocab-def">the people watching the talk</div><div class="vocab-ex">“The audience laughed at the opening line.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an agenda</div><div class="vocab-def">a plan of what will be covered</div><div class="vocab-ex">“Show the agenda for ten seconds, no more.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a takeaway</div><div class="vocab-def">the main idea the audience leaves with</div><div class="vocab-ex">“Give them one clear takeaway.”</div></div>
+<div class="vocab-card"><div class="vocab-term">body language</div><div class="vocab-def">how you stand, move and use your hands</div><div class="vocab-ex">“Open body language builds trust.”</div></div>
+<div class="vocab-card"><div class="vocab-term">Q&amp;A</div><div class="vocab-def">the questions and answers section</div><div class="vocab-ex">“Q&amp;A often decides the whole talk.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to kick off a talk</div><div class="vocab-def">to start a presentation</div><div class="vocab-ex">“Always kick off a talk with a clear hook.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to warm up the room</div><div class="vocab-def">to relax your audience early on</div><div class="vocab-ex">“A quick story can warm up the room.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to walk through the slides</div><div class="vocab-def">to explain slides step by step</div><div class="vocab-ex">“She walked us through the slides in ten minutes.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to get your point across</div><div class="vocab-def">to make your message clear</div><div class="vocab-ex">“Use real examples to get your point across.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to run out of time</div><div class="vocab-def">to not have enough time left</div><div class="vocab-ex">“Many speakers run out of time at the end.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to wrap up</div><div class="vocab-def">to finish a presentation cleanly</div><div class="vocab-ex">“Let me wrap up with one simple takeaway.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">agenda</span>
+<span class="bw">body language</span>
+<span class="bw">audience</span>
+<span class="bw">hook</span>
+<span class="bw">presentation</span>
+<span class="bw">slide</span>
+<span class="bw">Q&amp;A</span>
+<span class="bw">takeaway</span>
+</div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> Her <input class="fill-input" type="text" autocomplete="off" data-answer="presentation" aria-label="answer 1"> was the clearest one of the morning.</div>
+<div class="fill-item"><span class="qn">2.</span> Each <input class="fill-input" type="text" autocomplete="off" data-answer="slide" aria-label="answer 2"> had one big idea and almost no text.</div>
+<div class="fill-item"><span class="qn">3.</span> A strong <input class="fill-input" type="text" autocomplete="off" data-answer="hook" aria-label="answer 3"> decides the first minute of any talk.</div>
+<div class="fill-item"><span class="qn">4.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="audience" aria-label="answer 4"> was tired but listened politely.</div>
+<div class="fill-item"><span class="qn">5.</span> Show the <input class="fill-input" type="text" autocomplete="off" data-answer="agenda" aria-label="answer 5"> for ten seconds, then move on.</div>
+<div class="fill-item"><span class="qn">6.</span> Give the audience one clear <input class="fill-input" type="text" autocomplete="off" data-answer="takeaway" aria-label="answer 6"> to remember.</div>
+<div class="fill-item"><span class="qn">7.</span> Open <input class="fill-input" type="text" autocomplete="off" data-answer="body language" aria-label="answer 7"> quietly builds trust with strangers.</div>
+<div class="fill-item"><span class="qn">8.</span> Most speakers fall apart in <input class="fill-input" type="text" autocomplete="off" data-answer="q&amp;a" aria-label="answer 8"> because they argue.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says most presentations…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> are excellent</div>
+<div class="mc-opt" data-i="1"><b>B.</b> fall flat</div>
+<div class="mc-opt" data-i="2"><b>C.</b> are too short</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q2</span>The first decision the audience makes is in…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the first 30 seconds</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the closing slide</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the Q&amp;A</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Great speakers walk the audience…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> very fast</div>
+<div class="mc-opt" data-i="1"><b>B.</b> through a clear path</div>
+<div class="mc-opt" data-i="2"><b>C.</b> silently</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Pauses in a presentation are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> embarrassing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> your friend</div>
+<div class="mc-opt" data-i="2"><b>C.</b> banned</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Slides should be used as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a script to read</div>
+<div class="mc-opt" data-i="1"><b>B.</b> wallpaper, not a script</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a video</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Most speakers ruin the ending by…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> taking too long</div>
+<div class="mc-opt" data-i="1"><b>B.</b> running out of time and mumbling ‘thank you’</div>
+<div class="mc-opt" data-i="2"><b>C.</b> arguing</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Do you enjoy giving presentations or hate them?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's the best presentation you've ever seen?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Are you more nervous before or during a talk?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Would you rather give a speech or write a report?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Why do so many smart people give boring talks?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are slides helping us communicate or hurting us?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should every meeting end with a clear takeaway?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">How can a shy person become a confident speaker?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Is it ever okay to read your talk word-for-word?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: open a presentation with a 30-second hook, no slides allowed.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: handle a hostile question in Q&amp;A.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Plan the structure of a perfect five-minute talk.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Tell us about a speaker who really <b>kicked off a talk</b> with a great hook.</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">What's a fun way to <b>warm up the room</b> at the start of a meeting?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Have you ever had to <b>walk through slides</b> in front of an audience?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">How do you make sure you <b>get your point across</b> when you only have two minutes?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Tell us about a presentation that completely <b>ran out of time</b>. What happened?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're presenting a new project to the senior team in ten minutes. Plan it out loud. <b>Kick off</b> with a strong hook, <b>walk through</b> three points, <b>get your point across</b> without rushing, and <b>wrap up</b> with a clear takeaway.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">🎙️</span>The Art of Speaking &amp; Voice</h2>
+<p class="instr">The voice you use matters more than the words you choose. Highlighted items are real phrasal verbs and collocations.</p>
+<article class="reading">
+<h3>The Voice You Use, Not the Words You Choose</h3>
+<div class="byline">★ Luca Bianchi · Voice coach · Trains TV presenters and senior executives</div>
+<p>Most people focus on what they say. The professionals I coach quickly learn a harder truth: how you say it matters far more. The same sentence can <b>land beautifully</b> or <b>fall flat</b> depending on your voice. A nervous speaker can ruin a brilliant idea in three seconds. A calm one can <b>get away with</b> a thin idea for ten minutes. The good news is that voice is a skill, not a gift. You can build it.</p>
+<p>Let's start with pace. Most nervous speakers <b>speak too fast</b>. Their brain is running ahead, their mouth is trying to <b>catch up</b>, and the audience can't process anything. The fix is uncomfortable: <b>slow down</b>. Pause after important sentences. <b>Take a breath</b> before answering a question. A small silence sounds calm and confident, even when you're terrified inside.</p>
+<blockquote class="pull-quote">“Your voice tells the audience how to feel about your words. Even a brilliant sentence sounds boring if you mumble it.”</blockquote>
+<p>Then there's volume. People often <b>trail off</b> at the end of sentences. They start strongly and quietly <b>fade out</b>. The audience hears half the message. Train yourself to finish every sentence with the same energy you started it. If somebody at the back of the room can't hear you, <b>speak up</b> &mdash; even one notch louder.</p>
+<p>Many speakers <b>mumble</b> because they're afraid of being heard. Open your mouth more than feels normal. Move your jaw. Pronounce the consonants clearly. People often think they have a quiet voice when they really have a closed mouth. <b>Project your voice</b> toward the back wall, not toward the floor.</p>
+<p>Tone is the next layer. Speak in one flat tone and you'll <b>send the audience to sleep</b>, however clever your content. Use small changes in pitch to show what's important. Slow down on the key phrase. Drop your voice slightly on the punchline. Listen to any podcast host you love and notice their tiny voice changes &mdash; that's not natural talent; that's craft.</p>
+<p>Then there's the moment everyone dreads. You <b>dry up</b>. You forget what you were going to say. Your hands sweat. You <b>stumble over your words</b>. The trick: don't apologise. Don't <b>get tongue-tied</b> trying to recover quickly. Just pause, breathe, smile, and say: “Let me try that again.” The audience won't punish you. They actually warm to a speaker who handles small problems calmly.</p>
+<p>And finally, what you <b>come across as</b>. Confidence isn't loud. It's slow, calm, and clear. The most powerful speakers I know are not the most extroverted. They are the ones who learned to use their voice like an instrument: deliberate pace, gentle pauses, and a quiet refusal to fill every second with sound. Practise reading three pages out loud every day for two weeks. You won't believe the difference. Your voice is half your message. <b>Find your voice</b>, and people will start to listen to you in rooms where you used to be invisible.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">pace</div><div class="vocab-def">how fast or slow you speak</div><div class="vocab-ex">“A good pace sounds calm and clear.”</div></div>
+<div class="vocab-card"><div class="vocab-term">volume</div><div class="vocab-def">how loud or quiet you are</div><div class="vocab-ex">“Adjust your volume to the room.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a pause</div><div class="vocab-def">a short silence between sentences</div><div class="vocab-ex">“A small pause sounds confident.”</div></div>
+<div class="vocab-card"><div class="vocab-term">tone</div><div class="vocab-def">the colour of your voice</div><div class="vocab-ex">“A flat tone sends people to sleep.”</div></div>
+<div class="vocab-card"><div class="vocab-term">pitch</div><div class="vocab-def">how high or low your voice is</div><div class="vocab-ex">“Lowering your pitch makes you sound calmer.”</div></div>
+<div class="vocab-card"><div class="vocab-term">breath</div><div class="vocab-def">air taken in and out</div><div class="vocab-ex">“Take a breath before any big point.”</div></div>
+<div class="vocab-card"><div class="vocab-term">nervous</div><div class="vocab-def">worried or afraid before speaking</div><div class="vocab-ex">“I always feel nervous in interviews.”</div></div>
+<div class="vocab-card"><div class="vocab-term">confident</div><div class="vocab-def">sure of yourself</div><div class="vocab-ex">“She sounded confident from the first word.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to speak up</div><div class="vocab-def">to talk louder</div><div class="vocab-ex">“Could you speak up a little?”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to slow down</div><div class="vocab-def">to talk more slowly</div><div class="vocab-ex">“When you're nervous, slow down.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to project your voice</div><div class="vocab-def">to make your voice carry</div><div class="vocab-ex">“Project your voice to the back of the room.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to dry up</div><div class="vocab-def">to forget what you were going to say</div><div class="vocab-ex">“Even experienced speakers dry up sometimes.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to stumble over your words</div><div class="vocab-def">to speak with small mistakes</div><div class="vocab-ex">“I stumbled over my words for the first minute.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to come across as</div><div class="vocab-def">to give an impression</div><div class="vocab-ex">“She comes across as confident and kind.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">confident</span>
+<span class="bw">pace</span>
+<span class="bw">pitch</span>
+<span class="bw">volume</span>
+<span class="bw">nervous</span>
+<span class="bw">breath</span>
+<span class="bw">tone</span>
+<span class="bw">pause</span>
+</div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> Slow down your <input class="fill-input" type="text" autocomplete="off" data-answer="pace" aria-label="answer 1"> when you're nervous.</div>
+<div class="fill-item"><span class="qn">2.</span> Adjust your <input class="fill-input" type="text" autocomplete="off" data-answer="volume" aria-label="answer 2"> to the size of the room.</div>
+<div class="fill-item"><span class="qn">3.</span> A small <input class="fill-input" type="text" autocomplete="off" data-answer="pause" aria-label="answer 3"> before a key sentence sounds powerful.</div>
+<div class="fill-item"><span class="qn">4.</span> Don't speak in a flat <input class="fill-input" type="text" autocomplete="off" data-answer="tone" aria-label="answer 4"> for ten minutes.</div>
+<div class="fill-item"><span class="qn">5.</span> Lowering your <input class="fill-input" type="text" autocomplete="off" data-answer="pitch" aria-label="answer 5"> a little makes you sound calmer.</div>
+<div class="fill-item"><span class="qn">6.</span> Take a slow <input class="fill-input" type="text" autocomplete="off" data-answer="breath" aria-label="answer 6"> before answering a difficult question.</div>
+<div class="fill-item"><span class="qn">7.</span> I always feel a bit <input class="fill-input" type="text" autocomplete="off" data-answer="nervous" aria-label="answer 7"> before a big interview.</div>
+<div class="fill-item"><span class="qn">8.</span> She sounded <input class="fill-input" type="text" autocomplete="off" data-answer="confident" aria-label="answer 8"> from the very first sentence.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says how you say something matters… than what you say.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> less</div>
+<div class="mc-opt" data-i="1"><b>B.</b> far more</div>
+<div class="mc-opt" data-i="2"><b>C.</b> exactly the same</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Most nervous speakers tend to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> speak too slowly</div>
+<div class="mc-opt" data-i="1"><b>B.</b> speak too fast</div>
+<div class="mc-opt" data-i="2"><b>C.</b> not speak at all</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Trailing off at the end of sentences…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> sounds confident</div>
+<div class="mc-opt" data-i="1"><b>B.</b> makes the audience miss half the message</div>
+<div class="mc-opt" data-i="2"><b>C.</b> is normal and fine</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Mumbling often comes from…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a quiet voice</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a closed mouth</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a bad microphone</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>If you dry up, the writer suggests…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> apologising a lot</div>
+<div class="mc-opt" data-i="1"><b>B.</b> pausing, breathing and saying ‘let me try that again’</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ending the talk</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Real confidence, the writer says, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> loud</div>
+<div class="mc-opt" data-i="1"><b>B.</b> slow, calm and clear</div>
+<div class="mc-opt" data-i="2"><b>C.</b> fast and dramatic</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Do you like the sound of your own voice on a recording?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Are you a fast talker or a slow one?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do you tend to mumble or project clearly?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What's the most embarrassing speaking moment you can share?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should schools teach voice training as seriously as writing?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Why do so many smart people sound nervous in interviews?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is it harder to speak well in your second language or your first?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Are TV presenters genuinely better speakers, or just more practised?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Should AI voice-coaching apps replace human voice coaches?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Read a paragraph aloud, slowly, with deliberate pauses. Then evaluate yourself.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: recover from drying up in the middle of a speech.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a 21-day plan to improve your speaking voice.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">When was the last time someone asked you to <b>speak up</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Do you tend to <b>slow down</b> or <b>speed up</b> when you're nervous?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Have you ever <b>dried up</b> in front of a group? What did you do?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you <b>stumbled over your words</b> in an interview or test? Tell the story.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">How do you want to <b>come across as</b> on a first day at a new job?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You are about to give an important speech and you're very <b>nervous</b>. The other plays a calm voice coach. Get advice on <b>pace</b>, <b>tone</b>, what to do if you <b>dry up</b>, and how to <b>come across as</b> confident without being loud.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">👂</span>Listening &amp; Understanding</h2>
+<p class="instr">The most underrated communication skill of all &mdash; really listening. Phrasal verbs and collocations are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Skill Nobody Practises</h3>
+<div class="byline">★ Yara Hassan · Communication trainer · 18 years inside large organisations</div>
+<p>We spend years learning to read, write and speak. Almost nobody is taught how to listen. And yet, after eighteen years inside large organisations, I can tell you the colleagues who <b>get on best</b> with everyone are not the loudest or the smartest. They are the ones who really listen. They notice what most people miss, and they remember what most people forget.</p>
+<p>Modern life is engineered to make listening difficult. Phones buzz. Notifications <b>pop up</b>. Our minds <b>jump ahead</b> to what we want to say. Studies suggest the average adult <b>zones out</b> roughly every twelve seconds in a conversation. We're not deaf. We're just not really there.</p>
+<blockquote class="pull-quote">“Most people don't listen with the intent to understand. They listen with the intent to reply.”</blockquote>
+<p>Real listening starts with the body. Put your phone face down. Turn slightly toward the speaker. Stop scanning the room. People feel the difference within seconds. Even small acts &mdash; <b>nodding along</b>, gentle eye contact, an occasional “hmm” &mdash; tell the speaker you're with them. Without these tiny signals, even a perfect listener seems uninterested.</p>
+<p>Then there's the mental side. Stop <b>jumping in</b> to finish other people's sentences. Stop preparing your reply while they're still talking. Try to <b>take in</b> what they're actually saying, including the things they're not saying directly. Most people don't tell you the real problem in the first sentence. They <b>build up to</b> it slowly. If you <b>cut in</b> too fast, you'll never hear it.</p>
+<p>Good listeners <b>pick up on</b> small clues. A hesitation. A change of tone. The exact word someone chose, when another word was available. “I'm ‘fine’” is rarely the same as “I'm great.” The skill of <b>reading between the lines</b> is mostly the skill of slowing down enough to hear what's quietly there.</p>
+<p>When you don't understand, say so. “Sorry, I'm not <b>following what you're saying</b> &mdash; can you say that again?” is a sign of confidence, not weakness. Many people nod politely when they're lost, and then make a small decision based on something they never properly understood. <b>Ask follow-up questions</b>. “Can you give me an example?” “What happened next?” “What did that feel like?” Questions like these turn a one-way speech into a real conversation.</p>
+<p>There's also the dark side of listening: when to <b>tune out</b> politely. Some people will talk forever if you let them. The trick is to listen actively for a few minutes, then gently <b>steer</b> the conversation: “I'd love to hear more, but I have to <b>get back to</b> something at 4. Can we pick this up later?” That's not rude. That's adult.</p>
+<p>Finally, remember the surprising power of being heard. Most people walk through their day feeling slightly unheard at home, at work, in shops. If you become the person who really listens &mdash; even for two minutes &mdash; you become genuinely rare. People will trust you, recommend you, and remember you. Listening is the cheapest, kindest superpower in modern professional life. <b>Switch off</b> the noise. <b>Listen out for</b> the real message. The rest will follow.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a listener</div><div class="vocab-def">someone who hears and pays attention</div><div class="vocab-ex">“A good listener is rare in modern life.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a conversation</div><div class="vocab-def">two or more people talking together</div><div class="vocab-ex">“Real conversations have silences too.”</div></div>
+<div class="vocab-card"><div class="vocab-term">attention</div><div class="vocab-def">the act of focusing on something</div><div class="vocab-ex">“Give people your full attention.”</div></div>
+<div class="vocab-card"><div class="vocab-term">empathy</div><div class="vocab-def">understanding how others feel</div><div class="vocab-ex">“Empathy can be learned, slowly.”</div></div>
+<div class="vocab-card"><div class="vocab-term">eye contact</div><div class="vocab-def">looking into someone's eyes</div><div class="vocab-ex">“Eye contact builds trust.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a distraction</div><div class="vocab-def">something that takes attention away</div><div class="vocab-ex">“Phones are the main distraction at work.”</div></div>
+<div class="vocab-card"><div class="vocab-term">active listening</div><div class="vocab-def">listening fully and with care</div><div class="vocab-ex">“Active listening is harder than it sounds.”</div></div>
+<div class="vocab-card"><div class="vocab-term">body language</div><div class="vocab-def">what your posture and gestures say</div><div class="vocab-ex">“Open body language helps you listen better.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to tune out</div><div class="vocab-def">to stop paying attention</div><div class="vocab-ex">“I tuned out after the third long slide.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to pay attention</div><div class="vocab-def">to listen carefully</div><div class="vocab-ex">“Pay attention to what she's not saying.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to pick up on</div><div class="vocab-def">to notice something subtle</div><div class="vocab-ex">“Good listeners pick up on small details.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to cut in</div><div class="vocab-def">to interrupt</div><div class="vocab-ex">“Sorry to cut in, but I have a quick point.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to read between the lines</div><div class="vocab-def">to understand the hidden meaning</div><div class="vocab-ex">“Customers expect us to read between the lines.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to follow what someone is saying</div><div class="vocab-def">to understand the line of thought</div><div class="vocab-ex">“I'm not following what you're saying — say it again?”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">eye contact</span>
+<span class="bw">listener</span>
+<span class="bw">body language</span>
+<span class="bw">conversation</span>
+<span class="bw">attention</span>
+<span class="bw">distraction</span>
+<span class="bw">active listening</span>
+<span class="bw">empathy</span>
+</div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> A truly good <input class="fill-input" type="text" autocomplete="off" data-answer="listener" aria-label="answer 1"> is genuinely rare these days.</div>
+<div class="fill-item"><span class="qn">2.</span> Real <input class="fill-input" type="text" autocomplete="off" data-answer="conversations" aria-label="answer 2"> leave room for silences.</div>
+<div class="fill-item"><span class="qn">3.</span> Give the speaker your full <input class="fill-input" type="text" autocomplete="off" data-answer="attention" aria-label="answer 3">.</div>
+<div class="fill-item"><span class="qn">4.</span> Strong <input class="fill-input" type="text" autocomplete="off" data-answer="empathy" aria-label="answer 4"> takes years to build.</div>
+<div class="fill-item"><span class="qn">5.</span> Soft, regular <input class="fill-input" type="text" autocomplete="off" data-answer="eye contact" aria-label="answer 5"> tells the speaker you're with them.</div>
+<div class="fill-item"><span class="qn">6.</span> Phones are the main <input class="fill-input" type="text" autocomplete="off" data-answer="distraction" aria-label="answer 6"> in modern meetings.</div>
+<div class="fill-item"><span class="qn">7.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="active listening" aria-label="answer 7"> is much harder than it sounds.</div>
+<div class="fill-item"><span class="qn">8.</span> Open <input class="fill-input" type="text" autocomplete="off" data-answer="body language" aria-label="answer 8"> tells people they're welcome.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="2">
+<div class="mc-q"><span class="qn">Q1</span>The colleagues who get on best, the writer says, are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the loudest</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the smartest</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the ones who really listen</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q2</span>The average adult zones out roughly every…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> 12 seconds</div>
+<div class="mc-opt" data-i="1"><b>B.</b> 2 minutes</div>
+<div class="mc-opt" data-i="2"><b>C.</b> 10 minutes</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Real listening starts with…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> talking back fast</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the body</div>
+<div class="mc-opt" data-i="2"><b>C.</b> writing it down</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Most people… their real problem in the first sentence.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> always state</div>
+<div class="mc-opt" data-i="1"><b>B.</b> rarely state</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never state</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Reading between the lines is mostly about…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> guessing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> slowing down enough to hear what's quietly there</div>
+<div class="mc-opt" data-i="2"><b>C.</b> speaking less</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Saying ‘I'm not following you, can you repeat that?’ is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a sign of weakness</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a sign of confidence</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never appropriate</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Are you a better listener or a better talker?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Who is the best listener you know?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">When do you most often zone out?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you check your phone during conversations?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Why is listening so hard in modern life?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should schools teach active listening?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is it ever rude to interrupt someone, even with a good point?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Can someone become a better listener as an adult, or is it a personality trait?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">How can a manager help a team feel heard?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: a friend talks for ten minutes without stopping. End the conversation kindly.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: a customer is upset but isn't telling you why. Listen them into clarity.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design three small habits that would make you a better listener this month.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">When do you most often <b>tune out</b> &mdash; meetings, lessons, or family dinners?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Are you good at <b>picking up on</b> when a friend is upset?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">How do you politely <b>cut in</b> when someone is talking too long?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Tell us about a moment when you really had to <b>read between the lines</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">How do you ask for help when you're not <b>following what someone is saying</b>?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A colleague seems quietly upset but keeps saying “I'm fine.” <b>Pay attention</b>, <b>pick up on</b> what they're not saying, <b>ask follow-up questions</b>, and <b>read between the lines</b> until they feel safe enough to share what's really going on.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">🎧</span>Podcasts &amp; Learning by Ear</h2>
+<p class="instr">How podcasts can become your second university. Phrasal verbs and collocations are in <b>gold</b>.</p>
+<article class="reading">
+<h3>Free University in Your Headphones</h3>
+<div class="byline">★ Marco Vidal · Podcast producer &amp; lifelong learner · Listens to 8 shows a week</div>
+<p>Twenty years ago, if you wanted to learn from the best minds in the world, you went to expensive universities or rare bookshops. Today, you put on headphones during your walk to work and <b>tune in</b> for free. Podcasts have quietly become one of the most powerful learning tools in modern adult life. The hard part is no longer access. The hard part is choosing well.</p>
+<p>Let's start with how to listen. Don't <b>just put on background noise</b>. Pick one show you actually find interesting, and <b>dive into</b> it properly. Most podcasts get really good around episode 20, when the hosts have <b>found their voice</b>. So if a show <b>seems flat</b> at the start, don't <b>give up</b> immediately. <b>Catch up on</b> a few key episodes and you'll quickly know whether it's for you.</p>
+<blockquote class="pull-quote">“A good podcast doesn't tell you what to think. It quietly teaches you how a smart person thinks while they think.”</blockquote>
+<p>There are roughly four kinds of podcast worth your time. <b>Interview shows</b> like <em>The Tim Ferriss Show</em> or <em>How I Built This</em> are slow, long conversations with people who built something. <b>Deep-dive shows</b> like <em>Hidden Brain</em> or <em>Freakonomics Radio</em> <b>dig into</b> one topic per episode using research and storytelling. <b>News explainers</b> like <em>The Daily</em> or <em>The Rest is Politics</em> help you <b>keep up with</b> the world without doomscrolling. And <b>narrative podcasts</b> like <em>Serial</em> or <em>This American Life</em> <b>get you hooked on</b> a single story across many episodes.</p>
+<p>For learning, slow podcasts beat fast ones. A 90-minute interview where someone explains how they actually do their work will teach you more than ten short clips. The big <b>takeaways</b> come from people thinking out loud, getting stuck, changing their mind. That's what an interview show offers that a TikTok video never can.</p>
+<p>But podcasts aren't magic. You can listen for a hundred hours and not improve at anything. To really <b>pick up tips</b>, <b>take notes</b> on a few key ideas. Pause when something hits you. Try one small thing the next morning. The professionals who learn most from podcasts treat them like classes, not like wallpaper.</p>
+<p>There's also the language side. For English learners, podcasts are gold. You hear real, natural English &mdash; phrasal verbs, hesitation, accents, casual collocations &mdash; that no textbook can capture. Start with podcasts that have transcripts, so you can <b>look up</b> what you didn't catch. <b>Listen back</b> to the same episode the next day. Most people are shocked by how much more they catch the second time.</p>
+<p>Be careful, though. Podcasts can become a way of feeling busy and intelligent while doing nothing. If your queue is growing faster than your understanding, <b>cut back</b>. Unsubscribe from anything you've stopped enjoying. <b>Branch out</b> into one or two topics outside your comfort zone every few months &mdash; you'll be surprised how much you change. Headphones are the cheapest education in history. Use them wisely, and within two years, you can become an informed person on five subjects you knew nothing about. Your future self will quietly thank you.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a podcast</div><div class="vocab-def">an online audio show</div><div class="vocab-ex">“I listen to a podcast on my walk to work.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an episode</div><div class="vocab-def">one part of a podcast or series</div><div class="vocab-ex">“The first episode hooked me immediately.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a host</div><div class="vocab-def">the person who runs a podcast</div><div class="vocab-ex">“Their host is calm and curious.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a guest</div><div class="vocab-def">a person interviewed on a show</div><div class="vocab-ex">“This week's guest is a neuroscientist.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a transcript</div><div class="vocab-def">the written text of a recording</div><div class="vocab-ex">“Transcripts help English learners enormously.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a takeaway</div><div class="vocab-def">the main idea you remember</div><div class="vocab-ex">“The big takeaway was simple but powerful.”</div></div>
+<div class="vocab-card"><div class="vocab-term">subscription</div><div class="vocab-def">signing up to keep receiving episodes</div><div class="vocab-ex">“Subscriptions are free for most podcasts.”</div></div>
+<div class="vocab-card"><div class="vocab-term">background listening</div><div class="vocab-def">listening while doing something else</div><div class="vocab-ex">“Background listening teaches you very little.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to catch up on</div><div class="vocab-def">to listen to older episodes</div><div class="vocab-ex">“I'm catching up on the back episodes.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to dive into</div><div class="vocab-def">to start eagerly</div><div class="vocab-ex">“Dive into a podcast on your way to work.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to get hooked on</div><div class="vocab-def">to become addicted to something</div><div class="vocab-ex">“I got hooked on a science podcast last winter.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to pick up tips</div><div class="vocab-def">to learn small useful pieces of advice</div><div class="vocab-ex">“I pick up tips from every episode.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to keep up with</div><div class="vocab-def">to stay current with</div><div class="vocab-ex">“I keep up with three podcasts a week.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to branch out</div><div class="vocab-def">to try something new</div><div class="vocab-ex">“Branch out from your usual topics.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">transcript</span>
+<span class="bw">subscription</span>
+<span class="bw">host</span>
+<span class="bw">podcast</span>
+<span class="bw">background</span>
+<span class="bw">takeaway</span>
+<span class="bw">episode</span>
+<span class="bw">guest</span>
+</div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> I listen to one good <input class="fill-input" type="text" autocomplete="off" data-answer="podcast" aria-label="answer 1"> on my way to work.</div>
+<div class="fill-item"><span class="qn">2.</span> The first <input class="fill-input" type="text" autocomplete="off" data-answer="episode" aria-label="answer 2"> of the season hooked me immediately.</div>
+<div class="fill-item"><span class="qn">3.</span> Their <input class="fill-input" type="text" autocomplete="off" data-answer="host" aria-label="answer 3"> is calm, curious and well-prepared.</div>
+<div class="fill-item"><span class="qn">4.</span> Their <input class="fill-input" type="text" autocomplete="off" data-answer="guest" aria-label="answer 4"> this week is a famous neuroscientist.</div>
+<div class="fill-item"><span class="qn">5.</span> English learners should always use the <input class="fill-input" type="text" autocomplete="off" data-answer="transcript" aria-label="answer 5"> if available.</div>
+<div class="fill-item"><span class="qn">6.</span> The big <input class="fill-input" type="text" autocomplete="off" data-answer="takeaway" aria-label="answer 6"> of the episode was simple but powerful.</div>
+<div class="fill-item"><span class="qn">7.</span> Most podcast <input class="fill-input" type="text" autocomplete="off" data-answer="subscriptions" aria-label="answer 7"> are free.</div>
+<div class="fill-item"><span class="qn">8.</span> Pure <input class="fill-input" type="text" autocomplete="off" data-answer="background" aria-label="answer 8"> listening teaches you very little.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>Twenty years ago, access to great minds was… Today it's…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> free; expensive</div>
+<div class="mc-opt" data-i="1"><b>B.</b> expensive; almost free</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the same</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Most podcasts, the writer says, get really good around…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> episode 1</div>
+<div class="mc-opt" data-i="1"><b>B.</b> episode 20</div>
+<div class="mc-opt" data-i="2"><b>C.</b> episode 100</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>For learning, the writer prefers…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> short clips</div>
+<div class="mc-opt" data-i="1"><b>B.</b> slow long interviews</div>
+<div class="mc-opt" data-i="2"><b>C.</b> music shows</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>To really pick up tips, you should…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> just listen</div>
+<div class="mc-opt" data-i="1"><b>B.</b> take notes and try one thing</div>
+<div class="mc-opt" data-i="2"><b>C.</b> change podcast every day</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>For English learners, podcasts are valuable because they offer…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> perfect grammar</div>
+<div class="mc-opt" data-i="1"><b>B.</b> real natural English with phrasal verbs and collocations</div>
+<div class="mc-opt" data-i="2"><b>C.</b> quiet music</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Podcasts can become a problem when…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> they're free</div>
+<div class="mc-opt" data-i="1"><b>B.</b> your queue grows faster than your understanding</div>
+<div class="mc-opt" data-i="2"><b>C.</b> they have transcripts</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">How many podcasts are you currently subscribed to?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's the last great podcast episode you listened to?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do you prefer interviews, news, or stories?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">When in the day do you listen?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are podcasts replacing books for many adults?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should schools recommend podcasts as part of homework?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Are short-form videos killing our patience for long audio?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should podcast hosts have to label sponsored content very clearly?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will AI-generated podcasts feel as human in five years?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Recommend a podcast to a friend, in 60 seconds, using ‘dive into’, ‘get hooked on’ and ‘pick up tips’.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Plan how you would use podcasts to improve your English over six months.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Pitch a new podcast idea. Topic, host, length, ideal listener.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">What podcast are you currently <b>hooked on</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Is there a podcast you really need to <b>catch up on</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">What's the best tip you've <b>picked up</b> from a podcast?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Could you genuinely <b>keep up with</b> three podcasts every week?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What topic would you love to <b>branch out</b> into through podcasts this year?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend says they want to learn more but never have time. Recommend three podcasts based on their interests. <b>Branch out</b>, <b>catch up on</b> the best episodes, <b>pick up tips</b>, and explain how to <b>keep up with</b> a show without falling behind.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<footer>🎙️ ★ ★ &nbsp; VOICES THAT LAND · B2 COMMUNICATION ENGLISH · PRESENTATIONS · VOICE · LISTENING · PODCASTS &nbsp; ★ ★ 🎙️</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
