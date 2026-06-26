@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Moves — B2 Business English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"🚀";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🚀 BUSINESS ENGLISH · B2 · NETWORKING · TIME · STARTUPS · FUTURE OF WORK</div>
+      <h1>Career <span class="accent">Moves</span></h1>
+      <div class="sub">Four conversations about the parts of working life nobody really teaches you &mdash; how careers actually move through people, how to be productive without burning out, what really happens in a start-up, and the workplace that's already arriving. Read the column, learn the highlighted vocabulary, then talk like someone who's thought about it.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~400 WORDS</span>
+        <span class="tag">LOTS OF HIGHLIGHTED VOCAB</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">76 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Networking 🤝</button>
+    <button class="tab" data-tab="t2">② Productivity ⏰</button>
+    <button class="tab" data-tab="t3">③ Startups 🚀</button>
+    <button class="tab" data-tab="t4">④ Future of Work 🤖</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🤝</span>Networking &amp; Professional Reputation</h2>
+<p class="instr">How careers really move forward &mdash; not just through skill, but through people who quietly help. Key vocabulary is in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Career You'll Have Is Sitting in Other People's Inboxes</h3>
+<div class="byline">★ Adam Lindqvist · Career coach · Helps 200 professionals a year find their next role</div>
+<p>After fifteen years coaching people through job changes, I can tell you something they never taught me at school: most great <b>opportunities</b> never appear on <b>job sites</b>. They happen because somebody thinks of you and sends a <b>message</b>. The <b>career</b> you'll have in five years is sitting in someone else's <b>inbox</b>. Your job, right now, is to give them a reason to remember you.</p>
+<p>I know, the word “<b>networking</b>” sounds horrible. It makes people imagine fake smiles and exchanged <b>business cards</b>. But real networking is not about <b>collecting contacts</b>. It is about being genuinely useful, interesting and kind to a small number of <b>colleagues</b>, over many years. Done well, it stops feeling like work and starts feeling like friendship.</p>
+<blockquote class="pull-quote">“Your network is not the people you collect. It's the people who would happily answer your message in a year.”</blockquote>
+<p>Start with where you already are. Your classmates, your old <b>colleagues</b>, your former <b>boss</b>, the person who interviewed you for a job you didn't get. These are all part of your <b>professional network</b>, even if you've never used the word. The trick is to <b>keep in touch</b>: a short message every few months, a real interest in their life, no immediate ask for anything. Most people only call when they need something. Don't be most people.</p>
+<p>Then there's the bigger world. <b>LinkedIn</b>, <b>conferences</b>, online <b>communities</b>, <b>meetups</b>, alumni groups. Many people hate going to these. But if you arrive with one clear goal &mdash; meet three new humans, learn one new thing, talk to one person you don't know &mdash; you'll leave with something you couldn't have got from a desk. The biggest mistake is to stand near the buffet looking at your phone.</p>
+<p>How you behave online matters too. <b>Recruiters</b> and <b>hiring managers</b> Google you. They look at your <b>profile</b>, your photo, the way you write. None of this needs to be perfect; it needs to be clear. Who are you? What do you care about? What kind of work do you want next? Most professionals have a quiet, neglected <b>LinkedIn</b> that quietly costs them <b>opportunities</b>. Spend two hours fixing it. You will thank yourself in a year.</p>
+<p><b>Reputation</b> is the slow miracle behind all of this. Show up on time. Do what you said you would. <b>Follow up</b>. Be the person colleagues describe as “easy to work with.” Send the email that says <em>thank you</em>. <b>Drop someone a line</b> when you see their good news. <b>Recommend</b> a friend even when you'll never benefit. The compound effect, over a career, is enormous.</p>
+<p>If you take one idea from this column, take this: spend ten minutes a week being kind to your <b>network</b> with no goal in mind. Most people only reach out when they need a job. Be the rare person who reaches out when they don't. That single habit, repeated for ten years, will quietly open doors no <b>job board</b> ever could.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">networking</div><div class="vocab-def">building useful professional relationships</div><div class="vocab-ex">“Good networking is mostly about being kind.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a contact</div><div class="vocab-def">someone you know professionally</div><div class="vocab-ex">“She has contacts in three industries.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a professional network</div><div class="vocab-def">the group of people you know through work</div><div class="vocab-ex">“Build a wide professional network slowly.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a recruiter</div><div class="vocab-def">someone who finds people for companies</div><div class="vocab-ex">“Recruiters use LinkedIn every day.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a profile</div><div class="vocab-def">an online page about you</div><div class="vocab-ex">“Update your profile every year.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a referral</div><div class="vocab-def">when someone recommends you for a job</div><div class="vocab-ex">“Most senior hires come through referrals.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a reputation</div><div class="vocab-def">what others believe about you</div><div class="vocab-ex">“Reputation takes years to build.”</div></div>
+<div class="vocab-card"><div class="vocab-term">to follow up</div><div class="vocab-def">to send a second message after a meeting</div><div class="vocab-ex">“Always follow up within 48 hours.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to know the right people</div><div class="vocab-def">to have useful contacts</div><div class="vocab-ex">“Half of business is knowing the right people.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to put yourself out there</div><div class="vocab-def">to actively meet new people</div><div class="vocab-ex">“Send the message. Put yourself out there.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to drop someone a line</div><div class="vocab-def">to send a short, friendly message</div><div class="vocab-ex">“I'll drop her a line this afternoon.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to keep in touch</div><div class="vocab-def">to stay in contact over time</div><div class="vocab-ex">“We try to keep in touch twice a year.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be on someone's radar</div><div class="vocab-def">to be noticed by them</div><div class="vocab-ex">“After the conference, I was on her radar.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to break the ice</div><div class="vocab-def">to start a conversation in a friendly way</div><div class="vocab-ex">“A simple compliment can break the ice.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">follow up</span>
+<span class="bw">profile</span>
+<span class="bw">contacts</span>
+<span class="bw">network</span>
+<span class="bw">referral</span>
+<span class="bw">reputation</span>
+<span class="bw">networking</span>
+<span class="bw">recruiter</span>
+</div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> Good <input class="fill-input" type="text" autocomplete="off" data-answer="networking" aria-label="answer 1"> is mostly about being genuinely kind.</div>
+<div class="fill-item"><span class="qn">2.</span> She has <input class="fill-input" type="text" autocomplete="off" data-answer="contacts" aria-label="answer 2"> in finance, tech and design.</div>
+<div class="fill-item"><span class="qn">3.</span> Build a strong professional <input class="fill-input" type="text" autocomplete="off" data-answer="network" aria-label="answer 3"> before you need one.</div>
+<div class="fill-item"><span class="qn">4.</span> A <input class="fill-input" type="text" autocomplete="off" data-answer="recruiter" aria-label="answer 4"> called me about a new role yesterday.</div>
+<div class="fill-item"><span class="qn">5.</span> Spend an afternoon fixing your LinkedIn <input class="fill-input" type="text" autocomplete="off" data-answer="profile" aria-label="answer 5">.</div>
+<div class="fill-item"><span class="qn">6.</span> Most senior jobs are filled through a <input class="fill-input" type="text" autocomplete="off" data-answer="referral" aria-label="answer 6">.</div>
+<div class="fill-item"><span class="qn">7.</span> Your <input class="fill-input" type="text" autocomplete="off" data-answer="reputation" aria-label="answer 7"> takes years to build and minutes to lose.</div>
+<div class="fill-item"><span class="qn">8.</span> Always <input class="fill-input" type="text" autocomplete="off" data-answer="follow up" aria-label="answer 8"> within 48 hours of meeting someone new.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says most great opportunities appear…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> on job sites</div>
+<div class="mc-opt" data-i="1"><b>B.</b> because someone sends a message</div>
+<div class="mc-opt" data-i="2"><b>C.</b> through luck</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Real networking is described as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> collecting business cards</div>
+<div class="mc-opt" data-i="1"><b>B.</b> being useful and kind to a few people for years</div>
+<div class="mc-opt" data-i="2"><b>C.</b> attending every event</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Your existing network includes…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> only famous people</div>
+<div class="mc-opt" data-i="1"><b>B.</b> classmates, old colleagues, former interviewers</div>
+<div class="mc-opt" data-i="2"><b>C.</b> strangers</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>How you behave online matters because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it's a hobby</div>
+<div class="mc-opt" data-i="1"><b>B.</b> recruiters look at it</div>
+<div class="mc-opt" data-i="2"><b>C.</b> it improves your typing</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The compound effect of small kindnesses is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> small</div>
+<div class="mc-opt" data-i="1"><b>B.</b> enormous</div>
+<div class="mc-opt" data-i="2"><b>C.</b> negative</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's one-idea takeaway is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> only call when you need something</div>
+<div class="mc-opt" data-i="1"><b>B.</b> be kind to your network with no goal</div>
+<div class="mc-opt" data-i="2"><b>C.</b> quit LinkedIn</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">When did you last update your LinkedIn?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Do you enjoy meeting new people at events?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Who has helped your career the most so far?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Have you ever been recommended for a job by a friend?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is it fair that so many jobs come through who you know?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are introverts at a disadvantage in modern careers?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should companies hire less through referrals and more through open applications?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is it ever appropriate to ask a stranger for a job?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">How can a shy person build a strong network without faking it?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: write the perfect cold message to someone you admire.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: follow up with someone you met at a conference last week.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Plan a 30-day networking habit, with concrete actions per week.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Are you good at <b>putting yourself out there</b>, or do you find it scary?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Tell us about a time you <b>broke the ice</b> nicely with a stranger.</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Who would you <b>drop a line</b> to this week, if you could?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Is there someone you used to <b>keep in touch with</b> but lost contact with? Why?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Tell us about a moment you suddenly realised you were <b>on someone's radar</b>.</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're at a small industry event. The other person doesn't know you. Walk up, <em>break the ice</em>, introduce yourself, find one genuine connection, and agree to <em>keep in touch</em> &mdash; without sounding like a salesperson.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">⏰</span>Time Management &amp; Productivity</h2>
+<p class="instr">How to actually get important things done &mdash; without burning out or pretending. Key vocabulary is in <b>gold</b>.</p>
+<article class="reading">
+<h3>Busy Is Not the Same as Productive</h3>
+<div class="byline">★ Helena Costa · Productivity coach · Helps tired managers find their week again</div>
+<p>Every Monday, I see the same pattern. Smart, hard-working people sit down at 9 a.m., open their <b>inbox</b>, answer messages for two hours, sit in three <b>meetings</b>, eat lunch at their desk, attend two more meetings, and at six o'clock realise they haven't done the one important <b>task</b> on their list. They were <b>busy</b> all day. They produced almost nothing. The first lesson of <b>time management</b> is brutal: busy is not the same as <b>productive</b>.</p>
+<p>Real <b>productivity</b> is mostly about <b>priorities</b>, not speed. Before you open your <b>laptop</b>, write down the one task that, if finished, would make today a success. Just one. That task is your morning. Everything else &mdash; emails, chats, small <b>admin</b> &mdash; can wait until you've done the work that actually moves your week forward.</p>
+<blockquote class="pull-quote">“The cost of every ‘yes’ is a quiet ‘no’ to something more important. Most tired professionals are simply paying that cost without noticing.”</blockquote>
+<p>Modern work has a serious enemy called <b>distraction</b>. Every <b>notification</b>, every chat <b>message</b>, every quick check of your phone breaks your <b>focus</b>. Research suggests it takes the brain around 15 minutes to fully return to <b>deep work</b> after a single interruption. If you check your phone every ten minutes, you are basically working at 30% of your real ability. Try one experiment: switch off all notifications for two hours tomorrow morning. Most people are shocked by how much they get done.</p>
+<p>The most effective people I coach use simple <b>time-blocking</b>. They put their important tasks on the <b>calendar</b> like meetings, with a clear start and end. They protect that time like a doctor's appointment. “I can't, I have something at 10” is a complete and acceptable sentence, even if the “something” is your own work.</p>
+<p>Then there's the magic of saying “<b>no</b>”. Most professionals can't say no, so they say <b>yes</b> to everything and quietly resent half of it. A polite no, given early and clearly, protects both your <b>workload</b> and the other person's planning. “Thanks for thinking of me. I can't take this on this month” is far better than a slow, half-finished yes.</p>
+<p><b>Meetings</b> are the other quiet killer. Before booking one, ask: “Is this a <b>decision</b>, or could it be an email?” Half of all meetings are status updates dressed up with chairs. The best teams I work with run shorter meetings, with a clear <b>agenda</b>, an end time, and one person taking notes.</p>
+<p>Finally, real productivity includes rest. The brain produces its best ideas while resting, not while working. <b>Sleep</b> is a productivity tool, not a reward. Walk at lunch. <b>Call it a day</b> on time. The professionals who last twenty years are not the ones who work hardest; they are the ones who choose what to work on, do it with full focus, and then close the laptop. Your <b>career</b> is a marathon, not a one-week sprint.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">productivity</div><div class="vocab-def">how much useful work you do in a given time</div><div class="vocab-ex">“Real productivity is doing the right thing well.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a priority</div><div class="vocab-def">something more important than other things</div><div class="vocab-ex">“Set three priorities for the week.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a deadline</div><div class="vocab-def">a date when something must be finished</div><div class="vocab-ex">“I have a tight deadline on Friday.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a to-do list</div><div class="vocab-def">a list of tasks for the day</div><div class="vocab-ex">“I write my to-do list before bed.”</div></div>
+<div class="vocab-card"><div class="vocab-term">distraction</div><div class="vocab-def">something that takes your attention away</div><div class="vocab-ex">“Phones are the biggest distraction at work.”</div></div>
+<div class="vocab-card"><div class="vocab-term">focus</div><div class="vocab-def">the ability to concentrate on one thing</div><div class="vocab-ex">“Deep focus is rare and valuable.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a workload</div><div class="vocab-def">the amount of work you have to do</div><div class="vocab-ex">“Her workload is unrealistic this month.”</div></div>
+<div class="vocab-card"><div class="vocab-term">burnout</div><div class="vocab-def">exhaustion from too much work</div><div class="vocab-ex">“Burnout is a slow problem, not a sudden one.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be snowed under</div><div class="vocab-def">to have too much work</div><div class="vocab-ex">“I'm snowed under this week.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to put it on the back burner</div><div class="vocab-def">to leave a task for later</div><div class="vocab-ex">“Let's put that idea on the back burner.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to bite off more than you can chew</div><div class="vocab-def">to take on too much</div><div class="vocab-ex">“She bit off more than she could chew.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to call it a day</div><div class="vocab-def">to stop working for the day</div><div class="vocab-ex">“Let's call it a day at six.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">a tight schedule</div><div class="vocab-def">very little free time</div><div class="vocab-ex">“I have a tight schedule on Mondays.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to make time for</div><div class="vocab-def">to choose to do something despite being busy</div><div class="vocab-ex">“Always make time for the gym.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">productivity</span>
+<span class="bw">to-do list</span>
+<span class="bw">focus</span>
+<span class="bw">deadline</span>
+<span class="bw">workload</span>
+<span class="bw">burnout</span>
+<span class="bw">priority</span>
+<span class="bw">distraction</span>
+</div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> Real <input class="fill-input" type="text" autocomplete="off" data-answer="productivity" aria-label="answer 1"> is doing the right thing well, not many things badly.</div>
+<div class="fill-item"><span class="qn">2.</span> Set one clear <input class="fill-input" type="text" autocomplete="off" data-answer="priority" aria-label="answer 2"> for the morning.</div>
+<div class="fill-item"><span class="qn">3.</span> I have a tight <input class="fill-input" type="text" autocomplete="off" data-answer="deadline" aria-label="answer 3"> on Friday at 12.</div>
+<div class="fill-item"><span class="qn">4.</span> Write your <input class="fill-input" type="text" autocomplete="off" data-answer="to-do list" aria-label="answer 4"> the night before, not at 9 a.m.</div>
+<div class="fill-item"><span class="qn">5.</span> The phone is the biggest <input class="fill-input" type="text" autocomplete="off" data-answer="distraction" aria-label="answer 5"> in modern offices.</div>
+<div class="fill-item"><span class="qn">6.</span> Deep <input class="fill-input" type="text" autocomplete="off" data-answer="focus" aria-label="answer 6"> is rare and very valuable.</div>
+<div class="fill-item"><span class="qn">7.</span> Her <input class="fill-input" type="text" autocomplete="off" data-answer="workload" aria-label="answer 7"> is genuinely unrealistic this quarter.</div>
+<div class="fill-item"><span class="qn">8.</span> Real <input class="fill-input" type="text" autocomplete="off" data-answer="burnout" aria-label="answer 8"> creeps up slowly over months.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says busy is… productive.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the same as</div>
+<div class="mc-opt" data-i="1"><b>B.</b> not the same as</div>
+<div class="mc-opt" data-i="2"><b>C.</b> faster than</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The single most important thing in the morning is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> clearing email</div>
+<div class="mc-opt" data-i="1"><b>B.</b> writing your daily priority</div>
+<div class="mc-opt" data-i="2"><b>C.</b> attending a meeting</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>After one phone interruption, the brain takes about… to refocus.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> one minute</div>
+<div class="mc-opt" data-i="1"><b>B.</b> 15 minutes</div>
+<div class="mc-opt" data-i="2"><b>C.</b> one hour</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>‘Time-blocking’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> working with no plan</div>
+<div class="mc-opt" data-i="1"><b>B.</b> putting important tasks on the calendar</div>
+<div class="mc-opt" data-i="2"><b>C.</b> blocking colleagues</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Before booking a meeting, the writer asks…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> is the room free?</div>
+<div class="mc-opt" data-i="1"><b>B.</b> is this a decision or could it be an email?</div>
+<div class="mc-opt" data-i="2"><b>C.</b> does everyone have coffee?</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Sleep, the writer says, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a reward</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a productivity tool</div>
+<div class="mc-opt" data-i="2"><b>C.</b> optional</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Are you usually busy or productive?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's your worst time-wasting habit at work?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Are you a morning or evening person?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Have you ever felt close to burnout?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should companies allow employees to refuse meetings?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is multitasking really possible, or is it a myth?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should phones be banned from offices?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is the four-day week genuinely realistic for most jobs?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Is burnout an individual problem or a company problem?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: politely say no to your boss who wants to add a new project.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Design your ideal one-hour morning routine before work.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Plan a calendar for a busy Wednesday with clear time-blocks.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">When were you last completely <b>snowed under</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">What's an idea you've put <b>on the back burner</b> for too long?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Have you ever <b>bitten off more than you could chew</b> at work or school?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Do you find it easy or hard to <b>call it a day</b> at a reasonable hour?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What do you always <b>make time for</b>, no matter how busy you are?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> Your manager keeps adding new tasks. Calmly explain your <em>workload</em>, name your top three <em>priorities</em>, and propose a fair plan that doesn't lead to <em>burnout</em>.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🚀</span>Startups &amp; Entrepreneurship</h2>
+<p class="instr">What it really feels like to start a business &mdash; far less glamorous, far more interesting than the films. Key vocabulary is in <b>gold</b>.</p>
+<article class="reading">
+<h3>The First Year Nobody Talks About</h3>
+<div class="byline">★ Rafael Costa · Founder of two start-ups · Survived the first year both times</div>
+<p>When people imagine a <b>start-up</b>, they think of two clever twenty-five-year-olds in a garage, working hard for a year, and then quietly becoming <b>millionaires</b>. I started two companies. I'll tell you what actually happens in year one. You wake up every morning slightly afraid. You spend most of the day on small, boring problems. You worry about money even when there's still enough. And you slowly learn that having an <b>idea</b> is the easy part. Turning it into a business is everything else.</p>
+<p>Most <b>start-ups</b> <b>fail</b>. That's not pessimism; it's the data. Some sources put the number at 9 out of 10 inside ten years. The reasons are surprisingly boring: they ran out of <b>cash</b>, they couldn't find <b>customers</b>, the team broke up, or the <b>product</b> wasn't really what people wanted. Almost none fail because the <b>founders</b> were lazy.</p>
+<blockquote class="pull-quote">“A start-up is not a small version of a big company. It is an experiment that has not yet found its customer.”</blockquote>
+<p>The first hard truth is that nobody is waiting for your product. You'll build something you love, show it proudly to the world, and nobody will buy it. That's normal. The job of a <b>founder</b> isn't to defend the idea. It is to listen carefully to <b>feedback</b>, find what people actually need, and slowly change the product to match. This is called a <b>pivot</b>. The companies that succeed almost always pivot two or three times.</p>
+<p>Then there's the money side. Most founders <b>bootstrap</b> at the start &mdash; they live on <b>savings</b> and pay themselves nothing. Some raise <b>investment</b> from <b>investors</b> in exchange for a small piece of the company. <b>Venture capital</b> sounds glamorous, but it comes with serious pressure: you no longer own the business alone, and someone wants their money back. <b>Burning through cash</b> is the most common reason start-ups die.</p>
+<p><b>Customers</b> are the only thing that matters. Not press articles, not <b>awards</b>, not your fancy office. <b>Revenue</b> &mdash; real money from real people who want what you make &mdash; is the only honest signal. The first ten customers are the hardest. After that, growth slowly starts to work in your favour.</p>
+<p>Then there's the people side. Founders fight. <b>Co-founders</b> break up more often than couples. <b>Hire</b> slowly, especially in the first year. Each early <b>hire</b> shapes the entire <b>culture</b>. A wrong senior person in month six can ruin three years of work.</p>
+<p>And finally, the part I wish someone had told me. The hardest skill of a founder is not <b>strategy</b> or coding or sales. It is <b>resilience</b> &mdash; the calm ability to keep working when everything tells you to stop. Some weeks, that's all the job is. So if you dream of building something, do it. But go in with open eyes. Year one is not a film. It's a quiet, stubborn fight, and the founders who win are the ones who can <b>land on their feet</b> after every fall.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a start-up</div><div class="vocab-def">a new business, often growing fast</div><div class="vocab-ex">“Their start-up is just six months old.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a founder</div><div class="vocab-def">a person who creates a company</div><div class="vocab-ex">“She is the founder of a small AI start-up.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an entrepreneur</div><div class="vocab-def">someone who starts businesses</div><div class="vocab-ex">“He is a serial entrepreneur.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a customer</div><div class="vocab-def">someone who buys your product</div><div class="vocab-ex">“The first ten customers are the hardest.”</div></div>
+<div class="vocab-card"><div class="vocab-term">revenue</div><div class="vocab-def">the money a business earns from sales</div><div class="vocab-ex">“Revenue grew by 80% this year.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a pivot</div><div class="vocab-def">a change in the business's direction</div><div class="vocab-ex">“After six months they had to pivot.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an investor</div><div class="vocab-def">someone who puts money into a business</div><div class="vocab-ex">“Investors want their money back.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a market</div><div class="vocab-def">the group of customers a business sells to</div><div class="vocab-ex">“Choose your market carefully.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to take a risk</div><div class="vocab-def">to do something with no guarantee</div><div class="vocab-ex">“Every founder has to take a risk.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to think outside the box</div><div class="vocab-def">to use creative ideas</div><div class="vocab-ex">“Start-ups have to think outside the box.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to burn through cash</div><div class="vocab-def">to spend money very fast</div><div class="vocab-ex">“Some start-ups burn through cash in six months.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be in the red</div><div class="vocab-def">to lose money</div><div class="vocab-ex">“We were in the red for the first 18 months.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to keep your head above water</div><div class="vocab-def">to just survive financially</div><div class="vocab-ex">“In year one, we just kept our heads above water.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to land on your feet</div><div class="vocab-def">to recover well after a difficulty</div><div class="vocab-ex">“Her first idea failed, but she landed on her feet.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">pivot</span>
+<span class="bw">customer</span>
+<span class="bw">start-up</span>
+<span class="bw">investor</span>
+<span class="bw">revenue</span>
+<span class="bw">founder</span>
+<span class="bw">market</span>
+<span class="bw">entrepreneur</span>
+</div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> Their <input class="fill-input" type="text" autocomplete="off" data-answer="start-up" aria-label="answer 1"> is only six months old.</div>
+<div class="fill-item"><span class="qn">2.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="founder" aria-label="answer 2"> works seven days a week.</div>
+<div class="fill-item"><span class="qn">3.</span> He is a serial <input class="fill-input" type="text" autocomplete="off" data-answer="entrepreneur" aria-label="answer 3"> &mdash; this is his fourth company.</div>
+<div class="fill-item"><span class="qn">4.</span> The first ten <input class="fill-input" type="text" autocomplete="off" data-answer="customers" aria-label="answer 4"> are the hardest.</div>
+<div class="fill-item"><span class="qn">5.</span> Their <input class="fill-input" type="text" autocomplete="off" data-answer="revenue" aria-label="answer 5"> doubled in the second year.</div>
+<div class="fill-item"><span class="qn">6.</span> They had to <input class="fill-input" type="text" autocomplete="off" data-answer="pivot" aria-label="answer 6"> when nobody bought the first version.</div>
+<div class="fill-item"><span class="qn">7.</span> Their first <input class="fill-input" type="text" autocomplete="off" data-answer="investor" aria-label="answer 7"> put in €500,000 last March.</div>
+<div class="fill-item"><span class="qn">8.</span> Choose your <input class="fill-input" type="text" autocomplete="off" data-answer="market" aria-label="answer 8"> carefully before you build anything.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>Year one of a start-up, the writer says, is mostly…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> glamorous</div>
+<div class="mc-opt" data-i="1"><b>B.</b> small, boring problems and quiet worry</div>
+<div class="mc-opt" data-i="2"><b>C.</b> celebration</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Most start-ups fail because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the founders are lazy</div>
+<div class="mc-opt" data-i="1"><b>B.</b> they run out of cash or can't find customers</div>
+<div class="mc-opt" data-i="2"><b>C.</b> they're too modern</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>A ‘pivot’ is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> giving up</div>
+<div class="mc-opt" data-i="1"><b>B.</b> changing the product to fit what people want</div>
+<div class="mc-opt" data-i="2"><b>C.</b> selling the company</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>‘Bootstrapping’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> raising lots of investment</div>
+<div class="mc-opt" data-i="1"><b>B.</b> funding the business yourself from savings</div>
+<div class="mc-opt" data-i="2"><b>C.</b> selling shares fast</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The only honest signal of success is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> press articles</div>
+<div class="mc-opt" data-i="1"><b>B.</b> real revenue from real customers</div>
+<div class="mc-opt" data-i="2"><b>C.</b> fancy offices</div>
+</div>
+<div class="mc-item" data-correct="2">
+<div class="mc-q"><span class="qn">Q6</span>The hardest skill of a founder, the writer says, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> coding</div>
+<div class="mc-opt" data-i="1"><b>B.</b> strategy</div>
+<div class="mc-opt" data-i="2"><b>C.</b> resilience</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Would you ever start your own business? Why or why not?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's a small business in your area that you love?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do you know anyone who has started a company?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What kind of business would suit your personality?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should schools teach entrepreneurship?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is it better to start young, or after you have experience?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should governments give free money to new start-ups?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Why do most start-ups fail in their first three years?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Is failing once a good thing for a future entrepreneur?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: pitch an investor on a small new business idea, in 90 seconds.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: deliver bad news to a co-founder &mdash; you need to pivot.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Plan the first 30 days of a new local business of your choice.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Have you ever <b>taken a risk</b> on something work-related? What happened?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Describe a moment when you really had to <b>think outside the box</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Do you know any small businesses that quickly <b>burned through cash</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Tell us about someone who <b>landed on their feet</b> after a tough start.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Where would you most likely <b>be in the red</b> for a while before things got better?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You are the <em>founder</em> of a small <em>start-up</em> that's running out of <em>cash</em>. The other player is an <em>investor</em> with three tough questions. Explain your <em>customer</em>, your <em>revenue</em> so far, and why a possible <em>pivot</em> is the right move, not a sign of failure.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">🤖</span>The Workplace of 2030</h2>
+<p class="instr">What working life will look like in five years &mdash; and the skills that will quietly survive every change. Key vocabulary is in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Skills That Will Still Pay In Ten Years</h3>
+<div class="byline">★ Dr Mira Okafor · Workplace researcher · Studies how careers change over a lifetime</div>
+<p>I'm a researcher who studies how working life is changing. People often ask me the same nervous question: “Will my <b>job</b> exist in ten years?” The honest answer is uncomfortable. Some jobs won't. Most will look very different. But the deeper truth is simpler: the people who'll do well in the workplace of 2030 are not the ones who guess the perfect job. They are the ones who can keep learning when the job under them keeps changing.</p>
+<p>The biggest change of all is <b>AI</b>. Modern <b>AI tools</b> can already write, draw, summarise, translate and code at impressive speed. They are not replacing humans yet, but they are quietly replacing the easy parts of many jobs. In ten years, working with AI will be normal in the way working with email is normal today. It won't be a skill on your <b>CV</b>. It will just be part of being a professional adult.</p>
+<blockquote class="pull-quote">“You can't predict the next big job. But you can become the person who can learn the next big job in three months.”</blockquote>
+<p>Then there's the long shift to <b>remote work</b> and <b>hybrid work</b>. The pandemic showed that many jobs don't need a daily office. <b>Companies</b> are still arguing about how many days a week to be in, but the bigger trend is clear: the place where you work matters less, and how well you work matters more. Strong written communication, <b>self-management</b> and the ability to be effective without supervision will be more valuable than ever.</p>
+<p>Many traditional <b>careers</b> will be replaced by <b>lifelong learning</b>. The old model was: study for 20 years, work for 40, retire. The new model looks more like: study, work, <b>retrain</b>, change direction, learn again. People will have several different careers in one life, and the boundaries between jobs will blur. The professionals who do best will treat learning as a quiet, regular habit, not a heroic event.</p>
+<p>Equally important are the <b>soft skills</b> that machines still can't copy. <b>Empathy</b>. Good <b>judgement</b>. Honest <b>feedback</b>. The ability to have a difficult conversation kindly. <b>Leadership</b> in moments when the data isn't clear. These were always valuable. They are now genuinely scarce. The more powerful AI becomes, the more we will pay for people who are deeply human.</p>
+<p>There are also dangers. <b>Inequality</b> may grow, as the small group of workers who use AI brilliantly earn far more than those who don't. <b>Burnout</b> will become more visible, as the boundary between work and home stays blurred. <b>Mental health</b> at work will move from being a quiet topic to a central one.</p>
+<p>If you take one practical idea, take this. Decide what you want to be good at in two years' time. Choose just one skill, work on it for 30 minutes a week, every week. The world of work is changing fast, but the habits that will help you are old-fashioned: <b>curiosity</b>, kindness, useful work, <b>friendships</b> across industries, and a long, calm faith in your ability to learn. The future of work isn't a place. It's a person &mdash; the one you are quietly becoming, week by week.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">automation</div><div class="vocab-def">using machines or software to do work</div><div class="vocab-ex">“Automation will change every industry.”</div></div>
+<div class="vocab-card"><div class="vocab-term">artificial intelligence (AI)</div><div class="vocab-def">computer systems that perform smart tasks</div><div class="vocab-ex">“AI now writes, draws and translates.”</div></div>
+<div class="vocab-card"><div class="vocab-term">remote work</div><div class="vocab-def">working away from a physical office</div><div class="vocab-ex">“Remote work is now normal in many companies.”</div></div>
+<div class="vocab-card"><div class="vocab-term">hybrid work</div><div class="vocab-def">mixing office and remote work</div><div class="vocab-ex">“Most teams now use hybrid work.”</div></div>
+<div class="vocab-card"><div class="vocab-term">upskilling</div><div class="vocab-def">learning new skills in your current field</div><div class="vocab-ex">“Upskilling is the new job security.”</div></div>
+<div class="vocab-card"><div class="vocab-term">reskilling</div><div class="vocab-def">learning a completely new job</div><div class="vocab-ex">“Many older workers may need to reskill.”</div></div>
+<div class="vocab-card"><div class="vocab-term">soft skills</div><div class="vocab-def">personal skills like empathy and teamwork</div><div class="vocab-ex">“Soft skills matter more than ever.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a side hustle</div><div class="vocab-def">a small extra job alongside your main one</div><div class="vocab-ex">“Her side hustle slowly became her career.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to keep up with the times</div><div class="vocab-def">to stay modern</div><div class="vocab-ex">“Every business has to keep up with the times.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be ahead of the curve</div><div class="vocab-def">to be earlier than others</div><div class="vocab-ex">“Their team is ahead of the curve on AI tools.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to roll with the punches</div><div class="vocab-def">to adapt to difficult changes</div><div class="vocab-ex">“Modern workers have to roll with the punches.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to reinvent yourself</div><div class="vocab-def">to change your skills and identity</div><div class="vocab-ex">“She reinvented herself at 45.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">a steep learning curve</div><div class="vocab-def">a quick, hard period of learning</div><div class="vocab-ex">“Every new role has a steep learning curve.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">at the cutting edge</div><div class="vocab-def">at the most modern point</div><div class="vocab-ex">“Her company is at the cutting edge of robotics.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">reskilling</span>
+<span class="bw">side hustle</span>
+<span class="bw">AI</span>
+<span class="bw">upskilling</span>
+<span class="bw">soft skills</span>
+<span class="bw">remote</span>
+<span class="bw">automation</span>
+<span class="bw">hybrid</span>
+</div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="automation" aria-label="answer 1"> is changing factory and office work at the same time.</div>
+<div class="fill-item"><span class="qn">2.</span> Modern <input class="fill-input" type="text" autocomplete="off" data-answer="ai" aria-label="answer 2"> tools can already write a first draft in seconds.</div>
+<div class="fill-item"><span class="qn">3.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="remote" aria-label="answer 3"> work is normal in our industry now.</div>
+<div class="fill-item"><span class="qn">4.</span> Most teams in our office work in a <input class="fill-input" type="text" autocomplete="off" data-answer="hybrid" aria-label="answer 4"> pattern.</div>
+<div class="fill-item"><span class="qn">5.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="upskilling" aria-label="answer 5"> in AI tools is the smartest investment for any worker.</div>
+<div class="fill-item"><span class="qn">6.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="reskilling" aria-label="answer 6"> means learning a completely new career, not improving an old one.</div>
+<div class="fill-item"><span class="qn">7.</span> Empathy and good communication are valuable <input class="fill-input" type="text" autocomplete="off" data-answer="soft skills" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> Her tiny <input class="fill-input" type="text" autocomplete="off" data-answer="side hustle" aria-label="answer 8"> became her main business after two years.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says, in the workplace of 2030, the winners will be people who…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> pick the perfect job</div>
+<div class="mc-opt" data-i="1"><b>B.</b> keep learning as the job changes</div>
+<div class="mc-opt" data-i="2"><b>C.</b> get lucky</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>In ten years, working with AI will be…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a special skill on your CV</div>
+<div class="mc-opt" data-i="1"><b>B.</b> as normal as using email</div>
+<div class="mc-opt" data-i="2"><b>C.</b> forbidden</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>The new career model includes…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> one career for life</div>
+<div class="mc-opt" data-i="1"><b>B.</b> several careers and ongoing retraining</div>
+<div class="mc-opt" data-i="2"><b>C.</b> retirement at 30</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>AI is hardest at…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> writing fast</div>
+<div class="mc-opt" data-i="1"><b>B.</b> empathy and good judgement</div>
+<div class="mc-opt" data-i="2"><b>C.</b> calculations</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>One danger of new technology, she says, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> lower salaries everywhere</div>
+<div class="mc-opt" data-i="1"><b>B.</b> growing inequality between users and non-users</div>
+<div class="mc-opt" data-i="2"><b>C.</b> slower internet</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her one practical idea is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> change job every year</div>
+<div class="mc-opt" data-i="1"><b>B.</b> work 30 minutes a week on one skill, for two years</div>
+<div class="mc-opt" data-i="2"><b>C.</b> quit your job</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Do you think your current job will exist in ten years?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Which AI tool do you use most often?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Are you optimistic or worried about the future of work?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Would you rather work fully remotely or in an office?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should universities still teach the same things they did 20 years ago?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should companies pay employees to learn new skills during work hours?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should governments help workers whose jobs are replaced by AI?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is a side hustle a smart move, or a sign that something is wrong?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will the four-day working week be normal in 2030?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: persuade a doubtful older colleague to start using AI tools.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Plan a two-year personal upskilling plan for yourself, with concrete steps.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Imagine your own workday in 2030. Describe a typical Tuesday.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Are you ahead of the curve on AI, or trying to <b>roll with the punches</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">What's the most recent <b>steep learning curve</b> you've climbed?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Could you imagine genuinely <b>reinventing yourself</b> in your forties?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Which industry around you really has to <b>keep up with the times</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Where do you see something or someone working <b>at the cutting edge</b> right now?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're a young employee; the other plays a manager who refuses to allow <em>remote work</em> or <em>hybrid work</em>. Calmly explain <em>upskilling</em>, <em>soft skills</em> and why the workplace of 2030 will not look like the office of 2010.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<footer>🚀 ★ ★ &nbsp; CAREER MOVES · B2 BUSINESS ENGLISH · NETWORKING · TIME · STARTUPS · FUTURE OF WORK &nbsp; ★ ★ 🚀</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
