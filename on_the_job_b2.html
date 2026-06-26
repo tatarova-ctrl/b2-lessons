@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On the Job — B2 Business English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"💼";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">💼 BUSINESS ENGLISH · B2 · COLLOCATIONS &amp; PHRASAL VERBS · DAILY WORK LIFE</div>
+      <h1>On the <span class="accent">Job</span></h1>
+      <div class="sub">Four conversations from real working life &mdash; talking about money and salary, writing emails that actually work, handling tricky customers, and the quiet rise of green business. Every highlighted item is a phrasal verb or a collocation you'll really hear at work. Read, collect them, and use them when you speak.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~480 WORDS</span>
+        <span class="tag">PHRASAL VERBS &amp; COLLOCATIONS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">76 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Money 💰</button>
+    <button class="tab" data-tab="t2">② Emails 📧</button>
+    <button class="tab" data-tab="t3">③ Customers 🤝</button>
+    <button class="tab" data-tab="t4">④ Green 🌱</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">💰</span>Money at Work &amp; Salary Talk</h2>
+<p class="instr">The conversation about money at work that nobody really teaches you. Highlighted items are phrasal verbs and collocations &mdash; learn them.</p>
+<article class="reading">
+<h3>The Conversation Nobody Teaches You</h3>
+<div class="byline">★ Sophia Kennedy · Personal finance coach · Helps young professionals talk about money</div>
+<p>Most of us learn about money the hard way. School teaches us maths, but it rarely teaches us how to <b>set up a budget</b>, <b>ask for a raise</b>, or <b>put money aside</b> when we already feel broke. After ten years of coaching young professionals, I can tell you the truth: people don't fail at money because they're bad with numbers. They fail because nobody ever sat them down and explained the basics.</p>
+<p>Let's start with the most useful word: <b>take-home pay</b>. Your salary is one number; your take-home pay &mdash; what actually <b>lands in your bank account</b> after tax &mdash; is another. Always plan with the second one. Many people <b>spend beyond their means</b> simply because they <b>get carried away</b> by the bigger number on the contract.</p>
+<blockquote class="pull-quote">“You don't need to earn more to feel less stressed about money. You need to know exactly where it goes.”</blockquote>
+<p>The next step is to <b>keep track of</b> your spending. Use an app, a notebook, anything. Most people are quietly shocked when they <b>add up</b> their monthly small treats. The morning coffee, the streaming services, the takeaway lunches &mdash; alone they're nothing; together they often <b>add up to</b> several hundred euros a month. None of this is bad, by the way. But you should choose it, not drift into it.</p>
+<p>Then there's the famous habit: <b>put money aside</b> as soon as you get paid. Don't wait to see what's left. The professionals I admire most automatically <b>stash away</b> 10–20% of their salary the day it arrives. They <b>save up for a rainy day</b> and they <b>build up</b> an emergency fund of three months' expenses. Boring? Yes. Life-changing? Also yes.</p>
+<p><b>Pay off your debt</b> faster than you think you should. Credit card interest is the most expensive form of money there is. If you can only manage a small extra payment each month, do it. Watching debt <b>go down</b> is one of the most motivating things in adult life.</p>
+<p>And then there's the awkward part: asking for more money. When you <b>ask for a raise</b>, don't talk about your bills. Talk about your value. Show what you've done over the last year, what you'll do next year, and the salary range for your role. Then stop talking. Silence in salary talks is your friend. Most people <b>chicken out</b> at this point. Don't.</p>
+<p>Finally, <b>splash out</b> sometimes. Saving every euro makes you miserable. Pick the few things you genuinely love, spend on them happily, and <b>cut back on</b> everything else. Money is supposed to serve your life. Most people quietly serve their money instead. So <b>get on top of</b> your finances early, talk about them honestly, and you'll never need to <b>make ends meet</b> in fear again.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a salary</div><div class="vocab-def">money you earn for work, usually monthly</div><div class="vocab-ex">“Her salary is about 3,000 euros a month.”</div></div>
+<div class="vocab-card"><div class="vocab-term">take-home pay</div><div class="vocab-def">what arrives in your bank after tax</div><div class="vocab-ex">“Plan with your take-home pay.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a budget</div><div class="vocab-def">a plan for spending and saving</div><div class="vocab-ex">“Stick to your monthly budget.”</div></div>
+<div class="vocab-card"><div class="vocab-term">debt</div><div class="vocab-def">money you owe</div><div class="vocab-ex">“Pay off your most expensive debt first.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a raise</div><div class="vocab-def">an increase in salary</div><div class="vocab-ex">“She asked for a raise last week.”</div></div>
+<div class="vocab-card"><div class="vocab-term">interest</div><div class="vocab-def">money paid for borrowing</div><div class="vocab-ex">“Credit-card interest is brutal.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an emergency fund</div><div class="vocab-def">savings for a sudden problem</div><div class="vocab-ex">“Build a three-month emergency fund.”</div></div>
+<div class="vocab-card"><div class="vocab-term">expenses</div><div class="vocab-def">things you spend money on</div><div class="vocab-ex">“Travel expenses are a big part of the budget.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to make ends meet</div><div class="vocab-def">to have just enough money to live</div><div class="vocab-ex">“Some families struggle to make ends meet.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to put money aside</div><div class="vocab-def">to save money for later</div><div class="vocab-ex">“I put money aside every month.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to live from paycheck to paycheck</div><div class="vocab-def">to have no savings between salaries</div><div class="vocab-ex">“Many adults live from paycheck to paycheck.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to splash out on</div><div class="vocab-def">to spend a lot on a treat</div><div class="vocab-ex">“We splashed out on a holiday in Italy.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be out of pocket</div><div class="vocab-def">to have spent your own money</div><div class="vocab-ex">“I'm 50 euros out of pocket after the work trip.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to break even</div><div class="vocab-def">to earn enough to cover costs</div><div class="vocab-ex">“The cafe broke even in year two.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">interest</span>
+<span class="bw">salary</span>
+<span class="bw">debt</span>
+<span class="bw">raise</span>
+<span class="bw">budget</span>
+<span class="bw">take-home pay</span>
+<span class="bw">emergency fund</span>
+<span class="bw">expenses</span>
+</div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> Her <input class="fill-input" type="text" autocomplete="off" data-answer="salary" aria-label="answer 1"> is around 3,000 euros a month.</div>
+<div class="fill-item"><span class="qn">2.</span> Always plan with your <input class="fill-input" type="text" autocomplete="off" data-answer="take-home pay" aria-label="answer 2">, not the contract figure.</div>
+<div class="fill-item"><span class="qn">3.</span> Stick to your monthly <input class="fill-input" type="text" autocomplete="off" data-answer="budget" aria-label="answer 3"> and life gets calmer.</div>
+<div class="fill-item"><span class="qn">4.</span> Pay off the most expensive <input class="fill-input" type="text" autocomplete="off" data-answer="debt" aria-label="answer 4"> first.</div>
+<div class="fill-item"><span class="qn">5.</span> She finally asked her boss for a <input class="fill-input" type="text" autocomplete="off" data-answer="raise" aria-label="answer 5"> in January.</div>
+<div class="fill-item"><span class="qn">6.</span> Credit-card <input class="fill-input" type="text" autocomplete="off" data-answer="interest" aria-label="answer 6"> is the most expensive money in your life.</div>
+<div class="fill-item"><span class="qn">7.</span> Build a three-month <input class="fill-input" type="text" autocomplete="off" data-answer="emergency fund" aria-label="answer 7"> before you save for anything fun.</div>
+<div class="fill-item"><span class="qn">8.</span> Travel <input class="fill-input" type="text" autocomplete="off" data-answer="expenses" aria-label="answer 8"> are a huge part of our monthly costs.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says people usually fail at money because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> they're bad at maths</div>
+<div class="mc-opt" data-i="1"><b>B.</b> nobody ever explained the basics</div>
+<div class="mc-opt" data-i="2"><b>C.</b> they earn too little</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>‘Take-home pay’ is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the salary on the contract</div>
+<div class="mc-opt" data-i="1"><b>B.</b> what actually arrives after tax</div>
+<div class="mc-opt" data-i="2"><b>C.</b> money you earn from extra jobs</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>She advises that people… spending.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> never check</div>
+<div class="mc-opt" data-i="1"><b>B.</b> keep track of</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ignore</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>She recommends saving… as soon as you're paid.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> nothing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> 10–20%</div>
+<div class="mc-opt" data-i="2"><b>C.</b> 50%</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>When you ask for a raise, you should talk about…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> your bills</div>
+<div class="mc-opt" data-i="1"><b>B.</b> your value and the salary range</div>
+<div class="mc-opt" data-i="2"><b>C.</b> your colleagues</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her last advice is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> save every euro</div>
+<div class="mc-opt" data-i="1"><b>B.</b> splash out on the few things you love</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never spend</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Are you a saver or a spender by nature?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's the best thing you've ever spent money on?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever made a budget? Did you stick to it?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Is it considered polite to talk about salaries where you live?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should schools teach personal finance as a real subject?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is it ever wise to borrow money for something fun, like a holiday?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should everyone know their colleagues' salaries?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is it harder to save now than it was for your parents' generation?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Are credit cards more useful or more dangerous?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: ask your boss for a raise. Use your value, not your bills.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Design a realistic monthly budget for someone earning 1,800 euros.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">If you suddenly had 10,000 euros, what would you do, step by step?</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Tell us about a time you really had to <b>make ends meet</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Are you good at <b>putting money aside</b> every month, or do you spend everything?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Do you, or someone you know, ever feel like you <b>live from paycheck to paycheck</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">What's the last thing you <b>splashed out on</b>? Was it worth it?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Have you ever been seriously <b>out of pocket</b> for work or for a friend?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You have been working hard for a year and you want to <b>ask for a raise</b>. The other plays your manager, who is friendly but cautious. <b>Talk about your value</b>, <b>set out</b> your achievements, and <b>follow up</b> if the answer is ‘let me think’.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">📧</span>Business Communication &amp; Emails</h2>
+<p class="instr">The polite phrases, phrasal verbs and collocations that quietly run every office. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The 30 Seconds That Shape Your Day</h3>
+<div class="byline">★ Daniel Park · Communication trainer · Helps teams write less and say more</div>
+<p>Modern office life happens through email. We <b>fire off</b> emails between meetings, we <b>get back to</b> people late, we <b>follow up on</b> people who never replied, we <b>cc</b> too many colleagues just in case. After fifteen years training teams, I can tell you the surprising truth: 80% of the way you sound at work is decided in the first 30 seconds of every email. Get that right, and the rest of your day gets easier.</p>
+<p>Start with a clear, kind opening. “I hope you're well” is fine. “Quick question for you” is better. “I'm <b>following up on</b> our chat last Wednesday” is the best of all, because it reminds the reader exactly who you are and why you're writing. Vague openings make busy people <b>put off</b> answering.</p>
+<blockquote class="pull-quote">“Your first sentence either makes a busy reader read on, or quietly invites them to deal with you tomorrow.”</blockquote>
+<p>Then <b>get to the point</b>. The biggest mistake B2 learners make is to <b>warm up</b> for three paragraphs before the actual request. Senior people don't have time. State what you want in the first three lines. Use bullet points if you have several questions. Then the polite closing.</p>
+<p>When you need to chase someone, do it kindly. “Just <b>touching base</b> in case my last message <b>got lost in</b> your inbox” is gentle and effective. “I <b>sent over</b> the file last week &mdash; could you <b>get back to me</b> by Friday?” is firm but polite. Avoid “As per my last email” &mdash; it sounds tired and faintly rude.</p>
+<p>Sometimes you need to <b>loop people in</b>. “I'm <b>looping in</b> Anna, who handles invoices,” is clear and useful. “I'm <b>cc'ing in</b> my manager so we're all on the same page” signals that the matter is now official. Use it carefully; <b>cc'ing</b> your boss into every email looks insecure.</p>
+<p>Bad news needs care. Don't <b>beat around the bush</b>, but cushion the blow. “Unfortunately, we won't be able to <b>go ahead</b> this quarter, but I'd love to <b>pick this up</b> again in March” is professional and human. “Sorry, no” sounds cold, even when it's accurate.</p>
+<p>Finally, two phrases worth memorising. “Let me <b>run something by you</b>” softens any request for advice. “Let's <b>take this offline</b>” ends a long email chain without offending anyone. They both buy you time, protect relationships and quietly make you sound like a senior. Keep emails short, kind and specific. Your colleagues will <b>get back to you</b> faster, and they'll quietly think of you as a pleasure to work with.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">an inbox</div><div class="vocab-def">the place where emails arrive</div><div class="vocab-ex">“My inbox is full this morning.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a reply</div><div class="vocab-def">an answer to an email</div><div class="vocab-ex">“I'm still waiting for a reply.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an attachment</div><div class="vocab-def">a file sent with an email</div><div class="vocab-ex">“Please find the attachment.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a subject line</div><div class="vocab-def">the short title of an email</div><div class="vocab-ex">“A clear subject line gets opened first.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a deadline</div><div class="vocab-def">the date a task must be done</div><div class="vocab-ex">“The deadline is end of business Friday.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a meeting</div><div class="vocab-def">a planned conversation at work</div><div class="vocab-ex">“The meeting was moved to 3 p.m.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a colleague</div><div class="vocab-def">a person you work with</div><div class="vocab-ex">“I work with eight colleagues.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a polite tone</div><div class="vocab-def">a respectful, kind way of writing</div><div class="vocab-ex">“Even bad news needs a polite tone.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to get back to someone</div><div class="vocab-def">to reply later</div><div class="vocab-ex">“I'll get back to you tomorrow morning.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to touch base</div><div class="vocab-def">to make brief contact</div><div class="vocab-ex">“Let's touch base on Friday.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to follow up on something</div><div class="vocab-def">to check progress on it</div><div class="vocab-ex">“I'm following up on yesterday's email.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to loop someone in</div><div class="vocab-def">to add a person to a conversation</div><div class="vocab-ex">“Let me loop Anna in on this.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to fire off an email</div><div class="vocab-def">to send a quick message</div><div class="vocab-ex">“I fired off an email between meetings.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to take this offline</div><div class="vocab-def">to discuss in private later</div><div class="vocab-ex">“Good point, but let's take this offline.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">colleague</span>
+<span class="bw">deadline</span>
+<span class="bw">polite tone</span>
+<span class="bw">meeting</span>
+<span class="bw">subject line</span>
+<span class="bw">reply</span>
+<span class="bw">attachment</span>
+<span class="bw">inbox</span>
+</div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> My <input class="fill-input" type="text" autocomplete="off" data-answer="inbox" aria-label="answer 1"> has 240 unread messages this morning.</div>
+<div class="fill-item"><span class="qn">2.</span> I'm still waiting for her <input class="fill-input" type="text" autocomplete="off" data-answer="reply" aria-label="answer 2"> from Monday.</div>
+<div class="fill-item"><span class="qn">3.</span> You forgot the <input class="fill-input" type="text" autocomplete="off" data-answer="attachment" aria-label="answer 3"> &mdash; please send it again.</div>
+<div class="fill-item"><span class="qn">4.</span> A clear <input class="fill-input" type="text" autocomplete="off" data-answer="subject line" aria-label="answer 4"> gets opened first.</div>
+<div class="fill-item"><span class="qn">5.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="deadline" aria-label="answer 5"> for the report is Friday at 17:00.</div>
+<div class="fill-item"><span class="qn">6.</span> Our weekly <input class="fill-input" type="text" autocomplete="off" data-answer="meeting" aria-label="answer 6"> was moved from Tuesday to Wednesday.</div>
+<div class="fill-item"><span class="qn">7.</span> My <input class="fill-input" type="text" autocomplete="off" data-answer="colleague" aria-label="answer 7"> in marketing helps me with this every week.</div>
+<div class="fill-item"><span class="qn">8.</span> Bad news still needs a <input class="fill-input" type="text" autocomplete="off" data-answer="polite tone" aria-label="answer 8">.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q1</span>80% of how you sound at work is decided in…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the first 30 seconds of an email</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the closing line</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the subject line</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The best opening, the writer says, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> ‘I hope you're well’</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ‘Following up on our chat last Wednesday’</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ‘Hi'</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Senior readers want you to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> warm up slowly</div>
+<div class="mc-opt" data-i="1"><b>B.</b> get to the point in the first three lines</div>
+<div class="mc-opt" data-i="2"><b>C.</b> quote a poem</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>To chase someone politely, the writer suggests…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> ‘As per my last email’</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ‘Just touching base in case my message got lost in your inbox’</div>
+<div class="mc-opt" data-i="2"><b>C.</b> silence</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Cc'ing your boss into every email…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> looks responsible</div>
+<div class="mc-opt" data-i="1"><b>B.</b> looks insecure</div>
+<div class="mc-opt" data-i="2"><b>C.</b> is required</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>‘Let me run something by you’ is described as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> aggressive</div>
+<div class="mc-opt" data-i="1"><b>B.</b> softening any request for advice</div>
+<div class="mc-opt" data-i="2"><b>C.</b> outdated</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">How many emails do you typically receive in a day?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Are you a fast or a slow replier?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's the most annoying type of email you receive?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you prefer messages or emails for work?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should companies ban emails after working hours?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are too many people cc'd into emails where you work?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Are messaging apps killing email, or just adding to the load?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should AI write our routine emails for us?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Is ‘out of office’ culture finally being taken seriously?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: chase a colleague who hasn't replied for a week, politely.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: send bad news to a client about a missed deadline.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Write the perfect 3-line email asking your manager for a meeting.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">How quickly do you usually <b>get back to</b> people by email?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Who do you <b>touch base with</b> at work or in your studies, even when there's no urgent reason?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">How do you politely <b>follow up on</b> someone who hasn't replied?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever forgotten to <b>loop someone in</b> on an important conversation?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Is it ever a good idea to <b>fire off an email</b> when you're angry?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A client hasn't replied for two weeks. Plan a polite chase email out loud. <b>Follow up</b>, <b>touch base</b>, <b>get back to</b> them with a clear question, and offer to <b>take it offline</b> with a quick call if helpful.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🤝</span>Customer Service &amp; Complaints</h2>
+<p class="instr">The collocations and phrasal verbs you really need to <b>deal with</b> angry customers and turn things round. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Angry Email at 7 a.m.</h3>
+<div class="byline">★ Maya Reilly · Customer service trainer · Has handled 15,000 complaints</div>
+<p>Every customer service career starts with an angry email at 7 a.m. After fifteen thousand complaints, I'll tell you a simple truth: customers don't really get upset because something went wrong. They get upset because they feel ignored when it did. The first job of a great customer service person isn't to fix the product. It's to make the customer feel heard.</p>
+<p>Step one: <b>read between the lines</b>. Most angry emails are not really about the broken order. They're about a bad week, a tight budget, a feeling of being treated like a number. When you reply, acknowledge the human first. “I completely understand how frustrating this must be” <b>goes a long way</b> before you even mention a solution.</p>
+<p>Step two: <b>look into</b> the problem properly. Don't promise anything until you know the facts. “Let me <b>look into</b> this and <b>get back to you</b> within two hours” is a perfect sentence. It buys you time, shows respect, and stops you making promises you might have to <b>back out of</b>.</p>
+<blockquote class="pull-quote">“A customer remembers two things about a complaint: how angry they were at the start, and how cared-for they felt at the end. Make the second one bigger than the first.”</blockquote>
+<p>Step three: <b>own up to</b> the mistake. Don't blame the courier, the supplier, the weather, or your colleague. The customer doesn't care. “We got this wrong, and I'm sorry” is one of the most powerful sentences in business. Most companies <b>shy away from</b> it, which is why the ones that say it stand out so much.</p>
+<p>Step four: <b>make up for</b> the mistake in a way the customer didn't expect. A small refund. A free replacement. A handwritten note. Don't <b>fob</b> them <b>off</b> with a 5% discount; that often <b>backfires</b>. Real generosity is remembered for years.</p>
+<p>Now, what about really difficult customers? Some people will <b>fly off the handle</b> no matter what you do. Stay calm. Don't <b>lose your temper</b>. Don't <b>take it personally</b> &mdash; they're not really angry at you, even when it sounds that way. Lower your voice, slow down your speech, and ask one calm question: “What would make this right for you today?” That single sentence often <b>defuses</b> the worst conversations.</p>
+<p>And then there's the awkward truth: not every customer is right. A small number behave so badly that they damage your team. <b>Let them go</b>. “We don't seem to be the right fit for you. We'll refund your last order in full,” is sometimes the only sensible answer. Protecting your team's morale is part of customer service too.</p>
+<p>If you take one idea, take this. <b>Set things right</b> faster than the customer expects, <b>follow through</b> on what you promised, and write the kind of message that you'd want to receive on a bad morning. Customer service done well isn't a cost. It's the cheapest, kindest marketing a company can do.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a complaint</div><div class="vocab-def">a formal expression of dissatisfaction</div><div class="vocab-ex">“We received 12 complaints last week.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a refund</div><div class="vocab-def">money returned to the customer</div><div class="vocab-ex">“She asked for a full refund.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an apology</div><div class="vocab-def">saying sorry</div><div class="vocab-ex">“A real apology is short and sincere.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a solution</div><div class="vocab-def">an answer to a problem</div><div class="vocab-ex">“Let's find a solution together.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a customer service</div><div class="vocab-def">the help a company gives buyers</div><div class="vocab-ex">“Their customer service is excellent.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a faulty product</div><div class="vocab-def">a product that doesn't work</div><div class="vocab-ex">“She returned the faulty product.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an order</div><div class="vocab-def">something a customer has bought</div><div class="vocab-ex">“Your order will arrive Friday.”</div></div>
+<div class="vocab-card"><div class="vocab-term">trust</div><div class="vocab-def">belief that someone is reliable</div><div class="vocab-ex">“Trust takes years to build and seconds to lose.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to deal with</div><div class="vocab-def">to handle a problem or person</div><div class="vocab-ex">“She deals with our biggest accounts.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to look into</div><div class="vocab-def">to investigate</div><div class="vocab-ex">“We'll look into the missing order today.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to put up with</div><div class="vocab-def">to tolerate something difficult</div><div class="vocab-ex">“Customers shouldn't have to put up with rude staff.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to make up for</div><div class="vocab-def">to compensate for a mistake</div><div class="vocab-ex">“We sent a free gift to make up for the delay.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to talk things over</div><div class="vocab-def">to discuss calmly</div><div class="vocab-ex">“Let's talk things over before deciding.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to set things right</div><div class="vocab-def">to fix a problem properly</div><div class="vocab-ex">“We promised to set things right by Friday.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">refund</span>
+<span class="bw">complaint</span>
+<span class="bw">solution</span>
+<span class="bw">order</span>
+<span class="bw">trust</span>
+<span class="bw">apology</span>
+<span class="bw">faulty product</span>
+<span class="bw">customer service</span>
+</div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> We had a serious <input class="fill-input" type="text" autocomplete="off" data-answer="complaint" aria-label="answer 1"> from a long-time client yesterday.</div>
+<div class="fill-item"><span class="qn">2.</span> Please give her a full <input class="fill-input" type="text" autocomplete="off" data-answer="refund" aria-label="answer 2"> today.</div>
+<div class="fill-item"><span class="qn">3.</span> A real <input class="fill-input" type="text" autocomplete="off" data-answer="apology" aria-label="answer 3"> is short, sincere and never blames the customer.</div>
+<div class="fill-item"><span class="qn">4.</span> Let's find a clear <input class="fill-input" type="text" autocomplete="off" data-answer="solution" aria-label="answer 4"> together before lunch.</div>
+<div class="fill-item"><span class="qn">5.</span> Their <input class="fill-input" type="text" autocomplete="off" data-answer="customer service" aria-label="answer 5"> is the reason I keep buying from them.</div>
+<div class="fill-item"><span class="qn">6.</span> She returned the <input class="fill-input" type="text" autocomplete="off" data-answer="faulty product" aria-label="answer 6"> within 24 hours.</div>
+<div class="fill-item"><span class="qn">7.</span> Your <input class="fill-input" type="text" autocomplete="off" data-answer="order" aria-label="answer 7"> will be delivered on Friday morning.</div>
+<div class="fill-item"><span class="qn">8.</span> Once you lose a customer's <input class="fill-input" type="text" autocomplete="off" data-answer="trust" aria-label="answer 8">, it's almost impossible to rebuild.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>Customers really get upset because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> something went wrong</div>
+<div class="mc-opt" data-i="1"><b>B.</b> they felt ignored when it did</div>
+<div class="mc-opt" data-i="2"><b>C.</b> they're tired</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The writer's first job is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> fix the product immediately</div>
+<div class="mc-opt" data-i="1"><b>B.</b> make the customer feel heard</div>
+<div class="mc-opt" data-i="2"><b>C.</b> offer a discount</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q3</span>A perfect sentence she suggests is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> ‘Let me look into this and get back to you in two hours’</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ‘It's not our fault’</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ‘Try again later’</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Companies that say ‘we got this wrong’ stand out because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it's old-fashioned</div>
+<div class="mc-opt" data-i="1"><b>B.</b> most companies shy away from it</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the law requires it</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>With customers who fly off the handle, she advises…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> arguing back</div>
+<div class="mc-opt" data-i="1"><b>B.</b> staying calm and not taking it personally</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ending the call</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her final advice includes…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> never apologise</div>
+<div class="mc-opt" data-i="1"><b>B.</b> set things right faster than expected</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ignore long emails</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">When did you last complain about a product or service?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Have you ever worked in customer service?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Are you the kind of person who complains, or who quietly leaves?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What's the best customer service experience you've ever had?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should companies always refund customers, even when they're wrong?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is it ever right to ‘fire’ a customer?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Are chatbots a real solution or a polite obstacle?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should customer-service workers earn more than they usually do?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Does social media make complaining too easy?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: handle a 7 a.m. furious email about a broken order.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: tell a customer their requested refund is not possible.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a 5-step plan for the perfect complaint response.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Tell us about a problem you had to <b>deal with</b> calmly recently.</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">What's the worst thing you've had to <b>put up with</b> from a customer or colleague?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Have you ever had to <b>make up for</b> a mistake at work? How?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">When is it better to <b>talk things over</b> in person rather than by email?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Describe a moment a brand really tried to <b>set things right</b> with you.</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A customer is furious because their order arrived two weeks late and the wrong colour. <b>Look into</b> the problem, <b>own up to</b> it, <b>make up for</b> the mistake, and <b>set things right</b> in a way they didn't expect.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">🌱</span>Sustainability &amp; Green Business</h2>
+<p class="instr">How real companies <b>cut down on</b> waste, <b>switch over to</b> cleaner systems, and <b>take responsibility</b>. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Quiet Cost of Cheap</h3>
+<div class="byline">★ Helena Jørgensen · Sustainability consultant · Advises medium-sized businesses</div>
+<p>Twenty years ago, “green business” meant a small recycling box in the office and a poster about saving paper. Today it is one of the biggest forces reshaping every industry. Customers ask harder questions. Employees want to work for companies they're proud of. Governments slowly <b>bring in</b> new rules. And the cheap, wasteful way of doing things is quietly becoming the expensive one.</p>
+<p>Most companies start in the same place. They <b>cut down on</b> paper. They <b>switch off</b> the lights at night. They <b>phase out</b> single-use plastics in the canteen. These are easy wins, but they are not the whole story. Real sustainability isn't a poster on the wall; it's a change in how the business actually works.</p>
+<blockquote class="pull-quote">“Cheap is not really cheap. Somebody else &mdash; a worker, a river, a forest &mdash; is quietly paying the price.”</blockquote>
+<p>The next step is energy. Many companies now <b>switch over to</b> green electricity, install solar panels, or insulate buildings properly. Heating an office costs less when you don't <b>throw away</b> half the heat through the windows. Some businesses <b>run on</b> 100% renewable energy. It used to be expensive; now it's often cheaper.</p>
+<p>Then there's the question of what a company makes. Smart businesses are starting to <b>look after</b> the whole life cycle of their product. They <b>get rid of</b> packaging that nobody needs. They design things that last and can be repaired. They <b>take back</b> old products for recycling. It's slower, but customers <b>cotton on</b> quickly to the difference.</p>
+<p><b>Supply chains</b> are the hardest part. Most pollution doesn't happen inside the office. It happens in factories, fields and mines far away. Real green companies <b>look into</b> who their suppliers are, what they pay their workers, and how their materials are produced. <b>Greenwashing</b> &mdash; pretending to be more sustainable than you are &mdash; usually <b>falls apart</b> the moment a journalist starts asking questions.</p>
+<p>There's also the social side. <b>Taking responsibility</b> for the planet often goes hand in hand with treating people better. Better salaries, safer factories, fair contracts. The companies winning the next decade aren't only “green” in the colour-of-the-logo sense. They're trying to do less harm at every step.</p>
+<p>Of course, this is hard. Small businesses can't <b>splash out on</b> expensive new equipment. Customers say they care, then choose the cheapest option anyway. Politicians promise change, then <b>back down</b> when it gets unpopular. <b>Burnout</b> among sustainability staff is a real and quiet problem.</p>
+<p>But the direction is clear. Every business will have to <b>take action</b> on its <b>carbon footprint</b>. Every employee will need to understand a little about energy, waste, and supply chains. “Going green” isn't a side project anymore; it's becoming part of normal management. So <b>get on top of</b> the basics now, ask honest questions, and remember: small daily choices, repeated by millions of people, really do <b>make a difference</b>.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">sustainability</div><div class="vocab-def">using resources without harming the future</div><div class="vocab-ex">“Sustainability is now part of every business plan.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a carbon footprint</div><div class="vocab-def">the total CO₂ a person or business produces</div><div class="vocab-ex">“We measured our carbon footprint last quarter.”</div></div>
+<div class="vocab-card"><div class="vocab-term">renewable energy</div><div class="vocab-def">energy from sources that don't run out</div><div class="vocab-ex">“Wind is renewable energy.”</div></div>
+<div class="vocab-card"><div class="vocab-term">waste</div><div class="vocab-def">unwanted material left over</div><div class="vocab-ex">“Cutting waste also saves money.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a supply chain</div><div class="vocab-def">the chain of suppliers behind a product</div><div class="vocab-ex">“Our supply chain crosses three continents.”</div></div>
+<div class="vocab-card"><div class="vocab-term">greenwashing</div><div class="vocab-def">pretending to be greener than you are</div><div class="vocab-ex">“Customers are tired of greenwashing.”</div></div>
+<div class="vocab-card"><div class="vocab-term">recycling</div><div class="vocab-def">reusing materials</div><div class="vocab-ex">“Office recycling is finally taken seriously.”</div></div>
+<div class="vocab-card"><div class="vocab-term">climate change</div><div class="vocab-def">long-term changes in weather caused by humans</div><div class="vocab-ex">“Climate change is reshaping the economy.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to cut down on</div><div class="vocab-def">to reduce</div><div class="vocab-ex">“We cut down on paper use last year.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to switch over to</div><div class="vocab-def">to change to a new system</div><div class="vocab-ex">“They switched over to solar power.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to phase out</div><div class="vocab-def">to slowly stop using</div><div class="vocab-ex">“Plastic bags were phased out in 2022.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to make a difference</div><div class="vocab-def">to have a real positive effect</div><div class="vocab-ex">“Small actions make a real difference.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to take responsibility</div><div class="vocab-def">to accept duty for something</div><div class="vocab-ex">“Big companies must take responsibility.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to go green</div><div class="vocab-def">to become environmentally friendly</div><div class="vocab-ex">“Many offices have gone green.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">sustainability</span>
+<span class="bw">climate change</span>
+<span class="bw">supply chain</span>
+<span class="bw">recycling</span>
+<span class="bw">carbon footprint</span>
+<span class="bw">greenwashing</span>
+<span class="bw">renewable energy</span>
+<span class="bw">waste</span>
+</div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="sustainability" aria-label="answer 1"> is now part of every serious business plan.</div>
+<div class="fill-item"><span class="qn">2.</span> We measured our company's <input class="fill-input" type="text" autocomplete="off" data-answer="carbon footprint" aria-label="answer 2"> last quarter.</div>
+<div class="fill-item"><span class="qn">3.</span> Their factory now runs on 100% <input class="fill-input" type="text" autocomplete="off" data-answer="renewable energy" aria-label="answer 3">.</div>
+<div class="fill-item"><span class="qn">4.</span> Reducing <input class="fill-input" type="text" autocomplete="off" data-answer="waste" aria-label="answer 4"> also saves money over time.</div>
+<div class="fill-item"><span class="qn">5.</span> Their <input class="fill-input" type="text" autocomplete="off" data-answer="supply chain" aria-label="answer 5"> stretches across three continents.</div>
+<div class="fill-item"><span class="qn">6.</span> Customers are tired of <input class="fill-input" type="text" autocomplete="off" data-answer="greenwashing" aria-label="answer 6"> and meaningless promises.</div>
+<div class="fill-item"><span class="qn">7.</span> Proper <input class="fill-input" type="text" autocomplete="off" data-answer="recycling" aria-label="answer 7"> only works if everyone separates correctly.</div>
+<div class="fill-item"><span class="qn">8.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="climate change" aria-label="answer 8"> is already reshaping the food industry.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q1</span>Easy first steps for companies include…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> cutting down on paper and switching off lights</div>
+<div class="mc-opt" data-i="1"><b>B.</b> building a new factory</div>
+<div class="mc-opt" data-i="2"><b>C.</b> writing reports</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Many companies now switch over to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> coal</div>
+<div class="mc-opt" data-i="1"><b>B.</b> green electricity</div>
+<div class="mc-opt" data-i="2"><b>C.</b> oil</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Smart businesses look after…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> only the final sale</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the whole life cycle of the product</div>
+<div class="mc-opt" data-i="2"><b>C.</b> just the logo</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>‘Greenwashing’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a deep clean</div>
+<div class="mc-opt" data-i="1"><b>B.</b> pretending to be more sustainable than you are</div>
+<div class="mc-opt" data-i="2"><b>C.</b> painting offices green</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Sustainability and people-friendly practices…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> are opposites</div>
+<div class="mc-opt" data-i="1"><b>B.</b> often go hand in hand</div>
+<div class="mc-opt" data-i="2"><b>C.</b> cost nothing</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's final point is that small daily choices…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> change nothing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> really do make a difference, at scale</div>
+<div class="mc-opt" data-i="2"><b>C.</b> are for activists only</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's one small green habit you already have?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Have you noticed any local businesses going green?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's the most environmentally damaging thing you regularly do?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you think about a product's supply chain when you buy it?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should governments force companies to publish their carbon footprint?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is greenwashing more harmful than doing nothing?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should rich countries help poorer ones go green?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Are electric cars really as green as people say?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will younger workers refuse to work for polluting companies?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: pitch your CEO on phasing out single-use plastics in the office.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: respond to a journalist accusing your company of greenwashing.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a 5-step green plan for a small café.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">What have you personally <b>cut down on</b> in the last year?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Would you ever <b>switch over to</b> a fully second-hand wardrobe?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Which products would you happily see <b>phased out</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Do you really believe small daily actions <b>make a difference</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What company near you has clearly tried to <b>go green</b>?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A boss has decided to <b>cut down on</b> office costs by buying the cheapest, most polluting supplies. The other plays a junior who wants to <b>switch over to</b> greener options and <b>take responsibility</b>. Make your case calmly &mdash; with numbers, not lectures.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<footer>💼 ★ ★ &nbsp; ON THE JOB · B2 BUSINESS ENGLISH · MONEY · EMAILS · CUSTOMERS · GREEN BUSINESS &nbsp; ★ ★ 💼</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
