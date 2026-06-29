@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leading From Within — B2 Business English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"🧭";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🧭 BUSINESS ENGLISH · B2 · EQ · ANALYTICS · CHANGE · ENGAGEMENT</div>
+      <h1>Leading From <span class="accent">Within</span></h1>
+      <div class="sub">Four conversations about the harder, quieter side of leadership &mdash; how to lead with emotional intelligence, how to make decisions with real data, how to guide a team through change without breaking it, and how to keep people genuinely engaged. Every highlighted item is a phrasal verb or a collocation you'll really hear at work.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~500 WORDS</span>
+        <span class="tag">PHRASAL VERBS &amp; COLLOCATIONS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">76 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① EQ 🧠</button>
+    <button class="tab" data-tab="t2">② Analytics 📊</button>
+    <button class="tab" data-tab="t3">③ Change 🔄</button>
+    <button class="tab" data-tab="t4">④ Engagement 💚</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🧠</span>Emotional Intelligence in Leadership</h2>
+<p class="instr">Why the most powerful leadership skill is also the most invisible. Highlighted items are real phrasal verbs and collocations.</p>
+<article class="reading">
+<h3>The Quiet Skill That Beats IQ</h3>
+<div class="byline">★ Dr Naomi Bridger · Leadership coach &amp; psychologist · Coaches CEOs across Europe</div>
+<p>When companies hire senior leaders, they obsess over the easy things to measure &mdash; degrees, experience, sales figures. After twenty years coaching CEOs, I can tell you the truth nobody talks about. The leaders who really <b>get on</b> at the top are not the smartest people in the room. They are the ones with high <b>emotional intelligence</b>: people who can <b>read a room</b>, <b>keep their cool</b>, and <b>get the best out of</b> the humans around them. IQ gets you the interview. EQ gets you the corner office.</p>
+<p>Emotional intelligence is usually <b>broken down into</b> four parts. <b>Self-awareness</b>: knowing what you're feeling, in real time. <b>Self-management</b>: choosing how to respond, instead of reacting. <b>Empathy</b>: <b>picking up on</b> what other people are feeling. And <b>social skills</b>: turning all of the above into kind, effective action. Most leaders are strong in one or two of these and weak in the others. The good news is that all four can be trained.</p>
+<blockquote class="pull-quote">“A leader's worst day still shapes the team's whole week. That is why managing yourself isn't a private matter. It's the job.”</blockquote>
+<p>Take self-awareness first. Most people overestimate it. Strong leaders quietly notice when they're tired, hungry, anxious or annoyed. They know that a tough email at 5 p.m. is best answered at 9 a.m. They <b>step back</b> before they <b>fire off</b> something they'll regret. <b>Biting your tongue</b> for two hours often saves three weeks of damage.</p>
+<p>Self-management is harder. Even very senior people occasionally <b>lose their temper</b>, <b>let off steam</b> in the wrong room, or <b>blow up</b> when something small triggers something bigger. The fix isn't to pretend you have no feelings. It's to learn to <b>think before you speak</b>, to <b>cool down</b> before a big conversation, and to make tough calls from a quiet place, not a loud one.</p>
+<p>Empathy is the part most managers say they have, and most teams say they don't. Real empathy means quietly <b>tuning in</b> to what your colleague is actually feeling, not what they're saying. The senior person who's suddenly quiet in meetings probably isn't lazy &mdash; they're worried about something at home. The junior who looks angry probably feels invisible. Try to <b>put yourself in their shoes</b>. Then ask one calm, useful question.</p>
+<p>Social skills tie it all together. A leader with EQ can <b>defuse</b> a tense room with a single sentence. They <b>build people up</b> instead of <b>cutting them down</b>. They <b>give credit where it's due</b>. They <b>own up to</b> their own mistakes in public and fix them in private. They <b>hold their team to account</b> without humiliating anyone. None of this is dramatic. All of it quietly changes how people show up the next morning.</p>
+<p>The cost of low EQ is huge, but invisible. Good people slowly <b>drift away</b>. <b>Burnout</b> creeps in. Decisions are made out of pride. Meetings become a quiet war. The cost of high EQ is just a few extra seconds: a pause before answering, a softer tone, an honest “I was wrong” when needed.</p>
+<p>If you take one practical idea, take this. Before any difficult moment &mdash; a meeting, a hard email, a delicate conversation &mdash; take three slow breaths and ask yourself, “What is the most senior version of me going to say?” That single question, repeated over a career, turns ordinary managers into the kind of leaders people genuinely want to follow.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">emotional intelligence (EQ)</div><div class="vocab-def">the ability to understand emotions in yourself and others</div><div class="vocab-ex">“EQ is now valued as much as IQ.”</div></div>
+<div class="vocab-card"><div class="vocab-term">self-awareness</div><div class="vocab-def">knowing your own emotions</div><div class="vocab-ex">“Strong self-awareness starts every other skill.”</div></div>
+<div class="vocab-card"><div class="vocab-term">empathy</div><div class="vocab-def">understanding how others feel</div><div class="vocab-ex">“Empathy is a leader's quietest superpower.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a leader</div><div class="vocab-def">a person who guides others</div><div class="vocab-ex">“A good leader stays calm under pressure.”</div></div>
+<div class="vocab-card"><div class="vocab-term">conflict</div><div class="vocab-def">a serious disagreement</div><div class="vocab-ex">“Avoiding conflict is rarely the right choice.”</div></div>
+<div class="vocab-card"><div class="vocab-term">trust</div><div class="vocab-def">belief that someone is honest and reliable</div><div class="vocab-ex">“Trust takes years to build and seconds to lose.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a relationship</div><div class="vocab-def">a connection between people</div><div class="vocab-ex">“Good business is built on relationships.”</div></div>
+<div class="vocab-card"><div class="vocab-term">body language</div><div class="vocab-def">what your posture and gestures say</div><div class="vocab-ex">“Open body language quietly builds trust.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to keep your cool</div><div class="vocab-def">to stay calm under pressure</div><div class="vocab-ex">“Great leaders keep their cool in a crisis.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to lose your temper</div><div class="vocab-def">to suddenly get angry</div><div class="vocab-ex">“She rarely loses her temper, even at month-end.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to think before you speak</div><div class="vocab-def">to choose words carefully</div><div class="vocab-ex">“Senior leaders learn to think before they speak.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to put yourself in someone's shoes</div><div class="vocab-def">to imagine their feelings</div><div class="vocab-ex">“Try to put yourself in your client's shoes.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to bite your tongue</div><div class="vocab-def">to stay silent to avoid trouble</div><div class="vocab-ex">“Sometimes a leader has to bite their tongue.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to wear your heart on your sleeve</div><div class="vocab-def">to show your feelings openly</div><div class="vocab-ex">“He wears his heart on his sleeve, you always know how he feels.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">leader</span>
+<span class="bw">conflict</span>
+<span class="bw">relationship</span>
+<span class="bw">body language</span>
+<span class="bw">emotional intelligence</span>
+<span class="bw">trust</span>
+<span class="bw">empathy</span>
+<span class="bw">self-awareness</span>
+</div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> Senior roles now demand <input class="fill-input" type="text" autocomplete="off" data-answer="emotional intelligence" aria-label="answer 1"> as much as technical skill.</div>
+<div class="fill-item"><span class="qn">2.</span> Real <input class="fill-input" type="text" autocomplete="off" data-answer="self-awareness" aria-label="answer 2"> takes years to develop.</div>
+<div class="fill-item"><span class="qn">3.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="empathy" aria-label="answer 3"> is a leader's quietest superpower.</div>
+<div class="fill-item"><span class="qn">4.</span> A good <input class="fill-input" type="text" autocomplete="off" data-answer="leader" aria-label="answer 4"> stays calm under pressure.</div>
+<div class="fill-item"><span class="qn">5.</span> Avoiding <input class="fill-input" type="text" autocomplete="off" data-answer="conflict" aria-label="answer 5"> is rarely the right choice.</div>
+<div class="fill-item"><span class="qn">6.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="trust" aria-label="answer 6"> takes years to build and seconds to lose.</div>
+<div class="fill-item"><span class="qn">7.</span> Strong business is built on every small <input class="fill-input" type="text" autocomplete="off" data-answer="relationship" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> Open <input class="fill-input" type="text" autocomplete="off" data-answer="body language" aria-label="answer 8"> quietly builds trust with strangers.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says the leaders who really get on at the top are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the smartest</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the ones with the highest EQ</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the loudest</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q2</span>Emotional intelligence is broken down into…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> four parts</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ten parts</div>
+<div class="mc-opt" data-i="2"><b>C.</b> two parts</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Strong leaders, the writer says, deal with tough emails…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> at 5 p.m.</div>
+<div class="mc-opt" data-i="1"><b>B.</b> first thing the next morning</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Empathy is the part most managers say they have but…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> teams agree</div>
+<div class="mc-opt" data-i="1"><b>B.</b> teams say they don't have</div>
+<div class="mc-opt" data-i="2"><b>C.</b> teams don't care</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q5</span>The hidden cost of low EQ includes…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> good people quietly drifting away</div>
+<div class="mc-opt" data-i="1"><b>B.</b> more profit</div>
+<div class="mc-opt" data-i="2"><b>C.</b> faster meetings</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her final practical idea is to ask yourself…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> ‘what does my boss want?’</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ‘what is the most senior version of me going to say?’</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ‘how angry am I?’</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">How would you rate your own emotional intelligence out of 10?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Are you a calm person or a reactive one under pressure?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Who is the most emotionally intelligent person you know?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Have you ever had a leader with low EQ? How did it feel?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Can emotional intelligence really be learned, or is it natural?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should EQ be tested as part of job interviews?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is showing emotion at work professional or unprofessional?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Are men and women trained to express emotions differently at work?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will AI assistants make EQ more important or less important for leaders?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: handle a colleague who has just lost their temper in front of clients.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: give difficult feedback to a star employee, kindly but clearly.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a 30-day plan to improve one part of your own EQ.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Have you ever had a boss who could really <b>keep their cool</b>? Describe a moment.</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Tell us about a time you saw someone <b>lose their temper</b> at work.</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Are you naturally good at <b>thinking before you speak</b>, or do you say things you regret?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever had to <b>put yourself in a customer's shoes</b> to fix a problem?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">When was the last time you had to <b>bite your tongue</b> in a meeting?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're a senior manager. A team member has just <b>lost their temper</b> in a meeting and stormed out. <b>Keep your cool</b>, <b>put yourself in their shoes</b>, and have a calm follow-up conversation. <b>Think before you speak</b>, and don't <b>cut them down</b>.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">📊</span>Business Analytics &amp; Strategy</h2>
+<p class="instr">How modern leaders use data to make smarter decisions &mdash; without losing common sense. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Numbers Don't Decide. You Do.</h3>
+<div class="byline">★ Daniel Park · Head of analytics · Helps companies turn data into decisions</div>
+<p>Every modern company is sitting on a mountain of data. Sales figures, website clicks, customer reviews, factory sensors, app usage. Most of it is unused. After twelve years building analytics teams, I can tell you the secret nobody admits: collecting data is the easy part. The real skill is turning numbers into useful decisions, without <b>losing sight of</b> the humans behind them.</p>
+<p><b>Business analytics</b> usually falls into three quiet kinds. <b>Descriptive analytics</b> tells you what happened: how many sales last quarter, which products <b>sold out</b>, which campaigns <b>fell flat</b>. <b>Predictive analytics</b> uses past data to estimate the future: who is likely to buy, who is likely to leave. <b>Prescriptive analytics</b> goes further and suggests what to do. Senior leaders need to understand all three, even if they never <b>crunch the numbers</b> themselves.</p>
+<blockquote class="pull-quote">“Data won't tell you what to do. It will tell you what to stop guessing about.”</blockquote>
+<p>The mistake most companies make is to <b>jump on</b> the latest dashboard or AI tool without asking, “what decision will this actually help us make?”. A pretty chart that nobody acts on is just expensive decoration. Strong analysts start at the other end. They <b>sit down with</b> the leaders, ask what is keeping them awake at night, and only then go looking for the data that could move the needle.</p>
+<p>Then there's the trap of bad numbers. “<b>Garbage in, garbage out</b>” is older than computers and still true. If your sales data is messy, your dashboards will lie politely. Good analytics teams spend more time cleaning data than analysing it. <b>Tidying up</b> the spreadsheet is the unglamorous half of the job.</p>
+<p>Smart leaders also know when to <b>look beyond</b> the numbers. Data tells you that customer satisfaction <b>has gone down</b> 8% this quarter. It rarely tells you exactly why. Numbers are a starting point for a conversation, not a final answer. The best decisions <b>line up</b> the data with experience, intuition and time spent with real customers.</p>
+<p><b>KPIs</b> (key performance indicators) are the famous tool. A KPI is a single number a team agrees to <b>keep an eye on</b>: weekly sales, customer retention, average response time. Good KPIs <b>boil down</b> a messy world to one clear number per goal. Bad KPIs invite people to <b>game the system</b>, hitting the number but missing the point.</p>
+<p>Then there's the modern revolution: <b>AI-assisted analytics</b>. AI can <b>spot trends</b> humans miss, segment customers faster, and write a useful summary of last week in seconds. But it can also <b>hallucinate</b>: invent a pattern that isn't really there. The smart leader uses AI to <b>speed things up</b>, and a human to ask, “but does this actually make sense?”.</p>
+<p>There's also a quiet ethical layer. The same data that helps you understand your customers can also <b>cross a line</b> if used carelessly. Sensitive data about people's health, finances, or behaviour deserves serious respect, regardless of what is legally allowed.</p>
+<p>If you take one idea, take this. Don't drown your team in numbers. Pick three or four KPIs that genuinely matter. <b>Back up</b> every big decision <b>with data</b>, but never use data to avoid responsibility. The best leaders I know read the numbers carefully &mdash; and then they decide. Data is the spotlight. The decision is still yours.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">data</div><div class="vocab-def">information used to make decisions</div><div class="vocab-ex">“Decisions should be based on data.”</div></div>
+<div class="vocab-card"><div class="vocab-term">analytics</div><div class="vocab-def">tools to study and understand data</div><div class="vocab-ex">“Our analytics team grew to twenty people.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a KPI</div><div class="vocab-def">a number used to measure performance</div><div class="vocab-ex">“Each team has three clear KPIs.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a dashboard</div><div class="vocab-def">a screen that shows key data</div><div class="vocab-ex">“The dashboard updates every hour.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a trend</div><div class="vocab-def">a pattern that develops over time</div><div class="vocab-ex">“Spotting a trend early is a real advantage.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a forecast</div><div class="vocab-def">a prediction about the future</div><div class="vocab-ex">“The forecast for Q4 looks strong.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a strategy</div><div class="vocab-def">a long-term plan to reach goals</div><div class="vocab-ex">“Their strategy is data-driven.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a benchmark</div><div class="vocab-def">a standard used for comparison</div><div class="vocab-ex">“Our benchmark is the industry average.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to crunch numbers</div><div class="vocab-def">to analyse data carefully</div><div class="vocab-ex">“Our analysts crunch numbers all morning.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to dig into the data</div><div class="vocab-def">to study data closely</div><div class="vocab-ex">“Dig into the data before making the call.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to look at the big picture</div><div class="vocab-def">to see the wider situation</div><div class="vocab-ex">“Step back and look at the big picture.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to make sense of figures</div><div class="vocab-def">to understand numerical data</div><div class="vocab-ex">“A good analyst makes sense of complex figures.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to back something up with data</div><div class="vocab-def">to support a claim with numbers</div><div class="vocab-ex">“Always back up your idea with data.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to spot a trend</div><div class="vocab-def">to notice a pattern early</div><div class="vocab-ex">“She spotted the trend before our rivals did.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">dashboard</span>
+<span class="bw">data</span>
+<span class="bw">benchmark</span>
+<span class="bw">analytics</span>
+<span class="bw">forecast</span>
+<span class="bw">KPI</span>
+<span class="bw">strategy</span>
+<span class="bw">trend</span>
+</div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> Every important decision should be based on real <input class="fill-input" type="text" autocomplete="off" data-answer="data" aria-label="answer 1">.</div>
+<div class="fill-item"><span class="qn">2.</span> Our <input class="fill-input" type="text" autocomplete="off" data-answer="analytics" aria-label="answer 2"> team grew from two people to twenty.</div>
+<div class="fill-item"><span class="qn">3.</span> Each team has three clear <input class="fill-input" type="text" autocomplete="off" data-answer="kpis" aria-label="answer 3"> to follow each month.</div>
+<div class="fill-item"><span class="qn">4.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="dashboard" aria-label="answer 4"> updates every hour and is shown to all staff.</div>
+<div class="fill-item"><span class="qn">5.</span> Spotting a <input class="fill-input" type="text" autocomplete="off" data-answer="trend" aria-label="answer 5"> early is a real advantage.</div>
+<div class="fill-item"><span class="qn">6.</span> The Q4 <input class="fill-input" type="text" autocomplete="off" data-answer="forecast" aria-label="answer 6"> looks strong but uncertain.</div>
+<div class="fill-item"><span class="qn">7.</span> Our <input class="fill-input" type="text" autocomplete="off" data-answer="strategy" aria-label="answer 7"> is more data-driven than ever before.</div>
+<div class="fill-item"><span class="qn">8.</span> Our <input class="fill-input" type="text" autocomplete="off" data-answer="benchmark" aria-label="answer 8"> is the industry average for response time.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>Most companies, the writer says, are sitting on data they…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> use too much</div>
+<div class="mc-opt" data-i="1"><b>B.</b> don't use</div>
+<div class="mc-opt" data-i="2"><b>C.</b> destroy</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Strong analysts start with…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the prettiest chart</div>
+<div class="mc-opt" data-i="1"><b>B.</b> what decision the data should help make</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the cheapest tool</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>‘Garbage in, garbage out’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> clean data isn't important</div>
+<div class="mc-opt" data-i="1"><b>B.</b> bad data creates bad results</div>
+<div class="mc-opt" data-i="2"><b>C.</b> data is recycled</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Smart leaders use numbers as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the final answer</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a starting point for a conversation</div>
+<div class="mc-opt" data-i="2"><b>C.</b> decoration</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Bad KPIs invite people to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> work harder</div>
+<div class="mc-opt" data-i="1"><b>B.</b> game the system</div>
+<div class="mc-opt" data-i="2"><b>C.</b> quit</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>AI in analytics is brilliant at…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> replacing humans entirely</div>
+<div class="mc-opt" data-i="1"><b>B.</b> speeding things up, but can hallucinate</div>
+<div class="mc-opt" data-i="2"><b>C.</b> writing emails</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Are you a numbers person or a feelings person?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's a KPI that runs your studies or work?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever made a decision purely based on data?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you trust your gut, your data, or both?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should every business decision be backed up with data?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are dashboards genuinely helpful, or just impressive-looking?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Can AI really make better business decisions than humans?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should companies share their KPIs with all employees?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">How can analytics teams avoid being used to justify decisions already made?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: convince your CEO to invest in a small analytics team.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: deliver bad news from the dashboard to a tired team.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design three KPIs for a small café you'd love to run.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Do you enjoy <b>crunching numbers</b>, or does data make you tired?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Has anyone in your team really learned to <b>dig into the data</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">When was the last time someone made you <b>look at the big picture</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">How do you make sure to <b>back up</b> your ideas <b>with data</b> at work?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Has someone you know <b>spotted a trend</b> early and made a smart decision?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're presenting to a leadership team. Their decisions are still mostly based on opinion. <b>Crunch the numbers</b>, <b>back up</b> your ideas <b>with data</b>, <b>look at the big picture</b>, and explain how three simple <b>KPIs</b> could change next year.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🔄</span>Change Management for Growth</h2>
+<p class="instr">How to move a whole company through change without breaking the team. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Hardest Part of Change Is Not the Change</h3>
+<div class="byline">★ Sara Lindström · Change management consultant · 25 transformations in 12 industries</div>
+<p>After twenty years guiding companies through big changes, I can tell you the surprising part: the actual change is rarely the problem. New software, new offices, a merger, a new strategy &mdash; the technical side can be planned in weeks. The hard part is the human side. How people feel about the change. Whether they trust the leader. Whether they will <b>get on board</b> or quietly <b>push back against</b> it for a year. <b>Change management</b> is just a long name for taking those feelings seriously.</p>
+<p>Most companies <b>start off</b> change projects badly. The senior team meets behind closed doors for months, builds a plan, announces it on a big day, and is then quietly shocked when half the staff resist. The trick is the opposite. <b>Bring people in</b> early. Tell them what is being considered, what is uncertain, and what they can influence. People rarely fight change they helped to design.</p>
+<blockquote class="pull-quote">“Change is not what you announce on launch day. It's what people are still saying about it three months later in the coffee corner.”</blockquote>
+<p>Then there's the famous question: why do people resist? They are not stupid, lazy or selfish. They are scared. They worry their skills are out of date. They worry their team will be broken up. They worry their workload will <b>go up</b> without their pay doing the same. Good change leaders <b>name these fears</b> directly, instead of pretending they're not in the room.</p>
+<p>A useful idea is to <b>roll out</b> any big change in three quiet stages. First, <b>set the tone</b>: explain clearly why the change is needed, with stories and data, not threats. Second, <b>phase in</b> small pilot projects with willing teams who can quickly <b>iron out</b> problems. Third, <b>scale up</b> across the company, learning from the early wins and failures. The biggest mistake is to <b>roll it out</b> everywhere at once. Tired teams quickly <b>tune out</b>.</p>
+<p>Communication is everything during change. Send too few messages and rumours quietly fill the gap. Send too many and people <b>switch off</b>. The trick is regular, short, honest updates: what changed this week, what we learnt, what's coming next. “We don't know yet” is a perfectly acceptable sentence, when said calmly and often.</p>
+<p>Watch out for your middle managers. They are usually the people stuck between the senior team's plan and the team's daily reality. If they are not <b>brought along</b> with care, they can quietly kill the project without ever opposing it directly. Spend extra time with them, listen to their concerns, and give them tools to <b>bring their teams along</b>.</p>
+<p>And remember: change is never finished. People talk about “end-to-end transformations” as if there is a final day. There isn't. The companies that thrive <b>build up</b> a permanent ability to change, in small calm cycles, instead of huge disruptive ones. Real change management isn't a one-off project. It's a habit.</p>
+<p>If you take one idea, take this. Spend more time on the human side of change than feels reasonable. Twice as much, even. Listen more than you speak in the first month. <b>Own up to</b> what you don't know. Celebrate the small wins, fix the small failures fast, and quietly build the kind of team that doesn't fear change &mdash; because they trust the people in the room.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">change management</div><div class="vocab-def">planning and guiding business change</div><div class="vocab-ex">“Change management is now a senior role.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a strategy</div><div class="vocab-def">a long-term plan</div><div class="vocab-ex">“The strategy was clear but the timing was wrong.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a transformation</div><div class="vocab-def">a big change in how a company works</div><div class="vocab-ex">“Their digital transformation took three years.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a stakeholder</div><div class="vocab-def">anyone affected by a decision</div><div class="vocab-ex">“Every important stakeholder must be informed.”</div></div>
+<div class="vocab-card"><div class="vocab-term">resistance</div><div class="vocab-def">opposition to change</div><div class="vocab-ex">“Resistance is normal, not a sign of failure.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a pilot project</div><div class="vocab-def">a small early test of a new approach</div><div class="vocab-ex">“Start with a pilot project before scaling up.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a milestone</div><div class="vocab-def">an important point in a project</div><div class="vocab-ex">“Each milestone is a chance to learn.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a culture</div><div class="vocab-def">the shared habits of a team</div><div class="vocab-ex">“Their culture is open and curious.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to roll out a change</div><div class="vocab-def">to introduce change widely</div><div class="vocab-ex">“We rolled out the new system in three steps.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to push back against change</div><div class="vocab-def">to resist change</div><div class="vocab-ex">“Half the team pushed back against the new tool.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to get people on board</div><div class="vocab-def">to get people to support a change</div><div class="vocab-ex">“Spend three weeks getting people on board.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to set the tone</div><div class="vocab-def">to create the right mood early</div><div class="vocab-ex">“The first meeting sets the tone for the project.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to phase something in</div><div class="vocab-def">to introduce slowly, in stages</div><div class="vocab-ex">“Phase in the new policy over six months.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to bring people along</div><div class="vocab-def">to take people with you through change</div><div class="vocab-ex">“Good leaders bring people along, not drag them.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">change management</span>
+<span class="bw">stakeholder</span>
+<span class="bw">culture</span>
+<span class="bw">milestone</span>
+<span class="bw">strategy</span>
+<span class="bw">resistance</span>
+<span class="bw">pilot project</span>
+<span class="bw">transformation</span>
+</div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="change management" aria-label="answer 1"> has become a senior role in many companies.</div>
+<div class="fill-item"><span class="qn">2.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="strategy" aria-label="answer 2"> was right, but the launch timing was poor.</div>
+<div class="fill-item"><span class="qn">3.</span> Their digital <input class="fill-input" type="text" autocomplete="off" data-answer="transformation" aria-label="answer 3"> took three painful but successful years.</div>
+<div class="fill-item"><span class="qn">4.</span> Every important <input class="fill-input" type="text" autocomplete="off" data-answer="stakeholder" aria-label="answer 4"> must be informed early.</div>
+<div class="fill-item"><span class="qn">5.</span> Some <input class="fill-input" type="text" autocomplete="off" data-answer="resistance" aria-label="answer 5"> to change is normal &mdash; don't panic.</div>
+<div class="fill-item"><span class="qn">6.</span> Start with a small <input class="fill-input" type="text" autocomplete="off" data-answer="pilot project" aria-label="answer 6"> before scaling up.</div>
+<div class="fill-item"><span class="qn">7.</span> Each <input class="fill-input" type="text" autocomplete="off" data-answer="milestone" aria-label="answer 7"> is a chance to learn and adjust.</div>
+<div class="fill-item"><span class="qn">8.</span> Their open <input class="fill-input" type="text" autocomplete="off" data-answer="culture" aria-label="answer 8"> is what makes change easier here.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says the hardest part of change is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the technology</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the human side</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the budget</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Most companies start change projects…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> openly</div>
+<div class="mc-opt" data-i="1"><b>B.</b> behind closed doors with a big launch</div>
+<div class="mc-opt" data-i="2"><b>C.</b> gradually</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>People resist change mostly because they are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> lazy</div>
+<div class="mc-opt" data-i="1"><b>B.</b> scared</div>
+<div class="mc-opt" data-i="2"><b>C.</b> selfish</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>The writer suggests rolling out change in…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> one big day</div>
+<div class="mc-opt" data-i="1"><b>B.</b> three quiet stages</div>
+<div class="mc-opt" data-i="2"><b>C.</b> secret stages</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Middle managers are crucial because they are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the easiest to ignore</div>
+<div class="mc-opt" data-i="1"><b>B.</b> stuck between senior plans and daily reality</div>
+<div class="mc-opt" data-i="2"><b>C.</b> always against change</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her final idea is that change management is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a one-off project</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a habit</div>
+<div class="mc-opt" data-i="2"><b>C.</b> outsourced</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the biggest change you've lived through at work or school?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Are you good at change, or do you find it hard?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Did your company change anything important recently?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Who handled change best in your life &mdash; family, school, work?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are people naturally resistant to change?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should change be slow and gentle, or fast and decisive?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Why do so many transformations fail in year two?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should leaders ever force change when most of the staff disagree?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Is constant change healthy, or exhausting?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: announce a big change to a worried team. Take honest questions.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: convince a sceptical middle manager to lead the pilot.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a 90-day change plan for a small company.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Tell us about a time you saw a company <b>roll out</b> a big change badly.</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Why do people <b>push back against change</b>, even when it's helpful?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">What's the kindest way to <b>get people on board</b> with a new system?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">How does a manager <b>set the tone</b> for a difficult project on day one?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Would you rather <b>phase in</b> a change slowly, or do it all at once?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're <b>rolling out</b> a major change at work. Half the team is <b>pushing back against</b> it. Hold a calm Monday meeting: <b>set the tone</b>, name the real fears, <b>phase in</b> a small pilot, and <b>bring people along</b> without forcing them.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">💚</span>Employee Engagement &amp; Performance</h2>
+<p class="instr">Why companies don't have a productivity problem &mdash; they have an engagement problem. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>Why People Stay, and Why They Quietly Leave</h3>
+<div class="byline">★ Felipe Almeida · Employee experience director · Built engagement programmes in three industries</div>
+<p>Every company complains about productivity. After fifteen years inside large organisations, I can tell you they almost always have a different problem in disguise. They have an <b>engagement</b> problem. Disengaged employees aren't lazy. They are <b>checked out</b>. They <b>show up</b> on time, do exactly what's asked, and put no spirit into anything. They <b>get the job done</b>, and they quietly <b>drift away</b> the moment they find somewhere better.</p>
+<p>Surveys are surprisingly consistent across countries. Only about 20% of employees describe themselves as truly <b>engaged</b> at work. A larger group is <b>going through the motions</b>. A smaller group is actively unhappy and quietly damaging the team. Most of the productivity gap in any company sits between these three groups, not between the company and its competitors.</p>
+<blockquote class="pull-quote">“You can't pay people enough to care. You can only build a workplace they don't want to leave.”</blockquote>
+<p>What actually drives engagement? Not free pizza. Not fancy offices. Real engagement, study after study confirms, comes from four boring things. People want to <b>feel valued</b>. They want to do work they understand. They want a manager who cares. And they want a real chance to <b>grow into</b> something. Salary matters; below a certain level, it ruins everything. Above it, more pay barely <b>moves the needle</b>.</p>
+<p>Recognition is the cheapest tool in any leader's box, and the most under-used. “Thanks for staying late on Friday”, said properly on Monday morning, is worth more than a generic bonus. Many managers <b>hold back</b> recognition because they're afraid people will <b>get carried away</b>. The truth is the opposite. People who feel seen <b>step up</b>. People who feel invisible <b>back off</b>.</p>
+<p>Then there's the manager. Studies repeatedly show that the single biggest factor in engagement is your direct boss. People don't quit companies; they quit managers. A manager who <b>checks in with</b> people regularly, <b>listens out for</b> early signs of trouble, and <b>brings out</b> the best in their team can quietly lift the performance of everyone around them.</p>
+<p>Then there's growth. People want to feel they're learning. Without growth, even good jobs slowly feel like prison. The companies with the best engagement have managers who <b>look out for</b> learning opportunities, <b>open doors</b> for promotion, and quietly help people <b>build up</b> their skills. They treat careers as long conversations, not as ladders.</p>
+<p>There's also a darker side: <b>burnout</b>. High-performing people often burn out faster than anyone notices. The signs are quiet: shorter emails, less laughter, a slow <b>switching off</b> from team chat. The fix isn't a wellness app. It's a manager who notices early and gently asks, “are you okay?”, in a way that means it.</p>
+<p>What about money? Pay people fairly, especially in honest comparison with the market. Underpaying your best people is the most expensive saving any company can make &mdash; they quietly leave, and replacing them costs four to six months of their salary. <b>Brushing</b> pay conversations <b>under the carpet</b> is short-sighted leadership.</p>
+<p>If you take one idea, take this. Spend two extra hours a month being kind, curious and attentive with the people in your team. Recognition, growth, honest conversation, fair pay. The companies that <b>get this right</b> don't have to chase productivity. Productivity quietly chases them.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">engagement</div><div class="vocab-def">employees' emotional commitment to work</div><div class="vocab-ex">“Engagement quietly drives performance.”</div></div>
+<div class="vocab-card"><div class="vocab-term">motivation</div><div class="vocab-def">the energy to do good work</div><div class="vocab-ex">“Pay doesn't always increase motivation.”</div></div>
+<div class="vocab-card"><div class="vocab-term">recognition</div><div class="vocab-def">acknowledgement of good work</div><div class="vocab-ex">“Recognition costs nothing and lifts everyone.”</div></div>
+<div class="vocab-card"><div class="vocab-term">retention</div><div class="vocab-def">keeping employees from leaving</div><div class="vocab-ex">“Retention saves enormous amounts of money.”</div></div>
+<div class="vocab-card"><div class="vocab-term">turnover</div><div class="vocab-def">the rate at which employees leave</div><div class="vocab-ex">“Their turnover halved after the new manager.”</div></div>
+<div class="vocab-card"><div class="vocab-term">morale</div><div class="vocab-def">the mood and confidence of a group</div><div class="vocab-ex">“Team morale lifted within a month.”</div></div>
+<div class="vocab-card"><div class="vocab-term">wellbeing</div><div class="vocab-def">general health and happiness</div><div class="vocab-ex">“Wellbeing programmes finally matter.”</div></div>
+<div class="vocab-card"><div class="vocab-term">performance</div><div class="vocab-def">how well someone does their work</div><div class="vocab-ex">“Engagement strongly affects performance.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to feel valued</div><div class="vocab-def">to feel that you matter</div><div class="vocab-ex">“People stay longer when they feel valued.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to burn out</div><div class="vocab-def">to become exhausted by work</div><div class="vocab-ex">“Two managers burnt out in one quarter.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to check in with someone</div><div class="vocab-def">to briefly ask how they are</div><div class="vocab-ex">“Check in with each team member weekly.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to drift away</div><div class="vocab-def">to slowly lose interest or contact</div><div class="vocab-ex">“Disengaged employees quietly drift away.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to go above and beyond</div><div class="vocab-def">to do more than required</div><div class="vocab-ex">“Engaged staff go above and beyond regularly.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to speak your mind</div><div class="vocab-def">to say what you really think</div><div class="vocab-ex">“People can finally speak their mind here.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">motivation</span>
+<span class="bw">performance</span>
+<span class="bw">retention</span>
+<span class="bw">morale</span>
+<span class="bw">turnover</span>
+<span class="bw">engagement</span>
+<span class="bw">wellbeing</span>
+<span class="bw">recognition</span>
+</div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="engagement" aria-label="answer 1"> quietly drives the productivity of any team.</div>
+<div class="fill-item"><span class="qn">2.</span> Pay rarely increases real <input class="fill-input" type="text" autocomplete="off" data-answer="motivation" aria-label="answer 2"> for long.</div>
+<div class="fill-item"><span class="qn">3.</span> Genuine <input class="fill-input" type="text" autocomplete="off" data-answer="recognition" aria-label="answer 3"> costs nothing and lifts the whole team.</div>
+<div class="fill-item"><span class="qn">4.</span> Strong <input class="fill-input" type="text" autocomplete="off" data-answer="retention" aria-label="answer 4"> saves enormous amounts of money.</div>
+<div class="fill-item"><span class="qn">5.</span> Staff <input class="fill-input" type="text" autocomplete="off" data-answer="turnover" aria-label="answer 5"> halved within six months of the new manager.</div>
+<div class="fill-item"><span class="qn">6.</span> Team <input class="fill-input" type="text" autocomplete="off" data-answer="morale" aria-label="answer 6"> lifted noticeably after the offsite.</div>
+<div class="fill-item"><span class="qn">7.</span> Employee <input class="fill-input" type="text" autocomplete="off" data-answer="wellbeing" aria-label="answer 7"> programmes finally matter to senior teams.</div>
+<div class="fill-item"><span class="qn">8.</span> Engagement strongly shapes individual <input class="fill-input" type="text" autocomplete="off" data-answer="performance" aria-label="answer 8">.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says most companies have a… problem in disguise.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> productivity</div>
+<div class="mc-opt" data-i="1"><b>B.</b> engagement</div>
+<div class="mc-opt" data-i="2"><b>C.</b> money</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Real engagement comes mainly from…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> free pizza and fancy offices</div>
+<div class="mc-opt" data-i="1"><b>B.</b> feeling valued, clear work, a caring manager, real growth</div>
+<div class="mc-opt" data-i="2"><b>C.</b> high salaries alone</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Recognition is described as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> expensive</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the cheapest and most under-used tool</div>
+<div class="mc-opt" data-i="2"><b>C.</b> embarrassing</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>The biggest single factor in engagement is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the office building</div>
+<div class="mc-opt" data-i="1"><b>B.</b> your direct manager</div>
+<div class="mc-opt" data-i="2"><b>C.</b> stock options</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Burnout signs are described as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> dramatic</div>
+<div class="mc-opt" data-i="1"><b>B.</b> quiet — shorter emails, less laughter, switching off</div>
+<div class="mc-opt" data-i="2"><b>C.</b> obvious</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Underpaying your best people is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a smart saving</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the most expensive saving any company can make</div>
+<div class="mc-opt" data-i="2"><b>C.</b> necessary</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Are you genuinely engaged at work or study, or just showing up?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's the last time someone recognised your work?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever quietly drifted away from a job?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What's the best manager you've ever had &mdash; and why?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is high pay enough to keep people, if everything else is bad?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should companies make their engagement scores public?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Can introverts be as engaged as extroverts?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Are remote employees harder to keep engaged?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will AI make engagement more important, or less?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: a star employee is quietly disengaging. Have the conversation.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: pitch your CEO on a small but real engagement programme.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Plan a one-month, low-cost engagement boost for a tired team.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">When have you most clearly <b>felt valued</b> at work or in your studies?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Have you or anyone you know come close to <b>burning out</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">How often do you <b>check in with</b> the people you care about at work?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Tell us about a colleague who quietly <b>went above and beyond</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Where in your life can you really <b>speak your mind</b>?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A high-performing team member is quietly <b>checking out</b> at work. They still <b>show up</b> on time but they've <b>switched off</b>. <b>Check in with</b> them, <b>listen out for</b> the real reason, and find one small change that helps them <b>feel valued</b> again.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<footer>🧭 ★ ★ &nbsp; LEADING FROM WITHIN · B2 BUSINESS ENGLISH · EQ · ANALYTICS · CHANGE · ENGAGEMENT &nbsp; ★ ★ 🧭</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
