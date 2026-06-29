@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Work Works — B2 Business English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"🏗️";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🏗️ BUSINESS ENGLISH · B2 · EMPLOYMENT · OUTSOURCING · PARTNERSHIPS · CULTURE</div>
+      <h1>How Work <span class="accent">Works</span></h1>
+      <div class="sub">Four conversations about the deep changes inside modern organisations &mdash; how we hire and employ people, what we keep in-house and what we send out, who we partner with, and how digital tools quietly reshape the culture of every team. Every highlighted item is a phrasal verb or a collocation you'll really hear at work.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~480 WORDS</span>
+        <span class="tag">PHRASAL VERBS &amp; COLLOCATIONS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">76 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Employment 👥</button>
+    <button class="tab" data-tab="t2">② Outsourcing 🌍</button>
+    <button class="tab" data-tab="t3">③ Partnerships 🤝</button>
+    <button class="tab" data-tab="t4">④ Digital Culture 💻</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">👥</span>Modern vs Traditional Employment</h2>
+<p class="instr">How companies hire today &mdash; permanent jobs, freelancers, gig work, hybrid contracts. Highlighted items are phrasal verbs and collocations.</p>
+<article class="reading">
+<h3>The End of the Job for Life</h3>
+<div class="byline">★ Sara Lindström · HR consultant · 20 years inside modern companies</div>
+<p>When my parents started working in the 1980s, the deal was simple. You <b>landed a job</b> at twenty-three, you <b>stuck with it</b> for forty years, the company <b>looked after you</b>, and you <b>retired on a pension</b>. That model still exists, but it's no longer the standard. The way modern companies <b>take on staff</b> has quietly changed more in the last ten years than in the previous fifty. Today's worker has to understand four very different employment models, and to be honest about which one fits.</p>
+<p>The first model is the classic <b>permanent contract</b>. You're a full-time employee, with paid holiday, sick leave, training and a clear career path. This is still where most senior, complex work happens. Companies offer it when they need to <b>hold on to</b> talent over many years. The trade-off for the worker is security in exchange for some loss of freedom: you <b>show up</b> when they need you, even if you'd rather not.</p>
+<blockquote class="pull-quote">“The job for life isn't dead. It's just no longer the only adult option, and that changes everything.”</blockquote>
+<p>The second model is <b>freelance</b> or <b>self-employed</b> work. You <b>work for yourself</b>, sell your skills project by project, and choose who you say yes to. Designers, developers, translators, photographers and consultants often <b>go freelance</b>. The pay can be excellent, the freedom is real, and the loneliness is also real. Nobody <b>covers</b> your holiday. Nobody <b>steps in</b> when you're sick. You're effectively a tiny company of one.</p>
+<p>The third model is the <b>gig economy</b>. App-based work, ride-sharing, food delivery, short-term tasks. It looks like freelance work, but the conditions are often much worse. Gig workers usually have no <b>employment rights</b>, no benefits, and they can be <b>cut off</b> from the platform without warning. Some people <b>get by</b> on it cheerfully; many others quietly struggle.</p>
+<p>The fourth and newest model is <b>hybrid employment</b>: a part-time job plus a freelance side income, or a permanent role with flexible weekly hours. Many companies now <b>bring in extra help</b> for busy periods rather than hiring full-time. They <b>let people work remotely</b> two or three days a week. The result is a quiet revolution: more options, more responsibility, and a workforce that has to manage itself far more than before.</p>
+<p>There's no single right answer. A young parent may need the security of a permanent role. A creative twenty-five-year-old may flourish freelancing. A retiree may want to <b>pick up</b> a few hours a week through an app. The mistake is to choose a model out of habit, fear, or peer pressure, rather than from a clear look at your life right now.</p>
+<p>What's certain is this. The old assumption that one company would <b>take care of</b> you from twenty-three to sixty-five is gone. Modern workers are responsible for their own pensions, their own skills, their own networks and their own next move. That sounds harder than the old model, and sometimes it is. But it also offers freedoms our parents could never have imagined. The trick is to choose the model that fits your real life &mdash; not your CV.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">an employee</div><div class="vocab-def">a person working for a company</div><div class="vocab-ex">“She is a full-time employee.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a freelancer</div><div class="vocab-def">a self-employed worker</div><div class="vocab-ex">“Most of our designers are freelancers.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a permanent contract</div><div class="vocab-def">a long-term, secure job</div><div class="vocab-ex">“He's on a permanent contract.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a temporary contract</div><div class="vocab-def">a short-term job</div><div class="vocab-ex">“I'm on a temporary contract for six months.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the gig economy</div><div class="vocab-def">short, app-based work</div><div class="vocab-ex">“The gig economy is huge but unstable.”</div></div>
+<div class="vocab-card"><div class="vocab-term">benefits</div><div class="vocab-def">extras like holiday and health cover</div><div class="vocab-ex">“Permanent jobs offer many benefits.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a pension</div><div class="vocab-def">money you receive after retirement</div><div class="vocab-ex">“Pensions are smaller than they used to be.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a workforce</div><div class="vocab-def">all the workers in a company or country</div><div class="vocab-ex">“Our workforce is half remote.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to take on staff</div><div class="vocab-def">to hire new employees</div><div class="vocab-ex">“We're taking on five new engineers this quarter.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to let someone go</div><div class="vocab-def">to politely fire them</div><div class="vocab-ex">“They had to let three managers go in January.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to work freelance</div><div class="vocab-def">to work for yourself, project by project</div><div class="vocab-ex">“She's been working freelance for two years.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be on a permanent contract</div><div class="vocab-def">to have a long-term, secure job</div><div class="vocab-ex">“After six months he went onto a permanent contract.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to work flexible hours</div><div class="vocab-def">to choose your own working times</div><div class="vocab-ex">“Most of our team works flexible hours.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to bring in extra help</div><div class="vocab-def">to hire temporary support</div><div class="vocab-ex">“We bring in extra help during busy seasons.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">gig economy</span>
+<span class="bw">temporary contract</span>
+<span class="bw">freelancer</span>
+<span class="bw">employee</span>
+<span class="bw">permanent contract</span>
+<span class="bw">benefits</span>
+<span class="bw">workforce</span>
+<span class="bw">pension</span>
+</div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> She has been an <input class="fill-input" type="text" autocomplete="off" data-answer="employee" aria-label="answer 1"> here for fifteen years.</div>
+<div class="fill-item"><span class="qn">2.</span> My friend is a successful <input class="fill-input" type="text" autocomplete="off" data-answer="freelancer" aria-label="answer 2"> designer.</div>
+<div class="fill-item"><span class="qn">3.</span> He finally got a <input class="fill-input" type="text" autocomplete="off" data-answer="permanent contract" aria-label="answer 3"> in June.</div>
+<div class="fill-item"><span class="qn">4.</span> I'm on a six-month <input class="fill-input" type="text" autocomplete="off" data-answer="temporary contract" aria-label="answer 4"> for now.</div>
+<div class="fill-item"><span class="qn">5.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="gig economy" aria-label="answer 5"> is huge but offers very little security.</div>
+<div class="fill-item"><span class="qn">6.</span> Permanent jobs usually include many <input class="fill-input" type="text" autocomplete="off" data-answer="benefits" aria-label="answer 6">.</div>
+<div class="fill-item"><span class="qn">7.</span> People now have to save more for their own <input class="fill-input" type="text" autocomplete="off" data-answer="pension" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> Our <input class="fill-input" type="text" autocomplete="off" data-answer="workforce" aria-label="answer 8"> is now half-remote, half-office.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>In the 1980s model, the writer says, the company…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> didn't care</div>
+<div class="mc-opt" data-i="1"><b>B.</b> looked after you for 40 years</div>
+<div class="mc-opt" data-i="2"><b>C.</b> gave you no holiday</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>A permanent contract is usually offered when companies want to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> save money</div>
+<div class="mc-opt" data-i="1"><b>B.</b> hold on to talent over many years</div>
+<div class="mc-opt" data-i="2"><b>C.</b> avoid responsibility</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>The trade-off for a freelancer is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> security for freedom</div>
+<div class="mc-opt" data-i="1"><b>B.</b> freedom for some isolation and uncertainty</div>
+<div class="mc-opt" data-i="2"><b>C.</b> no trade-off</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Gig workers usually have…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> full employment rights</div>
+<div class="mc-opt" data-i="1"><b>B.</b> very few rights or benefits</div>
+<div class="mc-opt" data-i="2"><b>C.</b> permanent contracts</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Hybrid employment often means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> one full-time job</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a mix of part-time, freelance or remote work</div>
+<div class="mc-opt" data-i="2"><b>C.</b> total unemployment</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's final point is that workers should choose a model…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> from habit</div>
+<div class="mc-opt" data-i="1"><b>B.</b> that fits their real life, not their CV</div>
+<div class="mc-opt" data-i="2"><b>C.</b> based on what their parents did</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Are you on a permanent contract, freelance, or something else?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Would your parents understand the modern gig economy?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever worked for an app-based platform?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What's your dream working arrangement?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is the job for life completely dead, or coming back?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should gig workers get the same rights as employees?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Are young people right to value freedom over security?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should governments tax companies that hire mostly freelancers?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will most jobs in 2040 still be permanent?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: advise a friend choosing between a permanent role and freelancing.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: negotiate a flexible-hours contract with your boss.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Plan a personal 5-year career strategy under modern employment rules.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Has your company recently <b>taken on</b> a lot of new staff, or <b>let people go</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Have you ever <b>worked freelance</b>? Would you, if you got the chance?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Are you on a <b>permanent contract</b>, or do you prefer the freedom of short-term work?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Does anyone you know <b>work flexible hours</b>? Has it changed their life?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">When do most local businesses <b>bring in extra help</b>?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend has been offered a <b>permanent contract</b> but wants to <b>go freelance</b>. Help them think it through: <b>benefits</b>, <b>pension</b>, <b>flexible hours</b>, and what <b>working for yourself</b> really feels like.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">🌍</span>Outsourcing in 2026 &amp; Its Impact</h2>
+<p class="instr">What companies send out, what they keep in-house &mdash; and what AI is quietly doing to the whole picture. Phrasal verbs and collocations are in <b>gold</b>.</p>
+<article class="reading">
+<h3>What We Send Out, What We Keep</h3>
+<div class="byline">★ Daniel Park · Operations consultant · Advises mid-sized companies</div>
+<p>Twenty years ago, “outsourcing” almost always meant one thing: sending boring office work to a cheaper country. Today it means dozens of different decisions, often inside the same company on the same day. After fifteen years advising mid-sized businesses, I can tell you that the question isn't “should we outsource?”. The question is “which parts of our work should we <b>keep in-house</b>, and which can we safely <b>hand over</b>?”</p>
+<p>Most companies <b>outsource</b> for three reasons. They want to <b>cut costs</b>, they want to <b>scale up</b> quickly without hiring full-time staff, or they need a skill they simply don't have in-house. A small marketing agency might outsource <b>payroll</b> to specialists. A growing online shop might outsource <b>customer service</b>. A start-up with a brilliant product might outsource <b>web development</b> until they can afford their own engineers.</p>
+<blockquote class="pull-quote">“The smartest businesses no longer ask ‘how cheap can we get this done?’. They ask ‘what is so close to who we are that we must keep it ourselves?’.”</blockquote>
+<p>The new word everyone uses in 2026 is <b>insourcing</b>: <b>bringing things back in-house</b> that companies once outsourced. After years of sending design or content abroad, many brands have realised they were <b>handing over</b> the very things that made them special. So they're <b>pulling work back</b>, sometimes painfully, into smaller, more skilled in-house teams. The pendulum quietly swings back.</p>
+<p>There are clear winners and losers. <b>Time zones</b> still matter: a 24-hour support team across three continents can be a real advantage. <b>Skill gaps</b> still exist: some specialised work is genuinely faster done by an outside partner. But there are also hidden costs. <b>Keeping an eye on quality</b> when your supplier is in another country takes constant attention. Cultural misunderstandings <b>add up</b>. And every outsourced task is a small piece of your <b>know-how</b> that leaves the building.</p>
+<p>Then there's the elephant in the room: <b>AI</b>. Many tasks that were sent abroad in 2015 &mdash; basic translation, simple coding, customer chat, image editing &mdash; are now done by AI tools in seconds, at almost no cost. This is reshaping outsourcing faster than any government policy. Some outsourcing partners are <b>moving up the value chain</b> to more complex work. Others are quietly losing entire markets.</p>
+<p>For workers, the picture is mixed. Outsourcing has lifted millions out of poverty in countries like India, the Philippines and Vietnam. But it has also <b>cut down on</b> stable jobs in some Western towns, where call centres or factories closed twenty years ago and never came back. Politicians argue endlessly about whether this is a fair trade. The truth is somewhere in the middle.</p>
+<p>If you take one idea away, take this. Outsourcing is no longer about saving money. It's about being honest with yourself about what your business genuinely does well. <b>Hand over</b> what is generic, repetitive and clearly defined. <b>Hold on to</b> what makes your company special. And accept that the line between the two will move every couple of years, as AI, talent and cost realities keep shifting underfoot.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">to outsource</div><div class="vocab-def">to send work to an outside company</div><div class="vocab-ex">“We outsource our IT support.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a supplier</div><div class="vocab-def">an outside company that provides services</div><div class="vocab-ex">“Our suppliers are based in three countries.”</div></div>
+<div class="vocab-card"><div class="vocab-term">offshore</div><div class="vocab-def">done in a foreign country</div><div class="vocab-ex">“Offshore call centres are common.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a service provider</div><div class="vocab-def">a company that provides a specific service</div><div class="vocab-ex">“Our payroll service provider is excellent.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an in-house team</div><div class="vocab-def">employees who work directly for the company</div><div class="vocab-ex">“We have an in-house design team.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a contractor</div><div class="vocab-def">a self-employed person hired for a project</div><div class="vocab-ex">“We use contractors for short projects.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a turnaround time</div><div class="vocab-def">the time needed to finish a task</div><div class="vocab-ex">“Our turnaround time has dropped to two days.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a SLA (service-level agreement)</div><div class="vocab-def">a contract that defines quality and timing</div><div class="vocab-ex">“The SLA guarantees a 4-hour response.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to outsource a task</div><div class="vocab-def">to send work to an outside company</div><div class="vocab-ex">“We outsource our payroll to a specialist.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to bring something in-house</div><div class="vocab-def">to do the work yourself, not externally</div><div class="vocab-ex">“They brought the design work back in-house.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to cut costs</div><div class="vocab-def">to reduce spending</div><div class="vocab-ex">“Outsourcing is one way companies cut costs.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to hand over the work</div><div class="vocab-def">to give a task to someone else</div><div class="vocab-ex">“Hand over the documents to the new team.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to keep an eye on quality</div><div class="vocab-def">to monitor standards carefully</div><div class="vocab-ex">“If you outsource, keep a close eye on quality.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to scale up quickly</div><div class="vocab-def">to grow capacity fast</div><div class="vocab-ex">“An outsourcing partner can help you scale up quickly.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">supplier</span>
+<span class="bw">SLA</span>
+<span class="bw">in-house</span>
+<span class="bw">offshore</span>
+<span class="bw">contractor</span>
+<span class="bw">outsource</span>
+<span class="bw">service provider</span>
+<span class="bw">turnaround</span>
+</div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> We <input class="fill-input" type="text" autocomplete="off" data-answer="outsource" aria-label="answer 1"> our payroll to specialists.</div>
+<div class="fill-item"><span class="qn">2.</span> Our main <input class="fill-input" type="text" autocomplete="off" data-answer="supplier" aria-label="answer 2"> is based in Poland.</div>
+<div class="fill-item"><span class="qn">3.</span> They built a large <input class="fill-input" type="text" autocomplete="off" data-answer="offshore" aria-label="answer 3"> team in the Philippines.</div>
+<div class="fill-item"><span class="qn">4.</span> Our payroll <input class="fill-input" type="text" autocomplete="off" data-answer="service provider" aria-label="answer 4"> has been excellent for ten years.</div>
+<div class="fill-item"><span class="qn">5.</span> We brought design back to an <input class="fill-input" type="text" autocomplete="off" data-answer="in-house" aria-label="answer 5"> team last year.</div>
+<div class="fill-item"><span class="qn">6.</span> We hire a <input class="fill-input" type="text" autocomplete="off" data-answer="contractor" aria-label="answer 6"> when we have a one-off project.</div>
+<div class="fill-item"><span class="qn">7.</span> Our average <input class="fill-input" type="text" autocomplete="off" data-answer="turnaround" aria-label="answer 7"> time has dropped to 48 hours.</div>
+<div class="fill-item"><span class="qn">8.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="sla" aria-label="answer 8"> guarantees a four-hour response time.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="2">
+<div class="mc-q"><span class="qn">Q1</span>Most companies outsource for three reasons. Two are listed below; what's the third?</div>
+<div class="mc-opt" data-i="0"><b>A.</b> to cut costs</div>
+<div class="mc-opt" data-i="1"><b>B.</b> to scale up quickly</div>
+<div class="mc-opt" data-i="2"><b>C.</b> to get a skill they don't have in-house</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The newer trend, the writer says, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> sending more work abroad</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ‘insourcing’ — bringing work back in-house</div>
+<div class="mc-opt" data-i="2"><b>C.</b> stopping work altogether</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>One hidden cost of outsourcing is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> paying lower taxes</div>
+<div class="mc-opt" data-i="1"><b>B.</b> keeping a constant eye on quality</div>
+<div class="mc-opt" data-i="2"><b>C.</b> sleeping less</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>AI is reshaping outsourcing because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it raises costs</div>
+<div class="mc-opt" data-i="1"><b>B.</b> it does many simple tasks in seconds at low cost</div>
+<div class="mc-opt" data-i="2"><b>C.</b> it is forbidden</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>For workers in countries like India and Vietnam, outsourcing has…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> destroyed jobs</div>
+<div class="mc-opt" data-i="1"><b>B.</b> lifted millions out of poverty</div>
+<div class="mc-opt" data-i="2"><b>C.</b> made no difference</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's main idea is that outsourcing is now about…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> saving money</div>
+<div class="mc-opt" data-i="1"><b>B.</b> honestly choosing what makes your business special</div>
+<div class="mc-opt" data-i="2"><b>C.</b> being trendy</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Has your company ever outsourced anything? What?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Have you ever worked for an outsourcing company?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever been frustrated talking to an offshore call centre?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What kind of work would you happily outsource at home?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is outsourcing fair to workers in the original country?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should some industries be protected from outsourcing by law?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is AI a bigger threat to outsourcing workers than to local ones?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should companies have to label which work is done abroad?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Is ‘insourcing’ a real trend, or just marketing?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: pitch your CEO on outsourcing the help desk to a specialist provider.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: defend keeping design in-house, even though it's more expensive.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Plan an outsourcing strategy for a small online shop growing fast.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">What kind of work would you happily <b>outsource</b> if you had your own company?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">And what would you always want to <b>bring back in-house</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Is <b>cutting costs</b> by outsourcing fair to local workers?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">How do you <b>keep an eye on quality</b> when a job is done abroad?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Can you think of a small business that suddenly had to <b>scale up</b>? What did they do?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're the boss of a small company. The other plays your finance director, who wants to <b>outsource</b> design to <b>cut costs</b>. Argue for <b>keeping</b> design <b>in-house</b>: defend the <b>know-how</b>, <b>quality</b> and brand identity.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🤝</span>Partnerships in Business Growth</h2>
+<p class="instr">Why the smartest growth in 2026 is rarely solo. Highlighted items are real phrasal verbs and collocations.</p>
+<article class="reading">
+<h3>Two Companies, One Door</h3>
+<div class="byline">★ Yara Hassan · Business development director · Has closed 40 partnership deals</div>
+<p>Most business books still <b>tell the story</b> of the lonely founder, fighting against the world with nothing but an idea. After fifteen years closing partnership deals, I can tell you the truth is much more interesting. The fastest-growing companies in 2026 are not the loneliest. They are the ones who learn early how to <b>team up with</b> other businesses, share what they have, and grow faster than they could alone. A good partnership doesn't slow you down. It quietly multiplies you.</p>
+<p>Partnerships come in many shapes. The simplest is a <b>commercial partnership</b>: two companies agree to recommend, sell or distribute each other's products. A small skincare brand might <b>partner up with</b> a local spa: customers walk into one and discover the other. A coffee shop might <b>team up with</b> a bookshop next door. Each business <b>opens doors</b> the other couldn't open alone, without giving up independence.</p>
+<blockquote class="pull-quote">“The quickest way to double your business is rarely to work twice as hard. It's to find another business whose customers already trust them, and to deserve their introduction.”</blockquote>
+<p>Then there's the <b>strategic partnership</b>, where two companies work together on something bigger: a shared project, a joint product, a long-term agreement. These can take months to <b>set up</b>, and they need lawyers, clear goals and serious patience. But when they work, they can transform both companies. Airbnb partnered with Disney. Apple partnered with Nike. These aren't accidents; they're carefully designed bets.</p>
+<p>Smaller businesses often benefit from <b>local partnerships</b>: a yoga studio and a juice bar that <b>cross-promote</b> each other. A driving school and a car-repair shop that <b>refer customers</b>. A web designer and a copywriter who <b>send work each other's way</b>. None of this is glamorous. All of it adds up.</p>
+<p>Partnerships can also <b>fall through</b>. The most common reason is poor communication at the start. Two companies <b>get carried away</b> by enthusiasm in the first meeting, sign quickly, and then realise three months later that they had completely different definitions of “success”. Smart partners <b>spell things out</b> on paper: who does what, who pays for what, how decisions are made, how either side can <b>pull out</b> cleanly.</p>
+<p>Cultural fit matters more than people expect. Two companies with the same goals but very different working styles will <b>clash</b> within weeks. A start-up that moves fast and breaks things doesn't easily partner with a bank that needs three signatures for every email. <b>Sound out</b> each other carefully. Talk to the people you'd actually work with day-to-day, not just the senior team.</p>
+<p>Then there's the long game. The best partnerships are often quiet, mature, and almost invisible. The two companies <b>look out for</b> each other. They <b>share resources</b> during peak periods. They <b>open up</b> their networks. They don't compete on the small things, because they're building something bigger together.</p>
+<p>If you take one idea, take this: don't try to grow alone for longer than you need to. Look around your industry. Who has customers you don't have? Whose strengths fix your weaknesses? Make a list of ten possible partners. Quietly reach out to three. Modern business is rarely a solo sport. The companies winning the next decade aren't the ones with the biggest egos. They are the ones who learned, early, how to <b>team up</b>.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a partnership</div><div class="vocab-def">a formal working relationship between businesses</div><div class="vocab-ex">“Their partnership lasted ten years.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a partner</div><div class="vocab-def">a company you work with</div><div class="vocab-ex">“Choose your partners carefully.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a joint venture</div><div class="vocab-def">a project run by two companies together</div><div class="vocab-ex">“They launched a joint venture in Asia.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a contract</div><div class="vocab-def">a formal written agreement</div><div class="vocab-ex">“Read the contract before signing.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a stakeholder</div><div class="vocab-def">anyone affected by a business decision</div><div class="vocab-ex">“Keep all stakeholders informed.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an agreement</div><div class="vocab-def">a decision two sides accept</div><div class="vocab-ex">“They reached an agreement on pricing.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a referral</div><div class="vocab-def">sending a customer to another business</div><div class="vocab-ex">“Most of our work comes from referrals.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a network</div><div class="vocab-def">the businesses and people you know</div><div class="vocab-ex">“A strong network grows your business.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to team up with</div><div class="vocab-def">to start working with another business</div><div class="vocab-ex">“We teamed up with a local college.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to set up a partnership</div><div class="vocab-def">to formally agree to work together</div><div class="vocab-ex">“They set up a partnership with a Spanish brand.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to pull out of a deal</div><div class="vocab-def">to leave an agreement</div><div class="vocab-ex">“Their partner pulled out at the last minute.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to share resources</div><div class="vocab-def">to use the same tools or staff</div><div class="vocab-ex">“Both companies share resources during peak periods.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to open doors</div><div class="vocab-def">to create new opportunities</div><div class="vocab-ex">“The right partnership opens doors quickly.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to fall through</div><div class="vocab-def">(of a deal) to fail before completion</div><div class="vocab-ex">“The partnership fell through over pricing.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">joint venture</span>
+<span class="bw">agreement</span>
+<span class="bw">stakeholder</span>
+<span class="bw">partnership</span>
+<span class="bw">contract</span>
+<span class="bw">network</span>
+<span class="bw">referral</span>
+<span class="bw">partner</span>
+</div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> Their ten-year <input class="fill-input" type="text" autocomplete="off" data-answer="partnership" aria-label="answer 1"> helped both companies grow.</div>
+<div class="fill-item"><span class="qn">2.</span> Choose your business <input class="fill-input" type="text" autocomplete="off" data-answer="partners" aria-label="answer 2"> as carefully as you choose your friends.</div>
+<div class="fill-item"><span class="qn">3.</span> They launched a <input class="fill-input" type="text" autocomplete="off" data-answer="joint venture" aria-label="answer 3"> to enter the Asian market.</div>
+<div class="fill-item"><span class="qn">4.</span> Always read the <input class="fill-input" type="text" autocomplete="off" data-answer="contract" aria-label="answer 4"> before you sign.</div>
+<div class="fill-item"><span class="qn">5.</span> Every important <input class="fill-input" type="text" autocomplete="off" data-answer="stakeholder" aria-label="answer 5"> must be informed early.</div>
+<div class="fill-item"><span class="qn">6.</span> They finally reached an <input class="fill-input" type="text" autocomplete="off" data-answer="agreement" aria-label="answer 6"> on pricing.</div>
+<div class="fill-item"><span class="qn">7.</span> Most of our new clients come through <input class="fill-input" type="text" autocomplete="off" data-answer="referrals" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> A strong <input class="fill-input" type="text" autocomplete="off" data-answer="network" aria-label="answer 8"> grows your business faster than ads.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer's main argument is that fast-growing companies…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> are usually solo</div>
+<div class="mc-opt" data-i="1"><b>B.</b> team up early with other businesses</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never partner</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>A ‘commercial partnership’ typically involves…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a joint product</div>
+<div class="mc-opt" data-i="1"><b>B.</b> recommending or selling each other's products</div>
+<div class="mc-opt" data-i="2"><b>C.</b> sharing offices</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>A strategic partnership is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> smaller and faster</div>
+<div class="mc-opt" data-i="1"><b>B.</b> bigger, longer-term and carefully designed</div>
+<div class="mc-opt" data-i="2"><b>C.</b> always informal</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>The most common reason partnerships fall through is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> different products</div>
+<div class="mc-opt" data-i="1"><b>B.</b> poor communication at the start</div>
+<div class="mc-opt" data-i="2"><b>C.</b> tax problems</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Cultural fit matters because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it looks good</div>
+<div class="mc-opt" data-i="1"><b>B.</b> very different working styles will clash within weeks</div>
+<div class="mc-opt" data-i="2"><b>C.</b> it's required by law</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's final advice is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> grow alone</div>
+<div class="mc-opt" data-i="1"><b>B.</b> reach out to a few possible partners</div>
+<div class="mc-opt" data-i="2"><b>C.</b> outsource everything</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Have you ever worked on a joint project with another company?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What's the most successful partnership you can think of?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Are you good at sharing credit, or do you prefer to work alone?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Is your company part of any partnership right now?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are partnerships always better than competing?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should small companies partner with giants, or stay independent?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should two rival companies ever partner against a third one?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Why do so many partnerships fall apart in year two?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Is networking really the most important business skill?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: propose a partnership to a complementary business in your city.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: end a failing partnership cleanly and professionally.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design the perfect first meeting between two possible partner companies.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Has your company ever <b>teamed up with</b> another business? Was it a success?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Have you ever seen a partnership <b>fall through</b>? Why?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">What kinds of partnerships <b>open doors</b> the fastest for a small business?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Should rival companies ever <b>share resources</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Why do you think so many startups try to <b>set up a partnership</b> with a bigger brand?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You run a small bakery; the other runs a small café across the street. Propose a partnership to <b>team up</b>, <b>cross-promote</b> each other, <b>share resources</b> for events, and <b>refer customers</b>. <b>Spell things out</b> clearly so the deal won't <b>fall through</b>.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">💻</span>Digital Transformation &amp; Culture</h2>
+<p class="instr">How digital tools are quietly rewriting the culture of every team. Phrasal verbs and collocations are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Software Was Easy. The Culture Wasn't.</h3>
+<div class="byline">★ Felipe Almeida · Digital transformation lead · 25 transformation projects in 12 industries</div>
+<p>I've spent ten years helping companies <b>go digital</b>. They usually start with the wrong question. They ask, “which software should we buy?”. The right question is much harder: “how are we going to work, once the new software is here?” Twenty-five projects in, I can tell you the technology was almost never the problem. The culture was. <b>Buying the tools</b> is the easy part. Changing how people behave, talk, decide and trust each other &mdash; that's the real transformation.</p>
+<p>Most digital change starts the same way. The senior team <b>rolls out</b> new collaboration tools. They <b>switch over to</b> cloud documents, online whiteboards, project boards, video calls, AI assistants. They announce it with optimistic emails and a launch day. Two weeks later, half the staff are quietly still using the old system, and the new one is just another tab nobody opens.</p>
+<blockquote class="pull-quote">“You don't change a company's culture by buying software. You change it by deciding which conversations you'll never have in person again.”</blockquote>
+<p>Why do digital transformations <b>fall flat</b>? Because they ignore three quiet truths. First, every new tool slowly changes the power balance inside a team. The senior person who used to <b>chair every meeting</b> suddenly has to share the floor with a younger colleague who knows the system better. Some leaders quietly <b>push back against</b> the change because it makes them feel less in control. They'd never say so. But the project mysteriously slows.</p>
+<p>Second, new tools change <b>how teams communicate</b>. Instead of long email chains, you have short chat messages. Instead of one weekly meeting, you have ten quick calls. Instead of formal decisions, you have <b>quick polls</b> in a thread. This sounds modern and fast. It can also create real exhaustion. Without clear new rules, people feel they have to <b>keep up with</b> everything, all the time. <b>Burnout creeps in</b>.</p>
+<p>Third, digital tools <b>break down silos</b> &mdash; but only if the leaders genuinely want them to. A shared document <b>opens up</b> information to everyone. A messaging app <b>cuts across</b> departments. AI assistants <b>level the playing field</b> for junior staff. All of this only works if senior people <b>let go of</b> the old hierarchies. Many companies install collaborative tools and then <b>hold on to</b> all the old rules. The tools quietly fail.</p>
+<p>The cultures that succeed share three habits. They <b>roll out</b> tools slowly and in small groups, not all at once. They <b>set up</b> real training, not a 20-minute video. And they openly talk about how the new tools should be used: when chat is okay, when email is better, when a phone call is needed. Without these new rules, every team invents its own, and chaos quietly <b>spreads</b>.</p>
+<p>There are also winners. Younger staff who <b>grew up with</b> these tools suddenly become genuinely useful to the senior team. Remote and hybrid workers feel less isolated. Decisions can be made faster. Customers feel the difference within months. The companies that <b>get this right</b> don't just become faster &mdash; they become more open, more honest, and quietly more enjoyable to work for.</p>
+<p>If you take one idea, take this. Digital transformation is not a software project. It's a conversation about how people will treat each other in three years' time. <b>Start with</b> the conversation, and the tools will follow. <b>Start with</b> the tools, and you'll be back where you started in eighteen months &mdash; with new buttons and the same old culture.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">digital transformation</div><div class="vocab-def">using digital tools to change how a business works</div><div class="vocab-ex">“Their digital transformation took three years.”</div></div>
+<div class="vocab-card"><div class="vocab-term">software</div><div class="vocab-def">computer programs</div><div class="vocab-ex">“We bought new software last quarter.”</div></div>
+<div class="vocab-card"><div class="vocab-term">the cloud</div><div class="vocab-def">internet-based computing services</div><div class="vocab-ex">“Everything runs in the cloud now.”</div></div>
+<div class="vocab-card"><div class="vocab-term">collaboration</div><div class="vocab-def">working together on shared tasks</div><div class="vocab-ex">“The new tool improved collaboration.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a culture</div><div class="vocab-def">the shared habits of a team or company</div><div class="vocab-ex">“Their culture is calm and open.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a workflow</div><div class="vocab-def">the order in which tasks happen</div><div class="vocab-ex">“We redesigned the whole workflow.”</div></div>
+<div class="vocab-card"><div class="vocab-term">automation</div><div class="vocab-def">using software to do repetitive tasks</div><div class="vocab-ex">“Automation freed up two days a week.”</div></div>
+<div class="vocab-card"><div class="vocab-term">data</div><div class="vocab-def">information used to make decisions</div><div class="vocab-ex">“Decisions should be based on data.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to roll out new tools</div><div class="vocab-def">to introduce them widely</div><div class="vocab-ex">“We're rolling out new collaboration tools next month.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to switch over to</div><div class="vocab-def">to change to a new system</div><div class="vocab-ex">“The whole company switched over to cloud software.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to keep up with change</div><div class="vocab-def">to adapt to constant updates</div><div class="vocab-ex">“Older staff sometimes struggle to keep up with change.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to push back against change</div><div class="vocab-def">to resist a new way of working</div><div class="vocab-ex">“Half the team pushed back against the new tools.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to get on board with</div><div class="vocab-def">to accept and support a change</div><div class="vocab-ex">“After a workshop, most people got on board with the system.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to break down silos</div><div class="vocab-def">to remove barriers between teams</div><div class="vocab-ex">“Digital tools help break down silos.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">culture</span>
+<span class="bw">digital transformation</span>
+<span class="bw">cloud</span>
+<span class="bw">data</span>
+<span class="bw">software</span>
+<span class="bw">collaboration</span>
+<span class="bw">automation</span>
+<span class="bw">workflow</span>
+</div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> Their <input class="fill-input" type="text" autocomplete="off" data-answer="digital transformation" aria-label="answer 1"> took three painful but successful years.</div>
+<div class="fill-item"><span class="qn">2.</span> We bought new <input class="fill-input" type="text" autocomplete="off" data-answer="software" aria-label="answer 2"> for the whole company in March.</div>
+<div class="fill-item"><span class="qn">3.</span> Everything runs in the <input class="fill-input" type="text" autocomplete="off" data-answer="cloud" aria-label="answer 3"> now.</div>
+<div class="fill-item"><span class="qn">4.</span> The new tool quietly improved <input class="fill-input" type="text" autocomplete="off" data-answer="collaboration" aria-label="answer 4"> across departments.</div>
+<div class="fill-item"><span class="qn">5.</span> Their <input class="fill-input" type="text" autocomplete="off" data-answer="culture" aria-label="answer 5"> is calm, open and honest.</div>
+<div class="fill-item"><span class="qn">6.</span> We redesigned the whole <input class="fill-input" type="text" autocomplete="off" data-answer="workflow" aria-label="answer 6"> around the new app.</div>
+<div class="fill-item"><span class="qn">7.</span> Smart <input class="fill-input" type="text" autocomplete="off" data-answer="automation" aria-label="answer 7"> freed up two days a week for every team member.</div>
+<div class="fill-item"><span class="qn">8.</span> Every important decision should be based on <input class="fill-input" type="text" autocomplete="off" data-answer="data" aria-label="answer 8">, not opinion.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says digital change usually fails because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the software is bad</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the culture doesn't change with it</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the wifi is slow</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>New tools quietly change…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> nothing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the power balance inside a team</div>
+<div class="mc-opt" data-i="2"><b>C.</b> tax laws</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>New communication tools can also create…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> less work</div>
+<div class="mc-opt" data-i="1"><b>B.</b> real exhaustion and burnout</div>
+<div class="mc-opt" data-i="2"><b>C.</b> more silence</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Digital tools break down silos only if…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the wifi is good</div>
+<div class="mc-opt" data-i="1"><b>B.</b> leaders genuinely want them to</div>
+<div class="mc-opt" data-i="2"><b>C.</b> staff are paid extra</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Successful cultures roll out tools…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> all at once</div>
+<div class="mc-opt" data-i="1"><b>B.</b> slowly and in small groups</div>
+<div class="mc-opt" data-i="2"><b>C.</b> secretly</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's central message is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> buy good software</div>
+<div class="mc-opt" data-i="1"><b>B.</b> start with the conversation, not the tools</div>
+<div class="mc-opt" data-i="2"><b>C.</b> fire older staff</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">When did your team last switch to a new tool? Did it go well?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Are you usually the early adopter or the cautious one?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">How many work apps do you check in a normal day?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you prefer chat, email, or phone calls for work?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is digital transformation always worth the disruption?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are older employees really worse with new tools, or just less trained?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should companies pay for time spent learning new software?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Have chat tools made work better or worse?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will AI assistants eventually replace most internal meetings?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: a manager refuses to use the new system. Try to bring them on board.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: explain to the CEO why the latest tool roll-out failed.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a smart, kind plan for introducing one new tool company-wide.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">When did your company last <b>roll out</b> a new digital tool?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Did people <b>get on board</b> quickly, or <b>push back against</b> the change?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">What helps older staff <b>keep up with</b> fast digital change?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever seen digital tools really <b>break down silos</b> between teams?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Would you happily <b>switch over to</b> a fully paperless office?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> Your company is about to <b>roll out</b> a new digital tool, but half the team is <b>pushing back against</b> it. Plan how to <b>get them on board</b> without forcing them. <b>Spell things out</b>, talk about <b>how teams will communicate</b>, and help <b>break down silos</b> calmly.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<footer>🏗️ ★ ★ &nbsp; HOW WORK WORKS · B2 BUSINESS ENGLISH · EMPLOYMENT · OUTSOURCING · PARTNERSHIPS · CULTURE &nbsp; ★ ★ 🏗️</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
