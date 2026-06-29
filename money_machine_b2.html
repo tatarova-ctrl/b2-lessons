@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Money Machine — B2 Business English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"🏦";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🏦 BUSINESS ENGLISH · B2 · BANKING · CASHLESS · SUPER APPS · DATA</div>
+      <h1>The Money <span class="accent">Machine</span></h1>
+      <div class="sub">Four conversations about the quiet revolution in your wallet &mdash; how banking really works in 2026, why cash is fading, why one app is trying to do everything, and what your bank really knows about your life. Every highlighted item is a phrasal verb or a collocation you'll really use.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~500 WORDS</span>
+        <span class="tag">PHRASAL VERBS &amp; COLLOCATIONS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">76 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Modern Banking 🏦</button>
+    <button class="tab" data-tab="t2">② Cashless 💳</button>
+    <button class="tab" data-tab="t3">③ Super Apps 📱</button>
+    <button class="tab" data-tab="t4">④ Data 🔍</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🏦</span>Modern Banking</h2>
+<p class="instr">How banks really work today &mdash; what's changed, and what hasn't. Highlighted items are real phrasal verbs and collocations.</p>
+<article class="reading">
+<h3>The Bank in Your Pocket</h3>
+<div class="byline">★ Sara Lindström · Senior banker · 25 years inside European retail banks</div>
+<p>When I started working in a bank in the year 2000, customers came in through a heavy wooden door, queued at a counter, and spoke to a serious person behind glass. Today, that same customer <b>opens a bank account</b> on a phone during their lunch break and may never see a branch again. Modern banking has changed more in the last ten years than in the previous hundred. The hard part for older customers is that almost nobody has explained what really changed.</p>
+<p>Let's start with the basics. Most adults today have at least two kinds of account: a <b>current account</b> for daily life and a <b>savings account</b> for money you <b>put aside</b>. Some people also have a <b>credit card account</b>. Each account has its own rules, its own <b>interest rate</b>, and its own quiet ways of helping or harming your finances. Understanding the difference is the first real step into adult money management.</p>
+<blockquote class="pull-quote">“Your bank used to be a building. Now it's a quiet, polite app on your phone &mdash; and quietly polite is not the same as harmless.”</blockquote>
+<p>Most banks today are <b>app-based</b>. You <b>log in</b>, you <b>check your balance</b>, you <b>send money</b> to a friend in seconds, you <b>pay bills</b>, you <b>set up direct debits</b>, you <b>top up</b> a savings pot. Tasks that took half a Saturday in 2005 now take ninety seconds. The convenience is real, but so is the risk: when something goes wrong, you can't easily talk to a human, and your money problem is suddenly trapped in a chat window.</p>
+<p>The other big change is <b>online-only banks</b>. Names like Revolut, Monzo, N26 and Wise have <b>shaken up</b> the old industry. They offer slick apps, cheaper transfers and instant notifications. Traditional banks have had to <b>catch up</b> quickly. Some did. Some quietly fell behind and now look old-fashioned to anyone under thirty.</p>
+<p>Then there are the harder topics. <b>Loans</b>, <b>mortgages</b>, <b>overdrafts</b> and <b>credit cards</b> are still the way most adults <b>borrow money</b>. An overdraft is when you <b>go into the red</b> &mdash; spend more than you have, with the bank's permission. A mortgage is a big, long loan to buy a home. A credit card lets you spend now and pay later. All four can be useful tools or quiet traps. Read the small print before you sign anything, and never <b>brush</b> debt <b>under the carpet</b>; it never goes away, it just grows.</p>
+<p>The banking system has also become much faster. <b>Real-time payments</b>, <b>instant transfers</b>, automatic alerts &mdash; you know within seconds when money <b>comes in</b> or <b>goes out</b> of your account. That speed is convenient. It also makes <b>scams</b> faster: a scammer who tricks you into approving a payment can <b>clean out</b> an account before you finish your coffee. The most common modern banking advice is now boring but vital: stop, breathe, and never approve a payment under time pressure.</p>
+<p>If you take one idea, take this. Banking is no longer a building. It's a daily habit. Spend twenty minutes a month inside your banking app, looking at where your money actually went. Not because numbers are interesting &mdash; they're not. But because the people who quietly look at their own data are the people who quietly stay in control of their lives.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a current account</div><div class="vocab-def">an account for everyday spending</div><div class="vocab-ex">“I keep my salary in my current account.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a savings account</div><div class="vocab-def">an account for money you put aside</div><div class="vocab-ex">“She moves 200 euros to her savings account every month.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a loan</div><div class="vocab-def">money borrowed from a bank</div><div class="vocab-ex">“They took out a loan to buy the car.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a mortgage</div><div class="vocab-def">a long loan used to buy a home</div><div class="vocab-ex">“Their mortgage runs for 25 years.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an overdraft</div><div class="vocab-def">permission to spend more than you have</div><div class="vocab-ex">“His overdraft costs 30 euros a month.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an interest rate</div><div class="vocab-def">the cost or reward of borrowing or saving</div><div class="vocab-ex">“Interest rates went up again in March.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a transfer</div><div class="vocab-def">sending money from one account to another</div><div class="vocab-ex">“The transfer arrived in under a minute.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a balance</div><div class="vocab-def">the money you have in an account</div><div class="vocab-ex">“Check your balance before the weekend.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to open a bank account</div><div class="vocab-def">to start a new account at a bank</div><div class="vocab-ex">“I opened a bank account online in fifteen minutes.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to take out a loan</div><div class="vocab-def">to borrow money from the bank</div><div class="vocab-ex">“They took out a loan to buy the flat.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to pay something off</div><div class="vocab-def">to repay a debt completely</div><div class="vocab-ex">“She finally paid off her student loan.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to deposit money</div><div class="vocab-def">to put money into your account</div><div class="vocab-ex">“Please deposit the cheque on Monday.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to withdraw cash</div><div class="vocab-def">to take money out of an account</div><div class="vocab-ex">“Can you withdraw cash without a card?”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to set up a direct debit</div><div class="vocab-def">to arrange automatic regular payments</div><div class="vocab-ex">“Set up a direct debit for the rent.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">transfer</span>
+<span class="bw">overdraft</span>
+<span class="bw">balance</span>
+<span class="bw">savings account</span>
+<span class="bw">loan</span>
+<span class="bw">current account</span>
+<span class="bw">mortgage</span>
+<span class="bw">interest rate</span>
+</div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> I keep my monthly salary in my <input class="fill-input" type="text" autocomplete="off" data-answer="current account" aria-label="answer 1">.</div>
+<div class="fill-item"><span class="qn">2.</span> She moves 200 euros to her <input class="fill-input" type="text" autocomplete="off" data-answer="savings account" aria-label="answer 2"> every month.</div>
+<div class="fill-item"><span class="qn">3.</span> They took out a small <input class="fill-input" type="text" autocomplete="off" data-answer="loan" aria-label="answer 3"> to repair the roof.</div>
+<div class="fill-item"><span class="qn">4.</span> Their <input class="fill-input" type="text" autocomplete="off" data-answer="mortgage" aria-label="answer 4"> runs for another fifteen years.</div>
+<div class="fill-item"><span class="qn">5.</span> His <input class="fill-input" type="text" autocomplete="off" data-answer="overdraft" aria-label="answer 5"> quietly costs him 30 euros a month.</div>
+<div class="fill-item"><span class="qn">6.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="interest rate" aria-label="answer 6"> on her savings rose in March.</div>
+<div class="fill-item"><span class="qn">7.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="transfer" aria-label="answer 7"> arrived in under a minute.</div>
+<div class="fill-item"><span class="qn">8.</span> Check your <input class="fill-input" type="text" autocomplete="off" data-answer="balance" aria-label="answer 8"> before you book the trip.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says banking has changed most…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> in the last hundred years</div>
+<div class="mc-opt" data-i="1"><b>B.</b> in the last ten years</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Most adults today have at least…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> one account</div>
+<div class="mc-opt" data-i="1"><b>B.</b> two kinds of account</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ten accounts</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Online-only banks like Revolut and Monzo are described as banks that have…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> disappeared</div>
+<div class="mc-opt" data-i="1"><b>B.</b> shaken up the old industry</div>
+<div class="mc-opt" data-i="2"><b>C.</b> closed branches</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>An overdraft is when you…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> save extra money</div>
+<div class="mc-opt" data-i="1"><b>B.</b> spend more than you have with the bank's permission</div>
+<div class="mc-opt" data-i="2"><b>C.</b> close your account</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Modern banking is faster, which also means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> fewer scams</div>
+<div class="mc-opt" data-i="1"><b>B.</b> scams happen faster</div>
+<div class="mc-opt" data-i="2"><b>C.</b> no scams</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her final advice is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> only use cash</div>
+<div class="mc-opt" data-i="1"><b>B.</b> look at where your money actually goes once a month</div>
+<div class="mc-opt" data-i="2"><b>C.</b> close your app</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">How many bank accounts do you actually have?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Do you use an online bank, a traditional one, or both?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever been into a bank branch this year?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are you good or bad with your money? Be honest.</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are physical bank branches still needed?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should banks be forced to offer simple, low-fee accounts to everyone?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Are online banks safer or more dangerous than traditional ones?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should schools teach basic banking as a subject?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will most adults in 2040 still have multiple bank accounts?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: help your grandmother open her first online bank account.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: convince a friend to set up direct debits for all their bills.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Plan the perfect, simple banking setup for a 22-year-old starting their first job.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">When did you last <b>open a bank account</b>? Was it easy or stressful?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Have you ever had to <b>take out a loan</b>? Was it worth it?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Do you have any debts you'd love to <b>pay off</b> this year?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">How often do you actually <b>withdraw cash</b> these days?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Have you <b>set up</b> all your bills as <b>direct debits</b>, or do you pay manually?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A relative has just been offered a new job and needs to <b>open a bank account</b>. They've never used online banking. Help them <b>set up</b> their <b>current account</b>, <b>savings account</b> and one safe <b>direct debit</b>. Warn them about <b>overdrafts</b> kindly.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">💳</span>Cashless Systems &amp; the Threat to Cash</h2>
+<p class="instr">Why cash is fading &mdash; and who quietly loses when it disappears. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Quiet Death of Coins</h3>
+<div class="byline">★ Daniel Park · Payments analyst · Studies how 30 countries pay</div>
+<p>Walk into a coffee shop in Stockholm, Amsterdam or Seoul, and you'll see a small sign that would have shocked your grandparents: “We don't take cash.” In some countries, cash is now used for less than 5% of payments. People <b>tap their card</b>, <b>scan a QR code</b>, or <b>flash their phone</b>, and walk out with their coffee in under three seconds. The world is going <b>cashless</b> faster than almost anyone predicted, and the change is far bigger than just convenience.</p>
+<p>There are real reasons to like it. Cashless payments are <b>quick to process</b>. Shopkeepers don't have to <b>count up</b> coins at the end of the night or worry about being robbed. Tax authorities can <b>track</b> business income honestly, which reduces fraud. Banks save money on cash-in-transit vans and giant safes. And tourists no longer have to <b>queue up</b> at a foreign cash machine on day one.</p>
+<blockquote class="pull-quote">“Cash is the only payment method that doesn't ask who you are. Once it's gone, every coffee will quietly know your name.”</blockquote>
+<p>But there's a quieter, harder story. When societies <b>phase out</b> cash, some people are <b>left behind</b>. Older customers who never learned to use apps. Homeless people who rely on coins to survive. People in rural areas with patchy mobile coverage. Children who learn about money through pocket coins they can hold. Refugees who arrive without documents. None of these groups are loud in political debates, but they all quietly suffer in a cashless world.</p>
+<p>There's also the question of <b>power outages</b>. In a city where 99% of payments are digital, a small technical problem can <b>shut down</b> half the shops in an afternoon. Cash, for all its old-fashioned weight, is the one payment method that still works when the lights go out, the server is down, or the internet <b>drops out</b>. Some governments are now quietly asking their citizens to keep a small stash of cash at home for emergencies.</p>
+<p>Then there's <b>privacy</b>. Every digital payment leaves a trace. Your bank, your card provider, the shop, and often several other companies, all <b>keep tabs on</b> what you bought, where, when, and at what time. Most people don't think about this until they suddenly do. The day someone discovers that an algorithm refused them a mortgage partly because of their food shopping is the day they start to <b>read the fine print</b>.</p>
+<p>There's a political layer too. In a fully cashless country, governments and banks can technically <b>freeze your account</b> in seconds. In normal times, that's fine. In bad times &mdash; political protests, sudden sanctions, mistaken identity &mdash; it can be terrifying. Cash, even in small amounts, is a tiny piece of freedom many people don't realise they value until it's gone.</p>
+<p>Most experts now agree that the smart goal isn't to <b>do away with</b> cash entirely. It's to keep cash as a quiet safety net while letting most daily payments go digital. Some countries are passing laws to protect the right to pay in cash for essential things: bread, medicine, rent. Sweden, once leading the cashless race, has quietly slowed down. Citizens noticed what they were losing.</p>
+<p>If you take one idea, take this. <b>Tap your card</b> with one hand. <b>Keep a small amount of cash</b> in the other. <b>Do without</b> neither. Modern adults need both: the speed of digital, and the quiet privacy and resilience of paper money in their pocket.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">cashless</div><div class="vocab-def">without using physical money</div><div class="vocab-ex">“Sweden is mostly a cashless society.”</div></div>
+<div class="vocab-card"><div class="vocab-term">contactless payment</div><div class="vocab-def">paying by tapping a card or phone</div><div class="vocab-ex">“Contactless payment limits keep rising.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a debit card</div><div class="vocab-def">a card that takes money straight from your account</div><div class="vocab-ex">“I pay everything with my debit card.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a transaction</div><div class="vocab-def">a single payment or transfer</div><div class="vocab-ex">“Every transaction leaves a digital trace.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a QR code</div><div class="vocab-def">a square barcode you scan with a phone</div><div class="vocab-ex">“Scan the QR code to pay.”</div></div>
+<div class="vocab-card"><div class="vocab-term">cryptocurrency</div><div class="vocab-def">digital money not run by a government</div><div class="vocab-ex">“Cryptocurrency is still volatile.”</div></div>
+<div class="vocab-card"><div class="vocab-term">financial inclusion</div><div class="vocab-def">making sure everyone can use financial services</div><div class="vocab-ex">“Financial inclusion is the goal, not just cashless.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a digital wallet</div><div class="vocab-def">an app that holds your cards and money</div><div class="vocab-ex">“Most young adults use a digital wallet.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to phase out cash</div><div class="vocab-def">to slowly remove cash from use</div><div class="vocab-ex">“Some shops have phased out cash entirely.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to tap your card</div><div class="vocab-def">to pay by touching a card on a reader</div><div class="vocab-ex">“Just tap your card for under 50 euros.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be left behind</div><div class="vocab-def">to be excluded from progress</div><div class="vocab-ex">“Older people risk being left behind.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to keep an eye on</div><div class="vocab-def">to monitor closely</div><div class="vocab-ex">“Banks keep an eye on every transaction.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to do without something</div><div class="vocab-def">to live without it</div><div class="vocab-ex">“Could you do without cash for a month?”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to fall behind on payments</div><div class="vocab-def">to be late paying bills</div><div class="vocab-ex">“Many families have fallen behind on payments.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">cashless</span>
+<span class="bw">debit card</span>
+<span class="bw">transaction</span>
+<span class="bw">cryptocurrency</span>
+<span class="bw">contactless</span>
+<span class="bw">QR code</span>
+<span class="bw">financial inclusion</span>
+<span class="bw">digital wallet</span>
+</div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> Their society is almost entirely <input class="fill-input" type="text" autocomplete="off" data-answer="cashless" aria-label="answer 1"> now.</div>
+<div class="fill-item"><span class="qn">2.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="contactless" aria-label="answer 2"> payment limit was raised to 50 euros.</div>
+<div class="fill-item"><span class="qn">3.</span> I pay most things with my <input class="fill-input" type="text" autocomplete="off" data-answer="debit card" aria-label="answer 3">.</div>
+<div class="fill-item"><span class="qn">4.</span> Every digital <input class="fill-input" type="text" autocomplete="off" data-answer="transaction" aria-label="answer 4"> leaves a small data trace.</div>
+<div class="fill-item"><span class="qn">5.</span> Scan the <input class="fill-input" type="text" autocomplete="off" data-answer="qr code" aria-label="answer 5"> to pay the parking fee.</div>
+<div class="fill-item"><span class="qn">6.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="cryptocurrency" aria-label="answer 6"> is still volatile and risky for most people.</div>
+<div class="fill-item"><span class="qn">7.</span> The goal isn't only cashless &mdash; it's <input class="fill-input" type="text" autocomplete="off" data-answer="financial inclusion" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> Most young adults now use a <input class="fill-input" type="text" autocomplete="off" data-answer="digital wallet" aria-label="answer 8"> instead of a wallet.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>In some countries, cash is now used for… of payments.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> over 50%</div>
+<div class="mc-opt" data-i="1"><b>B.</b> less than 5%</div>
+<div class="mc-opt" data-i="2"><b>C.</b> exactly half</div>
+</div>
+<div class="mc-item" data-correct="2">
+<div class="mc-q"><span class="qn">Q2</span>One real reason to like cashless is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it's slower</div>
+<div class="mc-opt" data-i="1"><b>B.</b> it makes tax avoidance easier</div>
+<div class="mc-opt" data-i="2"><b>C.</b> payments are quick to process</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Groups that risk being left behind include…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> young app users</div>
+<div class="mc-opt" data-i="1"><b>B.</b> older customers and homeless people</div>
+<div class="mc-opt" data-i="2"><b>C.</b> tourists only</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>In a power outage, cash is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> the worst option</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the one method that still works</div>
+<div class="mc-opt" data-i="2"><b>C.</b> illegal</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>In a fully cashless country, banks and governments can technically…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> print more cash</div>
+<div class="mc-opt" data-i="1"><b>B.</b> freeze your account in seconds</div>
+<div class="mc-opt" data-i="2"><b>C.</b> change your salary</div>
+</div>
+<div class="mc-item" data-correct="2">
+<div class="mc-q"><span class="qn">Q6</span>The writer's final advice is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> use only cash</div>
+<div class="mc-opt" data-i="1"><b>B.</b> go fully cashless</div>
+<div class="mc-opt" data-i="2"><b>C.</b> tap your card AND keep some cash</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">When did you last pay with physical cash?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What do you mostly use to pay &mdash; card, phone, app, cash?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever travelled to a fully cashless country?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you carry any cash today?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should countries protect the right to pay in cash for basic things?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are cashless systems quietly excluding older people?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is cash really a privacy tool, or just nostalgia?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should crypto be a legal form of payment everywhere?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will any country be 100% cashless within ten years?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: convince an older relative to try contactless payments safely.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: defend keeping cash in a society that wants to phase it out.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Plan a one-month experiment of living completely without cash.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Could you genuinely <b>do without cash</b> for a month?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Do you mostly <b>tap your card</b>, or do you still pay with cash sometimes?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Which group of people risks being <b>left behind</b> by cashless systems?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">How closely does your bank <b>keep an eye on</b> your spending, do you think?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Have you, or someone you know, ever <b>fallen behind on payments</b>? What happened?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A small café has decided to <b>phase out cash</b>. An older customer feels <b>left behind</b>. Have the conversation kindly: <b>tap your card</b>, the <b>QR code</b> on the counter, and how to <b>do without</b> coins without losing dignity.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">📱</span>The Banking Super App Revolution</h2>
+<p class="instr">Why one app is quietly trying to do everything &mdash; and what that means for your money. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>One App to Rule Your Money</h3>
+<div class="byline">★ Yara Hassan · Fintech analyst · Studies super apps in Asia and Europe</div>
+<p>In China, your phone replaces your wallet, your taxi, your supermarket, your doctor and your bank. WeChat and Alipay <b>handle</b> billions of payments a day, plus restaurant bookings, ride-hailing, hospital appointments and government services. We call this kind of giant app a <b>super app</b>. In Europe, Revolut wants to be your bank, your travel insurance, your stockbroker, your phone provider and your kids' allowance manager &mdash; all in one place. The revolution didn't really arrive yesterday. It just <b>crept up on</b> us quietly.</p>
+<p>The promise is real. Instead of <b>juggling</b> ten apps for ten boring things, you <b>open up</b> one app, <b>log in</b> once, and your bills are paid, your taxi is on its way, your foreign currency is converted, and your child's pocket money lands in their card account. The friction of modern life <b>melts away</b>. For busy adults, that convenience is genuinely valuable.</p>
+<blockquote class="pull-quote">“Convenience always feels free. The price is hidden somewhere quieter than the homepage.”</blockquote>
+<p>Then there's the business side. Once a customer is <b>signed up</b> for several services in one app, they almost never leave. <b>Switching costs</b> become enormous: moving your bank, your investments and your insurance to a rival means changing ten things at once. Smart super apps <b>lock you in</b> gently, by being useful in ten different small ways every day.</p>
+<p>The model is profitable in a quieter way too. Super apps don't always make their money from fees. They make it from <b>data</b>: knowing what you buy, where you travel, when you spend, and how you behave. That data lets them <b>roll out</b> new financial products almost guaranteed to <b>land</b> with customers. It also makes them very valuable to advertisers, partners and, sometimes, governments.</p>
+<p>The risks are real, though. When one app holds your money, your messages, your transport and your bills, a single problem can <b>knock out</b> half your life. A locked account, a stolen phone, a temporary outage &mdash; suddenly you can't pay for lunch, can't get home, and can't reach customer service. The more you <b>go all-in on</b> one app, the more you depend on its quiet reliability.</p>
+<p>Then there's <b>regulation</b>. Banking is heavily regulated; many super-app services are not. When a chat app starts handling your savings, it's not always clear who is responsible if things go wrong, or which country's law protects you. Many regulators are still <b>catching up</b>, and consumers sometimes <b>fall through the cracks</b>.</p>
+<p>The geographic picture is also fascinating. In <b>emerging markets</b> &mdash; India, Indonesia, Brazil, parts of Africa &mdash; super apps are leapfrogging traditional banks entirely. Millions of people who never had a bank account are now active digital customers of one giant app. That brings genuine <b>financial inclusion</b>, but also new monopoly questions: one company quietly controlling most of a country's payments is not a small thing.</p>
+<p>If you take one idea, take this. Super apps are not evil; they're just powerful. Use them, enjoy the convenience, but don't <b>put all your eggs in one basket</b>. Keep one card and one account outside your main app. Read which features actually save you time and which quietly chase your attention. The smartest customers of super apps treat them like very useful housemates: friendly, helpful, and never to be given the only set of keys.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a super app</div><div class="vocab-def">one app that does many different services</div><div class="vocab-ex">“Super apps started in Asia.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a feature</div><div class="vocab-def">a function inside an app</div><div class="vocab-ex">“The investment feature is brand new.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an update</div><div class="vocab-def">a new version of software</div><div class="vocab-ex">“The update added five new features.”</div></div>
+<div class="vocab-card"><div class="vocab-term">integration</div><div class="vocab-def">connecting different services together</div><div class="vocab-ex">“Their integration with Apple Pay was smooth.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a subscription</div><div class="vocab-def">a regular payment for ongoing service</div><div class="vocab-ex">“The premium subscription is 8 euros a month.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a marketplace</div><div class="vocab-def">a digital place where buyers and sellers meet</div><div class="vocab-ex">“The app has a built-in marketplace.”</div></div>
+<div class="vocab-card"><div class="vocab-term">competition</div><div class="vocab-def">other businesses trying to win the same customers</div><div class="vocab-ex">“Competition forces banks to innovate.”</div></div>
+<div class="vocab-card"><div class="vocab-term">monopoly</div><div class="vocab-def">control of a market by one company</div><div class="vocab-ex">“Monopoly power is a real concern with super apps.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to roll out a feature</div><div class="vocab-def">to release a new function</div><div class="vocab-ex">“They rolled out a new investment feature last week.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to sign up for</div><div class="vocab-def">to register for a service</div><div class="vocab-ex">“I signed up for the premium account.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to merge into one</div><div class="vocab-def">to combine several things into one</div><div class="vocab-ex">“Banking, shopping and chat have merged into one app.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to lock you in</div><div class="vocab-def">to make it hard to leave</div><div class="vocab-ex">“Super apps quietly lock you in.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to take care of</div><div class="vocab-def">to handle automatically</div><div class="vocab-ex">“The app takes care of all my bills.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to go all-in on</div><div class="vocab-def">to commit fully to something</div><div class="vocab-ex">“Some users have gone all-in on one app.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">monopoly</span>
+<span class="bw">integration</span>
+<span class="bw">subscription</span>
+<span class="bw">marketplace</span>
+<span class="bw">super app</span>
+<span class="bw">feature</span>
+<span class="bw">competition</span>
+<span class="bw">update</span>
+</div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> Their <input class="fill-input" type="text" autocomplete="off" data-answer="super app" aria-label="answer 1"> lets you do almost everything in one place.</div>
+<div class="fill-item"><span class="qn">2.</span> The new investment <input class="fill-input" type="text" autocomplete="off" data-answer="feature" aria-label="answer 2"> launched last month.</div>
+<div class="fill-item"><span class="qn">3.</span> The latest <input class="fill-input" type="text" autocomplete="off" data-answer="update" aria-label="answer 3"> added five useful tools.</div>
+<div class="fill-item"><span class="qn">4.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="integration" aria-label="answer 4"> with the local tax office made paying tax much easier.</div>
+<div class="fill-item"><span class="qn">5.</span> The premium <input class="fill-input" type="text" autocomplete="off" data-answer="subscription" aria-label="answer 5"> is 8 euros a month.</div>
+<div class="fill-item"><span class="qn">6.</span> They also run a small in-app <input class="fill-input" type="text" autocomplete="off" data-answer="marketplace" aria-label="answer 6"> for second-hand goods.</div>
+<div class="fill-item"><span class="qn">7.</span> Healthy <input class="fill-input" type="text" autocomplete="off" data-answer="competition" aria-label="answer 7"> forces every bank to innovate.</div>
+<div class="fill-item"><span class="qn">8.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="monopoly" aria-label="answer 8"> power is the quiet risk of super apps.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>Super apps started mostly in…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> Europe</div>
+<div class="mc-opt" data-i="1"><b>B.</b> Asia</div>
+<div class="mc-opt" data-i="2"><b>C.</b> Africa</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The promise of super apps is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> fewer features</div>
+<div class="mc-opt" data-i="1"><b>B.</b> one app instead of ten</div>
+<div class="mc-opt" data-i="2"><b>C.</b> slower services</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Super apps make money quietly through…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> only fees</div>
+<div class="mc-opt" data-i="1"><b>B.</b> data about you</div>
+<div class="mc-opt" data-i="2"><b>C.</b> donations</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>If you go all-in on one app, a single problem can…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> save you money</div>
+<div class="mc-opt" data-i="1"><b>B.</b> knock out half your life</div>
+<div class="mc-opt" data-i="2"><b>C.</b> make you famous</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>In emerging markets, super apps are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> disappearing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> leapfrogging traditional banks</div>
+<div class="mc-opt" data-i="2"><b>C.</b> banned</div>
+</div>
+<div class="mc-item" data-correct="2">
+<div class="mc-q"><span class="qn">Q6</span>The writer's final advice is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> use only one app</div>
+<div class="mc-opt" data-i="1"><b>B.</b> never use any super app</div>
+<div class="mc-opt" data-i="2"><b>C.</b> not put all your eggs in one basket</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the app you open most often in a day?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Have you ever used a super app? If so, which?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">How many financial apps do you currently have?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Would you happily put your bank, transport and shopping in one app?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are super apps making life easier or building digital prisons?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should one company be allowed to handle your bank, taxi and chat?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Will Europe ever have a real super app like China's?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should super apps be broken up to protect competition?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Are super apps a chance for poorer countries to skip traditional banking?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: pitch a friend on switching all their finances to one super app.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: defend keeping at least one bank account outside any super app.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design your ideal super app &mdash; what should it do, what should it NOT do?</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Have you <b>signed up for</b> a banking app feature you now love?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">What features have <b>merged into</b> your favourite app over the past few years?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Do you feel <b>locked in</b> to any service that's now hard to leave?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">What do you happily let an app <b>take care of</b> for you?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Have you ever gone <b>all-in on</b> one app for everything? How did it work out?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend wants to <b>go all-in on</b> one super app for banking, shopping and bills. Calmly explain <b>switching costs</b>, why you shouldn't <b>put all your eggs in one basket</b>, and which one or two services you'd happily let an app <b>take care of</b>.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">🔍</span>Data Capture &amp; Your Money</h2>
+<p class="instr">What your bank really knows about your life &mdash; and what it does with it. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>Your Bank Knows You Better Than Your Friends</h3>
+<div class="byline">★ Felipe Almeida · Data &amp; privacy researcher · Studies what banks do with our information</div>
+<p>Your bank sees almost everything. The time you bought your coffee. The restaurants you eat at. The petrol station you use. The medication you ordered last winter. The streaming services you've stopped using but haven't cancelled. Twenty years ago, this was just numbers in a ledger. Today, it's a high-resolution portrait of your life. Most customers have no idea how detailed it has become &mdash; or what is quietly done with it.</p>
+<p>Every time you spend, your bank captures a small package of information: amount, time, location, merchant category, sometimes the exact product. Multiply by hundreds of transactions a month, across millions of customers, and banks now hold one of the richest datasets about modern human behaviour ever created. Used carefully, it helps them <b>spot fraud</b>, <b>roll out</b> useful products, and quietly <b>look after</b> customers. Used carelessly, it <b>crosses a line</b>.</p>
+<blockquote class="pull-quote">“You can hide your spending from your partner, your parents and your accountant. You cannot hide it from your bank.”</blockquote>
+<p>The clearest legitimate use is <b>fraud detection</b>. Modern systems <b>pick up on</b> unusual patterns within seconds. If your card suddenly tries to buy something for 800 euros in a country you've never visited, an algorithm <b>flags it</b>, your phone buzzes, the payment is <b>turned down</b>, and your bank texts you. That's data working in your favour.</p>
+<p>But the same data is used for many less obvious things. Credit decisions. Insurance prices. Marketing offers carefully <b>tailored to</b> your life. Apps that <b>nudge you</b> to save “because people like you save more.” Some of this is genuinely helpful. Some of it is closer to quiet manipulation. The line between them is rarely shown to the customer.</p>
+<p>Then there's the murky world of <b>data sharing</b>. Many banks have partnerships with other companies. When you <b>tick a box</b> agreeing to terms and conditions, you may quietly <b>give consent</b> to your data being shared in ways you'd never approve if asked directly. Anonymous spending data can be <b>sold off</b> in bulk to retailers, advertisers and researchers. It's not technically your name, but the patterns can still <b>tell a story</b> about who you are.</p>
+<p><b>Open banking</b> has added another layer. In Europe and other regions, you can now allow other apps to <b>read</b> your bank data with one click, so they can help you save, invest or budget. The convenience is genuine. The trade-off is that yet another company <b>keeps tabs on</b> your spending. Multiply that across five “helpful” apps, and the picture quietly becomes a privacy problem.</p>
+<p>On the positive side, regulations like Europe's <b>GDPR</b> give you real rights. You can ask any company what data they hold on you. You can <b>opt out</b> of marketing. You can demand they delete your data. Very few people use these rights, but they exist and they work. Knowing they're there is part of being an adult in 2026.</p>
+<p>What can you practically do? <b>Read the fine print</b> before signing up. <b>Opt out</b> of “marketing” boxes. <b>Turn off</b> data-sharing in your banking app where you can. Check, once a year, what subscriptions are still <b>running through</b> your account. Don't sign up to twelve money apps. Use the strongest password you have on your banking app, plus <b>two-factor authentication</b>. None of this is glamorous. All of it works.</p>
+<p>The deeper truth is uncomfortable. Modern banking has become a quiet partnership between you and an enormous surveillance system. It can be genuinely helpful or quietly harmful, depending on the company, the country, and the choices you make. The customers who quietly win are not paranoid. They are simply alert. They use the system without forgetting that the system is also using them.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">personal data</div><div class="vocab-def">information about a specific person</div><div class="vocab-ex">“Personal data has become very valuable.”</div></div>
+<div class="vocab-card"><div class="vocab-term">privacy</div><div class="vocab-def">the right to keep your information personal</div><div class="vocab-ex">“Privacy is now a serious banking topic.”</div></div>
+<div class="vocab-card"><div class="vocab-term">consent</div><div class="vocab-def">formal permission</div><div class="vocab-ex">“You must give consent before data is shared.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a cookie</div><div class="vocab-def">a small file websites use to track you</div><div class="vocab-ex">“Reject unnecessary cookies.”</div></div>
+<div class="vocab-card"><div class="vocab-term">encryption</div><div class="vocab-def">scrambling data so others can't read it</div><div class="vocab-ex">“Banking apps use strong encryption.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a breach</div><div class="vocab-def">an event where data is stolen</div><div class="vocab-ex">“After the breach, millions changed their passwords.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a regulator</div><div class="vocab-def">an official body that controls an industry</div><div class="vocab-ex">“The regulator fined the bank heavily.”</div></div>
+<div class="vocab-card"><div class="vocab-term">two-factor authentication</div><div class="vocab-def">an extra security step beyond a password</div><div class="vocab-ex">“Turn on two-factor authentication everywhere.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to keep tabs on</div><div class="vocab-def">to monitor closely</div><div class="vocab-ex">“Your bank keeps tabs on every purchase.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to opt in / to opt out</div><div class="vocab-def">to choose to join or to leave a service</div><div class="vocab-ex">“You can opt out of data sharing.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to sell off your data</div><div class="vocab-def">to pass data to other companies for profit</div><div class="vocab-ex">“Some apps quietly sell off your data.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to give consent</div><div class="vocab-def">to formally agree</div><div class="vocab-ex">“Always read what you give consent to.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to read the fine print</div><div class="vocab-def">to study small details in a contract</div><div class="vocab-ex">“Almost nobody reads the fine print.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be wiped out</div><div class="vocab-def">to be completely destroyed or removed</div><div class="vocab-ex">“One hack wiped out their digital wallet.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">breach</span>
+<span class="bw">consent</span>
+<span class="bw">encryption</span>
+<span class="bw">two-factor</span>
+<span class="bw">cookie</span>
+<span class="bw">regulator</span>
+<span class="bw">personal data</span>
+<span class="bw">privacy</span>
+</div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="personal data" aria-label="answer 1"> has quietly become one of the most valuable things in the world.</div>
+<div class="fill-item"><span class="qn">2.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="privacy" aria-label="answer 2"> is now a serious topic in modern banking.</div>
+<div class="fill-item"><span class="qn">3.</span> You must give <input class="fill-input" type="text" autocomplete="off" data-answer="consent" aria-label="answer 3"> before any data sharing.</div>
+<div class="fill-item"><span class="qn">4.</span> Reject every unnecessary <input class="fill-input" type="text" autocomplete="off" data-answer="cookie" aria-label="answer 4"> on every site.</div>
+<div class="fill-item"><span class="qn">5.</span> Banking apps use strong <input class="fill-input" type="text" autocomplete="off" data-answer="encryption" aria-label="answer 5"> to protect your data.</div>
+<div class="fill-item"><span class="qn">6.</span> After the data <input class="fill-input" type="text" autocomplete="off" data-answer="breach" aria-label="answer 6">, millions of customers had to change passwords.</div>
+<div class="fill-item"><span class="qn">7.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="regulator" aria-label="answer 7"> fined the bank a record amount.</div>
+<div class="fill-item"><span class="qn">8.</span> Turn on <input class="fill-input" type="text" autocomplete="off" data-answer="two-factor" aria-label="answer 8"> authentication on every important account.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>Banks today hold…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> very little data on customers</div>
+<div class="mc-opt" data-i="1"><b>B.</b> one of the richest datasets on human behaviour ever created</div>
+<div class="mc-opt" data-i="2"><b>C.</b> only the customer's name</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The clearest legitimate use of bank data is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> selling it</div>
+<div class="mc-opt" data-i="1"><b>B.</b> fraud detection</div>
+<div class="mc-opt" data-i="2"><b>C.</b> showing it to friends</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>‘Data sharing’ in the writer's piece refers to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> sharing your salary with friends</div>
+<div class="mc-opt" data-i="1"><b>B.</b> banks passing anonymous spending data to partners</div>
+<div class="mc-opt" data-i="2"><b>C.</b> sharing money equally</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>‘Open banking’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> banks open longer</div>
+<div class="mc-opt" data-i="1"><b>B.</b> other apps can read your bank data with permission</div>
+<div class="mc-opt" data-i="2"><b>C.</b> banks publish all customer names</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Under GDPR, you can…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> nothing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ask what data is held on you and demand deletion</div>
+<div class="mc-opt" data-i="2"><b>C.</b> claim free money</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's final advice is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> become paranoid</div>
+<div class="mc-opt" data-i="1"><b>B.</b> stay alert and use the system carefully</div>
+<div class="mc-opt" data-i="2"><b>C.</b> close all accounts</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Do you actually know what data your bank holds on you?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Have you ever read the small print before signing a banking app contract?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you turned on two-factor authentication on your banking app?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are you bothered by online tracking, or used to it?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should banks be allowed to sell anonymous customer data?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is open banking helpful or just a new privacy problem?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should governments regulate data sharing more strictly?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Would you accept lower bank fees in exchange for sharing more data?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Should you have the right to fully delete all your banking data?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: explain banking data risks to a tech-uncertain relative.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: write a polite request to your bank asking what data they hold on you.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Plan a 30-minute ‘privacy clean-up’ of your banking and money apps.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Does it bother you that companies <b>keep tabs on</b> your spending?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Do you usually <b>opt in</b> or <b>opt out</b> of “share my data” boxes?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Do you ever <b>read the fine print</b> before signing up?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever heard of someone whose digital wallet was <b>wiped out</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">When should you really <b>give consent</b>, and when should you refuse?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend is about to <b>sign up</b> for a new finance app that promises smart savings. Walk them through the privacy questions: what data they're about to <b>give consent</b> to, what <b>keeps tabs on</b> their spending, whether they should <b>opt in</b> or <b>opt out</b>, and which boxes to leave unticked.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<footer>🏦 ★ ★ &nbsp; THE MONEY MACHINE · B2 BUSINESS ENGLISH · BANKING · CASHLESS · SUPER APPS · DATA &nbsp; ★ ★ 🏦</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
