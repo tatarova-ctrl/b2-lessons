@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting Away — B2 English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"🌴";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🌴 B2 ENGLISH · FLIGHT · TOURISM · ADVENTURE · WELLNESS</div>
+      <h1>Getting <span class="accent">Away</span></h1>
+      <div class="sub">Four conversations about how we escape our normal lives &mdash; the quiet revolution inside flying, the shape of tourism in ten years, the boom in extreme adventures, and the strange rise of silent, digital-free wellness retreats. Every highlighted item is a phrasal verb or a collocation you'll really use.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~500 WORDS</span>
+        <span class="tag">PHRASAL VERBS &amp; COLLOCATIONS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">76 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Flying ✈️</button>
+    <button class="tab" data-tab="t2">② Tourism 2035 🌍</button>
+    <button class="tab" data-tab="t3">③ Adventure 🎢</button>
+    <button class="tab" data-tab="t4">④ Retreats 🧘</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">✈️</span>The Future of Flying</h2>
+<p class="instr">How air travel is quietly changing &mdash; and what will feel different in ten years. Highlighted items are real phrasal verbs and collocations.</p>
+<article class="reading">
+<h3>The Cabin Is Getting Cleverer, Not Bigger</h3>
+<div class="byline">★ Ivana Petrov · Aviation industry analyst · 20 years watching how we fly</div>
+<p>When my grandparents first flew in the 1970s, air travel was slow, expensive and glamorous. Passengers <b>dressed up</b> for a flight the way people now dress up for a wedding. Fifty years later, flying has become cheap, crowded and often stressful. But the next decade will change it again &mdash; not by making planes bigger or faster, but by making the whole experience quietly cleverer.</p>
+<p>Let's start at the airport. Most travellers still <b>check in for a flight</b>, <b>drop off their bags</b>, <b>go through security</b>, and <b>hang around</b> waiting to <b>board</b>. In modern airports, all of this is slowly being replaced by facial recognition. You walk up to the gate, a camera <b>reads</b> your face, and you're through. Passports are quietly disappearing as physical documents. Whether this is convenient or unsettling depends on how you feel about being <b>tracked</b> across the airport.</p>
+<blockquote class="pull-quote">“The future of flying is not faster planes. It's fewer queues, cleaner fuel, and a cabin that knows your name.”</blockquote>
+<p>In the sky, the biggest change is <b>fuel</b>. Aviation is one of the hardest industries to <b>go green</b>. Airlines are experimenting with <b>sustainable aviation fuel</b> (SAF), made from used cooking oil, farm waste, and even air-captured carbon. It's still expensive and produced in tiny quantities, but every year the numbers get better. Some short flights of the future will run on <b>electric</b> or <b>hydrogen</b> engines. Long-haul flights will probably stay traditional for a long time.</p>
+<p>The cabin itself is quietly being redesigned. Screens are being replaced by your own phone. Meals are being <b>tailored to</b> your dietary needs before you even sit down. Airlines <b>keep tabs on</b> what you liked, what you didn't finish, and what you complained about &mdash; and they use that data to personalise your next flight. The seat gets smarter too: it can tell how you're sleeping, adjust the temperature, and quietly monitor your heart rate.</p>
+<p>Then there's the return of <b>supersonic flight</b>. Companies like Boom Aerospace are building planes that <b>cut journey times</b> almost in half &mdash; London to New York in three and a half hours instead of seven. These will not be for everyone; expect prices to <b>go through the roof</b>. But if they work, business travel could look completely different by 2035.</p>
+<p>For most passengers, though, the biggest changes will be smaller and more useful. Better <b>delay prediction</b>: apps that warn you about problems before the airline announces them. Smarter <b>baggage tracking</b>, so lost luggage becomes rare. Better <b>connections</b>: if your first flight is delayed, the system <b>reroutes</b> you before you even reach the gate. All of this <b>runs on</b> AI in the background &mdash; the same AI that helps airlines <b>squeeze more seats</b> onto each flight.</p>
+<p>There are also darker trends. <b>Climate concern</b> is starting to shape how people fly. In some Nordic countries, “<b>flight shame</b>” is a real cultural force: people quietly avoid short flights when a train is possible. Budget airlines still <b>fill up</b> planes cheaply, but travellers are starting to ask harder questions about where they really need to go.</p>
+<p>If you take one idea, take this. The future of flying is not necessarily luxury. It's data, biometrics, cleaner fuels, smarter cabins, and quiet trade-offs between convenience and privacy. Understand what you're <b>signing up for</b>. Choose your airline as carefully as you choose your bank. And remember: the plane will be more comfortable in 2035, but the questions we ask before boarding will be much harder.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a flight</div><div class="vocab-def">a journey by plane</div><div class="vocab-ex">“The flight takes two hours.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an airline</div><div class="vocab-def">a company that runs flights</div><div class="vocab-ex">“Which airline are you flying with?”</div></div>
+<div class="vocab-card"><div class="vocab-term">a passenger</div><div class="vocab-def">a person travelling on a plane</div><div class="vocab-ex">“The plane holds 180 passengers.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a boarding pass</div><div class="vocab-def">a document that lets you board a flight</div><div class="vocab-ex">“Have your boarding pass ready.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a delay</div><div class="vocab-def">a wait beyond the planned time</div><div class="vocab-ex">“There was a two-hour delay in Rome.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a stopover</div><div class="vocab-def">a short stay between two flights</div><div class="vocab-ex">“We had a stopover in Doha.”</div></div>
+<div class="vocab-card"><div class="vocab-term">hand luggage</div><div class="vocab-def">bags you carry on board</div><div class="vocab-ex">“Hand luggage only, no check-in bag.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a low-cost airline</div><div class="vocab-def">a cheap, no-frills carrier</div><div class="vocab-ex">“Most students fly low-cost airlines.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to check in for a flight</div><div class="vocab-def">to register at the airport</div><div class="vocab-ex">“We checked in for the flight two hours early.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to board the plane</div><div class="vocab-def">to get on the plane</div><div class="vocab-ex">“Boarding begins in ten minutes.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to take off</div><div class="vocab-def">(of a plane) to leave the ground</div><div class="vocab-ex">“We took off at 6:20 exactly.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to touch down</div><div class="vocab-def">(of a plane) to land</div><div class="vocab-ex">“The plane touched down safely in Rome.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be grounded</div><div class="vocab-def">not allowed to fly</div><div class="vocab-ex">“All flights were grounded because of fog.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to run into delays</div><div class="vocab-def">to experience delays</div><div class="vocab-ex">“We ran into serious delays at security.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">flight</span>
+<span class="bw">delay</span>
+<span class="bw">boarding pass</span>
+<span class="bw">airline</span>
+<span class="bw">hand luggage</span>
+<span class="bw">passenger</span>
+<span class="bw">stopover</span>
+<span class="bw">low-cost</span>
+</div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="flight" aria-label="answer 1"> takes about three hours to Athens.</div>
+<div class="fill-item"><span class="qn">2.</span> Which <input class="fill-input" type="text" autocomplete="off" data-answer="airline" aria-label="answer 2"> are you flying with tomorrow?</div>
+<div class="fill-item"><span class="qn">3.</span> Every <input class="fill-input" type="text" autocomplete="off" data-answer="passenger" aria-label="answer 3"> must fasten their seatbelt.</div>
+<div class="fill-item"><span class="qn">4.</span> Have your <input class="fill-input" type="text" autocomplete="off" data-answer="boarding pass" aria-label="answer 4"> ready at the gate.</div>
+<div class="fill-item"><span class="qn">5.</span> There was a two-hour <input class="fill-input" type="text" autocomplete="off" data-answer="delay" aria-label="answer 5"> because of fog.</div>
+<div class="fill-item"><span class="qn">6.</span> We had a short <input class="fill-input" type="text" autocomplete="off" data-answer="stopover" aria-label="answer 6"> in Doha on the way back.</div>
+<div class="fill-item"><span class="qn">7.</span> I only travel with <input class="fill-input" type="text" autocomplete="off" data-answer="hand luggage" aria-label="answer 7"> &mdash; no check-in.</div>
+<div class="fill-item"><span class="qn">8.</span> Most students fly <input class="fill-input" type="text" autocomplete="off" data-answer="low-cost" aria-label="answer 8"> airlines to save money.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>According to the writer, the next decade will make flying…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> faster</div>
+<div class="mc-opt" data-i="1"><b>B.</b> cleverer, not bigger</div>
+<div class="mc-opt" data-i="2"><b>C.</b> more glamorous</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>At modern airports, passports are being partly replaced by…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> QR codes only</div>
+<div class="mc-opt" data-i="1"><b>B.</b> facial recognition</div>
+<div class="mc-opt" data-i="2"><b>C.</b> voice ID</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Sustainable aviation fuel (SAF) is made from things like…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> diamond dust</div>
+<div class="mc-opt" data-i="1"><b>B.</b> used cooking oil and farm waste</div>
+<div class="mc-opt" data-i="2"><b>C.</b> seawater</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Supersonic flights are expected to be…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> cheap for everyone</div>
+<div class="mc-opt" data-i="1"><b>B.</b> expensive and mostly for business travel</div>
+<div class="mc-opt" data-i="2"><b>C.</b> banned</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q5</span>‘Flight shame’ refers to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> people ashamed of flying, especially short flights</div>
+<div class="mc-opt" data-i="1"><b>B.</b> noisy passengers</div>
+<div class="mc-opt" data-i="2"><b>C.</b> embarrassing pilots</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her final advice is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> never fly again</div>
+<div class="mc-opt" data-i="1"><b>B.</b> understand what you're signing up for and choose airlines carefully</div>
+<div class="mc-opt" data-i="2"><b>C.</b> only book luxury</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">How often do you fly in a normal year?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Do you love or hate airports?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's the longest flight you've been on?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are you a nervous flyer or a calm one?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should short flights be banned where fast trains exist?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Would you happily use facial recognition to board a flight?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Will supersonic travel actually come back?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is it fair to feel ‘flight shame’?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Should airlines charge more for polluting flights?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: convince a nervous friend to try flying again after a bad experience.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: complain politely to airline staff about a long delay.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design your ideal 2035 airport in 60 seconds.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">How early do you like to <b>check in for a flight</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Have you ever been on a flight that couldn't <b>take off</b> because of weather?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Describe the smoothest <b>touch down</b> you can remember.</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever been <b>grounded</b> at an airport for hours? Tell us the story.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What's the worst time you've <b>run into delays</b> travelling?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're at an airport and your flight has just been <b>delayed</b> by five hours. The other plays airline staff. <b>Check in</b> patiently, ask about the next available <b>flight</b>, protect your <b>hand luggage</b>, and quietly plan a possible <b>stopover</b>.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">🌍</span>Tourism in 2035</h2>
+<p class="instr">How our travel choices are quietly reshaping the world's cities and beaches. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Beach Is Full. What's Next?</h3>
+<div class="byline">★ Marco Vidal · Travel industry analyst · Studies tourism trends across 40 countries</div>
+<p>Something strange happened to tourism this decade. For the first time in modern history, some destinations are asking tourists to please stay away. Barcelona, Venice, Kyoto, Dubrovnik and Amsterdam have all <b>rolled out</b> new rules, taxes or limits on visitors. The old rule &mdash; more tourists is always better &mdash; is quietly dying. The question every traveller in 2035 will have to answer is not “where can I afford to go?” but “where am I actually welcome?”</p>
+<p>The core problem is <b>overtourism</b>. For most of the twentieth century, travel was expensive. Since the 2000s, low-cost airlines, Airbnb and Instagram have combined to <b>flood</b> once-quiet corners of the world <b>with visitors</b>. Some cities now welcome twenty tourists per resident every year. Old streets have been <b>turned into</b> souvenir shops. Local families are quietly <b>priced out</b> of their neighbourhoods. Beaches are <b>packed out</b> from June to September.</p>
+<blockquote class="pull-quote">“In 2035, the smartest travellers will not be the ones who saw the most places. They will be the ones who left something better than they found.”</blockquote>
+<p>This is quietly changing how we travel. <b>Slow travel</b> &mdash; staying longer in fewer places &mdash; is becoming popular again. Instead of a whirlwind week in five cities, some travellers <b>settle in</b> to one town for a month, cook their own food, and try to feel local. Trains are quietly making a comeback in Europe. Weekend citybreaks by plane, once a European hobby, are being partly replaced by longer, calmer trips.</p>
+<p>The biggest new idea is <b>regenerative tourism</b>. Where sustainable tourism tried to “do less harm”, regenerative tourism tries to <b>give back</b> something to the places we visit. Travellers <b>pitch in</b> on conservation projects, spend their money in family-run shops, or plant trees during their trip. It sounds worthy, but it works: some destinations have quietly reversed damage that seemed permanent ten years ago.</p>
+<p><b>AI trip planning</b> is another quiet revolution. In 2035, most travellers won't <b>flip through</b> guidebooks. They'll describe their perfect week to an AI assistant, which will <b>put together</b> a personalised trip in seconds, taking their budget, allergies, energy level and interests into account. This is convenient, but also risky: if everyone <b>signs up for</b> the same AI, the same twenty places will still get all the tourists.</p>
+<p><b>Virtual travel</b> also arrives. Cheap VR headsets already let you “walk” through the Louvre or dive in the Great Barrier Reef. Purists laugh at this, but for older travellers, disabled people, or those who simply can't afford flights, it opens up a real experience. Whether virtual travel replaces real trips or complements them is one of the great questions of the next decade.</p>
+<p>There are also darker forces. <b>Climate change</b> is quietly <b>reshaping</b> destinations. Some Mediterranean towns are becoming too hot for summer tourism. Beach hotels are losing beaches. Ski resorts at low altitudes are <b>running out of</b> snow. Insurance for extreme-weather trips is becoming more expensive. The map of “where to go in July” is being quietly redrawn.</p>
+<p>If you take one idea, take this. Travel is no longer neutral. Every trip you take shapes a small piece of the world. <b>Steer clear of</b> the most crowded weeks. Go slower. Spend locally. <b>Take up</b> at least one small habit that gives back. The best travellers in 2035 won't collect countries. They'll leave the places they visit a little better than they found them &mdash; and quietly return to those places again and again.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a destination</div><div class="vocab-def">a place people travel to</div><div class="vocab-ex">“Iceland is a popular destination.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a package holiday</div><div class="vocab-def">a pre-organised trip</div><div class="vocab-ex">“We booked a package holiday to Turkey.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a resort</div><div class="vocab-def">a place designed for tourists</div><div class="vocab-ex">“The resort has three pools.”</div></div>
+<div class="vocab-card"><div class="vocab-term">overtourism</div><div class="vocab-def">too many tourists in one place</div><div class="vocab-ex">“Overtourism has hurt Venice deeply.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a local</div><div class="vocab-def">a person who lives in the area</div><div class="vocab-ex">“Ask locals for the best food.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a souvenir</div><div class="vocab-def">a small item bought to remember a trip</div><div class="vocab-ex">“She brought back a small souvenir.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a landmark</div><div class="vocab-def">a famous building or place</div><div class="vocab-ex">“The Colosseum is the city's biggest landmark.”</div></div>
+<div class="vocab-card"><div class="vocab-term">sustainable travel</div><div class="vocab-def">travel that limits harm to people and planet</div><div class="vocab-ex">“Trains are part of sustainable travel.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be a tourist trap</div><div class="vocab-def">a place designed to attract tourists but poor quality</div><div class="vocab-ex">“That restaurant is a total tourist trap.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to go off the beaten track</div><div class="vocab-def">to visit less touristy places</div><div class="vocab-ex">“Try to go off the beaten track for one day.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to soak up the atmosphere</div><div class="vocab-def">to enjoy the local feeling</div><div class="vocab-ex">“We just sat there soaking up the atmosphere.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be flooded with tourists</div><div class="vocab-def">to have too many visitors</div><div class="vocab-ex">“Barcelona is flooded with tourists in July.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to price locals out</div><div class="vocab-def">to make life too expensive for residents</div><div class="vocab-ex">“Airbnb has priced many locals out.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to draw crowds</div><div class="vocab-def">to attract many people</div><div class="vocab-ex">“The old town still draws crowds every summer.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">resort</span>
+<span class="bw">local</span>
+<span class="bw">sustainable</span>
+<span class="bw">landmark</span>
+<span class="bw">overtourism</span>
+<span class="bw">souvenir</span>
+<span class="bw">destination</span>
+<span class="bw">package holiday</span>
+</div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> Kyoto is still one of the world's most beautiful <input class="fill-input" type="text" autocomplete="off" data-answer="destinations" aria-label="answer 1">.</div>
+<div class="fill-item"><span class="qn">2.</span> We booked a cheap <input class="fill-input" type="text" autocomplete="off" data-answer="package holiday" aria-label="answer 2"> to Crete.</div>
+<div class="fill-item"><span class="qn">3.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="resort" aria-label="answer 3"> has three pools and a small spa.</div>
+<div class="fill-item"><span class="qn">4.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="overtourism" aria-label="answer 4"> has quietly changed how we plan trips.</div>
+<div class="fill-item"><span class="qn">5.</span> Always ask a friendly <input class="fill-input" type="text" autocomplete="off" data-answer="local" aria-label="answer 5"> for the best restaurant.</div>
+<div class="fill-item"><span class="qn">6.</span> I only brought back one small <input class="fill-input" type="text" autocomplete="off" data-answer="souvenir" aria-label="answer 6">.</div>
+<div class="fill-item"><span class="qn">7.</span> The Colosseum is the city's most famous <input class="fill-input" type="text" autocomplete="off" data-answer="landmark" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> Trains are one part of <input class="fill-input" type="text" autocomplete="off" data-answer="sustainable" aria-label="answer 8"> travel.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>Some famous cities have started to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> invite more tourists</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ask visitors to please stay away</div>
+<div class="mc-opt" data-i="2"><b>C.</b> charge nothing</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The core problem, the writer says, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> boring destinations</div>
+<div class="mc-opt" data-i="1"><b>B.</b> overtourism</div>
+<div class="mc-opt" data-i="2"><b>C.</b> bad weather</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>‘Slow travel’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> visiting many countries fast</div>
+<div class="mc-opt" data-i="1"><b>B.</b> staying longer in fewer places</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never leaving your hotel</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Regenerative tourism tries to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> do less harm only</div>
+<div class="mc-opt" data-i="1"><b>B.</b> give something back to places</div>
+<div class="mc-opt" data-i="2"><b>C.</b> increase tourist numbers</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>A risk of AI trip planning is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> expensive flights</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the same twenty places will still get everyone</div>
+<div class="mc-opt" data-i="2"><b>C.</b> boring holidays</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Climate change is quietly…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> improving the map</div>
+<div class="mc-opt" data-i="1"><b>B.</b> reshaping which places you can visit in July</div>
+<div class="mc-opt" data-i="2"><b>C.</b> banning tourism</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the last place you visited as a tourist?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Do you prefer package holidays or planning your own trips?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever visited a place with too many tourists?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What's your dream destination for 2030?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should cities be allowed to limit tourist numbers by law?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is Airbnb ruining old European cities?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is virtual travel a good substitute or a poor imitation?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should short flights within Europe be banned?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will AI planning make travel more boring or more interesting?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: convince a friend to try slow travel instead of five cities in a week.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: defend limits on tourist numbers to an angry visitor.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Plan a fully sustainable weekend trip within 200 km of your home.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Tell us about a famous <b>tourist trap</b> you regret visiting.</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Have you ever deliberately gone <b>off the beaten track</b>? Where?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Where in your country would you go just to <b>soak up the atmosphere</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">What city do you know that's now <b>flooded with tourists</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Have friends or family been <b>priced out</b> of any neighbourhood by tourism?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You're planning a summer trip with a friend who wants to see “as many places as possible”. Push back kindly. Talk about <b>overtourism</b>, <b>slow travel</b>, staying with <b>locals</b>, and how to <b>give back</b> to the places you visit.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🎢</span>Extreme &amp; Adventure Vacations</h2>
+<p class="instr">Why more people are paying serious money to be genuinely afraid on holiday. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Rush That Costs €5,000</h3>
+<div class="byline">★ Ana Reyes · Adventure travel operator · Runs trips in six countries</div>
+<p>There is a small, growing group of holidaymakers who don't want a beach. They want their heart to nearly stop. They pay serious money to <b>jump out of</b> planes, <b>climb up</b> frozen waterfalls, cycle across deserts, or dive with sharks. After twelve years leading these trips, I can tell you a strange truth: extreme vacations are not really about danger. They are about feeling alive again after years in a comfortable office. The rush comes not from the risk, but from the reminder that you have a body and a life.</p>
+<p>The most popular activities <b>fall into</b> a few clear categories. <b>High-altitude trekking</b>: Kilimanjaro, Everest Base Camp, the Annapurna Circuit. <b>Water-based</b>: cage diving with great whites, surfing giant waves, rafting rapids in Zambia. <b>Air-based</b>: skydiving, paragliding, bungee jumping off famous bridges. <b>Cold-weather</b>: dog-sledding, ice climbing, watching the aurora at minus thirty. Each has its own community, its own equipment, its own “ordinary hero” clients who <b>swear by</b> it.</p>
+<blockquote class="pull-quote">“People come home from an extreme trip talking about the moment they nearly gave up. That moment is what they paid for.”</blockquote>
+<p>Then there are the newer trends. <b>Survival experiences</b> where clients are dropped into a forest with a knife and taught how to live for four days. <b>Endurance events</b> like the Marathon des Sables (six days across the Sahara with your own food on your back). <b>Cave diving</b>. <b>Wing-suiting</b>. <b>Freediving</b> to depths that used to be for scientists. The line between “adventure holiday” and “extreme sport” is getting quietly blurred.</p>
+<p>The industry is booming. People who <b>burn out</b> in tech jobs, finance, medicine, or law suddenly want their weekends to <b>knock the stuffing out of them</b> and remind them who they are. For many, it works. They come home tired, alive and clearer-headed than they've felt in years. A carefully planned adventure trip can quietly do more for your mental health than a month at a beach resort.</p>
+<p>But there are real risks that customers rarely think about until it's too late. <b>Altitude sickness</b> on high treks can be dangerous. <b>Hypothermia</b> hits people who <b>underestimate</b> mountain weather. Small mistakes with equipment become big problems fast. And the golden rule most first-timers ignore is that safety depends less on your skill and more on the humility of your guide. Choose the operator, not the photo.</p>
+<p>There's an ethical layer too. Some of the most extreme destinations are quietly damaging local ecosystems. Base camp Everest has a serious waste problem. Popular diving spots are being <b>trampled</b>. Local guides are often paid a small fraction of what clients pay. Responsible operators <b>work with</b> local communities, <b>hire</b> and train local guides properly, and quietly say no to trips that damage the very place people came to see.</p>
+<p>There's also a strange psychology to the extreme. Some clients <b>get hooked on</b> the rush and struggle in normal life afterwards. Others use adventure to <b>run away from</b> problems they should have talked about with a therapist. A good operator can spot the difference. A good client is honest with themselves.</p>
+<p>If you take one idea, take this. Extreme vacations are not about proving anything. They are about giving your comfortable life a small, controlled shake. Start smaller than you think. Choose a serious operator. <b>Push yourself</b> just past your comfort zone, not into real danger. And come home not with a new photo, but with a small new understanding of what you're actually capable of. The best souvenirs are quiet ones.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">adventure</div><div class="vocab-def">a trip involving risk and excitement</div><div class="vocab-ex">“Their trip was a real adventure.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a thrill</div><div class="vocab-def">a strong feeling of excitement</div><div class="vocab-ex">“She loves the thrill of skydiving.”</div></div>
+<div class="vocab-card"><div class="vocab-term">adrenaline</div><div class="vocab-def">a hormone linked to excitement</div><div class="vocab-ex">“My adrenaline was pumping.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an expedition</div><div class="vocab-def">a long, difficult trip with a purpose</div><div class="vocab-ex">“The expedition to the pole took 80 days.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a guide</div><div class="vocab-def">a person who leads a group</div><div class="vocab-ex">“Our guide had climbed the mountain 40 times.”</div></div>
+<div class="vocab-card"><div class="vocab-term">gear</div><div class="vocab-def">special equipment for an activity</div><div class="vocab-ex">“Rent good gear before you climb.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a summit</div><div class="vocab-def">the top of a mountain</div><div class="vocab-ex">“We reached the summit at 6 a.m.”</div></div>
+<div class="vocab-card"><div class="vocab-term">altitude</div><div class="vocab-def">height above sea level</div><div class="vocab-ex">“Altitude affects almost everyone.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to give it a go</div><div class="vocab-def">to try something</div><div class="vocab-ex">“I'd love to give bungee jumping a go.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to psych yourself up</div><div class="vocab-def">to prepare mentally for something scary</div><div class="vocab-ex">“I had to psych myself up before the jump.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to chicken out</div><div class="vocab-def">to lose courage at the last minute</div><div class="vocab-ex">“Half the group chickened out at the top.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to push yourself to the limit</div><div class="vocab-def">to try your absolute maximum</div><div class="vocab-ex">“On that trek I pushed myself to the limit.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be scared stiff</div><div class="vocab-def">to be extremely frightened</div><div class="vocab-ex">“I was scared stiff on the first drop.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to get the adrenaline pumping</div><div class="vocab-def">to become very excited</div><div class="vocab-ex">“Skydiving really gets the adrenaline pumping.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">altitude</span>
+<span class="bw">guide</span>
+<span class="bw">thrill</span>
+<span class="bw">adrenaline</span>
+<span class="bw">adventure</span>
+<span class="bw">expedition</span>
+<span class="bw">summit</span>
+<span class="bw">gear</span>
+</div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> Their two-week trip was a proper <input class="fill-input" type="text" autocomplete="off" data-answer="adventure" aria-label="answer 1">.</div>
+<div class="fill-item"><span class="qn">2.</span> She loves the <input class="fill-input" type="text" autocomplete="off" data-answer="thrill" aria-label="answer 2"> of jumping from a plane.</div>
+<div class="fill-item"><span class="qn">3.</span> My <input class="fill-input" type="text" autocomplete="off" data-answer="adrenaline" aria-label="answer 3"> was pumping the whole time.</div>
+<div class="fill-item"><span class="qn">4.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="expedition" aria-label="answer 4"> to the South Pole took 80 days.</div>
+<div class="fill-item"><span class="qn">5.</span> Our <input class="fill-input" type="text" autocomplete="off" data-answer="guide" aria-label="answer 5"> had climbed the mountain forty times.</div>
+<div class="fill-item"><span class="qn">6.</span> Rent good <input class="fill-input" type="text" autocomplete="off" data-answer="gear" aria-label="answer 6"> before you climb.</div>
+<div class="fill-item"><span class="qn">7.</span> We reached the <input class="fill-input" type="text" autocomplete="off" data-answer="summit" aria-label="answer 7"> at 6 a.m., freezing but happy.</div>
+<div class="fill-item"><span class="qn">8.</span> High <input class="fill-input" type="text" autocomplete="off" data-answer="altitude" aria-label="answer 8"> affects almost every climber.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says extreme vacations are really about…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> danger</div>
+<div class="mc-opt" data-i="1"><b>B.</b> feeling alive again</div>
+<div class="mc-opt" data-i="2"><b>C.</b> showing off</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q2</span>The four main categories mentioned are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> high-altitude, water, air, cold-weather</div>
+<div class="mc-opt" data-i="1"><b>B.</b> summer, winter, autumn, spring</div>
+<div class="mc-opt" data-i="2"><b>C.</b> cheap, mid, expensive, free</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>A newer trend she mentions is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> seaside walks</div>
+<div class="mc-opt" data-i="1"><b>B.</b> survival experiences and endurance events</div>
+<div class="mc-opt" data-i="2"><b>C.</b> hotel-based tours</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>The industry is booming partly because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> adventure is cheap</div>
+<div class="mc-opt" data-i="1"><b>B.</b> tired professionals want to feel alive again</div>
+<div class="mc-opt" data-i="2"><b>C.</b> travel is banned</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Safety, the writer says, depends most on…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> your equipment</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the humility of your guide</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the price</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her final advice is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> prove yourself</div>
+<div class="mc-opt" data-i="1"><b>B.</b> start smaller than you think, and come home with a quiet new understanding</div>
+<div class="mc-opt" data-i="2"><b>C.</b> only travel in luxury</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the most adventurous thing you've ever done?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Are you an adrenaline seeker or a comfort seeker?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Would you happily go on an adventure holiday alone?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What extreme activity would you refuse to try, ever?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are extreme vacations a healthy way to recharge, or ego holidays?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should Everest be closed to tourists?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should insurance cover people who choose dangerous activities?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is it responsible to fly across the world for a two-week adventure?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Are children old enough for real adventure by age 12?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: sell a friend on a five-day adventure trip near your home.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: reassure a parent who thinks you're being reckless.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Plan a step-by-step 'entry-level adventure' trip for a total beginner.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">What extreme activity would you happily <b>give a go</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">How do you <b>psych yourself up</b> for something scary?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Have you ever <b>chickened out</b> of something at the last minute?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">When have you really <b>pushed yourself to the limit</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Tell us about a moment when you were completely <b>scared stiff</b>.</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend wants to book an <b>expedition</b> to a very high <b>summit</b> with a cheap tour company. <b>Push back</b> kindly: talk about <b>altitude</b>, <b>gear</b>, choosing a proper <b>guide</b>, and how to <b>push yourself</b> without becoming a headline.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">🧘</span>Retreats &amp; Wellness Escapes</h2>
+<p class="instr">Why so many stressed adults are paying serious money to sit in silence. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>Silent Rooms and Sold-Out Weekends</h3>
+<div class="byline">★ Priya Nair · Retreat facilitator &amp; former banker · Runs silent, yoga and digital-detox retreats</div>
+<p>Ten years ago, if you told your boss you were going on a silent retreat, they would have laughed. Today, they'll ask for the link. In the last decade, wellness retreats have quietly gone from the fringe of adult life to something bankers, doctors and engineers <b>plan a year in advance</b>. A whole industry has <b>grown up</b> around one strange promise: pay to <b>slow down</b>, and you'll come back sharper than a two-week holiday could ever make you.</p>
+<p>Retreats <b>come in</b> many kinds. The most extreme are <b>silent retreats</b>: five to ten days without speaking, without phones, without eye contact. Most people find the first two days genuinely difficult. Then, quietly, something shifts. The endless inner voice starts to <b>calm down</b>. Small pleasures come back &mdash; the taste of tea, the weight of morning light. People often say they <b>come back a different person</b>.</p>
+<blockquote class="pull-quote">“You cannot solve a life that's too loud with a holiday that's louder. Sometimes the bravest thing you can do is book five days of silence.”</blockquote>
+<p>Then there are the more mainstream options. <b>Yoga retreats</b>, popular for decades, still <b>fill up</b> months ahead. <b>Meditation retreats</b> teach quieter versions of the same skill. <b>Digital detox retreats</b> lock away your phone for a week and quietly <b>unplug</b> you from the constant buzz. Many participants report the strange experience of missing their phone for 48 hours &mdash; and then not thinking about it at all for the rest of the week.</p>
+<p>There's also a small revolution in corporate wellness. Companies are starting to <b>send off</b> senior teams for retreats before big decisions. Executives who've been <b>working flat out</b> for two years finally get four days to <b>switch off</b>, discuss real problems, and quietly repair strained working relationships. Done well, this is not a luxury; it's cheaper than losing a key leader to <b>burnout</b>.</p>
+<p>Then there are the more controversial ones. <b>Ayahuasca</b> and other plant-medicine retreats have <b>grown quickly</b> in the last few years, especially in Peru, Portugal and the Netherlands. Supporters say they help with depression, addiction and trauma. Critics warn about safety, poorly trained facilitators, and cultural appropriation. The truth is somewhere in the middle: strong effects, real risks, and a clear need for careful research.</p>
+<p>The rise of retreats has a darker side too. Some are shockingly expensive: three thousand euros for a week can <b>price out</b> the very people who most need to slow down. Others are quietly performative: photogenic settings, soft music, no real depth. The best facilitators are honest about what a retreat cannot fix. It can't replace therapy. It can't repair a broken marriage in five days. It can't magically “<b>sort out</b>” your career or <b>iron out</b> years of stress in a weekend.</p>
+<p>But real retreats can help with specific, humble goals: <b>reset a sleep pattern</b>, <b>break a phone addiction</b>, practice one calm decision, notice the pace of your life. Almost everyone who has been on a good retreat says the same thing when they return: they wish they had done it sooner.</p>
+<p>There's also the everyday version. You don't need to fly to Bali. You can <b>set up</b> a mini retreat at home: one Saturday, phone off, curtains open, walk in the morning, cook something slow, read a real book, sleep early. Most professionals never actually do this. If you're too busy for one quiet Saturday, you may be far more tired than you realise.</p>
+<p>If you take one idea, take this. Modern life is quietly loud. The people who <b>last</b> twenty years in demanding careers are usually not the ones who work hardest. They are the ones who learn, early, how to <b>unplug</b>, how to <b>step back</b>, and how to <b>make time for</b> real rest. Book a real retreat once in your life. Practice a small home version once a month. The rest of your life will quietly thank you.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a retreat</div><div class="vocab-def">a period away for rest or reflection</div><div class="vocab-ex">“She went on a silent retreat.”</div></div>
+<div class="vocab-card"><div class="vocab-term">mindfulness</div><div class="vocab-def">the practice of full attention to the present</div><div class="vocab-ex">“Mindfulness lowers stress.”</div></div>
+<div class="vocab-card"><div class="vocab-term">meditation</div><div class="vocab-def">a mental practice of quiet focus</div><div class="vocab-ex">“He meditates twenty minutes a day.”</div></div>
+<div class="vocab-card"><div class="vocab-term">wellness</div><div class="vocab-def">general health and happiness</div><div class="vocab-ex">“Wellness has become a huge industry.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a facilitator</div><div class="vocab-def">a person who leads a retreat</div><div class="vocab-ex">“A good facilitator holds the group calmly.”</div></div>
+<div class="vocab-card"><div class="vocab-term">burnout</div><div class="vocab-def">exhaustion from too much work</div><div class="vocab-ex">“Burnout drove her to the retreat.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a digital detox</div><div class="vocab-def">time away from phones and screens</div><div class="vocab-ex">“A weekend digital detox is a good start.”</div></div>
+<div class="vocab-card"><div class="vocab-term">solitude</div><div class="vocab-def">the state of being alone in a positive way</div><div class="vocab-ex">“She quietly enjoyed the solitude.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to switch off</div><div class="vocab-def">to relax and stop working</div><div class="vocab-ex">“I really need to switch off this weekend.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to recharge your batteries</div><div class="vocab-def">to rest and get energy back</div><div class="vocab-ex">“A short retreat is enough to recharge my batteries.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to unplug from technology</div><div class="vocab-def">to stop using devices</div><div class="vocab-ex">“Try to unplug from technology for a week.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to slow down</div><div class="vocab-def">to reduce the pace of your life</div><div class="vocab-ex">“Retreats teach you to slow down.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to burn out</div><div class="vocab-def">to become exhausted by work</div><div class="vocab-ex">“She burnt out after two years without a real break.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to come back a different person</div><div class="vocab-def">to change deeply after an experience</div><div class="vocab-ex">“She came back a different person from the retreat.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">mindfulness</span>
+<span class="bw">burnout</span>
+<span class="bw">facilitator</span>
+<span class="bw">digital detox</span>
+<span class="bw">meditation</span>
+<span class="bw">wellness</span>
+<span class="bw">retreat</span>
+<span class="bw">solitude</span>
+</div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> She spent five days at a silent <input class="fill-input" type="text" autocomplete="off" data-answer="retreat" aria-label="answer 1"> in Portugal.</div>
+<div class="fill-item"><span class="qn">2.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="mindfulness" aria-label="answer 2"> has been shown to lower stress levels.</div>
+<div class="fill-item"><span class="qn">3.</span> He does 20 minutes of <input class="fill-input" type="text" autocomplete="off" data-answer="meditation" aria-label="answer 3"> every morning.</div>
+<div class="fill-item"><span class="qn">4.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="wellness" aria-label="answer 4"> industry is booming in every country.</div>
+<div class="fill-item"><span class="qn">5.</span> A good <input class="fill-input" type="text" autocomplete="off" data-answer="facilitator" aria-label="answer 5"> knows when to speak and when to stay silent.</div>
+<div class="fill-item"><span class="qn">6.</span> Two years of overtime led straight to <input class="fill-input" type="text" autocomplete="off" data-answer="burnout" aria-label="answer 6">.</div>
+<div class="fill-item"><span class="qn">7.</span> A weekend <input class="fill-input" type="text" autocomplete="off" data-answer="digital detox" aria-label="answer 7"> is a gentle way to start.</div>
+<div class="fill-item"><span class="qn">8.</span> She quietly enjoyed the <input class="fill-input" type="text" autocomplete="off" data-answer="solitude" aria-label="answer 8"> of the mountain cabin.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says wellness retreats have quietly become…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a fringe activity</div>
+<div class="mc-opt" data-i="1"><b>B.</b> something bankers, doctors and engineers plan a year ahead</div>
+<div class="mc-opt" data-i="2"><b>C.</b> banned</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>A silent retreat is usually…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> one day</div>
+<div class="mc-opt" data-i="1"><b>B.</b> five to ten days without speaking</div>
+<div class="mc-opt" data-i="2"><b>C.</b> one hour</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>The main benefit of digital detox retreats is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> free phones</div>
+<div class="mc-opt" data-i="1"><b>B.</b> unplugging from constant buzz</div>
+<div class="mc-opt" data-i="2"><b>C.</b> cheaper travel</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Ayahuasca retreats are described as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> completely safe</div>
+<div class="mc-opt" data-i="1"><b>B.</b> strong effects with real risks</div>
+<div class="mc-opt" data-i="2"><b>C.</b> completely fake</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>A good facilitator is honest about…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> how amazing retreats are</div>
+<div class="mc-opt" data-i="1"><b>B.</b> what a retreat cannot fix</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the price only</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's home-version idea is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> fly to Bali</div>
+<div class="mc-opt" data-i="1"><b>B.</b> one calm Saturday with phone off, walk, book, early sleep</div>
+<div class="mc-opt" data-i="2"><b>C.</b> stop sleeping</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Have you ever been on a retreat or wellness break?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Could you go five days without talking?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Could you go a week without your phone?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you meditate, or would you like to try?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are wellness retreats worth their price?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should companies pay for their staff to go on retreats?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Are silent retreats healthy for extroverts?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is the wellness industry becoming another form of consumerism?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Should plant medicine retreats be legal?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: persuade a burnt-out friend to book a real weekend retreat.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: propose a small wellness programme to a sceptical boss.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Plan the perfect at-home mini retreat for a stressful Saturday.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">How easily can you <b>switch off</b> on holiday?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">What kind of holiday really lets you <b>recharge your batteries</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Could you happily <b>unplug from technology</b> for a whole week?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Where in your life could you genuinely <b>slow down</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Have you or a friend ever come <b>a different person</b> back from a trip?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A close friend is close to <b>burnout</b>. Recommend a first <b>retreat</b>: talk about <b>digital detox</b>, <b>meditation</b>, <b>mindfulness</b>, choosing a good <b>facilitator</b>, and how they might genuinely <b>slow down</b> and <b>switch off</b> for a few days.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<footer>🌴 ★ ★ &nbsp; GETTING AWAY · B2 ENGLISH · FLYING · TOURISM · ADVENTURE · WELLNESS &nbsp; ★ ★ 🌴</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
