@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Long Way Home — B2 English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"🌱";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🌱 B2 ENGLISH · LIFESTYLE · NUTRITION · HABITS · HEALTH</div>
+      <h1>The Long Way <span class="accent">Home</span></h1>
+      <div class="sub">Four conversations about the quiet science of getting healthier without hating your life &mdash; what a balanced diet really looks like, how to move and sleep like a human again, how to gently cut out habits that no longer serve you, and how to build a healthier daily life without turning it into a project. Every highlighted item is a phrasal verb or a collocation you'll really use.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~530 WORDS</span>
+        <span class="tag">PHRASAL VERBS &amp; COLLOCATIONS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">76 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Nutrition 🥗</button>
+    <button class="tab" data-tab="t2">② Movement &amp; Sleep 🚴</button>
+    <button class="tab" data-tab="t3">③ Cutting Bad Habits 🚭</button>
+    <button class="tab" data-tab="t4">④ Building a Healthier Life 🌱</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🥗</span>Nutrition &amp; Balanced Eating</h2>
+<p class="instr">What a real balanced diet looks like &mdash; without the miracle promises. Highlighted items are phrasal verbs and collocations.</p>
+<article class="reading">
+<h3>What Your Grandmother Was Right About</h3>
+<div class="byline">★ Elena Marchetti · Registered nutritionist · Twenty years in general practice</div>
+<p>Every week a new food is either a miracle or a poison. Kale saves you. Eggs kill you. Coffee cures cancer. Coffee causes it. If you actually <b>keep up with</b> nutrition news, you'll go slightly mad. After two decades in clinics, I can tell you the truth is boring but useful: what your grandmother told you was mostly right. Eat real food, mostly plants, not too much, and stop when you're full. Nearly everything else is noise.</p>
+<p>Let's start with the basics. Your body needs three main <b>macronutrients</b>: <b>carbohydrates</b>, <b>protein</b> and <b>fat</b>. All three are essential. The question isn't which to <b>cut out</b>, but which sources to choose. Complex carbs like oats, beans, rice and bread give slow energy. Protein from fish, eggs, chicken, beans and dairy repairs your body. Healthy fats from olive oil, nuts and oily fish protect your heart and brain. None of these three groups is your enemy.</p>
+<blockquote class="pull-quote">“A balanced plate is not a punishment. It is what your body has been quietly asking for, in all the years you were feeding it fast answers.”</blockquote>
+<p>Then come the quieter heroes: <b>fibre</b> and <b>micronutrients</b>. Fibre &mdash; from vegetables, fruit, oats and pulses &mdash; keeps your digestion working, feeds your gut bacteria, and helps you feel full. Most adults get less than half the fibre they need. Micronutrients &mdash; vitamins and minerals &mdash; come mainly from colourful plants. A plate with three different colours usually <b>ticks off</b> most of what your body needs.</p>
+<p>The real problem in modern diets isn't sugar, or fat, or carbs on their own. It's <b>ultra-processed food</b>: packaged snacks, sweet drinks, ready meals designed to be eaten fast and never quite satisfy you. Studies keep showing the same pattern: societies that <b>rely on</b> ultra-processed food for most calories quietly get sicker. It's not because the food is toxic. It's because it's engineered to make you overeat, and it <b>crowds out</b> the real food your body was expecting.</p>
+<p><b>Portion size</b> matters more than people think. Restaurant meals today are two or three times the size they were in 1980. Your plate at home has probably grown too. Try eating from a smaller plate for a month; most people report they feel just as satisfied. And <b>slow down</b>: your brain takes about twenty minutes to notice you're full. Eating fast is one of the sneakiest ways to overeat.</p>
+<p>Then there's water. Most adults are quietly <b>dehydrated</b> most of the time. Tea, coffee and even sparkling water all count, but the simplest habit is a glass of water first thing in the morning. Thirst is often mistaken for hunger, which is why so many people <b>snack on</b> biscuits when what they really needed was a drink.</p>
+<p>There's no single perfect diet. Mediterranean-style eating, plant-based diets, and traditional home cooking from many cultures all produce healthy populations when done well. The common thread is real food, cooked at home, eaten slowly, in reasonable amounts, with people you like. That's not a diet. That's a life.</p>
+<p>If you take one idea, take this. Don't <b>swear off</b> any food forever. Don't <b>go on</b> extreme diets that you can't <b>keep up with</b> for a year. Small changes, kept up over decades, quietly do more than any three-week detox ever will. <b>Fill up on</b> vegetables. <b>Cut back on</b> ultra-processed snacks. <b>Grab a bite</b> at home more often than out. Boring? Yes. Life-changing? Also yes.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a diet</div><div class="vocab-def">the food you regularly eat</div><div class="vocab-ex">“A balanced diet keeps you healthy.”</div></div>
+<div class="vocab-card"><div class="vocab-term">carbohydrates</div><div class="vocab-def">sugars and starches used for energy</div><div class="vocab-ex">“Rice and pasta are carbohydrates.”</div></div>
+<div class="vocab-card"><div class="vocab-term">protein</div><div class="vocab-def">nutrients that build and repair the body</div><div class="vocab-ex">“Fish is a great source of protein.”</div></div>
+<div class="vocab-card"><div class="vocab-term">fat</div><div class="vocab-def">a nutrient that stores energy and protects organs</div><div class="vocab-ex">“Olive oil is a healthy fat.”</div></div>
+<div class="vocab-card"><div class="vocab-term">fibre</div><div class="vocab-def">plant material that helps digestion</div><div class="vocab-ex">“Whole grains are high in fibre.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a calorie</div><div class="vocab-def">a unit of food energy</div><div class="vocab-ex">“Nuts are high in calories but healthy.”</div></div>
+<div class="vocab-card"><div class="vocab-term">ultra-processed food</div><div class="vocab-def">food heavily changed from its original form</div><div class="vocab-ex">“Ultra-processed food harms most people.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a portion</div><div class="vocab-def">the amount you eat at one time</div><div class="vocab-ex">“Restaurant portions are usually too big.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to cut back on</div><div class="vocab-def">to reduce</div><div class="vocab-ex">“I'm cutting back on sugar.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to fill up on</div><div class="vocab-def">to eat until satisfied</div><div class="vocab-ex">“Fill up on vegetables first.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to grab a bite</div><div class="vocab-def">to eat something quickly</div><div class="vocab-ex">“I grabbed a bite between meetings.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be off the menu</div><div class="vocab-def">to be excluded from your diet</div><div class="vocab-ex">“Fried food is off the menu this month.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to load up on</div><div class="vocab-def">to eat a lot of</div><div class="vocab-ex">“I load up on greens at every meal.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to skip a meal</div><div class="vocab-def">to miss a meal</div><div class="vocab-ex">“Don't skip breakfast when you're stressed.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">portion</span>
+<span class="bw">ultra-processed</span>
+<span class="bw">calories</span>
+<span class="bw">fat</span>
+<span class="bw">protein</span>
+<span class="bw">fibre</span>
+<span class="bw">carbohydrates</span>
+<span class="bw">diet</span>
+</div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> A balanced <input class="fill-input" type="text" autocomplete="off" data-answer="diet" aria-label="answer 1"> keeps you healthy and happy.</div>
+<div class="fill-item"><span class="qn">2.</span> Rice, pasta and oats are all <input class="fill-input" type="text" autocomplete="off" data-answer="carbohydrates" aria-label="answer 2">.</div>
+<div class="fill-item"><span class="qn">3.</span> Fish and beans are excellent sources of <input class="fill-input" type="text" autocomplete="off" data-answer="protein" aria-label="answer 3">.</div>
+<div class="fill-item"><span class="qn">4.</span> Olive oil is a healthy <input class="fill-input" type="text" autocomplete="off" data-answer="fat" aria-label="answer 4">.</div>
+<div class="fill-item"><span class="qn">5.</span> Most adults eat far too little <input class="fill-input" type="text" autocomplete="off" data-answer="fibre" aria-label="answer 5">.</div>
+<div class="fill-item"><span class="qn">6.</span> Nuts are high in <input class="fill-input" type="text" autocomplete="off" data-answer="calories" aria-label="answer 6"> but very good for you.</div>
+<div class="fill-item"><span class="qn">7.</span> Most of the harm comes from <input class="fill-input" type="text" autocomplete="off" data-answer="ultra-processed" aria-label="answer 7"> food.</div>
+<div class="fill-item"><span class="qn">8.</span> Restaurant <input class="fill-input" type="text" autocomplete="off" data-answer="portion" aria-label="answer 8"> sizes have grown a lot since 1980.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says the truth about nutrition is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> exciting and new</div>
+<div class="mc-opt" data-i="1"><b>B.</b> boring but useful</div>
+<div class="mc-opt" data-i="2"><b>C.</b> impossible to know</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q2</span>The three main macronutrients are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> carbs, protein, fat</div>
+<div class="mc-opt" data-i="1"><b>B.</b> sugar, salt, water</div>
+<div class="mc-opt" data-i="2"><b>C.</b> fibre, vitamins, minerals</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Ultra-processed food harms us mainly because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> it's toxic</div>
+<div class="mc-opt" data-i="1"><b>B.</b> it makes us overeat and crowds out real food</div>
+<div class="mc-opt" data-i="2"><b>C.</b> it's expensive</div>
+</div>
+<div class="mc-item" data-correct="2">
+<div class="mc-q"><span class="qn">Q4</span>Portion sizes today are… than in 1980.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> smaller</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the same</div>
+<div class="mc-opt" data-i="2"><b>C.</b> much bigger</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Thirst is often mistaken for…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> tiredness</div>
+<div class="mc-opt" data-i="1"><b>B.</b> hunger</div>
+<div class="mc-opt" data-i="2"><b>C.</b> cold</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her final advice is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> strict diets</div>
+<div class="mc-opt" data-i="1"><b>B.</b> small changes kept up for decades</div>
+<div class="mc-opt" data-i="2"><b>C.</b> only expensive food</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What did you have for breakfast today?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Are you a good or a bad eater?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's a food you can't live without?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you cook, or eat out mostly?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should schools teach cooking as a real subject?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should ultra-processed foods carry warning labels like cigarettes?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is it fair to tax sugary drinks?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is a plant-based diet really healthier for everyone?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Are diet trends helpful or harmful?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: convince a friend to swap their daily takeaway for home cooking.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: help someone plan a simple week of meals on a small budget.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a realistic one-week healthy shopping list.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">What food have you tried to <b>cut back on</b> recently?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">What do you usually <b>fill up on</b> when you're really hungry?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Where do you usually <b>grab a bite</b> during a busy day?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">What's currently <b>off the menu</b> for you, and why?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Which vegetables do you happily <b>load up on</b>?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend is confused by conflicting online nutrition advice. Cut through the noise. Explain <b>macronutrients</b>, why <b>ultra-processed food</b> is the real problem, why they should <b>cut back on</b> snacks, and how to <b>fill up on</b> real food without going hungry.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">🚴</span>Movement, Sleep &amp; Daily Habits</h2>
+<p class="instr">The unglamorous daily habits that quietly change your body and mood. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Boring Habits That Change Everything</h3>
+<div class="byline">★ Adam Kowalski · Health coach &amp; former physiotherapist · 15 years working with tired adults</div>
+<p>Most people who come to me want a special exercise plan and a supplement stack. After fifteen years, I can tell you almost nothing changes a body and a mood as much as three boring things: <b>walking</b>, <b>sleeping</b>, and getting a bit of sunlight in your face before noon. Do these three well, and you'll be halfway to healthy without a gym membership. Ignore them, and no expensive plan will save you.</p>
+<p>Let's start with movement. Modern adults <b>sit around</b> an average of nine hours a day. The body wasn't designed for that. You don't need to <b>work out</b> for hours &mdash; you need to move regularly. Ten thousand steps is a nice round number, but seven thousand is where most benefits appear. The trick is to <b>build up gradually</b>. If you currently walk two thousand steps, aim for three thousand, not ten. Small wins beat heroic failures.</p>
+<blockquote class="pull-quote">“The body isn't broken by big things. It's broken by nine hours of sitting, forty-eight hours of poor sleep, and a slow forgetting of what it feels like to move.”</blockquote>
+<p>Then there's <b>strength</b>. From your mid-thirties, muscle quietly disappears unless you use it. This is why fit older adults look ten years younger than tired thirty-year-olds. Two short <b>strength sessions</b> a week, using your body weight or simple weights, are enough. <b>Push-ups</b>, <b>squats</b>, carrying shopping upstairs &mdash; all of this counts. You don't need a gym; you need a habit.</p>
+<p>The next quiet hero is <b>sleep</b>. Most adults need seven to nine hours. Fewer than six regularly starts damaging almost every system: mood, hunger, focus, immunity. Sleep is not a luxury; it's biological maintenance. Yet most people <b>stay up late</b> scrolling and then wonder why they feel low. Two changes fix most sleep problems. First, <b>set a consistent bedtime</b> and wake time, even at weekends. Second, <b>wind down</b> for thirty minutes without screens.</p>
+<p><b>Sleep hygiene</b> is the technical name for the small habits that help you sleep. Keep your bedroom cool and dark. Save your bed for sleep, not for Netflix. Avoid heavy meals within three hours of bed. <b>Cut out</b> coffee after 2 p.m. if you're a light sleeper. And accept the boring truth: alcohol makes you <b>drop off</b> faster, but it wrecks the quality of your sleep. If you keep <b>waking up</b> at 3 a.m., wine is often the reason.</p>
+<p>Then there's <b>morning sunlight</b>. Ten minutes outside within an hour of waking helps <b>set your body clock</b> for the whole day. It doesn't have to be sunny; the light is much stronger outdoors than indoors. Combine this with a short walk and you have a free, science-backed mood booster. If winter mornings are dark, a daylight lamp helps.</p>
+<p><b>Hydration</b> matters, but it's simpler than the influencers suggest. Water first thing in the morning. Drink when you're thirsty. Coffee and tea count. Very few people need special electrolyte drinks unless they're doing hard exercise for hours.</p>
+<p>There's also the emotional side of health. Loneliness and isolation now <b>show up</b> as risks equal to smoking. A short daily walk with a friend is more powerful than most people realise. So is calling a family member. Health isn't just food and exercise; it's also the humans you spend time with.</p>
+<p>If you take one idea, take this. Don't <b>overhaul</b> everything at once. Pick one habit &mdash; a daily walk, a fixed bedtime, ten minutes of morning light &mdash; and <b>stick with it</b> for four weeks. Then <b>add in</b> the next. In a year, you'll have five or six new habits and a completely different body. It won't feel dramatic. That's exactly why it works.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">exercise</div><div class="vocab-def">planned physical activity</div><div class="vocab-ex">“Try to fit exercise into your week.”</div></div>
+<div class="vocab-card"><div class="vocab-term">cardio</div><div class="vocab-def">exercise for the heart and lungs</div><div class="vocab-ex">“Running is a form of cardio.”</div></div>
+<div class="vocab-card"><div class="vocab-term">strength training</div><div class="vocab-def">exercise using weights or resistance</div><div class="vocab-ex">“Strength training keeps muscles strong.”</div></div>
+<div class="vocab-card"><div class="vocab-term">hydration</div><div class="vocab-def">keeping enough water in your body</div><div class="vocab-ex">“Good hydration lifts your mood.”</div></div>
+<div class="vocab-card"><div class="vocab-term">stamina</div><div class="vocab-def">the ability to sustain physical effort</div><div class="vocab-ex">“My stamina has improved a lot.”</div></div>
+<div class="vocab-card"><div class="vocab-term">posture</div><div class="vocab-def">how you hold your body</div><div class="vocab-ex">“Bad posture causes back pain.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a workout</div><div class="vocab-def">one session of exercise</div><div class="vocab-ex">“Her morning workout is 25 minutes.”</div></div>
+<div class="vocab-card"><div class="vocab-term">recovery</div><div class="vocab-def">time your body needs to repair</div><div class="vocab-ex">“Sleep is when real recovery happens.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to get up early</div><div class="vocab-def">to wake up in the morning early</div><div class="vocab-ex">“I try to get up at 6:30.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to work up a sweat</div><div class="vocab-def">to exercise until you sweat</div><div class="vocab-ex">“Aim to work up a sweat three times a week.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to warm up</div><div class="vocab-def">to prepare the body for exercise</div><div class="vocab-ex">“Always warm up before a run.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to cool down</div><div class="vocab-def">to slow the body after exercise</div><div class="vocab-ex">“Cool down for five minutes.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to drop off (to sleep)</div><div class="vocab-def">to fall asleep</div><div class="vocab-ex">“I dropped off within minutes last night.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to wind down</div><div class="vocab-def">to relax before bed</div><div class="vocab-ex">“Wind down for 30 minutes without screens.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">hydration</span>
+<span class="bw">exercise</span>
+<span class="bw">strength training</span>
+<span class="bw">recovery</span>
+<span class="bw">stamina</span>
+<span class="bw">posture</span>
+<span class="bw">cardio</span>
+<span class="bw">workout</span>
+</div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> Try to fit some <input class="fill-input" type="text" autocomplete="off" data-answer="exercise" aria-label="answer 1"> into every day.</div>
+<div class="fill-item"><span class="qn">2.</span> Running and cycling are forms of <input class="fill-input" type="text" autocomplete="off" data-answer="cardio" aria-label="answer 2">.</div>
+<div class="fill-item"><span class="qn">3.</span> Two short <input class="fill-input" type="text" autocomplete="off" data-answer="strength training" aria-label="answer 3"> sessions a week protect your body.</div>
+<div class="fill-item"><span class="qn">4.</span> Good <input class="fill-input" type="text" autocomplete="off" data-answer="hydration" aria-label="answer 4"> actually lifts your mood.</div>
+<div class="fill-item"><span class="qn">5.</span> My <input class="fill-input" type="text" autocomplete="off" data-answer="stamina" aria-label="answer 5"> improved after eight weeks of walking.</div>
+<div class="fill-item"><span class="qn">6.</span> Sitting all day quietly ruins your <input class="fill-input" type="text" autocomplete="off" data-answer="posture" aria-label="answer 6">.</div>
+<div class="fill-item"><span class="qn">7.</span> Her morning <input class="fill-input" type="text" autocomplete="off" data-answer="workout" aria-label="answer 7"> is only 25 minutes.</div>
+<div class="fill-item"><span class="qn">8.</span> Real <input class="fill-input" type="text" autocomplete="off" data-answer="recovery" aria-label="answer 8"> happens while you sleep.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="2">
+<div class="mc-q"><span class="qn">Q1</span>The writer says three boring habits change almost everything. Which is NOT one of them?</div>
+<div class="mc-opt" data-i="0"><b>A.</b> walking</div>
+<div class="mc-opt" data-i="1"><b>B.</b> sleeping</div>
+<div class="mc-opt" data-i="2"><b>C.</b> supplements</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>For most adults, real benefits appear at around… steps a day.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> 3,000</div>
+<div class="mc-opt" data-i="1"><b>B.</b> 7,000</div>
+<div class="mc-opt" data-i="2"><b>C.</b> 20,000</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q3</span>Strength training is important because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> muscle disappears from your mid-thirties</div>
+<div class="mc-opt" data-i="1"><b>B.</b> it burns calories</div>
+<div class="mc-opt" data-i="2"><b>C.</b> it looks impressive</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Most adults need… hours of sleep.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> 4–5</div>
+<div class="mc-opt" data-i="1"><b>B.</b> 7–9</div>
+<div class="mc-opt" data-i="2"><b>C.</b> 10–12</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Morning sunlight helps by…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> burning calories</div>
+<div class="mc-opt" data-i="1"><b>B.</b> setting your body clock for the day</div>
+<div class="mc-opt" data-i="2"><b>C.</b> killing bacteria</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>His main advice is to change one habit at a time and…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> quit if it's hard</div>
+<div class="mc-opt" data-i="1"><b>B.</b> stick with it for four weeks</div>
+<div class="mc-opt" data-i="2"><b>C.</b> overhaul everything</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">How many steps do you walk in a normal day?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">How well do you sleep?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Are you a morning person or a night person?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Have you ever completely changed your daily routine?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should schools teach sleep as seriously as maths?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are gyms overrated compared to daily walking?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is loneliness really as bad for you as smoking?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should employers offer paid time for exercise?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Are daylight lamps a good winter investment?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: coach a tired friend into one small daily walk.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: help someone with terrible sleep habits build a bedtime routine.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design your ideal 24-hour ‘healthy day’ in real detail.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">How easy is it for you to <b>get up early</b> in winter?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">How often do you really <b>work up a sweat</b> in a week?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Do you <b>warm up</b> before exercise, or dive straight in?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">How long does it usually take you to <b>drop off</b> at night?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What helps you <b>wind down</b> after a stressful day?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend is tired all the time and wants a special exercise plan. Instead, coach them into three boring but powerful habits: a real <b>workout</b>, better <b>sleep hygiene</b>, and morning sunlight. Help them <b>build up gradually</b> and <b>stick with</b> just one habit for a month.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🚭</span>Cutting Out Bad Habits</h2>
+<p class="instr">Why willpower alone rarely works &mdash; and what actually does. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Habit You Didn't Choose</h3>
+<div class="byline">★ Dr Sofia Torres · Behaviour-change specialist · Helps people stop what they wish they hadn't started</div>
+<p>Every bad habit started as a small solution. You <b>reached for</b> your phone because you felt bored. You <b>opened</b> the wine because you were stressed. You <b>ordered takeaway</b> because you were tired. In the moment, each of these fixed something small. Repeated a thousand times, they became automatic, then invisible. Now they run in the background of your life. This is the strange truth about bad habits: you didn't really choose them. They quietly chose themselves.</p>
+<p>The most powerful idea in modern behaviour science is the <b>habit loop</b>: a <b>trigger</b>, a <b>routine</b>, and a <b>reward</b>. Something happens (you feel tired). You do something (you scroll). You feel briefly better (a small reward). Your brain learns the loop and repeats it. To <b>knock a habit on the head</b>, you have to understand its loop, not fight yourself.</p>
+<blockquote class="pull-quote">“Willpower is not a personality trait. It is a tired muscle by 7 p.m. If your plan depends on it, your plan will fail.”</blockquote>
+<p>This is why simply “trying harder” rarely works. You'll manage for four days, then <b>fall off the wagon</b> at the worst moment. The trick is to change the environment before you need willpower. If you want to stop scrolling at night, charge your phone in another room. If you want to <b>cut down on</b> wine, don't keep three bottles on the counter. If you want to eat less sugar, don't buy it. Almost all bad habits are dramatically weaker when the temptation isn't in front of you.</p>
+<p>The four habits most people quietly want to cut, again and again, are similar in every country. <b>Smoking</b>. <b>Drinking too much</b>. <b>Junk food</b>. And now, the newest one, <b>doom-scrolling</b>: hours of anxious news and endless feeds. Alcohol harms almost every organ in the body, quietly. Junk food raises the risk of most modern diseases. Excessive phone use damages sleep, focus, mood and real relationships. None of this is dramatic; all of it adds up.</p>
+<p>The best approach depends on the habit. Some are best <b>cut out</b> entirely. Ex-smokers usually find it easier to have zero cigarettes than “just one”. Others do better with a slow, gentle reduction: from three coffees to two, from four beers a week to two. The wrong choice for you is the one that makes you feel constantly deprived.</p>
+<p>There is also the question of what you're really trying to escape. Bad habits are rarely just bad choices. They are usually poor solutions to real problems: loneliness, boredom, stress, unhappy work. If you don't <b>deal with</b> the underlying problem, the habit will quietly return in a different form. Some people <b>swap</b> cigarettes <b>for</b> constant snacking, or wine for shopping, or scrolling for gambling apps. The habit changed. The empty feeling didn't.</p>
+<p>The other quiet secret is <b>identity</b>. Instead of saying “I'm trying to stop smoking,” successful quitters start saying “I don't smoke.” It sounds small. It works. Your brain follows the story you tell about yourself.</p>
+<p>There will also be <b>slip-ups</b>. This is normal, not failure. One bad evening after four good weeks is not a disaster; it's data. The people who succeed aren't the ones with perfect months. They are the ones who <b>pick themselves up</b> and start again on Tuesday morning.</p>
+<p>If you take one idea, take this. Don't rely on willpower. Change your environment. Understand the loop. <b>Deal with</b> the real feeling underneath. Change the story you tell about yourself. And when you <b>slip up</b>, forgive yourself and continue. That's how habits actually die: quietly, imperfectly, over months. Not in a heroic Monday morning that never comes.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a habit</div><div class="vocab-def">something you do regularly without thinking</div><div class="vocab-ex">“Bad habits form slowly.”</div></div>
+<div class="vocab-card"><div class="vocab-term">addiction</div><div class="vocab-def">a strong physical or mental dependence</div><div class="vocab-ex">“Alcohol addiction is a serious illness.”</div></div>
+<div class="vocab-card"><div class="vocab-term">cravings</div><div class="vocab-def">strong desires for a substance or food</div><div class="vocab-ex">“Cravings pass within twenty minutes.”</div></div>
+<div class="vocab-card"><div class="vocab-term">willpower</div><div class="vocab-def">the ability to control your impulses</div><div class="vocab-ex">“Willpower is weaker than most people think.”</div></div>
+<div class="vocab-card"><div class="vocab-term">temptation</div><div class="vocab-def">something you want but shouldn't have</div><div class="vocab-ex">“Keep temptation out of the house.”</div></div>
+<div class="vocab-card"><div class="vocab-term">moderation</div><div class="vocab-def">doing something in reasonable amounts</div><div class="vocab-ex">“Coffee in moderation is fine.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a relapse</div><div class="vocab-def">returning to a bad habit</div><div class="vocab-ex">“One relapse doesn't erase progress.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a trigger</div><div class="vocab-def">something that starts a habit</div><div class="vocab-ex">“Stress is her biggest trigger.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to give up</div><div class="vocab-def">to stop doing something</div><div class="vocab-ex">“She gave up smoking last winter.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to kick a habit</div><div class="vocab-def">to stop a bad habit</div><div class="vocab-ex">“Kicking the phone habit takes weeks.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to fall off the wagon</div><div class="vocab-def">to return to a bad habit</div><div class="vocab-ex">“I fell off the wagon after a stressful week.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to cut something out</div><div class="vocab-def">to remove entirely</div><div class="vocab-ex">“I cut fizzy drinks out completely.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to slip up</div><div class="vocab-def">to make a small mistake</div><div class="vocab-ex">“If you slip up, don't quit — restart.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to knock something on the head</div><div class="vocab-def">to end something firmly</div><div class="vocab-ex">“I knocked social media on the head.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">trigger</span>
+<span class="bw">cravings</span>
+<span class="bw">moderation</span>
+<span class="bw">relapse</span>
+<span class="bw">willpower</span>
+<span class="bw">addiction</span>
+<span class="bw">temptation</span>
+<span class="bw">habit</span>
+</div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> Bad <input class="fill-input" type="text" autocomplete="off" data-answer="habits" aria-label="answer 1"> form slowly and quietly.</div>
+<div class="fill-item"><span class="qn">2.</span> Alcohol <input class="fill-input" type="text" autocomplete="off" data-answer="addiction" aria-label="answer 2"> is a serious medical illness.</div>
+<div class="fill-item"><span class="qn">3.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="cravings" aria-label="answer 3"> usually pass within twenty minutes.</div>
+<div class="fill-item"><span class="qn">4.</span> Relying on <input class="fill-input" type="text" autocomplete="off" data-answer="willpower" aria-label="answer 4"> alone will fail by Friday night.</div>
+<div class="fill-item"><span class="qn">5.</span> Keep <input class="fill-input" type="text" autocomplete="off" data-answer="temptation" aria-label="answer 5"> out of the house.</div>
+<div class="fill-item"><span class="qn">6.</span> Sugar in <input class="fill-input" type="text" autocomplete="off" data-answer="moderation" aria-label="answer 6"> is fine for most people.</div>
+<div class="fill-item"><span class="qn">7.</span> One <input class="fill-input" type="text" autocomplete="off" data-answer="relapse" aria-label="answer 7"> doesn't erase four good weeks.</div>
+<div class="fill-item"><span class="qn">8.</span> The evening news is a serious <input class="fill-input" type="text" autocomplete="off" data-answer="trigger" aria-label="answer 8"> for her.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says every bad habit started as…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a moral failing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a small solution to something</div>
+<div class="mc-opt" data-i="2"><b>C.</b> laziness</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q2</span>The habit loop has three parts:…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> trigger, routine, reward</div>
+<div class="mc-opt" data-i="1"><b>B.</b> stress, sugar, sleep</div>
+<div class="mc-opt" data-i="2"><b>C.</b> food, drink, phone</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>The best environment change she suggests for phone scrolling is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> deleting all apps</div>
+<div class="mc-opt" data-i="1"><b>B.</b> charging the phone in another room</div>
+<div class="mc-opt" data-i="2"><b>C.</b> using willpower</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Bad habits are usually…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> random bad choices</div>
+<div class="mc-opt" data-i="1"><b>B.</b> poor solutions to real problems</div>
+<div class="mc-opt" data-i="2"><b>C.</b> genetic</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Successful quitters change their language from ‘I'm trying to stop’ to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> ‘I can't’</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ‘I don't’</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ‘I might’</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her advice on slip-ups is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> quit completely</div>
+<div class="mc-opt" data-i="1"><b>B.</b> see them as data and pick yourself up</div>
+<div class="mc-opt" data-i="2"><b>C.</b> hide from friends</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the last habit you tried to cut?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Are you a morning-willpower person or an evening one?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do you scroll more than you'd like?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">What's a habit you've successfully broken?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should governments restrict sugar the way they restrict tobacco?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are phone apps designed to be addictive an ethical problem?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is going 'cold turkey' better than reducing gradually?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should ex-smokers ever have just one cigarette?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Is stress the real cause of most bad habits?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: coach a friend through their first phone-free week.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: help someone identify the trigger behind their evening snacking.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a 30-day plan to cut one specific habit, without willpower.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Have you ever successfully <b>given up</b> something? What?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Which small habit would you love to <b>kick</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Have you ever <b>fallen off the wagon</b>? What brought you back?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Would you rather <b>cut something out</b> completely or reduce slowly?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">How do you handle it when you <b>slip up</b>?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend wants to <b>cut down on</b> alcohol but keeps <b>falling off the wagon</b>. Help them <b>knock the habit on the head</b> without relying on willpower. Talk about their <b>trigger</b>, their environment, and how to handle a <b>slip-up</b> without giving up.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">🌱</span>Building a Healthier Life</h2>
+<p class="instr">How to actually build habits that last &mdash; without hating your life. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>Small Steps, Long Roads</h3>
+<div class="byline">★ Dr James Okoro · Lifestyle medicine doctor · Twenty years watching patients change (or not)</div>
+<p>In twenty years of medicine, I've watched patients try to <b>turn their lives around</b> every January. Big goals. Fresh gym memberships. New diet books. By March, most have quietly <b>slipped back into</b> their old lives. It's not because they're weak. It's because they were sold the wrong story: that health is a heroic personal project. In reality, lasting health is much quieter. It's a slow, boring conversation between you, your environment, and the people around you.</p>
+<p>The most important idea in modern habit science is that <b>motivation dies</b>. It always does. Nobody feels inspired every day. If your plan depends on feeling motivated on a wet Wednesday in February, your plan will fail. The people who actually build healthy lives design habits that don't need motivation. They <b>make the good choice the easy choice</b>. They <b>make the bad choice slightly harder</b>.</p>
+<blockquote class="pull-quote">“You will not feel like it most mornings. The people who succeed are simply the ones who go and do it anyway, in small enough doses that it's not a heroic act.”</blockquote>
+<p>Let's start with <b>habit stacking</b>. <b>Attach</b> one new habit <b>to</b> an existing one. After your morning coffee, do ten push-ups. Before you check your phone in bed, drink a glass of water. After lunch, walk for five minutes. The existing habit becomes the trigger for the new one, and your brain quietly learns the pattern.</p>
+<p>Then there's <b>environment design</b>. <b>Set things up</b> so good habits are easy. <b>Put</b> your running shoes <b>by the door</b>. <b>Fill up</b> the fruit bowl. <b>Move</b> the kettle <b>away from</b> the biscuit tin. Make bad habits inconvenient. Delete the shopping app. <b>Leave your phone in another room</b>. Every tiny bit of friction <b>adds up</b> over months.</p>
+<p>The second useful idea is to <b>start small</b>. Ridiculously small. Instead of “I'll run four times a week,” start with “I'll put on my running shoes and walk to the corner every morning.” Most days you'll go further; some days you won't. But you'll never miss. Never missing is more important than always <b>going all out</b>. In a year, that ridiculously small habit will be a real running practice. Big habits <b>build up gradually</b>, they are not chosen.</p>
+<p>Then there's the surprising power of <b>identity</b>. If you want to become a healthier person, start acting like one in tiny ways. Cook one extra meal at home this week. Walk instead of taking the tram twice. Each small action is a quiet vote for the person you're becoming. Your brain slowly updates the story: “I'm the kind of person who cooks. I'm the kind of person who walks.” Actions shape identity far more than the other way round.</p>
+<p>Community matters more than most people expect. If your closest five friends <b>walk daily</b>, you'll probably walk. If they <b>eat takeaway</b> every night, so will you. <b>Make friends with</b> people whose habits you admire, even quietly. <b>Sign up for</b> a running group, a swimming class, a community garden. Health becomes much easier when it's the normal thing around you.</p>
+<p>Then there's the ugly part nobody talks about: failure. You will miss weeks. You'll <b>slip up</b>. Life will happen &mdash; illness, work chaos, a hard emotional stretch. The people who actually build healthy lives are not the ones who never fall. They are the ones who <b>pick themselves up</b> quickly and <b>calmly restart</b>, without the drama of “I've ruined everything.”</p>
+<p>Finally, be patient. Real change happens in years, not weeks. In one month, nothing looks different. In one year, small changes have quietly reshaped your energy, sleep, mood, and confidence. In five years, you may <b>look back</b> and barely recognise the tired, distracted person you used to be. Not because you did anything dramatic. Because you <b>kept coming back</b> to small, boring habits until they became who you are.</p>
+<p>If you take one idea, take this. Don't design a heroic new life. Design a slightly better next hour. Then do it again, quietly, for a very long time. That is how real health is built &mdash; not on Monday, and not by miracle. On Tuesday. And Wednesday. And the next Tuesday after that.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a lifestyle</div><div class="vocab-def">the way a person lives</div><div class="vocab-ex">“A healthy lifestyle takes time to build.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a habit</div><div class="vocab-def">a regular behaviour</div><div class="vocab-ex">“Small habits shape your whole life.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a routine</div><div class="vocab-def">a regular sequence of activities</div><div class="vocab-ex">“A morning routine sets the day.”</div></div>
+<div class="vocab-card"><div class="vocab-term">motivation</div><div class="vocab-def">the energy to do something</div><div class="vocab-ex">“Motivation comes and goes.”</div></div>
+<div class="vocab-card"><div class="vocab-term">discipline</div><div class="vocab-def">doing something even when you don't feel like it</div><div class="vocab-ex">“Discipline outlasts motivation.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a goal</div><div class="vocab-def">something you want to achieve</div><div class="vocab-ex">“Break big goals into small steps.”</div></div>
+<div class="vocab-card"><div class="vocab-term">progress</div><div class="vocab-def">forward movement toward a goal</div><div class="vocab-ex">“Small progress is still progress.”</div></div>
+<div class="vocab-card"><div class="vocab-term">consistency</div><div class="vocab-def">doing something regularly over time</div><div class="vocab-ex">“Consistency beats intensity.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to stick with it</div><div class="vocab-def">to continue despite difficulty</div><div class="vocab-ex">“Just stick with it for a month.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to keep at it</div><div class="vocab-def">to persist</div><div class="vocab-ex">“Keep at it, even on tired days.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to pick yourself up</div><div class="vocab-def">to recover after failure</div><div class="vocab-ex">“Pick yourself up and start again.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to take up (a habit / sport)</div><div class="vocab-def">to begin a new activity</div><div class="vocab-ex">“She took up yoga in January.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to build up gradually</div><div class="vocab-def">to grow over time</div><div class="vocab-ex">“Build up your runs gradually.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to get into a routine</div><div class="vocab-def">to establish a regular pattern</div><div class="vocab-ex">“Once you get into a routine, it feels easy.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">habit</span>
+<span class="bw">goal</span>
+<span class="bw">lifestyle</span>
+<span class="bw">consistency</span>
+<span class="bw">progress</span>
+<span class="bw">discipline</span>
+<span class="bw">routine</span>
+<span class="bw">motivation</span>
+</div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> A healthy <input class="fill-input" type="text" autocomplete="off" data-answer="lifestyle" aria-label="answer 1"> is built slowly and quietly.</div>
+<div class="fill-item"><span class="qn">2.</span> A small <input class="fill-input" type="text" autocomplete="off" data-answer="habit" aria-label="answer 2"> repeated daily quietly changes your life.</div>
+<div class="fill-item"><span class="qn">3.</span> A calm morning <input class="fill-input" type="text" autocomplete="off" data-answer="routine" aria-label="answer 3"> sets the whole day.</div>
+<div class="fill-item"><span class="qn">4.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="motivation" aria-label="answer 4"> is not a reliable engine long-term.</div>
+<div class="fill-item"><span class="qn">5.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="discipline" aria-label="answer 5"> outlasts motivation every single time.</div>
+<div class="fill-item"><span class="qn">6.</span> Break every big <input class="fill-input" type="text" autocomplete="off" data-answer="goal" aria-label="answer 6"> into small, boring steps.</div>
+<div class="fill-item"><span class="qn">7.</span> Small <input class="fill-input" type="text" autocomplete="off" data-answer="progress" aria-label="answer 7"> is still ___.</div>
+<div class="fill-item"><span class="qn">8.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="consistency" aria-label="answer 8"> beats intensity in almost every area of life.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says most January projects fail because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> people are weak</div>
+<div class="mc-opt" data-i="1"><b>B.</b> health is sold as a heroic project</div>
+<div class="mc-opt" data-i="2"><b>C.</b> gyms are expensive</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The most important idea, he says, is that…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> you must stay motivated</div>
+<div class="mc-opt" data-i="1"><b>B.</b> motivation dies, and habits must not depend on it</div>
+<div class="mc-opt" data-i="2"><b>C.</b> you need supplements</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>‘Habit stacking’ means…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> stacking books</div>
+<div class="mc-opt" data-i="1"><b>B.</b> attaching a new habit to an existing one</div>
+<div class="mc-opt" data-i="2"><b>C.</b> doing everything at once</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>His advice on starting size is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> go big or go home</div>
+<div class="mc-opt" data-i="1"><b>B.</b> start ridiculously small</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never begin</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>On community, he says…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> friends barely matter</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the habits of your five closest friends shape yours</div>
+<div class="mc-opt" data-i="2"><b>C.</b> only family matters</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>His view on failure is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> one slip ruins everything</div>
+<div class="mc-opt" data-i="1"><b>B.</b> pick yourself up quickly without drama</div>
+<div class="mc-opt" data-i="2"><b>C.</b> never miss a day</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's a healthy habit you already have?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Do you rely on motivation or on routine?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">What's the smallest healthy habit you could start tomorrow?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are your close friends helping or hurting your health?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is New Year's the worst or best time to change your life?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should employers pay for their staff's health habits?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is community more powerful than willpower?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Can technology (apps, wearables) really help us build habits?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Should we teach habit design in schools?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: help a friend design one ridiculously small daily habit.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: talk to a friend who ‘ruined’ a good streak and wants to give up.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design your own realistic 90-day plan to become slightly healthier.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">What habit have you managed to <b>stick with</b> for a long time?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Have you ever <b>taken up</b> a new sport or hobby that changed your life?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">How do you <b>pick yourself up</b> after a bad week?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">How long does it take you to genuinely <b>get into a routine</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">What small habit could you <b>build up gradually</b>, starting this week?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend keeps starting fresh diets and gym plans and quietly quitting after two weeks. Help them design one ridiculously small habit, use <b>habit stacking</b>, <b>build up gradually</b>, and calmly <b>pick themselves up</b> after any <b>slip-up</b> without drama.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<footer>🌱 ★ ★ &nbsp; THE LONG WAY HOME · B2 ENGLISH · NUTRITION · MOVEMENT · HABITS · LIFESTYLE &nbsp; ★ ★ 🌱</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
