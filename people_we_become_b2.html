@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>People We Become — B2 English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"🪞";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🪞 B2 ENGLISH · PERSONALITY · ATTRACTION · FRIENDSHIP · NIGHTLIFE</div>
+      <h1>People We <span class="accent">Become</span></h1>
+      <div class="sub">Four conversations about the quiet science of who we are &mdash; the personality traits that shape a life, the people we mysteriously attract, the slow death of just hanging out, and how going out changes decade by decade. Every highlighted item is a phrasal verb or a collocation you'll really use.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~570 WORDS</span>
+        <span class="tag">PHRASAL VERBS &amp; COLLOCATIONS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">76 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Personality 🧬</button>
+    <button class="tab" data-tab="t2">② Attraction 🧲</button>
+    <button class="tab" data-tab="t3">③ Hanging Out 🍻</button>
+    <button class="tab" data-tab="t4">④ Nightlife 🌃</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🧬</span>Personality Types &amp; Traits</h2>
+<p class="instr">What science actually knows about who we are &mdash; and what's just a good story. Highlighted items are phrasal verbs and collocations.</p>
+<article class="reading">
+<h3>The Person You Quietly Are</h3>
+<div class="byline">★ Dr Emma Rowntree · Personality psychologist · Studies what really shapes who we become</div>
+<p>Every generation invents new ways of talking about personality. Horoscopes. Myers-Briggs types. The Enneagram. Colour codes. TikTok quizzes. After twenty years of research, I can tell you the truth is more boring but far more useful: your personality is real, it's measurable, and it's mostly stable across your life. It just doesn't <b>break down into</b> the neat little boxes that quizzes promise.</p>
+<p>The framework that actually holds up in decades of research is called the <b>Big Five</b>: <b>openness</b>, <b>conscientiousness</b>, <b>extraversion</b>, <b>agreeableness</b> and <b>neuroticism</b>. Everyone falls somewhere on a scale for each of these five. Openness measures how much you enjoy new ideas. Conscientiousness measures how organised and disciplined you are. Extraversion measures how energised you feel around people. Agreeableness measures how warm and cooperative you are. Neuroticism measures how easily stress <b>gets to</b> you.</p>
+<blockquote class="pull-quote">“You are not a type. You are a small cluster of habits, feelings and reactions &mdash; some of which you can change, and some of which you probably shouldn't.”</blockquote>
+<p>Take <b>introverts</b> and <b>extroverts</b>. This is the one most people know. Introverts <b>recharge</b> by being alone; extroverts <b>recharge</b> by being around people. Neither is better. Introverts often <b>come across as</b> quiet or reserved, but they can be brilliant leaders, speakers and performers. Extroverts often <b>light up</b> a room, but they can also <b>burn out</b> in solo work. Most people are somewhere in the middle: what psychologists call <b>ambiverts</b>.</p>
+<p>Then there's the famous <b>Myers-Briggs</b> or MBTI (INFJ, ENFP, and so on). It's fun, but the science behind it is weak. Studies show most people get different results if they retake the test a few weeks later. It works well as a conversation starter, poorly as a serious tool. The Big Five, by contrast, is boring and reliable. If you want to genuinely understand yourself, spend an hour on a proper Big Five test rather than a colourful MBTI quiz.</p>
+<p>There's also a common myth: that people <b>never change</b>. Actually, your traits <b>shift a bit</b> across life. Most people become slightly more agreeable, more conscientious and less neurotic as they age. This is called “the maturity principle.” You don't become a different person, but the sharp corners <b>wear off</b>. This is why your forty-year-old self will quietly forgive your twenty-year-old self.</p>
+<p>Personality also interacts with <b>culture</b>. The same trait <b>plays out</b> very differently in different countries. A confident extrovert in Italy behaves differently from one in Japan. A quiet introvert in Finland feels normal; the same person in Brazil can feel invisible. Never <b>write someone off</b> as “shy” before you've watched them in the culture where they feel at home.</p>
+<p>One useful practical idea: your <b>strengths</b> and your <b>weaknesses</b> are often the same trait viewed from different angles. Highly organised people are wonderful at deadlines and hard to live with at home. Deeply warm people are great friends and terrible at saying no. When you understand your traits, you stop trying to “fix” yourself. You start choosing situations that <b>bring out the best in you</b>, and you gently <b>work on</b> the shadows.</p>
+<p>There's also the question of <b>toxic traits</b>. Modern language has borrowed heavily from clinical psychology. “Narcissist”, “gaslighter”, “anxious attachment”. Some of this is genuinely useful. Some of it is fashionable labelling. Real clinical traits are rare and serious. Most difficult people are simply working through their own history badly, not textbook cases.</p>
+<p>If you take one idea, take this. Don't try to be a different personality. <b>Get to know</b> the one you have. Choose friends, jobs and homes that let your natural traits <b>shine through</b>. And <b>keep an eye on</b> the two or three habits that consistently hurt you. That's the real work. Not becoming someone else. Slowly, patiently, quietly <b>growing into</b> the person you already are.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a personality</div><div class="vocab-def">a person's typical patterns of thought and behaviour</div><div class="vocab-ex">“Her personality is warm and calm.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a trait</div><div class="vocab-def">a specific characteristic</div><div class="vocab-ex">“Curiosity is her strongest trait.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an introvert</div><div class="vocab-def">a person who recharges alone</div><div class="vocab-ex">“Introverts prefer small groups.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an extrovert</div><div class="vocab-def">a person who recharges around others</div><div class="vocab-ex">“Extroverts love parties.”</div></div>
+<div class="vocab-card"><div class="vocab-term">empathy</div><div class="vocab-def">the ability to feel what others feel</div><div class="vocab-ex">“Empathy is a beautiful trait.”</div></div>
+<div class="vocab-card"><div class="vocab-term">confidence</div><div class="vocab-def">belief in your own abilities</div><div class="vocab-ex">“Real confidence is quiet.”</div></div>
+<div class="vocab-card"><div class="vocab-term">temperament</div><div class="vocab-def">your natural emotional style</div><div class="vocab-ex">“She has a calm temperament.”</div></div>
+<div class="vocab-card"><div class="vocab-term">self-awareness</div><div class="vocab-def">understanding of your own patterns</div><div class="vocab-ex">“Self-awareness grows slowly.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to come across as</div><div class="vocab-def">to give a first impression</div><div class="vocab-ex">“She comes across as quiet, but she isn't.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to open up to someone</div><div class="vocab-def">to share your feelings</div><div class="vocab-ex">“It takes him months to open up to anyone.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to bring out the best in someone</div><div class="vocab-def">to make them show their good side</div><div class="vocab-ex">“She brings out the best in her team.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to keep to yourself</div><div class="vocab-def">to be private and quiet</div><div class="vocab-ex">“He tends to keep to himself at work.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be set in your ways</div><div class="vocab-def">to resist change</div><div class="vocab-ex">“My grandfather is set in his ways.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to grow into your personality</div><div class="vocab-def">to become more fully yourself over time</div><div class="vocab-ex">“She really grew into her personality in her thirties.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">extrovert</span>
+<span class="bw">empathy</span>
+<span class="bw">introvert</span>
+<span class="bw">personality</span>
+<span class="bw">self-awareness</span>
+<span class="bw">trait</span>
+<span class="bw">temperament</span>
+<span class="bw">confidence</span>
+</div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> Her <input class="fill-input" type="text" autocomplete="off" data-answer="personality" aria-label="answer 1"> is warm, calm and quietly funny.</div>
+<div class="fill-item"><span class="qn">2.</span> Curiosity is honestly her strongest <input class="fill-input" type="text" autocomplete="off" data-answer="trait" aria-label="answer 2">.</div>
+<div class="fill-item"><span class="qn">3.</span> A true <input class="fill-input" type="text" autocomplete="off" data-answer="introvert" aria-label="answer 3"> prefers small groups over big parties.</div>
+<div class="fill-item"><span class="qn">4.</span> A classic <input class="fill-input" type="text" autocomplete="off" data-answer="extrovert" aria-label="answer 4"> can light up any room.</div>
+<div class="fill-item"><span class="qn">5.</span> Real <input class="fill-input" type="text" autocomplete="off" data-answer="empathy" aria-label="answer 5"> is a beautiful, learnable trait.</div>
+<div class="fill-item"><span class="qn">6.</span> Genuine <input class="fill-input" type="text" autocomplete="off" data-answer="confidence" aria-label="answer 6"> is usually quiet, not loud.</div>
+<div class="fill-item"><span class="qn">7.</span> She has an incredibly calm <input class="fill-input" type="text" autocomplete="off" data-answer="temperament" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> Real <input class="fill-input" type="text" autocomplete="off" data-answer="self-awareness" aria-label="answer 8"> takes years to build.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The framework that really holds up in research is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> Myers-Briggs</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the Big Five</div>
+<div class="mc-opt" data-i="2"><b>C.</b> horoscopes</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Introverts and extroverts differ mainly in…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> intelligence</div>
+<div class="mc-opt" data-i="1"><b>B.</b> how they recharge</div>
+<div class="mc-opt" data-i="2"><b>C.</b> dress code</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Myers-Briggs, the writer says, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> scientifically strong</div>
+<div class="mc-opt" data-i="1"><b>B.</b> fun but weak as a serious tool</div>
+<div class="mc-opt" data-i="2"><b>C.</b> banned</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>The ‘maturity principle’ means most people…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> become worse with age</div>
+<div class="mc-opt" data-i="1"><b>B.</b> become slightly more agreeable, conscientious and less neurotic</div>
+<div class="mc-opt" data-i="2"><b>C.</b> stay identical</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Culture affects personality by…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> deleting traits</div>
+<div class="mc-opt" data-i="1"><b>B.</b> changing how the same trait plays out</div>
+<div class="mc-opt" data-i="2"><b>C.</b> adding traits</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her final advice is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> become a different person</div>
+<div class="mc-opt" data-i="1"><b>B.</b> get to know the personality you have and grow into it</div>
+<div class="mc-opt" data-i="2"><b>C.</b> copy a role model</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Would you call yourself introvert, extrovert or somewhere in between?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">How would your closest friend describe your personality in three words?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever taken a personality test?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you think you've changed a lot since you were 20?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is personality mostly born or built?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Can people really change their core personality?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Are personality tests helpful or misleading?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Should employers use personality tests when hiring?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Is 'toxic' overused in modern language?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: help a friend understand their own personality without labels.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: give someone gentle feedback about a difficult trait of theirs.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design your ideal weekly rhythm to fit your natural personality.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">How do you think you <b>come across</b> when people first meet you?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Are you someone who <b>opens up</b> quickly, or slowly?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Which friend really <b>brings out the best in you</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Are you a person who <b>keeps to themselves</b>, or the opposite?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Are you or your parents <b>set in your ways</b> about anything?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend has just done a personality test and thinks their whole life is now explained. Kindly <b>push back</b>. Talk about the difference between the <b>Big Five</b> and MBTI, why people <b>grow into their personality</b> over time, and how they might quietly <b>bring out the best in themselves</b> without labels.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">🧲</span>We Attract Who We Are</h2>
+<p class="instr">Why the people around us look surprisingly like the person we quietly are. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>Mirrors, Not Magnets</h3>
+<div class="byline">★ Yara Hassan · Relationship &amp; friendship coach · Twenty years watching people choose people</div>
+<p>There's an uncomfortable pattern in every honest life. Look at your five closest friends. Look at your last three romantic partners. Look at the colleagues you naturally <b>gravitate toward</b>. After twenty years of coaching, I can tell you the truth most self-help books avoid: you don't attract who you want. You attract who you are. Your life is a slow, quiet mirror.</p>
+<p>This isn't magic. It's ordinary. We <b>click with</b> people whose energy matches ours. Calm people find other calm people restful. Anxious people find other anxious people familiar. Ambitious people <b>hit it off</b> with ambitious people. Kind, honest people quietly <b>filter out</b> those who aren't. This isn't chosen. It happens automatically, in the first three minutes of every meeting.</p>
+<blockquote class="pull-quote">“You do not attract the people you want. You attract the people you are quietly ready for.”</blockquote>
+<p>The mirror can be beautiful. When you're doing well &mdash; grounded, curious, kind &mdash; you attract exactly that kind of person into your life. Old friends who <b>drift away</b> in a bad year quietly return in a good one. New people <b>show up</b> and stay. Doors open you didn't knock on. This is not luck. It's the quiet result of who you've been for the last six months.</p>
+<p>But the mirror also works in the other direction. When you're low, tired, or angry, you quietly attract people who <b>match</b> that. This is why people who <b>keep falling</b> for the same wrong partner rarely fix it by looking harder. They fix it by slowly becoming a different person. The dating pool <b>looks like</b> them. Change yourself, and the pool changes.</p>
+<p>There's also the strange phenomenon of the <b>social circle</b>. Studies keep confirming an old proverb: you become the average of the five people you spend most time with. Not because they consciously shape you, but because their habits, jokes, worries and interests slowly <b>rub off on</b> you. If your five closest people read, you'll read. If they scroll all night, you'll scroll. Your future personality is quietly being decided by the people currently in your kitchen.</p>
+<p>This has practical consequences. If you want to become calmer, spend time with calm people. If you want to become more disciplined, spend time with disciplined people. This isn't about <b>cutting off</b> your old friends. It's about noticing that the people you spend time with are <b>shaping you</b> more than any book or course.</p>
+<p>There's also the question of who you attract at work. Confident, kind managers quietly attract confident, kind teams. Anxious, controlling managers attract anxious, controlling teams. If you keep <b>ending up</b> with difficult colleagues, look at the pattern. Everyone else can't always be the problem.</p>
+<p>One of the hardest truths is about family. You didn't choose your family, but you often unconsciously <b>seek out</b> partners and friends who feel like them &mdash; even when your family history is painful. This is called the “repetition compulsion” in psychology, and it's why many people <b>fall for</b> the same personality type ten times before noticing. The way out is not to <b>run away from</b> the pattern, but to slowly understand it. Once you see it, it loses power.</p>
+<p>There's also the good news. The mirror works in reverse too. You can quietly <b>change your social future</b> by changing your own habits now. Six months of being slightly kinder, calmer, more honest, more present, and the whole cast of people around you starts to <b>shift</b>. Not immediately. Not dramatically. Just quietly, over time, the wrong people <b>drift out</b> and the right people <b>show up</b>.</p>
+<p>If you take one idea, take this. Stop asking, “why do I keep attracting these people?” Ask instead, “what is it about who I am right now that quietly draws them in?” That question is uncomfortable. It's also the beginning of everything better. The friends and partners you'll have in five years are being invited in, quietly, by the person you're becoming today.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">attraction</div><div class="vocab-def">being drawn to someone</div><div class="vocab-ex">“There's a quiet attraction between them.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a connection</div><div class="vocab-def">a feeling of understanding with someone</div><div class="vocab-ex">“We felt a real connection immediately.”</div></div>
+<div class="vocab-card"><div class="vocab-term">chemistry</div><div class="vocab-def">a strong natural understanding</div><div class="vocab-ex">“The chemistry between them is obvious.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a boundary</div><div class="vocab-def">a clear personal limit</div><div class="vocab-ex">“Healthy boundaries protect friendships.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a pattern</div><div class="vocab-def">a repeated behaviour</div><div class="vocab-ex">“She noticed the pattern in her dating.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a friendship</div><div class="vocab-def">a close non-romantic relationship</div><div class="vocab-ex">“True friendships take years to build.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a soulmate</div><div class="vocab-def">a person who deeply understands you</div><div class="vocab-ex">“People search for a soulmate for years.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a red flag</div><div class="vocab-def">a warning sign of trouble</div><div class="vocab-ex">“Constant lateness was the first red flag.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to hit it off</div><div class="vocab-def">to like each other immediately</div><div class="vocab-ex">“We hit it off the moment we met.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to click with someone</div><div class="vocab-def">to feel an easy connection</div><div class="vocab-ex">“I clicked with her within five minutes.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to fall in with the wrong crowd</div><div class="vocab-def">to become close to bad influences</div><div class="vocab-ex">“He fell in with the wrong crowd at 18.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to see eye to eye</div><div class="vocab-def">to fully agree</div><div class="vocab-ex">“We don't see eye to eye on politics.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to grow apart</div><div class="vocab-def">to become less close over time</div><div class="vocab-ex">“Old school friends often grow apart.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to attract someone into your life</div><div class="vocab-def">to draw a certain type of person</div><div class="vocab-ex">“You quietly attract who you are.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">attraction</span>
+<span class="bw">connection</span>
+<span class="bw">soulmate</span>
+<span class="bw">boundary</span>
+<span class="bw">chemistry</span>
+<span class="bw">friendship</span>
+<span class="bw">pattern</span>
+<span class="bw">red flag</span>
+</div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> There's a quiet <input class="fill-input" type="text" autocomplete="off" data-answer="attraction" aria-label="answer 1"> between them everyone can see.</div>
+<div class="fill-item"><span class="qn">2.</span> We felt a real <input class="fill-input" type="text" autocomplete="off" data-answer="connection" aria-label="answer 2"> within five minutes.</div>
+<div class="fill-item"><span class="qn">3.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="chemistry" aria-label="answer 3"> between them was completely obvious.</div>
+<div class="fill-item"><span class="qn">4.</span> Healthy <input class="fill-input" type="text" autocomplete="off" data-answer="boundaries" aria-label="answer 4"> actually protect friendships.</div>
+<div class="fill-item"><span class="qn">5.</span> She finally noticed the <input class="fill-input" type="text" autocomplete="off" data-answer="pattern" aria-label="answer 5"> in her dating history.</div>
+<div class="fill-item"><span class="qn">6.</span> True <input class="fill-input" type="text" autocomplete="off" data-answer="friendship" aria-label="answer 6"> takes years to build and one moment to break.</div>
+<div class="fill-item"><span class="qn">7.</span> People chase the idea of a <input class="fill-input" type="text" autocomplete="off" data-answer="soulmate" aria-label="answer 7"> for years.</div>
+<div class="fill-item"><span class="qn">8.</span> Constant broken promises was the first <input class="fill-input" type="text" autocomplete="off" data-answer="red flag" aria-label="answer 8">.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer's main claim is that you attract…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> who you want</div>
+<div class="mc-opt" data-i="1"><b>B.</b> who you are</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the wrong people</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q2</span>The quiet mirror can be beautiful when…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> you're doing well</div>
+<div class="mc-opt" data-i="1"><b>B.</b> you're low</div>
+<div class="mc-opt" data-i="2"><b>C.</b> you're alone</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>You become, roughly, the average of…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> your family</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the five people you spend most time with</div>
+<div class="mc-opt" data-i="2"><b>C.</b> your social media</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>If you keep ending up with difficult colleagues, the writer suggests…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> blaming them</div>
+<div class="mc-opt" data-i="1"><b>B.</b> looking at the pattern</div>
+<div class="mc-opt" data-i="2"><b>C.</b> changing jobs</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The ‘repetition compulsion’ refers to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> repeating the same joke</div>
+<div class="mc-opt" data-i="1"><b>B.</b> seeking partners who feel like family</div>
+<div class="mc-opt" data-i="2"><b>C.</b> forgetting names</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her final advice is to ask…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> ‘why do I keep attracting these people?’</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ‘what is it about me that draws them in?’</div>
+<div class="mc-opt" data-i="2"><b>C.</b> ‘who's next?’</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Who are the five people you spend most time with?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Are your friends similar to you, or very different?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Have you ever noticed a pattern in the people you date or befriend?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are you good at spotting a red flag early?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Do we really attract who we are, or is it random?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should you ever stop being friends with someone who's holding you back?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Is it fair to say your friends decide your future?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Are opposites really attracted to each other?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Can two very different personalities have a healthy long-term relationship?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: gently help a friend see a pattern in the partners they keep choosing.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: end a friendship that has quietly become unhealthy.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a plan to gently upgrade the average of your five closest people this year.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">When was the last time you really <b>hit it off</b> with someone new?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Have you ever <b>clicked with</b> someone within five minutes?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Have you seen a friend <b>fall in with the wrong crowd</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Which family member do you not <b>see eye to eye</b> with?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Have you <b>grown apart</b> from an old friend recently? Why?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend keeps <b>ending up</b> with the same type of difficult partner. Kindly help them see the <b>pattern</b>. Talk about the <b>mirror</b>, why they might <b>gravitate toward</b> similar people, and how quietly changing themselves could <b>shift</b> who they attract.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🍻</span>Hanging Out &amp; Modern Friendship</h2>
+<p class="instr">Why casual, unplanned time with friends is quietly disappearing &mdash; and how to bring it back. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Slow Death of the Casual Hang</h3>
+<div class="byline">★ Marco Vidal · Sociologist &amp; friendship researcher · Studies how adults actually spend time together</div>
+<p>When my parents were 25, being friends meant something simple. You <b>knocked on</b> someone's door. You <b>hung around</b> the same café every night. You <b>dropped by</b> unannounced with a bottle of wine. Nobody scheduled friendship in a calendar app. Something has quietly changed. After ten years studying how adults spend time together, I can tell you the biggest shift in modern friendship: casual, unplanned time is disappearing, and calendar-based friendship is quietly replacing it. It's not the same.</p>
+<p>Let's start with what “<b>hanging out</b>” actually means. Real hanging out is unplanned, unstructured, unproductive time. Sitting on a friend's balcony. Walking to nowhere. Watching a bad film together. Nothing achieved. Nothing scheduled. Just presence. This kind of time used to fill entire weekends. Today, for most adults over 25, it barely happens. Even good friends now <b>book a slot</b> three weeks in advance for a two-hour dinner. That's not hanging out. That's a meeting.</p>
+<blockquote class="pull-quote">“Real friendship isn't built in scheduled dinners. It's built in the boring hours nobody photographs.”</blockquote>
+<p>Why has this quietly died? Three reasons. First, smartphones. You never feel bored anymore, so you never <b>reach out to</b> a friend just because you're bored. The little pocket of unfilled time that used to <b>fill up</b> with a phone call quietly gets filled by a screen. Second, work has spread into every hour. People are answering messages until 10 p.m. and can't imagine dropping everything on a Thursday to sit on someone's floor. Third, everyone lives further from each other. “Let's <b>catch up</b>” becomes a project, not a habit.</p>
+<p>Then there's the death of what sociologists call <b>third places</b>. Not home (first). Not work (second). A café, a pub, a park bench, a library, a barber shop &mdash; a place where you <b>run into</b> the same faces without booking anything. Modern cities have quietly lost many of these. When third places disappear, friendship becomes a series of scheduled events. When they exist, friendship happens by itself.</p>
+<p>There's also the modern habit of <b>bailing on plans</b>. In previous generations, breaking a plan was a small social insult. Today it's routine. Someone cancels an hour before. You feel a small relief you didn't fully admit to. Everyone <b>gets away with</b> it because everyone does it. The problem is that friendship needs the slight friction of showing up when you didn't quite feel like it. Cancel too often, and the muscle of friendship <b>wears out</b>.</p>
+<p>There's a subtle new problem too: friendship groups have become fragile. Group chats are wonderful, but they can quietly <b>replace</b> real meeting. Everyone “knows” what everyone's up to, so no one <b>bothers to</b> ask. Twenty messages a day, and yet you haven't actually seen each other for four months. This is a modern kind of loneliness that doesn't feel lonely.</p>
+<p>The fix isn't complicated. It's just uncomfortable, because it goes against every phone-based habit. First, <b>make time</b> for one friend a week, no matter what. Second, <b>drop by</b> unannounced sometimes, if your culture still allows it. Third, protect a regular time and place &mdash; Sunday morning coffee at the same café, Wednesday walk in the park &mdash; and let people <b>drop in</b>. Fourth, resist the small cancel. Show up even when you're tired. The evenings you nearly cancelled often become the best memories.</p>
+<p>Then there's the harder question of <b>losing touch</b>. Adult friendships often quietly disappear not through fights, but through drift. Nobody's fault. Everyone got busy. Six months of silence becomes two years. If you value someone, <b>reach out</b> now. Send the awkward, warm message. “I miss you, let's <b>catch up</b>.” Most people are quietly relieved to receive it.</p>
+<p>If you take one idea, take this. Friendship is a habit, not a feeling. The people who quietly have deep, long friendships in their forties are not luckier or nicer. They just <b>keep showing up</b> when it would have been easier to stay in. Do that for twenty years, and you build the kind of friendship that <b>gets you through</b> everything that adult life will throw at you.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a friend</div><div class="vocab-def">a person you're close to</div><div class="vocab-ex">“She's my oldest friend.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a mate</div><div class="vocab-def">a casual close friend (British)</div><div class="vocab-ex">“I'm meeting my mates at 7.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a get-together</div><div class="vocab-def">a casual meeting of friends</div><div class="vocab-ex">“We had a small get-together on Saturday.”</div></div>
+<div class="vocab-card"><div class="vocab-term">banter</div><div class="vocab-def">light, playful joking</div><div class="vocab-ex">“Their banter is genuinely funny.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a group chat</div><div class="vocab-def">a shared messaging conversation</div><div class="vocab-ex">“Our group chat never stops.”</div></div>
+<div class="vocab-card"><div class="vocab-term">loneliness</div><div class="vocab-def">the pain of feeling disconnected</div><div class="vocab-ex">“Modern loneliness is quiet, not dramatic.”</div></div>
+<div class="vocab-card"><div class="vocab-term">company</div><div class="vocab-def">the presence of other people</div><div class="vocab-ex">“I miss her company.”</div></div>
+<div class="vocab-card"><div class="vocab-term">small talk</div><div class="vocab-def">light casual conversation</div><div class="vocab-ex">“Some people are brilliant at small talk.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to hang out</div><div class="vocab-def">to spend casual time together</div><div class="vocab-ex">“We just hang out at the park most weekends.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to catch up</div><div class="vocab-def">to meet and share news</div><div class="vocab-ex">“Let's catch up over coffee next week.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to drop by</div><div class="vocab-def">to visit briefly</div><div class="vocab-ex">“Feel free to drop by any time.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to bail on plans</div><div class="vocab-def">to cancel at the last minute</div><div class="vocab-ex">“She bailed on us three times last month.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to lose touch with</div><div class="vocab-def">to stop being in contact</div><div class="vocab-ex">“We lost touch after university.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to make time for someone</div><div class="vocab-def">to prioritise seeing them</div><div class="vocab-ex">“You have to make time for real friends.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">small talk</span>
+<span class="bw">mate</span>
+<span class="bw">loneliness</span>
+<span class="bw">get-together</span>
+<span class="bw">group chat</span>
+<span class="bw">banter</span>
+<span class="bw">friend</span>
+<span class="bw">company</span>
+</div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> She's my oldest <input class="fill-input" type="text" autocomplete="off" data-answer="friend" aria-label="answer 1"> from primary school.</div>
+<div class="fill-item"><span class="qn">2.</span> I'm meeting a few <input class="fill-input" type="text" autocomplete="off" data-answer="mates" aria-label="answer 2"> at seven.</div>
+<div class="fill-item"><span class="qn">3.</span> We had a small <input class="fill-input" type="text" autocomplete="off" data-answer="get-together" aria-label="answer 3"> at my place on Saturday.</div>
+<div class="fill-item"><span class="qn">4.</span> Their <input class="fill-input" type="text" autocomplete="off" data-answer="banter" aria-label="answer 4"> is genuinely, quietly funny.</div>
+<div class="fill-item"><span class="qn">5.</span> Our <input class="fill-input" type="text" autocomplete="off" data-answer="group chat" aria-label="answer 5"> literally never stops buzzing.</div>
+<div class="fill-item"><span class="qn">6.</span> Modern <input class="fill-input" type="text" autocomplete="off" data-answer="loneliness" aria-label="answer 6"> is quiet, polite and hard to admit.</div>
+<div class="fill-item"><span class="qn">7.</span> I really miss her <input class="fill-input" type="text" autocomplete="off" data-answer="company" aria-label="answer 7"> after five years apart.</div>
+<div class="fill-item"><span class="qn">8.</span> She's brilliant at <input class="fill-input" type="text" autocomplete="off" data-answer="small talk" aria-label="answer 8"> with strangers.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says modern friendship has become…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> more spontaneous</div>
+<div class="mc-opt" data-i="1"><b>B.</b> calendar-based</div>
+<div class="mc-opt" data-i="2"><b>C.</b> cheaper</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Real ‘hanging out’ is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> planned and productive</div>
+<div class="mc-opt" data-i="1"><b>B.</b> unplanned, unstructured, unproductive time</div>
+<div class="mc-opt" data-i="2"><b>C.</b> expensive</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q3</span>Three reasons casual hanging out has died include…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> smartphones, spread of work, distance</div>
+<div class="mc-opt" data-i="1"><b>B.</b> weather, tax, sleep</div>
+<div class="mc-opt" data-i="2"><b>C.</b> fashion, food, gyms</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>A ‘third place’ is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> your bedroom</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a café or park where you run into the same faces</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the workplace</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Group chats can quietly become a problem when…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> they're too quiet</div>
+<div class="mc-opt" data-i="1"><b>B.</b> they replace real meeting</div>
+<div class="mc-opt" data-i="2"><b>C.</b> they're free</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her final message is that friendship is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> a feeling</div>
+<div class="mc-opt" data-i="1"><b>B.</b> a habit</div>
+<div class="mc-opt" data-i="2"><b>C.</b> luck</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">When did you last really just ‘hang out’ with a friend?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">How often do you meet your closest friends?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do people still drop by unannounced where you live?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Are you good at showing up when you're tired?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are smartphones the biggest enemy of friendship?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Is scheduled friendship still real friendship?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should cities be redesigned to protect third places?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Are group chats replacing real meeting?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">How much friendship is fair to expect from a busy adult?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: reach out to a friend you haven't seen in a year.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: gently confront a friend who keeps bailing on plans.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design a monthly rhythm to keep three friendships genuinely alive.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Where do you and your friends usually <b>hang out</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">When did you last <b>catch up</b> with an old friend?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Do people still <b>drop by</b> unannounced where you live?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">How do you feel when someone <b>bails on</b> plans?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Have you <b>lost touch</b> with anyone important to you?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You want to reconnect with a friend you've <b>lost touch with</b>. <b>Reach out</b> warmly, explain you'd like to <b>catch up</b>, propose a small <b>get-together</b>, and gently promise not to <b>bail on</b> the plan. <b>Make time</b> for them properly.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">🌃</span>Nightlife Through the Decades</h2>
+<p class="instr">How going out quietly changes across your twenties, thirties, forties &mdash; and beyond. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>Twenties Loud, Thirties Fewer, Forties Quieter</h3>
+<div class="byline">★ Isabel Ortega · Former nightlife writer · Now covers how city life changes with age</div>
+<p>Something quietly happens to nightlife between twenty-two and forty-two, and nobody warns you. Not because anyone stops enjoying themselves. Because what “going out” actually means gets slowly rewritten every few years. After twenty years writing about how adults spend their evenings, I can tell you the truth: nightlife doesn't die. It just changes shape, decade by decade.</p>
+<p>Let's start with the <b>early twenties</b>. This is the loud decade. You <b>go out</b> four nights a week. You <b>hit the clubs</b> at midnight because that's when the good ones actually start. You <b>pull all-nighters</b> and still <b>make it into</b> work on Monday. Money is short, but energy is unlimited. You dance until 4 a.m., <b>crash on</b> a friend's sofa, and the world feels genuinely full of possibility. Nightlife in your twenties isn't really about drinking or dancing. It's about proving to yourself that you belong to the adult world.</p>
+<blockquote class="pull-quote">“At 22, the night begins at midnight. At 32, it ends by then. At 42, midnight is a punishment. All three are perfectly fine.”</blockquote>
+<p>By your <b>late twenties</b>, small shifts appear. Hangovers <b>take a day longer</b> to disappear. Some friends have partners, some are studying, some have moved cities. You still <b>go out on the town</b> regularly, but you start choosing your nights more carefully. “Why are we here?” is a question that quietly appears in the last hour of a big night. It's not sad. It's the first sign of growing up.</p>
+<p>The <b>thirties</b> are when nightlife quietly transforms. You still enjoy nights out, but you no longer <b>chase</b> them. Big clubs feel loud in the wrong way. You start preferring smaller places: intimate restaurants, wine bars, live music, jazz nights, dinner parties. You <b>meet up</b> at 8 p.m. and are home by midnight. Somebody in the group probably has a young child. Everyone quietly admires the person who still occasionally <b>stays out</b> until 3 a.m., but nobody joins them anymore. This decade is not less social. It's more precise.</p>
+<p>The <b>forties</b> bring another shift. Many people are now parents, or deep in careers, or both. Weekends are protected. Nightlife becomes rarer but often more meaningful. A big evening out is planned three weeks ahead. When it happens, everyone actually shows up. You <b>catch up</b> properly. You linger over dinner. You don't need to prove anything. In your forties, quiet dinners with old friends can be the best nights of your life &mdash; better than any club at 25.</p>
+<p>By the <b>fifties and beyond</b>, nightlife often becomes almost daytime. You <b>go out for lunch</b> instead of dinner. You attend concerts that start at 8 and finish by 10:30. You <b>drop in</b> at friends' houses more. You value sleep almost as much as the evening itself. This isn't decline. It's a different kind of enjoyment, and it lasts far longer than the clubbing years ever did.</p>
+<p>There are also the people who <b>defer a lot</b>. Some late-thirties adults still <b>hit the clubs</b>, still <b>party like</b> they're 25, still <b>go out</b> four nights a week. Sometimes this is genuinely healthy: single people, artists, night-shift workers, people whose social lives are their work. Sometimes it's an <b>avoidance</b> of harder decisions about what the next decade is supposed to look like. Neither is wrong. Both are choices.</p>
+<p>There's also the modern version: nightlife has quietly moved partly online. Group video calls, gaming with friends, watch-parties, online communities. For introverts, night owls, or people with young children, this is a real form of social life. Snobs laugh at it. It works.</p>
+<p>What's quietly beautiful about ageing nightlife is that the friendships built at 4 a.m. in your twenties often last until you're all <b>winding down the evening</b> at 10 p.m. in your seventies. The setting keeps changing. The people can remain.</p>
+<p>If you take one idea, take this. Don't hold on to nightlife that no longer fits you. And don't judge yourself for the version that does. In your twenties, dance until 4. In your thirties, choose the small wine bar over the loud club. In your forties, meet three real friends for a long dinner. In your fifties, <b>go out for lunch</b> more. Every decade has its own way of gathering around a table or a dance floor. The best evenings of your life are still ahead of you &mdash; just not always where you expect.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">nightlife</div><div class="vocab-def">evening entertainment in a place</div><div class="vocab-ex">“This city has amazing nightlife.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a night out</div><div class="vocab-def">an evening spent socialising</div><div class="vocab-ex">“We had a great night out.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a club</div><div class="vocab-def">a nightclub for dancing</div><div class="vocab-ex">“The club opens at midnight.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a pub</div><div class="vocab-def">a bar, especially in the UK</div><div class="vocab-ex">“Meet me at the pub.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a hangover</div><div class="vocab-def">the bad feeling after drinking too much</div><div class="vocab-ex">“She had a terrible hangover.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a nightowl</div><div class="vocab-def">a person who prefers being awake late</div><div class="vocab-ex">“I'm a lifelong nightowl.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an early bird</div><div class="vocab-def">a person who prefers early mornings</div><div class="vocab-ex">“He's an early bird.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a designated driver</div><div class="vocab-def">the person who doesn't drink so they can drive</div><div class="vocab-ex">“She was tonight's designated driver.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to go out on the town</div><div class="vocab-def">to have a big night out</div><div class="vocab-ex">“We went out on the town for her birthday.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to hit the clubs</div><div class="vocab-def">to go to nightclubs</div><div class="vocab-ex">“Younger crowds still hit the clubs on Saturdays.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to pull an all-nighter</div><div class="vocab-def">to stay awake all night</div><div class="vocab-ex">“I pulled an all-nighter at 23; not anymore.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to slow down (as you age)</div><div class="vocab-def">to reduce the pace of your social life</div><div class="vocab-ex">“Everyone slows down after 30.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to stay in</div><div class="vocab-def">to remain at home in the evening</div><div class="vocab-ex">“Most Fridays now, I just stay in.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to wind down the evening</div><div class="vocab-def">to end the night calmly</div><div class="vocab-ex">“We wound down the evening with tea.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">club</span>
+<span class="bw">nightlife</span>
+<span class="bw">pub</span>
+<span class="bw">designated driver</span>
+<span class="bw">night out</span>
+<span class="bw">nightowl</span>
+<span class="bw">hangover</span>
+<span class="bw">early bird</span>
+</div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> This city has some of the best <input class="fill-input" type="text" autocomplete="off" data-answer="nightlife" aria-label="answer 1"> in Europe.</div>
+<div class="fill-item"><span class="qn">2.</span> We had an incredible <input class="fill-input" type="text" autocomplete="off" data-answer="night out" aria-label="answer 2"> for her birthday.</div>
+<div class="fill-item"><span class="qn">3.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="club" aria-label="answer 3"> doesn't really get going until after midnight.</div>
+<div class="fill-item"><span class="qn">4.</span> Meet me at the <input class="fill-input" type="text" autocomplete="off" data-answer="pub" aria-label="answer 4"> around 8.</div>
+<div class="fill-item"><span class="qn">5.</span> She had a terrible <input class="fill-input" type="text" autocomplete="off" data-answer="hangover" aria-label="answer 5"> on Sunday.</div>
+<div class="fill-item"><span class="qn">6.</span> I'm a proper <input class="fill-input" type="text" autocomplete="off" data-answer="nightowl" aria-label="answer 6">; I'm most alive at 1 a.m.</div>
+<div class="fill-item"><span class="qn">7.</span> He's a lifelong <input class="fill-input" type="text" autocomplete="off" data-answer="early bird" aria-label="answer 7">; he's up at 5.</div>
+<div class="fill-item"><span class="qn">8.</span> She kindly volunteered to be our <input class="fill-input" type="text" autocomplete="off" data-answer="designated driver" aria-label="answer 8">.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>According to the writer, nightlife… as we age.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> dies</div>
+<div class="mc-opt" data-i="1"><b>B.</b> just changes shape</div>
+<div class="mc-opt" data-i="2"><b>C.</b> gets cheaper</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>In the early twenties, nightlife is really about…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> dancing</div>
+<div class="mc-opt" data-i="1"><b>B.</b> proving you belong to the adult world</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the music</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>In the thirties, the writer says people…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> stop going out entirely</div>
+<div class="mc-opt" data-i="1"><b>B.</b> prefer smaller, more intimate places</div>
+<div class="mc-opt" data-i="2"><b>C.</b> only go clubbing</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>In the forties, a big evening out is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> daily</div>
+<div class="mc-opt" data-i="1"><b>B.</b> planned three weeks ahead and meaningful</div>
+<div class="mc-opt" data-i="2"><b>C.</b> rarely fun</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>People who still party like they're 25 in their late thirties…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> are all unhealthy</div>
+<div class="mc-opt" data-i="1"><b>B.</b> are sometimes healthy, sometimes avoiding harder decisions</div>
+<div class="mc-opt" data-i="2"><b>C.</b> are always successful</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's final message is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> cling to your old nightlife</div>
+<div class="mc-opt" data-i="1"><b>B.</b> choose the version that fits you now</div>
+<div class="mc-opt" data-i="2"><b>C.</b> judge others harshly</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What did your typical night out look like at 22?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">What does a good night out look like for you now?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Are you a nightowl or an early bird?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">When did you last stay up past 2 a.m., and why?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is nightlife really dying, or just changing?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should adults over 40 still go clubbing if they enjoy it?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Are quiet dinners with old friends better than big nights out?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Has social media replaced real nightlife for young people?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Should cities design nightlife for all ages, not just twenty-somethings?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Role-play: convince a friend still stuck in late-twenties nightlife to try something new.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: plan the perfect birthday night out for someone turning 40.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design your ideal evening at your current age &mdash; realistically, not aspirationally.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">When did you last really <b>go out on the town</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Do you still <b>hit the clubs</b>, or has that phase ended?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">When was the last time you <b>pulled an all-nighter</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Do you find yourself <b>staying in</b> more than you used to?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">How do you like to <b>wind down the evening</b> these days?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> You and a friend are both in your thirties. They still want to <b>hit the clubs</b> every weekend and <b>pull all-nighters</b>. Kindly explain why you now prefer a small wine bar or a long dinner where you can really <b>catch up</b> &mdash; and why that's not <b>giving up</b>, just <b>growing into</b> a different decade.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<footer>🪞 ★ ★ &nbsp; PEOPLE WE BECOME · B2 ENGLISH · PERSONALITY · ATTRACTION · HANGING OUT · NIGHTLIFE &nbsp; ★ ★ 🪞</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
