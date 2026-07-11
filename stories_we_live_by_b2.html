@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stories We Live By — B2 English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"📖";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">📖 B2 ENGLISH · MOVIES · BOOKS · READING · FESTIVALS</div>
+      <h1>Stories We <span class="accent">Live By</span></h1>
+      <div class="sub">Four conversations about the stories we quietly build our lives around &mdash; the films we watch, the books we read, the ones we should really read, and the huge festivals where millions of people gather to feel something in a field, a cinema, or a bookshop. Every highlighted item is a phrasal verb or a collocation you'll really use.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~540 WORDS</span>
+        <span class="tag">PHRASAL VERBS &amp; COLLOCATIONS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">76 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Movies 🎬</button>
+    <button class="tab" data-tab="t2">② Books 📚</button>
+    <button class="tab" data-tab="t3">③ Must-Read 🌟</button>
+    <button class="tab" data-tab="t4">④ Festivals 🎭</button>
+  </nav>
+
+<section class="panel active" id="t1">
+<h2 class="section-title"><span class="emoji">🎬</span>Watching Movies &amp; Genres</h2>
+<p class="instr">How we really watch films now &mdash; and what a good one still does to us. Highlighted items are phrasal verbs and collocations.</p>
+<article class="reading">
+<h3>The Screen That Chooses You Back</h3>
+<div class="byline">★ Marco Vidal · Film critic &amp; former festival programmer · Watches 250 films a year</div>
+<p>When I was a teenager, watching a film was an event. You <b>looked up</b> the times in the newspaper, you <b>queued up</b> outside the cinema, you sat in the dark with strangers, and the story took over your life for two hours. Today, most of us watch films <b>curled up</b> on a sofa, phone in hand, sometimes <b>flicking through</b> three streaming apps at the same time. Films have never been easier to access. They have also never been easier to ignore.</p>
+<p>Let's start with <b>genres</b>. Every film sits in one or two categories that shape what we expect. <b>Rom-coms</b> promise a happy ending. <b>Thrillers</b> promise tension. <b>Horror</b> promises fear you can safely enjoy. <b>Sci-fi</b> promises new worlds. <b>Documentaries</b> promise something true. <b>Biopics</b> promise a real life told well. <b>Animated films</b> promise something children can love without their parents getting bored. Good filmmakers know the rules of their genre and quietly bend them. Great filmmakers break them cleanly.</p>
+<blockquote class="pull-quote">“You don't remember the plot of the film that changed you. You remember how you felt walking out of the cinema. The rest is craft.”</blockquote>
+<p>Then there's the language of film. A <b>plot</b> is what happens. A <b>character arc</b> is how a person changes. <b>Pacing</b> is the rhythm of the story. <b>Cinematography</b> is how the film looks. <b>The score</b> is the music that tells you how to feel. When people say a film is “well made,” they usually mean these elements <b>come together</b> without <b>drawing attention to</b> themselves. When a film is bad, one of them is always <b>letting the side down</b>.</p>
+<p>The biggest revolution of the last decade is <b>streaming</b>. Netflix, Amazon, Disney+, Apple TV and others put thousands of films at your fingertips. This is wonderful. It's also strange. Cinemas are quieter. Small films struggle to <b>break through</b> the noise. Algorithms quietly decide what shows up on your homepage, and, over time, they narrow what you watch. Two people using the same app may live in completely different film worlds.</p>
+<p>Then there's the modern habit of <b>binge-watching</b>. You <b>settle in</b> for one episode, and four hours later you're still there, tired, slightly ashamed, but wanting one more. Series are now written to be <b>binged</b>: each episode ends on a cliffhanger designed to <b>reel you in</b>. Cinema tries to fight back with three-hour films that demand your full attention. Both are competing for the same thing: your evening.</p>
+<p>There's also the <b>cinema experience</b>. Big screens, quiet crowds, popcorn, no phone. Something happens in a dark room with a hundred strangers that never happens at home. That's why comedies feel funnier at the cinema, and horror films are actually scary. If you love films, <b>get out to</b> the cinema once a month. Streaming has quietly convinced us that this old ritual doesn't matter. It does.</p>
+<p>The most useful skill for a modern viewer is <b>curation</b>. There are too many films to see them all. Follow a critic whose taste you trust. Keep a personal “to watch” list. <b>Rule out</b> anything you're only half-interested in. Be willing to <b>give up on</b> a bad film after twenty minutes; your life is short and someone else made something better.</p>
+<p>If you take one idea, take this. A film is a small collaboration between the story on the screen and the person watching. If you're tired, distracted, checking your phone, and half-asleep, no film in the world can reach you. Watch fewer films. Watch them properly. <b>Switch off</b> the phone, dim the lights, and let the story do what it was made to do. That's how films quietly change your life.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a genre</div><div class="vocab-def">a category of film</div><div class="vocab-ex">“My favourite genre is science fiction.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a plot</div><div class="vocab-def">the events of a story</div><div class="vocab-ex">“The plot has too many twists.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a character</div><div class="vocab-def">a person in the story</div><div class="vocab-ex">“The lead character is complicated.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a director</div><div class="vocab-def">the person who makes a film</div><div class="vocab-ex">“She's my favourite living director.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a scene</div><div class="vocab-def">one part of a film</div><div class="vocab-ex">“The final scene stayed with me for weeks.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a soundtrack</div><div class="vocab-def">the music of a film</div><div class="vocab-ex">“The soundtrack sold millions.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a subtitle</div><div class="vocab-def">translated text at the bottom of the screen</div><div class="vocab-ex">“I always watch with subtitles.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a cinema</div><div class="vocab-def">a place where films are shown</div><div class="vocab-ex">“There's a great cinema near my house.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be into a genre</div><div class="vocab-def">to enjoy a type of film</div><div class="vocab-ex">“I'm really into psychological thrillers.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to binge-watch</div><div class="vocab-def">to watch many episodes in a row</div><div class="vocab-ex">“We binge-watched the whole season on Saturday.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to stream a film</div><div class="vocab-def">to watch online</div><div class="vocab-ex">“I usually stream on Sundays.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to give a film a shot</div><div class="vocab-def">to try watching a film</div><div class="vocab-ex">“Give this documentary a shot.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be gripped from the start</div><div class="vocab-def">to be captivated from the beginning</div><div class="vocab-ex">“I was gripped from the very first scene.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to switch off halfway through</div><div class="vocab-def">to stop watching before the end</div><div class="vocab-ex">“I switched off halfway through last night.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">subtitles</span>
+<span class="bw">cinema</span>
+<span class="bw">plot</span>
+<span class="bw">director</span>
+<span class="bw">genre</span>
+<span class="bw">soundtrack</span>
+<span class="bw">character</span>
+<span class="bw">scene</span>
+</div>
+<div class="fill-set" data-fill="t1">
+<div class="fill-item"><span class="qn">1.</span> My favourite <input class="fill-input" type="text" autocomplete="off" data-answer="genre" aria-label="answer 1"> is definitely psychological thriller.</div>
+<div class="fill-item"><span class="qn">2.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="plot" aria-label="answer 2"> has more twists than a rollercoaster.</div>
+<div class="fill-item"><span class="qn">3.</span> The lead <input class="fill-input" type="text" autocomplete="off" data-answer="character" aria-label="answer 3"> is genuinely complicated and interesting.</div>
+<div class="fill-item"><span class="qn">4.</span> She's currently my favourite living <input class="fill-input" type="text" autocomplete="off" data-answer="director" aria-label="answer 4">.</div>
+<div class="fill-item"><span class="qn">5.</span> The opening <input class="fill-input" type="text" autocomplete="off" data-answer="scene" aria-label="answer 5"> still gives me goosebumps.</div>
+<div class="fill-item"><span class="qn">6.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="soundtrack" aria-label="answer 6"> sold millions of copies on its own.</div>
+<div class="fill-item"><span class="qn">7.</span> I always watch foreign films with <input class="fill-input" type="text" autocomplete="off" data-answer="subtitles" aria-label="answer 7">.</div>
+<div class="fill-item"><span class="qn">8.</span> There's a beautiful old <input class="fill-input" type="text" autocomplete="off" data-answer="cinema" aria-label="answer 8"> five minutes from my house.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t1')">Check answers</button><button class="btn ghost" onclick="resetFill('t1')">Clear</button><span class="score" id="fillscore-t1">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says watching a film used to be…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> boring</div>
+<div class="mc-opt" data-i="1"><b>B.</b> an event</div>
+<div class="mc-opt" data-i="2"><b>C.</b> cheap</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>A good genre film, he says…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> ignores the rules</div>
+<div class="mc-opt" data-i="1"><b>B.</b> knows and quietly bends the rules</div>
+<div class="mc-opt" data-i="2"><b>C.</b> copies exactly</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>The core parts of a well-made film include…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> only the plot</div>
+<div class="mc-opt" data-i="1"><b>B.</b> plot, character arc, pacing, cinematography, score</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the poster and title</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Streaming has…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> saved small cinemas</div>
+<div class="mc-opt" data-i="1"><b>B.</b> made small films struggle to break through</div>
+<div class="mc-opt" data-i="2"><b>C.</b> stopped algorithms</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The cinema experience matters because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> snacks are cheap</div>
+<div class="mc-opt" data-i="1"><b>B.</b> something happens in a dark room with strangers</div>
+<div class="mc-opt" data-i="2"><b>C.</b> the seats are better</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>His final advice is to…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> watch as many films as possible</div>
+<div class="mc-opt" data-i="1"><b>B.</b> watch fewer films properly</div>
+<div class="mc-opt" data-i="2"><b>C.</b> stop watching films</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the last film you truly loved?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Which genre do you always watch?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Cinema or streaming?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Do you like watching films alone or with people?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are streaming platforms killing cinemas, or saving them?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should films always have a happy ending?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Are remakes and sequels ruining new films?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Are film awards (Oscars, etc.) still meaningful?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Should schools use films to teach history?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Recommend a film to a friend, in 60 seconds, using at least three highlighted phrases.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Role-play: convince a partner to watch your genre for once.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design the perfect Friday-night film ritual at home.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">What genre are you <b>really into</b> right now?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Have you ever <b>binge-watched</b> a whole series in one weekend?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">How often do you <b>stream</b> films versus going to the cinema?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Tell us about a film that <b>gripped you from the start</b>.</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">When did you last <b>switch off halfway through</b> a film?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend has never really watched films seriously. Recommend three films across different <b>genres</b>. Explain what a good <b>plot</b>, a strong <b>character</b>, and a great <b>soundtrack</b> feel like. Convince them to <b>get out to</b> a cinema at least once this month.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t2">
+<h2 class="section-title"><span class="emoji">📚</span>Reading Books &amp; Genres</h2>
+<p class="instr">How reading real books quietly reshapes the mind &mdash; and how to build the habit in a distracted world. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>The Habit That Rearranges Your Head</h3>
+<div class="byline">★ Priya Nair · Author &amp; former literature professor · Publishes a novel every four years</div>
+<p>In an age of endless short videos, reading a book feels almost radical. You sit still. You <b>focus on</b> one thing for thirty minutes at a time. You let someone else's thoughts quietly move into your head. Reading isn't magical. It's just powerful. After twenty years of writing and teaching, I can tell you the same thing every serious reader eventually notices: the people who read regularly think differently. They notice more. They express themselves more carefully. Nothing on your phone will do this for you.</p>
+<p>Let's start with <b>fiction</b>. Novels don't teach facts; they teach empathy. When you spend three hundred pages inside another person's head, you quietly learn to understand people in real life. That's why fiction readers, in study after study, are shown to be better at reading emotions and situations. Fiction sits at the heart of every honest education, and yet it's the first thing most adults <b>drop</b> when they get busy.</p>
+<blockquote class="pull-quote">“The habit isn't reading. The habit is being a person willing to sit alone with a book, and to be changed by it.”</blockquote>
+<p>Fiction <b>comes in</b> many genres. <b>Literary fiction</b> tries to say something serious about being human. <b>Historical fiction</b> puts you inside another century. <b>Crime and thrillers</b> keep you turning pages until 1 a.m. <b>Fantasy</b> and <b>sci-fi</b> build entire worlds from scratch. <b>Romance</b> is bigger than any other genre and quietly outsells them all. Snobs like to look down on romance and fantasy; the truth is that a great genre novel does exactly what a great literary novel does: it takes you somewhere and leaves you slightly changed.</p>
+<p>Then there's <b>non-fiction</b>. <b>Biographies</b> and <b>memoirs</b> let you live another life. <b>Popular science</b> makes the world genuinely more interesting. <b>History</b> shows how we got here. <b>Essays</b> help you think. <b>Self-help</b> is a huge and mixed category: at its best, it changes lives; at its worst, it repeats the same thin advice with a shiny cover. Choose carefully.</p>
+<p>The biggest question modern readers ask is <b>paper or digital</b>. The honest answer is: whichever you'll actually read. E-readers are wonderful for travel and for people with bad eyesight. Paper books are quietly better for concentration and memory. Audiobooks let you “read” while commuting or cooking. There is no correct format; there's only the one you'll actually <b>pick up</b>.</p>
+<p>Let's talk about the <b>reading habit</b>. Most adults who say they don't have time to read have plenty of time. They just spend it scrolling. Even 20 minutes a day, kept up, is 20 to 30 books a year. The people who read a lot don't have secret hours; they've quietly decided that reading is their default when they're waiting, resting, or falling asleep. Keep a book with you. <b>Dip into</b> it whenever you have five minutes. It quietly adds up.</p>
+<p>There's also the difficult truth about <b>giving up</b> on books. Life is short. If you're 50 pages in and hating it, put it down. Reading isn't school. You don't get a prize for finishing something you don't enjoy. The best readers I know are ruthless about abandoning books that aren't for them, and slow to recommend a book they haven't <b>settled into</b> properly themselves.</p>
+<p>Finally, remember that books shape you slowly. You may not remember the exact plot of a novel you read at 22. But something in it quietly reorganised how you saw the world. Books are one of the few technologies that let another human being &mdash; sometimes long dead &mdash; sit quietly beside you and reshape your thinking, one paragraph at a time.</p>
+<p>If you take one idea, take this. <b>Pick up</b> a real book tonight. Read for 20 minutes before bed. Do it again tomorrow. That's the whole method. Nothing dramatic. Just the quiet daily habit of letting other minds into yours. In a year, you'll be a different reader, and a slightly different person.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a novel</div><div class="vocab-def">a book-length fictional story</div><div class="vocab-ex">“Her latest novel won a big prize.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a bestseller</div><div class="vocab-def">a book that sells very well</div><div class="vocab-ex">“His memoir became a bestseller.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a chapter</div><div class="vocab-def">one part of a book</div><div class="vocab-ex">“Read one chapter every night.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an author</div><div class="vocab-def">a person who writes books</div><div class="vocab-ex">“She's my favourite living author.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a genre</div><div class="vocab-def">a category of book</div><div class="vocab-ex">“Which genre do you read most?”</div></div>
+<div class="vocab-card"><div class="vocab-term">fiction</div><div class="vocab-def">invented stories</div><div class="vocab-ex">“Most fiction sits on the middle shelves.”</div></div>
+<div class="vocab-card"><div class="vocab-term">non-fiction</div><div class="vocab-def">true, factual books</div><div class="vocab-ex">“Non-fiction now outsells fiction in some countries.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a page-turner</div><div class="vocab-def">an exciting book that's hard to put down</div><div class="vocab-ex">“This thriller is a real page-turner.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to get into a book</div><div class="vocab-def">to start enjoying a novel</div><div class="vocab-ex">“It took me 50 pages to get into the book.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be hooked on a series</div><div class="vocab-def">to be addicted to a book series</div><div class="vocab-ex">“She's totally hooked on that fantasy series.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to plough through</div><div class="vocab-def">to read something slowly and with effort</div><div class="vocab-ex">“I ploughed through a long biography.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to dip into</div><div class="vocab-def">to read parts of a book without finishing</div><div class="vocab-ex">“I dip into poetry in the evenings.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to put a book down</div><div class="vocab-def">to stop reading a book (usually because it's bad)</div><div class="vocab-ex">“I couldn't put this one down.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to lose yourself in a book</div><div class="vocab-def">to be completely absorbed in it</div><div class="vocab-ex">“I lost myself in that novel for a week.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">chapter</span>
+<span class="bw">bestseller</span>
+<span class="bw">fiction</span>
+<span class="bw">author</span>
+<span class="bw">non-fiction</span>
+<span class="bw">novel</span>
+<span class="bw">page-turner</span>
+<span class="bw">genre</span>
+</div>
+<div class="fill-set" data-fill="t2">
+<div class="fill-item"><span class="qn">1.</span> Her latest <input class="fill-input" type="text" autocomplete="off" data-answer="novel" aria-label="answer 1"> has been translated into 22 languages.</div>
+<div class="fill-item"><span class="qn">2.</span> His memoir quietly became an unexpected <input class="fill-input" type="text" autocomplete="off" data-answer="bestseller" aria-label="answer 2">.</div>
+<div class="fill-item"><span class="qn">3.</span> Read one <input class="fill-input" type="text" autocomplete="off" data-answer="chapter" aria-label="answer 3"> every night before sleep.</div>
+<div class="fill-item"><span class="qn">4.</span> She's my favourite living English-language <input class="fill-input" type="text" autocomplete="off" data-answer="author" aria-label="answer 4">.</div>
+<div class="fill-item"><span class="qn">5.</span> Which <input class="fill-input" type="text" autocomplete="off" data-answer="genre" aria-label="answer 5"> do you find yourself reading the most?</div>
+<div class="fill-item"><span class="qn">6.</span> Most <input class="fill-input" type="text" autocomplete="off" data-answer="fiction" aria-label="answer 6"> sits on the middle shelves in bookshops.</div>
+<div class="fill-item"><span class="qn">7.</span> <input class="fill-input" type="text" autocomplete="off" data-answer="non-fiction" aria-label="answer 7"> now outsells fiction in some countries.</div>
+<div class="fill-item"><span class="qn">8.</span> This crime thriller is a total <input class="fill-input" type="text" autocomplete="off" data-answer="page-turner" aria-label="answer 8">.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t2')">Check answers</button><button class="btn ghost" onclick="resetFill('t2')">Clear</button><span class="score" id="fillscore-t2">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>Fiction, the writer says, mainly teaches…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> facts</div>
+<div class="mc-opt" data-i="1"><b>B.</b> empathy</div>
+<div class="mc-opt" data-i="2"><b>C.</b> spelling</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The biggest-selling genre, quietly, is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> literary fiction</div>
+<div class="mc-opt" data-i="1"><b>B.</b> romance</div>
+<div class="mc-opt" data-i="2"><b>C.</b> non-fiction</div>
+</div>
+<div class="mc-item" data-correct="2">
+<div class="mc-q"><span class="qn">Q3</span>The honest answer to paper vs digital is…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> paper always</div>
+<div class="mc-opt" data-i="1"><b>B.</b> digital always</div>
+<div class="mc-opt" data-i="2"><b>C.</b> whichever you'll actually read</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>Most adults who say they have no time to read…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> really don't</div>
+<div class="mc-opt" data-i="1"><b>B.</b> have plenty of time but scroll</div>
+<div class="mc-opt" data-i="2"><b>C.</b> are too tired</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The best readers, she says, are… about giving up on books they hate.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> slow</div>
+<div class="mc-opt" data-i="1"><b>B.</b> ruthless</div>
+<div class="mc-opt" data-i="2"><b>C.</b> gentle</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her final advice is to read… tonight.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> one full book</div>
+<div class="mc-opt" data-i="1"><b>B.</b> 20 minutes</div>
+<div class="mc-opt" data-i="2"><b>C.</b> a whole series</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What are you reading right now?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Fiction or non-fiction?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">How many books do you finish in a year, honestly?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Paper, e-reader or audiobook?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Is reading really better for the brain than watching a series?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Should schools stop forcing students to finish books they hate?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Are audiobooks 'real' reading?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Are libraries still important in the age of e-readers?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Will AI-generated books ever match human authors?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Recommend a book to a non-reader in 60 seconds.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Coach a friend into starting a 20-minute-a-night reading habit.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Design your ideal reading year: 12 books, one per month.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">How long does it usually take you to <b>get into a book</b>?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Are you currently <b>hooked on</b> any book series?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Have you ever <b>ploughed through</b> a book you didn't enjoy?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">What kind of book do you <b>dip into</b> rather than read cover-to-cover?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Tell us about a book you couldn't <b>put down</b>.</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend says they “don't have time to read.” Coach them kindly into a real reading habit. Choose one <b>genre</b>, one <b>novel</b>, help them <b>pick up</b> a book tonight and <b>dip into</b> it every day. Ban the phrase “I'm too busy”.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t3">
+<h2 class="section-title"><span class="emoji">🌟</span>Books That Actually Change You</h2>
+<p class="instr">Real book recommendations across categories &mdash; the ones you'll thank yourself for reading. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>Books That Change You Twice</h3>
+<div class="byline">★ Emma Rowntree · Literary editor · Spent 20 years recommending the right book to the right person</div>
+<p>After 20 years of recommending books, I've learned that people don't want lists. They want the right book at the right time. Still, some books quietly change almost everyone who reads them properly. Not because they're fashionable. Because they patiently do something to your thinking. Here are a few I <b>keep coming back to</b>, across different categories. Read one properly this year, and it will <b>pay you back</b> for the next decade.</p>
+<p>Let's start with <b>modern classics</b>. If you haven't <b>picked up</b> <em>Never Let Me Go</em> by Kazuo Ishiguro, you're missing one of the most quietly devastating novels of the last 30 years. <em>The Remains of the Day</em>, by the same author, is another slow, perfect book. <em>Beloved</em> by Toni Morrison is one of the great American novels of the twentieth century. <em>A Little Life</em> by Hanya Yanagihara is huge, difficult, and <b>worth every page</b> for those who can <b>take it on</b>. These aren't easy reads. They are the ones you'll <b>keep coming back to</b>.</p>
+<blockquote class="pull-quote">“Some books hit you at the first reading. Others quietly change you the second time, when you finally understand what you were reading.”</blockquote>
+<p>In <b>non-fiction and ideas</b>, three books have been genuinely influential in the last decade. <em>Sapiens</em> by Yuval Noah Harari <b>opened many readers' eyes</b> to the sweep of human history. <em>Thinking, Fast and Slow</em> by Daniel Kahneman is dense, but it will <b>change the way you think</b> about your own decisions. <em>Man's Search for Meaning</em> by Viktor Frankl is short, tough, and still one of the wisest books ever written on how to live. These three alone will teach you more than most university courses.</p>
+<p>For <b>work and productivity</b>, avoid the huge self-help section. Read fewer, better books. <em>Deep Work</em> by Cal Newport is genuinely useful for anyone with a job that requires focus. <em>Atomic Habits</em> by James Clear is the best modern book on habits. <em>The Almanack of Naval Ravikant</em> is a small, strange collection of ideas about wealth, time and happiness that you'll probably <b>dip into</b> once a year. These will save you from a hundred worse books in the same category.</p>
+<p>In <b>fiction that reads like a thriller</b>, try <em>The Remains of the Day</em> (again), <em>Klara and the Sun</em>, <em>Circe</em> by Madeline Miller, <em>The Overstory</em> by Richard Powers, or anything by Kazuo Ishiguro. These are <b>page-turners</b> that also stay with you for years. Genre fiction <b>can hold its own</b> as literature. Don't let anyone <b>talk you out of</b> reading it.</p>
+<p>For <b>essays and thinking</b>, <em>Bird by Bird</em> by Anne Lamott (technically about writing, actually about life) is a gentle miracle. <em>Meditations</em> by Marcus Aurelius, written 1,900 years ago by a Roman emperor to himself, is still one of the best books on staying calm and useful in a chaotic world. <b>Dip into</b> it whenever life feels hard.</p>
+<p>For <b>science and understanding</b>, <em>The Body: A Guide for Occupants</em> by Bill Bryson is warm, funny and full of amazing facts. <em>The Emperor of All Maladies</em> by Siddhartha Mukherjee is a beautifully written history of cancer that will <b>open your eyes</b> to how modern medicine actually works. <em>Why We Sleep</em> by Matthew Walker will probably <b>change the way you</b> plan your evenings.</p>
+<p>For books on <b>work and creativity</b>, my quiet favourite is <em>Show Your Work</em> by Austin Kleon: a short, punchy little book that will <b>change how you</b> share what you do. If you want a longer read, <em>Range</em> by David Epstein makes the case for being a generalist in a specialist world.</p>
+<p>There are books I've read four times and still find something new in. There are also books I <b>couldn't put down</b> at the time but haven't thought about since. The books that shape you are usually the ones you were <b>slightly not ready for</b> when you first read them.</p>
+<p>If you take one idea, take this. Don't <b>burn through</b> 20 forgettable books this year. <b>Pick out</b> three real ones from the list above. Read them slowly. Read one twice. In five years, you'll thank yourself. The books on this list are not <b>a passing fashion</b>. They are quietly waiting for you.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a masterpiece</div><div class="vocab-def">a work of great excellence</div><div class="vocab-ex">“The novel is widely called a masterpiece.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a classic</div><div class="vocab-def">a book that endures across generations</div><div class="vocab-ex">“She reads a classic every summer.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a memoir</div><div class="vocab-def">an autobiography focused on personal experience</div><div class="vocab-ex">“His memoir made me cry.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a bestseller</div><div class="vocab-def">a book that sells very well</div><div class="vocab-ex">“It was a bestseller for 40 weeks.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a debut</div><div class="vocab-def">an author's first book</div><div class="vocab-ex">“Her debut won a major prize.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a sequel</div><div class="vocab-def">a book that follows another</div><div class="vocab-ex">“The sequel isn't quite as good.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a translation</div><div class="vocab-def">a book rendered into another language</div><div class="vocab-ex">“This translation is excellent.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an anthology</div><div class="vocab-def">a collection of pieces in one book</div><div class="vocab-ex">“Buy the essay anthology.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to open your eyes</div><div class="vocab-def">to make you see something clearly</div><div class="vocab-ex">“This book opened my eyes to real poverty.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to change the way you think</div><div class="vocab-def">to shift your worldview</div><div class="vocab-ex">“It changed the way I think about work.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to keep coming back to</div><div class="vocab-def">to reread over the years</div><div class="vocab-ex">“I keep coming back to this one.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be worth every page</div><div class="vocab-def">to justify the reading effort</div><div class="vocab-ex">“This book is worth every single page.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be a game-changer</div><div class="vocab-def">to transform your understanding</div><div class="vocab-ex">“It was a real game-changer for me.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to be food for thought</div><div class="vocab-def">to give you a lot to think about</div><div class="vocab-ex">“The final chapter is real food for thought.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">translation</span>
+<span class="bw">anthology</span>
+<span class="bw">bestseller</span>
+<span class="bw">memoir</span>
+<span class="bw">classic</span>
+<span class="bw">sequel</span>
+<span class="bw">masterpiece</span>
+<span class="bw">debut</span>
+</div>
+<div class="fill-set" data-fill="t3">
+<div class="fill-item"><span class="qn">1.</span> Critics widely call it a modern <input class="fill-input" type="text" autocomplete="off" data-answer="masterpiece" aria-label="answer 1">.</div>
+<div class="fill-item"><span class="qn">2.</span> She reads a Russian <input class="fill-input" type="text" autocomplete="off" data-answer="classic" aria-label="answer 2"> every winter.</div>
+<div class="fill-item"><span class="qn">3.</span> His <input class="fill-input" type="text" autocomplete="off" data-answer="memoir" aria-label="answer 3"> made me cry on the train.</div>
+<div class="fill-item"><span class="qn">4.</span> It was a <input class="fill-input" type="text" autocomplete="off" data-answer="bestseller" aria-label="answer 4"> for over 40 weeks.</div>
+<div class="fill-item"><span class="qn">5.</span> Her <input class="fill-input" type="text" autocomplete="off" data-answer="debut" aria-label="answer 5"> novel won three major prizes.</div>
+<div class="fill-item"><span class="qn">6.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="sequel" aria-label="answer 6"> is good but not quite as strong.</div>
+<div class="fill-item"><span class="qn">7.</span> The English <input class="fill-input" type="text" autocomplete="off" data-answer="translation" aria-label="answer 7"> is beautifully done.</div>
+<div class="fill-item"><span class="qn">8.</span> A useful <input class="fill-input" type="text" autocomplete="off" data-answer="anthology" aria-label="answer 8"> pulls the best essays into one book.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t3')">Check answers</button><button class="btn ghost" onclick="resetFill('t3')">Clear</button><span class="score" id="fillscore-t3">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q1</span>The writer says people don't want…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> lists</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the right book at the right time</div>
+<div class="mc-opt" data-i="2"><b>C.</b> recommendations</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>The books she keeps coming back to are ones that…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> are fashionable</div>
+<div class="mc-opt" data-i="1"><b>B.</b> patiently change your thinking</div>
+<div class="mc-opt" data-i="2"><b>C.</b> are cheap</div>
+</div>
+<div class="mc-item" data-correct="0">
+<div class="mc-q"><span class="qn">Q3</span>For ‘non-fiction and ideas’, three of her recommended books are…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> Sapiens, Thinking Fast and Slow, Man's Search for Meaning</div>
+<div class="mc-opt" data-i="1"><b>B.</b> only novels</div>
+<div class="mc-opt" data-i="2"><b>C.</b> only self-help</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>She warns readers to avoid…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> classics</div>
+<div class="mc-opt" data-i="1"><b>B.</b> the huge self-help section</div>
+<div class="mc-opt" data-i="2"><b>C.</b> short books</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>The books that shape you, she says, are usually the ones…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> you were fully ready for</div>
+<div class="mc-opt" data-i="1"><b>B.</b> you were slightly not ready for at first</div>
+<div class="mc-opt" data-i="2"><b>C.</b> you skipped</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>Her final advice is to read… this year.</div>
+<div class="mc-opt" data-i="0"><b>A.</b> twenty forgettable books</div>
+<div class="mc-opt" data-i="1"><b>B.</b> three real ones, one twice</div>
+<div class="mc-opt" data-i="2"><b>C.</b> only one</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">What's the last book that really changed you?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Have you read any of the books she mentions?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do you reread books, or move on?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">How do you choose your next book?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Should everyone read the same 'great books', or find their own?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are classics still worth reading, or too dated?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should schools teach modern non-fiction like Sapiens?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Is self-help sometimes harmful?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Can a book really change your life?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Recommend one of the writer's books to a specific friend of yours, and explain why.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Build your own three-book reading list for this year, using different categories.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Role-play: convince a sceptical friend that reading Marcus Aurelius (1,900 years old) is still worth it.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Which book has really <b>opened your eyes</b> to something?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">What book has <b>changed the way you think</b> about your work or your life?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">Which book do you <b>keep coming back to</b> over the years?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you read anything recently that was truly a <b>game-changer</b> for you?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Tell us about a book that was serious <b>food for thought</b>.</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend hasn't read a good book in years. Recommend three from different categories: one <b>modern classic</b>, one <b>non-fiction</b> that will <b>open their eyes</b>, and one <b>page-turner</b> they won't be able to <b>put down</b>. Explain why each is <b>worth every page</b>.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<section class="panel" id="t4">
+<h2 class="section-title"><span class="emoji">🎭</span>Music, Film &amp; Book Festivals</h2>
+<p class="instr">Why we still travel to fields, cinemas and bookshops to feel something together. Targets are in <b>gold</b>.</p>
+<article class="reading">
+<h3>Why Half a Million People Stand in a Field</h3>
+<div class="byline">★ Isabel Ortega · Culture journalist · Covers 15 festivals a year</div>
+<p>In a world where you can watch anything, hear anything and read anything from your sofa, hundreds of thousands of people still travel every summer to stand in a muddy field in Somerset, or queue outside a cinema in Cannes, or fly to Edinburgh in August for three weeks of theatre. Festivals should be dying. They're not. In fact, they're growing. Something about being physically in a place, surrounded by strangers who love the same thing, is genuinely irreplaceable.</p>
+<p>Let's start with <b>music festivals</b>. <b>Glastonbury</b> in England is famous for its scale, its mud and its politics. <b>Coachella</b> in California is famous for the artists, the fashion, and the sunset. <b>Tomorrowland</b> in Belgium is famous for electronic music and huge stages. <b>Roskilde</b> in Denmark is famous for its atmosphere. <b>Fuji Rock</b> in Japan is famous for being polite and beautifully organised. Each one <b>sells out</b> in minutes. Each one has its own tribe.</p>
+<blockquote class="pull-quote">“A festival is not really about the music. It's about the version of yourself you become for three days in a field.”</blockquote>
+<p>Getting to a festival is half the story. People <b>line up</b> for tickets months in advance. They <b>camp out</b> for days. They <b>put together</b> outfits, meet friends they only see once a year, and quietly <b>psych themselves up</b> for the biggest night of their year. When the first band steps on stage, and 100,000 people scream at once, something genuinely powerful happens. You cannot get that from a streaming app.</p>
+<p><b>Film festivals</b> are quieter but just as intense. <b>Cannes</b> in May is the most glamorous. <b>Venice</b> in September launches many Oscar contenders. <b>Sundance</b> in the Utah snow is the home of independent film. <b>Berlin</b> is politically serious. <b>Toronto</b> is where audiences vote with genuine enthusiasm. These festivals shape what the world will watch a year later. Small films <b>break through</b> here. Careers begin here. Fashion is discussed here. Deals are struck at breakfast.</p>
+<p>For many of the smaller film festivals &mdash; local, national, genre-specific &mdash; the atmosphere is closer to a book club than a red carpet. You watch three films in a day, argue about them at dinner, and <b>bump into</b> the director in the coffee queue the next morning. If you love film, go to one small festival before you die. It will change how you watch every film after.</p>
+<p>Then there are <b>book festivals</b>. <b>Hay Festival</b> in Wales gathers hundreds of writers under white tents in a tiny town for two weeks. <b>Edinburgh International Book Festival</b> runs at the same time as the world's largest arts festival, drawing 800,000 visitors in three weeks. <b>Cheltenham</b>, <b>Jaipur</b>, <b>Frankfurt</b>, the <b>Sharjah International Book Fair</b>: each has its own personality. You go to hear an author read one paragraph, and end up buying five books you didn't know existed.</p>
+<p>Then there are <b>combined arts festivals</b>. <b>Edinburgh Fringe</b> is the biggest in the world: three thousand shows, thousands of comedians, actors and dancers. <b>SXSW</b> in Texas mixes music, tech, and film in one strange, energising week. <b>Burning Man</b>, in the Nevada desert, is closer to a giant art project than a festival, and quietly changes people who go with the right attitude.</p>
+<p>But festivals have a dark side too. Tickets are expensive. <b>Overtourism</b> hits famous festival cities hard. <b>Line-ups</b> often <b>sell out</b> before you've even decided. Small festivals sometimes get bought by giant companies and quietly lose their soul. And you'll come home dirty, tired, and probably slightly poorer than you should be.</p>
+<p>But if you go into a festival with the right expectations, something quietly beautiful happens. Strangers help you find your friends. Musicians step off stage and <b>hang out</b> at the bar. Writers give real answers to student questions. Films you'd never have watched at home <b>catch you off guard</b> and stay with you for years.</p>
+<p>If you take one idea, take this. Once a year, <b>get out</b> of your normal life and go somewhere with thousands of other people who love a thing you love. Music, film, books, comedy &mdash; it doesn't matter which. <b>Line up</b>, <b>camp out</b>, <b>catch a set</b>, <b>soak up the vibe</b>, and come home slightly changed. The festival won't be perfect. That's not the point. The point is that for three days, you remembered you were part of something bigger than your algorithm.</p>
+</article>
+<h2 class="section-title"><span class="emoji">📌</span>Key vocabulary</h2>
+<p class="instr">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-term">a festival</div><div class="vocab-def">a large public event of celebration</div><div class="vocab-ex">“We travel to one festival every summer.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a headliner</div><div class="vocab-def">the main performer at an event</div><div class="vocab-ex">“The headliner played until midnight.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a line-up</div><div class="vocab-def">the list of artists at a festival</div><div class="vocab-ex">“This year's line-up is incredible.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a stage</div><div class="vocab-def">a raised area for performance</div><div class="vocab-ex">“The main stage holds 60,000 people.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a venue</div><div class="vocab-def">a place where an event happens</div><div class="vocab-ex">“The venue can seat 800 people.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a crowd</div><div class="vocab-def">the group of people at an event</div><div class="vocab-ex">“The crowd was calm and friendly.”</div></div>
+<div class="vocab-card"><div class="vocab-term">an audience</div><div class="vocab-def">the people watching a performance</div><div class="vocab-ex">“The audience clapped for ten minutes.”</div></div>
+<div class="vocab-card"><div class="vocab-term">a screening</div><div class="vocab-def">a showing of a film</div><div class="vocab-ex">“There's a late-night screening of the winner.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">💡</span>Idioms &amp; expressions</h2>
+<p class="instr">Useful spoken expressions and idioms. Learn them, then use them when you speak.</p>
+<div class="vocab-grid">
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to line up for a festival</div><div class="vocab-def">to buy tickets and prepare to attend</div><div class="vocab-ex">“I line up for Glastonbury every January.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to sell out in minutes</div><div class="vocab-def">for tickets to disappear immediately</div><div class="vocab-ex">“The main stage tickets sold out in minutes.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to camp out</div><div class="vocab-def">to stay in a tent</div><div class="vocab-ex">“We camped out for three nights.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to soak up the vibe</div><div class="vocab-def">to enjoy the atmosphere</div><div class="vocab-ex">“We just soaked up the vibe on the last day.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to catch a set</div><div class="vocab-def">to see a performance</div><div class="vocab-ex">“We caught a set from a local band.”</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-term idiom-term">to bump into someone</div><div class="vocab-def">to meet by chance</div><div class="vocab-ex">“I bumped into an old friend at the book stand.”</div></div>
+</div>
+<h2 class="section-title"><span class="emoji">✏️</span>Fill the gaps</h2>
+<p class="instr">Complete each sentence with a word from the bank, then press <b>Check</b>.</p>
+<div class="bank">
+<span class="bw">festival</span>
+<span class="bw">stage</span>
+<span class="bw">crowd</span>
+<span class="bw">line-up</span>
+<span class="bw">audience</span>
+<span class="bw">screening</span>
+<span class="bw">venue</span>
+<span class="bw">headliner</span>
+</div>
+<div class="fill-set" data-fill="t4">
+<div class="fill-item"><span class="qn">1.</span> We travel to one big <input class="fill-input" type="text" autocomplete="off" data-answer="festival" aria-label="answer 1"> every summer.</div>
+<div class="fill-item"><span class="qn">2.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="headliner" aria-label="answer 2"> played until midnight to a huge crowd.</div>
+<div class="fill-item"><span class="qn">3.</span> This year's <input class="fill-input" type="text" autocomplete="off" data-answer="line-up" aria-label="answer 3"> is absolutely incredible.</div>
+<div class="fill-item"><span class="qn">4.</span> The main <input class="fill-input" type="text" autocomplete="off" data-answer="stage" aria-label="answer 4"> holds around 60,000 people at once.</div>
+<div class="fill-item"><span class="qn">5.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="venue" aria-label="answer 5"> can seat 800 quite comfortably.</div>
+<div class="fill-item"><span class="qn">6.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="crowd" aria-label="answer 6"> was calm, friendly and quietly happy.</div>
+<div class="fill-item"><span class="qn">7.</span> The <input class="fill-input" type="text" autocomplete="off" data-answer="audience" aria-label="answer 7"> clapped for a full ten minutes.</div>
+<div class="fill-item"><span class="qn">8.</span> There's a late-night <input class="fill-input" type="text" autocomplete="off" data-answer="screening" aria-label="answer 8"> of the festival winner tonight.</div>
+</div>
+<div class="actions"><button class="btn" onclick="checkFill('t4')">Check answers</button><button class="btn ghost" onclick="resetFill('t4')">Clear</button><span class="score" id="fillscore-t4">–</span></div>
+<h2 class="section-title"><span class="emoji">✅</span>Reading check</h2>
+<p class="instr">One answer each. Tap to see if you’re right.</p>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q1</span>The writer says festivals should be dying but…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> they are</div>
+<div class="mc-opt" data-i="1"><b>B.</b> they aren't; they're growing</div>
+<div class="mc-opt" data-i="2"><b>C.</b> they're all in Europe</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q2</span>Glastonbury is famous for…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> only music</div>
+<div class="mc-opt" data-i="1"><b>B.</b> its scale, mud and politics</div>
+<div class="mc-opt" data-i="2"><b>C.</b> its silence</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q3</span>Film festivals like Cannes, Venice and Toronto…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> ruin films</div>
+<div class="mc-opt" data-i="1"><b>B.</b> shape what the world will watch a year later</div>
+<div class="mc-opt" data-i="2"><b>C.</b> are mostly online</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q4</span>The Edinburgh International Book Festival runs during the world's largest…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> food fair</div>
+<div class="mc-opt" data-i="1"><b>B.</b> arts festival</div>
+<div class="mc-opt" data-i="2"><b>C.</b> sports event</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q5</span>Festivals have a dark side because…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> they're free</div>
+<div class="mc-opt" data-i="1"><b>B.</b> tickets are expensive and some lose their soul</div>
+<div class="mc-opt" data-i="2"><b>C.</b> they're always cancelled</div>
+</div>
+<div class="mc-item" data-correct="1">
+<div class="mc-q"><span class="qn">Q6</span>The writer's final advice is to go to one festival a year and…</div>
+<div class="mc-opt" data-i="0"><b>A.</b> stay silent</div>
+<div class="mc-opt" data-i="1"><b>B.</b> come home slightly changed</div>
+<div class="mc-opt" data-i="2"><b>C.</b> take no photos</div>
+</div>
+<h2 class="section-title"><span class="emoji">🎤</span>Now you speak</h2>
+<p class="instr">Discuss with a partner or your teacher. Try to <b>use today’s vocabulary</b> in your answers.</p>
+<div class="q-group-head">Warm-up<span class="q-tag">Q1–Q4</span></div>
+<div class="q-item"><div class="q-num">1</div><div class="q-text">Have you ever been to a music festival?</div></div>
+<div class="q-item"><div class="q-num">2</div><div class="q-text">Which festival have you always wanted to attend?</div></div>
+<div class="q-item"><div class="q-num">3</div><div class="q-text">Do you prefer music, film or book festivals?</div></div>
+<div class="q-item"><div class="q-num">4</div><div class="q-text">Have you ever queued or camped for tickets?</div></div>
+<div class="q-group-head">Core discussion<span class="q-tag">Q5–Q9</span></div>
+<div class="q-item"><div class="q-num">5</div><div class="q-text">Are festivals worth their high prices?</div></div>
+<div class="q-item"><div class="q-num">6</div><div class="q-text">Are music festivals safer or more dangerous than they used to be?</div></div>
+<div class="q-item"><div class="q-num">7</div><div class="q-text">Should small book festivals be publicly funded?</div></div>
+<div class="q-item"><div class="q-num">8</div><div class="q-text">Are film festivals still culturally important, or just industry parties?</div></div>
+<div class="q-item"><div class="q-num">9</div><div class="q-text">Would you ever go to Burning Man?</div></div>
+<div class="q-group-head">Role-play &amp; strategy<span class="q-tag">Q10–Q12</span></div>
+<div class="q-item"><div class="q-num">10</div><div class="q-text">Recommend a festival to a friend in 60 seconds, using highlighted phrases.</div></div>
+<div class="q-item"><div class="q-num">11</div><div class="q-text">Plan the perfect three-day festival itinerary for yourself.</div></div>
+<div class="q-item"><div class="q-num">12</div><div class="q-text">Role-play: convince a partner to camp at a festival with you.</div></div>
+<div class="q-group-head">Talk it out &mdash; use the expressions<span class="q-tag">Q13–Q17</span></div>
+<div class="q-item idiom-q"><div class="q-num">13</div><div class="q-text">Have you ever <b>lined up for</b> tickets to a big festival?</div></div>
+<div class="q-item idiom-q"><div class="q-num">14</div><div class="q-text">Have you ever <b>camped out</b> at a festival? What was it like?</div></div>
+<div class="q-item idiom-q"><div class="q-num">15</div><div class="q-text">What's your favourite way to <b>soak up the vibe</b> at a live event?</div></div>
+<div class="q-item idiom-q"><div class="q-num">16</div><div class="q-text">Have you ever <b>bumped into</b> a famous person at a festival?</div></div>
+<div class="q-item idiom-q"><div class="q-num">17</div><div class="q-text">Which festival would you love to <b>catch a set</b> at, if you could?</div></div>
+<div class="roleplay"><b>🎭 Role-play challenge.</b> A friend has never been to a festival. Convince them to <b>line up for</b> tickets to one this summer. Talk about the <b>line-up</b>, whether to <b>camp out</b>, how to <b>catch a set</b> from a favourite band, and how to <b>soak up the vibe</b> without <b>burning out</b>.</div>
+<div class="phrases"><h5>Useful phrases for B1–B2 discussion</h5><div class="ptags"><span>In my opinion…</span><span>I think (that)…</span><span>To be honest…</span><span>On the one hand… on the other hand…</span><span>That’s a good point, but…</span><span>It depends on…</span><span>I’m not sure, but…</span></div></div>
+</section>
+<footer>📖 ★ ★ &nbsp; STORIES WE LIVE BY · B2 ENGLISH · MOVIES · BOOKS · READING · FESTIVALS &nbsp; ★ ★ 📖</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
