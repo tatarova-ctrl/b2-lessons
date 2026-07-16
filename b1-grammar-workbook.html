@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Grammar Workbook — B1 English Test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf6e8;
+    --paper-line:#e6ddc4;
+    --green:#1f4d3a;
+    --green-soft:#2c6b50;
+    --red:#c8322e;
+    --amber:#d4a437;
+    --ink:#2a2620;
+    --ink-soft:#5b5445;
+    --card:#fffdf5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:'Source Serif 4',Georgia,serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    min-height:100vh;
+    padding:16px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(212,164,55,.04), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(31,77,58,.04), transparent 45%);
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+  .sheet{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--paper-line);
+    border-radius:4px;
+    box-shadow:0 2px 0 rgba(200,50,46,.18), 0 10px 30px rgba(42,38,32,.10);
+    overflow:hidden;
+  }
+  .ruled{
+    background-image:repeating-linear-gradient(
+      to bottom, transparent, transparent 31px, var(--paper-line) 31px, var(--paper-line) 32px);
+  }
+  .margin-line::before{
+    content:"";position:absolute;top:0;bottom:0;left:44px;width:2px;
+    background:var(--red);opacity:.55;
+  }
+  header{text-align:center;margin:8px 0 22px;}
+  .badge{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:600;
+    letter-spacing:.12em;font-size:.78rem;color:var(--paper);
+    background:var(--green);border:2px solid var(--green);
+    padding:5px 14px;border-radius:3px;transform:rotate(-2deg);
+    box-shadow:2px 2px 0 var(--amber);
+  }
+  h1{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    font-size:clamp(2rem,7vw,3rem);color:var(--green);line-height:1.05;
+    margin-top:14px;letter-spacing:-.01em;
+  }
+  h1 .accent{color:var(--red);}
+  .subtitle{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-soft);margin-top:8px;
+  }
+  .status{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    background:var(--card);border:2px solid var(--green);border-radius:6px;
+    box-shadow:3px 3px 0 rgba(200,50,46,.85);
+    margin-bottom:14px;overflow:hidden;
+  }
+  .status .cell{padding:10px 6px;text-align:center;border-right:1px solid var(--paper-line);}
+  .status .cell:last-child{border-right:none;}
+  .status .lbl{
+    font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:2px;
+  }
+  .status .val{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:var(--green);}
+  .status .val.wrong{color:var(--red);}
+  .progress-outer{
+    height:12px;background:var(--paper);border:1.5px solid var(--green);
+    border-radius:20px;overflow:hidden;margin-bottom:6px;
+  }
+  .progress-inner{height:100%;width:0;background:
+    repeating-linear-gradient(45deg,var(--amber),var(--amber) 8px,#c99a2f 8px,#c99a2f 16px);
+    transition:width .35s ease;}
+  .progress-txt{
+    font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.1em;
+    color:var(--ink-soft);text-align:right;margin-bottom:18px;
+  }
+  .qcard{margin-bottom:18px;}
+  .qhead{
+    background:var(--green);color:var(--paper);
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 16px 10px 20px;
+  }
+  .qnum{font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.1em;font-size:.82rem;}
+  .qtag{
+    font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.12em;
+    text-transform:uppercase;background:var(--amber);color:var(--green);
+    padding:3px 9px;border-radius:3px;font-weight:600;
+  }
+  .qbody{padding:22px 20px 22px 62px;position:relative;}
+  .qtext{
+    font-family:'Source Serif 4',serif;font-size:clamp(1.05rem,3.4vw,1.22rem);
+    font-weight:500;color:var(--ink);margin-bottom:18px;line-height:1.5;
+  }
+  .qtext .blank{color:var(--red);font-weight:600;letter-spacing:.05em;}
+  .opts{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .opt{
+    display:flex;align-items:flex-start;gap:11px;
+    background:var(--card);border:1.5px solid var(--paper-line);
+    border-radius:5px;padding:12px 14px;cursor:pointer;
+    font-family:'Inter',sans-serif;font-size:.95rem;color:var(--ink);
+    transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  }
+  .opt:hover:not(.locked){
+    transform:translateX(5px);border-color:var(--green-soft);
+    box-shadow:-4px 4px 0 rgba(31,77,58,.18);
+  }
+  .opt .letter{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--green);
+    flex-shrink:0;min-width:20px;
+  }
+  .opt.locked{cursor:default;}
+  .opt.correct{
+    background:rgba(31,77,58,.10);border-color:var(--green);color:var(--green);font-weight:500;
+  }
+  .opt.correct .letter{color:var(--green);}
+  .opt.chosen-wrong{
+    background:rgba(200,50,46,.08);border-color:var(--red);
+    color:var(--red);text-decoration:line-through;text-decoration-color:var(--red);
+  }
+  .opt.chosen-wrong .letter{color:var(--red);}
+  .mark{font-family:'Kalam',cursive;font-weight:700;font-size:1.4rem;margin-left:auto;
+    line-height:1;padding-left:8px;}
+  .mark.tick{color:var(--green);}
+  .mark.cross{color:var(--red);}
+  .note{
+    margin-top:16px;background:rgba(212,164,55,.10);
+    border-left:4px solid var(--amber);border-radius:0 5px 5px 0;
+    padding:13px 16px;display:none;
+  }
+  .note.show{display:block;animation:fade .3s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+  .note .lbl{
+    font-family:'Kalam',cursive;font-weight:700;color:var(--red);
+    font-size:1.05rem;display:block;margin-bottom:4px;
+  }
+  .note .body{font-family:'Source Serif 4',serif;font-size:.95rem;color:var(--ink-soft);line-height:1.5;}
+  .note .body strong{color:var(--green);font-weight:600;}
+  .note .body em{color:var(--red);font-style:italic;}
+  .btn{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;font-size:.82rem;cursor:pointer;
+    background:var(--green);color:var(--paper);border:2px solid var(--green);
+    padding:13px 26px;border-radius:5px;transition:transform .12s,box-shadow .12s,opacity .2s;
+    box-shadow:3px 3px 0 var(--amber);
+  }
+  .btn:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--amber);}
+  .btn:active:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--amber);}
+  .btn:disabled{opacity:.35;cursor:not-allowed;box-shadow:3px 3px 0 rgba(212,164,55,.4);}
+  .btn.red{background:var(--red);border-color:var(--red);box-shadow:3px 3px 0 var(--green);}
+  .btn.red:hover:not(:disabled){box-shadow:4px 4px 0 var(--green);}
+  .btn-row{display:flex;justify-content:flex-end;gap:12px;margin-bottom:30px;}
+  .splash{text-align:center;padding:34px 24px 40px;}
+  .splash .quill{font-family:'Kalam',cursive;font-size:2.4rem;color:var(--amber);}
+  .splash h1{margin:6px 0 4px;}
+  .splash .lead{
+    font-family:'Source Serif 4',serif;font-size:1.05rem;color:var(--ink-soft);
+    max-width:460px;margin:16px auto 8px;line-height:1.6;
+  }
+  .splash .meta{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;
+    color:var(--green);text-transform:uppercase;margin:20px 0 26px;
+  }
+  .splash .meta span{display:inline-block;margin:0 10px;}
+  .topics{
+    display:flex;flex-wrap:wrap;gap:7px;justify-content:center;
+    max-width:520px;margin:0 auto 30px;
+  }
+  .topic{
+    font-family:'Inter',sans-serif;font-size:.75rem;color:var(--green);
+    background:rgba(31,77,58,.07);border:1px solid var(--paper-line);
+    padding:5px 11px;border-radius:20px;
+  }
+  .report{padding:30px 22px 40px;text-align:center;}
+  .grade-big{
+    font-family:'Fraunces',serif;font-weight:600;font-size:clamp(4rem,20vw,7rem);
+    line-height:1;color:var(--green);margin:4px 0;
+  }
+  .grade-big.low{color:var(--red);}
+  .rank{
+    font-family:'Kalam',cursive;font-weight:700;font-size:1.5rem;color:var(--red);
+    transform:rotate(-1.5deg);margin-bottom:22px;
+  }
+  .rc-panel{
+    background:var(--card);border:2px solid var(--green);border-radius:6px;
+    box-shadow:4px 4px 0 rgba(200,50,46,.8);max-width:420px;margin:0 auto 26px;
+    overflow:hidden;
+  }
+  .rc-row{
+    display:flex;justify-content:space-between;padding:11px 18px;
+    border-bottom:1px dashed var(--paper-line);
+    font-family:'IBM Plex Mono',monospace;font-size:.85rem;
+  }
+  .rc-row:last-child{border-bottom:none;}
+  .rc-row .k{color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;align-self:center;}
+  .rc-row .v{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--green);}
+  .rc-row .v.red{color:var(--red);}
+  .teacher-note{
+    background:rgba(200,50,46,.05);border:1px dashed var(--red);border-radius:6px;
+    padding:18px 20px;max-width:460px;margin:0 auto 28px;text-align:left;
+  }
+  .teacher-note .tn-lbl{
+    font-family:'Kalam',cursive;font-weight:700;color:var(--red);font-size:1.1rem;
+    display:block;margin-bottom:6px;
+  }
+  .teacher-note .tn-body{
+    font-family:'Kalam',cursive;font-size:1.12rem;color:#a8302b;line-height:1.5;
+  }
+  .hidden{display:none;}
+  footer{
+    text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.62rem;
+    letter-spacing:.1em;color:var(--ink-soft);opacity:.7;margin:10px 0 20px;
+  }
+  @media(max-width:480px){
+    body{padding:10px;}
+    .qbody{padding:18px 14px 18px 52px;}
+    .margin-line::before{left:34px;}
+    .status .val{font-size:1.05rem;}
+    .btn{padding:12px 18px;font-size:.74rem;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section id="splash">
+    <div class="sheet ruled margin-line splash">
+      <div class="quill">&#9998;</div>
+      <span class="badge">B1 &middot; INTERMEDIATE</span>
+      <h1>The Grammar <span class="accent">Workbook</span></h1>
+      <p class="lead">A 60-question grammar test based on the Cambridge <strong>B1 Preliminary (PET)</strong> syllabus. Choose the one correct answer, then read the teacher's note to learn the rule.</p>
+      <div class="meta">
+        <span>&#9679; 60 Questions</span><span>&#9679; 4 Options Each</span><span>&#9679; Instant Feedback</span>
+      </div>
+      <div class="topics" id="topicChips"></div>
+      <button class="btn" id="startBtn">Begin the Test &rarr;</button>
+    </div>
+    <footer>THE GRAMMAR WORKBOOK &middot; B1 PRELIMINARY GRAMMAR TEST</footer>
+  </section>
+
+  <section id="test" class="hidden">
+    <header>
+      <span class="badge">B1</span>
+      <h1>The Grammar <span class="accent">Workbook</span></h1>
+      <div class="subtitle">Cambridge B1 Preliminary &middot; Grammar Test</div>
+    </header>
+    <div class="status">
+      <div class="cell"><span class="lbl">Question</span><span class="val" id="sQ">1/60</span></div>
+      <div class="cell"><span class="lbl">Correct</span><span class="val" id="sC">0</span></div>
+      <div class="cell"><span class="lbl">Wrong</span><span class="val wrong" id="sW">0</span></div>
+      <div class="cell"><span class="lbl">Score</span><span class="val" id="sS">0%</span></div>
+    </div>
+    <div class="progress-outer"><div class="progress-inner" id="prog"></div></div>
+    <div class="progress-txt" id="progTxt">0 / 60 completed</div>
+    <div class="sheet ruled margin-line qcard">
+      <div class="qhead">
+        <span class="qnum" id="qNum">Q01</span>
+        <span class="qtag" id="qTag">Tenses</span>
+      </div>
+      <div class="qbody">
+        <p class="qtext" id="qText"></p>
+        <ul class="opts" id="opts"></ul>
+        <div class="note" id="note">
+          <span class="lbl">&#9998; Grammar Note</span>
+          <span class="body" id="noteBody"></span>
+        </div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn" id="nextBtn" disabled>Next &rarr;</button>
+    </div>
+  </section>
+
+  <section id="report" class="hidden">
+    <header>
+      <span class="badge">Report Card</span>
+      <h1>Your <span class="accent">Results</span></h1>
+    </header>
+    <div class="sheet ruled margin-line report">
+      <div class="grade-big" id="gradeBig">A</div>
+      <div class="rank" id="rankTxt">Solid B1</div>
+      <div class="rc-panel">
+        <div class="rc-row"><span class="k">Total Questions</span><span class="v" id="rTotal">60</span></div>
+        <div class="rc-row"><span class="k">Correct</span><span class="v" id="rCorrect">0</span></div>
+        <div class="rc-row"><span class="k">Wrong</span><span class="v red" id="rWrong">0</span></div>
+        <div class="rc-row"><span class="k">Score</span><span class="v" id="rScore">0%</span></div>
+        <div class="rc-row"><span class="k">Grade</span><span class="v" id="rGrade">A</span></div>
+      </div>
+      <div class="teacher-note">
+        <span class="tn-lbl">&#9998; Teacher's Note</span>
+        <span class="tn-body" id="teacherNote"></span>
+      </div>
+      <button class="btn red" id="restartBtn">&#8635; Take the Test Again</button>
+    </div>
+    <footer>THE GRAMMAR WORKBOOK &middot; KEEP PRACTISING, KEEP IMPROVING</footer>
+  </section>
+
+</div>
+
+<script>
+const QUESTIONS = [{"cat":"Tenses","q":"She usually ______ to work by bus, but today she's walking.","o":["go","went","is going","goes"],"answer":3,"note":"The <strong>present simple</strong> describes habits and routines. The word <em>usually</em> signals a regular action, so we use <em>goes</em>, not the continuous form."},{"cat":"Tenses","q":"Look! It ______ outside. Take your umbrella.","o":["rain","rains","is raining","rained"],"answer":2,"note":"The <strong>present continuous</strong> describes an action happening right now. The word <em>Look!</em> shows the rain is happening at this moment, so we use <em>is raining</em>."},{"cat":"Tenses","q":"I ______ my homework yesterday evening.","o":["finished","was finishing","finish","have finished"],"answer":0,"note":"The <strong>past simple</strong> describes a finished action at a definite past time. <em>Yesterday evening</em> is a clear point in the past, so we use <em>finished</em>."},{"cat":"Tenses","q":"When I was young, we ______ live in a small village.","o":["are used to","used to","using to","use to"],"answer":1,"note":"<strong>Used to</strong> + base verb describes past habits or states that are no longer true. The correct form is <em>used to live</em>."},{"cat":"Tenses","q":"While she ______ dinner, the phone rang.","o":["cooks","was cooking","has cooked","cooked"],"answer":1,"note":"The <strong>past continuous</strong> describes a longer action interrupted by a shorter one. <em>Was cooking</em> was in progress when the phone rang."},{"cat":"Tenses","q":"They ______ television when I arrived home.","o":["watch","watched","were watching","have watched"],"answer":2,"note":"The <strong>past continuous</strong> (<em>were watching</em>) shows an activity already in progress at the moment described by <em>when I arrived</em>."},{"cat":"Tenses","q":"My brother ______ in London at the moment.","o":["living","lives","is living","live"],"answer":2,"note":"The <strong>present continuous</strong> can describe a temporary situation happening around now. <em>At the moment</em> tells us to use <em>is living</em>."},{"cat":"Tenses","q":"We ______ to the cinema every Saturday when I was a child.","o":["went","were going","have gone","go"],"answer":0,"note":"The <strong>past simple</strong> describes repeated past actions. <em>Every Saturday when I was a child</em> refers to a finished period, so <em>went</em> is correct."},{"cat":"Tenses","q":"Water ______ at 100 degrees Celsius.","o":["boil","boiled","is boiling","boils"],"answer":3,"note":"The <strong>present simple</strong> is used for facts and things that are always true. Boiling water is a scientific fact, so we use <em>boils</em>."},{"cat":"Tenses","q":"Listen! Someone ______ at the door.","o":["knocks","is knocking","knocked","knock"],"answer":1,"note":"The <strong>present continuous</strong> describes something happening now. The word <em>Listen!</em> tells us the knocking is happening at this moment."},{"cat":"Tenses","q":"I didn't hear the news because I ______ the radio.","o":["wasn't listening","didn't listening","haven't listened","don't listen"],"answer":0,"note":"The <strong>past continuous negative</strong> (<em>wasn't listening</em>) describes what was not in progress at a past moment, explaining why the news was missed."},{"cat":"Tenses","q":"She ______ her keys, so she can't open the door.","o":["loses","has lost","lost","is losing"],"answer":1,"note":"The <strong>present perfect</strong> connects a past action to a present result. She lost the keys and the result now is that she can't get in, so <em>has lost</em>."},{"cat":"Tenses","q":"Last summer we ______ our holidays in Italy.","o":["spend","were spending","have spent","spent"],"answer":3,"note":"The <strong>past simple</strong> is used with finished past time expressions. <em>Last summer</em> is a completed period, so we use <em>spent</em>."},{"cat":"Tenses","q":"What ______ when the accident happened?","o":["did you do","were you doing","do you do","have you done"],"answer":1,"note":"The <strong>past continuous</strong> asks about an action in progress at the moment of another past event. <em>Were you doing</em> asks what was happening then."},{"cat":"Present Perfect","q":"I ______ never ______ sushi before.","o":["have / eaten","did / eat","am / eating","have / ate"],"answer":0,"note":"The <strong>present perfect</strong> describes life experiences up to now. With <em>never ... before</em>, we use <em>have</em> + past participle: <em>have eaten</em>."},{"cat":"Present Perfect","q":"She ______ in this company since 2019.","o":["has worked","is working","worked","works"],"answer":0,"note":"The <strong>present perfect</strong> with <em>since</em> shows an action that started in the past and continues now. <em>Has worked ... since 2019</em> is correct."},{"cat":"Present Perfect","q":"______ you ever ______ to Japan?","o":["Have / gone","Did / go","Do / go","Have / been"],"answer":3,"note":"For life experiences we use the <strong>present perfect</strong>. <em>Have you ever been</em> asks about a past visit; <em>been</em> means the person went and returned."},{"cat":"Present Perfect","q":"We've lived here ______ ten years.","o":["for","since","from","during"],"answer":0,"note":"With the present perfect, <strong>for</strong> is used with a length of time (<em>ten years</em>), while <em>since</em> is used with a starting point."},{"cat":"Present Perfect","q":"He ______ his homework yet.","o":["isn't finishing","doesn't finish","didn't finish","hasn't finished"],"answer":3,"note":"The <strong>present perfect</strong> is used with <em>yet</em> in negatives to talk about something not done up to now. <em>Hasn't finished yet</em> is correct."},{"cat":"Present Perfect","q":"I've already ______ that film. Let's watch another one.","o":["see","seen","saw","seeing"],"answer":1,"note":"The <strong>present perfect</strong> with <em>already</em> uses the past participle. The correct form of <em>see</em> is <em>seen</em>."},{"cat":"Present Perfect","q":"They ______ just ______ home.","o":["are / arriving","have / arrived","did / arrive","has / arrived"],"answer":1,"note":"The <strong>present perfect</strong> with <em>just</em> describes a very recent action. With <em>they</em>, we use <em>have arrived</em>."},{"cat":"Future","q":"I think it ______ sunny tomorrow.","o":["is being","was","is","will be"],"answer":3,"note":"We use <strong>will</strong> for predictions and opinions about the future. After <em>I think</em>, a future prediction takes <em>will be</em>."},{"cat":"Future","q":"Look at those dark clouds! It ______ rain.","o":["goes to","is going to","would","will"],"answer":1,"note":"We use <strong>be going to</strong> for predictions based on present evidence. The dark clouds are proof, so <em>is going to rain</em> is correct."},{"cat":"Future","q":"We ______ dinner at eight o'clock this evening.","o":["are having","have","had","will have had"],"answer":0,"note":"The <strong>present continuous</strong> can describe fixed future arrangements. A planned dinner at a set time uses <em>are having</em>."},{"cat":"Future","q":"A: The phone's ringing. B: OK, I ______ it.","o":["am getting","will get","am going to get","get"],"answer":1,"note":"We use <strong>will</strong> for decisions made at the moment of speaking. Deciding to answer the phone right now takes <em>will get</em>."},{"cat":"Future","q":"What time ______ the train ______ tomorrow morning?","o":["is / leaving","did / leave","does / leave","will / leave"],"answer":2,"note":"The <strong>present simple</strong> is used for timetables and schedules. A fixed train time uses <em>does leave</em>, even about the future."},{"cat":"Future","q":"If it's sunny tomorrow, we ______ to the beach.","o":["would go","are going","go","will go"],"answer":3,"note":"In the <strong>first conditional</strong>, the result clause uses <em>will</em> + base verb. <em>Will go</em> describes a likely future result."},{"cat":"Future","q":"She ______ study medicine at university next year.","o":["is going to","goes to","will have","would"],"answer":0,"note":"We use <strong>be going to</strong> for future plans and intentions already decided. <em>Is going to study</em> shows a plan for next year."},{"cat":"Conditionals","q":"If you heat ice, it ______.","o":["will melt","would melt","melts","melted"],"answer":2,"note":"The <strong>zero conditional</strong> describes general truths, using the present simple in both parts. Ice always melts when heated, so we use <em>melts</em>."},{"cat":"Conditionals","q":"If I ______ more money, I would buy a new car.","o":["will have","would have","had","have"],"answer":2,"note":"The <strong>second conditional</strong> describes imaginary situations, using the past simple in the <em>if</em>-clause. <em>If I had</em> talks about an unreal present."},{"cat":"Conditionals","q":"We'll miss the bus if we ______ hurry.","o":["won't","aren't","didn't","don't"],"answer":3,"note":"In the <strong>first conditional</strong>, the <em>if</em>-clause uses the present simple, even for the future. The negative is <em>don't hurry</em>."},{"cat":"Conditionals","q":"If I were you, I ______ apologise to her.","o":["will","would","did","am"],"answer":1,"note":"The <strong>second conditional</strong> gives advice with <em>would</em> in the result clause. <em>If I were you, I would</em> is a common way to suggest what to do."},{"cat":"Conditionals","q":"You won't pass the exam ______ you study harder.","o":["if","when","unless","because"],"answer":2,"note":"<strong>Unless</strong> means <em>if not</em>. It introduces the only condition that would change the negative result of failing the exam."},{"cat":"Conditionals","q":"What will you do if it ______ tomorrow?","o":["rains","would rain","rained","will rain"],"answer":0,"note":"In the <strong>first conditional</strong>, the <em>if</em>-clause takes the present simple. Even though it's about the future, we use <em>rains</em>, not <em>will rain</em>."},{"cat":"Modals","q":"You ______ smoke in the hospital. It's forbidden.","o":["couldn't","wouldn't","mustn't","don't have to"],"answer":2,"note":"<strong>Mustn't</strong> expresses prohibition — something that is not allowed. A hospital rule against smoking uses <em>mustn't</em>."},{"cat":"Modals","q":"______ you help me carry these bags, please?","o":["Could","Would have","Should","Must"],"answer":0,"note":"<strong>Could</strong> is a polite way to make a request. <em>Could you help me</em> is a common, polite question form."},{"cat":"Modals","q":"When I was six, I ______ swim very well.","o":["should","could","can","must"],"answer":1,"note":"<strong>Could</strong> is the past form of <em>can</em> for ability. To talk about a past skill, we use <em>could swim</em>."},{"cat":"Modals","q":"You ______ see a doctor about that cough.","o":["could have","would","should","must not"],"answer":2,"note":"<strong>Should</strong> is used to give advice or make a recommendation. <em>Should see a doctor</em> suggests the best thing to do."},{"cat":"Modals","q":"We ______ hurry — the film doesn't start for an hour.","o":["shouldn't have","can't","don't have to","mustn't"],"answer":2,"note":"<strong>Don't have to</strong> means there is no obligation — it isn't necessary. There's plenty of time, so we <em>don't have to</em> hurry."},{"cat":"Modals","q":"______ I open the window? It's very hot in here.","o":["Must","May","Would","Should have"],"answer":1,"note":"<strong>May</strong> is used to ask for permission politely. <em>May I open the window</em> is a polite request to do something."},{"cat":"Modals","q":"Students ______ wear a uniform at this school. It's a rule.","o":["might","could","don't have to","have to"],"answer":3,"note":"<strong>Have to</strong> expresses obligation, often an external rule. A school uniform rule uses <em>have to wear</em>."},{"cat":"Modals","q":"It's late. I think we ______ go home now.","o":["could have","must not","should","would"],"answer":2,"note":"<strong>Should</strong> gives advice or expresses what is a good idea. Suggesting it's a good idea to leave uses <em>should go</em>."},{"cat":"Comparatives","q":"This book is ______ than the other one.","o":["interesting","most interesting","interestinger","more interesting"],"answer":3,"note":"Long adjectives form the <strong>comparative</strong> with <em>more</em>. To compare two books, we say <em>more interesting than</em>."},{"cat":"Comparatives","q":"Today is ______ day of the year.","o":["the hottest","hot","more hot","hotter"],"answer":0,"note":"The <strong>superlative</strong> compares one thing with all others in a group. Short adjectives add <em>-est</em>, giving <em>the hottest</em>."},{"cat":"Comparatives","q":"My sister is ______ than me.","o":["tall","more tall","tallest","taller"],"answer":3,"note":"Short adjectives form the <strong>comparative</strong> by adding <em>-er</em>. Comparing two people, we use <em>taller than</em>."},{"cat":"Comparatives","q":"This is ______ film I have ever seen.","o":["better","good","the best","best"],"answer":2,"note":"The <strong>superlative</strong> of the irregular adjective <em>good</em> is <em>the best</em>. With <em>ever seen</em>, we compare against all films."},{"cat":"Comparatives","q":"A train is ______ expensive than a plane.","o":["fewer","least","little","less"],"answer":3,"note":"<strong>Less ... than</strong> shows that something has a smaller amount of a quality. A train costing less uses <em>less expensive than</em>."},{"cat":"Comparatives","q":"She sings ______ than her brother.","o":["more good","best","better","good"],"answer":2,"note":"To compare how an action is done, we use a <strong>comparative adverb</strong>. The irregular comparative of <em>well</em> is <em>better</em>."},{"cat":"Quantifiers","q":"How ______ sugar do you want in your coffee?","o":["much","lots","many","few"],"answer":0,"note":"<strong>Much</strong> is used with uncountable nouns. <em>Sugar</em> can't be counted, so we ask <em>how much sugar</em>."},{"cat":"Quantifiers","q":"There aren't ______ apples left in the bowl.","o":["much","any much","a little","many"],"answer":3,"note":"<strong>Many</strong> is used with countable plural nouns. <em>Apples</em> can be counted, so we use <em>many apples</em>."},{"cat":"Quantifiers","q":"I only have ______ money, so I can't buy it.","o":["many","a little","a few","few"],"answer":1,"note":"<strong>A little</strong> is used with uncountable nouns to mean a small amount. <em>Money</em> is uncountable, so we use <em>a little money</em>."},{"cat":"Articles","q":"She's ______ honest person. Everyone trusts her.","o":["the","-","a","an"],"answer":3,"note":"We use <strong>an</strong> before a vowel sound. <em>Honest</em> begins with a silent <em>h</em>, so the sound is a vowel and we use <em>an</em>."},{"cat":"Quantifiers","q":"There are ______ people waiting outside.","o":["a little","a lot of","any","much"],"answer":1,"note":"<strong>A lot of</strong> works with both countable and uncountable nouns to mean a large amount. With plural <em>people</em>, we use <em>a lot of</em>."},{"cat":"Articles","q":"We went to ______ cinema last night.","o":["the","an","a","-"],"answer":0,"note":"We use <strong>the</strong> for specific places we know or common places like the cinema. <em>Went to the cinema</em> is a fixed everyday expression."},{"cat":"Passive","q":"This bridge ______ in 1990.","o":["built","was built","has built","is built"],"answer":1,"note":"The <strong>past simple passive</strong> is <em>was/were</em> + past participle. The bridge received the action at a past date, so <em>was built</em> is correct."},{"cat":"Passive","q":"English ______ in many countries around the world.","o":["is spoken","spoke","speaks","is speaking"],"answer":0,"note":"The <strong>present simple passive</strong> is <em>is/are</em> + past participle. English receives the action of being spoken, so we use <em>is spoken</em>."},{"cat":"Passive","q":"The letters ______ every morning at nine.","o":["delivering","deliver","are delivered","delivers"],"answer":2,"note":"The <strong>present simple passive</strong> with a plural subject is <em>are</em> + past participle. The letters are the receivers, so <em>are delivered</em>."},{"cat":"Relative Clauses","q":"That's the man ______ helped me yesterday.","o":["which","whose","who","where"],"answer":2,"note":"We use <strong>who</strong> as a relative pronoun for people. <em>The man who helped me</em> gives more information about the person."},{"cat":"Reported Speech","q":"She said that she ______ tired.","o":["has been","is","will be","was"],"answer":3,"note":"In <strong>reported speech</strong>, the present simple usually shifts back to the past simple. <em>\"I am tired\"</em> becomes <em>she was tired</em>."},{"cat":"Question Tags","q":"You live near the school, ______?","o":["don't you","aren't you","do you","are you"],"answer":0,"note":"A <strong>question tag</strong> reverses the main verb. A positive statement with <em>live</em> takes the negative tag <em>don't you</em>."}];
+
+var idx=0, correct=0, wrong=0, answered=false;
+
+var cats=[];
+QUESTIONS.forEach(function(q){ if(cats.indexOf(q.cat)===-1) cats.push(q.cat); });
+var chip=document.getElementById('topicChips');
+cats.forEach(function(c){ var s=document.createElement('span'); s.className='topic'; s.textContent=c; chip.appendChild(s); });
+
+var $=function(id){return document.getElementById(id);};
+
+function show(sec){
+  ['splash','test','report'].forEach(function(s){ $(s).classList.add('hidden'); });
+  $(sec).classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function render(){
+  answered=false;
+  var q=QUESTIONS[idx];
+  $('qNum').textContent='Q'+String(idx+1).padStart(2,'0');
+  $('qTag').textContent=q.cat;
+  $('qText').innerHTML=q.q.replace(/______/g,'<span class="blank">______</span>');
+  var letters=['A','B','C','D'];
+  var ul=$('opts'); ul.innerHTML='';
+  q.o.forEach(function(text,i){
+    var li=document.createElement('li');
+    li.className='opt';
+    li.innerHTML='<span class="letter">'+letters[i]+')</span><span class="otext">'+text+'</span>';
+    li.addEventListener('click',function(){ choose(i,li); });
+    ul.appendChild(li);
+  });
+  $('note').classList.remove('show');
+  $('noteBody').innerHTML=q.note;
+  $('nextBtn').disabled=true;
+  $('nextBtn').textContent = (idx===QUESTIONS.length-1) ? 'See Results →' : 'Next →';
+  updateStatus();
+}
+
+function choose(i,li){
+  if(answered) return;
+  answered=true;
+  var q=QUESTIONS[idx];
+  var opts=document.querySelectorAll('#opts .opt');
+  opts.forEach(function(o,k){
+    o.classList.add('locked');
+    if(k===q.answer){
+      o.classList.add('correct');
+      var m=document.createElement('span'); m.className='mark tick'; m.textContent='✓'; o.appendChild(m);
+    }
+  });
+  if(i===q.answer){
+    correct++;
+  } else {
+    wrong++;
+    li.classList.add('chosen-wrong');
+    var x=document.createElement('span'); x.className='mark cross'; x.textContent='✗'; li.appendChild(x);
+  }
+  $('note').classList.add('show');
+  $('nextBtn').disabled=false;
+  updateStatus();
+}
+
+function updateStatus(){
+  var done=correct+wrong;
+  $('sQ').textContent=(idx+1)+'/'+QUESTIONS.length;
+  $('sC').textContent=correct;
+  $('sW').textContent=wrong;
+  var pct = done? Math.round(correct/done*100):0;
+  $('sS').textContent=pct+'%';
+  var pdone=Math.round((idx + (answered?1:0))/QUESTIONS.length*100);
+  $('prog').style.width=pdone+'%';
+  $('progTxt').textContent=(idx+(answered?1:0))+' / '+QUESTIONS.length+' completed';
+}
+
+$('nextBtn').addEventListener('click',function(){
+  if(!answered) return;
+  if(idx<QUESTIONS.length-1){ idx++; render(); }
+  else finish();
+});
+
+function gradeFor(p){
+  if(p>=95) return['A+','Excellent B1 &mdash; Outstanding Work'];
+  if(p>=90) return['A','Solid B1 &mdash; Confident and Accurate'];
+  if(p>=80) return['B+','Comfortable B1 &mdash; Well Prepared'];
+  if(p>=70) return['B','Approaching B1 &mdash; Nearly There'];
+  if(p>=60) return['C','Strong A2 &mdash; Building Toward B1'];
+  if(p>=50) return['D','Developing &mdash; Foundations Forming'];
+  return['F','Building Foundations &mdash; Keep Going'];
+}
+
+function teacherFeedback(p,total){
+  if(p>=90) return "Excellent work! Your grammar is accurate across tenses, modals and conditionals. You're performing at a solid B1 level. To keep improving, look again at any present-perfect or passive questions you missed, and keep reading and listening to English every day.";
+  if(p>=80) return "Very good result! You have a reliable grasp of most B1 structures. Check the questions you got wrong &mdash; they usually cluster around one or two areas (often the present perfect or first vs. second conditional). Practise those and you'll be exam-ready soon.";
+  if(p>=70) return "Good effort &mdash; you're close to a confident B1. Focus your revision on the trickier points: present perfect vs. past simple, first and second conditionals, and much vs. many. A little practice each week will make a big difference.";
+  if(p>=60) return "You've got a strong A2 foundation and you're building toward B1. Spend time first on the core tenses (present simple, present continuous, past simple), then move on to modals and comparatives. 'English Grammar in Use (Intermediate)' is a great study partner. Keep going!";
+  if(p>=50) return "A fair start &mdash; the foundations are forming. Go back to basics with the present simple, present continuous and past simple before moving on to the harder structures. Study one topic a week and try making your own example sentences. Little and often is the key.";
+  return "Don't worry &mdash; everyone starts somewhere! Begin with the core tenses (present simple, present continuous, past simple), then add one new structure at a time. Read and listen to simple English every day, and re-take this test soon. You'll improve quickly!";
+}
+
+function finish(){
+  var total=QUESTIONS.length;
+  var p=Math.round(correct/total*100);
+  var g=gradeFor(p);
+  $('gradeBig').textContent=g[0];
+  $('gradeBig').classList.toggle('low', p<60);
+  $('rankTxt').innerHTML=g[1];
+  $('rTotal').textContent=total;
+  $('rCorrect').textContent=correct;
+  $('rWrong').textContent=wrong;
+  $('rScore').textContent=p+'%';
+  $('rGrade').textContent=g[0];
+  $('teacherNote').innerHTML=teacherFeedback(p,total);
+  show('report');
+}
+
+$('startBtn').addEventListener('click',function(){ idx=0;correct=0;wrong=0; show('test'); render(); });
+$('restartBtn').addEventListener('click',function(){ idx=0;correct=0;wrong=0; show('splash'); });
+</script>
+</body>
+</html>
