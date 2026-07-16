@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Grammar Workbook — B2 English Test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf6e8;
+    --paper-line:#e6ddc4;
+    --green:#1f4d3a;
+    --green-soft:#2c6b50;
+    --red:#c8322e;
+    --amber:#d4a437;
+    --ink:#2a2620;
+    --ink-soft:#5b5445;
+    --card:#fffdf5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:'Source Serif 4',Georgia,serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    min-height:100vh;
+    padding:16px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(212,164,55,.04), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(31,77,58,.04), transparent 45%);
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+
+  /* ---------- shared card / notebook look ---------- */
+  .sheet{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--paper-line);
+    border-radius:4px;
+    box-shadow:0 2px 0 rgba(200,50,46,.18), 0 10px 30px rgba(42,38,32,.10);
+    overflow:hidden;
+  }
+  .ruled{
+    background-image:repeating-linear-gradient(
+      to bottom, transparent, transparent 31px, var(--paper-line) 31px, var(--paper-line) 32px);
+  }
+  .margin-line::before{
+    content:"";position:absolute;top:0;bottom:0;left:44px;width:2px;
+    background:var(--red);opacity:.55;
+  }
+
+  /* ---------- header ---------- */
+  header{text-align:center;margin:8px 0 22px;}
+  .badge{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:600;
+    letter-spacing:.12em;font-size:.78rem;color:var(--paper);
+    background:var(--green);border:2px solid var(--green);
+    padding:5px 14px;border-radius:3px;transform:rotate(-2deg);
+    box-shadow:2px 2px 0 var(--amber);
+  }
+  h1{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    font-size:clamp(2rem,7vw,3rem);color:var(--green);line-height:1.05;
+    margin-top:14px;letter-spacing:-.01em;
+  }
+  h1 .accent{color:var(--red);}
+  .subtitle{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-soft);margin-top:8px;
+  }
+
+  /* ---------- status bar ---------- */
+  .status{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    background:var(--card);border:2px solid var(--green);border-radius:6px;
+    box-shadow:3px 3px 0 rgba(200,50,46,.85);
+    margin-bottom:14px;overflow:hidden;
+  }
+  .status .cell{padding:10px 6px;text-align:center;border-right:1px solid var(--paper-line);}
+  .status .cell:last-child{border-right:none;}
+  .status .lbl{
+    font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:2px;
+  }
+  .status .val{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:var(--green);}
+  .status .val.wrong{color:var(--red);}
+
+  /* ---------- progress ---------- */
+  .progress-outer{
+    height:12px;background:var(--paper);border:1.5px solid var(--green);
+    border-radius:20px;overflow:hidden;margin-bottom:6px;
+  }
+  .progress-inner{height:100%;width:0;background:
+    repeating-linear-gradient(45deg,var(--amber),var(--amber) 8px,#c99a2f 8px,#c99a2f 16px);
+    transition:width .35s ease;}
+  .progress-txt{
+    font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.1em;
+    color:var(--ink-soft);text-align:right;margin-bottom:18px;
+  }
+
+  /* ---------- question card ---------- */
+  .qcard{margin-bottom:18px;}
+  .qhead{
+    background:var(--green);color:var(--paper);
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 16px 10px 20px;
+  }
+  .qnum{font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.1em;font-size:.82rem;}
+  .qtag{
+    font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.12em;
+    text-transform:uppercase;background:var(--amber);color:var(--green);
+    padding:3px 9px;border-radius:3px;font-weight:600;
+  }
+  .qbody{padding:22px 20px 22px 62px;position:relative;}
+  .qtext{
+    font-family:'Source Serif 4',serif;font-size:clamp(1.05rem,3.4vw,1.22rem);
+    font-weight:500;color:var(--ink);margin-bottom:18px;line-height:1.5;
+  }
+  .qtext .blank{color:var(--red);font-weight:600;letter-spacing:.05em;}
+
+  /* ---------- options ---------- */
+  .opts{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .opt{
+    display:flex;align-items:flex-start;gap:11px;
+    background:var(--card);border:1.5px solid var(--paper-line);
+    border-radius:5px;padding:12px 14px;cursor:pointer;
+    font-family:'Inter',sans-serif;font-size:.95rem;color:var(--ink);
+    transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  }
+  .opt:hover:not(.locked){
+    transform:translateX(5px);border-color:var(--green-soft);
+    box-shadow:-4px 4px 0 rgba(31,77,58,.18);
+  }
+  .opt .letter{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--green);
+    flex-shrink:0;min-width:20px;
+  }
+  .opt.locked{cursor:default;}
+  .opt.correct{
+    background:rgba(31,77,58,.10);border-color:var(--green);color:var(--green);font-weight:500;
+  }
+  .opt.correct .letter{color:var(--green);}
+  .opt.chosen-wrong{
+    background:rgba(200,50,46,.08);border-color:var(--red);
+    color:var(--red);text-decoration:line-through;text-decoration-color:var(--red);
+  }
+  .opt.chosen-wrong .letter{color:var(--red);}
+  .mark{font-family:'Kalam',cursive;font-weight:700;font-size:1.4rem;margin-left:auto;
+    line-height:1;padding-left:8px;}
+  .mark.tick{color:var(--green);}
+  .mark.cross{color:var(--red);}
+
+  /* ---------- grammar note ---------- */
+  .note{
+    margin-top:16px;background:rgba(212,164,55,.10);
+    border-left:4px solid var(--amber);border-radius:0 5px 5px 0;
+    padding:13px 16px;display:none;
+  }
+  .note.show{display:block;animation:fade .3s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+  .note .lbl{
+    font-family:'Kalam',cursive;font-weight:700;color:var(--red);
+    font-size:1.05rem;display:block;margin-bottom:4px;
+  }
+  .note .body{font-family:'Source Serif 4',serif;font-size:.95rem;color:var(--ink-soft);line-height:1.5;}
+  .note .body strong{color:var(--green);font-weight:600;}
+  .note .body em{color:var(--red);font-style:italic;}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;font-size:.82rem;cursor:pointer;
+    background:var(--green);color:var(--paper);border:2px solid var(--green);
+    padding:13px 26px;border-radius:5px;transition:transform .12s,box-shadow .12s,opacity .2s;
+    box-shadow:3px 3px 0 var(--amber);
+  }
+  .btn:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--amber);}
+  .btn:active:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--amber);}
+  .btn:disabled{opacity:.35;cursor:not-allowed;box-shadow:3px 3px 0 rgba(212,164,55,.4);}
+  .btn.red{background:var(--red);border-color:var(--red);box-shadow:3px 3px 0 var(--green);}
+  .btn.red:hover:not(:disabled){box-shadow:4px 4px 0 var(--green);}
+  .btn-row{display:flex;justify-content:flex-end;gap:12px;margin-bottom:30px;}
+
+  /* ---------- splash ---------- */
+  .splash{text-align:center;padding:34px 24px 40px;}
+  .splash .quill{font-family:'Kalam',cursive;font-size:2.4rem;color:var(--amber);}
+  .splash h1{margin:6px 0 4px;}
+  .splash .lead{
+    font-family:'Source Serif 4',serif;font-size:1.05rem;color:var(--ink-soft);
+    max-width:460px;margin:16px auto 8px;line-height:1.6;
+  }
+  .splash .meta{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;
+    color:var(--green);text-transform:uppercase;margin:20px 0 26px;
+  }
+  .splash .meta span{display:inline-block;margin:0 10px;}
+  .topics{
+    display:flex;flex-wrap:wrap;gap:7px;justify-content:center;
+    max-width:520px;margin:0 auto 30px;
+  }
+  .topic{
+    font-family:'Inter',sans-serif;font-size:.75rem;color:var(--green);
+    background:rgba(31,77,58,.07);border:1px solid var(--paper-line);
+    padding:5px 11px;border-radius:20px;
+  }
+
+  /* ---------- report card ---------- */
+  .report{padding:30px 22px 40px;text-align:center;}
+  .grade-big{
+    font-family:'Fraunces',serif;font-weight:600;font-size:clamp(4rem,20vw,7rem);
+    line-height:1;color:var(--green);margin:4px 0;
+  }
+  .grade-big.low{color:var(--red);}
+  .rank{
+    font-family:'Kalam',cursive;font-weight:700;font-size:1.5rem;color:var(--red);
+    transform:rotate(-1.5deg);margin-bottom:22px;
+  }
+  .rc-panel{
+    background:var(--card);border:2px solid var(--green);border-radius:6px;
+    box-shadow:4px 4px 0 rgba(200,50,46,.8);max-width:420px;margin:0 auto 26px;
+    overflow:hidden;
+  }
+  .rc-row{
+    display:flex;justify-content:space-between;padding:11px 18px;
+    border-bottom:1px dashed var(--paper-line);
+    font-family:'IBM Plex Mono',monospace;font-size:.85rem;
+  }
+  .rc-row:last-child{border-bottom:none;}
+  .rc-row .k{color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;align-self:center;}
+  .rc-row .v{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--green);}
+  .rc-row .v.red{color:var(--red);}
+  .teacher-note{
+    background:rgba(200,50,46,.05);border:1px dashed var(--red);border-radius:6px;
+    padding:18px 20px;max-width:460px;margin:0 auto 28px;text-align:left;
+  }
+  .teacher-note .tn-lbl{
+    font-family:'Kalam',cursive;font-weight:700;color:var(--red);font-size:1.1rem;
+    display:block;margin-bottom:6px;
+  }
+  .teacher-note .tn-body{
+    font-family:'Kalam',cursive;font-size:1.12rem;color:#a8302b;line-height:1.5;
+  }
+
+  .hidden{display:none;}
+  footer{
+    text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.62rem;
+    letter-spacing:.1em;color:var(--ink-soft);opacity:.7;margin:10px 0 20px;
+  }
+  @media(max-width:480px){
+    body{padding:10px;}
+    .qbody{padding:18px 14px 18px 52px;}
+    .margin-line::before{left:34px;}
+    .status .val{font-size:1.05rem;}
+    .btn{padding:12px 18px;font-size:.74rem;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ SPLASH ============ -->
+  <section id="splash">
+    <div class="sheet ruled margin-line splash">
+      <div class="quill">&#9998;</div>
+      <span class="badge">B2 &middot; UPPER-INTERMEDIATE</span>
+      <h1>The Grammar <span class="accent">Workbook</span></h1>
+      <p class="lead">A comprehensive 60-question assessment modelled on the Cambridge <strong>B2 First (FCE)</strong> grammar syllabus. Choose the one correct answer, then read the teacher's note to learn the rule.</p>
+      <div class="meta">
+        <span>&#9679; 60 Questions</span><span>&#9679; 4 Options Each</span><span>&#9679; Instant Feedback</span>
+      </div>
+      <div class="topics" id="topicChips"></div>
+      <button class="btn" id="startBtn">Begin the Test &rarr;</button>
+    </div>
+    <footer>THE GRAMMAR WORKBOOK &middot; B2 FIRST GRAMMAR DIAGNOSTIC</footer>
+  </section>
+
+  <!-- ============ TEST ============ -->
+  <section id="test" class="hidden">
+    <header>
+      <span class="badge">B2</span>
+      <h1>The Grammar <span class="accent">Workbook</span></h1>
+      <div class="subtitle">Cambridge B2 First &middot; Grammar Diagnostic</div>
+    </header>
+
+    <div class="status">
+      <div class="cell"><span class="lbl">Question</span><span class="val" id="sQ">1/60</span></div>
+      <div class="cell"><span class="lbl">Correct</span><span class="val" id="sC">0</span></div>
+      <div class="cell"><span class="lbl">Wrong</span><span class="val wrong" id="sW">0</span></div>
+      <div class="cell"><span class="lbl">Score</span><span class="val" id="sS">0%</span></div>
+    </div>
+
+    <div class="progress-outer"><div class="progress-inner" id="prog"></div></div>
+    <div class="progress-txt" id="progTxt">0 / 60 completed</div>
+
+    <div class="sheet ruled margin-line qcard">
+      <div class="qhead">
+        <span class="qnum" id="qNum">Q01</span>
+        <span class="qtag" id="qTag">Tenses</span>
+      </div>
+      <div class="qbody">
+        <p class="qtext" id="qText"></p>
+        <ul class="opts" id="opts"></ul>
+        <div class="note" id="note">
+          <span class="lbl">&#9998; Grammar Note</span>
+          <span class="body" id="noteBody"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" id="nextBtn" disabled>Next &rarr;</button>
+    </div>
+  </section>
+
+  <!-- ============ REPORT ============ -->
+  <section id="report" class="hidden">
+    <header>
+      <span class="badge">Report Card</span>
+      <h1>Your <span class="accent">Results</span></h1>
+    </header>
+    <div class="sheet ruled margin-line report">
+      <div class="grade-big" id="gradeBig">A</div>
+      <div class="rank" id="rankTxt">Solid B2</div>
+      <div class="rc-panel">
+        <div class="rc-row"><span class="k">Total Questions</span><span class="v" id="rTotal">60</span></div>
+        <div class="rc-row"><span class="k">Correct</span><span class="v" id="rCorrect">0</span></div>
+        <div class="rc-row"><span class="k">Wrong</span><span class="v red" id="rWrong">0</span></div>
+        <div class="rc-row"><span class="k">Score</span><span class="v" id="rScore">0%</span></div>
+        <div class="rc-row"><span class="k">Grade</span><span class="v" id="rGrade">A</span></div>
+      </div>
+      <div class="teacher-note">
+        <span class="tn-lbl">&#9998; Teacher's Note</span>
+        <span class="tn-body" id="teacherNote"></span>
+      </div>
+      <button class="btn red" id="restartBtn">&#8635; Take the Test Again</button>
+    </div>
+    <footer>THE GRAMMAR WORKBOOK &middot; KEEP PRACTISING, KEEP IMPROVING</footer>
+  </section>
+
+</div>
+
+<script>
+const QUESTIONS = [{"cat":"Tenses","q":"By the time the firefighters arrived, the flames ______ the entire top floor of the building.","o":["were already destroying","have already destroyed","had already destroyed","already destroyed"],"answer":2,"note":"Use the <strong>past perfect</strong> for an action completed before another past event. Here the destroying finished before the firefighters <em>arrived</em>, so <em>had destroyed</em> is correct."},{"cat":"Tenses","q":"I'm exhausted — I ______ for the marathon since five o'clock this morning.","o":["have been training","have trained","am training","train"],"answer":0,"note":"The <strong>present perfect continuous</strong> links a past starting point to the present and stresses the ongoing activity. <em>Since five o'clock</em> plus a visible result (exhaustion) signals this form."},{"cat":"Tenses","q":"This is the third time you ______ me that same question today.","o":["were asking","are asking","have asked","asked"],"answer":2,"note":"After expressions like <strong>the third time</strong>, English uses the <strong>present perfect</strong> to count experiences up to now. <em>Have asked</em> fits the repeated action continuing into the present."},{"cat":"Tenses","q":"While I ______ the dishes, I suddenly remembered I'd left the oven on.","o":["was washing","have washed","washed","had washed"],"answer":0,"note":"The <strong>past continuous</strong> sets a longer background action interrupted by a shorter one. <em>Was washing</em> is interrupted by the sudden memory in the past simple."},{"cat":"Tenses","q":"Don't call her at seven — she ______ dinner with her parents then.","o":["has","will have","will be having","is having"],"answer":2,"note":"The <strong>future continuous</strong> describes an action in progress at a specific future time. <em>At seven ... then</em> points to an activity underway, so <em>will be having</em> is right."},{"cat":"Tenses","q":"I've known Marco for years, but I ______ his brother until last night.","o":["was never meeting","have never met","had never met","never met"],"answer":2,"note":"The <strong>past perfect</strong> shows a state true up to a point in the past. <em>Until last night</em> marks that earlier moment, so the non-meeting is framed with <em>had never met</em>."},{"cat":"Tenses","q":"Look at those clouds! I think it ______ any minute now.","o":["will rain","would rain","rains","is going to rain"],"answer":3,"note":"Use <strong>be going to</strong> for a prediction based on present evidence. The clouds are visible proof, so <em>is going to rain</em> beats the neutral <em>will</em>."},{"cat":"Tenses","q":"When you get to the station, I ______ waiting for you by the ticket office.","o":["am","have been","will be","was"],"answer":2,"note":"The <strong>future continuous</strong> (<em>will be waiting</em>) describes an action already in progress at the future moment when the person arrives. It stresses the ongoing wait."},{"cat":"Tenses","q":"She ______ in Berlin for a decade before she finally decided to move back home.","o":["had been living","has lived","lived","lives"],"answer":0,"note":"The <strong>past perfect continuous</strong> shows a long activity leading up to a later past event. <em>For a decade before she decided</em> calls for <em>had been living</em>."},{"cat":"Tenses","q":"I can't believe it — I ______ my keys again! I always do this.","o":["lost","lose","have lost","am losing"],"answer":2,"note":"The <strong>present perfect</strong> reports a recent action with a present result: the keys are lost now. <em>Have lost</em> connects the past action to the current situation."},{"cat":"Tenses","q":"By next June, my grandmother ______ in this house for fifty years.","o":["will live","lives","will have lived","is living"],"answer":2,"note":"The <strong>future perfect</strong> describes something completed by a future deadline. <em>By next June</em> plus a duration requires <em>will have lived</em>."},{"cat":"Tenses","q":"The moment I saw his face, I knew something ______ wrong.","o":["had gone","has gone","goes","was going"],"answer":0,"note":"The <strong>past perfect</strong> refers back to an event before the main past moment. The thing had already gone wrong before he was seen, so <em>had gone</em> is correct."},{"cat":"Conditionals","q":"If I ______ you, I wouldn't sign that contract without reading it first.","o":["am","were","was","would be"],"answer":1,"note":"In the <strong>second conditional</strong>, we use <em>were</em> for all persons in the <em>if</em>-clause to talk about hypothetical or unreal situations. <em>If I were you</em> is the fixed advice form."},{"cat":"Conditionals","q":"We won't get a table ______ we book it right now.","o":["provided","if","in case","unless"],"answer":3,"note":"<strong>Unless</strong> means <em>if not</em> and introduces the only condition under which the negative result changes. Booking now is the exception that avoids missing the table."},{"cat":"Conditionals","q":"If she had studied medicine, she ______ a doctor today.","o":["will be","is","would be","would have been"],"answer":2,"note":"This is a <strong>mixed conditional</strong>: a past condition (<em>had studied</em>) with a present result. Because the result is about now (<em>today</em>), we use <em>would</em> + base form."},{"cat":"Conditionals","q":"I wish I ______ harder for the exam — I'm sure I've failed.","o":["have studied","would study","had studied","studied"],"answer":2,"note":"After <strong>wish</strong> for a regret about the past, we use the <strong>past perfect</strong>. <em>Had studied</em> expresses that the speaker didn't study but wishes they had."},{"cat":"Conditionals","q":"You can borrow my car ______ you promise to fill up the tank.","o":["in case","as long as","even if","unless"],"answer":1,"note":"<strong>As long as</strong> (like <em>provided that</em>) sets a positive condition that must be met. The car can be borrowed on the single condition of refilling the tank."},{"cat":"Conditionals","q":"If only I ______ speak Japanese — this trip would be so much easier.","o":["would","could","will","can"],"answer":1,"note":"<strong>If only</strong> plus <em>could</em> expresses a present wish about an ability we don't have. It's a stronger, more emotional version of <em>I wish I could</em>."},{"cat":"Conditionals","q":"If you heat water to 100°C, it ______.","o":["boils","will boil","boiled","would boil"],"answer":0,"note":"The <strong>zero conditional</strong> describes scientific facts and general truths, using the <em>present simple</em> in both clauses. Boiling water is a universal result, so <em>boils</em> is correct."},{"cat":"Conditionals","q":"Had I known you were coming, I ______ a cake.","o":["baked","will bake","would have baked","would bake"],"answer":2,"note":"This is an inverted <strong>third conditional</strong> (<em>Had I known</em> = <em>If I had known</em>). The unreal past result takes <em>would have</em> + past participle."},{"cat":"Conditionals","q":"I wish you ______ making that annoying noise with your pen!","o":["stop","stopped","would stop","had stopped"],"answer":2,"note":"We use <strong>wish + would</strong> to complain about an irritating habit and express a desire for change. <em>Would stop</em> shows frustration with someone else's behaviour."},{"cat":"Reported Speech","q":"\"I'll call you tomorrow,\" he said. → He said he ______ me the next day.","o":["would call","called","will call","had called"],"answer":0,"note":"In <strong>reported speech</strong>, <em>will</em> shifts back to <em>would</em>. Time words also change, so <em>tomorrow</em> becomes <em>the next day</em>."},{"cat":"Reported Speech","q":"She asked me ______ I had finished the report.","o":["did","if","that","what"],"answer":1,"note":"For <strong>reported yes/no questions</strong>, we introduce the clause with <em>if</em> or <em>whether</em>. No auxiliary <em>did</em> and no question word order are used."},{"cat":"Reported Speech","q":"\"Don't touch the stove,\" she warned the child. → She warned the child ______ the stove.","o":["don't touch","not to touch","not touch","to not touch"],"answer":1,"note":"To report commands and warnings, we use a <strong>reporting verb + (not) to + infinitive</strong>. The negative goes before <em>to</em>, giving <em>not to touch</em>."},{"cat":"Reported Speech","q":"He asked me where ______.","o":["do I live","I lived","did I live","I did live"],"answer":1,"note":"A <strong>reported wh-question</strong> uses statement word order (<em>I lived</em>), with no auxiliary and no inversion. The tense also backshifts from present to past."},{"cat":"Reported Speech","q":"\"I'm sorry I broke your vase,\" he said. → He ______ breaking the vase.","o":["promised","denied","refused","apologised for"],"answer":3,"note":"The <strong>reporting verb</strong> must match the function of the original words. Saying sorry is an apology, and <em>apologise</em> is followed by <em>for</em> + gerund."},{"cat":"Reported Speech","q":"\"You should see a doctor,\" she told him. → She ______ him to see a doctor.","o":["insisted","said","suggested","advised"],"answer":3,"note":"Choose the <strong>reporting verb</strong> that captures the meaning. <em>Should see</em> is advice, and <em>advise</em> takes an object + <em>to</em>-infinitive, giving <em>advised him to see</em>."},{"cat":"Reported Speech","q":"She said that she ______ that film the week before.","o":["saw","was seeing","has seen","had seen"],"answer":3,"note":"In reported speech, the <strong>past simple</strong> often backshifts to the <strong>past perfect</strong>. <em>Saw</em> becomes <em>had seen</em>, and time markers shift to <em>the week before</em>."},{"cat":"Reported Speech","q":"The witness ______ that he had seen the suspect leave the building.","o":["told","said","spoke","talked"],"answer":1,"note":"<strong>Say</strong> is used without a personal object (<em>said that...</em>), while <em>tell</em> needs one (<em>told someone</em>). With no listener named, <em>said</em> is correct."},{"cat":"Passive","q":"The new bridge ______ at the moment, so we have to take the long way round.","o":["repairs","is being repaired","is repairing","has repaired"],"answer":1,"note":"The <strong>present continuous passive</strong> is <em>is/are being</em> + past participle. An action happening now to the subject (the bridge) requires <em>is being repaired</em>."},{"cat":"Passive","q":"Nothing ______ about the problem until it was far too late.","o":["did","was done","has done","did do"],"answer":1,"note":"The <strong>past simple passive</strong> is <em>was/were</em> + past participle. Because nobody performed the action and the focus is on the result, <em>was done</em> fits."},{"cat":"Passive","q":"By the time we got there, all the tickets ______.","o":["had been sold","were selling","had sold","have been sold"],"answer":0,"note":"The <strong>past perfect passive</strong> (<em>had been</em> + past participle) shows an action completed before another past moment. The tickets were gone before arrival."},{"cat":"Passive","q":"This palace ______ over three hundred years ago.","o":["is built","has built","built","was built"],"answer":3,"note":"The <strong>past simple passive</strong> reports a finished action at a stated past time. <em>Three hundred years ago</em> is a completed point, so <em>was built</em> is correct."},{"cat":"Passive","q":"The suspect is believed ______ the country last week.","o":["left","to have left","to leave","leaving"],"answer":1,"note":"In <strong>passive reporting structures</strong> (<em>is believed to...</em>), a past action takes the <strong>perfect infinitive</strong>. <em>Last week</em> is earlier than the reporting, so <em>to have left</em>."},{"cat":"Passive","q":"A decision ______ by the committee before the end of the month.","o":["is making","will be made","will make","makes"],"answer":1,"note":"The <strong>future passive</strong> is <em>will be</em> + past participle. Since the committee's action is expressed with the focus on the decision, <em>will be made</em> is right."},{"cat":"Passive","q":"These handmade rugs ______ in a small village in Turkey.","o":["are producing","have produced","produce","are produced"],"answer":3,"note":"The <strong>present simple passive</strong> (<em>are</em> + past participle) describes a general process. The rugs receive the action, so <em>are produced</em> is correct."},{"cat":"Modals","q":"You ______ be joking! There's no way that story is true.","o":["couldn't","mustn't","can't","don't have to"],"answer":2,"note":"For <strong>negative deduction</strong> we use <em>can't</em> to say we are certain something is not true. <em>You can't be joking</em> expresses strong disbelief that the story could possibly be serious."},{"cat":"Modals","q":"She's not answering — she ______ have left her phone at home.","o":["might","must","can't","should"],"answer":0,"note":"<strong>Might have</strong> + past participle expresses a possible explanation for a past situation. It's a guess, weaker than <em>must have</em>, about why she isn't answering."},{"cat":"Modals","q":"The light's on in his office, so he ______ still be working.","o":["mustn't","needn't","must","can't"],"answer":2,"note":"<strong>Must</strong> expresses a confident deduction based on evidence. The visible light is proof, so the speaker concludes he <em>must</em> be at work."},{"cat":"Modals","q":"You ______ have told me the meeting was cancelled — I waited an hour!","o":["would","must","can","should"],"answer":3,"note":"<strong>Should have</strong> + past participle criticises a past action that didn't happen. Here <em>should have told</em> expresses reproach that the person failed to inform the speaker."},{"cat":"Modals","q":"In my last job, we ______ wear a uniform, but this one lets us dress casually.","o":["should","might","must","had to"],"answer":3,"note":"For <strong>past obligation</strong>, <em>must</em> has no past form, so we use <em>had to</em>. It reports a rule that applied in the previous job."},{"cat":"Modals","q":"You ______ worry about the bill — dinner is on me tonight.","o":["don't have to","shouldn't have","mustn't","couldn't"],"answer":0,"note":"<strong>Don't have to</strong> expresses a lack of obligation — the action isn't necessary. It contrasts with <em>mustn't</em>, which would mean it's prohibited."},{"cat":"Modals","q":"He walked straight past me. He ______ have recognised me in the dark.","o":["should","would","can't","must"],"answer":2,"note":"<strong>Can't have</strong> + past participle expresses near-certainty that something didn't happen in the past. <em>Can't have recognised</em> concludes that he failed to see who it was."},{"cat":"Relative Clauses","q":"That's the café ______ we first met, isn't it?","o":["that","where","when","which"],"answer":1,"note":"<strong>Where</strong> is the relative adverb used for places, replacing <em>in/at which</em>. Because the café is a location of the meeting, <em>where</em> connects the clauses."},{"cat":"Relative Clauses","q":"My neighbour, ______ car was stolen last week, has bought a new one.","o":["whose","that","which","who's"],"answer":0,"note":"<strong>Whose</strong> is the possessive relative pronoun, showing that the car belongs to the neighbour. Don't confuse it with <em>who's</em> (= who is)."},{"cat":"Relative Clauses","q":"The film, ______ lasted nearly three hours, was surprisingly gripping.","o":["it","what","that","which"],"answer":3,"note":"In <strong>non-defining relative clauses</strong> (set off by commas), we use <em>which</em> for things, never <em>that</em>. The clause adds extra, non-essential information."},{"cat":"Word Order","q":"Choose the most natural order: I ______ to the gym after work.","o":["usually am going","go usually","go often usually","usually go"],"answer":3,"note":"<strong>Adverbs of frequency</strong> (usually, often, always) go before the main verb. The natural order is subject + adverb + verb, giving <em>usually go</em>."},{"cat":"Word Order","q":"She speaks ______ that everyone understands her instantly.","o":["such clearly","so clear","so clearly","clearly so"],"answer":2,"note":"<strong>So</strong> + adverb + <em>that</em> expresses result. We need the adverb <em>clearly</em> (modifying <em>speaks</em>) after <em>so</em>, not the adjective <em>clear</em>."},{"cat":"Question Tags","q":"You haven't seen my glasses anywhere, ______?","o":["haven't you","did you","do you","have you"],"answer":3,"note":"A <strong>question tag</strong> reverses the polarity of the main clause. A negative statement (<em>haven't seen</em>) takes a positive tag, matching the auxiliary: <em>have you</em>."},{"cat":"Question Tags","q":"Let's take a break now, ______?","o":["shall we","do we","don't we","will we"],"answer":0,"note":"After <strong>Let's</strong>, the fixed question tag is <em>shall we</em>. It's an idiomatic exception rather than a mechanical reversal of the auxiliary."},{"cat":"Question Tags","q":"Nobody phoned while I was out, ______?","o":["did they","didn't they","did he","were they"],"answer":0,"note":"<strong>Nobody</strong> is negative in meaning and is referred to with <em>they</em>. The negative subject takes a positive tag, giving <em>did they</em>."},{"cat":"Question Tags","q":"I'm next in the queue, ______?","o":["amn't I","aren't I","isn't it","am not I"],"answer":1,"note":"The tag for <strong>I am</strong> is the irregular <em>aren't I</em>. English has no contraction <em>amn't</em>, so <em>aren't I</em> is the accepted standard form."},{"cat":"Adj & Adverbs","q":"This is by far ______ meal I've ever had in a restaurant.","o":["more good","the best","best","the better"],"answer":1,"note":"The <strong>superlative</strong> compares one thing against all others in a group. With <em>ever</em> and <em>by far</em>, we need <em>the best</em>, the irregular superlative of <em>good</em>."},{"cat":"Adj & Adverbs","q":"The second film was far ______ than the first one.","o":["most scary","more scary","scariest","scarier"],"answer":3,"note":"Two-syllable adjectives ending in <em>-y</em> form the <strong>comparative</strong> with <em>-ier</em>. Comparing two films, we use <em>scarier</em>, not a superlative."},{"cat":"Adj & Adverbs","q":"He plays the violin ______ than his sister.","o":["more beautifully","beautifully","more beautiful","beautifuller"],"answer":0,"note":"To compare how an action is done, we need the <strong>comparative adverb</strong>. Long adverbs take <em>more</em>, giving <em>more beautifully</em> to modify <em>plays</em>."},{"cat":"Adj & Adverbs","q":"She was wearing a lovely ______ silk scarf.","o":["Italian long red","red long Italian","long Italian red","long red Italian"],"answer":3,"note":"English follows a fixed <strong>adjective order</strong>: opinion, size, age, colour, origin, material. Here that gives size–colour–origin: <em>long red Italian</em>."},{"cat":"Adj & Adverbs","q":"The instructions were ______ complicated that nobody could follow them.","o":["so","very","such","too"],"answer":0,"note":"<strong>So</strong> + adjective + <em>that</em> shows result. Because <em>complicated</em> is an adjective standing alone, we use <em>so</em>; <em>such</em> would need a noun."},{"cat":"Verb Patterns","q":"I really must remember ______ the electricity bill before Friday.","o":["to pay","paying","paid","pay"],"answer":0,"note":"<strong>Remember + to-infinitive</strong> means not to forget a future task. <em>Remember + gerund</em> would instead mean recalling a past action, so <em>to pay</em> is correct here."},{"cat":"Linkers","q":"______ the heavy rain, the match went ahead as planned.","o":["However","Because of","Although","Despite"],"answer":3,"note":"<strong>Despite</strong> is a preposition of contrast followed by a noun phrase (<em>the heavy rain</em>). <em>Although</em> would need a full clause with a verb."},{"cat":"Quantifiers","q":"There isn't ______ point in arguing about it now.","o":["some","much","few","many"],"answer":1,"note":"<strong>Much</strong> is used with uncountable nouns in negative sentences. <em>Point</em> here is uncountable and abstract, so <em>much</em> fits, not the countable <em>many</em>."}];
+
+var idx=0, correct=0, wrong=0, answered=false;
+
+var cats=[];
+QUESTIONS.forEach(function(q){ if(cats.indexOf(q.cat)===-1) cats.push(q.cat); });
+var chip=document.getElementById('topicChips');
+cats.forEach(function(c){ var s=document.createElement('span'); s.className='topic'; s.textContent=c; chip.appendChild(s); });
+
+var $=function(id){return document.getElementById(id);};
+
+function show(sec){
+  ['splash','test','report'].forEach(function(s){ $(s).classList.add('hidden'); });
+  $(sec).classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function render(){
+  answered=false;
+  var q=QUESTIONS[idx];
+  $('qNum').textContent='Q'+String(idx+1).padStart(2,'0');
+  $('qTag').textContent=q.cat;
+  $('qText').innerHTML=q.q.replace(/______/g,'<span class="blank">______</span>');
+  var letters=['A','B','C','D'];
+  var ul=$('opts'); ul.innerHTML='';
+  q.o.forEach(function(text,i){
+    var li=document.createElement('li');
+    li.className='opt';
+    li.innerHTML='<span class="letter">'+letters[i]+')</span><span class="otext">'+text+'</span>';
+    li.addEventListener('click',function(){ choose(i,li); });
+    ul.appendChild(li);
+  });
+  $('note').classList.remove('show');
+  $('noteBody').innerHTML=q.note;
+  $('nextBtn').disabled=true;
+  $('nextBtn').textContent = (idx===QUESTIONS.length-1) ? 'See Results \u2192' : 'Next \u2192';
+  updateStatus();
+}
+
+function choose(i,li){
+  if(answered) return;
+  answered=true;
+  var q=QUESTIONS[idx];
+  var opts=document.querySelectorAll('#opts .opt');
+  opts.forEach(function(o,k){
+    o.classList.add('locked');
+    if(k===q.answer){
+      o.classList.add('correct');
+      var m=document.createElement('span'); m.className='mark tick'; m.textContent='\u2713'; o.appendChild(m);
+    }
+  });
+  if(i===q.answer){
+    correct++;
+  } else {
+    wrong++;
+    li.classList.add('chosen-wrong');
+    var x=document.createElement('span'); x.className='mark cross'; x.textContent='\u2717'; li.appendChild(x);
+  }
+  $('note').classList.add('show');
+  $('nextBtn').disabled=false;
+  updateStatus();
+}
+
+function updateStatus(){
+  var done=correct+wrong;
+  $('sQ').textContent=(idx+1)+'/'+QUESTIONS.length;
+  $('sC').textContent=correct;
+  $('sW').textContent=wrong;
+  var pct = done? Math.round(correct/done*100):0;
+  $('sS').textContent=pct+'%';
+  var pdone=Math.round((idx + (answered?1:0))/QUESTIONS.length*100);
+  $('prog').style.width=pdone+'%';
+  $('progTxt').textContent=(idx+(answered?1:0))+' / '+QUESTIONS.length+' completed';
+}
+
+$('nextBtn').addEventListener('click',function(){
+  if(!answered) return;
+  if(idx<QUESTIONS.length-1){ idx++; render(); }
+  else finish();
+});
+
+function gradeFor(p){
+  if(p>=95) return['A+','Distinguished B2 &mdash; Exceptional Command'];
+  if(p>=90) return['A','Solid B2 &mdash; Confident and Accurate'];
+  if(p>=80) return['B+','Comfortable B2 &mdash; Well Prepared'];
+  if(p>=70) return['B','Approaching B2 &mdash; Nearly There'];
+  if(p>=60) return['C','Strong B1 &mdash; Building Toward B2'];
+  if(p>=50) return['D','Developing &mdash; Foundations Forming'];
+  return['F','Building Foundations &mdash; Keep Going'];
+}
+
+function teacherFeedback(p,total){
+  if(p>=90) return "Outstanding work! Your grammar is accurate and consistent across tenses, conditionals and reported speech. You're performing at a genuine B2 level. To polish further, revisit any modal-deduction or passive-reporting items you missed and keep reading authentic English daily.";
+  if(p>=80) return "Very strong result! You have a reliable grasp of most B2 structures. Look back at the questions you got wrong &mdash; they'll usually cluster around one or two areas (often mixed conditionals or the perfect tenses). Target those and you'll be exam-ready in no time.";
+  if(p>=70) return "Good, solid effort &mdash; you're knocking on the door of B2. Focus your revision on the trickier structures: past perfect vs past simple, third and mixed conditionals, and reported questions. Do a little each week and re-take this test to track your progress.";
+  if(p>=60) return "You've got a dependable B1 foundation and you're building toward B2. Spend time on the core tense system first, then move on to conditionals, the passive and question tags. 'English Grammar in Use (Intermediate)' is your best friend here. Keep at it!";
+  if(p>=50) return "A fair start &mdash; the foundations are forming. Go back to basics with the present perfect, past tenses and simple conditionals before tackling the harder structures. Little and often is the key: study one topic a week and practise making your own sentences.";
+  return "Don't be discouraged &mdash; everyone starts somewhere, and this test is designed to be demanding. Begin with the core tenses (present simple, past simple, present perfect), then add one new structure at a time. Read widely at B1&ndash;B2 level and re-take this test soon. You'll be surprised how fast you improve!";
+}
+
+function finish(){
+  var total=QUESTIONS.length;
+  var p=Math.round(correct/total*100);
+  var g=gradeFor(p);
+  $('gradeBig').textContent=g[0];
+  $('gradeBig').classList.toggle('low', p<60);
+  $('rankTxt').innerHTML=g[1];
+  $('rTotal').textContent=total;
+  $('rCorrect').textContent=correct;
+  $('rWrong').textContent=wrong;
+  $('rScore').textContent=p+'%';
+  $('rGrade').textContent=g[0];
+  $('teacherNote').innerHTML=teacherFeedback(p,total);
+  show('report');
+}
+
+$('startBtn').addEventListener('click',function(){ idx=0;correct=0;wrong=0; show('test'); render(); });
+$('restartBtn').addEventListener('click',function(){ idx=0;correct=0;wrong=0; show('splash'); });
+</script>
+</body>
+</html>
