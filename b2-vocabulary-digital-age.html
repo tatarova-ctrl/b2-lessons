@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vocabulary Workbook — B2 Digital Age</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf6e8;
+    --paper-line:#e6ddc4;
+    --green:#1f4d3a;
+    --green-soft:#2c6b50;
+    --red:#c8322e;
+    --amber:#d4a437;
+    --ink:#2a2620;
+    --ink-soft:#5b5445;
+    --card:#fffdf5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:'Source Serif 4',Georgia,serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    min-height:100vh;
+    padding:16px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(212,164,55,.04), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(31,77,58,.04), transparent 45%);
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+  .sheet{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--paper-line);
+    border-radius:4px;
+    box-shadow:0 2px 0 rgba(200,50,46,.18), 0 10px 30px rgba(42,38,32,.10);
+    overflow:hidden;
+  }
+  .ruled{
+    background-image:repeating-linear-gradient(
+      to bottom, transparent, transparent 31px, var(--paper-line) 31px, var(--paper-line) 32px);
+  }
+  .margin-line::before{
+    content:"";position:absolute;top:0;bottom:0;left:44px;width:2px;
+    background:var(--red);opacity:.55;
+  }
+  header{text-align:center;margin:8px 0 22px;}
+  .badge{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:600;
+    letter-spacing:.12em;font-size:.78rem;color:var(--paper);
+    background:var(--green);border:2px solid var(--green);
+    padding:5px 14px;border-radius:3px;transform:rotate(-2deg);
+    box-shadow:2px 2px 0 var(--amber);
+  }
+  h1{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    font-size:clamp(2rem,7vw,3rem);color:var(--green);line-height:1.05;
+    margin-top:14px;letter-spacing:-.01em;
+  }
+  h1 .accent{color:var(--red);}
+  .subtitle{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-soft);margin-top:8px;
+  }
+  .status{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    background:var(--card);border:2px solid var(--green);border-radius:6px;
+    box-shadow:3px 3px 0 rgba(200,50,46,.85);
+    margin-bottom:14px;overflow:hidden;
+  }
+  .status .cell{padding:10px 6px;text-align:center;border-right:1px solid var(--paper-line);}
+  .status .cell:last-child{border-right:none;}
+  .status .lbl{
+    font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:2px;
+  }
+  .status .val{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:var(--green);}
+  .status .val.wrong{color:var(--red);}
+  .progress-outer{
+    height:12px;background:var(--paper);border:1.5px solid var(--green);
+    border-radius:20px;overflow:hidden;margin-bottom:6px;
+  }
+  .progress-inner{height:100%;width:0;background:
+    repeating-linear-gradient(45deg,var(--amber),var(--amber) 8px,#c99a2f 8px,#c99a2f 16px);
+    transition:width .35s ease;}
+  .progress-txt{
+    font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.1em;
+    color:var(--ink-soft);text-align:right;margin-bottom:18px;
+  }
+  .qcard{margin-bottom:18px;}
+  .qhead{
+    background:var(--green);color:var(--paper);
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 16px 10px 20px;gap:10px;
+  }
+  .qnum{font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.1em;font-size:.82rem;flex-shrink:0;}
+  .qtag{
+    font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.1em;
+    text-transform:uppercase;background:var(--amber);color:var(--green);
+    padding:3px 9px;border-radius:3px;font-weight:600;text-align:right;
+  }
+  .qbody{padding:22px 20px 22px 62px;position:relative;}
+  .qtext{
+    font-family:'Source Serif 4',serif;font-size:clamp(1.05rem,3.4vw,1.22rem);
+    font-weight:500;color:var(--ink);margin-bottom:18px;line-height:1.5;
+  }
+  .qtext .blank{color:var(--red);font-weight:600;letter-spacing:.05em;}
+  .opts{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .opt{
+    display:flex;align-items:flex-start;gap:11px;
+    background:var(--card);border:1.5px solid var(--paper-line);
+    border-radius:5px;padding:12px 14px;cursor:pointer;
+    font-family:'Inter',sans-serif;font-size:.95rem;color:var(--ink);
+    transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  }
+  .opt:hover:not(.locked){
+    transform:translateX(5px);border-color:var(--green-soft);
+    box-shadow:-4px 4px 0 rgba(31,77,58,.18);
+  }
+  .opt .letter{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--green);
+    flex-shrink:0;min-width:20px;
+  }
+  .opt.locked{cursor:default;}
+  .opt.correct{
+    background:rgba(31,77,58,.10);border-color:var(--green);color:var(--green);font-weight:500;
+  }
+  .opt.correct .letter{color:var(--green);}
+  .opt.chosen-wrong{
+    background:rgba(200,50,46,.08);border-color:var(--red);
+    color:var(--red);text-decoration:line-through;text-decoration-color:var(--red);
+  }
+  .opt.chosen-wrong .letter{color:var(--red);}
+  .mark{font-family:'Kalam',cursive;font-weight:700;font-size:1.4rem;margin-left:auto;
+    line-height:1;padding-left:8px;}
+  .mark.tick{color:var(--green);}
+  .mark.cross{color:var(--red);}
+  .note{
+    margin-top:16px;background:rgba(212,164,55,.10);
+    border-left:4px solid var(--amber);border-radius:0 5px 5px 0;
+    padding:13px 16px;display:none;
+  }
+  .note.show{display:block;animation:fade .3s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+  .note .lbl{
+    font-family:'Kalam',cursive;font-weight:700;color:var(--red);
+    font-size:1.05rem;display:block;margin-bottom:4px;
+  }
+  .note .body{font-family:'Source Serif 4',serif;font-size:.95rem;color:var(--ink-soft);line-height:1.5;}
+  .note .body strong{color:var(--green);font-weight:600;}
+  .note .body em{color:var(--red);font-style:italic;}
+  .btn{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;font-size:.82rem;cursor:pointer;
+    background:var(--green);color:var(--paper);border:2px solid var(--green);
+    padding:13px 26px;border-radius:5px;transition:transform .12s,box-shadow .12s,opacity .2s;
+    box-shadow:3px 3px 0 var(--amber);
+  }
+  .btn:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--amber);}
+  .btn:active:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--amber);}
+  .btn:disabled{opacity:.35;cursor:not-allowed;box-shadow:3px 3px 0 rgba(212,164,55,.4);}
+  .btn.red{background:var(--red);border-color:var(--red);box-shadow:3px 3px 0 var(--green);}
+  .btn.red:hover:not(:disabled){box-shadow:4px 4px 0 var(--green);}
+  .btn-row{display:flex;justify-content:flex-end;gap:12px;margin-bottom:30px;}
+  .splash{text-align:center;padding:34px 24px 40px;}
+  .splash .quill{font-family:'Kalam',cursive;font-size:2.4rem;color:var(--amber);}
+  .splash h1{margin:6px 0 4px;}
+  .splash .lead{
+    font-family:'Source Serif 4',serif;font-size:1.05rem;color:var(--ink-soft);
+    max-width:470px;margin:16px auto 8px;line-height:1.6;
+  }
+  .splash .meta{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;
+    color:var(--green);text-transform:uppercase;margin:20px 0 26px;
+  }
+  .splash .meta span{display:inline-block;margin:0 10px;}
+  .topics{
+    display:flex;flex-wrap:wrap;gap:7px;justify-content:center;
+    max-width:520px;margin:0 auto 30px;
+  }
+  .topic{
+    font-family:'Inter',sans-serif;font-size:.75rem;color:var(--green);
+    background:rgba(31,77,58,.07);border:1px solid var(--paper-line);
+    padding:5px 11px;border-radius:20px;
+  }
+  .report{padding:30px 22px 40px;text-align:center;}
+  .grade-big{
+    font-family:'Fraunces',serif;font-weight:600;font-size:clamp(4rem,20vw,7rem);
+    line-height:1;color:var(--green);margin:4px 0;
+  }
+  .grade-big.low{color:var(--red);}
+  .rank{
+    font-family:'Kalam',cursive;font-weight:700;font-size:1.5rem;color:var(--red);
+    transform:rotate(-1.5deg);margin-bottom:22px;
+  }
+  .rc-panel{
+    background:var(--card);border:2px solid var(--green);border-radius:6px;
+    box-shadow:4px 4px 0 rgba(200,50,46,.8);max-width:420px;margin:0 auto 26px;
+    overflow:hidden;
+  }
+  .rc-row{
+    display:flex;justify-content:space-between;padding:11px 18px;
+    border-bottom:1px dashed var(--paper-line);
+    font-family:'IBM Plex Mono',monospace;font-size:.85rem;
+  }
+  .rc-row:last-child{border-bottom:none;}
+  .rc-row .k{color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;align-self:center;}
+  .rc-row .v{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--green);}
+  .rc-row .v.red{color:var(--red);}
+  .teacher-note{
+    background:rgba(200,50,46,.05);border:1px dashed var(--red);border-radius:6px;
+    padding:18px 20px;max-width:460px;margin:0 auto 28px;text-align:left;
+  }
+  .teacher-note .tn-lbl{
+    font-family:'Kalam',cursive;font-weight:700;color:var(--red);font-size:1.1rem;
+    display:block;margin-bottom:6px;
+  }
+  .teacher-note .tn-body{
+    font-family:'Kalam',cursive;font-size:1.12rem;color:#a8302b;line-height:1.5;
+  }
+  .hidden{display:none;}
+  footer{
+    text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.62rem;
+    letter-spacing:.1em;color:var(--ink-soft);opacity:.7;margin:10px 0 20px;
+  }
+  @media(max-width:480px){
+    body{padding:10px;}
+    .qbody{padding:18px 14px 18px 52px;}
+    .margin-line::before{left:34px;}
+    .status .val{font-size:1.05rem;}
+    .btn{padding:12px 18px;font-size:.74rem;}
+    .qtag{font-size:.55rem;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section id="splash">
+    <div class="sheet ruled margin-line splash">
+      <div class="quill">&#9998;</div>
+      <span class="badge">B2 &middot; UPPER-INTERMEDIATE</span>
+      <h1>The Vocabulary <span class="accent">Workbook</span></h1>
+      <p class="lead">A 30-question B2 vocabulary test on <strong>The Digital Age</strong> &mdash; artificial intelligence, technology, smart cities and smart homes. Choose the best word, then read the note to learn how it's used.</p>
+      <div class="meta">
+        <span>&#9679; 30 Questions</span><span>&#9679; 4 Options Each</span><span>&#9679; Instant Feedback</span>
+      </div>
+      <div class="topics" id="topicChips"></div>
+      <button class="btn" id="startBtn">Begin the Test &rarr;</button>
+    </div>
+    <footer>THE VOCABULARY WORKBOOK &middot; B2 &middot; THE DIGITAL AGE</footer>
+  </section>
+
+  <section id="test" class="hidden">
+    <header>
+      <span class="badge">B2</span>
+      <h1>The Vocabulary <span class="accent">Workbook</span></h1>
+      <div class="subtitle">The Digital Age &middot; Vocabulary Test</div>
+    </header>
+    <div class="status">
+      <div class="cell"><span class="lbl">Question</span><span class="val" id="sQ">1/30</span></div>
+      <div class="cell"><span class="lbl">Correct</span><span class="val" id="sC">0</span></div>
+      <div class="cell"><span class="lbl">Wrong</span><span class="val wrong" id="sW">0</span></div>
+      <div class="cell"><span class="lbl">Score</span><span class="val" id="sS">0%</span></div>
+    </div>
+    <div class="progress-outer"><div class="progress-inner" id="prog"></div></div>
+    <div class="progress-txt" id="progTxt">0 / 30 completed</div>
+    <div class="sheet ruled margin-line qcard">
+      <div class="qhead">
+        <span class="qnum" id="qNum">Q01</span>
+        <span class="qtag" id="qTag">Artificial Intelligence</span>
+      </div>
+      <div class="qbody">
+        <p class="qtext" id="qText"></p>
+        <ul class="opts" id="opts"></ul>
+        <div class="note" id="note">
+          <span class="lbl">&#9998; Vocabulary Note</span>
+          <span class="body" id="noteBody"></span>
+        </div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn" id="nextBtn" disabled>Next &rarr;</button>
+    </div>
+  </section>
+
+  <section id="report" class="hidden">
+    <header>
+      <span class="badge">Report Card</span>
+      <h1>Your <span class="accent">Results</span></h1>
+    </header>
+    <div class="sheet ruled margin-line report">
+      <div class="grade-big" id="gradeBig">A</div>
+      <div class="rank" id="rankTxt">Solid B2</div>
+      <div class="rc-panel">
+        <div class="rc-row"><span class="k">Total Questions</span><span class="v" id="rTotal">30</span></div>
+        <div class="rc-row"><span class="k">Correct</span><span class="v" id="rCorrect">0</span></div>
+        <div class="rc-row"><span class="k">Wrong</span><span class="v red" id="rWrong">0</span></div>
+        <div class="rc-row"><span class="k">Score</span><span class="v" id="rScore">0%</span></div>
+        <div class="rc-row"><span class="k">Grade</span><span class="v" id="rGrade">A</span></div>
+      </div>
+      <div class="teacher-note">
+        <span class="tn-lbl">&#9998; Teacher's Note</span>
+        <span class="tn-body" id="teacherNote"></span>
+      </div>
+      <button class="btn red" id="restartBtn">&#8635; Take the Test Again</button>
+    </div>
+    <footer>THE VOCABULARY WORKBOOK &middot; KEEP BUILDING YOUR WORD POWER</footer>
+  </section>
+
+</div>
+
+<script>
+const QUESTIONS = [{"cat":"Artificial Intelligence","q":"A set of step-by-step rules that a computer follows to solve a problem is called an ______.","o":["algorithm","instruction","equation","formula"],"answer":0,"note":"An <strong>algorithm</strong> is a precise sequence of instructions a computer uses to complete a task. We say a program <em>runs an algorithm</em> or <em>follows an algorithm</em>."},{"cat":"Artificial Intelligence","q":"Self-driving cars are the best-known example of ______ vehicles that operate without a human driver.","o":["mechanical","independent","automatic","autonomous"],"answer":3,"note":"<strong>Autonomous</strong> means able to act and make decisions on its own. It is stronger than <em>automatic</em>, which usually describes a single repeated action rather than full self-control."},{"cat":"Artificial Intelligence","q":"Machine learning models are ______ on huge datasets so they can recognise patterns.","o":["educated","taught","trained","informed"],"answer":2,"note":"In AI, we say a model is <strong>trained</strong> on data. This is the standard collocation: <em>train a model</em>, <em>trained on millions of images</em>."},{"cat":"Artificial Intelligence","q":"A major worry about AI is ______, where a system reflects unfair prejudices hidden in its data.","o":["bias","fault","damage","mistake"],"answer":0,"note":"<strong>Bias</strong> is an unfair preference for or against something. In technology we talk about <em>algorithmic bias</em> or <em>biased data</em> producing unfair results."},{"cat":"Artificial Intelligence","q":"The company plans to ______ its new AI assistant across all its products next year.","o":["roll in","roll up","roll over","roll out"],"answer":3,"note":"The phrasal verb <strong>roll out</strong> means to introduce or launch something gradually. Companies <em>roll out</em> a product, a feature or an update to their users."},{"cat":"Artificial Intelligence","q":"Facial ______ software can identify a person by comparing their face to a database.","o":["detection","knowledge","recognition","awareness"],"answer":2,"note":"<strong>Recognition</strong> means identifying who or what something is. <em>Facial recognition</em> identifies a specific person, whereas <em>detection</em> only notices that a face is present."},{"cat":"Artificial Intelligence","q":"Modern AI systems can ______ vast amounts of information far faster than any human.","o":["proceed","process","progress","produce"],"answer":1,"note":"To <strong>process</strong> data means to handle and analyse it. Note the difference from <em>proceed</em> (to continue) and <em>produce</em> (to make)."},{"cat":"Artificial Intelligence","q":"Chatbots are becoming so ______ that users sometimes forget they are talking to a machine.","o":["difficult","sophisticated","confused","complicated"],"answer":1,"note":"<strong>Sophisticated</strong> describes something advanced and cleverly developed. It is a positive word, unlike <em>complicated</em>, which suggests something is hard to understand."},{"cat":"Technology","q":"Always ______ your important files to the cloud so you never lose your work.","o":["back up","back out","back down","back off"],"answer":0,"note":"The phrasal verb <strong>back up</strong> means to make a spare copy of data. The noun form is written as one word: <em>a backup</em>."},{"cat":"Technology","q":"Reviewers praised the app for its ______ interface, which anyone could use straight away.","o":["people-friendly","easy-going","simple-minded","user-friendly"],"answer":3,"note":"<strong>User-friendly</strong> means easy and pleasant to use. It is a common compound adjective in technology, along with <em>user experience</em> and <em>user interface</em>."},{"cat":"Technology","q":"Cutting-______ technology refers to the newest and most advanced developments available.","o":["point","edge","side","line"],"answer":1,"note":"<strong>Cutting-edge</strong> means extremely modern and advanced. It works as an adjective: <em>cutting-edge research</em>, <em>a cutting-edge device</em>."},{"cat":"Technology","q":"You'll need to ______ to your account using your username and password.","o":["sign off","log off","break in","log in"],"answer":3,"note":"To <strong>log in</strong> (or <em>log on</em>) means to enter a system with your details. The opposite is <em>log out</em> or <em>log off</em>."},{"cat":"Technology","q":"Software designed to harm your computer, such as viruses and spyware, is known as ______.","o":["malware","software","firmware","hardware"],"answer":0,"note":"<strong>Malware</strong> is a general term for malicious software. The prefix <em>mal-</em> means 'bad', as in <em>malfunction</em> or <em>malicious</em>."},{"cat":"Technology","q":"The technician will ______ your operating system to the latest version.","o":["upgrade","upload","update","uphold"],"answer":0,"note":"To <strong>upgrade</strong> means to move to a better or newer version. Compare it with <em>update</em>, which usually means adding small fixes to the current version."},{"cat":"Technology","q":"The two apps are fully ______, so information passes between them automatically.","o":["comparable","compact","compatible","capable"],"answer":2,"note":"<strong>Compatible</strong> means able to work together without problems. We often say two systems or devices are <em>compatible with</em> each other."},{"cat":"Smart Cities","q":"Smart cities depend on a network of ______ that collect real-time data on traffic and air quality.","o":["sensors","screens","signals","switches"],"answer":0,"note":"A <strong>sensor</strong> is a device that detects and measures physical conditions such as light, movement or temperature. Smart systems rely on <em>sensors</em> to gather data."},{"cat":"Smart Cities","q":"Better public transport can reduce traffic ______ in crowded city centres.","o":["collection","condition","connection","congestion"],"answer":3,"note":"<strong>Congestion</strong> means an uncomfortable blockage caused by too much traffic. We talk about <em>traffic congestion</em> and <em>congested roads</em>."},{"cat":"Smart Cities","q":"The city's digital ______ includes broadband networks, data centres and thousands of sensors.","o":["furniture","infrastructure","construction","architecture"],"answer":1,"note":"<strong>Infrastructure</strong> refers to the basic systems and structures a place needs to function, such as roads, power and networks. <em>Digital infrastructure</em> supports online services."},{"cat":"Smart Cities","q":"Smart meters allow residents to ______ their electricity use minute by minute.","o":["notice","view","glance","monitor"],"answer":3,"note":"To <strong>monitor</strong> means to watch and check something carefully over time. It is stronger and more active than simply <em>notice</em> or <em>view</em>."},{"cat":"Smart Cities","q":"A key aim of smart cities is to become more ______ and reduce their impact on the planet.","o":["sustainable","suitable","reasonable","considerable"],"answer":0,"note":"<strong>Sustainable</strong> means able to continue without damaging the environment or using up resources. We speak of <em>sustainable energy</em> and <em>sustainable development</em>."},{"cat":"Smart Cities","q":"Widespread CCTV cameras raise concerns about ______, as people feel constantly watched.","o":["observation","surveillance","supervision","appearance"],"answer":1,"note":"<strong>Surveillance</strong> is the close watching of people, often by cameras or technology, usually for security. Note the tricky spelling: <em>sur-veil-lance</em>."},{"cat":"Smart Cities","q":"Real-time data helps city authorities ______ traffic flow and avoid long jams.","o":["master","measure","manage","maintain"],"answer":2,"note":"To <strong>manage</strong> something means to control and organise it successfully. We <em>manage traffic</em>, <em>manage resources</em> and <em>manage a system</em>."},{"cat":"Smart Cities","q":"Smart streetlights automatically ______ their brightness according to the time of day.","o":["advance","adjust","admit","adopt"],"answer":1,"note":"To <strong>adjust</strong> means to make a small change so something is more suitable. A device can <em>adjust</em> its settings, temperature or brightness."},{"cat":"Smart Homes","q":"With a smart heating system, you can ______ the temperature remotely from your phone.","o":["conduct","command","control","correct"],"answer":2,"note":"To <strong>control</strong> means to direct how something operates. We <em>control</em> devices, settings and systems, often <em>remotely</em> from an app."},{"cat":"Smart Homes","q":"A smart ______ learns your daily routine and sets the ideal temperature by itself.","o":["thermometer","thermostat","radiator","temperature"],"answer":1,"note":"A <strong>thermostat</strong> is a device that controls heating and cooling. Don't confuse it with a <em>thermometer</em>, which only measures temperature."},{"cat":"Smart Homes","q":"Everyday devices that connect to the internet form part of the Internet of ______.","o":["Products","Items","Things","Objects"],"answer":2,"note":"The <strong>Internet of Things</strong> (often shortened to <em>IoT</em>) is the network of everyday objects, from fridges to doorbells, that connect and share data online."},{"cat":"Smart Homes","q":"Using a smart lock, you can ______ your front door without a physical key.","o":["undo","unblock","unlock","untie"],"answer":2,"note":"To <strong>unlock</strong> means to open something that was locked. The prefix <em>un-</em> reverses the action, as in <em>lock / unlock</em> and <em>do / undo</em>."},{"cat":"Smart Homes","q":"Voice ______ let you switch off the lights simply by speaking out loud.","o":["orders","requests","demands","commands"],"answer":3,"note":"A <strong>command</strong> is an instruction telling a device what to do. <em>Voice commands</em> is the standard term for spoken instructions to smart assistants."},{"cat":"Smart Homes","q":"Smart appliances help you ______ energy by switching themselves off when not in use.","o":["save","spend","store","spare"],"answer":0,"note":"To <strong>save</strong> energy means to avoid wasting it. This is a fixed collocation, along with <em>save time</em>, <em>save money</em> and <em>energy-saving</em>."},{"cat":"Smart Homes","q":"In a smart home, lighting, security and heating are all ______ into a single system.","o":["inserted","integrated","invented","included"],"answer":1,"note":"To <strong>integrate</strong> means to combine separate parts into one working whole. Smart devices are <em>integrated</em> so they can be controlled together."}];
+
+var idx=0, correct=0, wrong=0, answered=false;
+
+var cats=[];
+QUESTIONS.forEach(function(q){ if(cats.indexOf(q.cat)===-1) cats.push(q.cat); });
+var chip=document.getElementById('topicChips');
+cats.forEach(function(c){ var s=document.createElement('span'); s.className='topic'; s.textContent=c; chip.appendChild(s); });
+
+var $=function(id){return document.getElementById(id);};
+
+function show(sec){
+  ['splash','test','report'].forEach(function(s){ $(s).classList.add('hidden'); });
+  $(sec).classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function render(){
+  answered=false;
+  var q=QUESTIONS[idx];
+  $('qNum').textContent='Q'+String(idx+1).padStart(2,'0');
+  $('qTag').textContent=q.cat;
+  $('qText').innerHTML=q.q.replace(/______/g,'<span class="blank">______</span>');
+  var letters=['A','B','C','D'];
+  var ul=$('opts'); ul.innerHTML='';
+  q.o.forEach(function(text,i){
+    var li=document.createElement('li');
+    li.className='opt';
+    li.innerHTML='<span class="letter">'+letters[i]+')</span><span class="otext">'+text+'</span>';
+    li.addEventListener('click',function(){ choose(i,li); });
+    ul.appendChild(li);
+  });
+  $('note').classList.remove('show');
+  $('noteBody').innerHTML=q.note;
+  $('nextBtn').disabled=true;
+  $('nextBtn').textContent = (idx===QUESTIONS.length-1) ? 'See Results →' : 'Next →';
+  updateStatus();
+}
+
+function choose(i,li){
+  if(answered) return;
+  answered=true;
+  var q=QUESTIONS[idx];
+  var opts=document.querySelectorAll('#opts .opt');
+  opts.forEach(function(o,k){
+    o.classList.add('locked');
+    if(k===q.answer){
+      o.classList.add('correct');
+      var m=document.createElement('span'); m.className='mark tick'; m.textContent='✓'; o.appendChild(m);
+    }
+  });
+  if(i===q.answer){
+    correct++;
+  } else {
+    wrong++;
+    li.classList.add('chosen-wrong');
+    var x=document.createElement('span'); x.className='mark cross'; x.textContent='✗'; li.appendChild(x);
+  }
+  $('note').classList.add('show');
+  $('nextBtn').disabled=false;
+  updateStatus();
+}
+
+function updateStatus(){
+  var done=correct+wrong;
+  $('sQ').textContent=(idx+1)+'/'+QUESTIONS.length;
+  $('sC').textContent=correct;
+  $('sW').textContent=wrong;
+  var pct = done? Math.round(correct/done*100):0;
+  $('sS').textContent=pct+'%';
+  var pdone=Math.round((idx + (answered?1:0))/QUESTIONS.length*100);
+  $('prog').style.width=pdone+'%';
+  $('progTxt').textContent=(idx+(answered?1:0))+' / '+QUESTIONS.length+' completed';
+}
+
+$('nextBtn').addEventListener('click',function(){
+  if(!answered) return;
+  if(idx<QUESTIONS.length-1){ idx++; render(); }
+  else finish();
+});
+
+function gradeFor(p){
+  if(p>=95) return['A+','Excellent B2 &mdash; Outstanding Word Power'];
+  if(p>=90) return['A','Solid B2 &mdash; Rich, Accurate Vocabulary'];
+  if(p>=80) return['B+','Comfortable B2 &mdash; Well Prepared'];
+  if(p>=70) return['B','Approaching B2 &mdash; Nearly There'];
+  if(p>=60) return['C','Building B2 &mdash; Good Progress'];
+  if(p>=50) return['D','Developing &mdash; Foundations Forming'];
+  return['F','Building Foundations &mdash; Keep Going'];
+}
+
+function teacherFeedback(p,total){
+  if(p>=90) return "Excellent work! Your digital-age vocabulary is broad and precise &mdash; you handled tricky collocations and phrasal verbs with ease. To push further, notice how these words appear in real articles about AI and technology, and try using them in your own writing.";
+  if(p>=80) return "Very good result! You know most of this topic vocabulary well. Look again at the words you missed &mdash; they're often close synonyms (like 'monitor' vs 'notice' or 'upgrade' vs 'update'). Learning the exact difference will sharpen your accuracy.";
+  if(p>=70) return "Good effort &mdash; you're close to confident B2. Focus on the collocations from this test: 'artificial intelligence', 'cutting-edge', 'save energy', 'roll out'. Keep a vocabulary notebook and write an example sentence for each new word you meet.";
+  if(p>=60) return "You're making solid progress toward B2. Review the key terms from each topic &mdash; AI, technology, smart cities and smart homes &mdash; and pay attention to phrasal verbs like 'back up' and 'log in'. Reading tech news at B1&ndash;B2 level will help these words stick.";
+  if(p>=50) return "A fair start! Build your foundation by learning the most common words from each topic first, then move on to the collocations and phrasal verbs. Study a few words at a time, write your own sentences, and re-take this test to see your progress.";
+  return "Don't be discouraged &mdash; specialised vocabulary takes time to build! Start with the core words (sensor, device, control, connect) and add a few new ones each day. Read simple articles about technology, note down useful words, and try again soon. You'll improve quickly!";
+}
+
+function finish(){
+  var total=QUESTIONS.length;
+  var p=Math.round(correct/total*100);
+  var g=gradeFor(p);
+  $('gradeBig').textContent=g[0];
+  $('gradeBig').classList.toggle('low', p<60);
+  $('rankTxt').innerHTML=g[1];
+  $('rTotal').textContent=total;
+  $('rCorrect').textContent=correct;
+  $('rWrong').textContent=wrong;
+  $('rScore').textContent=p+'%';
+  $('rGrade').textContent=g[0];
+  $('teacherNote').innerHTML=teacherFeedback(p,total);
+  show('report');
+}
+
+$('startBtn').addEventListener('click',function(){ idx=0;correct=0;wrong=0; show('test'); render(); });
+$('restartBtn').addEventListener('click',function(){ idx=0;correct=0;wrong=0; show('splash'); });
+</script>
+</body>
+</html>
