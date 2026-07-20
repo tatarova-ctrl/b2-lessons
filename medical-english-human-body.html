@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vocabulary Workbook — Medical English: The Human Body</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf6e8;
+    --paper-line:#e6ddc4;
+    --green:#1f4d3a;
+    --green-soft:#2c6b50;
+    --red:#c8322e;
+    --amber:#d4a437;
+    --ink:#2a2620;
+    --ink-soft:#5b5445;
+    --card:#fffdf5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:'Source Serif 4',Georgia,serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    min-height:100vh;
+    padding:16px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(212,164,55,.04), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(31,77,58,.04), transparent 45%);
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+  .sheet{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--paper-line);
+    border-radius:4px;
+    box-shadow:0 2px 0 rgba(200,50,46,.18), 0 10px 30px rgba(42,38,32,.10);
+    overflow:hidden;
+  }
+  .ruled{
+    background-image:repeating-linear-gradient(
+      to bottom, transparent, transparent 31px, var(--paper-line) 31px, var(--paper-line) 32px);
+  }
+  .margin-line::before{
+    content:"";position:absolute;top:0;bottom:0;left:44px;width:2px;
+    background:var(--red);opacity:.55;
+  }
+  header{text-align:center;margin:8px 0 22px;}
+  .badge{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:600;
+    letter-spacing:.12em;font-size:.78rem;color:var(--paper);
+    background:var(--green);border:2px solid var(--green);
+    padding:5px 14px;border-radius:3px;transform:rotate(-2deg);
+    box-shadow:2px 2px 0 var(--amber);
+  }
+  h1{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    font-size:clamp(2rem,7vw,3rem);color:var(--green);line-height:1.05;
+    margin-top:14px;letter-spacing:-.01em;
+  }
+  h1 .accent{color:var(--red);}
+  .subtitle{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-soft);margin-top:8px;
+  }
+  .status{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    background:var(--card);border:2px solid var(--green);border-radius:6px;
+    box-shadow:3px 3px 0 rgba(200,50,46,.85);
+    margin-bottom:14px;overflow:hidden;
+  }
+  .status .cell{padding:10px 6px;text-align:center;border-right:1px solid var(--paper-line);}
+  .status .cell:last-child{border-right:none;}
+  .status .lbl{
+    font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:2px;
+  }
+  .status .val{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:var(--green);}
+  .status .val.wrong{color:var(--red);}
+  .progress-outer{
+    height:12px;background:var(--paper);border:1.5px solid var(--green);
+    border-radius:20px;overflow:hidden;margin-bottom:6px;
+  }
+  .progress-inner{height:100%;width:0;background:
+    repeating-linear-gradient(45deg,var(--amber),var(--amber) 8px,#c99a2f 8px,#c99a2f 16px);
+    transition:width .35s ease;}
+  .progress-txt{
+    font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.1em;
+    color:var(--ink-soft);text-align:right;margin-bottom:18px;
+  }
+  .qcard{margin-bottom:18px;}
+  .qhead{
+    background:var(--green);color:var(--paper);
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 16px 10px 20px;gap:10px;
+  }
+  .qnum{font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.1em;font-size:.82rem;flex-shrink:0;}
+  .qtag{
+    font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.1em;
+    text-transform:uppercase;background:var(--amber);color:var(--green);
+    padding:3px 9px;border-radius:3px;font-weight:600;text-align:right;
+  }
+  .qbody{padding:22px 20px 22px 62px;position:relative;}
+  .qtext{
+    font-family:'Source Serif 4',serif;font-size:clamp(1.05rem,3.4vw,1.22rem);
+    font-weight:500;color:var(--ink);margin-bottom:18px;line-height:1.5;
+  }
+  .qtext .blank{color:var(--red);font-weight:600;letter-spacing:.05em;}
+  .opts{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .opt{
+    display:flex;align-items:flex-start;gap:11px;
+    background:var(--card);border:1.5px solid var(--paper-line);
+    border-radius:5px;padding:12px 14px;cursor:pointer;
+    font-family:'Inter',sans-serif;font-size:.95rem;color:var(--ink);
+    transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  }
+  .opt:hover:not(.locked){
+    transform:translateX(5px);border-color:var(--green-soft);
+    box-shadow:-4px 4px 0 rgba(31,77,58,.18);
+  }
+  .opt .letter{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--green);
+    flex-shrink:0;min-width:20px;
+  }
+  .opt.locked{cursor:default;}
+  .opt.correct{
+    background:rgba(31,77,58,.10);border-color:var(--green);color:var(--green);font-weight:500;
+  }
+  .opt.correct .letter{color:var(--green);}
+  .opt.chosen-wrong{
+    background:rgba(200,50,46,.08);border-color:var(--red);
+    color:var(--red);text-decoration:line-through;text-decoration-color:var(--red);
+  }
+  .opt.chosen-wrong .letter{color:var(--red);}
+  .mark{font-family:'Kalam',cursive;font-weight:700;font-size:1.4rem;margin-left:auto;
+    line-height:1;padding-left:8px;}
+  .mark.tick{color:var(--green);}
+  .mark.cross{color:var(--red);}
+  .note{
+    margin-top:16px;background:rgba(212,164,55,.10);
+    border-left:4px solid var(--amber);border-radius:0 5px 5px 0;
+    padding:13px 16px;display:none;
+  }
+  .note.show{display:block;animation:fade .3s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+  .note .lbl{
+    font-family:'Kalam',cursive;font-weight:700;color:var(--red);
+    font-size:1.05rem;display:block;margin-bottom:4px;
+  }
+  .note .body{font-family:'Source Serif 4',serif;font-size:.95rem;color:var(--ink-soft);line-height:1.5;}
+  .note .body strong{color:var(--green);font-weight:600;}
+  .note .body em{color:var(--red);font-style:italic;}
+  .btn{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;font-size:.82rem;cursor:pointer;
+    background:var(--green);color:var(--paper);border:2px solid var(--green);
+    padding:13px 26px;border-radius:5px;transition:transform .12s,box-shadow .12s,opacity .2s;
+    box-shadow:3px 3px 0 var(--amber);
+  }
+  .btn:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--amber);}
+  .btn:active:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--amber);}
+  .btn:disabled{opacity:.35;cursor:not-allowed;box-shadow:3px 3px 0 rgba(212,164,55,.4);}
+  .btn.red{background:var(--red);border-color:var(--red);box-shadow:3px 3px 0 var(--green);}
+  .btn.red:hover:not(:disabled){box-shadow:4px 4px 0 var(--green);}
+  .btn-row{display:flex;justify-content:flex-end;gap:12px;margin-bottom:30px;}
+  .splash{text-align:center;padding:34px 24px 40px;}
+  .splash .quill{font-family:'Kalam',cursive;font-size:2.4rem;color:var(--amber);}
+  .splash h1{margin:6px 0 4px;}
+  .splash .lead{
+    font-family:'Source Serif 4',serif;font-size:1.05rem;color:var(--ink-soft);
+    max-width:470px;margin:16px auto 8px;line-height:1.6;
+  }
+  .splash .meta{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;
+    color:var(--green);text-transform:uppercase;margin:20px 0 26px;
+  }
+  .splash .meta span{display:inline-block;margin:0 10px;}
+  .topics{
+    display:flex;flex-wrap:wrap;gap:7px;justify-content:center;
+    max-width:520px;margin:0 auto 30px;
+  }
+  .topic{
+    font-family:'Inter',sans-serif;font-size:.75rem;color:var(--green);
+    background:rgba(31,77,58,.07);border:1px solid var(--paper-line);
+    padding:5px 11px;border-radius:20px;
+  }
+  .report{padding:30px 22px 40px;text-align:center;}
+  .grade-big{
+    font-family:'Fraunces',serif;font-weight:600;font-size:clamp(4rem,20vw,7rem);
+    line-height:1;color:var(--green);margin:4px 0;
+  }
+  .grade-big.low{color:var(--red);}
+  .rank{
+    font-family:'Kalam',cursive;font-weight:700;font-size:1.5rem;color:var(--red);
+    transform:rotate(-1.5deg);margin-bottom:22px;
+  }
+  .rc-panel{
+    background:var(--card);border:2px solid var(--green);border-radius:6px;
+    box-shadow:4px 4px 0 rgba(200,50,46,.8);max-width:420px;margin:0 auto 26px;
+    overflow:hidden;
+  }
+  .rc-row{
+    display:flex;justify-content:space-between;padding:11px 18px;
+    border-bottom:1px dashed var(--paper-line);
+    font-family:'IBM Plex Mono',monospace;font-size:.85rem;
+  }
+  .rc-row:last-child{border-bottom:none;}
+  .rc-row .k{color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;align-self:center;}
+  .rc-row .v{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--green);}
+  .rc-row .v.red{color:var(--red);}
+  .teacher-note{
+    background:rgba(200,50,46,.05);border:1px dashed var(--red);border-radius:6px;
+    padding:18px 20px;max-width:460px;margin:0 auto 28px;text-align:left;
+  }
+  .teacher-note .tn-lbl{
+    font-family:'Kalam',cursive;font-weight:700;color:var(--red);font-size:1.1rem;
+    display:block;margin-bottom:6px;
+  }
+  .teacher-note .tn-body{
+    font-family:'Kalam',cursive;font-size:1.12rem;color:#a8302b;line-height:1.5;
+  }
+  .hidden{display:none;}
+  footer{
+    text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.62rem;
+    letter-spacing:.1em;color:var(--ink-soft);opacity:.7;margin:10px 0 20px;
+  }
+  @media(max-width:480px){
+    body{padding:10px;}
+    .qbody{padding:18px 14px 18px 52px;}
+    .margin-line::before{left:34px;}
+    .status .val{font-size:1.05rem;}
+    .btn{padding:12px 18px;font-size:.74rem;}
+    .qtag{font-size:.55rem;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section id="splash">
+    <div class="sheet ruled margin-line splash">
+      <div class="quill">&#9998;</div>
+      <span class="badge">B1&ndash;B2 &middot; MEDICAL ENGLISH</span>
+      <h1>The Vocabulary <span class="accent">Workbook</span></h1>
+      <p class="lead">A 30-question Medical English vocabulary test on <strong>The Human Body</strong> &mdash; injuries, organs, scans &amp; tests, and the right specialists. Choose the best word, then read the note to learn how it's used.</p>
+      <div class="meta">
+        <span>&#9679; 30 Questions</span><span>&#9679; 4 Options Each</span><span>&#9679; Instant Feedback</span>
+      </div>
+      <div class="topics" id="topicChips"></div>
+      <button class="btn" id="startBtn">Begin the Test &rarr;</button>
+    </div>
+    <footer>THE VOCABULARY WORKBOOK &middot; MEDICAL ENGLISH &middot; THE HUMAN BODY</footer>
+  </section>
+
+  <section id="test" class="hidden">
+    <header>
+      <span class="badge">B1&ndash;B2</span>
+      <h1>The Vocabulary <span class="accent">Workbook</span></h1>
+      <div class="subtitle">The Human Body &middot; Medical Vocabulary</div>
+    </header>
+    <div class="status">
+      <div class="cell"><span class="lbl">Question</span><span class="val" id="sQ">1/30</span></div>
+      <div class="cell"><span class="lbl">Correct</span><span class="val" id="sC">0</span></div>
+      <div class="cell"><span class="lbl">Wrong</span><span class="val wrong" id="sW">0</span></div>
+      <div class="cell"><span class="lbl">Score</span><span class="val" id="sS">0%</span></div>
+    </div>
+    <div class="progress-outer"><div class="progress-inner" id="prog"></div></div>
+    <div class="progress-txt" id="progTxt">0 / 30 completed</div>
+    <div class="sheet ruled margin-line qcard">
+      <div class="qhead">
+        <span class="qnum" id="qNum">Q01</span>
+        <span class="qtag" id="qTag">Injuries</span>
+      </div>
+      <div class="qbody">
+        <p class="qtext" id="qText"></p>
+        <ul class="opts" id="opts"></ul>
+        <div class="note" id="note">
+          <span class="lbl">&#9998; Vocabulary Note</span>
+          <span class="body" id="noteBody"></span>
+        </div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn" id="nextBtn" disabled>Next &rarr;</button>
+    </div>
+  </section>
+
+  <section id="report" class="hidden">
+    <header>
+      <span class="badge">Report Card</span>
+      <h1>Your <span class="accent">Results</span></h1>
+    </header>
+    <div class="sheet ruled margin-line report">
+      <div class="grade-big" id="gradeBig">A</div>
+      <div class="rank" id="rankTxt">Solid B1&ndash;B2</div>
+      <div class="rc-panel">
+        <div class="rc-row"><span class="k">Total Questions</span><span class="v" id="rTotal">30</span></div>
+        <div class="rc-row"><span class="k">Correct</span><span class="v" id="rCorrect">0</span></div>
+        <div class="rc-row"><span class="k">Wrong</span><span class="v red" id="rWrong">0</span></div>
+        <div class="rc-row"><span class="k">Score</span><span class="v" id="rScore">0%</span></div>
+        <div class="rc-row"><span class="k">Grade</span><span class="v" id="rGrade">A</span></div>
+      </div>
+      <div class="teacher-note">
+        <span class="tn-lbl">&#9998; Teacher's Note</span>
+        <span class="tn-body" id="teacherNote"></span>
+      </div>
+      <button class="btn red" id="restartBtn">&#8635; Take the Test Again</button>
+    </div>
+    <footer>THE VOCABULARY WORKBOOK &middot; KEEP BUILDING YOUR WORD POWER</footer>
+  </section>
+
+</div>
+
+<script>
+const QUESTIONS = [{"cat":"Injuries","q":"She stretched the soft tissue around her ankle but didn't break anything — it was just a ______.","o":["sprain","graze","fracture","bruise"],"answer":0,"note":"A <strong>sprain</strong> is an injury to a ligament, caused by stretching or tearing it. To <em>sprain</em> a joint is less serious than to <em>fracture</em> (break) a bone."},{"cat":"Injuries","q":"Rugby players often ______ a shoulder, pushing the bone out of its normal position.","o":["bruise","fracture","sprain","dislocate"],"answer":3,"note":"To <strong>dislocate</strong> means a bone has moved out of its normal place at a joint. Compare it with <em>sprain</em> (stretched ligaments) and <em>fracture</em> (a broken bone)."},{"cat":"Injuries","q":"The X-ray showed a small ______ in her wrist, so we'll put it in plaster.","o":["graze","bruise","fracture","sprain"],"answer":2,"note":"A <strong>fracture</strong> is a broken bone. We often say a bone is <em>fractured</em> or <em>broken</em> — the two words mean the same thing in everyday medical English."},{"cat":"Injuries","q":"He tore a ______ in his knee playing football; it's the tissue that connects the bones at a joint.","o":["ligament","artery","bone","muscle"],"answer":0,"note":"A <strong>ligament</strong> connects bones to each other at a joint. Don't confuse it with a <em>muscle</em>, which produces movement, or a <em>tendon</em>, which joins muscle to bone."},{"cat":"Injuries","q":"The knee is one of the busiest ______ in the body — the places where two bones meet.","o":["arteries","organs","muscles","joints"],"answer":3,"note":"A <strong>joint</strong> is where two bones meet, such as the knee, elbow or wrist. Many injuries happen in the <em>joints</em> because they move so often."},{"cat":"Injuries","q":"After bumping into the corner of the table, she had a purple ______ on her leg.","o":["wound","cut","bruise","burn"],"answer":2,"note":"A <strong>bruise</strong> is a purple or blue mark under the skin caused by a bump. Unlike a <em>cut</em> or a <em>graze</em>, the skin is not broken."},{"cat":"Injuries","q":"Always clean the ______ carefully before you put a bandage on it.","o":["bone","wound","joint","muscle"],"answer":1,"note":"A <strong>wound</strong> is a cut or injury to the skin. A small <em>wound</em> that becomes infected can turn into a serious problem, so we always clean it first."},{"cat":"Injuries","q":"The child fell over in the playground and got a ______ on her knee — just a small scrape on the skin.","o":["ligament","graze","sprain","fracture"],"answer":1,"note":"A <strong>graze</strong> is a shallow skin injury caused by scraping against a rough surface. It is more minor than a <em>cut</em> and usually heals on its own."},{"cat":"Organs","q":"The ______ is a muscle about the size of your fist that pumps blood around the body.","o":["heart","brain","stomach","liver"],"answer":0,"note":"The <strong>heart</strong> pumps blood through the body. When the arteries that feed it become blocked, the result can be a <em>heart attack</em>."},{"cat":"Organs","q":"The ______ bring oxygen into the blood and remove carbon dioxide when we breathe.","o":["kidneys","intestines","muscles","lungs"],"answer":3,"note":"The <strong>lungs</strong> are the organs we use to breathe. Common diseases include <em>pneumonia</em> (a lung infection) and <em>asthma</em> (when the airways tighten)."},{"cat":"Organs","q":"Too much alcohol over many years can seriously damage the ______, the organ that cleans the blood.","o":["heart","liver","stomach","brain"],"answer":1,"note":"The <strong>liver</strong> filters and cleans the blood. Long-term damage can lead to <em>hepatitis</em> (inflammation) or <em>cirrhosis</em> (scarring)."},{"cat":"Organs","q":"The ______ are two bean-shaped organs that filter waste out of your blood.","o":["muscles","lungs","arteries","kidneys"],"answer":3,"note":"The <strong>kidneys</strong> filter waste from the blood. Hard pieces called <em>kidney stones</em> can form inside them and cause severe pain."},{"cat":"Organs","q":"A blocked ______ — one of the tubes that carries blood from the heart — can cause a heart attack.","o":["artery","joint","ligament","muscle"],"answer":0,"note":"An <strong>artery</strong> carries blood away from the heart. When an <em>artery</em> becomes blocked, blood can't reach the heart muscle, causing a heart attack."},{"cat":"Organs","q":"When the arteries feeding the heart get blocked, the result is a ______.","o":["heart attack","stroke","fracture","sprain"],"answer":0,"note":"A <strong>heart attack</strong> happens when blood flow to the heart suddenly stops. Patients often describe it as <em>a heavy weight on the chest</em>."},{"cat":"Organs","q":"A ______ happens when blood suddenly stops flowing to part of the brain.","o":["heart attack","fracture","stroke","biopsy"],"answer":2,"note":"A <strong>stroke</strong> cuts off blood to the brain, and every minute matters. The <em>FAST</em> test checks Face, Arms, Speech and Time to call an ambulance."},{"cat":"Organs","q":"Diabetes is a ______ illness: you learn to live with it, but you don't fully cure it.","o":["chronic","sudden","minor","temporary"],"answer":0,"note":"A <strong>chronic</strong> illness is a long-term condition that doesn't fully go away. It is the opposite of an <em>acute</em> problem, which comes on suddenly and passes."},{"cat":"Scans & Tests","q":"If you fall and think a bone is broken, the first test is usually an ______.","o":["biopsy","ECG","ultrasound","X-ray"],"answer":3,"note":"An <strong>X-ray</strong> uses radiation to make an image, and is best for looking at <em>bones</em>. It is quick but not ideal for soft tissue."},{"cat":"Scans & Tests","q":"An ______ scan uses powerful magnets rather than radiation and is excellent for soft tissue like the brain.","o":["ECG","MRI","ultrasound","X-ray"],"answer":1,"note":"An <strong>MRI</strong> (magnetic resonance imaging) scan uses magnets and is brilliant for <em>soft tissue</em>. Patients with metal in their body must tell staff before the scan."},{"cat":"Scans & Tests","q":"Pregnancy is usually monitored with an ______, which uses sound waves and no radiation.","o":["X-ray","ECG","MRI","ultrasound"],"answer":3,"note":"An <strong>ultrasound</strong> uses sound waves and a clear gel to make images. It is safe, cheap and famous for checking a baby during <em>pregnancy</em>."},{"cat":"Scans & Tests","q":"A ______ takes many X-rays from different angles, and because it's fast, every emergency department has one.","o":["CT scan","MRI scan","ultrasound","biopsy"],"answer":0,"note":"A <strong>CT scan</strong> (computed tomography) combines many X-rays into detailed 'slices' of the body. Its speed makes it ideal for <em>emergencies</em>."},{"cat":"Scans & Tests","q":"A simple ______ can reveal anaemia, infection, diabetes and how well the kidneys are working.","o":["ultrasound","blood test","X-ray","biopsy"],"answer":1,"note":"A <strong>blood test</strong> examines a sample of blood. It can check for <em>anaemia</em>, <em>infection</em> and <em>diabetes</em>, and is one of the most informative low-cost investigations available."},{"cat":"Scans & Tests","q":"An ______ records the electrical activity of the heart and only takes about five minutes.","o":["MRI","X-ray","ECG","ultrasound"],"answer":2,"note":"An <strong>ECG</strong> records the heart's electrical activity. It is quick and painless, and is used to check the heart's <em>rhythm</em> and spot problems."},{"cat":"Scans & Tests","q":"Sometimes a ______ — taking a tiny piece of tissue for testing — is needed before a final diagnosis.","o":["bruise","biopsy","diagnosis","referral"],"answer":1,"note":"A <strong>biopsy</strong> means removing a small piece of tissue to examine it. It often gives the final answer that leads to a <em>diagnosis</em> — the doctor's identification of the disease."},{"cat":"Specialists","q":"The first doctor you usually meet, who listens, examines you and decides what to do next, is a ______.","o":["specialist","surgeon","GP","dentist"],"answer":2,"note":"A <strong>GP</strong> (general practitioner) is your family doctor and 'the front door of medicine'. A good GP knows exactly which <em>specialist</em> to send you to."},{"cat":"Specialists","q":"My doctor gave me a ______ — a letter asking a specialist to see me about my knee.","o":["prescription","referral","biopsy","diagnosis"],"answer":1,"note":"A <strong>referral</strong> is a letter from a GP to a specialist. You often have to wait for a <em>referral</em> before a specialist will see you."},{"cat":"Specialists","q":"If your problem is the heart, your GP will send you to a ______.","o":["urologist","dermatologist","cardiologist","neurologist"],"answer":2,"note":"A <strong>cardiologist</strong> treats the heart, including heart attacks and rhythm problems. The word comes from <em>cardio-</em>, meaning 'heart'."},{"cat":"Specialists","q":"A worrying mole, persistent acne or a strange rash is a job for a ______.","o":["paediatrician","cardiologist","dermatologist","dentist"],"answer":2,"note":"A <strong>dermatologist</strong> treats the skin, hair and nails. The root <em>derma-</em> means 'skin'."},{"cat":"Specialists","q":"A ______ looks after children, from new-born babies right through to teenagers.","o":["gynaecologist","dermatologist","cardiologist","paediatrician"],"answer":3,"note":"A <strong>paediatrician</strong> is a doctor for children. For a worried baby, you would go to a <em>paediatrician</em> rather than a general doctor."},{"cat":"Specialists","q":"Headaches, epilepsy and stroke care are all dealt with by a ______.","o":["neurologist","urologist","dermatologist","cardiologist"],"answer":0,"note":"A <strong>neurologist</strong> deals with the brain and nervous system. A related specialist, the <em>gastroenterologist</em>, handles the digestive system instead."},{"cat":"Specialists","q":"Twice a year, you should really visit the ______ to look after your teeth and gums.","o":["dermatologist","dentist","cardiologist","GP"],"answer":1,"note":"A <strong>dentist</strong> treats the <em>teeth</em> and <em>gums</em>. It's the door 'we should all walk through twice a year, but most of us avoid'."}];
+
+var idx=0, correct=0, wrong=0, answered=false;
+
+var cats=[];
+QUESTIONS.forEach(function(q){ if(cats.indexOf(q.cat)===-1) cats.push(q.cat); });
+var chip=document.getElementById('topicChips');
+cats.forEach(function(c){ var s=document.createElement('span'); s.className='topic'; s.textContent=c; chip.appendChild(s); });
+
+var $=function(id){return document.getElementById(id);};
+
+function show(sec){
+  ['splash','test','report'].forEach(function(s){ $(s).classList.add('hidden'); });
+  $(sec).classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function render(){
+  answered=false;
+  var q=QUESTIONS[idx];
+  $('qNum').textContent='Q'+String(idx+1).padStart(2,'0');
+  $('qTag').textContent=q.cat;
+  $('qText').innerHTML=q.q.replace(/______/g,'<span class="blank">______</span>');
+  var letters=['A','B','C','D'];
+  var ul=$('opts'); ul.innerHTML='';
+  q.o.forEach(function(text,i){
+    var li=document.createElement('li');
+    li.className='opt';
+    li.innerHTML='<span class="letter">'+letters[i]+')</span><span class="otext">'+text+'</span>';
+    li.addEventListener('click',function(){ choose(i,li); });
+    ul.appendChild(li);
+  });
+  $('note').classList.remove('show');
+  $('noteBody').innerHTML=q.note;
+  $('nextBtn').disabled=true;
+  $('nextBtn').textContent = (idx===QUESTIONS.length-1) ? 'See Results →' : 'Next →';
+  updateStatus();
+}
+
+function choose(i,li){
+  if(answered) return;
+  answered=true;
+  var q=QUESTIONS[idx];
+  var opts=document.querySelectorAll('#opts .opt');
+  opts.forEach(function(o,k){
+    o.classList.add('locked');
+    if(k===q.answer){
+      o.classList.add('correct');
+      var m=document.createElement('span'); m.className='mark tick'; m.textContent='✓'; o.appendChild(m);
+    }
+  });
+  if(i===q.answer){
+    correct++;
+  } else {
+    wrong++;
+    li.classList.add('chosen-wrong');
+    var x=document.createElement('span'); x.className='mark cross'; x.textContent='✗'; li.appendChild(x);
+  }
+  $('note').classList.add('show');
+  $('nextBtn').disabled=false;
+  updateStatus();
+}
+
+function updateStatus(){
+  var done=correct+wrong;
+  $('sQ').textContent=(idx+1)+'/'+QUESTIONS.length;
+  $('sC').textContent=correct;
+  $('sW').textContent=wrong;
+  var pct = done? Math.round(correct/done*100):0;
+  $('sS').textContent=pct+'%';
+  var pdone=Math.round((idx + (answered?1:0))/QUESTIONS.length*100);
+  $('prog').style.width=pdone+'%';
+  $('progTxt').textContent=(idx+(answered?1:0))+' / '+QUESTIONS.length+' completed';
+}
+
+$('nextBtn').addEventListener('click',function(){
+  if(!answered) return;
+  if(idx<QUESTIONS.length-1){ idx++; render(); }
+  else finish();
+});
+
+function gradeFor(p){
+  if(p>=95) return['A+','Excellent &mdash; Ward-Ready Vocabulary'];
+  if(p>=90) return['A','Solid B2 &mdash; Confident Medical English'];
+  if(p>=80) return['B+','Comfortable B1&ndash;B2 &mdash; Well Prepared'];
+  if(p>=70) return['B','Approaching B2 &mdash; Nearly There'];
+  if(p>=60) return['C','Building B1&ndash;B2 &mdash; Good Progress'];
+  if(p>=50) return['D','Developing &mdash; Foundations Forming'];
+  return['F','Building Foundations &mdash; Keep Going'];
+}
+
+function teacherFeedback(p,total){
+  if(p>=90) return "Excellent work! Your medical vocabulary is broad and precise &mdash; injuries, organs, scans and specialists are all under control. You could explain a sprain, a stroke or a referral to a patient in clear English. Keep using these words in real clinic situations and role-plays.";
+  if(p>=80) return "Very good result! You know most of this vocabulary well. Look again at the words you missed &mdash; they are often close pairs (like <em>sprain</em> vs <em>fracture</em>, or <em>artery</em> vs <em>ligament</em>). Learning the exact difference will make your patient explanations clearer.";
+  if(p>=70) return "Good effort &mdash; you are close to confident B2. Focus on the trickier terms: the organ names, the scan types (X-ray, CT, MRI, ultrasound) and the specialists. Try describing each one aloud in a simple sentence, as if explaining it to a nervous patient.";
+  if(p>=60) return "You are making solid progress. Revise the four topics one at a time &mdash; injuries, organs, scans and specialists &mdash; and learn the words in pairs (heart / heart attack, kidney / kidney stones). Re-reading the lesson and re-taking this test will help the words stick.";
+  if(p>=50) return "A fair start! Build your foundation with the most common words first: the body parts, the basic injuries (sprain, bruise, wound) and the main organs. Study a few at a time, say them aloud, and come back to the harder specialist names later.";
+  return "Don't be discouraged &mdash; medical vocabulary takes time to build! Begin with the simplest words (bone, joint, heart, lungs), then add the injuries, tests and specialists a few at a time. Re-read the lesson, practise saying each word, and try the test again soon. You'll improve quickly!";
+}
+
+function finish(){
+  var total=QUESTIONS.length;
+  var p=Math.round(correct/total*100);
+  var g=gradeFor(p);
+  $('gradeBig').textContent=g[0];
+  $('gradeBig').classList.toggle('low', p<60);
+  $('rankTxt').innerHTML=g[1];
+  $('rTotal').textContent=total;
+  $('rCorrect').textContent=correct;
+  $('rWrong').textContent=wrong;
+  $('rScore').textContent=p+'%';
+  $('rGrade').textContent=g[0];
+  $('teacherNote').innerHTML=teacherFeedback(p,total);
+  show('report');
+}
+
+$('startBtn').addEventListener('click',function(){ idx=0;correct=0;wrong=0; show('test'); render(); });
+$('restartBtn').addEventListener('click',function(){ idx=0;correct=0;wrong=0; show('splash'); });
+</script>
+</body>
+</html>
