@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading The Market — B2 English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"📈";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<style>
+.chart-block{background:#fff;border:2px solid #0a1520;box-shadow:5px 5px 0 #0a1520;padding:24px 20px 12px;margin:24px 0;border-radius:4px;}
+.chart-block svg{display:block;width:100%;height:auto;max-width:100%;}
+.chart-title{font-family:'DM Serif Display',serif;font-size:20px;color:#0a1520;margin:0 0 4px;line-height:1.2;}
+.chart-source{font-family:'Courier Prime',monospace;font-size:11px;color:#8a7050;letter-spacing:0.5px;margin-top:8px;text-transform:uppercase;}
+</style>
+</head>
+
+
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">📈 B2 ENGLISH · CHARTS · GRAPHS · MARKET TRENDS · ECONOMICS</div>
+      <h1>Reading The <span class="accent">Market</span></h1>
+      <div class="sub">Four conversations built around real charts &mdash; oil prices, chip sales by region, electric vs diesel cars, and the world energy mix. Learn to describe rises, falls, spikes, plateaus and long-term trends in the language of economists, journalists and market analysts. Every highlighted item is a real market-trend collocation or phrasal verb.</div>
+      <div class="tags">
+        <span class="tag">CEFR B2</span>
+        <span class="tag">READING ~450 WORDS</span>
+        <span class="tag">MARKET-TREND LANGUAGE</span>
+        <span class="tag">4 REAL SVG CHARTS</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">76 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Line Graph 📈</button>
+    <button class="tab" data-tab="t2">② Bar Chart 📊</button>
+    <button class="tab" data-tab="t3">③ Comparison 📉</button>
+    <button class="tab" data-tab="t4">④ Pie Chart 🥧</button>
+  </nav>
+
+
+<section class="panel active" id="t1">
+  <h2 class="topic-title"><span class="topic-emoji">📈</span> Line Graphs: Oil Prices</h2>
+  <p class="topic-instr">Reading a line graph and describing rises, falls, spikes and long-term trends. Highlighted items are market-trend collocations.</p>
+  <article class="reading">
+    <h3 class="reading-title">Oil: The Roller-Coaster of the Modern Economy</h3>
+    <div class="byline">★ Daniel Park · Energy market analyst · Reads charts for a living</div>
+    <p>The line graph below shows the average price of Brent crude oil in US dollars per barrel from 2020 to 2026. In seven years, the market has done almost everything a market can do: <b>collapse</b>, <b>rebound</b>, <b>spike</b>, <b>level off</b> and quietly <b>drift downwards</b> again. Learn to describe this graph well, and you can describe almost any market.</p>
+<div class="chart-block"><svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart of Brent crude oil price 2020 to 2026">
+  <text x="20" y="26" font-family="DM Serif Display, serif" font-size="18" fill="#0a1520">Brent crude oil price (USD per barrel), 2020&ndash;2026</text>
+  <text x="20" y="44" font-family="Inter, sans-serif" font-size="11" fill="#8a7050">Annual average, rounded. Source: adapted market data.</text>
+  <!-- axes -->
+  <line x1="60" y1="70" x2="60" y2="290" stroke="#0a1520" stroke-width="2"/>
+  <line x1="60" y1="290" x2="680" y2="290" stroke="#0a1520" stroke-width="2"/>
+  <!-- y-axis labels (0-120) -->
+  <g font-family="Courier Prime, monospace" font-size="11" fill="#0a1520">
+    <text x="30" y="294" text-anchor="end">0</text>
+    <text x="30" y="257" text-anchor="end">20</text>
+    <text x="30" y="220" text-anchor="end">40</text>
+    <text x="30" y="184" text-anchor="end">60</text>
+    <text x="30" y="147" text-anchor="end">80</text>
+    <text x="30" y="110" text-anchor="end">100</text>
+    <text x="30" y="74" text-anchor="end">120</text>
+  </g>
+  <!-- gridlines -->
+  <g stroke="#e8e0d0" stroke-width="1">
+    <line x1="60" y1="257" x2="680" y2="257"/>
+    <line x1="60" y1="220" x2="680" y2="220"/>
+    <line x1="60" y1="184" x2="680" y2="184"/>
+    <line x1="60" y1="147" x2="680" y2="147"/>
+    <line x1="60" y1="110" x2="680" y2="110"/>
+    <line x1="60" y1="74" x2="680" y2="74"/>
+  </g>
+  <!-- x-axis labels (2020-2026, 7 points) -->
+  <g font-family="Courier Prime, monospace" font-size="11" fill="#0a1520" text-anchor="middle">
+    <text x="90" y="310">2020</text>
+    <text x="188" y="310">2021</text>
+    <text x="286" y="310">2022</text>
+    <text x="384" y="310">2023</text>
+    <text x="482" y="310">2024</text>
+    <text x="580" y="310">2025</text>
+    <text x="660" y="310">2026</text>
+  </g>
+  <!-- polyline: y = 290 - price*1.83 approx (0->290, 120->70), so y = 290 - price*(220/120) = 290 - price*1.833 -->
+  <!-- 2020:42 -> y=213, 2021:71 -> y=160, 2022:99 -> y=109, 2023:82 -> y=140, 2024:80 -> y=143, 2025:74 -> y=154, 2026:69 -> y=163 -->
+  <polyline points="90,213 188,160 286,109 384,140 482,143 580,154 660,163"
+    fill="none" stroke="#F97316" stroke-width="3" stroke-linejoin="round"/>
+  <!-- points -->
+  <g fill="#F97316" stroke="#0a1520" stroke-width="2">
+    <circle cx="90" cy="213" r="5"/>
+    <circle cx="188" cy="160" r="5"/>
+    <circle cx="286" cy="109" r="5"/>
+    <circle cx="384" cy="140" r="5"/>
+    <circle cx="482" cy="143" r="5"/>
+    <circle cx="580" cy="154" r="5"/>
+    <circle cx="660" cy="163" r="5"/>
+  </g>
+  <!-- value labels -->
+  <g font-family="Courier Prime, monospace" font-size="11" fill="#0a1520" text-anchor="middle" font-weight="bold">
+    <text x="90" y="203">$42</text>
+    <text x="188" y="150">$71</text>
+    <text x="286" y="99">$99</text>
+    <text x="384" y="130">$82</text>
+    <text x="482" y="133">$80</text>
+    <text x="580" y="144">$74</text>
+    <text x="660" y="153">$69</text>
+  </g>
+</svg></div>
+<p>Let's <b>break the trend down</b>. In 2020, the price <b>bottomed out</b> at around $42 as the pandemic <b>caused demand to collapse</b>. Almost nobody was flying, driving or commuting, and stored oil <b>piled up</b> so quickly that some traders briefly paid customers to take it away. This was a genuine crisis for producers.</p>
+<div class="pull-quote">&ldquo;A single line on a chart usually hides several years of confusion, panic and quiet correction. Learn to read the line and you'll never listen to news the same way again.&rdquo;</div>
+<p>Then came the recovery. In 2021, as economies <b>picked up</b>, demand <b>bounced back</b> and the price <b>climbed steadily</b> to about $71. This is a classic <b>rebound</b>. The market didn't just recover; it <b>overshot</b>, as producers had cut supply during 2020 and couldn't ramp production back up fast enough.</p>
+<p>In 2022, the price <b>skyrocketed</b> to about $99. This was the Russia–Ukraine shock: fears about supply <b>drove prices up sharply</b>, and speculators <b>piled into</b> the market. This is called a <b>price spike</b> &mdash; a short, dramatic move driven by fear, not by fundamentals. Spikes usually don't last.</p>
+<p>By 2023, the price <b>eased off</b> to $82 as supply concerns <b>died down</b> and demand growth <b>slowed</b>. In 2024, it <b>hovered around</b> $80. This is a <b>plateau</b>: a period when a price <b>levels off</b> and doesn't move much in either direction. Analysts hate plateaus because there's nothing to talk about.</p>
+<p>Then, in 2025 and 2026, the price began to <b>drift down</b> gently to $74 and then $69. This isn't a crash; it's a <b>gradual decline</b>. New supply from the US, slower Chinese growth, and rising electric-vehicle sales <b>weighed on</b> the market. Nothing dramatic, just <b>steady downward pressure</b>.</p>
+<p>There's a real vocabulary for describing charts like this, and B2 students should learn it. Prices <b>rise sharply</b>, <b>climb steadily</b>, <b>edge up</b>, or <b>surge</b>. They also <b>fall sharply</b>, <b>slide gently</b>, <b>drop back</b>, or <b>plunge</b>. They can <b>fluctuate</b> (go up and down), <b>stagnate</b> (stay flat despite pressure), or <b>consolidate</b> (settle in a narrow range). Use the right word and you sound like an analyst; use the wrong one and you sound like someone reading the label wrong.</p>
+<p>There's also the language of comparison. Oil is <b>up 64% from its 2020 low</b>, but <b>down 30% from its 2022 peak</b>. Prices are <b>higher year-on-year</b> or <b>lower quarter-on-quarter</b>. When you describe a chart properly, always give the <b>timeframe</b> and, if possible, <b>the peak</b> and <b>the trough</b>.</p>
+<p>If you take one idea, take this. Charts don't tell you what will happen next. They tell you what already happened. Learn the words for describing that clearly, and you'll be halfway to reading any market in the world. The other half is knowing when the story on the news is really the story on the chart.</p>
+  </article>
+  <h3 class="section-h"><span class="pin">📌</span> Key vocabulary</h3>
+  <p class="section-note">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+  <div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">a trend</div><div class="vocab-def">a general direction of change</div><div class="vocab-ex">"The upward trend is clear."</div></div>
+<div class="vocab-card"><div class="vocab-word">a peak</div><div class="vocab-def">the highest point</div><div class="vocab-ex">"Prices peaked in 2022."</div></div>
+<div class="vocab-card"><div class="vocab-word">a trough</div><div class="vocab-def">the lowest point</div><div class="vocab-ex">"The trough was in 2020."</div></div>
+<div class="vocab-card"><div class="vocab-word">a spike</div><div class="vocab-def">a short sharp rise</div><div class="vocab-ex">"There was a price spike in March."</div></div>
+<div class="vocab-card"><div class="vocab-word">a plateau</div><div class="vocab-def">a period of stable prices</div><div class="vocab-ex">"Prices hit a plateau at $80."</div></div>
+<div class="vocab-card"><div class="vocab-word">supply</div><div class="vocab-def">the amount available</div><div class="vocab-ex">"Supply cuts drove the price up."</div></div>
+<div class="vocab-card"><div class="vocab-word">demand</div><div class="vocab-def">the amount wanted</div><div class="vocab-ex">"Demand collapsed during the pandemic."</div></div>
+<div class="vocab-card"><div class="vocab-word">volatility</div><div class="vocab-def">how much a price moves</div><div class="vocab-ex">"Oil is famous for its volatility."</div></div></div>
+  <h3 class="section-h"><span class="pin">🎯</span> Phrasal verbs &amp; collocations</h3>
+  <p class="section-note">The target chunks you'll use when you speak.</p>
+  <div class="vocab-grid"><div class="vocab-card idiom-card"><div class="vocab-word">to skyrocket</div><div class="vocab-def">to rise very sharply</div><div class="vocab-ex">"Oil prices skyrocketed in 2022."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to plummet</div><div class="vocab-def">to fall very sharply</div><div class="vocab-ex">"Prices plummeted during the pandemic."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to peak at</div><div class="vocab-def">to reach a highest point at</div><div class="vocab-ex">"Prices peaked at $99 in 2022."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to level off</div><div class="vocab-def">to stop rising or falling</div><div class="vocab-ex">"Prices levelled off around $80."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to bottom out</div><div class="vocab-def">to reach the lowest point before recovering</div><div class="vocab-ex">"The price bottomed out at $42."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to rebound</div><div class="vocab-def">to recover after a fall</div><div class="vocab-ex">"The market rebounded strongly in 2021."</div></div></div>
+  <h3 class="section-h"><span class="pin">✍️</span> Gap-fill</h3>
+  <p class="section-note">Fill in with words from the bank. Word bank: <span class='bank-word'>trend</span> &nbsp;·&nbsp; <span class='bank-word'>peak</span> &nbsp;·&nbsp; <span class='bank-word'>trough</span> &nbsp;·&nbsp; <span class='bank-word'>spike</span> &nbsp;·&nbsp; <span class='bank-word'>plateau</span> &nbsp;·&nbsp; <span class='bank-word'>supply</span> &nbsp;·&nbsp; <span class='bank-word'>demand</span> &nbsp;·&nbsp; <span class='bank-word'>volatility</span></p>
+  <div class="gap-list"><div class="gap-item"><span class="gap-num">1.</span> The upward <input type=text class="fill-input" data-answer="trend" /> is obvious across five years.</div>
+<div class="gap-item"><span class="gap-num">2.</span> Prices reached their <input type=text class="fill-input" data-answer="peak" /> in 2022.</div>
+<div class="gap-item"><span class="gap-num">3.</span> The <input type=text class="fill-input" data-answer="trough" /> came at $42 in 2020.</div>
+<div class="gap-item"><span class="gap-num">4.</span> There was a serious price <input type=text class="fill-input" data-answer="spike" /> during the war.</div>
+<div class="gap-item"><span class="gap-num">5.</span> Then prices reached a <input type=text class="fill-input" data-answer="plateau" /> around $80.</div>
+<div class="gap-item"><span class="gap-num">6.</span> Sudden <input type=text class="fill-input" data-answer="supply" /> cuts pushed the price up.</div>
+<div class="gap-item"><span class="gap-num">7.</span> Global <input type=text class="fill-input" data-answer="demand" /> collapsed during the lockdowns.</div>
+<div class="gap-item"><span class="gap-num">8.</span> Oil is famous for its <input type=text class="fill-input" data-answer="volatility" />.</div></div>
+  <div class="gap-controls"><button class="btn check">Check</button><button class="btn clear">Clear</button><span class="score"></span></div>
+  <h3 class="section-h"><span class="pin">✅</span> Reading check</h3>
+  <div class="mc-list"><div class="mc-item"><div class="mc-q">1. The oil price in 2020 was around…</div><label class="mc-opt"><input type=radio name="mc-t1-0" data-correct="1"> $42</label><label class="mc-opt"><input type=radio name="mc-t1-0" data-correct="0"> $99</label><label class="mc-opt"><input type=radio name="mc-t1-0" data-correct="0"> $71</label></div>
+<div class="mc-item"><div class="mc-q">2. The main reason for the 2020 low was…</div><label class="mc-opt"><input type=radio name="mc-t1-1" data-correct="0"> war</label><label class="mc-opt"><input type=radio name="mc-t1-1" data-correct="1"> pandemic collapse of demand</label><label class="mc-opt"><input type=radio name="mc-t1-1" data-correct="0"> tax changes</label></div>
+<div class="mc-item"><div class="mc-q">3. The 2022 spike was mainly caused by…</div><label class="mc-opt"><input type=radio name="mc-t1-2" data-correct="0"> a new pandemic</label><label class="mc-opt"><input type=radio name="mc-t1-2" data-correct="1"> the Russia-Ukraine shock</label><label class="mc-opt"><input type=radio name="mc-t1-2" data-correct="0"> OPEC quotas</label></div>
+<div class="mc-item"><div class="mc-q">4. By 2024, the price…</div><label class="mc-opt"><input type=radio name="mc-t1-3" data-correct="0"> skyrocketed again</label><label class="mc-opt"><input type=radio name="mc-t1-3" data-correct="1"> hovered around $80 (a plateau)</label><label class="mc-opt"><input type=radio name="mc-t1-3" data-correct="0"> fell to $42</label></div>
+<div class="mc-item"><div class="mc-q">5. By 2026, the price had…</div><label class="mc-opt"><input type=radio name="mc-t1-4" data-correct="1"> drifted gently down</label><label class="mc-opt"><input type=radio name="mc-t1-4" data-correct="0"> risen sharply</label><label class="mc-opt"><input type=radio name="mc-t1-4" data-correct="0"> stayed the same</label></div>
+<div class="mc-item"><div class="mc-q">6. The writer's advice is that charts tell you…</div><label class="mc-opt"><input type=radio name="mc-t1-5" data-correct="0"> what will happen</label><label class="mc-opt"><input type=radio name="mc-t1-5" data-correct="1"> what already happened</label><label class="mc-opt"><input type=radio name="mc-t1-5" data-correct="0"> nothing</label></div></div>
+  <h3 class="section-h"><span class="pin">💬</span> Speaking questions</h3>
+  <div class="speak-list"><h4 class="speak-h">Warm-up <span class="speak-r">· Q1–Q4</span></h4><div class="speak-q"><span class="q-num">Q1</span> Do you personally notice fuel prices going up or down?</div><div class="speak-q"><span class="q-num">Q2</span> How often do you check economic news?</div><div class="speak-q"><span class="q-num">Q3</span> Do prices in your country follow global oil closely?</div><div class="speak-q"><span class="q-num">Q4</span> What was the most expensive item you bought in 2022?</div><h4 class="speak-h">Core discussion <span class="speak-r">· Q5–Q9</span></h4><div class="speak-q"><span class="q-num">Q5</span> Should governments cap fuel prices in crisis years?</div><div class="speak-q"><span class="q-num">Q6</span> Are speculators making oil more volatile?</div><div class="speak-q"><span class="q-num">Q7</span> Will oil demand really fall as EVs grow?</div><div class="speak-q"><span class="q-num">Q8</span> Should oil-exporting countries save more of their profits?</div><div class="speak-q"><span class="q-num">Q9</span> Is it fair to tax oil companies more in spike years?</div><h4 class="speak-h">Role-play &amp; strategy <span class="speak-r">· Q10–Q12</span></h4><div class="speak-q"><span class="q-num">Q10</span> Present the oil chart to a class in 90 seconds, using at least six trend verbs.</div><div class="speak-q"><span class="q-num">Q11</span> Role-play: brief a nervous client about the 2020-2026 oil market.</div><div class="speak-q"><span class="q-num">Q12</span> Predict the oil price in 2030, giving three reasons.</div></div>
+  <h3 class="section-h"><span class="pin">🎭</span> Role-play challenge</h3>
+  <div class="roleplay">You are an energy analyst briefing a client on oil since 2020. Walk them through the <b>trend</b>, the <b>trough</b> in 2020, the <b>peak</b> in 2022, the <b>plateau</b> around $80, and the recent <b>gradual decline</b>. Use verbs like <b>skyrocket</b>, <b>rebound</b>, <b>level off</b> and <b>drift down</b>.</div>
+  <h3 class="section-h"><span class="pin">🗣️</span> Talk it out &mdash; use the expressions</h3>
+  <p class="section-note">Answer using the phrasal verbs and collocations from the card set above.</p>
+  <div class="speak-list"><div class="speak-q"><span class="q-num">Q13</span> Have prices of anything in your country <b>skyrocketed</b> in the last two years?</div><div class="speak-q"><span class="q-num">Q14</span> What products <b>plummeted</b> in price during the pandemic?</div><div class="speak-q"><span class="q-num">Q15</span> When did petrol at your local station last <b>peak</b>?</div><div class="speak-q"><span class="q-num">Q16</span> What kinds of prices tend to <b>level off</b> after a shock?</div><div class="speak-q"><span class="q-num">Q17</span> Have you ever seen a product's price truly <b>bottom out</b>? What was it?</div></div>
+</section>
+
+
+<section class="panel" id="t2">
+  <h2 class="topic-title"><span class="topic-emoji">📊</span> Bar Charts: Global Chip Sales</h2>
+  <p class="topic-instr">Reading a bar chart and comparing quantities across categories. Targets are in <b>gold</b>.</p>
+  <article class="reading">
+    <h3 class="reading-title">The Chip War in One Bar Chart</h3>
+    <div class="byline">★ Yara Hassan · Tech industry analyst · Follows global semiconductors</div>
+    <p>You cannot understand modern geopolitics without understanding one industry: <b>semiconductors</b>. Chips power everything &mdash; your phone, your car, your fridge, your fighter jet. The bar chart below shows approximate global semiconductor sales by region in 2025, in US dollars billion. Read it carefully; it explains why governments spend billions on chip factories.</p>
+<div class="chart-block"><svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart of global semiconductor sales by region 2025">
+  <text x="20" y="26" font-family="DM Serif Display, serif" font-size="18" fill="#0a1520">Global semiconductor sales by region, 2025 (USD bn)</text>
+  <text x="20" y="44" font-family="Inter, sans-serif" font-size="11" fill="#8a7050">Approximate share of global chip revenue. Source: adapted industry data.</text>
+  <!-- axes -->
+  <line x1="80" y1="70" x2="80" y2="290" stroke="#0a1520" stroke-width="2"/>
+  <line x1="80" y1="290" x2="680" y2="290" stroke="#0a1520" stroke-width="2"/>
+  <!-- y-axis labels 0-200 -->
+  <g font-family="Courier Prime, monospace" font-size="11" fill="#0a1520">
+    <text x="50" y="294" text-anchor="end">0</text>
+    <text x="50" y="246" text-anchor="end">50</text>
+    <text x="50" y="198" text-anchor="end">100</text>
+    <text x="50" y="150" text-anchor="end">150</text>
+    <text x="50" y="102" text-anchor="end">200</text>
+  </g>
+  <!-- gridlines -->
+  <g stroke="#e8e0d0" stroke-width="1">
+    <line x1="80" y1="246" x2="680" y2="246"/>
+    <line x1="80" y1="198" x2="680" y2="198"/>
+    <line x1="80" y1="150" x2="680" y2="150"/>
+    <line x1="80" y1="102" x2="680" y2="102"/>
+  </g>
+  <!-- Bars: y = 290 - value*0.96 (roughly). 200->98, 150->146, 100->194, 50->242, 0->290 -->
+  <!-- Bar width 60, gap 30. x0=110 -->
+  <!-- US 195 -> h=187, y=103 -->
+  <g stroke="#0a1520" stroke-width="2">
+    <rect x="110" y="103" width="60" height="187" fill="#F97316"/>
+    <rect x="200" y="132" width="60" height="158" fill="#F97316"/>
+    <rect x="290" y="165" width="60" height="125" fill="#F97316"/>
+    <rect x="380" y="238" width="60" height="52"  fill="#FBBF24"/>
+    <rect x="470" y="242" width="60" height="48"  fill="#FBBF24"/>
+    <rect x="560" y="204" width="60" height="86"  fill="#F97316"/>
+  </g>
+  <!-- value labels -->
+  <g font-family="Courier Prime, monospace" font-size="12" fill="#0a1520" text-anchor="middle" font-weight="bold">
+    <text x="140" y="96">195</text>
+    <text x="230" y="125">165</text>
+    <text x="320" y="158">130</text>
+    <text x="410" y="231">55</text>
+    <text x="500" y="235">50</text>
+    <text x="590" y="197">90</text>
+  </g>
+  <!-- category labels -->
+  <g font-family="Courier Prime, monospace" font-size="11" fill="#0a1520" text-anchor="middle">
+    <text x="140" y="310">US</text>
+    <text x="230" y="310">China</text>
+    <text x="320" y="310">S. Korea</text>
+    <text x="410" y="310">Europe</text>
+    <text x="500" y="310">Japan</text>
+    <text x="590" y="310">Taiwan</text>
+  </g>
+</svg></div>
+<p>Let's <b>break the numbers down</b>. The <b>US</b> comfortably <b>tops the chart</b> at $195 billion. American firms design most of the world's most advanced chips (Nvidia, AMD, Intel, Qualcomm), even when the physical manufacturing happens elsewhere. The US <b>leads the market</b> by a clear margin.</p>
+<div class="pull-quote">&ldquo;The country that controls chip design and chip manufacturing controls the next decade. Everything else follows.&rdquo;</div>
+<p><b>China</b> comes second at $165 billion. China buys almost every chip it can, and produces a huge share of the world's simpler chips (memory, sensors, older-generation processors). China has been <b>catching up</b> aggressively, though export controls from the US have <b>held it back</b> in the most advanced categories.</p>
+<p><b>South Korea</b> is third at $130 billion. This may surprise students who don't follow the industry. Two companies &mdash; Samsung and SK Hynix &mdash; account for most of the world's memory chips. If your phone <b>relies on</b> DRAM or NAND, it probably came from Korea. Korea <b>punches well above its weight</b> here.</p>
+<p><b>Taiwan</b> ranks fourth at $90 billion. This looks modest, but Taiwan quietly controls the most important chip factory on earth: TSMC. Most of the world's <b>cutting-edge chips</b> &mdash; the ones inside iPhones, AI servers, high-end laptops &mdash; are actually made in Taiwan. Its bar is small; its strategic weight is enormous.</p>
+<p><b>Europe</b> ($55bn) and <b>Japan</b> ($50bn) are quietly <b>lagging behind</b> the leaders. Europe has world-class chip equipment makers (ASML in the Netherlands) but relatively few large chip makers. Japan was once dominant here in the 1980s; it has slowly lost ground, but is now <b>investing heavily to catch up</b>. Both regions are pouring subsidies into new factories.</p>
+<p>There's a real vocabulary for bar charts. One category can <b>lead</b>, <b>dominate</b>, <b>top the ranking</b>, <b>come out on top</b>, or <b>be head and shoulders above</b> the rest. Others <b>trail behind</b>, <b>fall short of</b> the leader, <b>lag</b>, or <b>bring up the rear</b>. Two bars can be <b>roughly equal</b>, <b>neck and neck</b>, or <b>close together</b>. A tall bar <b>towers over</b> the smaller ones.</p>
+<p>There's also the language of proportion. The US <b>accounts for</b> about 33% of global chip sales. China <b>makes up</b> around 28%. Together, these two <b>account for over 60%</b> of the world market. You can also say one region is <b>three times the size of</b> another, or that Japan is <b>roughly the same size as</b> Europe.</p>
+<p>There's the language of change too, even in a static snapshot. “China <b>has grown its share</b> from 8% in 2010 to 24% today.” “Taiwan's revenue <b>has doubled</b> since 2018.” “Europe's share <b>has been shrinking</b> for a decade.” Bar charts often invite comparisons across time even when the chart itself shows one year.</p>
+<p>If you take one idea, take this. Never just say “this bar is bigger.” Give the value. Give the ranking. Compare to a rival. Note whether a category is growing or shrinking. That's how analysts read bar charts, and it's how you should describe them too. The US leads for now. The story of the next decade is whether China really <b>closes the gap</b>.</p>
+  </article>
+  <h3 class="section-h"><span class="pin">📌</span> Key vocabulary</h3>
+  <p class="section-note">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+  <div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">a semiconductor</div><div class="vocab-def">a chip used in electronics</div><div class="vocab-ex">"Semiconductors run modern life."</div></div>
+<div class="vocab-card"><div class="vocab-word">revenue</div><div class="vocab-def">money earned from sales</div><div class="vocab-ex">"US revenue was $195bn."</div></div>
+<div class="vocab-card"><div class="vocab-word">a market share</div><div class="vocab-def">the percentage a company holds</div><div class="vocab-ex">"Their market share fell to 12%."</div></div>
+<div class="vocab-card"><div class="vocab-word">a competitor</div><div class="vocab-def">a rival firm</div><div class="vocab-ex">"Their main competitor is Chinese."</div></div>
+<div class="vocab-card"><div class="vocab-word">a manufacturer</div><div class="vocab-def">a company that makes a product</div><div class="vocab-ex">"TSMC is the leading manufacturer."</div></div>
+<div class="vocab-card"><div class="vocab-word">subsidies</div><div class="vocab-def">government financial help</div><div class="vocab-ex">"The EU is offering huge subsidies."</div></div>
+<div class="vocab-card"><div class="vocab-word">innovation</div><div class="vocab-def">new technical development</div><div class="vocab-ex">"Chip innovation drives everything."</div></div>
+<div class="vocab-card"><div class="vocab-word">a supply chain</div><div class="vocab-def">the chain of production</div><div class="vocab-ex">"The chip supply chain is global."</div></div></div>
+  <h3 class="section-h"><span class="pin">🎯</span> Phrasal verbs &amp; collocations</h3>
+  <p class="section-note">The target chunks you'll use when you speak.</p>
+  <div class="vocab-grid"><div class="vocab-card idiom-card"><div class="vocab-word">to lead the market</div><div class="vocab-def">to be the biggest player</div><div class="vocab-ex">"The US leads the chip market."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to account for</div><div class="vocab-def">to make up a specific share</div><div class="vocab-ex">"China accounts for 24% of global sales."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to lag behind</div><div class="vocab-def">to be far behind others</div><div class="vocab-ex">"Europe lags behind Asia in chip production."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to catch up with</div><div class="vocab-def">to close a gap with others</div><div class="vocab-ex">"Europe is trying to catch up with Asia."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to overtake a rival</div><div class="vocab-def">to move past a competitor</div><div class="vocab-ex">"China could overtake the US within a decade."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to make up</div><div class="vocab-def">to combine to a total</div><div class="vocab-ex">"Together, these five regions make up 90% of sales."</div></div></div>
+  <h3 class="section-h"><span class="pin">✍️</span> Gap-fill</h3>
+  <p class="section-note">Fill in with words from the bank. Word bank: <span class='bank-word'>semiconductor</span> &nbsp;·&nbsp; <span class='bank-word'>revenue</span> &nbsp;·&nbsp; <span class='bank-word'>market share</span> &nbsp;·&nbsp; <span class='bank-word'>competitor</span> &nbsp;·&nbsp; <span class='bank-word'>manufacturer</span> &nbsp;·&nbsp; <span class='bank-word'>subsidies</span> &nbsp;·&nbsp; <span class='bank-word'>innovation</span> &nbsp;·&nbsp; <span class='bank-word'>supply chain</span></p>
+  <div class="gap-list"><div class="gap-item"><span class="gap-num">1.</span> A single <input type=text class="fill-input" data-answer="semiconductor" /> powers your phone, laptop and car.</div>
+<div class="gap-item"><span class="gap-num">2.</span> US chip <input type=text class="fill-input" data-answer="revenue" /> was around $195 billion in 2025.</div>
+<div class="gap-item"><span class="gap-num">3.</span> China grew its <input type=text class="fill-input" data-answer="market share" /> from 8% to 24%.</div>
+<div class="gap-item"><span class="gap-num">4.</span> Their biggest <input type=text class="fill-input" data-answer="competitor" /> is a Korean firm.</div>
+<div class="gap-item"><span class="gap-num">5.</span> TSMC is the leading chip <input type=text class="fill-input" data-answer="manufacturer" /> in the world.</div>
+<div class="gap-item"><span class="gap-num">6.</span> The EU is pouring huge <input type=text class="fill-input" data-answer="subsidies" /> into new factories.</div>
+<div class="gap-item"><span class="gap-num">7.</span> Chip <input type=text class="fill-input" data-answer="innovation" /> drives almost every industry.</div>
+<div class="gap-item"><span class="gap-num">8.</span> The chip <input type=text class="fill-input" data-answer="supply chain" /> crosses ten countries.</div></div>
+  <div class="gap-controls"><button class="btn check">Check</button><button class="btn clear">Clear</button><span class="score"></span></div>
+  <h3 class="section-h"><span class="pin">✅</span> Reading check</h3>
+  <div class="mc-list"><div class="mc-item"><div class="mc-q">1. The US led global chip sales at…</div><label class="mc-opt"><input type=radio name="mc-t2-0" data-correct="0"> $50bn</label><label class="mc-opt"><input type=radio name="mc-t2-0" data-correct="1"> $195bn</label><label class="mc-opt"><input type=radio name="mc-t2-0" data-correct="0"> $390bn</label></div>
+<div class="mc-item"><div class="mc-q">2. Korea's strength lies mainly in…</div><label class="mc-opt"><input type=radio name="mc-t2-1" data-correct="0"> design</label><label class="mc-opt"><input type=radio name="mc-t2-1" data-correct="1"> memory chips</label><label class="mc-opt"><input type=radio name="mc-t2-1" data-correct="0"> packaging</label></div>
+<div class="mc-item"><div class="mc-q">3. Taiwan's small bar hides…</div><label class="mc-opt"><input type=radio name="mc-t2-2" data-correct="0"> a small industry</label><label class="mc-opt"><input type=radio name="mc-t2-2" data-correct="1"> control of the most advanced chip manufacturing (TSMC)</label><label class="mc-opt"><input type=radio name="mc-t2-2" data-correct="0"> poor quality</label></div>
+<div class="mc-item"><div class="mc-q">4. Europe and Japan are described as…</div><label class="mc-opt"><input type=radio name="mc-t2-3" data-correct="0"> market leaders</label><label class="mc-opt"><input type=radio name="mc-t2-3" data-correct="1"> lagging behind, investing heavily to catch up</label><label class="mc-opt"><input type=radio name="mc-t2-3" data-correct="0"> not producing chips</label></div>
+<div class="mc-item"><div class="mc-q">5. Together, the US and China account for over… of the market.</div><label class="mc-opt"><input type=radio name="mc-t2-4" data-correct="0"> 10%</label><label class="mc-opt"><input type=radio name="mc-t2-4" data-correct="1"> 60%</label><label class="mc-opt"><input type=radio name="mc-t2-4" data-correct="0"> 95%</label></div>
+<div class="mc-item"><div class="mc-q">6. The writer's final advice is to…</div><label class="mc-opt"><input type=radio name="mc-t2-5" data-correct="0"> quote only values</label><label class="mc-opt"><input type=radio name="mc-t2-5" data-correct="1"> give value, ranking, comparison, and change</label><label class="mc-opt"><input type=radio name="mc-t2-5" data-correct="0"> just say bars are bigger</label></div></div>
+  <h3 class="section-h"><span class="pin">💬</span> Speaking questions</h3>
+  <div class="speak-list"><h4 class="speak-h">Warm-up <span class="speak-r">· Q1–Q4</span></h4><div class="speak-q"><span class="q-num">Q1</span> How many devices in your bag right now use chips?</div><div class="speak-q"><span class="q-num">Q2</span> Do you know where the chips in your phone were made?</div><div class="speak-q"><span class="q-num">Q3</span> Have you heard of TSMC, Samsung or Nvidia?</div><div class="speak-q"><span class="q-num">Q4</span> Has your country tried to make more chips?</div><h4 class="speak-h">Core discussion <span class="speak-r">· Q5–Q9</span></h4><div class="speak-q"><span class="q-num">Q5</span> Should Europe be able to make advanced chips itself?</div><div class="speak-q"><span class="q-num">Q6</span> Are US export controls on China fair?</div><div class="speak-q"><span class="q-num">Q7</span> Should Taiwan be protected as a global strategic priority?</div><div class="speak-q"><span class="q-num">Q8</span> Are chip subsidies a good use of taxpayer money?</div><div class="speak-q"><span class="q-num">Q9</span> Will AI push chip demand even higher?</div><h4 class="speak-h">Role-play &amp; strategy <span class="speak-r">· Q10–Q12</span></h4><div class="speak-q"><span class="q-num">Q10</span> Present the chip chart in 60 seconds using six comparison phrases.</div><div class="speak-q"><span class="q-num">Q11</span> Role-play: brief a European minister on why Europe lags behind.</div><div class="speak-q"><span class="q-num">Q12</span> Plan a 10-year strategy for a country trying to catch up with Korea.</div></div>
+  <h3 class="section-h"><span class="pin">🎭</span> Role-play challenge</h3>
+  <div class="roleplay">You're briefing a minister on the chip industry. Explain which region <b>leads the market</b>, which <b>accounts for</b> what share, who is <b>catching up</b>, and who is <b>lagging behind</b>. Use at least six comparison phrases from the reading.</div>
+  <h3 class="section-h"><span class="pin">🗣️</span> Talk it out &mdash; use the expressions</h3>
+  <p class="section-note">Answer using the phrasal verbs and collocations from the card set above.</p>
+  <div class="speak-list"><div class="speak-q"><span class="q-num">Q13</span> Which country <b>leads the market</b> for a product you use daily?</div><div class="speak-q"><span class="q-num">Q14</span> What percentage of your monthly spending would you say food <b>accounts for</b>?</div><div class="speak-q"><span class="q-num">Q15</span> In which industry does your country genuinely <b>lag behind</b>?</div><div class="speak-q"><span class="q-num">Q16</span> Where might Europe realistically <b>catch up with</b> Asia?</div><div class="speak-q"><span class="q-num">Q17</span> Could China really <b>overtake</b> the US in chips? What's your view?</div></div>
+</section>
+
+
+<section class="panel" id="t3">
+  <h2 class="topic-title"><span class="topic-emoji">📉</span> Two-Line Comparison: EV vs Diesel</h2>
+  <p class="topic-instr">Two lines going in opposite directions &mdash; the language of market shifts. Targets are in <b>gold</b>.</p>
+  <article class="reading">
+    <h3 class="reading-title">Diesel Is Losing, EVs Are Winning</h3>
+    <div class="byline">★ Marco Vidal · Auto industry journalist · Watches European new-car sales</div>
+    <p>This chart tells one of the clearest stories in modern industry: the quiet, steady death of diesel and the equally steady rise of electric vehicles in the European new-car market. Two lines. One going up. One going down. The whole automotive world is in that picture.</p>
+<div class="chart-block"><svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart comparing EV and diesel new-car market share Europe 2020-2026">
+  <text x="20" y="26" font-family="DM Serif Display, serif" font-size="18" fill="#0a1520">Europe: EV vs diesel share of new-car sales (%), 2020&ndash;2026</text>
+  <text x="20" y="44" font-family="Inter, sans-serif" font-size="11" fill="#8a7050">Two opposite trends. Source: adapted industry data.</text>
+  <!-- axes -->
+  <line x1="60" y1="70" x2="60" y2="290" stroke="#0a1520" stroke-width="2"/>
+  <line x1="60" y1="290" x2="680" y2="290" stroke="#0a1520" stroke-width="2"/>
+  <!-- y 0-40, mapping: y = 290 - pct*5.5 -->
+  <g font-family="Courier Prime, monospace" font-size="11" fill="#0a1520">
+    <text x="30" y="294" text-anchor="end">0%</text>
+    <text x="30" y="239" text-anchor="end">10%</text>
+    <text x="30" y="184" text-anchor="end">20%</text>
+    <text x="30" y="129" text-anchor="end">30%</text>
+    <text x="30" y="74" text-anchor="end">40%</text>
+  </g>
+  <g stroke="#e8e0d0" stroke-width="1">
+    <line x1="60" y1="239" x2="680" y2="239"/>
+    <line x1="60" y1="184" x2="680" y2="184"/>
+    <line x1="60" y1="129" x2="680" y2="129"/>
+    <line x1="60" y1="74"  x2="680" y2="74"/>
+  </g>
+  <g font-family="Courier Prime, monospace" font-size="11" fill="#0a1520" text-anchor="middle">
+    <text x="90" y="310">2020</text>
+    <text x="188" y="310">2021</text>
+    <text x="286" y="310">2022</text>
+    <text x="384" y="310">2023</text>
+    <text x="482" y="310">2024</text>
+    <text x="580" y="310">2025</text>
+    <text x="660" y="310">2026</text>
+  </g>
+  <!-- EV line (rising) - orange -->
+  <!-- 11->y=229, 18->y=191, 22->y=169, 25->y=153, 28->y=136, 32->y=114, 37->y=87 -->
+  <polyline points="90,229 188,191 286,169 384,153 482,136 580,114 660,87"
+    fill="none" stroke="#F97316" stroke-width="3" stroke-linejoin="round"/>
+  <g fill="#F97316" stroke="#0a1520" stroke-width="2">
+    <circle cx="90" cy="229" r="5"/><circle cx="188" cy="191" r="5"/>
+    <circle cx="286" cy="169" r="5"/><circle cx="384" cy="153" r="5"/>
+    <circle cx="482" cy="136" r="5"/><circle cx="580" cy="114" r="5"/>
+    <circle cx="660" cy="87" r="5"/>
+  </g>
+  <!-- Diesel line (falling) - navy -->
+  <!-- 28->y=136, 20->y=180, 17->y=196, 14->y=213, 12->y=224, 10->y=235, 8->y=246 -->
+  <polyline points="90,136 188,180 286,196 384,213 482,224 580,235 660,246"
+    fill="none" stroke="#1e3a5f" stroke-width="3" stroke-linejoin="round" stroke-dasharray="6,4"/>
+  <g fill="#1e3a5f" stroke="#0a1520" stroke-width="2">
+    <circle cx="90" cy="136" r="5"/><circle cx="188" cy="180" r="5"/>
+    <circle cx="286" cy="196" r="5"/><circle cx="384" cy="213" r="5"/>
+    <circle cx="482" cy="224" r="5"/><circle cx="580" cy="235" r="5"/>
+    <circle cx="660" cy="246" r="5"/>
+  </g>
+  <!-- legend -->
+  <g font-family="Courier Prime, monospace" font-size="12" fill="#0a1520">
+    <rect x="450" y="330" width="14" height="4" fill="#F97316" stroke="#0a1520" stroke-width="1"/>
+    <text x="470" y="336">EV share</text>
+    <rect x="560" y="330" width="14" height="4" fill="#1e3a5f" stroke="#0a1520" stroke-width="1"/>
+    <text x="580" y="336">Diesel share</text>
+  </g>
+</svg></div>
+<p>Let's <b>walk through</b> the numbers. In 2020, diesel still <b>accounted for</b> 28% of new-car sales in Europe. EVs were an emerging category at just 11%. Diesel was familiar; EVs were niche. Fast-forward six years, and the picture has quietly flipped. In 2026, EVs <b>hit</b> 37% of new-car sales. Diesel <b>fell to</b> just 8%.</p>
+<div class="pull-quote">&ldquo;Nobody watching the news in 2020 would have believed that diesel would collapse this fast, or that EVs would this quickly become the dominant new-car story.&rdquo;</div>
+<p>This is a beautiful example of two lines with opposite trends. EVs have <b>climbed steadily</b>, <b>gained market share</b> year after year, and are now <b>taking off</b>. Diesel has <b>lost ground</b> every single year, quietly <b>tailing off</b> until it's almost a niche. When you describe such charts, use verbs that capture direction: EVs are <b>on the rise</b>, diesel is <b>on the way out</b>. Prices are <b>heading up</b>; volumes are <b>heading down</b>. Trends are <b>picking up</b> or <b>tailing off</b>.</p>
+<p>Why has this happened? Three forces. First, city bans: many European cities have <b>phased out</b> old diesel vehicles from their centres. Second, EV incentives: governments have <b>rolled out</b> subsidies, tax breaks and cheap charging. Third, technology: EV batteries have <b>come down in price</b> and range has <b>improved dramatically</b>. These three forces combined to make one line go up sharply and the other <b>slump</b>.</p>
+<p>There's also the language of <b>crossovers</b>. In 2020, the lines were far apart (diesel much higher). By 2022, the gap was closing. By 2023, they nearly crossed. From 2024 onward, EVs were clearly <b>outperforming</b> diesel. When describing charts, look for <b>the turning point</b> &mdash; the moment when trends genuinely change direction or when one line <b>overtakes</b> another. The turning point is where the story lives.</p>
+<p>There's also the language of momentum. “The EV trend is <b>gathering pace</b>.” “Diesel is in <b>terminal decline</b>.” “The gap has <b>widened</b> every year.” “Momentum is <b>building</b> behind hybrids.” Momentum verbs are perfect for describing markets in transition.</p>
+<p>There's also the vocabulary of <b>market share</b>. Products can <b>corner a market</b>, <b>dominate</b>, <b>edge out</b> rivals, or be <b>squeezed out</b>. Some are <b>gaining ground</b>, others <b>losing ground</b>. Some brands <b>hold their own</b>, others <b>fall by the wayside</b>. Some technologies are <b>ahead of the curve</b>; others are <b>behind the times</b>.</p>
+<p>For B2 speakers, describing two-line charts is a genuinely valuable skill in interviews, presentations, and journalism. The trick is to first describe each line separately, then compare them. Use words like “while”, “in contrast”, “by comparison”, and “on the other hand”. Never just list numbers. Tell the story the two lines together are telling.</p>
+<p>If you take one idea, take this. When two lines cross, something important is happening in the world. Learn to spot the crossover point, describe the momentum around it, and explain the forces driving it. Do that clearly, and you'll sound like a market analyst even when you're not. The end of diesel isn't just a chart. It's a real industry story, unfolding in front of everyone who knows how to read the lines.</p>
+  </article>
+  <h3 class="section-h"><span class="pin">📌</span> Key vocabulary</h3>
+  <p class="section-note">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+  <div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">an electric vehicle (EV)</div><div class="vocab-def">a car powered by battery</div><div class="vocab-ex">"EV sales rose sharply."</div></div>
+<div class="vocab-card"><div class="vocab-word">a diesel engine</div><div class="vocab-def">a fuel engine using diesel</div><div class="vocab-ex">"Diesel engines are being phased out."</div></div>
+<div class="vocab-card"><div class="vocab-word">a market share</div><div class="vocab-def">a percentage of total sales</div><div class="vocab-ex">"EVs now hold 37% market share."</div></div>
+<div class="vocab-card"><div class="vocab-word">a subsidy</div><div class="vocab-def">government support to encourage a product</div><div class="vocab-ex">"EV subsidies drove demand."</div></div>
+<div class="vocab-card"><div class="vocab-word">emissions</div><div class="vocab-def">gases released by burning fuel</div><div class="vocab-ex">"Diesel emissions harm cities."</div></div>
+<div class="vocab-card"><div class="vocab-word">infrastructure</div><div class="vocab-def">physical support systems</div><div class="vocab-ex">"EV charging infrastructure is expanding."</div></div>
+<div class="vocab-card"><div class="vocab-word">a trend</div><div class="vocab-def">direction of change</div><div class="vocab-ex">"The trend is clearly downward for diesel."</div></div>
+<div class="vocab-card"><div class="vocab-word">a competitor</div><div class="vocab-def">a rival product or brand</div><div class="vocab-ex">"Hybrids remain strong competitors."</div></div></div>
+  <h3 class="section-h"><span class="pin">🎯</span> Phrasal verbs &amp; collocations</h3>
+  <p class="section-note">The target chunks you'll use when you speak.</p>
+  <div class="vocab-grid"><div class="vocab-card idiom-card"><div class="vocab-word">to gain market share</div><div class="vocab-def">to increase your slice of the market</div><div class="vocab-ex">"EVs are steadily gaining market share."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to lose ground</div><div class="vocab-def">to lose market position</div><div class="vocab-ex">"Diesel is quickly losing ground in Europe."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to phase out</div><div class="vocab-def">to gradually remove from the market</div><div class="vocab-ex">"Cities are phasing out diesel."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to take off</div><div class="vocab-def">to grow very fast</div><div class="vocab-ex">"EV sales took off after 2021."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to hit an all-time high</div><div class="vocab-def">to reach a record level</div><div class="vocab-ex">"EV share hit an all-time high in 2026."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to hit a new low</div><div class="vocab-def">to reach a record low</div><div class="vocab-ex">"Diesel hit a new low at 8%."</div></div></div>
+  <h3 class="section-h"><span class="pin">✍️</span> Gap-fill</h3>
+  <p class="section-note">Fill in with words from the bank. Word bank: <span class='bank-word'>EV</span> &nbsp;·&nbsp; <span class='bank-word'>diesel</span> &nbsp;·&nbsp; <span class='bank-word'>market share</span> &nbsp;·&nbsp; <span class='bank-word'>subsidy</span> &nbsp;·&nbsp; <span class='bank-word'>emissions</span> &nbsp;·&nbsp; <span class='bank-word'>infrastructure</span> &nbsp;·&nbsp; <span class='bank-word'>trend</span> &nbsp;·&nbsp; <span class='bank-word'>competitor</span></p>
+  <div class="gap-list"><div class="gap-item"><span class="gap-num">1.</span> <input type=text class="fill-input" data-answer="EV" /> sales rose from 11% to 37% in six years.</div>
+<div class="gap-item"><span class="gap-num">2.</span> New <input type=text class="fill-input" data-answer="diesel" /> vehicles fell from 28% to just 8%.</div>
+<div class="gap-item"><span class="gap-num">3.</span> EVs now hold 37% <input type=text class="fill-input" data-answer="market share" /> of new-car sales.</div>
+<div class="gap-item"><span class="gap-num">4.</span> Governments rolled out generous EV <input type=text class="fill-input" data-answer="subsidies" />.</div>
+<div class="gap-item"><span class="gap-num">5.</span> City authorities banned diesel to cut <input type=text class="fill-input" data-answer="emissions" />.</div>
+<div class="gap-item"><span class="gap-num">6.</span> EV charging <input type=text class="fill-input" data-answer="infrastructure" /> has grown dramatically.</div>
+<div class="gap-item"><span class="gap-num">7.</span> The <input type=text class="fill-input" data-answer="trend" /> is clearly downward for diesel.</div>
+<div class="gap-item"><span class="gap-num">8.</span> Hybrids remain a strong <input type=text class="fill-input" data-answer="competitor" /> to EVs.</div></div>
+  <div class="gap-controls"><button class="btn check">Check</button><button class="btn clear">Clear</button><span class="score"></span></div>
+  <h3 class="section-h"><span class="pin">✅</span> Reading check</h3>
+  <div class="mc-list"><div class="mc-item"><div class="mc-q">1. Diesel share in 2020 was around…</div><label class="mc-opt"><input type=radio name="mc-t3-0" data-correct="1"> 28%</label><label class="mc-opt"><input type=radio name="mc-t3-0" data-correct="0"> 11%</label><label class="mc-opt"><input type=radio name="mc-t3-0" data-correct="0"> 50%</label></div>
+<div class="mc-item"><div class="mc-q">2. EV share in 2026 reached about…</div><label class="mc-opt"><input type=radio name="mc-t3-1" data-correct="0"> 8%</label><label class="mc-opt"><input type=radio name="mc-t3-1" data-correct="1"> 37%</label><label class="mc-opt"><input type=radio name="mc-t3-1" data-correct="0"> 70%</label></div>
+<div class="mc-item"><div class="mc-q">3. The lines almost crossed in…</div><label class="mc-opt"><input type=radio name="mc-t3-2" data-correct="0"> 2020</label><label class="mc-opt"><input type=radio name="mc-t3-2" data-correct="1"> 2023</label><label class="mc-opt"><input type=radio name="mc-t3-2" data-correct="0"> 2028</label></div>
+<div class="mc-item"><div class="mc-q">4. Three forces driving this shift include…</div><label class="mc-opt"><input type=radio name="mc-t3-3" data-correct="1"> city bans, EV incentives, cheaper batteries</label><label class="mc-opt"><input type=radio name="mc-t3-3" data-correct="0"> tax cuts, war, oil</label><label class="mc-opt"><input type=radio name="mc-t3-3" data-correct="0"> fashion, media, tourism</label></div>
+<div class="mc-item"><div class="mc-q">5. ‘Terminal decline’ in the reading refers to…</div><label class="mc-opt"><input type=radio name="mc-t3-4" data-correct="0"> EV growth</label><label class="mc-opt"><input type=radio name="mc-t3-4" data-correct="1"> diesel's future</label><label class="mc-opt"><input type=radio name="mc-t3-4" data-correct="0"> hybrid share</label></div>
+<div class="mc-item"><div class="mc-q">6. The writer's advice for two-line charts is to…</div><label class="mc-opt"><input type=radio name="mc-t3-5" data-correct="1"> describe each line, then compare, then explain the forces</label><label class="mc-opt"><input type=radio name="mc-t3-5" data-correct="0"> only quote endpoints</label><label class="mc-opt"><input type=radio name="mc-t3-5" data-correct="0"> never compare</label></div></div>
+  <h3 class="section-h"><span class="pin">💬</span> Speaking questions</h3>
+  <div class="speak-list"><h4 class="speak-h">Warm-up <span class="speak-r">· Q1–Q4</span></h4><div class="speak-q"><span class="q-num">Q1</span> How many EVs do you see in your city each week?</div><div class="speak-q"><span class="q-num">Q2</span> How many diesel cars are still around you?</div><div class="speak-q"><span class="q-num">Q3</span> Have you or your family ever considered an EV?</div><div class="speak-q"><span class="q-num">Q4</span> Is charging convenient in your area?</div><h4 class="speak-h">Core discussion <span class="speak-r">· Q5–Q9</span></h4><div class="speak-q"><span class="q-num">Q5</span> Should all new diesel cars be banned by 2030?</div><div class="speak-q"><span class="q-num">Q6</span> Are EVs really greener when you count battery mining?</div><div class="speak-q"><span class="q-num">Q7</span> Should governments still subsidise EVs?</div><div class="speak-q"><span class="q-num">Q8</span> Will hybrids beat both pure EVs and diesel?</div><div class="speak-q"><span class="q-num">Q9</span> How fast will your country reach 50% EV share?</div><h4 class="speak-h">Role-play &amp; strategy <span class="speak-r">· Q10–Q12</span></h4><div class="speak-q"><span class="q-num">Q10</span> Present the EV vs diesel chart in 90 seconds, noting the crossover.</div><div class="speak-q"><span class="q-num">Q11</span> Role-play: advise a car dealership on which models to stock in 2028.</div><div class="speak-q"><span class="q-num">Q12</span> Design a plan for a small country to reach 50% EV new-car sales by 2030.</div></div>
+  <h3 class="section-h"><span class="pin">🎭</span> Role-play challenge</h3>
+  <div class="roleplay">You are pitching to a car dealership. Explain the chart. Show how EVs are <b>gaining market share</b> while diesel is <b>losing ground</b>. Highlight <b>the crossover</b>, the <b>market share</b> shift, and why they should stop stocking diesel by 2028.</div>
+  <h3 class="section-h"><span class="pin">🗣️</span> Talk it out &mdash; use the expressions</h3>
+  <p class="section-note">Answer using the phrasal verbs and collocations from the card set above.</p>
+  <div class="speak-list"><div class="speak-q"><span class="q-num">Q13</span> Which product in your country has been <b>gaining market share</b> lately?</div><div class="speak-q"><span class="q-num">Q14</span> Which brands or products are quietly <b>losing ground</b>?</div><div class="speak-q"><span class="q-num">Q15</span> Should petrol cars be <b>phased out</b> completely?</div><div class="speak-q"><span class="q-num">Q16</span> Which technology genuinely <b>took off</b> in the last five years?</div><div class="speak-q"><span class="q-num">Q17</span> What product has recently <b>hit an all-time high</b> in your country?</div></div>
+</section>
+
+
+<section class="panel" id="t4">
+  <h2 class="topic-title"><span class="topic-emoji">🥧</span> Pie Charts: World Energy Mix</h2>
+  <p class="topic-instr">Reading a pie chart and describing composition, shares and long-term shifts. Targets are in <b>gold</b>.</p>
+  <article class="reading">
+    <h3 class="reading-title">Where Does the World's Energy Actually Come From?</h3>
+    <div class="byline">★ Elena Marchetti · Energy policy analyst · Advises governments on the transition</div>
+    <p>Ask most people where the world's energy comes from, and you'll get very different answers. Some think it's mostly renewables now. Some think it's still mostly oil. Some have no idea. The pie chart below shows the approximate share of primary world energy from each source in 2026. The truth surprises almost everyone.</p>
+<div class="chart-block"><svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pie chart of world primary energy mix 2026">
+  <text x="20" y="26" font-family="DM Serif Display, serif" font-size="18" fill="#0a1520">World primary energy mix, 2026 (share of total)</text>
+  <text x="20" y="44" font-family="Inter, sans-serif" font-size="11" fill="#8a7050">Approximate share of global primary energy. Source: adapted IEA-style data.</text>
+  <path d="M220,195 L220.0,65.0 A130,130 0 0 1 343.6,235.2 Z" fill="#F97316" fill-opacity="1.0" stroke="#0a1520" stroke-width="2"/><path d="M220,195 L343.6,235.2 A130,130 0 0 1 187.7,320.9 Z" fill="#0a1520" fill-opacity="1.0" stroke="#0a1520" stroke-width="2"/><path d="M220,195 L187.7,320.9 A130,130 0 0 1 90.3,186.8 Z" fill="#8a7050" fill-opacity="1.0" stroke="#0a1520" stroke-width="2"/><path d="M220,195 L90.3,186.8 A130,130 0 0 1 143.6,89.8 Z" fill="#F97316" fill-opacity="0.55" stroke="#0a1520" stroke-width="2"/><path d="M220,195 L143.6,89.8 A130,130 0 0 1 179.8,71.4 Z" fill="#1e3a5f" fill-opacity="1.0" stroke="#0a1520" stroke-width="2"/><path d="M220,195 L179.8,71.4 A130,130 0 0 1 220.0,65.0 Z" fill="#4a6b8a" fill-opacity="1.0" stroke="#0a1520" stroke-width="2"/>
+  <text x="343" y="106" font-family="Courier Prime, monospace" font-size="12" fill="#0a1520" text-anchor="middle" font-weight="bold">30%</text><text x="293" y="328" font-family="Courier Prime, monospace" font-size="12" fill="#0a1520" text-anchor="middle" font-weight="bold">24%</text><text x="97" y="284" font-family="Courier Prime, monospace" font-size="12" fill="#0a1520" text-anchor="middle" font-weight="bold">22%</text><text x="87" y="122" font-family="Courier Prime, monospace" font-size="12" fill="#0a1520" text-anchor="middle" font-weight="bold">14%</text><text x="151" y="60" font-family="Courier Prime, monospace" font-size="12" fill="#0a1520" text-anchor="middle" font-weight="bold">5%</text><text x="196" y="45" font-family="Courier Prime, monospace" font-size="12" fill="#0a1520" text-anchor="middle" font-weight="bold">5%</text>
+  <rect x="440" y="90" width="18" height="18" fill="#F97316" fill-opacity="1.0" stroke="#0a1520" stroke-width="2"/><text x="468" y="104" font-family="Courier Prime, monospace" font-size="13" fill="#0a1520">Oil &mdash; 30%</text><rect x="440" y="122" width="18" height="18" fill="#0a1520" fill-opacity="1.0" stroke="#0a1520" stroke-width="2"/><text x="468" y="136" font-family="Courier Prime, monospace" font-size="13" fill="#0a1520">Coal &mdash; 24%</text><rect x="440" y="154" width="18" height="18" fill="#8a7050" fill-opacity="1.0" stroke="#0a1520" stroke-width="2"/><text x="468" y="168" font-family="Courier Prime, monospace" font-size="13" fill="#0a1520">Gas &mdash; 22%</text><rect x="440" y="186" width="18" height="18" fill="#F97316" fill-opacity="0.55" stroke="#0a1520" stroke-width="2"/><text x="468" y="200" font-family="Courier Prime, monospace" font-size="13" fill="#0a1520">Renewables &mdash; 14%</text><rect x="440" y="218" width="18" height="18" fill="#1e3a5f" fill-opacity="1.0" stroke="#0a1520" stroke-width="2"/><text x="468" y="232" font-family="Courier Prime, monospace" font-size="13" fill="#0a1520">Nuclear &mdash; 5%</text><rect x="440" y="250" width="18" height="18" fill="#4a6b8a" fill-opacity="1.0" stroke="#0a1520" stroke-width="2"/><text x="468" y="264" font-family="Courier Prime, monospace" font-size="13" fill="#0a1520">Hydro &mdash; 5%</text>
+</svg></div>
+<p>Let's <b>break the chart down</b>. <b>Oil</b> still <b>makes up</b> around 30% of world primary energy &mdash; the single biggest slice. <b>Coal</b> <b>accounts for</b> another 24%. <b>Gas</b> <b>takes up</b> 22%. Together, these three fossil fuels represent <b>the lion's share</b> &mdash; roughly 76% &mdash; of world energy. Yes, in 2026, more than three quarters of world energy still comes from fossil fuels. This is genuinely uncomfortable and important to know.</p>
+<div class="pull-quote">&ldquo;The world's energy mix is like a giant ship: even with everyone rowing in the same direction, it turns very slowly. That's not failure. It's physics.&rdquo;</div>
+<p><b>Renewables</b> &mdash; solar, wind, biomass &mdash; <b>make up</b> around 14%. This is a big jump from the 6% a decade ago. Solar and wind have been <b>scaling up</b> at extraordinary speed. But they still <b>account for</b> a modest slice of the total. <b>Nuclear</b> and <b>hydro</b> each <b>hold</b> about 5%. Together, low-carbon sources represent roughly 24% of world primary energy. That's the number to remember.</p>
+<p>Reading pie charts uses different vocabulary from line graphs. Slices can be <b>the biggest chunk</b>, <b>a significant share</b>, <b>a modest portion</b>, or <b>a small slice</b>. Categories can <b>make up</b> or <b>account for</b> a percentage. Two slices <b>together add up to</b> a larger share. Sources <b>take up</b> different proportions. When one slice is much bigger than the others, we say it <b>dominates the mix</b> or <b>represents the lion's share</b>.</p>
+<p>There's also the language of shift. Even in a static pie chart, we can compare with the past: “Renewables have <b>doubled</b> in a decade.” “Coal's share has <b>fallen from</b> 28% to 24%.” “Gas has <b>grown from</b> 19% to 22%.” “Oil has <b>held roughly steady</b>.” These are ways to bring a static chart to life.</p>
+<p>Then there's the language of policy and transition. The world is <b>shifting away from</b> coal. Governments are <b>phasing in</b> renewables. Countries are <b>rolling out</b> solar and wind at record pace. Some are <b>doubling down on</b> nuclear. Others are <b>investing heavily in</b> gas as a bridge fuel. All these verbs help describe the political story behind the chart.</p>
+<p>The reality is uncomfortable. Fossil fuels still dominate, and even in an optimistic scenario, they'll <b>account for</b> around half of world energy by 2035. The transition is happening, but slowly. The chart also hides big regional differences: Norway runs almost entirely on hydro and wind; India still depends heavily on coal. A global pie chart is a rough average of very different national ones.</p>
+<p>For B2 students, pie charts are common in Cambridge exams, IELTS Writing Task 1, and business presentations. The trick is to always give three things: the biggest slice, the smallest slice, and the most surprising slice. Then compare, and then note any change over time if you can.</p>
+<p>There's also a bigger picture to hold onto. Even at 14%, renewables are growing faster than any other category. Solar in particular is <b>doubling roughly every three years</b>. If that pace continues, the pie chart could look genuinely different by 2040. That's the real story: not the current shares, but where each slice is heading.</p>
+<p>If you take one idea, take this. Fossil fuels still make up three quarters of world energy. Renewables are rising fast but still small. Nuclear and hydro are steady. Describe pie charts by naming the biggest slice, the smallest slice, and the biggest surprise. Then explain what's shifting. That's how analysts read composition data, and it's how you should describe them too.</p>
+  </article>
+  <h3 class="section-h"><span class="pin">📌</span> Key vocabulary</h3>
+  <p class="section-note">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+  <div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">energy</div><div class="vocab-def">the power to do work or heat</div><div class="vocab-ex">"World energy demand keeps rising."</div></div>
+<div class="vocab-card"><div class="vocab-word">fossil fuels</div><div class="vocab-def">oil, gas and coal</div><div class="vocab-ex">"Fossil fuels dominate the mix."</div></div>
+<div class="vocab-card"><div class="vocab-word">renewable energy</div><div class="vocab-def">energy from sources that don't run out</div><div class="vocab-ex">"Renewables now account for 14%."</div></div>
+<div class="vocab-card"><div class="vocab-word">a share</div><div class="vocab-def">a percentage of a whole</div><div class="vocab-ex">"Coal's share has slowly fallen."</div></div>
+<div class="vocab-card"><div class="vocab-word">a mix</div><div class="vocab-def">the combination of sources</div><div class="vocab-ex">"Every country has a different mix."</div></div>
+<div class="vocab-card"><div class="vocab-word">nuclear power</div><div class="vocab-def">electricity from atomic reactions</div><div class="vocab-ex">"Nuclear power holds around 5%."</div></div>
+<div class="vocab-card"><div class="vocab-word">a proportion</div><div class="vocab-def">a fraction of the total</div><div class="vocab-ex">"A large proportion is still coal."</div></div>
+<div class="vocab-card"><div class="vocab-word">emissions</div><div class="vocab-def">gases released, especially CO2</div><div class="vocab-ex">"Fossil fuels create most emissions."</div></div></div>
+  <h3 class="section-h"><span class="pin">🎯</span> Phrasal verbs &amp; collocations</h3>
+  <p class="section-note">The target chunks you'll use when you speak.</p>
+  <div class="vocab-grid"><div class="vocab-card idiom-card"><div class="vocab-word">to make up a share of</div><div class="vocab-def">to be a portion of a total</div><div class="vocab-ex">"Oil makes up 30% of world energy."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to break down into</div><div class="vocab-def">to divide into parts</div><div class="vocab-ex">"Global energy breaks down into six main sources."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to phase in</div><div class="vocab-def">to gradually introduce</div><div class="vocab-ex">"Countries are phasing in renewable energy."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to scale up</div><div class="vocab-def">to increase capacity</div><div class="vocab-ex">"Solar and wind are scaling up fast."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to depend on</div><div class="vocab-def">to rely on something</div><div class="vocab-ex">"The world still heavily depends on fossil fuels."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to shift away from</div><div class="vocab-def">to gradually move away from</div><div class="vocab-ex">"Europe is shifting away from coal."</div></div></div>
+  <h3 class="section-h"><span class="pin">✍️</span> Gap-fill</h3>
+  <p class="section-note">Fill in with words from the bank. Word bank: <span class='bank-word'>energy</span> &nbsp;·&nbsp; <span class='bank-word'>fossil fuels</span> &nbsp;·&nbsp; <span class='bank-word'>renewable</span> &nbsp;·&nbsp; <span class='bank-word'>share</span> &nbsp;·&nbsp; <span class='bank-word'>mix</span> &nbsp;·&nbsp; <span class='bank-word'>nuclear</span> &nbsp;·&nbsp; <span class='bank-word'>proportion</span> &nbsp;·&nbsp; <span class='bank-word'>emissions</span></p>
+  <div class="gap-list"><div class="gap-item"><span class="gap-num">1.</span> World <input type=text class="fill-input" data-answer="energy" /> demand keeps rising every year.</div>
+<div class="gap-item"><span class="gap-num">2.</span> <input type=text class="fill-input" data-answer="Fossil fuels" /> still dominate the global mix.</div>
+<div class="gap-item"><span class="gap-num">3.</span> <input type=text class="fill-input" data-answer="Renewable" /> energy is growing faster than any other source.</div>
+<div class="gap-item"><span class="gap-num">4.</span> Coal's <input type=text class="fill-input" data-answer="share" /> has slowly fallen.</div>
+<div class="gap-item"><span class="gap-num">5.</span> Every country has a different energy <input type=text class="fill-input" data-answer="mix" />.</div>
+<div class="gap-item"><span class="gap-num">6.</span> <input type=text class="fill-input" data-answer="Nuclear" /> power quietly accounts for 5% globally.</div>
+<div class="gap-item"><span class="gap-num">7.</span> A large <input type=text class="fill-input" data-answer="proportion" /> of world energy is still coal.</div>
+<div class="gap-item"><span class="gap-num">8.</span> Fossil fuels are responsible for most <input type=text class="fill-input" data-answer="emissions" />.</div></div>
+  <div class="gap-controls"><button class="btn check">Check</button><button class="btn clear">Clear</button><span class="score"></span></div>
+  <h3 class="section-h"><span class="pin">✅</span> Reading check</h3>
+  <div class="mc-list"><div class="mc-item"><div class="mc-q">1. Oil's share of world primary energy is around…</div><label class="mc-opt"><input type=radio name="mc-t4-0" data-correct="0"> 10%</label><label class="mc-opt"><input type=radio name="mc-t4-0" data-correct="1"> 30%</label><label class="mc-opt"><input type=radio name="mc-t4-0" data-correct="0"> 70%</label></div>
+<div class="mc-item"><div class="mc-q">2. Fossil fuels together account for roughly…</div><label class="mc-opt"><input type=radio name="mc-t4-1" data-correct="0"> 25%</label><label class="mc-opt"><input type=radio name="mc-t4-1" data-correct="1"> 76%</label><label class="mc-opt"><input type=radio name="mc-t4-1" data-correct="0"> 10%</label></div>
+<div class="mc-item"><div class="mc-q">3. Renewables now make up around…</div><label class="mc-opt"><input type=radio name="mc-t4-2" data-correct="1"> 14%</label><label class="mc-opt"><input type=radio name="mc-t4-2" data-correct="0"> 40%</label><label class="mc-opt"><input type=radio name="mc-t4-2" data-correct="0"> 1%</label></div>
+<div class="mc-item"><div class="mc-q">4. Nuclear and hydro each hold around…</div><label class="mc-opt"><input type=radio name="mc-t4-3" data-correct="0"> 1%</label><label class="mc-opt"><input type=radio name="mc-t4-3" data-correct="1"> 5%</label><label class="mc-opt"><input type=radio name="mc-t4-3" data-correct="0"> 20%</label></div>
+<div class="mc-item"><div class="mc-q">5. Solar is currently…</div><label class="mc-opt"><input type=radio name="mc-t4-4" data-correct="1"> doubling roughly every three years</label><label class="mc-opt"><input type=radio name="mc-t4-4" data-correct="0"> shrinking</label><label class="mc-opt"><input type=radio name="mc-t4-4" data-correct="0"> banned</label></div>
+<div class="mc-item"><div class="mc-q">6. The writer's advice for pie charts is to name…</div><label class="mc-opt"><input type=radio name="mc-t4-5" data-correct="0"> only the biggest slice</label><label class="mc-opt"><input type=radio name="mc-t4-5" data-correct="1"> the biggest, smallest and most surprising slice, plus changes</label><label class="mc-opt"><input type=radio name="mc-t4-5" data-correct="0"> every slice equally</label></div></div>
+  <h3 class="section-h"><span class="pin">💬</span> Speaking questions</h3>
+  <div class="speak-list"><h4 class="speak-h">Warm-up <span class="speak-r">· Q1–Q4</span></h4><div class="speak-q"><span class="q-num">Q1</span> What sources power your home electricity, do you think?</div><div class="speak-q"><span class="q-num">Q2</span> Do you own or use anything solar-powered?</div><div class="speak-q"><span class="q-num">Q3</span> Has your country invested in nuclear power?</div><div class="speak-q"><span class="q-num">Q4</span> Is your energy bill going up?</div><h4 class="speak-h">Core discussion <span class="speak-r">· Q5–Q9</span></h4><div class="speak-q"><span class="q-num">Q5</span> Should coal be banned by 2035?</div><div class="speak-q"><span class="q-num">Q6</span> Is nuclear the honest answer to climate change?</div><div class="speak-q"><span class="q-num">Q7</span> Should richer countries pay for poorer countries' green transitions?</div><div class="speak-q"><span class="q-num">Q8</span> Are gas pipelines a bridge fuel or a trap?</div><div class="speak-q"><span class="q-num">Q9</span> Will renewables really reach 50% of world energy by 2040?</div><h4 class="speak-h">Role-play &amp; strategy <span class="speak-r">· Q10–Q12</span></h4><div class="speak-q"><span class="q-num">Q10</span> Present the world energy pie chart in 60 seconds using at least six chart verbs.</div><div class="speak-q"><span class="q-num">Q11</span> Role-play: advise a small country on its 2035 energy mix.</div><div class="speak-q"><span class="q-num">Q12</span> Design a realistic pie chart of your dream 2050 energy mix.</div></div>
+  <h3 class="section-h"><span class="pin">🎭</span> Role-play challenge</h3>
+  <div class="roleplay">You are advising a small country on its future energy mix. Describe the current world <b>share</b> of each source, name <b>the lion's share</b>, explain the growth of renewables, and recommend which sources they should <b>scale up</b>, <b>phase in</b>, or <b>shift away from</b>.</div>
+  <h3 class="section-h"><span class="pin">🗣️</span> Talk it out &mdash; use the expressions</h3>
+  <p class="section-note">Answer using the phrasal verbs and collocations from the card set above.</p>
+  <div class="speak-list"><div class="speak-q"><span class="q-num">Q13</span> How does your energy bill <b>break down into</b> categories?</div><div class="speak-q"><span class="q-num">Q14</span> What percentage of your country's electricity <b>depends on</b> gas or coal?</div><div class="speak-q"><span class="q-num">Q15</span> Which renewable is being <b>scaled up</b> in your region?</div><div class="speak-q"><span class="q-num">Q16</span> Which fuel would you happily <b>phase out</b> tomorrow?</div><div class="speak-q"><span class="q-num">Q17</span> Is your country really <b>shifting away from</b> fossil fuels?</div></div>
+</section>
+
+<footer>📈 ★ ★ &nbsp; READING THE MARKET · B2 ENGLISH · LINE CHARTS · BAR CHARTS · PIE CHARTS · TRENDS &nbsp; ★ ★ 📈</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
