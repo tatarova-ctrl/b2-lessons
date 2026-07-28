@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vocabulary Workbook — Nursing English: On the Ward</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf6e8;
+    --paper-line:#e6ddc4;
+    --green:#1f4d3a;
+    --green-soft:#2c6b50;
+    --red:#c8322e;
+    --amber:#d4a437;
+    --ink:#2a2620;
+    --ink-soft:#5b5445;
+    --card:#fffdf5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:'Source Serif 4',Georgia,serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    min-height:100vh;
+    padding:16px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(212,164,55,.04), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(31,77,58,.04), transparent 45%);
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+
+  /* ---------- shared card / notebook look ---------- */
+  .sheet{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--paper-line);
+    border-radius:4px;
+    box-shadow:0 2px 0 rgba(200,50,46,.18), 0 10px 30px rgba(42,38,32,.10);
+    overflow:hidden;
+  }
+  .ruled{
+    background-image:repeating-linear-gradient(
+      to bottom, transparent, transparent 31px, var(--paper-line) 31px, var(--paper-line) 32px);
+  }
+  .margin-line::before{
+    content:"";position:absolute;top:0;bottom:0;left:44px;width:2px;
+    background:var(--red);opacity:.55;
+  }
+
+  /* ---------- header ---------- */
+  header{text-align:center;margin:8px 0 22px;}
+  .badge{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:600;
+    letter-spacing:.12em;font-size:.78rem;color:var(--paper);
+    background:var(--green);border:2px solid var(--green);
+    padding:5px 14px;border-radius:3px;transform:rotate(-2deg);
+    box-shadow:2px 2px 0 var(--amber);
+  }
+  h1{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    font-size:clamp(2rem,7vw,3rem);color:var(--green);line-height:1.05;
+    margin-top:14px;letter-spacing:-.01em;
+  }
+  h1 .accent{color:var(--red);}
+  .subtitle{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-soft);margin-top:8px;
+  }
+
+  /* ---------- status bar ---------- */
+  .status{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    background:var(--card);border:2px solid var(--green);border-radius:6px;
+    box-shadow:3px 3px 0 rgba(200,50,46,.85);
+    margin-bottom:14px;overflow:hidden;
+  }
+  .status .cell{padding:10px 6px;text-align:center;border-right:1px solid var(--paper-line);}
+  .status .cell:last-child{border-right:none;}
+  .status .lbl{
+    font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:2px;
+  }
+  .status .val{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:var(--green);}
+  .status .val.wrong{color:var(--red);}
+
+  /* ---------- progress ---------- */
+  .progress-outer{
+    height:12px;background:var(--paper);border:1.5px solid var(--green);
+    border-radius:20px;overflow:hidden;margin-bottom:6px;
+  }
+  .progress-inner{height:100%;width:0;background:
+    repeating-linear-gradient(45deg,var(--amber),var(--amber) 8px,#c99a2f 8px,#c99a2f 16px);
+    transition:width .35s ease;}
+  .progress-txt{
+    font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.1em;
+    color:var(--ink-soft);text-align:right;margin-bottom:18px;
+  }
+
+  /* ---------- question card ---------- */
+  .qcard{margin-bottom:18px;}
+  .qhead{
+    background:var(--green);color:var(--paper);
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 16px 10px 20px;
+  }
+  .qnum{font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.1em;font-size:.82rem;}
+  .qtag{
+    font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.12em;
+    text-transform:uppercase;background:var(--amber);color:var(--green);
+    padding:3px 9px;border-radius:3px;font-weight:600;
+  }
+  .qbody{padding:22px 20px 22px 62px;position:relative;}
+  .qtext{
+    font-family:'Source Serif 4',serif;font-size:clamp(1.05rem,3.4vw,1.22rem);
+    font-weight:500;color:var(--ink);margin-bottom:18px;line-height:1.5;
+  }
+  .qtext .blank{color:var(--red);font-weight:600;letter-spacing:.05em;}
+
+  /* ---------- options ---------- */
+  .opts{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .opt{
+    display:flex;align-items:flex-start;gap:11px;
+    background:var(--card);border:1.5px solid var(--paper-line);
+    border-radius:5px;padding:12px 14px;cursor:pointer;
+    font-family:'Inter',sans-serif;font-size:.95rem;color:var(--ink);
+    transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  }
+  .opt:hover:not(.locked){
+    transform:translateX(5px);border-color:var(--green-soft);
+    box-shadow:-4px 4px 0 rgba(31,77,58,.18);
+  }
+  .opt .letter{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--green);
+    flex-shrink:0;min-width:20px;
+  }
+  .opt.locked{cursor:default;}
+  .opt.correct{
+    background:rgba(31,77,58,.10);border-color:var(--green);color:var(--green);font-weight:500;
+  }
+  .opt.correct .letter{color:var(--green);}
+  .opt.chosen-wrong{
+    background:rgba(200,50,46,.08);border-color:var(--red);
+    color:var(--red);text-decoration:line-through;text-decoration-color:var(--red);
+  }
+  .opt.chosen-wrong .letter{color:var(--red);}
+  .mark{font-family:'Kalam',cursive;font-weight:700;font-size:1.4rem;margin-left:auto;
+    line-height:1;padding-left:8px;}
+  .mark.tick{color:var(--green);}
+  .mark.cross{color:var(--red);}
+
+  /* ---------- grammar note ---------- */
+  .note{
+    margin-top:16px;background:rgba(212,164,55,.10);
+    border-left:4px solid var(--amber);border-radius:0 5px 5px 0;
+    padding:13px 16px;display:none;
+  }
+  .note.show{display:block;animation:fade .3s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+  .note .lbl{
+    font-family:'Kalam',cursive;font-weight:700;color:var(--red);
+    font-size:1.05rem;display:block;margin-bottom:4px;
+  }
+  .note .body{font-family:'Source Serif 4',serif;font-size:.95rem;color:var(--ink-soft);line-height:1.5;}
+  .note .body strong{color:var(--green);font-weight:600;}
+  .note .body em{color:var(--red);font-style:italic;}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;font-size:.82rem;cursor:pointer;
+    background:var(--green);color:var(--paper);border:2px solid var(--green);
+    padding:13px 26px;border-radius:5px;transition:transform .12s,box-shadow .12s,opacity .2s;
+    box-shadow:3px 3px 0 var(--amber);
+  }
+  .btn:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--amber);}
+  .btn:active:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--amber);}
+  .btn:disabled{opacity:.35;cursor:not-allowed;box-shadow:3px 3px 0 rgba(212,164,55,.4);}
+  .btn.red{background:var(--red);border-color:var(--red);box-shadow:3px 3px 0 var(--green);}
+  .btn.red:hover:not(:disabled){box-shadow:4px 4px 0 var(--green);}
+  .btn-row{display:flex;justify-content:flex-end;gap:12px;margin-bottom:30px;}
+
+  /* ---------- splash ---------- */
+  .splash{text-align:center;padding:34px 24px 40px;}
+  .splash .quill{font-family:'Kalam',cursive;font-size:2.4rem;color:var(--amber);}
+  .splash h1{margin:6px 0 4px;}
+  .splash .lead{
+    font-family:'Source Serif 4',serif;font-size:1.05rem;color:var(--ink-soft);
+    max-width:460px;margin:16px auto 8px;line-height:1.6;
+  }
+  .splash .meta{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;
+    color:var(--green);text-transform:uppercase;margin:20px 0 26px;
+  }
+  .splash .meta span{display:inline-block;margin:0 10px;}
+  .topics{
+    display:flex;flex-wrap:wrap;gap:7px;justify-content:center;
+    max-width:520px;margin:0 auto 30px;
+  }
+  .topic{
+    font-family:'Inter',sans-serif;font-size:.75rem;color:var(--green);
+    background:rgba(31,77,58,.07);border:1px solid var(--paper-line);
+    padding:5px 11px;border-radius:20px;
+  }
+
+  /* ---------- report card ---------- */
+  .report{padding:30px 22px 40px;text-align:center;}
+  .grade-big{
+    font-family:'Fraunces',serif;font-weight:600;font-size:clamp(4rem,20vw,7rem);
+    line-height:1;color:var(--green);margin:4px 0;
+  }
+  .grade-big.low{color:var(--red);}
+  .rank{
+    font-family:'Kalam',cursive;font-weight:700;font-size:1.5rem;color:var(--red);
+    transform:rotate(-1.5deg);margin-bottom:22px;
+  }
+  .rc-panel{
+    background:var(--card);border:2px solid var(--green);border-radius:6px;
+    box-shadow:4px 4px 0 rgba(200,50,46,.8);max-width:420px;margin:0 auto 26px;
+    overflow:hidden;
+  }
+  .rc-row{
+    display:flex;justify-content:space-between;padding:11px 18px;
+    border-bottom:1px dashed var(--paper-line);
+    font-family:'IBM Plex Mono',monospace;font-size:.85rem;
+  }
+  .rc-row:last-child{border-bottom:none;}
+  .rc-row .k{color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;align-self:center;}
+  .rc-row .v{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--green);}
+  .rc-row .v.red{color:var(--red);}
+  .teacher-note{
+    background:rgba(200,50,46,.05);border:1px dashed var(--red);border-radius:6px;
+    padding:18px 20px;max-width:460px;margin:0 auto 28px;text-align:left;
+  }
+  .teacher-note .tn-lbl{
+    font-family:'Kalam',cursive;font-weight:700;color:var(--red);font-size:1.1rem;
+    display:block;margin-bottom:6px;
+  }
+  .teacher-note .tn-body{
+    font-family:'Kalam',cursive;font-size:1.12rem;color:#a8302b;line-height:1.5;
+  }
+
+  .hidden{display:none;}
+  footer{
+    text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.62rem;
+    letter-spacing:.1em;color:var(--ink-soft);opacity:.7;margin:10px 0 20px;
+  }
+  @media(max-width:480px){
+    body{padding:10px;}
+    .qbody{padding:18px 14px 18px 52px;}
+    .margin-line::before{left:34px;}
+    .status .val{font-size:1.05rem;}
+    .btn{padding:12px 18px;font-size:.74rem;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ SPLASH ============ -->
+  <section id="splash">
+    <div class="sheet ruled margin-line splash">
+      <div class="quill">&#9998;</div>
+      <span class="badge">B1&ndash;B2 &middot; NURSING ENGLISH</span>
+      <h1>The Vocabulary <span class="accent">Workbook</span></h1>
+      <p class="lead">A 60-question vocabulary test for a rehab &amp; intensive-care nurse working with patients in recovery. Built from the <strong>On the Ward</strong> and <strong>The Human Body</strong> lessons: bedside care, medications, pain, daily troubles, handovers and the words you say to patients and doctors every shift.</p>
+      <div class="meta">
+        <span>&#9679; 60 Questions</span><span>&#9679; 4 Options Each</span><span>&#9679; Instant Feedback</span>
+      </div>
+      <div class="topics" id="topicChips"></div>
+      <button class="btn" id="startBtn">Begin the Test &rarr;</button>
+    </div>
+    <footer>THE VOCABULARY WORKBOOK &middot; NURSING ENGLISH &middot; ON THE WARD</footer>
+  </section>
+
+  <!-- ============ TEST ============ -->
+  <section id="test" class="hidden">
+    <header>
+      <span class="badge">B1&ndash;B2</span>
+      <h1>The Vocabulary <span class="accent">Workbook</span></h1>
+      <div class="subtitle">On the Ward &middot; Nursing Vocabulary</div>
+    </header>
+
+    <div class="status">
+      <div class="cell"><span class="lbl">Question</span><span class="val" id="sQ">1/60</span></div>
+      <div class="cell"><span class="lbl">Correct</span><span class="val" id="sC">0</span></div>
+      <div class="cell"><span class="lbl">Wrong</span><span class="val wrong" id="sW">0</span></div>
+      <div class="cell"><span class="lbl">Score</span><span class="val" id="sS">0%</span></div>
+    </div>
+
+    <div class="progress-outer"><div class="progress-inner" id="prog"></div></div>
+    <div class="progress-txt" id="progTxt">0 / 60 completed</div>
+
+    <div class="sheet ruled margin-line qcard">
+      <div class="qhead">
+        <span class="qnum" id="qNum">Q01</span>
+        <span class="qtag" id="qTag">At the Bedside</span>
+      </div>
+      <div class="qbody">
+        <p class="qtext" id="qText"></p>
+        <ul class="opts" id="opts"></ul>
+        <div class="note" id="note">
+          <span class="lbl">&#9998; Vocabulary Note</span>
+          <span class="body" id="noteBody"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" id="nextBtn" disabled>Next &rarr;</button>
+    </div>
+  </section>
+
+  <!-- ============ REPORT ============ -->
+  <section id="report" class="hidden">
+    <header>
+      <span class="badge">Report Card</span>
+      <h1>Your <span class="accent">Results</span></h1>
+    </header>
+    <div class="sheet ruled margin-line report">
+      <div class="grade-big" id="gradeBig">A</div>
+      <div class="rank" id="rankTxt">Ward-Ready</div>
+      <div class="rc-panel">
+        <div class="rc-row"><span class="k">Total Questions</span><span class="v" id="rTotal">60</span></div>
+        <div class="rc-row"><span class="k">Correct</span><span class="v" id="rCorrect">0</span></div>
+        <div class="rc-row"><span class="k">Wrong</span><span class="v red" id="rWrong">0</span></div>
+        <div class="rc-row"><span class="k">Score</span><span class="v" id="rScore">0%</span></div>
+        <div class="rc-row"><span class="k">Grade</span><span class="v" id="rGrade">A</span></div>
+      </div>
+      <div class="teacher-note">
+        <span class="tn-lbl">&#9998; Teacher's Note</span>
+        <span class="tn-body" id="teacherNote"></span>
+      </div>
+      <button class="btn red" id="restartBtn">&#8635; Take the Test Again</button>
+    </div>
+    <footer>THE VOCABULARY WORKBOOK &middot; SAFE, KIND, CLEAR ENGLISH ON THE WARD</footer>
+  </section>
+
+</div>
+
+<script>
+const QUESTIONS = [{"cat":"At the Bedside","q":"Before touching the patient, the nurse says: \"I'm just going to check your ______ — it won't take a minute.\"","o":["visiting hours","name tag","blood pressure","waiting list"],"answer":2,"note":"<strong>Blood pressure</strong> is the force of blood pushing against the artery walls. Checking it is part of taking a patient's <em>vital signs</em> at the bedside."},{"cat":"At the Bedside","q":"The nurse takes the patient's ______ every four hours: blood pressure, pulse, temperature and breathing.","o":["side effects","home visits","office hours","vital signs"],"answer":3,"note":"<strong>Vital signs</strong> are the basic body measurements that show how a patient is doing. They include <em>blood pressure</em>, <em>pulse</em>, <em>temperature</em> and <em>oxygen saturation</em>."},{"cat":"At the Bedside","q":"\"His ______ has dropped to 91% — please call the doctor.\" This measures the oxygen in the blood.","o":["temperature","blood pressure","oxygen saturation","cholesterol"],"answer":2,"note":"<strong>Oxygen saturation</strong> is the amount of oxygen carried in the blood, shown as a percentage. A low reading (below about 94%) is a warning sign, so the nurse may say, 'His <em>oxygen saturation</em> has dropped.'"},{"cat":"At the Bedside","q":"The nurse feels the patient's ______ at the wrist to count the heartbeats.","o":["posture","balance","pulse","reflex"],"answer":2,"note":"The <strong>pulse</strong> is the beat of the heart felt in an artery, usually at the wrist. We describe it as <em>strong</em>, <em>weak</em>, <em>regular</em> or <em>irregular</em>."},{"cat":"At the Bedside","q":"At the start of every shift, the nurse asks: \"Can you tell me your full name and ______?\"","o":["home address","favourite meal","phone number","date of birth"],"answer":3,"note":"Asking for the patient's full name and <strong>date of birth</strong> is the standard <em>identity check</em>. It keeps patients safe when several people on the ward have similar names."},{"cat":"At the Bedside","q":"An ______ confirms who the patient is before any medicine or treatment is given.","o":["identity check","exit interview","insurance form","X-ray scan"],"answer":0,"note":"An <strong>identity check</strong> means confirming exactly who the patient is. It is done <em>every single time</em> before giving medication, never just once."},{"cat":"At the Bedside","q":"The nurse improves the patient's ______ with an extra pillow and by adjusting the bed.","o":["diagnosis","referral","comfort","dosage"],"answer":2,"note":"<strong>Comfort</strong> means feeling at ease in body and mind. Small actions like fixing a pillow raise a patient's comfort, as in 'Let's improve her <em>comfort</em> with another pillow.'"},{"cat":"At the Bedside","q":"\"Mr Brown has ______ at 11 a.m.\" — the exercises and movement that help him recover.","o":["a prescription","a colonoscopy","physiotherapy","a handover"],"answer":2,"note":"<strong>Physiotherapy</strong> is treatment using exercises and movement to help recovery. A patient in pain or sitting badly cannot benefit from their <em>physiotherapy session</em>."},{"cat":"At the Bedside","q":"To open up a quiet, worried patient each morning, the nurse asks: \"Is there anything ______ you?\"","o":["owing","worrying","costing","feeding"],"answer":1,"note":"The open question \"Is there anything <strong>worrying</strong> you?\" invites the patient to share a hidden concern. Many older patients won't complain unless they are gently asked, so this <em>open question</em> often brings out a real concern."},{"cat":"Medication Round","q":"Nurses follow the \"five rights\": right patient, right medication, right ______, right time, right route.","o":["pillow","room","chart","dose"],"answer":3,"note":"The <strong>dose</strong> is the exact amount of a medicine to be given. A small error in <em>dosage</em> can send a patient back to hospital, so it is always double-checked."},{"cat":"Medication Round","q":"\"Drowsiness is a common ______ of this medicine — don't try to get up alone afterwards.\"","o":["identity check","main course","night shift","side effect"],"answer":3,"note":"A <strong>side effect</strong> is an unwanted effect of a medicine, such as feeling <em>drowsy</em> or <em>sick</em>. Nurses warn patients about common side effects honestly."},{"cat":"Medication Round","q":"Even when it is written in the chart, the nurse always asks: \"Are you ______ to any medications?\"","o":["central","similar","allergic","grateful"],"answer":2,"note":"An <strong>allergy</strong> is a bad reaction to a substance, so we ask if a patient is <em>allergic</em>. Some patients only remember a strong reaction when asked directly."},{"cat":"Medication Round","q":"\"Take this ______ only if you need it — it will reduce the pain after your session.\"","o":["thermometer","wheelchair","antibiotic","painkiller"],"answer":3,"note":"A <strong>painkiller</strong> is a medicine that reduces pain, such as paracetamol. It differs from an <em>antibiotic</em>, which fights bacterial infections."},{"cat":"Medication Round","q":"\"She's still on the ______ for her chest infection\" — the medicine that fights the bacteria.","o":["antibiotic","ultrasound","side effect","painkiller"],"answer":0,"note":"An <strong>antibiotic</strong> is a medicine that fights bacterial infections such as a <em>chest infection</em>. It does not work on viruses like a cold, so it is only used when truly needed."},{"cat":"Medication Round","q":"\"Here is the new ______ from the doctor\" — the written order telling us which medicine to give.","o":["prescription","appointment","allergy","discharge"],"answer":0,"note":"A <strong>prescription</strong> is a doctor's written order for medicine. Nurses check the <em>prescription</em> against the chart before giving any tablet."},{"cat":"Medication Round","q":"To catch a missed dose, the nurse asks: \"Have you taken your morning ______?\"","o":["readings","exercises","tablets","visitors"],"answer":2,"note":"<strong>Tablets</strong> are solid, round doses of medicine (also called <em>pills</em>). Patients often forget a dose, so it is worth checking directly."},{"cat":"Medication Round","q":"Before leaving the room, the nurse says: \"Call me if you notice anything ______.\"","o":["expensive","unusual","official","delicious"],"answer":1,"note":"Asking the patient to report anything <strong>unusual</strong> helps catch new <em>side effects</em> early. It shares responsibility for safety with the patient."},{"cat":"Medication Round","q":"\"She's on five different ______\" is another way of saying she takes five kinds of medicine.","o":["fractures","specialists","medications","handovers"],"answer":2,"note":"<strong>Medications</strong> is the general word for medicines given to a patient. In rehab, many patients are on several <em>medications</em> at once."},{"cat":"Medication Round","q":"A golden safety rule: never ______ for a medication you did not actually give.","o":["pay","rush","sign","wait"],"answer":2,"note":"To <strong>sign</strong> for a medication means to record officially that you gave it. Signing for a <em>dose</em> you didn't give breaks the safety chain and is never allowed."},{"cat":"Pain & Daily Troubles","q":"The nurse checks pain by asking: \"On a ______ of 1 to 10, how bad is the pain right now?\"","o":["dose","shift","chart","scale"],"answer":3,"note":"A pain <strong>scale</strong> of 1 to 10 lets patients rate how strong their pain is, as in '<em>On a scale of 1 to 10</em>, how bad is it?' It gives a clear number that guides treatment."},{"cat":"Pain & Daily Troubles","q":"To find the source of the problem, the nurse asks: \"Where exactly does it ______?\"","o":["hurt","belong","matter","cost"],"answer":0,"note":"Asking where it <strong>hurts</strong> locates the pain, which often changes the treatment. Older patients may <em>underplay</em> their pain, so the exact spot matters."},{"cat":"Pain & Daily Troubles","q":"To prevent a fall, the nurse says kindly: \"Please don't try to get up on your own — ring the ______.\"","o":["doctor","chart","family","bell"],"answer":3,"note":"The call <strong>bell</strong> lets a patient ask for help instead of getting up alone. Most <em>falls</em> happen during a quick, unassisted trip to the bathroom."},{"cat":"Pain & Daily Troubles","q":"Most ______ in rehab happen when a patient tries to reach the bathroom without help.","o":["charts","falls","shifts","doses"],"answer":1,"note":"A <strong>fall</strong> is one of the biggest dangers in rehab. Nurses reduce the risk by keeping the floor clear and the <em>walking frame</em> within reach."},{"cat":"Pain & Daily Troubles","q":"After surgery, some patients feel fine in bed but almost faint when they stand — this is ______.","o":["infection","confusion","cholesterol","dizziness"],"answer":3,"note":"<strong>Dizziness</strong> is a feeling that you might faint or lose balance. It is common with low blood pressure, so nurses sit patients up slowly and ask, \"Are you feeling <em>dizzy</em>?\""},{"cat":"Pain & Daily Troubles","q":"A common problem after surgery, painkillers and little movement is ______.","o":["constipation","a bruise","a referral","a fracture"],"answer":0,"note":"<strong>Constipation</strong> is difficulty passing stools. Nurses check it politely by asking, \"When did you last <em>open your bowels</em>?\", using a kind, normal tone."},{"cat":"Pain & Daily Troubles","q":"To check for constipation gently, the nurse asks: \"When did you last open your ______?\"","o":["account","tablets","curtains","bowels"],"answer":3,"note":"\"When did you last open your <strong>bowels</strong>?\" is the polite clinical way to ask about <em>constipation</em>. A calm, matter-of-fact tone helps embarrassed patients answer."},{"cat":"Pain & Daily Troubles","q":"A sore that forms on the skin when a patient lies still for too long is a ______.","o":["blister","bruise","graze","bedsore"],"answer":3,"note":"A <strong>bedsore</strong> (or <em>pressure sore</em>) develops where the skin is pressed for a long time. Turning and repositioning patients regularly helps prevent them."},{"cat":"Pain & Daily Troubles","q":"Painkillers, noise, worry and a strange bed all damage a patient's ______, which slows recovery.","o":["sleep","posture","insurance","appetite"],"answer":0,"note":"Good <strong>sleep</strong> is essential for recovery, and a tired patient cannot do good <em>physiotherapy</em>. Several small things on the ward can disturb it at once."},{"cat":"Pain & Daily Troubles","q":"Rehab is slow and hard, so nurses also watch a patient's ______ for signs of low spirits.","o":["budget","spelling","mood","balance"],"answer":2,"note":"A patient's <strong>mood</strong> is their emotional state. <em>Low mood</em> can quietly slow recovery, so nurses notice it alongside physical problems."},{"cat":"Pain & Daily Troubles","q":"When several older patients say \"it's fine\" but clearly aren't, they are said to ______ their pain.","o":["overcharge","translate","underplay","postpone"],"answer":2,"note":"To <strong>underplay</strong> something means to make it seem less serious than it is. Many older patients were taught not to complain, so they underplay their <em>pain</em>."},{"cat":"Handover & Nights","q":"At the end of the shift, the ______ is when one nurse passes the patients to the next.","o":["handover","admission","discharge","referral"],"answer":0,"note":"A <strong>handover</strong> is the moment one nurse hands the patients to the next. It is described as \"the <em>safety belt</em> between two nurses\" — short, accurate and complete."},{"cat":"Handover & Nights","q":"A safe handover follows the ______ structure: Situation, Background, Assessment, Recommendation.","o":["GP","FAST","CT","SBAR"],"answer":3,"note":"<strong>SBAR</strong> stands for Situation, Background, Assessment, Recommendation. It is a standard, structured way to give a clear <em>handover</em> about a patient."},{"cat":"Handover & Nights","q":"\"I'm on the evening ______ today\" — the period of work a nurse covers.","o":["chart","shift","round","ward"],"answer":1,"note":"A <strong>shift</strong> is the block of time a nurse works, such as the <em>day shift</em> or the <em>night shift</em>. A rehab nurse often rotates through all three."},{"cat":"Handover & Nights","q":"The patient's written medical record, updated after every visit, is the ______.","o":["menu","chart","referral","bill"],"answer":1,"note":"The <strong>chart</strong> is the patient's written record of observations, medicines and notes. Nurses <em>update the chart</em> after every visit so information is never lost."},{"cat":"Handover & Nights","q":"\"He's been ______ all night and won't settle\" describes a patient who can't lie or sit still.","o":["chronic","allergic","restless","sterile"],"answer":2,"note":"<strong>Restless</strong> means unable to stay still or relax, as in 'He's been <em>restless</em> all night.' It may signal pain, anxiety or confusion."},{"cat":"Handover & Nights","q":"\"Mrs Park shows some ______ after dark\" — she isn't sure where she is or what's happening.","o":["recovery","cholesterol","comfort","confusion"],"answer":3,"note":"<strong>Confusion</strong> means not knowing where you are or what is happening. In older patients it often gets worse after dark, a pattern called <em>sundowning</em>."},{"cat":"Handover & Nights","q":"When an older patient becomes confused specifically in the evening, nurses call it ______.","o":["screening","overtime","dressing","sundowning"],"answer":3,"note":"<strong>Sundowning</strong> is the name for confusion that gets worse in older patients after dark. It is a common quiet challenge on the <em>night shift</em>."},{"cat":"Handover & Nights","q":"Faced with a sudden high temperature at 3 a.m., the nurse's rule is: \"I'll call the doctor ______.\"","o":["after breakfast","next week","straight away","if I remember"],"answer":2,"note":"Calling the doctor <strong>straight away</strong> means <em>immediately</em>. It is the right response to a genuine warning sign at night: no pride, no waiting until morning."},{"cat":"Body & Injuries","q":"To ______ a wrist means to stretch or tear the soft tissue around the joint, without breaking a bone.","o":["fracture","amputate","sprain","dislocate"],"answer":2,"note":"To <strong>sprain</strong> a joint means to stretch or tear a <em>ligament</em>. It is less severe than a <em>fracture</em> (a broken bone) but heals more slowly than people expect."},{"cat":"Body & Injuries","q":"Rugby players often ______ a shoulder, pushing the bone out of its normal position.","o":["dislocate","bruise","graze","sprain"],"answer":0,"note":"To <strong>dislocate</strong> means a bone has moved out of its normal place at a joint. It differs from a <em>sprain</em>, where the ligaments are stretched but the bone stays put."},{"cat":"Body & Injuries","q":"The X-ray showed a small ______ in her wrist, so we'll put it in plaster.","o":["graze","fracture","allergy","bruise"],"answer":1,"note":"A <strong>fracture</strong> is a broken bone. In everyday medical English, <em>fractured</em> and <em>broken</em> mean the same thing."},{"cat":"Body & Injuries","q":"He tore a ______ in his knee — the tissue that connects the bones at the joint.","o":["artery","ligament","tablet","pulse"],"answer":1,"note":"A <strong>ligament</strong> connects bone to bone at a joint. Don't confuse it with a <em>muscle</em>, which produces movement."},{"cat":"Body & Injuries","q":"After bumping into the corner of the bed, the patient had a purple ______ on his leg.","o":["bruise","referral","burn","fracture"],"answer":0,"note":"A <strong>bruise</strong> is a purple mark under the skin caused by a bump. Unlike a <em>cut</em> or a <em>graze</em>, the skin is not broken."},{"cat":"Body & Injuries","q":"Always clean the ______ carefully before you put a bandage on it, so it doesn't get infected.","o":["chart","pulse","bone","wound"],"answer":3,"note":"A <strong>wound</strong> is a cut or injury to the skin. A small wound that becomes <em>infected</em> can turn into a serious problem, so it is cleaned first."},{"cat":"Body & Injuries","q":"The ______ is the muscle, about the size of a fist, that pumps blood around the body.","o":["kidney","heart","liver","stomach"],"answer":1,"note":"The <strong>heart</strong> pumps blood through the body. When an <em>artery</em> feeding it becomes blocked, the result can be a <em>heart attack</em>."},{"cat":"Body & Injuries","q":"A ______ happens when blood suddenly stops flowing to part of the brain — every minute counts.","o":["fracture","heart attack","stroke","biopsy"],"answer":2,"note":"A <strong>stroke</strong> cuts off blood to the brain. The <em>FAST</em> test — Face, Arms, Speech, Time — helps families act quickly and call an ambulance."},{"cat":"Body & Injuries","q":"Diabetes is described as a ______ illness: you live with it, you don't fully cure it.","o":["chronic","minor","temporary","sudden"],"answer":0,"note":"A <strong>chronic</strong> illness is a long-term condition that doesn't fully go away. It is the opposite of an <em>acute</em> problem, which comes on suddenly and passes."},{"cat":"Body & Injuries","q":"A blocked ______ — a tube that carries blood from the heart — is what causes most heart attacks.","o":["ligament","joint","muscle","artery"],"answer":3,"note":"An <strong>artery</strong> carries blood away from the heart. When an artery becomes blocked, blood can't reach the heart muscle, causing a <em>heart attack</em>."},{"cat":"Body & Injuries","q":"A child fell in the corridor and got a ______ on the knee — a small, shallow scrape on the skin.","o":["sprain","graze","bruise","fracture"],"answer":1,"note":"A <strong>graze</strong> is a shallow skin injury caused by scraping against a rough surface. It is more minor than a <em>cut</em> and usually heals on its own."},{"cat":"Tests & Specialists","q":"If a patient falls and you think a bone is broken, the first test is usually an ______.","o":["allergy test","X-ray","ultrasound","ECG"],"answer":1,"note":"An <strong>X-ray</strong> uses radiation to make an image and is best for looking at <em>bones</em>. It gives a fast answer to the question, \"Is anything broken?\""},{"cat":"Tests & Specialists","q":"An ______ scan uses powerful magnets rather than radiation and is excellent for soft tissue.","o":["MRI","X-ray","ultrasound","ECG"],"answer":0,"note":"An <strong>MRI</strong> scan uses magnets and is brilliant for <em>soft tissue</em> such as the brain and joints. Patients must say if they have any metal in their body."},{"cat":"Tests & Specialists","q":"Pregnancy is usually monitored with an ______, which uses sound waves and a clear gel.","o":["ultrasound","X-ray","biopsy","CT scan"],"answer":0,"note":"An <strong>ultrasound</strong> uses sound waves, not radiation, so it is safe and cheap. It is famous for checking a baby during <em>pregnancy</em>."},{"cat":"Tests & Specialists","q":"An ______ records the electrical activity of the heart and takes only about five minutes.","o":["ultrasound","ECG","MRI","X-ray"],"answer":1,"note":"An <strong>ECG</strong> records the heart's electrical activity. It is a quick, painless test used to check the heart's <em>rhythm</em>."},{"cat":"Tests & Specialists","q":"A simple ______ can reveal anaemia, infection, diabetes and how well the kidneys are working.","o":["X-ray","blood test","biopsy","referral"],"answer":1,"note":"A <strong>blood test</strong> examines a sample of blood. It can reveal <em>anaemia</em>, infection or diabetes, and is one of the most informative low-cost investigations available."},{"cat":"Tests & Specialists","q":"Sometimes a ______ — taking a tiny piece of tissue for testing — is needed for a final answer.","o":["biopsy","prescription","handover","dosage"],"answer":0,"note":"A <strong>biopsy</strong> means removing a small piece of tissue to examine it. It often provides the final answer that leads to a <em>diagnosis</em>."},{"cat":"Tests & Specialists","q":"The doctor's identification of exactly which illness a patient has is called the ______.","o":["diagnosis","prescription","referral","prognosis"],"answer":0,"note":"A <strong>diagnosis</strong> is the doctor's identification of a disease. It differs from a <em>prognosis</em>, which is the likely course or outcome of the illness."},{"cat":"Tests & Specialists","q":"The family doctor you usually meet first, who decides what to do next, is a ______.","o":["specialist","GP","cardiologist","radiologist"],"answer":1,"note":"A <strong>GP</strong> (general practitioner) is the family doctor and \"the front door of medicine\". A good GP knows exactly which <em>specialist</em> to send you to."},{"cat":"Tests & Specialists","q":"The GP gives the patient a ______ — a letter asking a specialist to see them.","o":["handover","referral","biopsy","painkiller"],"answer":1,"note":"A <strong>referral</strong> is a letter from a GP to a <em>specialist</em>. Patients often wait for a referral before a specialist will see them."},{"cat":"Tests & Specialists","q":"If the problem is the heart, the patient is sent to a ______.","o":["cardiologist","paediatrician","dermatologist","urologist"],"answer":0,"note":"A <strong>cardiologist</strong> treats the heart, including heart attacks and rhythm problems. The root <em>cardio-</em> means 'heart'."},{"cat":"Tests & Specialists","q":"A doctor who looks after children, from new-born babies to teenagers, is a ______.","o":["cardiologist","paediatrician","dermatologist","radiologist"],"answer":1,"note":"A <strong>paediatrician</strong> is a doctor for children. For a worried <em>baby</em>, you would go to a paediatrician rather than a general doctor."}];
+
+var idx=0, correct=0, wrong=0, answered=false;
+
+var cats=[];
+QUESTIONS.forEach(function(q){ if(cats.indexOf(q.cat)===-1) cats.push(q.cat); });
+var chip=document.getElementById('topicChips');
+cats.forEach(function(c){ var s=document.createElement('span'); s.className='topic'; s.textContent=c; chip.appendChild(s); });
+
+var $=function(id){return document.getElementById(id);};
+
+function show(sec){
+  ['splash','test','report'].forEach(function(s){ $(s).classList.add('hidden'); });
+  $(sec).classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function render(){
+  answered=false;
+  var q=QUESTIONS[idx];
+  $('qNum').textContent='Q'+String(idx+1).padStart(2,'0');
+  $('qTag').textContent=q.cat;
+  $('qText').innerHTML=q.q.replace(/______/g,'<span class="blank">______</span>');
+  var letters=['A','B','C','D'];
+  var ul=$('opts'); ul.innerHTML='';
+  q.o.forEach(function(text,i){
+    var li=document.createElement('li');
+    li.className='opt';
+    li.innerHTML='<span class="letter">'+letters[i]+')</span><span class="otext">'+text+'</span>';
+    li.addEventListener('click',function(){ choose(i,li); });
+    ul.appendChild(li);
+  });
+  $('note').classList.remove('show');
+  $('noteBody').innerHTML=q.note;
+  $('nextBtn').disabled=true;
+  $('nextBtn').textContent = (idx===QUESTIONS.length-1) ? 'See Results \u2192' : 'Next \u2192';
+  updateStatus();
+}
+
+function choose(i,li){
+  if(answered) return;
+  answered=true;
+  var q=QUESTIONS[idx];
+  var opts=document.querySelectorAll('#opts .opt');
+  opts.forEach(function(o,k){
+    o.classList.add('locked');
+    if(k===q.answer){
+      o.classList.add('correct');
+      var m=document.createElement('span'); m.className='mark tick'; m.textContent='\u2713'; o.appendChild(m);
+    }
+  });
+  if(i===q.answer){
+    correct++;
+  } else {
+    wrong++;
+    li.classList.add('chosen-wrong');
+    var x=document.createElement('span'); x.className='mark cross'; x.textContent='\u2717'; li.appendChild(x);
+  }
+  $('note').classList.add('show');
+  $('nextBtn').disabled=false;
+  updateStatus();
+}
+
+function updateStatus(){
+  var done=correct+wrong;
+  $('sQ').textContent=(idx+1)+'/'+QUESTIONS.length;
+  $('sC').textContent=correct;
+  $('sW').textContent=wrong;
+  var pct = done? Math.round(correct/done*100):0;
+  $('sS').textContent=pct+'%';
+  var pdone=Math.round((idx + (answered?1:0))/QUESTIONS.length*100);
+  $('prog').style.width=pdone+'%';
+  $('progTxt').textContent=(idx+(answered?1:0))+' / '+QUESTIONS.length+' completed';
+}
+
+$('nextBtn').addEventListener('click',function(){
+  if(!answered) return;
+  if(idx<QUESTIONS.length-1){ idx++; render(); }
+  else finish();
+});
+
+function gradeFor(p){
+  if(p>=95) return['A+','Ward-Ready &mdash; Excellent Nursing English'];
+  if(p>=90) return['A','Confident B2 &mdash; Clear at the Bedside'];
+  if(p>=80) return['B+','Strong B1&ndash;B2 &mdash; Well Prepared'];
+  if(p>=70) return['B','Solid B1 &mdash; Nearly Ward-Ready'];
+  if(p>=60) return['C','Good B1 &mdash; Building Confidence'];
+  if(p>=50) return['D','Developing &mdash; Keep Practising'];
+  return['F','Foundations Need Work &mdash; Keep Going'];
+}
+
+function teacherFeedback(p,total){
+  if(p>=90) return "Excellent work! You have the vocabulary to work safely and kindly in English &mdash; vital signs, medications, pain checks, falls, handovers and the right words for doctors. You could run a full bedside routine and an SBAR handover in English with confidence. Keep using these phrases out loud in real shifts.";
+  if(p>=80) return "Very strong result! You know most of the ward vocabulary well. Look again at the items you missed &mdash; they are often close pairs (like <em>painkiller</em> vs <em>antibiotic</em>, or <em>sprain</em> vs <em>fracture</em>). Practise the exact phrases with a colleague and they will come easily at the bedside.";
+  if(p>=70) return "Good effort &mdash; you are nearly ward-ready. Focus on the phrases you say to patients: the identity check, the pain scale, the allergy question, and the fall warning. Say each one aloud until it feels natural, and revise the organ and scan names from The Human Body lesson.";
+  if(p>=60) return "You are building solid nursing English. Revise the four ward topics one at a time &mdash; bedside, medications, daily troubles, handover &mdash; and learn the key phrases as whole sentences. Reading the two lessons again and re-taking this test will make the words stick.";
+  if(p>=50) return "A fair start! Begin with the most useful bedside words (vital signs, blood pressure, pain, dose, allergy) and the simplest patient phrases. Learn a few each shift, say them out loud, and add the body and scan vocabulary gradually. Little and often is the key.";
+  return "Don't be discouraged &mdash; medical English takes time to build! Start with the everyday bedside words and the short phrases you say most often, then add medications, injuries and specialists a few at a time. Re-read the two lessons, practise saying each phrase, and try again soon. You'll be ward-ready before you know it!";
+}
+
+function finish(){
+  var total=QUESTIONS.length;
+  var p=Math.round(correct/total*100);
+  var g=gradeFor(p);
+  $('gradeBig').textContent=g[0];
+  $('gradeBig').classList.toggle('low', p<60);
+  $('rankTxt').innerHTML=g[1];
+  $('rTotal').textContent=total;
+  $('rCorrect').textContent=correct;
+  $('rWrong').textContent=wrong;
+  $('rScore').textContent=p+'%';
+  $('rGrade').textContent=g[0];
+  $('teacherNote').innerHTML=teacherFeedback(p,total);
+  show('report');
+}
+
+$('startBtn').addEventListener('click',function(){ idx=0;correct=0;wrong=0; show('test'); render(); });
+$('restartBtn').addEventListener('click',function(){ idx=0;correct=0;wrong=0; show('splash'); });
+</script>
+</body>
+</html>
