@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Grammar Workbook — C1 Mixed Tasks II (Lexico-Grammar)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf6e8;
+    --paper-line:#e6ddc4;
+    --green:#1f4d3a;
+    --green-soft:#2c6b50;
+    --red:#c8322e;
+    --amber:#d4a437;
+    --ink:#2a2620;
+    --ink-soft:#5b5445;
+    --card:#fffdf5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:'Source Serif 4',Georgia,serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    min-height:100vh;
+    padding:16px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(212,164,55,.04), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(31,77,58,.04), transparent 45%);
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+
+  /* ---------- shared card / notebook look ---------- */
+  .sheet{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--paper-line);
+    border-radius:4px;
+    box-shadow:0 2px 0 rgba(200,50,46,.18), 0 10px 30px rgba(42,38,32,.10);
+    overflow:hidden;
+  }
+  .ruled{
+    background-image:repeating-linear-gradient(
+      to bottom, transparent, transparent 31px, var(--paper-line) 31px, var(--paper-line) 32px);
+  }
+  .margin-line::before{
+    content:"";position:absolute;top:0;bottom:0;left:44px;width:2px;
+    background:var(--red);opacity:.55;
+  }
+
+  /* ---------- header ---------- */
+  header{text-align:center;margin:8px 0 22px;}
+  .badge{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:600;
+    letter-spacing:.12em;font-size:.78rem;color:var(--paper);
+    background:var(--green);border:2px solid var(--green);
+    padding:5px 14px;border-radius:3px;transform:rotate(-2deg);
+    box-shadow:2px 2px 0 var(--amber);
+  }
+  h1{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    font-size:clamp(2rem,7vw,3rem);color:var(--green);line-height:1.05;
+    margin-top:14px;letter-spacing:-.01em;
+  }
+  h1 .accent{color:var(--red);}
+  .subtitle{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-soft);margin-top:8px;
+  }
+
+  /* ---------- status bar ---------- */
+  .status{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    background:var(--card);border:2px solid var(--green);border-radius:6px;
+    box-shadow:3px 3px 0 rgba(200,50,46,.85);
+    margin-bottom:14px;overflow:hidden;
+  }
+  .status .cell{padding:10px 6px;text-align:center;border-right:1px solid var(--paper-line);}
+  .status .cell:last-child{border-right:none;}
+  .status .lbl{
+    font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:2px;
+  }
+  .status .val{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:var(--green);}
+  .status .val.wrong{color:var(--red);}
+
+  /* ---------- progress ---------- */
+  .progress-outer{
+    height:12px;background:var(--paper);border:1.5px solid var(--green);
+    border-radius:20px;overflow:hidden;margin-bottom:6px;
+  }
+  .progress-inner{height:100%;width:0;background:
+    repeating-linear-gradient(45deg,var(--amber),var(--amber) 8px,#c99a2f 8px,#c99a2f 16px);
+    transition:width .35s ease;}
+  .progress-txt{
+    font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.1em;
+    color:var(--ink-soft);text-align:right;margin-bottom:18px;
+  }
+
+  /* ---------- question card ---------- */
+  .qcard{margin-bottom:18px;}
+  .qhead{
+    background:var(--green);color:var(--paper);
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 16px 10px 20px;
+  }
+  .qnum{font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.1em;font-size:.82rem;}
+  .qtag{
+    font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.12em;
+    text-transform:uppercase;background:var(--amber);color:var(--green);
+    padding:3px 9px;border-radius:3px;font-weight:600;
+  }
+  .qbody{padding:22px 20px 22px 62px;position:relative;}
+  .qtext{
+    font-family:'Source Serif 4',serif;font-size:clamp(1.05rem,3.4vw,1.22rem);
+    font-weight:500;color:var(--ink);margin-bottom:18px;line-height:1.5;
+  }
+  .qtext .blank{color:var(--red);font-weight:600;letter-spacing:.05em;}
+  .qtask{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.6rem;
+    letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--red);
+    background:rgba(200,50,46,.08);border:1px solid rgba(200,50,46,.25);
+    padding:3px 9px;border-radius:3px;margin-bottom:12px;}
+  .qtext mark.focus{background:linear-gradient(transparent 55%, rgba(230,145,30,.55) 55%);
+    color:inherit;font-weight:600;padding:0 1px;border-radius:1px;}
+
+  /* ---------- options ---------- */
+  .opts{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .opt{
+    display:flex;align-items:flex-start;gap:11px;
+    background:var(--card);border:1.5px solid var(--paper-line);
+    border-radius:5px;padding:12px 14px;cursor:pointer;
+    font-family:'Inter',sans-serif;font-size:.95rem;color:var(--ink);
+    transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  }
+  .opt:hover:not(.locked){
+    transform:translateX(5px);border-color:var(--green-soft);
+    box-shadow:-4px 4px 0 rgba(31,77,58,.18);
+  }
+  .opt .letter{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--green);
+    flex-shrink:0;min-width:20px;
+  }
+  .opt.locked{cursor:default;}
+  .opt.correct{
+    background:rgba(31,77,58,.10);border-color:var(--green);color:var(--green);font-weight:500;
+  }
+  .opt.correct .letter{color:var(--green);}
+  .opt.chosen-wrong{
+    background:rgba(200,50,46,.08);border-color:var(--red);
+    color:var(--red);text-decoration:line-through;text-decoration-color:var(--red);
+  }
+  .opt.chosen-wrong .letter{color:var(--red);}
+  .mark{font-family:'Kalam',cursive;font-weight:700;font-size:1.4rem;margin-left:auto;
+    line-height:1;padding-left:8px;}
+  .mark.tick{color:var(--green);}
+  .mark.cross{color:var(--red);}
+
+  /* ---------- grammar note ---------- */
+  .note{
+    margin-top:16px;background:rgba(212,164,55,.10);
+    border-left:4px solid var(--amber);border-radius:0 5px 5px 0;
+    padding:13px 16px;display:none;
+  }
+  .note.show{display:block;animation:fade .3s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+  .note .lbl{
+    font-family:'Kalam',cursive;font-weight:700;color:var(--red);
+    font-size:1.05rem;display:block;margin-bottom:4px;
+  }
+  .note .body{font-family:'Source Serif 4',serif;font-size:.95rem;color:var(--ink-soft);line-height:1.5;}
+  .note .body strong{color:var(--green);font-weight:600;}
+  .note .body em{color:var(--red);font-style:italic;}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;font-size:.82rem;cursor:pointer;
+    background:var(--green);color:var(--paper);border:2px solid var(--green);
+    padding:13px 26px;border-radius:5px;transition:transform .12s,box-shadow .12s,opacity .2s;
+    box-shadow:3px 3px 0 var(--amber);
+  }
+  .btn:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--amber);}
+  .btn:active:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--amber);}
+  .btn:disabled{opacity:.35;cursor:not-allowed;box-shadow:3px 3px 0 rgba(212,164,55,.4);}
+  .btn.red{background:var(--red);border-color:var(--red);box-shadow:3px 3px 0 var(--green);}
+  .btn.red:hover:not(:disabled){box-shadow:4px 4px 0 var(--green);}
+  .btn-row{display:flex;justify-content:flex-end;gap:12px;margin-bottom:30px;}
+
+  /* ---------- splash ---------- */
+  .splash{text-align:center;padding:34px 24px 40px;}
+  .splash .quill{font-family:'Kalam',cursive;font-size:2.4rem;color:var(--amber);}
+  .splash h1{margin:6px 0 4px;}
+  .splash .lead{
+    font-family:'Source Serif 4',serif;font-size:1.05rem;color:var(--ink-soft);
+    max-width:460px;margin:16px auto 8px;line-height:1.6;
+  }
+  .splash .meta{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;
+    color:var(--green);text-transform:uppercase;margin:20px 0 26px;
+  }
+  .splash .meta span{display:inline-block;margin:0 10px;}
+  .topics{
+    display:flex;flex-wrap:wrap;gap:7px;justify-content:center;
+    max-width:520px;margin:0 auto 30px;
+  }
+  .topic{
+    font-family:'Inter',sans-serif;font-size:.75rem;color:var(--green);
+    background:rgba(31,77,58,.07);border:1px solid var(--paper-line);
+    padding:5px 11px;border-radius:20px;
+  }
+
+  /* ---------- report card ---------- */
+  .report{padding:30px 22px 40px;text-align:center;}
+  .grade-big{
+    font-family:'Fraunces',serif;font-weight:600;font-size:clamp(4rem,20vw,7rem);
+    line-height:1;color:var(--green);margin:4px 0;
+  }
+  .grade-big.low{color:var(--red);}
+  .rank{
+    font-family:'Kalam',cursive;font-weight:700;font-size:1.5rem;color:var(--red);
+    transform:rotate(-1.5deg);margin-bottom:22px;
+  }
+  .rc-panel{
+    background:var(--card);border:2px solid var(--green);border-radius:6px;
+    box-shadow:4px 4px 0 rgba(200,50,46,.8);max-width:420px;margin:0 auto 26px;
+    overflow:hidden;
+  }
+  .rc-row{
+    display:flex;justify-content:space-between;padding:11px 18px;
+    border-bottom:1px dashed var(--paper-line);
+    font-family:'IBM Plex Mono',monospace;font-size:.85rem;
+  }
+  .rc-row:last-child{border-bottom:none;}
+  .rc-row .k{color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;align-self:center;}
+  .rc-row .v{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--green);}
+  .rc-row .v.red{color:var(--red);}
+  .teacher-note{
+    background:rgba(200,50,46,.05);border:1px dashed var(--red);border-radius:6px;
+    padding:18px 20px;max-width:460px;margin:0 auto 28px;text-align:left;
+  }
+  .teacher-note .tn-lbl{
+    font-family:'Kalam',cursive;font-weight:700;color:var(--red);font-size:1.1rem;
+    display:block;margin-bottom:6px;
+  }
+  .teacher-note .tn-body{
+    font-family:'Kalam',cursive;font-size:1.12rem;color:#a8302b;line-height:1.5;
+  }
+
+  .hidden{display:none;}
+  footer{
+    text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.62rem;
+    letter-spacing:.1em;color:var(--ink-soft);opacity:.7;margin:10px 0 20px;
+  }
+  @media(max-width:480px){
+    body{padding:10px;}
+    .qbody{padding:18px 14px 18px 52px;}
+    .margin-line::before{left:34px;}
+    .status .val{font-size:1.05rem;}
+    .btn{padding:12px 18px;font-size:.74rem;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ SPLASH ============ -->
+  <section id="splash">
+    <div class="sheet ruled margin-line splash">
+      <div class="quill">&#9998;</div>
+      <span class="badge">C1 &middot; ADVANCED</span>
+      <h1>The Grammar <span class="accent">Workbook</span></h1>
+      <p class="lead">A demanding 60-question C1 mixed-task test that starts hard, eases through the middle with word-order tasks, then builds to its toughest at the end. Alongside advanced grammar, it targets the classic C1 traps &mdash; idioms, collocations, phrasal verbs and near-synonyms. Watch for the phrases in orange: they are useful expressions worth learning.</p>
+      <div class="meta">
+        <span>&#9679; 60 Questions</span><span>&#9679; 4 Options Each</span><span>&#9679; Instant Feedback</span>
+      </div>
+      <div class="topics" id="topicChips"></div>
+      <button class="btn" id="startBtn">Begin the Test &rarr;</button>
+    </div>
+    <footer>THE GRAMMAR WORKBOOK &middot; C1 ADVANCED GRAMMAR DIAGNOSTIC</footer>
+  </section>
+
+  <!-- ============ TEST ============ -->
+  <section id="test" class="hidden">
+    <header>
+      <span class="badge">C1</span>
+      <h1>The Grammar <span class="accent">Workbook</span></h1>
+      <div class="subtitle">Cambridge C1 &middot; Grammar, Idioms &amp; Collocations</div>
+    </header>
+
+    <div class="status">
+      <div class="cell"><span class="lbl">Question</span><span class="val" id="sQ">1/60</span></div>
+      <div class="cell"><span class="lbl">Correct</span><span class="val" id="sC">0</span></div>
+      <div class="cell"><span class="lbl">Wrong</span><span class="val wrong" id="sW">0</span></div>
+      <div class="cell"><span class="lbl">Score</span><span class="val" id="sS">0%</span></div>
+    </div>
+
+    <div class="progress-outer"><div class="progress-inner" id="prog"></div></div>
+    <div class="progress-txt" id="progTxt">0 / 60 completed</div>
+
+    <div class="sheet ruled margin-line qcard">
+      <div class="qhead">
+        <span class="qnum" id="qNum">Q01</span>
+        <span class="qtag" id="qTag">Inversion</span>
+      </div>
+      <div class="qbody">
+        <span class="qtask" id="qTask">Complete</span>
+        <p class="qtext" id="qText"></p>
+        <ul class="opts" id="opts"></ul>
+        <div class="note" id="note">
+          <span class="lbl">&#9998; Grammar Note</span>
+          <span class="body" id="noteBody"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" id="nextBtn" disabled>Next &rarr;</button>
+    </div>
+  </section>
+
+  <!-- ============ REPORT ============ -->
+  <section id="report" class="hidden">
+    <header>
+      <span class="badge">Report Card</span>
+      <h1>Your <span class="accent">Results</span></h1>
+    </header>
+    <div class="sheet ruled margin-line report">
+      <div class="grade-big" id="gradeBig">A</div>
+      <div class="rank" id="rankTxt">Solid C1</div>
+      <div class="rc-panel">
+        <div class="rc-row"><span class="k">Total Questions</span><span class="v" id="rTotal">60</span></div>
+        <div class="rc-row"><span class="k">Correct</span><span class="v" id="rCorrect">0</span></div>
+        <div class="rc-row"><span class="k">Wrong</span><span class="v red" id="rWrong">0</span></div>
+        <div class="rc-row"><span class="k">Score</span><span class="v" id="rScore">0%</span></div>
+        <div class="rc-row"><span class="k">Grade</span><span class="v" id="rGrade">A</span></div>
+      </div>
+      <div class="teacher-note">
+        <span class="tn-lbl">&#9998; Teacher's Note</span>
+        <span class="tn-body" id="teacherNote"></span>
+      </div>
+      <button class="btn red" id="restartBtn">&#8635; Take the Test Again</button>
+    </div>
+    <footer>THE GRAMMAR WORKBOOK &middot; KEEP PRACTISING, KEEP IMPROVING</footer>
+  </section>
+
+</div>
+
+<script>
+const QUESTIONS = [{"cat":"Inversion","task":"Complete","q":"______ had the pianist struck the final chord than the hall erupted @@into rapturous applause@@.","o":["Scarcely","Seldom","No sooner","Hardly"],"answer":2,"note":"<strong>No sooner ... than</strong> is a fixed inversion pattern for one event following immediately after another. It pairs with <em>than</em>; <em>hardly</em> and <em>scarcely</em> would pair with <em>when</em>."},{"cat":"Cleft & Emphasis","task":"Rephrase","q":"Emphasise the cause: \"The lack of funding, not the weather, @@brought the dig to a halt@@.\"","o":["It was the lack of funding, rather than the weather, what brought the dig to a halt.","That was the lack of funding, rather the weather, which brought the dig to a halt.","There was the lack of funding, not the weather, that brought the dig to a halt.","It was the lack of funding, rather than the weather, that brought the dig to a halt."],"answer":3,"note":"An <strong>it-cleft</strong> highlights one element: <em>It was ... that ...</em> The connector is always <em>that</em> (or <em>which</em>), never 'what'."},{"cat":"Conditionals","task":"Rephrase","q":"Rewrite as one sentence: \"I didn't invest in the start-up. I'm not wealthy today.\" (Note the two time frames.)","o":["Had I invested in the start-up, I would have been wealthy today.","If I invested in the start-up, I would be wealthy today.","If I had invested in the start-up, I would be wealthy today.","If I had invested in the start-up, I would have been wealthy today."],"answer":2,"note":"A <strong>mixed conditional</strong> links a past condition (<em>had invested</em>) to a present result (<em>would be</em> ... <em>today</em>)."},{"cat":"Conditionals","task":"Complete","q":"______ it not been for the quick thinking of the crew, the ferry @@would have run aground@@.","o":["Should","If","Had","Were"],"answer":2,"note":"An inverted third conditional drops <em>if</em>: <strong>Had it not been for</strong> = 'If it had not been for'. <em>Were it not for</em> would describe a present situation."},{"cat":"Subjunctive","task":"Complete","q":"Frankly, it's high time the landlord ______ something about the @@damp creeping up the walls@@.","o":["does","should do","has done","did"],"answer":3,"note":"After <strong>it's high time</strong>, we use the past tense to talk about something overdue now: <em>it's high time the landlord did something</em>."},{"cat":"Participle Clauses","task":"Rephrase","q":"Rewrite with a participle: \"After she had rehearsed the toast a dozen times, she still @@dried up completely@@.\"","o":["Having rehearsed the toast a dozen times, she still dried up completely.","Rehearsing the toast a dozen times, she still dried up completely.","Having been rehearsed the toast, she still dried up completely.","To rehearse the toast a dozen times, she still dried up completely."],"answer":0,"note":"The <strong>perfect participle</strong> <em>Having rehearsed</em> shows one action was completed before another. It neatly compresses 'After she had rehearsed ...'."},{"cat":"Modals & Causative","task":"Rephrase","q":"Rewrite: \"I'm certain the intruder didn't come through this window — it's @@painted shut@@.\"","o":["The intruder can't come through this window.","The intruder couldn't come through this window.","The intruder can't have come through this window.","The intruder mustn't have come through this window."],"answer":2,"note":"<strong>Can't have + past participle</strong> expresses near-certainty that something did not happen, as in <em>can't have come through this window</em>."},{"cat":"Modals & Causative","task":"Complete","q":"Instead of fixing it herself, she's going to ______ the vintage carburettor ______ by an expert.","o":["have / rebuilding","have / rebuild","have / rebuilt","get / rebuild"],"answer":2,"note":"The <strong>causative</strong> uses <em>have + object + past participle</em>: <em>have the carburettor rebuilt</em> means arranging for someone else to do it."},{"cat":"Reported Speech","task":"Complete","q":"The inspector formally ______ the treasurer of @@siphoning off club funds@@.","o":["charged","accused","blamed","criticised"],"answer":1,"note":"The pattern is <strong>accuse someone of + -ing</strong>. Watch the preposition traps: <em>blame someone for</em>, <em>charge someone with</em>."},{"cat":"Relative Clauses","task":"Complete","q":"The jurors, several ______ looked distinctly unconvinced, @@filed out to deliberate@@.","o":["of them","of which","whom","of whom"],"answer":3,"note":"To refer to part of a group of people in a relative clause, use <strong>quantifier + of + whom</strong>: <em>several of whom</em>."},{"cat":"Cleft & Emphasis","task":"Complete","q":"Such ______ the demand for tickets that the box office @@sold out within minutes@@.","o":["were","it was","has been","was"],"answer":3,"note":"<strong>Such + be + noun + that</strong> is an emphatic inversion: <em>Such was the demand that ...</em> stresses the extreme degree."},{"cat":"Passive","task":"Complete","q":"The priceless first edition is believed ______ when the archive @@went up in flames@@.","o":["being destroyed","to have destroyed","to have been destroyed","to be destroyed"],"answer":2,"note":"In a <strong>passive report</strong> of a past action, use the perfect passive infinitive: <em>is believed to have been destroyed</em>."},{"cat":"Word Order","task":"Build a question","q":"Put in order to ask about duration: (waiting / how long / been / you / have) for the results?","o":["How long have been you waiting","How long you have waiting been","How long you have been waiting","How long have you been waiting"],"answer":3,"note":"A <strong>present perfect continuous question</strong> keeps question order: <em>How long have you been waiting?</em> The auxiliary comes before the subject."},{"cat":"Word Order","task":"Build the sentence","q":"Put the adverb in the right place: (been / has / she / always / remarkably / patient).","o":["She has always been remarkably patient","Always she has been remarkably patient","She has been always remarkably patient","She always has been remarkably patient"],"answer":0,"note":"An <strong>adverb of frequency</strong> like <em>always</em> goes between the auxiliary and the main verb: <em>has always been</em>."},{"cat":"Word Order","task":"Build a question","q":"Complete the indirect question: \"Do you happen to know (opens / what time / the exhibition)?\"","o":["what time the exhibition opens","what time does the exhibition open","at what time the exhibition open","what time opens the exhibition"],"answer":0,"note":"An <strong>indirect question</strong> uses statement word order with no auxiliary: <em>what time the exhibition opens</em>."},{"cat":"Word Order","task":"Build the sentence","q":"Put the phrasal verb in order with the pronoun: (down / could / turn / it / you), please?","o":["Could down you turn it","Could you it turn down","Could you turn it down","Could you turn down it"],"answer":2,"note":"With a <strong>separable phrasal verb</strong>, a pronoun object must go between the verb and the particle: <em>turn it down</em>, never 'turn down it'."},{"cat":"Phrasal Verbs","task":"Complete","q":"I don't know how you ______ with that building-site racket @@day in, day out@@.","o":["put out","put up","put off","put down"],"answer":1,"note":"<strong>Put up with</strong> means to tolerate something unpleasant. Don't confuse it with <em>put off</em> (postpone) or <em>put out</em> (extinguish)."},{"cat":"Phrasal Verbs","task":"Complete","q":"The firm was forced to ______ two hundred workers @@when the recession bit@@.","o":["lay down","lay out","lay off","lay in"],"answer":2,"note":"To <strong>lay off</strong> staff means to make them redundant. <em>Lay out</em> means to arrange or spend, which is quite different."},{"cat":"Phrasal Verbs","task":"Complete","q":"You'll never guess who I ______ at the farmers' market this morning!","o":["ran over","fell for","bumped into","came across"],"answer":2,"note":"To <strong>bump into</strong> someone means to meet them by chance. <em>Come across</em> is used more for finding things, and <em>fall for</em> means to be tricked."},{"cat":"Phrasal Verbs","task":"Complete","q":"Sorry I'm late — something urgent ______ just as I was leaving the office.","o":["came along","came round","came in","came up"],"answer":3,"note":"When something <strong>comes up</strong>, it arises unexpectedly. <em>Come round</em> means to regain consciousness or to visit."},{"cat":"Phrasal Verbs","task":"Complete","q":"The open-air concert had to be ______ @@at the eleventh hour@@ because of the storm.","o":["called off","called for","called in","called up"],"answer":0,"note":"To <strong>call off</strong> an event means to cancel it. <em>Call for</em> means to demand, and <em>call up</em> means to phone or enlist."},{"cat":"Phrasal Verbs","task":"Spot the error","q":"Which sentence uses the phrasal verb CORRECTLY (about family resemblance)?","o":["She takes over her grandmother in both looks and temperament.","She takes on her grandmother in both looks and temperament.","She takes up her grandmother in both looks and temperament.","She takes after her grandmother in both looks and temperament."],"answer":3,"note":"To <strong>take after</strong> someone means to resemble an older relative. <em>Take over</em> = assume control; <em>take up</em> = start a hobby; <em>take on</em> = employ."},{"cat":"Collocations","task":"Complete","q":"The fresh evidence cast serious ______ on the official version of events.","o":["suspicion","doubt","question","worry"],"answer":1,"note":"The fixed collocation is <strong>cast doubt on</strong> something, as in <em>cast doubt on the version of events</em>. 'Cast suspicion' is not the standard partner here."},{"cat":"Collocations","task":"Complete","q":"It took great ______ of character for him to @@own up to@@ the mistake in public.","o":["force","energy","power","strength"],"answer":3,"note":"<strong>Strength of character</strong> is a fixed collocation meaning moral courage, as in <em>it took great strength of character</em>. We don't say 'power of character'."},{"cat":"Collocations","task":"Complete","q":"The gang ______ a string of daring robberies before they were finally @@brought to justice@@.","o":["committed","performed","made","did"],"answer":0,"note":"We <strong>commit</strong> a crime or a robbery, as in <em>commit a string of robberies</em>. 'Do' or 'make a robbery' is a classic collocation error."},{"cat":"Collocations","task":"Complete","q":"It fell to the deputy to ______ the news of the closure to a @@stunned workforce@@.","o":["say","give","tell","break"],"answer":3,"note":"The collocation is <strong>break the news</strong> to someone, as in <em>break the news of the closure</em>. We don't 'tell' or 'say' the news in this fixed phrase."},{"cat":"Collocations","task":"Complete","q":"The whole department is under enormous ______ to @@slash costs@@ before the audit.","o":["strain","stress","tension","pressure"],"answer":3,"note":"The collocation is <strong>under pressure to do</strong> something. <em>Stress</em> and <em>strain</em> don't take this 'to + infinitive' pattern."},{"cat":"Collocations","task":"Complete","q":"From the survey data, the analysts were able to ______ some surprising conclusions.","o":["draw","make","take","pull"],"answer":0,"note":"The fixed collocation is <strong>draw a conclusion</strong>, as in <em>draw some surprising conclusions</em>. 'Make a conclusion' is a very common learner error."},{"cat":"Idioms","task":"Complete","q":"Mastering the new booking system was a steep ______ curve, but we @@got there in the end@@.","o":["studying","knowledge","learning","teaching"],"answer":2,"note":"A <strong>steep learning curve</strong> is an idiom for something difficult to learn quickly. The fixed word is <em>learning</em>."},{"cat":"Idioms","task":"Complete","q":"We were completely ______ the dark about the takeover until it @@hit the headlines@@.","o":["at","under","in","on"],"answer":2,"note":"To be <strong>in the dark</strong> about something means to be uninformed. The preposition is fixed as <em>in</em>."},{"cat":"Idioms","task":"Complete","q":"He's calm under pressure — he always takes bad news ______ his stride.","o":["in","with","on","at"],"answer":0,"note":"To take something <strong>in your stride</strong> means to deal with it calmly. Getting the preposition wrong (<em>on/at</em>) is a classic C1 slip."},{"cat":"Idioms","task":"Complete","q":"The project was doomed from the very ______ go; nobody had @@thought it through@@.","o":["point","start","first","word"],"answer":3,"note":"The idiom is <strong>from the word go</strong>, meaning from the very beginning, as in <em>doomed from the word go</em>. It's easy to misquote as 'from the start go'."},{"cat":"Idioms","task":"Complete","q":"After the expenses scandal, the MP had to ______ the music and @@step down@@.","o":["meet","face","hear","take"],"answer":1,"note":"To <strong>face the music</strong> means to accept the unpleasant consequences of your actions. The verb is fixed as <em>face</em>."},{"cat":"Idioms","task":"Spot the error","q":"Which version of the idiom (about deciding too quickly) is CORRECT?","o":["Let's not jump for conclusions before we know the facts.","Let's not jump to conclusions before we know the facts.","Let's not leap to conclusions ahead before we know the facts.","Let's not jump on conclusions before we know the facts."],"answer":1,"note":"The idiom is <strong>jump to conclusions</strong>, meaning to decide too quickly. The preposition <em>to</em> is fixed."},{"cat":"Synonyms","task":"Closest meaning","q":"Closest in meaning to @@CANDID@@: \"She gave a refreshingly candid account of her failures.\"","o":["detailed","polite","honest","brief"],"answer":2,"note":"<strong>Candid</strong> means open and truthful, even about difficult things. The closest synonym here is <em>honest</em> or 'frank'."},{"cat":"Synonyms","task":"Closest meaning","q":"Closest in meaning to @@METICULOUS@@: \"He kept meticulous records of every transaction.\"","o":["rough","careless","occasional","extremely careful"],"answer":3,"note":"<strong>Meticulous</strong> means showing great attention to detail. The closest synonym is <em>extremely careful</em>."},{"cat":"Synonyms","task":"Closest meaning","q":"Closest in meaning to @@DETERIORATE@@: \"Her eyesight began to deteriorate rapidly.\"","o":["stabilise","improve","recover","get worse"],"answer":3,"note":"To <strong>deteriorate</strong> means to become progressively worse. Its opposite is <em>improve</em>, a common distractor."},{"cat":"Synonyms","task":"Closest meaning","q":"Closest in meaning to @@LUCRATIVE@@: \"Consulting proved to be a lucrative sideline.\"","o":["tiring","risky","profitable","illegal"],"answer":2,"note":"<strong>Lucrative</strong> means producing a lot of money. The closest synonym is <em>profitable</em>."},{"cat":"Synonyms","task":"Closest meaning","q":"Closest in meaning to @@TENTATIVE@@: \"They reached a tentative agreement on the price.\"","o":["detailed","generous","provisional","final"],"answer":2,"note":"<strong>Tentative</strong> means not yet certain or fixed. The closest synonym is <em>provisional</em>; <em>final</em> is its opposite."},{"cat":"Conditionals","task":"Complete","q":"Were it not for the anonymous grant, the entire research programme ______ years ago.","o":["would have collapsed","had collapsed","will collapse","would collapse"],"answer":0,"note":"A <strong>mixed conditional</strong>: a present condition (<em>Were it not for</em>) with a past result (<em>years ago</em>) takes <em>would have collapsed</em>."},{"cat":"Subjunctive","task":"Complete","q":"The board insisted that the findings ______ before the annual meeting.","o":["publishing","be published","was published","are published"],"answer":1,"note":"After verbs of demand like <strong>insist that</strong>, C1 English uses the subjunctive: the base form <em>be published</em>, with no tense change."},{"cat":"Subjunctive","task":"Complete","q":"It is essential that every candidate ______ two forms of identification.","o":["provides","provide","provided","to provide"],"answer":1,"note":"After <strong>It is essential that</strong>, the mandative subjunctive uses the base form: <em>provide</em>, even with a third-person subject."},{"cat":"Inversion","task":"Complete","q":"Little ______ that his offhand comment would @@spark a diplomatic row@@.","o":["did he realise","realised he","he realised","he did realise"],"answer":0,"note":"The negative adverb <strong>Little</strong>, used figuratively, forces inversion: <em>Little did he realise</em>."},{"cat":"Inversion","task":"Spot the error","q":"Which sentence with a fronted negative phrase is CORRECT?","o":["On no account did the emergency exit should be blocked.","On no account should be blocked the emergency exit.","On no account the emergency exit should be blocked.","On no account should the emergency exit be blocked."],"answer":3,"note":"The negative phrase <strong>On no account</strong> at the front triggers inversion: modal + subject + verb, giving <em>should the exit be blocked</em>."},{"cat":"Modals & Causative","task":"Rephrase","q":"Rewrite with a modal: \"Perhaps she missed her connection — the flight was delayed.\"","o":["She might well missing her connection.","She may well have missed her connection.","She may well miss her connection.","She must well have missed her connection."],"answer":1,"note":"<strong>May well have + past participle</strong> means it is quite possible something happened. <em>Well</em> strengthens the likelihood."},{"cat":"Linking","task":"Complete","q":"______ hard she tries, she never seems to @@win over@@ her fiercest critics.","o":["No matter","Whatever","However","Although"],"answer":2,"note":"<strong>However + adjective/adverb</strong> means 'to whatever degree': <em>However hard she tries</em>. <em>No matter</em> would need <em>how</em>."},{"cat":"Phrasal Verbs","task":"Complete","q":"The two forgeries are so alike that even experts struggle to tell them ______.","o":["apart","off","over","away"],"answer":0,"note":"To <strong>tell things apart</strong> means to distinguish between them. The particle is fixed as <em>apart</em>."},{"cat":"Register","task":"Choose the register","q":"Choose the most FORMAL equivalent of: \"The whole plan didn't work.\"","o":["The plan totally flopped.","The plan was a complete washout.","The plan fell flat on its face.","The plan proved wholly unsuccessful."],"answer":3,"note":"<strong>Prove unsuccessful</strong> is neutral, formal register. The others (<em>flop</em>, <em>fall flat</em>, <em>washout</em>) are informal idioms unsuitable for formal writing."},{"cat":"Idioms","task":"Complete","q":"The new export rules have really ______ a spanner in the works for small traders.","o":["set","thrown","cast","put"],"answer":1,"note":"To <strong>throw a spanner in the works</strong> (BrE) means to cause a problem that stops progress. The verb is <em>throw</em> (or 'put')."},{"cat":"Passive","task":"Complete","q":"The stolen sculptures are rumoured ______ smuggled abroad within days of the theft.","o":["having been","to have been","to have","to be"],"answer":1,"note":"A past action in a passive report needs the <strong>perfect passive infinitive</strong>: <em>rumoured to have been smuggled</em>."},{"cat":"Relative Clauses","task":"Complete","q":"This is precisely the sort of ethical dilemma ______ there are no easy answers.","o":["to which","which","for which","that"],"answer":0,"note":"We say an answer <em>to</em> a dilemma, so the relative clause needs <strong>to which</strong>: <em>the dilemma to which there are no answers</em>."},{"cat":"Idioms","task":"Complete","q":"The review was damning; the critic ______ no punches in @@tearing the film apart@@.","o":["pulled","threw","drew","held"],"answer":0,"note":"To <strong>pull no punches</strong> means to speak with total, unsoftened honesty. The verb is fixed as <em>pull</em>."},{"cat":"Inversion","task":"Complete","q":"Only after the final whistle ______ the extent of the injury become clear.","o":["was","did","had","has"],"answer":1,"note":"When a clause opens with <strong>Only after + time</strong>, the main clause inverts: <em>did the extent become clear</em>."},{"cat":"Synonyms","task":"Closest meaning","q":"Closest in meaning to @@UBIQUITOUS@@: \"Contactless payment is now ubiquitous.\"","o":["rare","found everywhere","outdated","expensive"],"answer":1,"note":"<strong>Ubiquitous</strong> means present or found everywhere. Its opposite, <em>rare</em>, is the obvious distractor."},{"cat":"Determiners","task":"Complete","q":"______ we invest now, the greater the long-term returns will be.","o":["The more","The much","The most","The many"],"answer":0,"note":"This is the <strong>correlative comparative</strong> structure: <em>The more ..., the greater ...</em> Both clauses begin with 'the' + comparative."},{"cat":"Modals & Causative","task":"Complete","q":"You needn't ______ so hard for the presentation — the client cancelled at dawn.","o":["have prepared","prepare","prepared","have to prepare"],"answer":0,"note":"<strong>Needn't have + past participle</strong> means an action was done but turned out to be unnecessary, as in <em>needn't have prepared</em>."},{"cat":"Register","task":"Choose the register","q":"Choose the most FORMAL rewrite of: \"We're really sorry, but you didn't get the job.\"","o":["Bad news, I'm afraid — no job for you this time.","We regret to inform you that your application has been unsuccessful.","We're gutted to say you didn't make the cut.","Sorry, but the job's gone to someone else."],"answer":1,"note":"<strong>We regret to inform you</strong> is the standard formal phrase for bad news in writing; note the fixed pattern <em>regret to inform</em> + clause."},{"cat":"Verb Patterns","task":"Rephrase","q":"Rewrite using 'no': \"It is impossible to predict how the vote will go.\"","o":["It has no prediction of how the vote will go.","There's no telling how the vote will go.","There's no tell how the vote will go.","There's no to predict how the vote will go."],"answer":1,"note":"<strong>There's no + -ing</strong> means it is impossible to do something: <em>There's no telling</em> = 'it's impossible to say'."},{"cat":"Cleft & Emphasis","task":"Rephrase","q":"Rephrase to emphasise the action: \"She merely apologised; she did nothing else.\"","o":["All she did was (to) apologise.","The only she did was apologise.","All she did was apologising.","What all she did was apologise."],"answer":0,"note":"In an <strong>All-cleft</strong>, the emphasised verb appears as a bare (or full) infinitive: <em>All she did was (to) apologise</em>, never the -ing form."},{"cat":"Verb Patterns","task":"Complete","q":"Faced with such @@damning evidence@@, the defendant had little option but ______ guilty.","o":["pleading","to plead","plead","but plead"],"answer":1,"note":"After <strong>have little/no option but</strong>, we use a <em>to</em>-infinitive: <em>but to plead guilty</em>. Note the collocation <em>plead guilty</em>."}];
+
+var idx=0, correct=0, wrong=0, answered=false;
+
+var cats=[];
+QUESTIONS.forEach(function(q){ if(cats.indexOf(q.cat)===-1) cats.push(q.cat); });
+var chip=document.getElementById('topicChips');
+cats.forEach(function(c){ var s=document.createElement('span'); s.className='topic'; s.textContent=c; chip.appendChild(s); });
+
+var $=function(id){return document.getElementById(id);};
+
+function show(sec){
+  ['splash','test','report'].forEach(function(s){ $(s).classList.add('hidden'); });
+  $(sec).classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function render(){
+  answered=false;
+  var q=QUESTIONS[idx];
+  $('qNum').textContent='Q'+String(idx+1).padStart(2,'0');
+  $('qTag').textContent=q.cat;
+  $('qTask').textContent = q.task || 'Complete';
+  var qhtml=q.q.replace(/@@(.+?)@@/g,'<mark class="focus">$1</mark>').replace(/______/g,'<span class="blank">______</span>');
+  $('qText').innerHTML=qhtml;
+  var letters=['A','B','C','D'];
+  var ul=$('opts'); ul.innerHTML='';
+  q.o.forEach(function(text,i){
+    var li=document.createElement('li');
+    li.className='opt';
+    li.innerHTML='<span class="letter">'+letters[i]+')</span><span class="otext">'+text+'</span>';
+    li.addEventListener('click',function(){ choose(i,li); });
+    ul.appendChild(li);
+  });
+  $('note').classList.remove('show');
+  $('noteBody').innerHTML=q.note;
+  $('nextBtn').disabled=true;
+  $('nextBtn').textContent = (idx===QUESTIONS.length-1) ? 'See Results \u2192' : 'Next \u2192';
+  updateStatus();
+}
+
+function choose(i,li){
+  if(answered) return;
+  answered=true;
+  var q=QUESTIONS[idx];
+  var opts=document.querySelectorAll('#opts .opt');
+  opts.forEach(function(o,k){
+    o.classList.add('locked');
+    if(k===q.answer){
+      o.classList.add('correct');
+      var m=document.createElement('span'); m.className='mark tick'; m.textContent='\u2713'; o.appendChild(m);
+    }
+  });
+  if(i===q.answer){
+    correct++;
+  } else {
+    wrong++;
+    li.classList.add('chosen-wrong');
+    var x=document.createElement('span'); x.className='mark cross'; x.textContent='\u2717'; li.appendChild(x);
+  }
+  $('note').classList.add('show');
+  $('nextBtn').disabled=false;
+  updateStatus();
+}
+
+function updateStatus(){
+  var done=correct+wrong;
+  $('sQ').textContent=(idx+1)+'/'+QUESTIONS.length;
+  $('sC').textContent=correct;
+  $('sW').textContent=wrong;
+  var pct = done? Math.round(correct/done*100):0;
+  $('sS').textContent=pct+'%';
+  var pdone=Math.round((idx + (answered?1:0))/QUESTIONS.length*100);
+  $('prog').style.width=pdone+'%';
+  $('progTxt').textContent=(idx+(answered?1:0))+' / '+QUESTIONS.length+' completed';
+}
+
+$('nextBtn').addEventListener('click',function(){
+  if(!answered) return;
+  if(idx<QUESTIONS.length-1){ idx++; render(); }
+  else finish();
+});
+
+function gradeFor(p){
+  if(p>=95) return['A+','Distinguished C1 &mdash; Near-Native Control'];
+  if(p>=90) return['A','Solid C1 &mdash; Confident and Precise'];
+  if(p>=80) return['B+','Comfortable C1 &mdash; Well Prepared'];
+  if(p>=70) return['B','Approaching C1 &mdash; Nearly There'];
+  if(p>=60) return['C','Strong B2 &mdash; Building Toward C1'];
+  if(p>=50) return['D','Developing &mdash; Consolidate the Basics'];
+  return['F','Foundations Need Work &mdash; Keep Going'];
+}
+
+function teacherFeedback(p,total){
+  if(p>=90) return "Outstanding work! You have near-native control of the trickiest C1 structures &mdash; inversion, cleft sentences, participle clauses and mixed conditionals. This is genuine Cambridge Advanced accuracy. To polish the final few per cent, revisit any items on passive reporting or quantifier + of + whom, and keep reading demanding, authentic English.";
+  if(p>=80) return "Very strong result! You handle most advanced structures with confidence. Look back at the questions you missed &mdash; at C1 they usually cluster around inversion after negative adverbials, the causative, or reporting-verb patterns. Target those few areas and you'll be firmly exam-ready.";
+  if(p>=70) return "Good, solid effort &mdash; you're knocking on the door of C1. Concentrate your revision on the structures that separate C1 from B2: fronting and inversion, cleft sentences for emphasis, perfect participle clauses, and mixed conditionals. Study one area at a time and re-take this test to track your progress.";
+  if(p>=60) return "You have a dependable B2 foundation and you're building toward C1. The core tenses, conditionals and passives are mostly secure; now push into the advanced territory &mdash; inversion, cleft sentences, participle clauses and advanced reporting verbs. A grammar reference such as 'Advanced Grammar in Use' will help enormously.";
+  if(p>=50) return "A fair start on a genuinely hard test. Before tackling the advanced structures, make sure the B2 foundations are rock-solid: perfect tenses, all four conditionals, the passive and reported speech. Then add one C1 structure a week &mdash; inversion, then clefts, then participle clauses &mdash; and practise writing your own examples.";
+  return "Don't be discouraged &mdash; this is a demanding C1 paper, deliberately harder than B2. Go back and secure the core system first (tenses, conditionals, the passive, reported speech), then introduce the advanced structures one at a time. Read widely at an advanced level, note the patterns you see, and re-take this test soon. Steady work pays off fast at this level!";
+}
+
+function finish(){
+  var total=QUESTIONS.length;
+  var p=Math.round(correct/total*100);
+  var g=gradeFor(p);
+  $('gradeBig').textContent=g[0];
+  $('gradeBig').classList.toggle('low', p<60);
+  $('rankTxt').innerHTML=g[1];
+  $('rTotal').textContent=total;
+  $('rCorrect').textContent=correct;
+  $('rWrong').textContent=wrong;
+  $('rScore').textContent=p+'%';
+  $('rGrade').textContent=g[0];
+  $('teacherNote').innerHTML=teacherFeedback(p,total);
+  show('report');
+}
+
+$('startBtn').addEventListener('click',function(){ idx=0;correct=0;wrong=0; show('test'); render(); });
+$('restartBtn').addEventListener('click',function(){ idx=0;correct=0;wrong=0; show('splash'); });
+</script>
+</body>
+</html>
