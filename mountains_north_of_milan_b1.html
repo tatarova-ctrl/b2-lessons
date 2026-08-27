@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mountains North of Milan — B1 English Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A47; --deep:#0F1A33; --coral:#E76F51; --gold:#D4AF37;
+    --green:#1E9E6A; --cream:#FAF7F0; --sand:#ECE3CD; --ink:#14182A;
+    --cloud:#ffffff; --soft:#E7ECF5; --blush:#FBE6DE; --mint:#DEF3E9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif; background:var(--cream); color:var(--ink);
+    line-height:1.65; min-height:100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30,42,71,.10) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(212,175,55,.12) 0%, transparent 50%);
+  }
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1050px; margin:0 auto; padding:30px 22px 80px}
+
+  header{background:var(--cloud); border:2px solid var(--ink); border-radius:18px; padding:32px 36px; margin-bottom:26px; position:relative; box-shadow:6px 6px 0 var(--ink); overflow:hidden}
+  header::before{content:"⛰️";position:absolute;top:28px;right:32px;font-size:128px;opacity:.12;z-index:0}
+  .header-content{position:relative;z-index:1}
+  .badge-label{display:inline-block; font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:3px; background:var(--ink); color:var(--gold); padding:5px 12px; border-radius:4px; margin-bottom:14px}
+  h1{font-family:'DM Serif Display',serif; font-size:clamp(38px,6.5vw,60px); line-height:1.04; letter-spacing:-1px}
+  h1 .accent{color:var(--coral); font-style:italic}
+  .sub{font-size:17px; color:var(--deep); margin-top:12px; max-width:72ch}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .tag{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:1px; background:var(--soft); color:var(--deep); border:1.5px solid var(--ink); padding:5px 11px; border-radius:6px}
+
+  .tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
+  .tab{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; letter-spacing:.5px; background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:11px 16px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .12s,box-shadow .12s,background .12s,color .12s; color:var(--ink)}
+  .tab:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .tab.active{background:var(--navy); color:#fff}
+  .panel{display:none}
+  .panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+  .section-title{font-family:'DM Serif Display',serif; font-size:27px; color:var(--ink); margin:30px 0 6px; display:flex; align-items:center; gap:10px; line-height:1.1}
+  .section-title .emoji{font-size:24px}
+  .panel > .section-title:first-of-type{margin-top:6px}
+  .instr{font-size:15px; color:var(--deep); margin-bottom:16px}
+  .instr b{background:var(--gold); padding:0 4px; border-radius:3px}
+
+  .reading{background:var(--cloud); border:2px solid var(--ink); border-radius:14px; padding:28px 32px; box-shadow:5px 5px 0 var(--ink); margin-bottom:6px}
+  .reading h3{font-family:'DM Serif Display',serif; font-size:26px; margin-bottom:4px; line-height:1.15}
+  .reading .byline{font-family:'Courier Prime',monospace; font-size:12px; color:var(--coral); letter-spacing:1px; margin-bottom:16px}
+  .reading p{margin-bottom:13px; font-size:15.5px}
+  .reading p:last-child{margin-bottom:0}
+  .reading b{background:var(--gold); color:var(--ink); padding:1px 5px; border-radius:4px; font-weight:700}
+  .reading em{font-style:italic; color:var(--navy); font-weight:600}
+  .pull-quote{background:var(--soft); border-left:5px solid var(--coral); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; font-family:'DM Serif Display',serif; font-size:19px; font-style:italic; color:var(--deep); line-height:1.45}
+
+  .vocab-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px}
+  .vocab-card{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 16px; box-shadow:3px 3px 0 var(--ink)}
+  .vocab-term{font-weight:700; color:var(--coral); margin-bottom:4px; font-size:15px}
+  .vocab-def{font-size:13.5px; margin-bottom:6px}
+  .vocab-ex{font-style:italic; font-size:13px; color:var(--deep); padding-top:6px; border-top:1px dashed var(--sand)}
+
+  .idiom-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+  .idiom-card{background:linear-gradient(135deg,var(--cloud),var(--soft)); border:2px solid var(--ink); border-left:5px solid var(--navy); border-radius:10px; padding:15px 18px; box-shadow:3px 3px 0 var(--ink)}
+  .idiom-term{font-weight:700; font-size:15.5px; color:var(--navy); margin-bottom:4px}
+  .idiom-def{font-size:13.5px; margin-bottom:8px}
+  .idiom-ex{font-style:italic; font-size:13px; background:rgba(255,255,255,.72); padding:7px 11px; border-radius:6px; border-left:3px solid var(--coral)}
+
+  .bank{background:var(--soft); border:2px dashed var(--ink); border-radius:10px; padding:12px 16px; margin-bottom:18px; display:flex; flex-wrap:wrap; gap:8px}
+  .bank .bw{font-family:'Courier Prime',monospace; font-weight:700; font-size:13px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:6px; padding:4px 10px}
+  .fill-item{font-size:15.5px; margin-bottom:14px; line-height:2}
+  .fill-item .qn{font-family:'Courier Prime',monospace; font-weight:700; color:var(--coral); margin-right:4px}
+  .fill-input{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); border:none; border-bottom:2px solid var(--navy); background:var(--soft); padding:3px 8px; min-width:160px; border-radius:5px 5px 0 0; margin:0 2px}
+  .fill-input:focus{outline:none; background:#fff; border-color:var(--coral)}
+  .fill-input.ok{background:var(--mint); border-color:var(--green)}
+  .fill-input.no{background:var(--blush); border-color:var(--coral)}
+
+  .mc-item{background:var(--cloud); border:2px solid var(--ink); border-radius:10px; padding:14px 18px; margin-bottom:12px; box-shadow:3px 3px 0 var(--ink)}
+  .mc-q{font-weight:600; margin-bottom:10px; font-size:15px}
+  .mc-q .qn{font-family:'Courier Prime',monospace; color:var(--coral); margin-right:8px; font-weight:700}
+  .mc-opt{display:block; padding:9px 13px; border:1.5px solid var(--sand); border-radius:8px; margin-bottom:7px; cursor:pointer; font-size:14px; transition:.12s}
+  .mc-opt:hover{border-color:var(--navy); background:var(--soft)}
+  .mc-opt.correct{background:var(--mint); border-color:var(--green)}
+  .mc-opt.wrong{background:var(--blush); border-color:var(--coral)}
+  .mc-item.done .mc-opt{cursor:default}
+
+  .actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:6px 0 4px}
+  .btn{font-family:'Courier Prime',monospace; font-weight:700; letter-spacing:1px; font-size:14px; background:var(--coral); color:#fff; border:2px solid var(--ink); padding:11px 22px; border-radius:10px; cursor:pointer; box-shadow:3px 3px 0 var(--ink); transition:transform .1s,box-shadow .1s}
+  .btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+  .btn.ghost{background:var(--cloud); color:var(--ink)}
+  .score{display:inline-block; font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:8px 14px; border-radius:8px; min-width:54px; text-align:center}
+  .score.win{background:var(--green); color:#fff}
+
+  .q-group-head{font-family:'DM Serif Display',serif; font-size:20px; color:var(--deep); margin:24px 0 10px; padding-bottom:4px; border-bottom:2px dashed var(--sand)}
+  .q-group-head .q-tag{font-family:'Courier Prime',monospace; font-size:11px; background:var(--coral); color:#fff; padding:3px 9px; border-radius:4px; margin-left:10px; letter-spacing:1px; vertical-align:middle}
+  .q-group-head .idiom-tag{background:var(--navy)}
+  .q-item{background:var(--cloud); border:2px solid var(--ink); border-left:6px solid var(--navy); border-radius:10px; padding:12px 16px; margin-bottom:8px; box-shadow:3px 3px 0 var(--ink); display:flex; gap:14px; align-items:flex-start; transition:transform .1s,box-shadow .1s}
+  .q-item:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+  .q-item.idiom-q{border-left-color:var(--coral); background:#FFFDF7}
+  .q-item.idiom-q .q-text b{background:var(--gold); padding:0 4px; border-radius:3px}
+  .q-num{font-family:'Courier Prime',monospace; font-weight:700; background:var(--ink); color:var(--gold); padding:5px 9px; border-radius:6px; flex-shrink:0; min-width:34px; text-align:center; font-size:13px}
+  .q-text{font-size:15px; line-height:1.5}
+  .roleplay{margin-top:18px; border:2px dashed var(--coral); border-radius:12px; padding:16px 18px; background:var(--blush); box-shadow:3px 3px 0 var(--ink)}
+  .roleplay b{font-family:'DM Serif Display',serif; font-weight:400}
+  .phrases{margin-top:20px}
+  .phrases h5{font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--deep); margin-bottom:9px}
+  .ptags{display:flex; flex-wrap:wrap; gap:8px}
+  .ptags span{font-size:14px; background:var(--cloud); border:1.5px solid var(--ink); border-radius:999px; padding:6px 14px; box-shadow:2px 2px 0 var(--ink)}
+
+  footer{margin-top:50px; padding-top:22px; border-top:2px dashed var(--ink); font-family:'Courier Prime',monospace; font-size:12px; color:var(--deep); text-align:center; letter-spacing:2px}
+
+  @media (max-width:650px){
+    .reading{padding:22px}
+    header{padding:24px 22px}
+    .tab{font-size:12px; padding:10px 12px}
+    .fill-input{min-width:130px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+
+
+
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">⛰️ B1 ENGLISH · MOUNTAINS · HIKING · NATURE · LOMBARDY</div>
+      <h1>Mountains North of <span class="accent">Milan</span></h1>
+      <div class="sub">Four simple talks about the beautiful mountains just north of Milan &mdash; where to spend your holidays, how to walk in the mountains safely, why time in nature is so good for you, and how to understand the trees, animals and weather around you. Every gold expression is a useful phrasal verb or a common phrase.</div>
+      <div class="tags">
+        <span class="tag">CEFR B1</span>
+        <span class="tag">READING ~450 WORDS</span>
+        <span class="tag">EVERYDAY PHRASES</span>
+        <span class="tag">GAP-FILL + READING CHECK</span>
+        <span class="tag">80 SPEAKING QUESTIONS</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+
+    <button class="tab active" data-tab="t1">① Mountain Holidays ⛰️</button>
+    <button class="tab" data-tab="t2">② Hiking 🥾</button>
+    <button class="tab" data-tab="t3">③ Nature 🌲</button>
+    <button class="tab" data-tab="t4">④ Understanding Nature 🐿️</button>
+  </nav>
+
+
+<section class="panel active" id="t1">
+  <h2 class="topic-title"><span class="topic-emoji">⛰️</span> Mountain Vacations North of Milan</h2>
+  <p class="topic-instr">Where to go and what to do in the beautiful Italian Alps, just a few hours north of Milan.</p>
+  <article class="reading">
+    <h3 class="reading-title">A Week North of Milan</h3>
+    <div class="byline">★ Marco Vidal · Travel writer &middot; Lives in Lecco &middot; Writes about the Italian Alps</div>
+    <p>Milan is a busy, hot, noisy city in summer. But there is a small secret many tourists don't know: two hours north of Milan, you find some of the most beautiful mountains in Europe. Real high mountains, with lakes at the bottom and snow at the top. If you visit Milan and don't <b>get away</b> for a weekend, you miss half the story of this region.</p>
+<p>Let's start with <b>Lake Como</b>. It is only one hour by train from Milan. The lake is long and thin, with big mountains on both sides. Small towns like Bellagio, Varenna and Menaggio sit on the water. You can take a ferry, drink a coffee, eat pasta by the lake, and look up at the mountains. Many people come just for the day, but two nights is much better.</p>
+<div class="pull-quote">&ldquo;In Milan you check your phone. In the mountains, you look up. That is the whole difference.&rdquo;</div>
+<p>If you want higher mountains, <b>head up</b> to <b>Valtellina</b>. This is a long valley in the north, famous for two things: skiing in winter and cheese and wine in summer. The main town, <b>Sondrio</b>, is small and friendly. In the local restaurants, you can try <b>pizzoccheri</b>, a dark pasta with cheese, potato and cabbage. It sounds strange. It's wonderful.</p>
+<p>For serious mountains, keep going to <b>Bormio</b>. Bormio is an old town at 1,225 metres, with hot water baths that are 2,000 years old. In winter it is a big ski resort. In summer it is a base for hiking. From Bormio, the road climbs up to <b>Passo dello Stelvio</b>, at 2,758 metres &mdash; one of the most famous mountain roads in the world. Cyclists come from every country to try it.</p>
+<p>Then there is <b>Livigno</b>, close to the Swiss border. Livigno is special because you don't pay tax on many things here &mdash; petrol, wine, chocolate. So people come here to ski, hike, and buy things cheaply. In summer, Livigno is a paradise for cyclists and walkers. The air is very clean and the sky is very blue.</p>
+<p>There are also the <b>Bergamo Alps</b>, east of Como. Here you find quiet valleys, small villages, and hikes for every level. Not many tourists come, so prices are lower and the local people are friendly. Try the <b>Val Brembana</b> or the <b>Val Seriana</b> for a real Italian mountain weekend.</p>
+<p>What do people actually do on a mountain holiday? Many things. In summer: hiking, cycling, swimming in cold lakes, eating outside, taking photos, or just sitting with a coffee and doing nothing. In winter: skiing, snowboarding, walking with snow shoes, and sitting by the fire in a mountain hut. Some people come for adventure. Some come to rest. Both are correct.</p>
+<p>A big part of a mountain holiday is the <b>rifugio</b> &mdash; a small mountain hut where you can eat, sleep, or just <b>take a break</b>. Some rifugios are at 2,500 metres and you can only reach them on foot. The food is simple and delicious. You eat, drink wine, watch the sun go down over the peaks, and sleep in a small warm bed.</p>
+<p>If you take one idea, take this. Milan is only the door. The real Italy is one hour north, up in the mountains. Go for one weekend. <b>Make the most of</b> two or three days. Come back for a whole week the next year. The mountains north of Milan are waiting for you.</p>
+  </article>
+  <h3 class="section-h"><span class="pin">📌</span> Key vocabulary</h3>
+  <p class="section-note">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+  <div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">a mountain</div><div class="vocab-def">a very high area of land</div><div class="vocab-ex">"Mount Blanc is a famous mountain."</div></div>
+<div class="vocab-card"><div class="vocab-word">a lake</div><div class="vocab-def">a large area of water inland</div><div class="vocab-ex">"Lake Como is beautiful in summer."</div></div>
+<div class="vocab-card"><div class="vocab-word">a valley</div><div class="vocab-def">low land between mountains</div><div class="vocab-ex">"Valtellina is a long valley."</div></div>
+<div class="vocab-card"><div class="vocab-word">a peak</div><div class="vocab-def">the top of a mountain</div><div class="vocab-ex">"We climbed to the peak in six hours."</div></div>
+<div class="vocab-card"><div class="vocab-word">a ski resort</div><div class="vocab-def">a place with hotels for skiing</div><div class="vocab-ex">"Bormio is a big ski resort."</div></div>
+<div class="vocab-card"><div class="vocab-word">a mountain hut</div><div class="vocab-def">a small house for hikers</div><div class="vocab-ex">"We slept in a mountain hut."</div></div>
+<div class="vocab-card"><div class="vocab-word">a ferry</div><div class="vocab-def">a boat that carries people</div><div class="vocab-ex">"We took the ferry to Bellagio."</div></div>
+<div class="vocab-card"><div class="vocab-word">scenery</div><div class="vocab-def">the natural view around you</div><div class="vocab-ex">"The scenery in the Alps is amazing."</div></div></div>
+  <h3 class="section-h"><span class="pin">🎯</span> Phrasal verbs &amp; expressions</h3>
+  <p class="section-note">Simple, everyday expressions you can use when you speak.</p>
+  <div class="vocab-grid"><div class="vocab-card idiom-card"><div class="vocab-word">to get away</div><div class="vocab-def">to leave the city for a rest</div><div class="vocab-ex">"We got away to the mountains last weekend."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to head up</div><div class="vocab-def">to travel to a higher place</div><div class="vocab-ex">"We headed up to Bormio on Friday."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to check in</div><div class="vocab-def">to arrive at a hotel</div><div class="vocab-ex">"We checked in at 4 p.m."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to warm up (by the fire)</div><div class="vocab-def">to feel warm again</div><div class="vocab-ex">"We warmed up by the fire after skiing."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to take a break</div><div class="vocab-def">to stop and rest</div><div class="vocab-ex">"Let's take a break and drink some tea."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to make the most of</div><div class="vocab-def">to enjoy fully</div><div class="vocab-ex">"Make the most of your two days here."</div></div></div>
+  <h3 class="section-h"><span class="pin">✍️</span> Gap-fill</h3>
+  <p class="section-note">Fill in with words from the bank. Word bank: <span class='bank-word'>mountain</span> &nbsp;·&nbsp; <span class='bank-word'>lake</span> &nbsp;·&nbsp; <span class='bank-word'>valley</span> &nbsp;·&nbsp; <span class='bank-word'>peak</span> &nbsp;·&nbsp; <span class='bank-word'>ski resort</span> &nbsp;·&nbsp; <span class='bank-word'>mountain hut</span> &nbsp;·&nbsp; <span class='bank-word'>ferry</span> &nbsp;·&nbsp; <span class='bank-word'>scenery</span></p>
+  <div class="gap-list"><div class="gap-item"><span class="gap-num">1.</span> Passo dello Stelvio is a very high <input type=text class="fill-input" data-answer="mountain" />.</div>
+<div class="gap-item"><span class="gap-num">2.</span> <input type=text class="fill-input" data-answer="Lake" /> Como is one hour from Milan.</div>
+<div class="gap-item"><span class="gap-num">3.</span> Valtellina is a long, beautiful <input type=text class="fill-input" data-answer="valley" />.</div>
+<div class="gap-item"><span class="gap-num">4.</span> We reached the <input type=text class="fill-input" data-answer="peak" /> before lunch.</div>
+<div class="gap-item"><span class="gap-num">5.</span> Bormio is a famous <input type=text class="fill-input" data-answer="ski resort" /> in winter.</div>
+<div class="gap-item"><span class="gap-num">6.</span> At night we slept in a small <input type=text class="fill-input" data-answer="mountain hut" />.</div>
+<div class="gap-item"><span class="gap-num">7.</span> We took the <input type=text class="fill-input" data-answer="ferry" /> from Bellagio to Menaggio.</div>
+<div class="gap-item"><span class="gap-num">8.</span> The <input type=text class="fill-input" data-answer="scenery" /> in the Alps is really beautiful.</div></div>
+  <div class="gap-controls"><button class="btn check">Check</button><button class="btn clear">Clear</button><span class="score"></span></div>
+  <h3 class="section-h"><span class="pin">✅</span> Reading check</h3>
+  <div class="mc-list"><div class="mc-item"><div class="mc-q">1. The writer says the Italian Alps are… from Milan.</div><label class="mc-opt"><input type=radio name="mc-t1-0" data-correct="0"> five hours</label><label class="mc-opt"><input type=radio name="mc-t1-0" data-correct="1"> two hours</label><label class="mc-opt"><input type=radio name="mc-t1-0" data-correct="0"> one week</label></div>
+<div class="mc-item"><div class="mc-q">2. Bellagio, Varenna and Menaggio are towns on…</div><label class="mc-opt"><input type=radio name="mc-t1-1" data-correct="1"> Lake Como</label><label class="mc-opt"><input type=radio name="mc-t1-1" data-correct="0"> the Stelvio Pass</label><label class="mc-opt"><input type=radio name="mc-t1-1" data-correct="0"> the Swiss border</label></div>
+<div class="mc-item"><div class="mc-q">3. A famous local food in Valtellina is…</div><label class="mc-opt"><input type=radio name="mc-t1-2" data-correct="0"> pizza</label><label class="mc-opt"><input type=radio name="mc-t1-2" data-correct="1"> pizzoccheri</label><label class="mc-opt"><input type=radio name="mc-t1-2" data-correct="0"> risotto</label></div>
+<div class="mc-item"><div class="mc-q">4. Livigno is special because…</div><label class="mc-opt"><input type=radio name="mc-t1-3" data-correct="0"> it is very hot</label><label class="mc-opt"><input type=radio name="mc-t1-3" data-correct="1"> you don't pay tax on many things</label><label class="mc-opt"><input type=radio name="mc-t1-3" data-correct="0"> it is on Lake Como</label></div>
+<div class="mc-item"><div class="mc-q">5. A ‘rifugio' is…</div><label class="mc-opt"><input type=radio name="mc-t1-4" data-correct="0"> a five-star hotel</label><label class="mc-opt"><input type=radio name="mc-t1-4" data-correct="1"> a small mountain hut</label><label class="mc-opt"><input type=radio name="mc-t1-4" data-correct="0"> a train</label></div>
+<div class="mc-item"><div class="mc-q">6. The writer's main advice is to…</div><label class="mc-opt"><input type=radio name="mc-t1-5" data-correct="0"> stay only in Milan</label><label class="mc-opt"><input type=radio name="mc-t1-5" data-correct="1"> go up to the mountains for a weekend</label><label class="mc-opt"><input type=radio name="mc-t1-5" data-correct="0"> never go north</label></div></div>
+  <h3 class="section-h"><span class="pin">💬</span> Speaking questions</h3>
+  <div class="speak-list"><h4 class="speak-h">Warm-up <span class="speak-r">· Q1–Q5</span></h4><div class="speak-q"><span class="q-num">Q1</span> Have you ever been to the mountains?</div><div class="speak-q"><span class="q-num">Q2</span> Have you ever been to Italy?</div><div class="speak-q"><span class="q-num">Q3</span> Do you prefer the sea or the mountains?</div><div class="speak-q"><span class="q-num">Q4</span> Do you like cold or warm weather?</div><div class="speak-q"><span class="q-num">Q5</span> What is the highest mountain in your country?</div><h4 class="speak-h">Talk more <span class="speak-r">· Q6–Q11</span></h4><div class="speak-q"><span class="q-num">Q6</span> Would you rather visit Lake Como or Bormio?</div><div class="speak-q"><span class="q-num">Q7</span> Do you like traditional local food when you travel?</div><div class="speak-q"><span class="q-num">Q8</span> Is it better to visit the mountains in summer or winter?</div><div class="speak-q"><span class="q-num">Q9</span> Should tourism in the mountains be controlled?</div><div class="speak-q"><span class="q-num">Q10</span> Would you sleep in a mountain hut without a shower?</div><div class="speak-q"><span class="q-num">Q11</span> Are the mountains in Italy different from mountains in your country?</div><h4 class="speak-h">Role-play &amp; plan <span class="speak-r">· Q12–Q14</span></h4><div class="speak-q"><span class="q-num">Q12</span> Role-play: your friend has three days in Milan. Convince them to go north for a weekend.</div><div class="speak-q"><span class="q-num">Q13</span> Role-play: plan a weekend for a family with two small children in the Alps.</div><div class="speak-q"><span class="q-num">Q14</span> Design your perfect four-day trip to the Italian Alps.</div></div>
+  <h3 class="section-h"><span class="pin">🎭</span> Role-play challenge</h3>
+  <div class="roleplay">Your friend is going to Milan next month for work. They have a free weekend. Convince them to <b>get away</b> from the city. Tell them where to <b>head up</b> to (Como, Valtellina, Bormio, or Livigno). Tell them what to eat, where to sleep, and how to <b>make the most of</b> two days.</div>
+  <h3 class="section-h"><span class="pin">🗣️</span> Talk it out &mdash; use the expressions</h3>
+  <p class="section-note">Answer using the expressions from the card set above.</p>
+  <div class="speak-list"><div class="speak-q"><span class="q-num">Q15</span> When did you last <b>get away</b> from the city for a weekend?</div><div class="speak-q"><span class="q-num">Q16</span> Would you like to <b>head up</b> to the Italian Alps one day?</div><div class="speak-q"><span class="q-num">Q17</span> What time do you usually <b>check in</b> at a hotel?</div><div class="speak-q"><span class="q-num">Q18</span> How do you <b>warm up</b> after a cold day outside?</div><div class="speak-q"><span class="q-num">Q19</span> How often do you <b>take a break</b> during a long trip?</div><div class="speak-q"><span class="q-num">Q20</span> How do you <b>make the most of</b> a short weekend?</div></div>
+</section>
+
+
+<section class="panel" id="t2">
+  <h2 class="topic-title"><span class="topic-emoji">🥾</span> Hiking &amp; Walking in the Mountains</h2>
+  <p class="topic-instr">How to walk in the mountains safely and happily. Perfect for the trails around Como, Bormio and Val Brembana.</p>
+  <article class="reading">
+    <h3 class="reading-title">One Step at a Time</h3>
+    <div class="byline">★ Sara Colombo · Mountain guide · 15 years walking in the Italian Alps</div>
+    <p>Hiking is the most beautiful thing you can do in the mountains, and also the most dangerous if you do it badly. After 15 years as a mountain guide, I can tell you the truth: a good hike is not about being strong or fast. It is about being ready, being sensible, and enjoying every step. The mountain is always bigger than you. Respect it, and it will give you the best day of your year.</p>
+<p>Let's start with the basics. There are three main types of hike: <b>easy</b>, <b>medium</b>, and <b>hard</b>. An easy hike is one or two hours on a flat path, good for children and grandparents. A medium hike takes 3 to 5 hours and goes up and down. A hard hike is longer than 6 hours, with big height changes and sometimes rocks or snow. Always choose a hike for your real level, not your dream level.</p>
+<div class="pull-quote">&ldquo;The mountain is not a competition. Nobody at the top asks how fast you were. They only ask if you enjoyed the walk.&rdquo;</div>
+<p>Now, the <b>gear</b>. You don't need expensive clothes, but you need the right things. Good <b>hiking boots</b> are the most important item &mdash; not trainers. A small backpack. Water &mdash; at least one and a half litres per person. Food &mdash; a sandwich, some nuts, chocolate. A light jacket, even in summer. A hat. Sun cream. And a small first-aid kit.</p>
+<p>In the Alps, always check the <b>weather forecast</b> the night before. A sunny morning can turn into a big storm at 2 p.m. If a storm is coming, don't <b>set off</b>. It's not worth it. In Valtellina and Bormio, ask at the tourist office &mdash; they know the mountain better than any app.</p>
+<p>Then there is the <b>map</b>. Every good hiker carries a paper map, even with GPS on their phone. Batteries die. Phones fall. A paper map does not. In Italy, hiking trails are marked with red and white colours on trees and rocks. If you don't see the marks for five minutes, stop and go back to the last one. Never keep going if you're not sure.</p>
+<p>Now, the walk itself. <b>Set off</b> early &mdash; 7 or 8 in the morning is perfect. It's cool, the light is beautiful, and you finish before any afternoon storm. Walk slowly. In the mountains, slow is fast. If you can't talk while walking, you are going too fast.</p>
+<p><b>Take breaks</b> often. Every hour, stop for five minutes. Drink water. Eat something small. Look around. This is not just a rule for safety &mdash; it's how you enjoy the walk. The best moments of any hike are usually the small breaks.</p>
+<p>Try to <b>stop for lunch</b> in a <b>rifugio</b> if you can. In the Alps, most hikes have one after 2 or 3 hours. You can drink hot tea, eat pasta or soup, and rest in the sun. The rifugio owners are usually locals who know every path. Ask them for advice.</p>
+<p>The most important rule in mountain walking is this: if the weather changes, if you feel very tired, or if the path becomes dangerous, <b>turn back</b>. Turning back is not failure. It is the sign of a smart hiker. The mountain will still be there next weekend.</p>
+<p>If you take one idea, take this. Start with easy hikes. Buy good boots. Check the weather. <b>Set off</b> early. Walk slowly. <b>Take breaks</b>. <b>Keep to the path</b>. And if things go wrong, <b>turn back</b> with no shame. Do this, and hiking will give you the best days of your life &mdash; year after year.</p>
+  </article>
+  <h3 class="section-h"><span class="pin">📌</span> Key vocabulary</h3>
+  <p class="section-note">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+  <div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">a hike</div><div class="vocab-def">a long walk in the countryside</div><div class="vocab-ex">"We did a five-hour hike."</div></div>
+<div class="vocab-card"><div class="vocab-word">a trail</div><div class="vocab-def">a path for walking</div><div class="vocab-ex">"This trail goes to the top."</div></div>
+<div class="vocab-card"><div class="vocab-word">hiking boots</div><div class="vocab-def">strong shoes for walking</div><div class="vocab-ex">"Buy good hiking boots."</div></div>
+<div class="vocab-card"><div class="vocab-word">a backpack</div><div class="vocab-def">a bag you carry on your back</div><div class="vocab-ex">"My backpack is quite small."</div></div>
+<div class="vocab-card"><div class="vocab-word">gear</div><div class="vocab-def">the equipment you need</div><div class="vocab-ex">"Bring the right gear."</div></div>
+<div class="vocab-card"><div class="vocab-word">a summit</div><div class="vocab-def">the very top of a mountain</div><div class="vocab-ex">"We reached the summit at noon."</div></div>
+<div class="vocab-card"><div class="vocab-word">a viewpoint</div><div class="vocab-def">a place with a beautiful view</div><div class="vocab-ex">"There is a viewpoint after two hours."</div></div>
+<div class="vocab-card"><div class="vocab-word">a slope</div><div class="vocab-def">a side of a mountain</div><div class="vocab-ex">"The slope is quite steep."</div></div></div>
+  <h3 class="section-h"><span class="pin">🎯</span> Phrasal verbs &amp; expressions</h3>
+  <p class="section-note">Simple, everyday expressions you can use when you speak.</p>
+  <div class="vocab-grid"><div class="vocab-card idiom-card"><div class="vocab-word">to set off</div><div class="vocab-def">to start a journey or walk</div><div class="vocab-ex">"We set off at 7 in the morning."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to go for a hike</div><div class="vocab-def">to walk in the mountains</div><div class="vocab-ex">"Let's go for a hike on Saturday."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to stop for lunch</div><div class="vocab-def">to have lunch on the way</div><div class="vocab-ex">"We stopped for lunch at a small hut."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to turn back</div><div class="vocab-def">to go back before finishing</div><div class="vocab-ex">"The rain started, so we turned back."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to keep to the path</div><div class="vocab-def">to stay on the marked way</div><div class="vocab-ex">"Please keep to the path in the forest."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to make it to the top</div><div class="vocab-def">to reach the summit</div><div class="vocab-ex">"We made it to the top before noon."</div></div></div>
+  <h3 class="section-h"><span class="pin">✍️</span> Gap-fill</h3>
+  <p class="section-note">Fill in with words from the bank. Word bank: <span class='bank-word'>hike</span> &nbsp;·&nbsp; <span class='bank-word'>trail</span> &nbsp;·&nbsp; <span class='bank-word'>hiking boots</span> &nbsp;·&nbsp; <span class='bank-word'>backpack</span> &nbsp;·&nbsp; <span class='bank-word'>gear</span> &nbsp;·&nbsp; <span class='bank-word'>summit</span> &nbsp;·&nbsp; <span class='bank-word'>viewpoint</span> &nbsp;·&nbsp; <span class='bank-word'>slope</span></p>
+  <div class="gap-list"><div class="gap-item"><span class="gap-num">1.</span> We did a very long <input type=text class="fill-input" data-answer="hike" /> last Saturday.</div>
+<div class="gap-item"><span class="gap-num">2.</span> This <input type=text class="fill-input" data-answer="trail" /> goes all the way to the lake.</div>
+<div class="gap-item"><span class="gap-num">3.</span> Please buy good <input type=text class="fill-input" data-answer="hiking boots" /> before your trip.</div>
+<div class="gap-item"><span class="gap-num">4.</span> My <input type=text class="fill-input" data-answer="backpack" /> is small but it has everything.</div>
+<div class="gap-item"><span class="gap-num">5.</span> Always bring the right <input type=text class="fill-input" data-answer="gear" /> for the weather.</div>
+<div class="gap-item"><span class="gap-num">6.</span> We reached the <input type=text class="fill-input" data-answer="summit" /> before lunchtime.</div>
+<div class="gap-item"><span class="gap-num">7.</span> There is a wonderful <input type=text class="fill-input" data-answer="viewpoint" /> after two hours.</div>
+<div class="gap-item"><span class="gap-num">8.</span> The <input type=text class="fill-input" data-answer="slope" /> was too steep for the children.</div></div>
+  <div class="gap-controls"><button class="btn check">Check</button><button class="btn clear">Clear</button><span class="score"></span></div>
+  <h3 class="section-h"><span class="pin">✅</span> Reading check</h3>
+  <div class="mc-list"><div class="mc-item"><div class="mc-q">1. The three main types of hike are…</div><label class="mc-opt"><input type=radio name="mc-t2-0" data-correct="0"> hot, cold, warm</label><label class="mc-opt"><input type=radio name="mc-t2-0" data-correct="1"> easy, medium, hard</label><label class="mc-opt"><input type=radio name="mc-t2-0" data-correct="0"> short, long, extra long</label></div>
+<div class="mc-item"><div class="mc-q">2. The most important item, the guide says, is…</div><label class="mc-opt"><input type=radio name="mc-t2-1" data-correct="0"> a hat</label><label class="mc-opt"><input type=radio name="mc-t2-1" data-correct="1"> good hiking boots</label><label class="mc-opt"><input type=radio name="mc-t2-1" data-correct="0"> chocolate</label></div>
+<div class="mc-item"><div class="mc-q">3. You should carry at least… of water per person.</div><label class="mc-opt"><input type=radio name="mc-t2-2" data-correct="0"> half a litre</label><label class="mc-opt"><input type=radio name="mc-t2-2" data-correct="1"> one and a half litres</label><label class="mc-opt"><input type=radio name="mc-t2-2" data-correct="0"> five litres</label></div>
+<div class="mc-item"><div class="mc-q">4. The best time to set off is…</div><label class="mc-opt"><input type=radio name="mc-t2-3" data-correct="1"> 7 or 8 in the morning</label><label class="mc-opt"><input type=radio name="mc-t2-3" data-correct="0"> noon</label><label class="mc-opt"><input type=radio name="mc-t2-3" data-correct="0"> after lunch</label></div>
+<div class="mc-item"><div class="mc-q">5. You should stop for a small break…</div><label class="mc-opt"><input type=radio name="mc-t2-4" data-correct="1"> every hour</label><label class="mc-opt"><input type=radio name="mc-t2-4" data-correct="0"> every 15 minutes</label><label class="mc-opt"><input type=radio name="mc-t2-4" data-correct="0"> only at the end</label></div>
+<div class="mc-item"><div class="mc-q">6. Turning back when there is a problem is a sign of…</div><label class="mc-opt"><input type=radio name="mc-t2-5" data-correct="0"> failure</label><label class="mc-opt"><input type=radio name="mc-t2-5" data-correct="1"> a smart hiker</label><label class="mc-opt"><input type=radio name="mc-t2-5" data-correct="0"> fear</label></div></div>
+  <h3 class="section-h"><span class="pin">💬</span> Speaking questions</h3>
+  <div class="speak-list"><h4 class="speak-h">Warm-up <span class="speak-r">· Q1–Q5</span></h4><div class="speak-q"><span class="q-num">Q1</span> Do you like walking?</div><div class="speak-q"><span class="q-num">Q2</span> How long can you walk without a break?</div><div class="speak-q"><span class="q-num">Q3</span> Have you ever done a hike longer than 5 hours?</div><div class="speak-q"><span class="q-num">Q4</span> Do you own hiking boots?</div><div class="speak-q"><span class="q-num">Q5</span> What is your favourite kind of walk?</div><h4 class="speak-h">Talk more <span class="speak-r">· Q6–Q11</span></h4><div class="speak-q"><span class="q-num">Q6</span> Is hiking a good hobby for a modern person?</div><div class="speak-q"><span class="q-num">Q7</span> Should children learn to hike at school?</div><div class="speak-q"><span class="q-num">Q8</span> Is it dangerous to hike alone?</div><div class="speak-q"><span class="q-num">Q9</span> Is expensive gear really necessary?</div><div class="speak-q"><span class="q-num">Q10</span> Should mountain rescue be free for everyone?</div><div class="speak-q"><span class="q-num">Q11</span> Would you like to be a mountain guide?</div><h4 class="speak-h">Role-play &amp; plan <span class="speak-r">· Q12–Q14</span></h4><div class="speak-q"><span class="q-num">Q12</span> Role-play: help a friend prepare for their first mountain hike.</div><div class="speak-q"><span class="q-num">Q13</span> Role-play: convince a scared friend to try one easy hike with you.</div><div class="speak-q"><span class="q-num">Q14</span> Plan a full one-day hike for you and two friends in the Italian Alps.</div></div>
+  <h3 class="section-h"><span class="pin">🎭</span> Role-play challenge</h3>
+  <div class="roleplay">Your friend wants to <b>go for a hike</b> for the first time. Help them prepare. Talk about the right <b>gear</b>, the weather, when to <b>set off</b>, why to <b>stop for lunch</b> at a rifugio, and why it's okay to <b>turn back</b> if things go wrong.</div>
+  <h3 class="section-h"><span class="pin">🗣️</span> Talk it out &mdash; use the expressions</h3>
+  <p class="section-note">Answer using the expressions from the card set above.</p>
+  <div class="speak-list"><div class="speak-q"><span class="q-num">Q15</span> What time do you like to <b>set off</b> when you travel?</div><div class="speak-q"><span class="q-num">Q16</span> When did you last <b>go for a hike</b>?</div><div class="speak-q"><span class="q-num">Q17</span> Where do you like to <b>stop for lunch</b> on a long walk?</div><div class="speak-q"><span class="q-num">Q18</span> Have you ever had to <b>turn back</b> because of bad weather?</div><div class="speak-q"><span class="q-num">Q19</span> Do you always <b>keep to the path</b>, or do you like to explore?</div><div class="speak-q"><span class="q-num">Q20</span> Have you ever <b>made it to the top</b> of a mountain?</div></div>
+</section>
+
+
+<section class="panel" id="t3">
+  <h2 class="topic-title"><span class="topic-emoji">🌲</span> Spending Time in Nature</h2>
+  <p class="topic-instr">Why time in the forest, by a lake, or on a mountain quietly changes how you feel.</p>
+  <article class="reading">
+    <h3 class="reading-title">What the Mountains Give You Back</h3>
+    <div class="byline">★ Dr Elena Marchetti · Nature therapist &middot; Studies how the outdoors changes tired minds</div>
+    <p>Something strange happens when you spend a whole day in the mountains. You start the morning feeling tired, worried, full of small problems. By the afternoon, your shoulders are lower. Your face is softer. Your problems feel smaller. You did nothing special. You just walked, looked at trees, listened to water. But something quietly changed. This is not magic. After many studies, we now know: nature is a real, powerful medicine.</p>
+<p>The modern life is a busy life. We look at our phones 100 times a day. We hear traffic, cars, buses, adverts, notifications. Our eyes never rest. Our ears never rest. Our brain is always ready for the next small thing. This is very tiring, and we don't even notice. Then we spend one day in the mountains and, suddenly, we remember what quiet feels like.</p>
+<div class="pull-quote">&ldquo;Nature does not give you new energy. It gives you back the energy the city quietly stole from you.&rdquo;</div>
+<p>Doctors in Japan have a name for this: <b>forest bathing</b>. It means spending time slowly in a forest, with no phone, no music, no goal. Just walking, breathing, and looking. Studies show that after two hours of forest bathing, your blood pressure goes down, your stress hormones go down, and you sleep better that night.</p>
+<p>You don't have to go to Japan. You can do this in the Bergamo Alps, in Val Brembana, or in any forest near your home. The trick is to <b>slow down</b>. Walk very slowly. Stop often. <b>Breathe in</b> the smell of trees. Look at one leaf carefully. Listen to a bird for a full minute. It sounds silly. It works.</p>
+<p>There is also the power of <b>water</b>. Sitting by a river, a lake, or the sea has a special effect on the human mind. Scientists call this the “blue mind”. In the north of Italy, you can sit by Lake Como, Lake Iseo, or Lake Garda for one hour and feel completely different. You don't need to do anything. The water does the work.</p>
+<p>There is also the power of <b>silence</b>. Real silence is very rare in modern life. In the high mountains, if you sit alone for five minutes, you can hear silence for the first time in years. It is a beautiful, strange feeling. Some people cry. Some people laugh. Both are normal.</p>
+<p>There is also the power of <b>light</b>. Ten minutes of morning sunlight in nature helps your body all day. Your sleep improves. Your mood improves. Your energy improves. This is free. This is easy. Yet most modern people spend their whole morning inside, looking at a phone. Fix this one habit, and you will feel very different in one month.</p>
+<p>The good news is that even a small amount of nature helps. You don't have to go to Bormio for a week. Twenty minutes in a park, three times a week, is already very powerful. A short walk near a river. A coffee on a bench under a tree. A weekend in Val Chiavenna once a year. All of this counts.</p>
+<p>The bad news is that most of us don't do this. We know nature is good, but we stay inside. We know phones are bad, but we scroll. We know silence is beautiful, but we play music. The mountains are only two hours from Milan, but many people who live in Milan never visit them.</p>
+<p>If you take one idea, take this. Once a month, <b>get away from it all</b>. Go to the mountains, a forest, a lake, or a park. Leave your phone in your bag. Walk slowly. Sit still. Breathe deeply. Come home tired and quiet. Do this for one year, and something inside you will change. The mountains are waiting. They are also very patient.</p>
+  </article>
+  <h3 class="section-h"><span class="pin">📌</span> Key vocabulary</h3>
+  <p class="section-note">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+  <div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">nature</div><div class="vocab-def">the natural world</div><div class="vocab-ex">"I love spending time in nature."</div></div>
+<div class="vocab-card"><div class="vocab-word">a forest</div><div class="vocab-def">a big area of trees</div><div class="vocab-ex">"We walked in the forest for hours."</div></div>
+<div class="vocab-card"><div class="vocab-word">silence</div><div class="vocab-def">no sound at all</div><div class="vocab-ex">"The silence in the mountains is beautiful."</div></div>
+<div class="vocab-card"><div class="vocab-word">fresh air</div><div class="vocab-def">clean, cool outside air</div><div class="vocab-ex">"Take a deep breath of fresh air."</div></div>
+<div class="vocab-card"><div class="vocab-word">stress</div><div class="vocab-def">the feeling of being under pressure</div><div class="vocab-ex">"Nature reduces stress."</div></div>
+<div class="vocab-card"><div class="vocab-word">well-being</div><div class="vocab-def">the state of feeling well</div><div class="vocab-ex">"Time outside helps your well-being."</div></div>
+<div class="vocab-card"><div class="vocab-word">a wildlife</div><div class="vocab-def">animals in nature</div><div class="vocab-ex">"We saw lots of wildlife on the hike."</div></div>
+<div class="vocab-card"><div class="vocab-word">a sunrise</div><div class="vocab-def">the moment the sun comes up</div><div class="vocab-ex">"The sunrise in Bormio was amazing."</div></div></div>
+  <h3 class="section-h"><span class="pin">🎯</span> Phrasal verbs &amp; expressions</h3>
+  <p class="section-note">Simple, everyday expressions you can use when you speak.</p>
+  <div class="vocab-grid"><div class="vocab-card idiom-card"><div class="vocab-word">to slow down</div><div class="vocab-def">to move or live more slowly</div><div class="vocab-ex">"In the mountains, you slow down."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to switch off (your phone)</div><div class="vocab-def">to stop using it</div><div class="vocab-ex">"Try to switch off your phone for one day."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to breathe in (fresh air)</div><div class="vocab-def">to take air into your lungs</div><div class="vocab-ex">"Breathe in the fresh mountain air."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to get away from it all</div><div class="vocab-def">to escape from busy life</div><div class="vocab-ex">"She goes to the mountains to get away from it all."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to feel at peace</div><div class="vocab-def">to feel calm and quiet</div><div class="vocab-ex">"I feel at peace next to a lake."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to switch off (your mind)</div><div class="vocab-def">to stop worrying</div><div class="vocab-ex">"In nature, my mind switches off."</div></div></div>
+  <h3 class="section-h"><span class="pin">✍️</span> Gap-fill</h3>
+  <p class="section-note">Fill in with words from the bank. Word bank: <span class='bank-word'>nature</span> &nbsp;·&nbsp; <span class='bank-word'>forest</span> &nbsp;·&nbsp; <span class='bank-word'>silence</span> &nbsp;·&nbsp; <span class='bank-word'>fresh air</span> &nbsp;·&nbsp; <span class='bank-word'>stress</span> &nbsp;·&nbsp; <span class='bank-word'>well-being</span> &nbsp;·&nbsp; <span class='bank-word'>wildlife</span> &nbsp;·&nbsp; <span class='bank-word'>sunrise</span></p>
+  <div class="gap-list"><div class="gap-item"><span class="gap-num">1.</span> I love spending time in <input type=text class="fill-input" data-answer="nature" />.</div>
+<div class="gap-item"><span class="gap-num">2.</span> We walked in the <input type=text class="fill-input" data-answer="forest" /> for two hours.</div>
+<div class="gap-item"><span class="gap-num">3.</span> The <input type=text class="fill-input" data-answer="silence" /> in the mountains was so peaceful.</div>
+<div class="gap-item"><span class="gap-num">4.</span> Please open the window and let in some <input type=text class="fill-input" data-answer="fresh air" />.</div>
+<div class="gap-item"><span class="gap-num">5.</span> A short walk really helps with <input type=text class="fill-input" data-answer="stress" />.</div>
+<div class="gap-item"><span class="gap-num">6.</span> Time outside helps your mental <input type=text class="fill-input" data-answer="well-being" />.</div>
+<div class="gap-item"><span class="gap-num">7.</span> We saw a lot of <input type=text class="fill-input" data-answer="wildlife" /> on our hike.</div>
+<div class="gap-item"><span class="gap-num">8.</span> We got up early to see the <input type=text class="fill-input" data-answer="sunrise" /> over the peaks.</div></div>
+  <div class="gap-controls"><button class="btn check">Check</button><button class="btn clear">Clear</button><span class="score"></span></div>
+  <h3 class="section-h"><span class="pin">✅</span> Reading check</h3>
+  <div class="mc-list"><div class="mc-item"><div class="mc-q">1. After a day in the mountains, most people feel…</div><label class="mc-opt"><input type=radio name="mc-t3-0" data-correct="0"> more tired</label><label class="mc-opt"><input type=radio name="mc-t3-0" data-correct="1"> softer and calmer</label><label class="mc-opt"><input type=radio name="mc-t3-0" data-correct="0"> angry</label></div>
+<div class="mc-item"><div class="mc-q">2. ‘Forest bathing' means…</div><label class="mc-opt"><input type=radio name="mc-t3-1" data-correct="0"> swimming in a forest lake</label><label class="mc-opt"><input type=radio name="mc-t3-1" data-correct="1"> spending slow time in a forest</label><label class="mc-opt"><input type=radio name="mc-t3-1" data-correct="0"> cleaning a forest</label></div>
+<div class="mc-item"><div class="mc-q">3. Scientists call the calm effect of water…</div><label class="mc-opt"><input type=radio name="mc-t3-2" data-correct="0"> green mind</label><label class="mc-opt"><input type=radio name="mc-t3-2" data-correct="1"> blue mind</label><label class="mc-opt"><input type=radio name="mc-t3-2" data-correct="0"> red mind</label></div>
+<div class="mc-item"><div class="mc-q">4. Real silence in modern life is…</div><label class="mc-opt"><input type=radio name="mc-t3-3" data-correct="0"> everywhere</label><label class="mc-opt"><input type=radio name="mc-t3-3" data-correct="1"> very rare</label><label class="mc-opt"><input type=radio name="mc-t3-3" data-correct="0"> boring</label></div>
+<div class="mc-item"><div class="mc-q">5. Even… minutes in a park, three times a week, is powerful.</div><label class="mc-opt"><input type=radio name="mc-t3-4" data-correct="0"> five</label><label class="mc-opt"><input type=radio name="mc-t3-4" data-correct="1"> twenty</label><label class="mc-opt"><input type=radio name="mc-t3-4" data-correct="0"> one hundred</label></div>
+<div class="mc-item"><div class="mc-q">6. Her final advice is to go to nature and…</div><label class="mc-opt"><input type=radio name="mc-t3-5" data-correct="0"> do lots of activities</label><label class="mc-opt"><input type=radio name="mc-t3-5" data-correct="1"> leave your phone in your bag</label><label class="mc-opt"><input type=radio name="mc-t3-5" data-correct="0"> take many photos</label></div></div>
+  <h3 class="section-h"><span class="pin">💬</span> Speaking questions</h3>
+  <div class="speak-list"><h4 class="speak-h">Warm-up <span class="speak-r">· Q1–Q5</span></h4><div class="speak-q"><span class="q-num">Q1</span> When did you last spend a whole day in nature?</div><div class="speak-q"><span class="q-num">Q2</span> Are you more of a city person or a nature person?</div><div class="speak-q"><span class="q-num">Q3</span> How often do you go to a park?</div><div class="speak-q"><span class="q-num">Q4</span> Do you have any trees near your home?</div><div class="speak-q"><span class="q-num">Q5</span> How do you feel after a walk outside?</div><h4 class="speak-h">Talk more <span class="speak-r">· Q6–Q11</span></h4><div class="speak-q"><span class="q-num">Q6</span> Should schools teach children to spend time in nature?</div><div class="speak-q"><span class="q-num">Q7</span> Is silence really important for a healthy mind?</div><div class="speak-q"><span class="q-num">Q8</span> Should cities have more parks and fewer roads?</div><div class="speak-q"><span class="q-num">Q9</span> Do phones ruin our time in nature?</div><div class="speak-q"><span class="q-num">Q10</span> Can 20 minutes in a park really change your day?</div><div class="speak-q"><span class="q-num">Q11</span> Why do so many modern people feel tired all the time?</div><h4 class="speak-h">Role-play &amp; plan <span class="speak-r">· Q12–Q14</span></h4><div class="speak-q"><span class="q-num">Q12</span> Role-play: convince a stressed friend to leave their phone at home for one Sunday.</div><div class="speak-q"><span class="q-num">Q13</span> Role-play: help a friend plan a small ‘nature day' in your city.</div><div class="speak-q"><span class="q-num">Q14</span> Plan a full ‘forest bathing' day for yourself in the next month.</div></div>
+  <h3 class="section-h"><span class="pin">🎭</span> Role-play challenge</h3>
+  <div class="roleplay">Your friend works too much and is very tired. Help them. Ask them to <b>get away from it all</b> for one weekend. Explain how a walk in a forest can help them <b>slow down</b>, <b>switch off their mind</b>, and <b>feel at peace</b> again. Ask them to try <b>switching off their phone</b> for one whole day.</div>
+  <h3 class="section-h"><span class="pin">🗣️</span> Talk it out &mdash; use the expressions</h3>
+  <p class="section-note">Answer using the expressions from the card set above.</p>
+  <div class="speak-list"><div class="speak-q"><span class="q-num">Q15</span> Where do you go to <b>slow down</b> in life?</div><div class="speak-q"><span class="q-num">Q16</span> Could you <b>switch off your phone</b> for a whole weekend?</div><div class="speak-q"><span class="q-num">Q17</span> Where do you love to <b>breathe in</b> fresh air?</div><div class="speak-q"><span class="q-num">Q18</span> Where do you go to <b>get away from it all</b>?</div><div class="speak-q"><span class="q-num">Q19</span> Where do you <b>feel at peace</b> in your country?</div><div class="speak-q"><span class="q-num">Q20</span> How easy is it for you to <b>switch off your mind</b> at night?</div></div>
+</section>
+
+
+<section class="panel" id="t4">
+  <h2 class="topic-title"><span class="topic-emoji">🐿️</span> Understanding Nature Around You</h2>
+  <p class="topic-instr">How to really see the trees, animals and weather when you're outside. Nature becomes twice as beautiful when you understand it.</p>
+  <article class="reading">
+    <h3 class="reading-title">Learning to Read the Mountain</h3>
+    <div class="byline">★ Adam Kowalski · Naturalist &middot; Teaches families to see the mountain, not just walk it</div>
+    <p>Two people go for the same hike. The first one walks fast, arrives at the top, takes a photo, and comes back. The second one walks slowly, looks at the trees, listens to the birds, and comes back full of small stories. Both were on the same mountain. But they saw two completely different worlds. After 20 years teaching families about nature, I can tell you the truth: understanding nature is a skill you can learn. And once you learn it, every walk becomes twice as beautiful.</p>
+<p>Let's start with <b>trees</b>. In the Italian Alps, you don't see one forest. You see three. Low down, until about 1,000 metres, you see oak and chestnut trees. In the middle, from 1,000 to 1,800 metres, you see mostly beech trees, with big soft leaves. Higher up, you see only pine and larch trees. The larch is special: it is the only pine tree that loses its needles in winter. In October, the mountain sides turn gold before the winter comes.</p>
+<div class="pull-quote">&ldquo;Nature always speaks. Most people just don't stop to listen. When you learn a few words, the whole mountain becomes a friend.&rdquo;</div>
+<p>Now, <b>animals</b>. Big animals are quiet and shy. You will almost never see a wolf or a bear, but they are there. What you can see, if you <b>look out for</b> them, are: <b>ibex</b> (big mountain goats with long curved horns), <b>chamois</b> (fast, small mountain goats), <b>marmots</b> (fat, funny animals that whistle when scared), <b>foxes</b>, <b>deer</b>, and many birds. Look with your eyes, not your camera. The best moments are seen, not photographed.</p>
+<p>How to see animals? Three simple rules. First, walk quietly. Talk in a low voice. Animals hear you 200 metres away. Second, look up. Many birds live in the trees, not on the ground. Third, look for movement. Your eye finds movement more easily than shape.</p>
+<p>Now, <b>the weather</b>. In the mountains, weather changes fast. But the mountain always gives you warning signs. If small clouds start to build over the peaks in the morning, a storm is often coming that afternoon. If the wind changes direction suddenly, weather is changing. If you hear thunder far away, count the seconds until the flash: every five seconds is one kilometre. If it is under 30 seconds, the storm is close, and you must find shelter.</p>
+<p>Then there are <b>the sounds</b>. Every mountain has its own music. The wind in the pine trees sounds different from the wind in the beech trees. A river is loud in spring, quiet in autumn. Cows have bells around their necks in the summer pastures &mdash; you hear them from far away. Birds call in the morning and evening. If you stop and listen for five minutes, you will hear a whole small orchestra.</p>
+<p>Then there is <b>the sky</b>. In the mountains, the sky is much more interesting than in the city. In the day, you see clouds, birds, and often the moon. At night, you see thousands of stars &mdash; the same stars our grandparents saw. In Livigno or Bormio, on a clear summer night, you can see the Milky Way with your own eyes. It is one of the most beautiful things a person can experience.</p>
+<p>There is also the question of <b>respect</b>. When you walk in nature, you are a guest. Don't leave litter. <b>Pick up</b> any rubbish you see, even if it's not yours. Don't pick flowers. Don't feed wild animals &mdash; it makes them sick. Don't play loud music. Speak in a normal voice. The mountain gives you so much for free; the least we can do is leave it clean for the next person.</p>
+<p>If you take one idea, take this. Next time you go for a walk, don't try to arrive faster. Try to see more. Look at one tree carefully. Listen to one bird for a full minute. Watch one cloud change shape. Nature is not a picture on Instagram. It is a living, breathing world. When you start to understand it, you will never feel bored outside again.</p>
+  </article>
+  <h3 class="section-h"><span class="pin">📌</span> Key vocabulary</h3>
+  <p class="section-note">The expressions in <b>gold</b> from the text, with meanings and examples.</p>
+  <div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">a tree</div><div class="vocab-def">a tall plant with a trunk</div><div class="vocab-ex">"The tree is over 100 years old."</div></div>
+<div class="vocab-card"><div class="vocab-word">a bird</div><div class="vocab-def">a small flying animal</div><div class="vocab-ex">"We heard a bird singing."</div></div>
+<div class="vocab-card"><div class="vocab-word">a river</div><div class="vocab-def">a long line of moving water</div><div class="vocab-ex">"The river was loud in spring."</div></div>
+<div class="vocab-card"><div class="vocab-word">a cloud</div><div class="vocab-def">white or grey shape in the sky</div><div class="vocab-ex">"The clouds looked heavy with rain."</div></div>
+<div class="vocab-card"><div class="vocab-word">a storm</div><div class="vocab-def">strong wind and rain</div><div class="vocab-ex">"A storm came very fast."</div></div>
+<div class="vocab-card"><div class="vocab-word">a season</div><div class="vocab-def">spring, summer, autumn or winter</div><div class="vocab-ex">"Autumn is my favourite season."</div></div>
+<div class="vocab-card"><div class="vocab-word">a star</div><div class="vocab-def">a bright light in the night sky</div><div class="vocab-ex">"We saw thousands of stars."</div></div>
+<div class="vocab-card"><div class="vocab-word">litter</div><div class="vocab-def">rubbish left outside</div><div class="vocab-ex">"There was too much litter on the trail."</div></div></div>
+  <h3 class="section-h"><span class="pin">🎯</span> Phrasal verbs &amp; expressions</h3>
+  <p class="section-note">Simple, everyday expressions you can use when you speak.</p>
+  <div class="vocab-grid"><div class="vocab-card idiom-card"><div class="vocab-word">to look up (at the sky)</div><div class="vocab-def">to raise your eyes</div><div class="vocab-ex">"Look up at the sky before you hike."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to point out</div><div class="vocab-def">to show with your finger</div><div class="vocab-ex">"The guide pointed out a small deer."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to spot (an animal)</div><div class="vocab-def">to see (an animal)</div><div class="vocab-ex">"We spotted a fox on the path."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to look out for</div><div class="vocab-def">to watch for</div><div class="vocab-ex">"Look out for wet stones on the trail."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to listen for</div><div class="vocab-def">to try to hear</div><div class="vocab-ex">"Listen for the sound of a river."</div></div>
+<div class="vocab-card idiom-card"><div class="vocab-word">to pick up (litter)</div><div class="vocab-def">to lift things from the ground</div><div class="vocab-ex">"Please pick up any litter you see."</div></div></div>
+  <h3 class="section-h"><span class="pin">✍️</span> Gap-fill</h3>
+  <p class="section-note">Fill in with words from the bank. Word bank: <span class='bank-word'>tree</span> &nbsp;·&nbsp; <span class='bank-word'>bird</span> &nbsp;·&nbsp; <span class='bank-word'>river</span> &nbsp;·&nbsp; <span class='bank-word'>clouds</span> &nbsp;·&nbsp; <span class='bank-word'>storm</span> &nbsp;·&nbsp; <span class='bank-word'>season</span> &nbsp;·&nbsp; <span class='bank-word'>stars</span> &nbsp;·&nbsp; <span class='bank-word'>litter</span></p>
+  <div class="gap-list"><div class="gap-item"><span class="gap-num">1.</span> This <input type=text class="fill-input" data-answer="tree" /> is more than 100 years old.</div>
+<div class="gap-item"><span class="gap-num">2.</span> A small <input type=text class="fill-input" data-answer="bird" /> was singing in the morning.</div>
+<div class="gap-item"><span class="gap-num">3.</span> The <input type=text class="fill-input" data-answer="river" /> was very loud in spring.</div>
+<div class="gap-item"><span class="gap-num">4.</span> The <input type=text class="fill-input" data-answer="clouds" /> looked heavy with rain.</div>
+<div class="gap-item"><span class="gap-num">5.</span> A very strong <input type=text class="fill-input" data-answer="storm" /> came fast in the afternoon.</div>
+<div class="gap-item"><span class="gap-num">6.</span> Autumn is honestly my favourite <input type=text class="fill-input" data-answer="season" />.</div>
+<div class="gap-item"><span class="gap-num">7.</span> At night, we saw thousands of <input type=text class="fill-input" data-answer="stars" />.</div>
+<div class="gap-item"><span class="gap-num">8.</span> Please don't leave any <input type=text class="fill-input" data-answer="litter" /> on the trail.</div></div>
+  <div class="gap-controls"><button class="btn check">Check</button><button class="btn clear">Clear</button><span class="score"></span></div>
+  <h3 class="section-h"><span class="pin">✅</span> Reading check</h3>
+  <div class="mc-list"><div class="mc-item"><div class="mc-q">1. The Italian Alps have… different types of forest.</div><label class="mc-opt"><input type=radio name="mc-t4-0" data-correct="0"> one</label><label class="mc-opt"><input type=radio name="mc-t4-0" data-correct="1"> three</label><label class="mc-opt"><input type=radio name="mc-t4-0" data-correct="0"> ten</label></div>
+<div class="mc-item"><div class="mc-q">2. The larch tree is special because…</div><label class="mc-opt"><input type=radio name="mc-t4-1" data-correct="0"> it grows in the sea</label><label class="mc-opt"><input type=radio name="mc-t4-1" data-correct="1"> it loses its needles in winter</label><label class="mc-opt"><input type=radio name="mc-t4-1" data-correct="0"> it's blue</label></div>
+<div class="mc-item"><div class="mc-q">3. A marmot is…</div><label class="mc-opt"><input type=radio name="mc-t4-2" data-correct="0"> a big bird</label><label class="mc-opt"><input type=radio name="mc-t4-2" data-correct="1"> a fat funny animal that whistles</label><label class="mc-opt"><input type=radio name="mc-t4-2" data-correct="0"> a fish</label></div>
+<div class="mc-item"><div class="mc-q">4. To see animals better, you should…</div><label class="mc-opt"><input type=radio name="mc-t4-3" data-correct="0"> walk fast and talk loudly</label><label class="mc-opt"><input type=radio name="mc-t4-3" data-correct="1"> walk quietly, look up, look for movement</label><label class="mc-opt"><input type=radio name="mc-t4-3" data-correct="0"> play music</label></div>
+<div class="mc-item"><div class="mc-q">5. If thunder is under… seconds away, the storm is close.</div><label class="mc-opt"><input type=radio name="mc-t4-4" data-correct="1"> 30</label><label class="mc-opt"><input type=radio name="mc-t4-4" data-correct="0"> 300</label><label class="mc-opt"><input type=radio name="mc-t4-4" data-correct="0"> 3,000</label></div>
+<div class="mc-item"><div class="mc-q">6. The writer's final advice is to try to…</div><label class="mc-opt"><input type=radio name="mc-t4-5" data-correct="0"> arrive faster</label><label class="mc-opt"><input type=radio name="mc-t4-5" data-correct="1"> see more</label><label class="mc-opt"><input type=radio name="mc-t4-5" data-correct="0"> take more photos</label></div></div>
+  <h3 class="section-h"><span class="pin">💬</span> Speaking questions</h3>
+  <div class="speak-list"><h4 class="speak-h">Warm-up <span class="speak-r">· Q1–Q5</span></h4><div class="speak-q"><span class="q-num">Q1</span> Do you know the names of trees near your home?</div><div class="speak-q"><span class="q-num">Q2</span> What is your favourite animal?</div><div class="speak-q"><span class="q-num">Q3</span> When did you last see a truly beautiful sky?</div><div class="speak-q"><span class="q-num">Q4</span> Do you like storms or are they scary?</div><div class="speak-q"><span class="q-num">Q5</span> What is your favourite season and why?</div><h4 class="speak-h">Talk more <span class="speak-r">· Q6–Q11</span></h4><div class="speak-q"><span class="q-num">Q6</span> Should schools teach children the names of trees and animals?</div><div class="speak-q"><span class="q-num">Q7</span> Are people who use phones outside missing something?</div><div class="speak-q"><span class="q-num">Q8</span> Is it fair to feed animals in a park?</div><div class="speak-q"><span class="q-num">Q9</span> Should there be big fines for people who leave litter in nature?</div><div class="speak-q"><span class="q-num">Q10</span> Have you ever seen the Milky Way with your own eyes?</div><div class="speak-q"><span class="q-num">Q11</span> Why do children love nature more than adults?</div><h4 class="speak-h">Role-play &amp; plan <span class="speak-r">· Q12–Q14</span></h4><div class="speak-q"><span class="q-num">Q12</span> Role-play: teach a child three things about a forest during a walk.</div><div class="speak-q"><span class="q-num">Q13</span> Role-play: convince a friend to leave their camera at home for one hike.</div><div class="speak-q"><span class="q-num">Q14</span> Plan a slow ‘understanding nature' day for yourself and a friend.</div></div>
+  <h3 class="section-h"><span class="pin">🎭</span> Role-play challenge</h3>
+  <div class="roleplay">You are walking with your friend in the Bergamo Alps. Teach them how to see the mountain properly. <b>Point out</b> different trees. Help them <b>spot</b> a marmot or a bird. Ask them to <b>listen for</b> the river. And please, <b>pick up</b> any <b>litter</b> you see together.</div>
+  <h3 class="section-h"><span class="pin">🗣️</span> Talk it out &mdash; use the expressions</h3>
+  <p class="section-note">Answer using the expressions from the card set above.</p>
+  <div class="speak-list"><div class="speak-q"><span class="q-num">Q15</span> When did you last <b>look up at</b> a night sky full of stars?</div><div class="speak-q"><span class="q-num">Q16</span> Has a guide ever <b>pointed out</b> something amazing to you?</div><div class="speak-q"><span class="q-num">Q17</span> What animals have you <b>spotted</b> in the wild?</div><div class="speak-q"><span class="q-num">Q18</span> What do you always <b>look out for</b> when you walk in nature?</div><div class="speak-q"><span class="q-num">Q19</span> What sounds do you love to <b>listen for</b> in the forest?</div><div class="speak-q"><span class="q-num">Q20</span> Do you always <b>pick up</b> your own rubbish when you're outside?</div></div>
+</section>
+
+<footer>⛰️ ★ ★ &nbsp; MOUNTAINS NORTH OF MILAN · B1 ENGLISH · VACATIONS · HIKING · NATURE &nbsp; ★ ★ ⛰️</footer>
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active');});
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+function checkFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  var inputs=set.querySelectorAll('.fill-input');var ok=0;
+  inputs.forEach(function(inp){
+    var answers=inp.dataset.answer.split('|').map(function(s){return s.trim();});
+    var val=(inp.value||'').trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(val && answers.indexOf(val)>-1){inp.classList.add('ok');ok++;} else inp.classList.add('no');
+  });
+  var sc=document.getElementById('fillscore-'+id);
+  sc.textContent=ok+'/'+inputs.length; sc.classList.toggle('win',ok===inputs.length);
+}
+function resetFill(id){
+  var set=document.querySelector('.fill-set[data-fill="'+id+'"]');
+  set.querySelectorAll('.fill-input').forEach(function(inp){inp.value='';inp.classList.remove('ok','no');});
+  var sc=document.getElementById('fillscore-'+id); sc.textContent='\u2013'; sc.classList.remove('win');
+}
+document.querySelectorAll('.mc-item').forEach(function(item){
+  item.addEventListener('click',function(e){
+    var opt=e.target.closest('.mc-opt');
+    if(!opt||item.classList.contains('done'))return;
+    item.classList.add('done');
+    var correct=parseInt(item.dataset.correct,10);
+    item.querySelectorAll('.mc-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');});
+    if(parseInt(opt.dataset.i,10)!==correct)opt.classList.add('wrong');
+  });
+});
+</script>
+</body>
+</html>
